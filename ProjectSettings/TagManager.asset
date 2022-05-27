@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Bounds Confiner
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Enemy
+  - Wall
+  - Floor
+  - Sandwrom
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Floor
+    uniqueID: 517807629
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Wall
+    uniqueID: 181766245
+    locked: 0
+  - name: Collisions
+    uniqueID: 2348200235
+    locked: 0
+  - name: Ground 1
+    uniqueID: 4177458219
+    locked: 0
+  - name: Ground Decoration 1
+    uniqueID: 3816455969
+    locked: 0
+  - name: Animals
+    uniqueID: 2565016823
+    locked: 0
+  - name: Instances
+    uniqueID: 1026149853
+    locked: 0
+  - name: Character
+    uniqueID: 1268136625
+    locked: 0
+  - name: Side Character
+    uniqueID: 3148456071
+    locked: 0
