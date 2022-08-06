@@ -13,6 +13,7 @@ public class MovementAnimation : MonoBehaviour
     private void OnEnable()
     {
         // this is basically saying, call SetAnimationParameters whenever the delegate is called (which will happen from the input class)
+        // also called SUBSCRIBING to the event
         EventHandler.MovementEvent += SetAnimationParameters;
     }
 

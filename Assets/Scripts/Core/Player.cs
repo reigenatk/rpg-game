@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
 
     [SerializeField] private DialogueUI dialogueUI;
 
     public DialogueUI DialogueUI => dialogueUI;
+    private Camera mainCamera;
 
     // make something called Interactable that can be get and setted.
     [SerializeField]  public Interactable Interactable { get; set; }
@@ -23,6 +25,16 @@ public class Player : MonoBehaviour
     private bool isWalking, isRunning, isIdle;
     private Animator animator;
     public bool disableMovement = false;
+    public string lastFacedDirection;
+    public int sanity;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        // get the camera on the player like so
+        mainCamera = Camera.main;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +45,7 @@ public class Player : MonoBehaviour
 
         // check for player collisions against these layers
         obstacleMask = LayerMask.GetMask("Enemy");
+        
     }
 
     // Update is called once per frame
@@ -61,11 +74,42 @@ public class Player : MonoBehaviour
         animator.Play(animationName);
     }
 
+    public string getPlayerDirection()
+    {
+        AnimatorStateInfo animationState = GameObject.FindGameObjectWithTag("Player").
+    GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+
+        string playerDirection = "";
+        if (animationState.IsName("IdleUp"))
+        {
+            playerDirection = "Up";
+        }
+        else if (animationState.IsName("IdleDown"))
+        {
+            playerDirection = "Down";
+        }
+        else if (animationState.IsName("IdleLeft"))
+        {
+            playerDirection = "Left";
+        }
+        else if (animationState.IsName("IdleRight"))
+        {
+            playerDirection = "Right";
+        }
+        return playerDirection;
+    }
+
     public void setPosition(Vector3 t)
     {
         this.transform.position = t;
     }
 
+    [YarnCommand("deductSanity")]
+    public void deductSanity(int amount)
+    {
+        sanity -= amount;
+        Debug.Log("Sanity deducted");
+    }
     private void ResetTriggers()
     {
         isRunning = false;
@@ -80,12 +124,19 @@ public class Player : MonoBehaviour
         setAnimationState("Idle.IdleUp");
     }
 
+    public Vector3 GetPlayerViewportPosition()
+    {
+        // Vector3 viewport position for player ((0,0) viewport bottom left, (1,1) viewport top right
+        return mainCamera.WorldToViewportPoint(transform.position);
+    }
+
     private void Move()
     {
         yInput = Input.GetAxisRaw("Vertical");
         xInput = Input.GetAxisRaw("Horizontal");
         float horz = System.Math.Sign(xInput);
         float vert = System.Math.Sign(yInput);
+        
         //Debug.LogFormat("{0} {1}", Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         // only process if something is being pushed down
 

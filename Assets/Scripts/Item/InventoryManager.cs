@@ -116,6 +116,19 @@ public class InventoryManager : Singleton<InventoryManager>
     }
 
     /// <summary>
+    /// Add an item to the inventory list for the inventoryLocation and then destroy the gameObjectToDelete
+    /// </summary>
+    public void AddItem(InventoryLocation inventoryLocation, Item item, GameObject gameObjectToDelete)
+    {
+
+        AddItem(inventoryLocation, item);
+
+        // basically the same except we have to delete a gameobject too
+        // this is useful because when you pickup an item, the object should dissapear from the scene
+        Destroy(gameObjectToDelete);
+    }
+
+    /// <summary>
     /// populates the dictionary from the ItemList
     /// </summary>
     private void CreateItemDetailsDictionary()
@@ -144,4 +157,15 @@ public class InventoryManager : Singleton<InventoryManager>
             return null;
         }
     }
+
+    // for debugging
+    private void DebugPrintInventoryList(List<InventoryItem> inventoryList)
+    {
+        foreach (InventoryItem inventoryItem in inventoryList)
+        {
+            Debug.Log("Item Description:" + InventoryManager.Instance.GetItemDetails(inventoryItem.itemCode).itemDescription + "    Item Quantity: " + inventoryItem.itemQuantity);
+        }
+        Debug.Log("******************************************************************************");
+    }
+
 }

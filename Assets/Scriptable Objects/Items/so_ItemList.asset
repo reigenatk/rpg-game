@@ -12,4 +12,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc393e921088b84fbc2a48b6ae7ddc4, type: 3}
   m_Name: so_ItemList
   m_EditorClassIdentifier: 
-  itemDetails: []
+  itemDetails:
+  - itemCode: 100
+    itemType: 0
+    itemDescription: The key to the thopter. Don't lose it!
+    itemSprite: {fileID: 21300000, guid: 2158c8d739703b64088818ff36909e01, type: 3}
+    itemLongDescription: 
+    itemsUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 101
+    itemType: 0
+    itemDescription: A flask of water. Stay hydrated! Also useful to show respect
+      to the Fremen
+    itemSprite: {fileID: 21300000, guid: d41bef3cc649c0742b3b1b40bed58973, type: 3}
+    itemLongDescription: 
+    itemsUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 1
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 1
+    canBeCarried: 0
+  - itemCode: 102
+    itemType: 0
+    itemDescription: The crysknife is a blade made from the tooth of a dead sandworm
+    itemSprite: {fileID: 21300000, guid: d468b80cb4ee06049a3ffc26dbe3d890, type: 3}
+    itemLongDescription: 
+    itemsUseGridRadius: 1
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 103
+    itemType: 0
+    itemDescription: The Holtzmann Shield will protect you from piercing objects.
+      Do not use near sandworms!
+    itemSprite: {fileID: 0}
+    itemLongDescription: 
+    itemsUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 105
+    itemType: 0
+    itemDescription: The valuable spice, melange
+    itemSprite: {fileID: 21300000, guid: 6fe97e60b8286d44fbe4f8653eb5c902, type: 3}
+    itemLongDescription: 
+    itemsUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 106
+    itemType: 0
+    itemDescription: A thumper will create periodic vibrations in the sand, causing
+      sandworms to appear
+    itemSprite: {fileID: 0}
+    itemLongDescription: 
+    itemsUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 0
