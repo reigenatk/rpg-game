@@ -7,6 +7,7 @@ TagManager:
   - Bounds Confiner
   - MainCanvas
   - DialogueSystem
+  - Manager
   layers:
   - Default
   - TransparentFX

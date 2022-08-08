@@ -6,9 +6,11 @@ public class DialogueActivate : MonoBehaviour, Interactable
 {
     [SerializeField] private string DialogueToRun;
     [SerializeField] private SpriteRenderer[] dialogueImages;
-    [SerializeField] private LevelLoader levelLoader;
+/*    [SerializeField] private LevelLoader levelLoader;*/
     private Player player;
     private bool isInside;
+    private SoundManager sm;
+    [SerializeField] private SoundManager.Sound soundToPlay;
 
     public void Start()
     {
@@ -17,10 +19,10 @@ public class DialogueActivate : MonoBehaviour, Interactable
 
     public void Interact(Player player)
     {
-        StartCoroutine(fadeScreenInAndOut(player));
+        StartCoroutine(triggerDialogue(player));
     }
 
-    IEnumerator fadeScreenInAndOut(Player player)
+    IEnumerator triggerDialogue(Player player)
     {
         /*      levelLoader.FadeScreenOut();
                 player.disableMovement = true;
@@ -52,6 +54,10 @@ public class DialogueActivate : MonoBehaviour, Interactable
         // check that player is colliding
         if (!isInside) yield return new WaitForSeconds(0f);
 
+
+
+        // ok now we are confirmed talking
+
         Yarn.Unity.DialogueRunner dr = GameObject.FindGameObjectWithTag("DialogueSystem").GetComponent<Yarn.Unity.DialogueRunner>();
         dr.Stop();
         dr.StartDialogue(DialogueToRun);
@@ -65,20 +71,25 @@ public class DialogueActivate : MonoBehaviour, Interactable
         {
             // player interacts with this one
             player.Interactable = this;
+            if (soundToPlay != null)
+            {
+                GameObject.FindGameObjectWithTag("Manager").GetComponent<SoundManager>().playSound(soundToPlay);
+            }
         }
-        foreach (SpriteRenderer s in dialogueImages) {
+/*        foreach (SpriteRenderer s in dialogueImages) {
             s.enabled = true;
-        }
+        }*/
+ 
 
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         isInside = false;
-        foreach (SpriteRenderer s in dialogueImages)
+/*        foreach (SpriteRenderer s in dialogueImages)
         {
             s.enabled = false;
-        }
+        }*/
         if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
         {
             // ok this is a bit confusing but basically its asking, is the 

@@ -15,8 +15,8 @@ public class Player : Singleton<Player>
     [SerializeField]  public Interactable Interactable { get; set; }
 
     public float RunningSpeed, WalkingSpeed, speed;
-    private float xInput;
-    private float yInput;
+    public float xInput;
+    public float yInput;
     Transform GFX;
     float flipX;
     Vector2 targetPos;
@@ -27,6 +27,7 @@ public class Player : Singleton<Player>
     public bool disableMovement = false;
     public string lastFacedDirection;
     public int sanity;
+    SoundManager sm;
 
     protected override void Awake()
     {
@@ -45,7 +46,7 @@ public class Player : Singleton<Player>
 
         // check for player collisions against these layers
         obstacleMask = LayerMask.GetMask("Enemy");
-        
+        sm = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
@@ -69,9 +70,20 @@ public class Player : Singleton<Player>
         }
     }
 
+    public void playStepSound()
+    {
+        if (sm == null)
+        {
+            sm = FindObjectOfType<SoundManager>();
+        }
+        Debug.Log(sm);
+        sm.playSound(SoundManager.Sound.WalkingSound);
+    }
+
     public void setAnimationState(string animationName)
     {
         animator.Play(animationName);
+        animator.Play("Base Layer.Idle.IdleDown");
     }
 
     public string getPlayerDirection()
@@ -110,7 +122,22 @@ public class Player : Singleton<Player>
         sanity -= amount;
         Debug.Log("Sanity deducted");
     }
-    private void ResetTriggers()
+
+    public void DisableMovementAndAnimations()
+    {
+        Debug.Log("Disabling movements");
+        disableMovement = true;
+        ResetTriggers();
+        setAnimationState("IdleDown");
+    }
+
+    public void EnableMovementAndAnimations()
+    {
+        Debug.Log("Enabling movements");
+        disableMovement = false;
+    }
+
+    public void ResetTriggers()
     {
         isRunning = false;
         isWalking = false;
@@ -142,13 +169,7 @@ public class Player : Singleton<Player>
 
         if (xInput != 0 || yInput != 0)
         {
-            //Debug.Log(targetPos);
-            // flip the character display to move in the direction we move
 
-            //if (Mathf.Abs(horz) > 0)
-            //{
-            //    GFX.localScale = new Vector2(flipX * -horz, GFX.localScale.y);
-            //}
 
             targetPos = new Vector2(transform.position.x + horz, transform.position.y + vert);
             transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
@@ -157,33 +178,7 @@ public class Player : Singleton<Player>
             isRunning = false;
             isIdle = false;
 
-            // if player already moving, don't reconsider targetPos
-            //if (!isMoving)
-            //{
-            //    if (Mathf.Abs(horz) > 0)
-            //    {
-            //        targetPos = new Vector2(transform.position.x + horz, transform.position.y);
 
-            //    }
-            //    else if (Mathf.Abs(vert) > 0)
-            //    {
-            //        targetPos = new Vector2(transform.position.x, transform.position.y + vert);
-            //    }
-            //    // collisions to determine where player can move
-            //    Vector2 hitSize = Vector2.one * 0.8f;
-
-            //    // checks to see if we collide with a wall or enemy in this direction
-            //    // ON targetPos! So go in the tentative location first, see if we will hit it
-            //    // and since hitSize is 0.8 it will always hit if there is wall or enemy!
-            //    Collider2D hit = Physics2D.OverlapBox(targetPos, hitSize, 0, obstacleMask);
-
-            //    // if no collision then clear to go
-            //    if (!hit)
-            //    {
-            //        // then walk
-            //        StartCoroutine(SmoothMove());
-            //    }
-            //}
         }
         else if (xInput == 0 && yInput == 0)
         {
@@ -192,7 +187,6 @@ public class Player : Singleton<Player>
             isIdle = true;
         }
     }
-
     private void PlayerRunInput()
     {
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))

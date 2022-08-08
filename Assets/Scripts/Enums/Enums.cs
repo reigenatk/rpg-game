@@ -36,3 +36,10 @@ public enum ItemType
     none,
     count
 }
+
+public enum SceneName
+{
+    Bedroom,
+    Commons,
+    Toilet,
+}
