@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Cinemachine;
+using UnityEngine.Playables;
 
 public class LevelLoader : Singleton<LevelLoader>
 {
@@ -14,21 +15,31 @@ public class LevelLoader : Singleton<LevelLoader>
     [SerializeField] private Image faderImage = null;
     [SerializeField] List<SceneName> scenes;
     [SerializeField] List<Vector3> startingCamPositions;
+
     [SerializeField] List<float> orthoSizes;
+    [SerializeField] List<PlayableDirector> startingCutscenes;
+
+    // make dictionaries manually bc unity editor doesn't support them for whatever reason
     private Dictionary<SceneName, Vector3> sceneToStartingCamPos;
+
     private Dictionary<SceneName, float> sceneToStartingOrthoSize;
+    private Dictionary<SceneName, PlayableDirector> startingCutscenesDict;
     public SceneName startingSceneName;
     private IEnumerator Start()
     {
         sceneToStartingCamPos = new Dictionary<SceneName, Vector3>();
         sceneToStartingOrthoSize = new Dictionary<SceneName, float>();
+        startingCutscenesDict = new Dictionary<SceneName, PlayableDirector>();
 
         Debug.Log(scenes.Count);
+
         // make the dictionary because untiy can't make dictionaries
         for (int i = 0; i < scenes.Count; i++)
         {
             sceneToStartingCamPos.Add(scenes[i], startingCamPositions[i]);
             sceneToStartingOrthoSize.Add(scenes[i], orthoSizes[i]);
+            startingCutscenesDict.Add(scenes[i], startingCutscenes[i]);
+
         }
 
         // Set the initial alpha to start off with a black screen.
@@ -111,15 +122,20 @@ public class LevelLoader : Singleton<LevelLoader>
         // stop player from moving once we hit scene switch point
         player.DisableMovementAndAnimations();
 
+        player.GetComponent<SpriteRenderer>().enabled = false;
+
         // Call before scene unload fade out event
         EventHandler.CallBeforeSceneUnloadFadeOutEvent();
 
         // Start fading to black and wait for it to finish before continuing.
         yield return StartCoroutine(Fade(1.0f));
 
-        // Set player position
-
-        Player.Instance.gameObject.transform.position = spawnPosition;
+        // Set player position (if no cutscene, because if cutscene then it will
+        // decide the starting location for us)
+        if (startingCutscenesDict[sceneName] == null)
+        {
+            Player.Instance.gameObject.transform.position = spawnPosition;
+        }
 
         //  Call before scene unload event.
         EventHandler.CallBeforeSceneUnloadEvent();
@@ -139,6 +155,7 @@ public class LevelLoader : Singleton<LevelLoader>
         // Debug.Log("Starting Ortho Size: " + sceneToStartingOrthoSize[sceneName]);
         cam.m_Lens.OrthographicSize = sceneToStartingOrthoSize[sceneName];
 
+
         // Start fading back in and wait for it to finish before exiting the function.
         yield return StartCoroutine(Fade(0f));
 
@@ -153,7 +170,14 @@ public class LevelLoader : Singleton<LevelLoader>
                 break;
             }
         }
-        
+
+        player.GetComponent<SpriteRenderer>().enabled = true;
+
+        // play the starting cutscene if there is one
+        if (startingCutscenesDict[sceneName] != null)
+        {
+            startingCutscenesDict[sceneName].Play();
+        }
 
     }
 

@@ -37,9 +37,13 @@ public enum ItemType
     count
 }
 
+// must be same as the name of scene in Unity editor! We serialize the enum directly to string
 public enum SceneName
 {
     Bedroom,
     Commons,
-    Toilet,
+    Bathroom,
+    KabowskiRoom,
+    BrainsRoom,
+    LancelotRoom,
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueActivate : MonoBehaviour, Interactable
 {
-    [SerializeField] private string DialogueToRun;
+    [SerializeField] private DialogueManager.Dialogue DialogueToRun;
     [SerializeField] private SpriteRenderer[] dialogueImages;
 /*    [SerializeField] private LevelLoader levelLoader;*/
     private Player player;
@@ -58,9 +58,8 @@ public class DialogueActivate : MonoBehaviour, Interactable
 
         // ok now we are confirmed talking
 
-        Yarn.Unity.DialogueRunner dr = GameObject.FindGameObjectWithTag("DialogueSystem").GetComponent<Yarn.Unity.DialogueRunner>();
-        dr.Stop();
-        dr.StartDialogue(DialogueToRun);
+        DialogueManager dm = GameObject.FindGameObjectWithTag("Manager").GetComponent<DialogueManager>();
+        dm.StartDialogueEnum(DialogueToRun);
         yield return new WaitForSeconds(1f);
     }
 

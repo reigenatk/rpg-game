@@ -18,7 +18,7 @@ public class Player : Singleton<Player>
     public float xInput;
     public float yInput;
     Transform GFX;
-    float flipX;
+
     Vector2 targetPos;
     LayerMask obstacleMask;
     bool isMoving;
@@ -28,7 +28,7 @@ public class Player : Singleton<Player>
     public string lastFacedDirection;
     public int sanity;
     SoundManager sm;
-
+    [SerializeField] SpriteRenderer spriteRender;
     protected override void Awake()
     {
         base.Awake();
@@ -41,7 +41,6 @@ public class Player : Singleton<Player>
     void Start()
     {
         GFX = GetComponentInChildren<SpriteRenderer>().transform;
-        flipX = GFX.localScale.x;
         animator = GetComponent<Animator>();
 
         // check for player collisions against these layers
@@ -76,14 +75,13 @@ public class Player : Singleton<Player>
         {
             sm = FindObjectOfType<SoundManager>();
         }
-        Debug.Log(sm);
+
         sm.playSound(SoundManager.Sound.WalkingSound);
     }
 
     public void setAnimationState(string animationName)
     {
         animator.Play(animationName);
-        animator.Play("Base Layer.Idle.IdleDown");
     }
 
     public string getPlayerDirection()
@@ -125,15 +123,18 @@ public class Player : Singleton<Player>
 
     public void DisableMovementAndAnimations()
     {
-        Debug.Log("Disabling movements");
+        GetComponent<Animator>().enabled = false;
+        // Debug.Log("Disabling movements");
         disableMovement = true;
         ResetTriggers();
-        setAnimationState("IdleDown");
+
+        // setAnimationState("Base Layer.Idle.IdleDown");
     }
 
     public void EnableMovementAndAnimations()
     {
-        Debug.Log("Enabling movements");
+        GetComponent<Animator>().enabled = true;
+        // Debug.Log("Enabling movements");
         disableMovement = false;
     }
 
@@ -163,6 +164,7 @@ public class Player : Singleton<Player>
         xInput = Input.GetAxisRaw("Horizontal");
         float horz = System.Math.Sign(xInput);
         float vert = System.Math.Sign(yInput);
+
         
         //Debug.LogFormat("{0} {1}", Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         // only process if something is being pushed down

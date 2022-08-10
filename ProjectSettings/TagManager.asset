@@ -57,17 +57,8 @@ TagManager:
   - name: Ground 1
     uniqueID: 4177458219
     locked: 0
-  - name: Ground 2
-    uniqueID: 1287997223
-    locked: 0
-  - name: Ground 3
-    uniqueID: 637769753
-    locked: 0
   - name: Ground Decoration 1
     uniqueID: 3816455969
-    locked: 0
-  - name: Ground Decoration 2
-    uniqueID: 262418635
     locked: 0
   - name: Animals
     uniqueID: 2565016823

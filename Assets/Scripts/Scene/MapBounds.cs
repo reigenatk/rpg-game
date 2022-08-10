@@ -5,10 +5,14 @@ using Cinemachine;
 
 public class MapBounds : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        DoSwitchBoundingShape();
+        EventHandler.AfterSceneLoadEvent += DoSwitchBoundingShape;
+    }
+
+    private void OnDisable()
+    {
+        EventHandler.AfterSceneLoadEvent -= DoSwitchBoundingShape;
     }
 
     /// <summary>

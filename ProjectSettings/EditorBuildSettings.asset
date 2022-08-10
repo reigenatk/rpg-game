@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bedroom.unity
     guid: c9ee4c6ccf72bbc45b94290e72c4e467
+  - enabled: 1
+    path: Assets/Scenes/Commons.unity
+    guid: 98e8bbe77aa81524d85ed592a0c4aef5
+  - enabled: 1
+    path: Assets/Scenes/KabowskiRoom.unity
+    guid: 2c34b74454f7e424bbd26f6ecd93a489
+  - enabled: 1
+    path: Assets/Scenes/BrainsRoom.unity
+    guid: 97f58dca7952cc14482152707f90e751
   m_configObjects: {}
