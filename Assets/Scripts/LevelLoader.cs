@@ -6,6 +6,9 @@ using UnityEngine.UI;
 using Cinemachine;
 using UnityEngine.Playables;
 
+using System;
+using static GameState;
+
 public class LevelLoader : Singleton<LevelLoader>
 {
     private bool isFading;
@@ -17,37 +20,65 @@ public class LevelLoader : Singleton<LevelLoader>
     [SerializeField] List<Vector3> startingCamPositions;
 
     [SerializeField] List<float> orthoSizes;
-    [SerializeField] List<PlayableDirector> startingCutscenes;
 
     // make dictionaries manually bc unity editor doesn't support them for whatever reason
     private Dictionary<SceneName, Vector3> sceneToStartingCamPos;
-
     private Dictionary<SceneName, float> sceneToStartingOrthoSize;
-    private Dictionary<SceneName, PlayableDirector> startingCutscenesDict;
+    private Dictionary<SceneName, List<CutsceneCondtional>> CutscenesDict;
+
     public SceneName startingSceneName;
+
+    // some game state
+    private int day;
+
+    // cutscene type
+    [System.Serializable]
+    public class CutsceneCondtional
+    {
+        // which cutscene it is
+        public PlayableDirector cutsceneToPlay;
+        // the day it must be
+        public int dayToPlay;
+        // the scene this will play on
+        public SceneName scene;
+        // some extra conditions that must be either true or false
+        public List<GameVariablePair> extraConditions;
+    }
+    [SerializeField] List<CutsceneCondtional> cutscenes;
+    [SerializeField] GameState gameState;
+    [SerializeField] Vector3 playerStartingPosition;
+
     private IEnumerator Start()
     {
         sceneToStartingCamPos = new Dictionary<SceneName, Vector3>();
         sceneToStartingOrthoSize = new Dictionary<SceneName, float>();
-        startingCutscenesDict = new Dictionary<SceneName, PlayableDirector>();
+        CutscenesDict = new Dictionary<SceneName, List<CutsceneCondtional>>();
 
-        Debug.Log(scenes.Count);
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player.transform.position = playerStartingPosition;
 
         // make the dictionary because untiy can't make dictionaries
         for (int i = 0; i < scenes.Count; i++)
         {
             sceneToStartingCamPos.Add(scenes[i], startingCamPositions[i]);
             sceneToStartingOrthoSize.Add(scenes[i], orthoSizes[i]);
-            startingCutscenesDict.Add(scenes[i], startingCutscenes[i]);
-
+            CutscenesDict.Add(scenes[i], new List<CutsceneCondtional>());
         }
+
+        // distribute each cutscene into the scene in which it should play
+        foreach (CutsceneCondtional c in cutscenes)
+        {
+            CutscenesDict[c.scene].Add(c);
+        }
+
+        day = 1;
 
         // Set the initial alpha to start off with a black screen.
         faderImage.color = new Color(0f, 0f, 0f, 1f);
         faderCanvasGroup.alpha = 1f;
 
         // Start the first scene loading and wait for it to finish.
-        yield return StartCoroutine(LoadSceneAndSetActive(startingSceneName.ToString()));
+        yield return StartCoroutine(LoadSceneAndSetActive(startingSceneName));
 
         // If this event has any subscribers, call it.
         EventHandler.CallAfterSceneLoadEvent();
@@ -103,16 +134,54 @@ public class LevelLoader : Singleton<LevelLoader>
         faderCanvasGroup.blocksRaycasts = false;
     }
 
-    private IEnumerator LoadSceneAndSetActive(string sceneName)
+    private IEnumerator LoadSceneAndSetActive(SceneName sceneName)
     {
+
         // Allow the given scene to load over several frames and add it to the already loaded scenes (just the Persistent scene at this point).
-        yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        yield return SceneManager.LoadSceneAsync(sceneName.ToString(), LoadSceneMode.Additive);
 
         // Find the scene that was most recently loaded (the one at the last index of the loaded scenes).
         Scene newlyLoadedScene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
 
         // Set the newly loaded scene as the active scene (this marks it as the one to be unloaded next).
         SceneManager.SetActiveScene(newlyLoadedScene);
+
+        // if it's our first time entering the scene, mark it as visited
+        if (gameState.getGameVariable("hasEntered" + sceneName.ToString()) == false)
+        {
+            gameState.setGameVariable("hasEntered" + sceneName.ToString(), true);
+        }
+    }
+
+    private CutsceneCondtional areWePlayingCutscene(SceneName sceneName)
+    {
+        foreach (CutsceneCondtional c in CutscenesDict[sceneName])
+        {
+            bool isPlaying = true;
+            if (day != c.dayToPlay)
+            {
+                isPlaying = false;
+            }
+
+            // check if each condition is met. if not, set isPlaying to false
+            foreach (GameVariablePair gv in c.extraConditions)
+            {
+                if (gameState.getGameVariableEnum(gv.variable) != gv.desiredValue)
+                {
+                    isPlaying = false;
+                    break;
+                }
+            }
+
+            // if no conditions were broken, we are playing this cutscene. Return it.
+            if (isPlaying == true)
+            {
+                return c;
+            }
+        }
+        // if we can't find any cutscenes with all conditions met, then we're playing nothing
+        // just return null
+        return null;
     }
 
     // This is the coroutine where the 'building blocks' of the script are put together.
@@ -130,9 +199,11 @@ public class LevelLoader : Singleton<LevelLoader>
         // Start fading to black and wait for it to finish before continuing.
         yield return StartCoroutine(Fade(1.0f));
 
-        // Set player position (if no cutscene, because if cutscene then it will
-        // decide the starting location for us)
-        if (startingCutscenesDict[sceneName] == null)
+        CutsceneCondtional cutsceneToPlayOnLoad = areWePlayingCutscene(sceneName);
+
+        // Set player position if no cutscene to play, (because if cutscene then it will
+        // decide the starting location for us anyways)
+        if (cutsceneToPlayOnLoad == null)
         {
             Player.Instance.gameObject.transform.position = spawnPosition;
         }
@@ -143,11 +214,13 @@ public class LevelLoader : Singleton<LevelLoader>
         // Unload the current active scene.
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 
+
         // Start loading the given scene and wait for it to finish.
-        yield return StartCoroutine(LoadSceneAndSetActive(sceneName.ToString()));
+        yield return StartCoroutine(LoadSceneAndSetActive(sceneName));
 
         // Call after scene load event
         EventHandler.CallAfterSceneLoadEvent();
+
 
         // Debug.Log("Starting position: " + sceneToStartingCamPos[sceneName]);
         cam.transform.position = sceneToStartingCamPos[sceneName];
@@ -162,6 +235,7 @@ public class LevelLoader : Singleton<LevelLoader>
         // Call after scene load fade in event
         EventHandler.CallAfterSceneLoadFadeInEvent();
 
+        // wait till fade finishes completely before enabling momvements and showing player again
         while (true)
         {
             if (isFading == false)
@@ -174,9 +248,9 @@ public class LevelLoader : Singleton<LevelLoader>
         player.GetComponent<SpriteRenderer>().enabled = true;
 
         // play the starting cutscene if there is one
-        if (startingCutscenesDict[sceneName] != null)
+        if (cutsceneToPlayOnLoad != null)
         {
-            startingCutscenesDict[sceneName].Play();
+            cutsceneToPlayOnLoad.cutsceneToPlay.Play();
         }
 
     }

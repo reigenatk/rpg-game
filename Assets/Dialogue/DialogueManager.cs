@@ -6,11 +6,26 @@ using UnityEngine.Playables;
 
 public class DialogueManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class DialogueMapping
+
+
+    PlayableDirector p;
+
+
+    // converts from editor friendly enum to a string and actually calls StartDialogue from Yarn spinner
+    public void StartDialogueEnum(Dialogue d)
     {
-        public Dialogue dialogue;
-        public string yarnSpinnerNodeName;
+        Yarn.Unity.DialogueRunner dr = GameObject.FindGameObjectWithTag("DialogueSystem").GetComponent<Yarn.Unity.DialogueRunner>();
+        dr.Stop();
+
+        // sends Enum to string. Since we made it such that Yarn nodes are exact same as the enum names, this works
+        dr.StartDialogue(Enum.GetName(typeof(Dialogue), d));
+    }
+
+    public void StartDialogueString(string s)
+    {
+        Yarn.Unity.DialogueRunner dr = GameObject.FindGameObjectWithTag("DialogueSystem").GetComponent<Yarn.Unity.DialogueRunner>();
+        dr.Stop();
+        dr.StartDialogue(s);
     }
 
     // all the interactable dialogue in the game
@@ -41,36 +56,5 @@ public class DialogueManager : MonoBehaviour
         D1_Kab_Bench,
         D1_Kab_Bed,
         D1_Kab_Kotatsu,
-    }
-    PlayableDirector p;
-/*    [SerializeField] public DialogueMapping[] dialogues;
-
-    public string DialogueEnumToString(Dialogue d)
-    {
-        foreach (DialogueMapping dm in dialogues)
-        {
-            if (dm.dialogue == d)
-            {
-                return dm.yarnSpinnerNodeName;
-            }
-        }
-        return "unknown node";
-    }*/
-
-    // converts from editor friendly enum to a string and actually calls StartDialogue from Yarn spinner
-    public void StartDialogueEnum(Dialogue d)
-    {
-        Yarn.Unity.DialogueRunner dr = GameObject.FindGameObjectWithTag("DialogueSystem").GetComponent<Yarn.Unity.DialogueRunner>();
-        dr.Stop();
-
-        // sends Enum to string. Since we made it such that Yarn nodes are exact same as the enum names, this works
-        dr.StartDialogue(Enum.GetName(typeof(Dialogue), d));
-    }
-
-    public void StartDialogueString(string s)
-    {
-        Yarn.Unity.DialogueRunner dr = GameObject.FindGameObjectWithTag("DialogueSystem").GetComponent<Yarn.Unity.DialogueRunner>();
-        dr.Stop();
-        dr.StartDialogue(s);
     }
 }

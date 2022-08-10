@@ -20,6 +20,16 @@ public enum Direction
     none
 }
 
+// this is just "hasEntered" + the name of the scene
+// make sure it matches the name of the scene in the editor, else it will fail!
+[System.Serializable]
+public enum GameVariable
+{
+    hasEnteredBedroom,
+    hasEnteredCommons,
+    hasEnteredKabowskiRoom,
+    hasEnteredBrainsRoom,
+}
 
 public enum ItemType
 {
