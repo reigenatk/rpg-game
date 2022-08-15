@@ -8,6 +8,7 @@ using UnityEngine.Playables;
 
 using System;
 using static GameState;
+using Yarn.Unity;
 
 public class LevelLoader : Singleton<LevelLoader>
 {
@@ -17,19 +18,15 @@ public class LevelLoader : Singleton<LevelLoader>
     [SerializeField] private CinemachineVirtualCamera cam;
     [SerializeField] private Image faderImage = null;
     [SerializeField] List<SceneName> scenes;
-    [SerializeField] List<Vector3> startingCamPositions;
 
     [SerializeField] List<float> orthoSizes;
 
     // make dictionaries manually bc unity editor doesn't support them for whatever reason
-    private Dictionary<SceneName, Vector3> sceneToStartingCamPos;
     private Dictionary<SceneName, float> sceneToStartingOrthoSize;
     private Dictionary<SceneName, List<CutsceneCondtional>> CutscenesDict;
 
     public SceneName startingSceneName;
 
-    // some game state
-    private int day;
 
     // cutscene type
     [System.Serializable]
@@ -41,6 +38,8 @@ public class LevelLoader : Singleton<LevelLoader>
         public int dayToPlay;
         // the scene this will play on
         public SceneName scene;
+        // will this cutscene be triggered via Yarn, or checked each time we load a scene?
+        public bool isTriggeredCutscene;
         // some extra conditions that must be either true or false
         public List<GameVariablePair> extraConditions;
     }
@@ -50,7 +49,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
     private IEnumerator Start()
     {
-        sceneToStartingCamPos = new Dictionary<SceneName, Vector3>();
+
         sceneToStartingOrthoSize = new Dictionary<SceneName, float>();
         CutscenesDict = new Dictionary<SceneName, List<CutsceneCondtional>>();
 
@@ -60,7 +59,7 @@ public class LevelLoader : Singleton<LevelLoader>
         // make the dictionary because untiy can't make dictionaries
         for (int i = 0; i < scenes.Count; i++)
         {
-            sceneToStartingCamPos.Add(scenes[i], startingCamPositions[i]);
+
             sceneToStartingOrthoSize.Add(scenes[i], orthoSizes[i]);
             CutscenesDict.Add(scenes[i], new List<CutsceneCondtional>());
         }
@@ -71,11 +70,12 @@ public class LevelLoader : Singleton<LevelLoader>
             CutscenesDict[c.scene].Add(c);
         }
 
-        day = 1;
-
         // Set the initial alpha to start off with a black screen.
         faderImage.color = new Color(0f, 0f, 0f, 1f);
         faderCanvasGroup.alpha = 1f;
+
+        // check if we will play any cutscenes for the starting scene
+        CutsceneCondtional cutsceneToPlayOnLoad = areWePlayingCutscene(startingSceneName);
 
         // Start the first scene loading and wait for it to finish.
         yield return StartCoroutine(LoadSceneAndSetActive(startingSceneName));
@@ -94,8 +94,6 @@ public class LevelLoader : Singleton<LevelLoader>
             Debug.Log("Cam null");
         }
 
-        Debug.Log("Starting position: " + sceneToStartingCamPos[startingSceneName]);
-        cam.transform.position = sceneToStartingCamPos[startingSceneName];
 
         Debug.Log("Starting Ortho Size: " + sceneToStartingOrthoSize[startingSceneName]);
         cam.m_Lens.OrthographicSize = sceneToStartingOrthoSize[startingSceneName];
@@ -103,9 +101,39 @@ public class LevelLoader : Singleton<LevelLoader>
 
         // Once the scene is finished loading, start fading in.
         StartCoroutine(Fade(0f));
+
+        // play the starting cutscene if there is one
+        if (cutsceneToPlayOnLoad != null)
+        {
+            cutsceneToPlayOnLoad.cutsceneToPlay.Play();
+        }
     }
 
-    private IEnumerator Fade(float finalAlpha)
+    // so this acts as a "new day" kinda thing.
+    [YarnCommand("goToSleep")]
+    public void goToSleep()
+    {
+        Debug.Log("Go to sleep");
+    }
+
+    // this just plays a cutscene, useful if we wanna do this from Yarn
+    // also each time a scene is loaded it will check if any cutscenes need to be played
+    // and it will go thru this as well.
+    [YarnCommand("playCutscene")]
+    public void playCutscene(string cutscene)
+    {
+        foreach (CutsceneCondtional c in cutscenes)
+        {
+            if (c.cutsceneToPlay.name == cutscene)
+            {
+                c.cutsceneToPlay.Play();
+                break;
+            }
+        }
+    }
+
+    [YarnCommand("Fade")]
+    public IEnumerator Fade(float finalAlpha)
     {
         // Set the fading flag to true so the FadeAndSwitchScenes coroutine won't be called again.
         isFading = true;
@@ -157,9 +185,16 @@ public class LevelLoader : Singleton<LevelLoader>
     {
         foreach (CutsceneCondtional c in CutscenesDict[sceneName])
         {
-            bool isPlaying = true;
-            if (day != c.dayToPlay)
+            // skip cutscenes that we will only trigger via Yarn + playCutscene 
+            if (c.isTriggeredCutscene == true)
             {
+                continue;
+            }
+            // Debug.Log("Consindering " + c.cutsceneToPlay.ToString());
+            bool isPlaying = true;
+            if (gameState.getGameDay() != c.dayToPlay)
+            {
+                Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
                 isPlaying = false;
             }
 
@@ -168,6 +203,7 @@ public class LevelLoader : Singleton<LevelLoader>
             {
                 if (gameState.getGameVariableEnum(gv.variable) != gv.desiredValue)
                 {
+                    Debug.Log("Broken on " + gv.variable.ToString());
                     isPlaying = false;
                     break;
                 }
@@ -223,7 +259,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
 
         // Debug.Log("Starting position: " + sceneToStartingCamPos[sceneName]);
-        cam.transform.position = sceneToStartingCamPos[sceneName];
+        cam.transform.position = Player.Instance.gameObject.transform.position;
 
         // Debug.Log("Starting Ortho Size: " + sceneToStartingOrthoSize[sceneName]);
         cam.m_Lens.OrthographicSize = sceneToStartingOrthoSize[sceneName];
@@ -267,4 +303,12 @@ public class LevelLoader : Singleton<LevelLoader>
             StartCoroutine(FadeAndSwitchScenes(sceneName, spawnPosition));
         }
     }
+
+    [YarnCommand("yarnLoadScene")]
+    public void YarnLoadScene(string sceneName, float playerX, float playerY)
+    {
+        Vector3 playerSpawn = new Vector3(playerX, playerY, 0);
+        FadeAndLoadScene((SceneName)System.Enum.Parse(typeof(SceneName), sceneName), playerSpawn);
+    }
+
 }

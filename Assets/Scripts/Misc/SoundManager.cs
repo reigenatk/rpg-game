@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class SoundManager : MonoBehaviour
 {
@@ -18,6 +19,16 @@ public class SoundManager : MonoBehaviour
         TypewriterSound,
         WalkingSound,
         ChipsCrunch,
+        TrainWhistle,
+        TrainMoving,
+        TrainStation,
+        Driving,
+        OpenFrontDoor,
+        WalkingOnWood,
+        Boxes,
+        Sigh,
+        OpenWindow,
+        WindGust,
     }
     [SerializeField] public SoundAudioClip[] sounds;
     // Start is called before the first frame update
@@ -26,23 +37,40 @@ public class SoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    [YarnCommand("playSoundString")]
+    public void playSoundString(string s)
+    {
+        playSound((Sound)System.Enum.Parse(typeof(Sound), s));
+    }
+    public void playSoundDetailed(Sound s, float volume, float pitch)
+    {
+        float oldPitch = audioSource.pitch;
+        float oldVolume = audioSource.volume;
+        if (volume != -1.0f)
+        {
+            Debug.Log("New Volume " + volume);
+            audioSource.volume = volume;
+        }
+        if (pitch != -1.0f)
+        {
+            Debug.Log("New Pitch " + pitch);
+            audioSource.pitch = pitch;
+        }
+        audioSource.PlayOneShot(GetAudioClip(s));
+        audioSource.pitch = oldPitch;
+        audioSource.volume = oldVolume;
+    }
+
     // Update is called once per frame
     public void playSound(Sound s)
     {
+
         switch (s)
         {
             case Sound.NoSound:
                 break;
-            case Sound.TypewriterSound:
-                audioSource.PlayOneShot(GetAudioClip(s));
-                break;
-            case Sound.WalkingSound:
-                float oldPitch = audioSource.pitch;
-                audioSource.pitch = 1.0f;
-                audioSource.PlayOneShot(GetAudioClip(s));
-                audioSource.pitch = oldPitch;
-                break;
-            case Sound.ChipsCrunch:
+            default:
+                // but for most clips we just play the sound
                 audioSource.PlayOneShot(GetAudioClip(s));
                 break;
         }

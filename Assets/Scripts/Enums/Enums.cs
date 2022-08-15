@@ -20,15 +20,30 @@ public enum Direction
     none
 }
 
-// this is just "hasEntered" + the name of the scene
-// make sure it matches the name of the scene in the editor, else it will fail!
+
 [System.Serializable]
 public enum GameVariable
 {
+    // this is just "hasEntered" + the name of the scene
+    // make sure it matches the name of the scene in the editor, else it will fail!
+    // the hasEntered variables are just useful for first-time scene triggers. Like for instance
+    // first time upon entering commons, we should trigger a cutscene, etc.
+    hasEnteredIntroScene,
     hasEnteredBedroom,
     hasEnteredCommons,
     hasEnteredKabowskiRoom,
     hasEnteredBrainsRoom,
+    hasEnteredBathroomWTF,
+    hasEnteredLancelotRoom,
+    isCutscenePlaying,
+}
+
+public enum PlayerScore
+{
+    entertained,
+    contentedness,
+    social,
+    energy,
 }
 
 public enum ItemType
@@ -52,8 +67,9 @@ public enum SceneName
 {
     Bedroom,
     Commons,
-    Bathroom,
+    BathroomWTF,
     KabowskiRoom,
     BrainsRoom,
     LancelotRoom,
+    IntroScene,
 }

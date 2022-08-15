@@ -1,0 +1,100 @@
+﻿title: TrainStation
+---
+Mom: I'm going to miss you so much, honey.
+-> Me too...
+	Your mother gives you a kiss on the cheek.
+	It's a bit embarassing, because you are 20 years old.
+-> I won't miss you.
+	<<jump MomCrying>>
+-> ...
+Dad: Stay safe, okay?
+-> I will...
+	Your father pats you on the back.
+	He's trying to get you to stop slouching.
+-> Shut up.
+	<<jump DadYelling>>
+-> ...
+Dad: Make sure to call home often.
+-> No guarantees...
+	Mom: Of course, only when you have time!
+	Mom: We wouldn't want to bother our only son!
+-> I'd rather jump off a bridge than call you.
+	<<jump DadYelling>>
+-> ...
+Mom: And try to find a girlfriend!
+-> I'll do my best...
+	Dad: Remember, girls love a capable man.
+	Dad: Speak confidently, and act natural.
+-> Can you stop talking already?
+	<<jump MomCrying>>
+-> ...
+
+Conductor: All aboard!
+<<playSoundString Manager TrainWhistle>>
+Your mother gives you a hug. You board the train, and your parents wave as the train departs.
+You put your earbuds in and close your eyes.
+It's going to be a long ride.
+<<playSoundString Manager TrainMoving>>
+<<jump TrainRide>>
+===
+
+title: MomCrying
+---
+	Your mom starts to sob. Your father is mad.
+	Dad: What the HELL was that for?
+	Dad grabs you by the collar as you try to leave.
+	Dad: Apologize to your mother, RIGHT NOW!.
+	<<playSoundString Manager TrainWhistle>>
+	The train doors are about to close. 
+	Your father has no choice but to let go of you.
+	<<playSoundString Manager TrainMoving>>
+	The last sight you see as the train pulls away is your father desparately trying to comfort your mother.
+	<<jump TrainRide>>
+===
+
+title: DadYelling
+---
+	Your dad's face starts to turn red. You've really done it this time.
+	ohfuck.jpeg
+	Dad: what the fuck did you just say to me?
+	Your mother tries to calm your dad down.
+	Mom: Please Paul, not here. There's people watching.
+	Miraculously, it seems to work this time.
+	Dad: Get the hell out of my sight.
+	You board the train.
+	<<playSoundString Manager TrainWhistle>>
+	When you look out the window, you see your dad glaring menacingly at you.
+	<<playSoundString Manager TrainMoving>>
+	As the train speeds out of the station, you can't help but feel a bit grateful that your father is older now.
+	The old version of dad would've stormed onto the train to demand an apology.
+	<<jump TrainRide>>
+===
+
+title: TrainRide
+---
+<<wait 20>>
+
+The train arrives into the station. 
+You don't feel like leaving the train, but it's not like there's anywhere else to go.
+<<playSoundString Manager TrainStation>>
+<<wait 10>>
+You eventually call an Uber and ride to your apartment.
+You find yourself dreading the ride.
+<<playSoundString Manager Driving>>
+<<wait 17>>
+The apartment itself is small and somewhat ugly.
+Just as you remembered it to be.
+You take out your keys and open the front door.
+<<playSoundString Manager OpenFrontDoor>>
+<<wait 1>>
+
+Once in the common room, you take out your keys and open the door to your real home.
+After all, the bedroom is where you will be spending most of your time...
+You slowly unpack everything...
+<<playSoundString Manager WalkingOnWood>>
+<<wait 5>>
+<<playSoundString Manager Boxes>>
+<<wait 5>>
+
+<<yarnLoadScene LevelLoader Bedroom 0.0 0.0>>
+===

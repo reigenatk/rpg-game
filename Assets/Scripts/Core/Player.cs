@@ -6,9 +6,7 @@ using Yarn.Unity;
 public class Player : Singleton<Player>
 {
 
-    [SerializeField] private DialogueUI dialogueUI;
 
-    public DialogueUI DialogueUI => dialogueUI;
     private Camera mainCamera;
 
     // make something called Interactable that can be get and setted.
@@ -28,7 +26,7 @@ public class Player : Singleton<Player>
     public string lastFacedDirection;
     public int sanity;
     SoundManager sm;
-    [SerializeField] SpriteRenderer spriteRender;
+    [SerializeField] GameObject gameUI;
     protected override void Awake()
     {
         base.Awake();
@@ -51,13 +49,14 @@ public class Player : Singleton<Player>
     // Update is called once per frame
     void Update()
     {
-        // can't move if talking to someone
-        if (disableMovement)
+        // can't move if talking to someone or if in cutscene
+        if (disableMovement || FindObjectOfType<GameState>().getGameVariableEnum(GameVariable.isCutscenePlaying))
         {
             return;
         }
         Move();
         PlayerRunInput();
+        OtherInput();
 
 
         // Send event to any listeners for player movement input
@@ -69,6 +68,27 @@ public class Player : Singleton<Player>
         }
     }
 
+    private void OtherInput()
+    {
+        // Trigger Advance Time
+        if (Input.GetKey(KeyCode.T))
+        {
+            TimeManager.Instance.TestAdvanceGameMinute();
+        }
+
+        // Trigger Advance Day
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            TimeManager.Instance.TestAdvanceGameDay();
+        }
+
+        // toggle UI
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            gameUI.SetActive(!gameUI.activeSelf);
+        }
+    }
+
     public void playStepSound()
     {
         if (sm == null)
@@ -76,6 +96,12 @@ public class Player : Singleton<Player>
             sm = FindObjectOfType<SoundManager>();
         }
 
+        if (disableMovement) return; // obviously no playing moving sounds if player can't move.
+
+        // if a cutscene is currently playing, don't let us make noises.
+        // this is to avoid us making footstep noises when animator is moving around?
+
+        /*if (FindObjectOfType<GameState>().getGameVariableEnum(GameVariable.isCutscenePlaying) == true) return;*/
         sm.playSound(SoundManager.Sound.WalkingSound);
     }
 

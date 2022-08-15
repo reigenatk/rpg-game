@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BrainsRoom.unity
     guid: 97f58dca7952cc14482152707f90e751
+  - enabled: 1
+    path: Assets/Scenes/BathroomWTF.unity
+    guid: b35fb77a732131343b50fe27757c2c8d
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 1758e757d73539944aec4dee33b870ac
   m_configObjects: {}

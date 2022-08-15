@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SceneTeleport : MonoBehaviour
 {
-    [SerializeField] private SceneName sceneNameGoto = SceneName.Bedroom;
+    [SerializeField] private SceneName sceneNameGoto;
     [SerializeField] private Vector3 scenePositionGoto = new Vector3();
     
 

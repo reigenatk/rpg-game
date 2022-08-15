@@ -28,35 +28,35 @@ public static class EventHandler
     }
 
     // Advance game minute
-    public static event Action<int, int, int, int> AdvanceGameMinuteEvent;
+    public static event Action<string, int, int, int> AdvanceGameMinuteEvent;
 
-    public static void CallAdvanceGameMinuteEvent( int gameDay, int gameHour, int gameMinute, int gameSecond)
+    public static void CallAdvanceGameMinuteEvent(string dayOfWeek, int gameHour, int gameMinute, int gameSecond)
     {
         if (AdvanceGameMinuteEvent != null)
         {
-            AdvanceGameMinuteEvent(gameDay, gameHour, gameMinute, gameSecond);
+            AdvanceGameMinuteEvent(dayOfWeek, gameHour, gameMinute, gameSecond);
         }
     }
 
     // Advance game hour
-    public static event Action<int, int, int, int> AdvanceGameHourEvent;
+    public static event Action<string, int, int, int> AdvanceGameHourEvent;
 
-    public static void CallAdvanceGameHourEvent(int gameDay, int gameHour, int gameMinute, int gameSecond)
+    public static void CallAdvanceGameHourEvent(string dayOfWeek, int gameHour, int gameMinute, int gameSecond)
     {
         if (AdvanceGameHourEvent != null)
         {
-            AdvanceGameHourEvent( gameDay,  gameHour, gameMinute, gameSecond);
+            AdvanceGameHourEvent(dayOfWeek, gameHour, gameMinute, gameSecond);
         }
     }
 
     // Advance game day
-    public static event Action<int, int, int, int> AdvanceGameDayEvent;
+    public static event Action<string, int, int, int> AdvanceGameDayEvent;
 
-    public static void CallAdvanceGameDayEvent(int gameDay, int gameHour, int gameMinute, int gameSecond)
+    public static void CallAdvanceGameDayEvent(string dayOfWeek, int gameHour, int gameMinute, int gameSecond)
     {
         if (AdvanceGameDayEvent != null)
         {
-            AdvanceGameDayEvent(gameDay, gameHour, gameMinute, gameSecond);
+            AdvanceGameDayEvent(dayOfWeek, gameHour, gameMinute, gameSecond);
         }
     }
 
