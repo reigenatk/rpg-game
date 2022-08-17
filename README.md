@@ -1,7 +1,7 @@
 # rpg-game
-A 2D top-down RPG game I am making in Unity. Name still undecided. The end plan is to release it on itch.io, maybe even on Steam if I feel it's good enough.
+A 2D top-down RPG game I am making in Unity. Name still undecided. The end plan is to release it on itch.io, maybe even on Steam if I feel it's good enough. I wanna try to do my best job here though, so I'm going to set no deadlines.
 
-I've actually been working on this since early 2021, but school got in the way, and lack of motivation also got in the way.
+I've actually been working on this since early 2021, but school got in the way, and also lack of motivation (as always)
 
 # Motivation
 My favorite kinds of games are probably indie RPG games, so I decided to give a shot at making one. I've always been amazed at how much one developer can do. I find that some of my favorite games were developed by one person (or a team of small people). Games like LISA, Undertale, OneShot, OMORI, Stardew Valley, (and recently, I played Katana Zero which was insanely good).
