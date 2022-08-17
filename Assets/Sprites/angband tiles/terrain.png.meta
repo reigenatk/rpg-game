@@ -68,6 +68,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -77,8 +79,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -99,9 +101,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -147,7 +152,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cb77e67a9bbf5b520800000000000000
-      internalID: 2717354724984518588
+      internalID: 8765297898444631108
       vertices: []
       indices: 
       edges: []
@@ -435,6 +440,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      terrain_2: 2963411684039260603
+      terrain_3: -4725923292034538642
+      terrain_5: -7381383704308568027
+      terrain_7: -602857838496182610
+      terrain_6: 1017412213553842495
+      terrain_4: 8517107447714677574
+      terrain_11: -3768716606700068512
+      terrain_9: 720614356373513186
+      terrain_12: 6532709478578541829
+      terrain_8: 6875082008355445951
+      terrain_1: -5519051278557835307
+      terrain_0: 8765297898444631108
+      terrain_10: -7304857774246764523
+      terrain_13: 8583100498175357109
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

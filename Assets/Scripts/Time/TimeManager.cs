@@ -18,6 +18,21 @@ public class TimeManager : Singleton<TimeManager>
             this.gameSecond = gameSecond;
         }
 
+        public void advanceTime(int hours, int minutes)
+        {
+            gameMinute += minutes;
+            if (gameMinute >= 60)
+            {
+                gameHour++;
+                gameMinute %= 60;
+            }
+            gameHour += hours;
+            if (gameHour >= 24)
+            {
+                gameHour %= 24;
+            }
+        }
+
         // returns result of < operation on the two times
         public bool compareTimes(GameTime b)
         {
@@ -65,21 +80,20 @@ public class TimeManager : Singleton<TimeManager>
 
     private int totalGameSeconds = 0;
     private string gameDayOfWeek = "Mon";
-    private bool gameClockPaused = false;
+    public bool gameClockPaused = false;
     private float gameTick = 0f;
 
     // how many in game seconds correspond to one decayed percent of each category
     [SerializeField] private GameState gameState;
-    [SerializeField] private int energyDecayRate = 100;
-    [SerializeField] private int socialDecayRate = 100;
-    [SerializeField] private int contentednessDecayRate = 100;
-    [SerializeField] private int entertainmentDecayRate = 100;
+    [SerializeField] private int energyDecayRate;
+    [SerializeField] private int socialDecayRate;
+    [SerializeField] private int contentednessDecayRate;
+    [SerializeField] private int entertainmentDecayRate;
     private void Start()
     {
         gt = new GameTime(19, 30, 0);
         EventHandler.CallAdvanceGameMinuteEvent(gameDayOfWeek, gt.gameHour, gt.gameMinute, gt.gameSecond);
     }
-
 
     private void Update()
     {
@@ -101,10 +115,13 @@ public class TimeManager : Singleton<TimeManager>
         }
     }
 
+
     private void UpdateGameSecond()
     {
         gt.gameSecond++;
         totalGameSeconds++;
+
+        gameState.playerMood = gameState.calculateMood();
 
         if (gt.gameSecond > 59)
         {
@@ -117,7 +134,7 @@ public class TimeManager : Singleton<TimeManager>
                 gt.gameMinute = 0;
                 gt.gameHour++;
 
-                if (gt.gameHour > 24)
+                if (gt.gameHour == 24)
                 {
                     gt.gameHour = 0;
                     
@@ -136,23 +153,23 @@ public class TimeManager : Singleton<TimeManager>
         if (totalGameSeconds % energyDecayRate == 0)
         {
             float curScore = gameState.getPlayerScore(PlayerScore.energy);
-            gameState.setPlayerScore(PlayerScore.energy, curScore - 1.0f);
+            gameState.changePlayerScore(PlayerScore.energy, -1.0f);
             // Debug.Log("New energy is " + gameState.getPlayerScore(PlayerScore.energy));
         }
         if (totalGameSeconds % socialDecayRate == 0)
         {
             float curScore = gameState.getPlayerScore(PlayerScore.social);
-            gameState.setPlayerScore(PlayerScore.social, curScore - 1.0f);
+            gameState.changePlayerScore(PlayerScore.social, -1.0f);
         }
         if (totalGameSeconds % contentednessDecayRate == 0)
         {
             float curScore = gameState.getPlayerScore(PlayerScore.contentedness);
-            gameState.setPlayerScore(PlayerScore.contentedness, curScore - 1.0f);
+            gameState.changePlayerScore(PlayerScore.contentedness, -1.0f);
         }
         if (totalGameSeconds % entertainmentDecayRate == 0)
         {
             float curScore = gameState.getPlayerScore(PlayerScore.entertained);
-            gameState.setPlayerScore(PlayerScore.entertained, curScore - 1.0f);
+            gameState.changePlayerScore(PlayerScore.entertained, -1.0f);
         }
 
 

@@ -182,6 +182,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -191,8 +193,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -213,9 +215,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -1368,6 +1373,60 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      town_actions_34: 2413059857558148665
+      town_actions_47: 2704846242435796190
+      town_actions_4: -5869159905583118294
+      town_actions_50: -4818970670544051530
+      town_actions_3: 7082578046150631636
+      town_actions_15: -4461618489606975398
+      town_actions_24: 6232852889780245095
+      town_actions_49: 5225903568394150937
+      town_actions_11: 4466608146273757774
+      town_actions_17: -5636506921996746688
+      town_actions_2: 8204373128883116230
+      town_actions_51: -8018034922178106917
+      town_actions_43: 2944309424414610737
+      town_actions_31: 6989293104480225088
+      town_actions_52: 1496636658797548136
+      town_actions_9: 5979325951314274293
+      town_actions_18: 2795541037284707175
+      town_actions_22: -4974065271953687722
+      town_actions_19: -795494105976885951
+      town_actions_46: 6697855687318682411
+      town_actions_39: 3953544354769846565
+      town_actions_45: 2362510399747042750
+      town_actions_48: -6102631880397732567
+      town_actions_27: 1299629831757305387
+      town_actions_6: -1443715137040786600
+      town_actions_32: -4649322282205120851
+      town_actions_0: -2668990863929592539
+      town_actions_37: -1161451756760640969
+      town_actions_1: 2226639969574100340
+      town_actions_8: 3557040457386617157
+      town_actions_33: 5017619112414603847
+      town_actions_40: 5008710369250675682
+      town_actions_41: 3005961908240389172
+      town_actions_7: -227634010448428673
+      town_actions_12: -3600523264391549922
+      town_actions_13: 6219068707846520979
+      town_actions_16: 1031576654802068770
+      town_actions_20: -5745613253930065238
+      town_actions_35: 2040279308535139299
+      town_actions_26: 5207553637553498758
+      town_actions_36: 8805337079609962299
+      town_actions_25: 5606053310902685322
+      town_actions_42: -7787192988506107603
+      town_actions_10: -3687764708447808475
+      town_actions_44: 4499881735838197061
+      town_actions_14: -5679391065216078349
+      town_actions_23: -6589407430056910837
+      town_actions_38: 5797220185936292062
+      town_actions_5: -5470423243108050085
+      town_actions_29: -5119334500094861354
+      town_actions_28: -8491176261868630732
+      town_actions_21: 1450075497344441386
+      town_actions_30: -6724433066064271535
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

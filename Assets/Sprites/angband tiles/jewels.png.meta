@@ -143,6 +143,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,8 +154,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -174,9 +176,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -1056,6 +1061,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      jewels_15: 603386622967237804
+      jewels_17: -5889447985759828140
+      jewels_20: 5347386164403030196
+      jewels_25: -7506097100938853864
+      jewels_28: -3590176069031875412
+      jewels_3: -4483864716718988000
+      jewels_34: -8323433005613566170
+      jewels_22: 1751843816682829204
+      jewels_26: 330609443056611637
+      jewels_36: -4144116053595009502
+      jewels_2: 3008189100285687113
+      jewels_31: -6148318494584571682
+      jewels_35: -7536816962030104750
+      jewels_33: -364123118721989757
+      jewels_23: -8035901257901860453
+      jewels_0: 8631136393547135159
+      jewels_21: -6954326004602880459
+      jewels_27: 417423287074032161
+      jewels_4: -168201373427574623
+      jewels_29: -8743499495948281088
+      jewels_18: 5617614833443094388
+      jewels_16: -4110461638353895337
+      jewels_39: -4121224726080437181
+      jewels_12: 132348055688304732
+      jewels_1: 7664766632195536530
+      jewels_14: 601651638748350056
+      jewels_24: -1265828648547118472
+      jewels_10: 5449683484086755309
+      jewels_38: 6408426481168435455
+      jewels_30: 8686388403391747705
+      jewels_11: -4224808204506700604
+      jewels_7: 6512636221130845534
+      jewels_6: 9068505239887587264
+      jewels_13: 5910444848757447934
+      jewels_32: -6778369871533316102
+      jewels_19: -115714617000018037
+      jewels_8: 1043577765486146647
+      jewels_37: 8739877949691138893
+      jewels_5: -1305931741606694845
+      jewels_9: 5316696223004825766
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

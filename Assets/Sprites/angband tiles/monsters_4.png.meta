@@ -290,6 +290,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -299,8 +301,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -321,9 +323,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -2232,6 +2237,96 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      monsters_4_33: -2027269852103161307
+      monsters_4_37: 5352599170822682265
+      monsters_4_88: -3361277115632410992
+      monsters_4_10: -1707342306249654131
+      monsters_4_49: 481462178251151069
+      monsters_4_24: -4598053940496128
+      monsters_4_8: 1234555544537090167
+      monsters_4_17: 2484967759709957782
+      monsters_4_1: -221449540380917529
+      monsters_4_60: 6699688305316645217
+      monsters_4_65: -6749655154581651492
+      monsters_4_40: -5286470297894434845
+      monsters_4_18: 2338356306235826976
+      monsters_4_31: 944031468428498398
+      monsters_4_36: 2051735088838235074
+      monsters_4_53: -9072206017410175087
+      monsters_4_58: -673201496861559031
+      monsters_4_44: -3016352304521797051
+      monsters_4_54: 7798529627408323709
+      monsters_4_61: -2061807429084506422
+      monsters_4_45: -6343380078383999167
+      monsters_4_50: -8184865517578794258
+      monsters_4_23: 6071243890886696232
+      monsters_4_26: 2378556181737210721
+      monsters_4_55: -2683971264127688995
+      monsters_4_83: 785536184304321471
+      monsters_4_75: -7049110350482969692
+      monsters_4_52: 1945886558268153525
+      monsters_4_66: 4687625896603402675
+      monsters_4_76: -3993857699031245492
+      monsters_4_79: 6875907318806677140
+      monsters_4_27: 5689835535259488328
+      monsters_4_38: 3719326669004948850
+      monsters_4_77: -1735026795120700240
+      monsters_4_35: 4777935082952070340
+      monsters_4_14: 1225604044644238978
+      monsters_4_39: 8874734698971342813
+      monsters_4_22: 5017654800919857527
+      monsters_4_0: -8386375732538093462
+      monsters_4_41: -915485805735948451
+      monsters_4_73: 4172294884258071513
+      monsters_4_84: -1342397875416248081
+      monsters_4_29: -6441587213269032487
+      monsters_4_74: 2162869847255037295
+      monsters_4_32: 6900711172550390504
+      monsters_4_62: 6186890396085550587
+      monsters_4_68: 3641207918921799093
+      monsters_4_59: 5008820102291703753
+      monsters_4_57: 372084081792758401
+      monsters_4_71: 4399139526368158932
+      monsters_4_69: -1910030541743915156
+      monsters_4_34: 2296094520102387179
+      monsters_4_16: 1537894468306840860
+      monsters_4_63: 6957065239138729244
+      monsters_4_13: 8159963522624019116
+      monsters_4_3: -2564429605870733464
+      monsters_4_28: -8413740530394133017
+      monsters_4_81: -2102470424388165182
+      monsters_4_86: -6863814698589005050
+      monsters_4_5: -8376270650930396409
+      monsters_4_25: 8348768894953106609
+      monsters_4_43: 135172166088007466
+      monsters_4_11: 9041357619583888195
+      monsters_4_20: -1274294316301582798
+      monsters_4_48: -6698887883759773456
+      monsters_4_64: 7880759494028135294
+      monsters_4_47: 293740421990721938
+      monsters_4_19: 3266224378276895634
+      monsters_4_67: 5971238345713390552
+      monsters_4_87: 7746861451814608443
+      monsters_4_2: -8496546825327413087
+      monsters_4_72: -8813174263145377670
+      monsters_4_42: -5952269860167824556
+      monsters_4_46: -7070854444966483425
+      monsters_4_12: -1884552427751162533
+      monsters_4_21: -2073083232817165122
+      monsters_4_85: -8161805728566723676
+      monsters_4_7: 3926592635027287650
+      monsters_4_9: 2947591384933219470
+      monsters_4_15: 4012264207550555612
+      monsters_4_51: -7826357800461589380
+      monsters_4_82: 6739717153755408870
+      monsters_4_56: -7022009193608638787
+      monsters_4_6: -7134175557411493044
+      monsters_4_4: -5066965934576686728
+      monsters_4_78: 3387051220247658969
+      monsters_4_30: -674629322562749072
+      monsters_4_70: -3567247334007322345
+      monsters_4_80: 385686436098495104
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

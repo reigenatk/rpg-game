@@ -14,7 +14,7 @@ public class GameState : MonoBehaviour
         public bool desiredValue;
     }
 
-    Dictionary<GameVariable, bool> gameVariables;
+    public Dictionary<GameVariable, bool> gameVariables;
 
     Dictionary<PlayerScore, float> playerScore;
     [SerializeField] Image energyBar;
@@ -26,6 +26,7 @@ public class GameState : MonoBehaviour
     [SerializeField] TextMeshProUGUI contentednessText;
     [SerializeField] TextMeshProUGUI entertainmentText;
     [SerializeField] TimeManager timeManager;
+    public Moods playerMood;
     private int gameDay = 1;
 
     // Start is called before the first frame update
@@ -47,9 +48,17 @@ public class GameState : MonoBehaviour
             }
             else
             {
-                playerScore.Add(foo, 75.0f);
+                playerScore.Add(foo, 100.0f);
             }
         }
+    }
+    public float getPlayerScoreSum()
+    {
+        float ret = 0.0f;
+        ret += playerScore[PlayerScore.contentedness];
+        ret += playerScore[PlayerScore.entertained];
+        ret += playerScore[PlayerScore.social];
+        return ret;
     }
 
     public void setCutscenePlaying(bool value)
@@ -64,20 +73,57 @@ public class GameState : MonoBehaviour
         return sformatted;
     }
 
-    // changes player score, also updates the UI bars accordingly
+    // changes player score (exact value), also updates the UI bars accordingly
     public void setPlayerScore(PlayerScore ps, float val)
     {
-        // no negative values for score
-        if (val < 0.0f)
-        {
-            val = 0.0f;
-        }
+
         playerScore[ps] = val;
         float percentage = val / 100.0f;
-/*        string sformatted = String.Format("{0:0.##\\%}", percentage*100.0f); // "44.36%"
-        Debug.Log("percentage is " + percentage);*/
+        /*        string sformatted = String.Format("{0:0.##\\%}", percentage*100.0f); // "44.36%"
+                Debug.Log("percentage is " + percentage);*/
 
-        switch (ps)
+        updateScoreUI(ps, percentage);
+    }
+
+    // changes player score by "delta" amount
+    public void changePlayerScore(PlayerScore ps, float delta)
+    {
+        float newVal = playerScore[ps] + delta;
+        
+        if (newVal < 0.0f)
+        {
+            LevelLoader levelLoader = FindObjectOfType<LevelLoader>();
+            // trigger some kind of cutscene
+            switch (ps)
+            {
+                case PlayerScore.energy:
+                    levelLoader.playCutscene("EnergyZero");
+                    break;
+                case PlayerScore.contentedness:
+                    levelLoader.playCutscene("ContentednessZero");
+                    break;
+                case PlayerScore.social:
+                    levelLoader.playCutscene("SocialZero");
+                    break;
+                case PlayerScore.entertained:
+                    levelLoader.playCutscene("EntertainedZero");
+                    break;
+            }
+        }
+        else
+        {
+            playerScore[ps] = newVal;
+            float percentage = newVal / 100.0f;
+            /*        string sformatted = String.Format("{0:0.##\\%}", percentage*100.0f); // "44.36%"
+                    Debug.Log("percentage is " + percentage);*/
+
+            updateScoreUI(ps, percentage);
+        }
+    }
+
+    private void updateScoreUI(PlayerScore scoreToUpdate, float percentage)
+    {
+        switch (scoreToUpdate)
         {
             case PlayerScore.energy:
                 energyBar.fillAmount = percentage;
@@ -103,9 +149,49 @@ public class GameState : MonoBehaviour
         return gameDay;
     }
 
+    public void setGameDay(int val)
+    {
+        Debug.Log("setting gameday to " + val);
+        gameDay = val;
+    }
+
     public float getPlayerScore(PlayerScore ps)
     {
         return playerScore[ps];
+    }
+
+    // delta is some value to add. Default is just zero
+    public Moods calculateMood(float delta = 0.0f)
+    {
+        float playerScore = getPlayerScoreSum() + delta;
+        if (playerScore < 50.0f)
+        {
+            return Moods.Suicidal;
+        }
+        else if (playerScore < 100.0f)
+        {
+            return Moods.Depressed;
+        }
+        else if (playerScore < 150.0f)
+        {
+            return Moods.Unhinged;
+        }
+        else if (playerScore < 200.0f)
+        {
+            return Moods.Average;
+        }
+        else if (playerScore < 250.0f)
+        {
+            return Moods.Good;
+        }
+        else if (playerScore < 300.0f)
+        {
+            return Moods.LovingLife;
+        }
+        else
+        {
+            return Moods.LovingLife;
+        }
     }
 
     // Update is called once per frame

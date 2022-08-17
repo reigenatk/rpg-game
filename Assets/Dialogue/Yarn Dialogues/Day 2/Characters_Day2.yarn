@@ -1,0 +1,23 @@
+title: D2_Lancelot_Commons
+---
+Heylo, Steven, my friend.
+How vas your summer?
+-> Pretty good, thanks for asking.
+    Gud to hear, my friend.
+    -> How was your summer?
+        Vury gud. I go back to Siberia, my home.
+        I drink lot of vodka and play csgo
+        <<wait 1>>
+        I am glad to be back, Steven
+        <<wait 1>>
+        Although I will miss my pet bear, Gasha.
+    -> Talk to you later.
+        Goodbye.
+-> Terrible.
+    Ah, Blyat. 
+    прости за это. School year vill be better.
+    Hopevully, ve can see each other more offen.
+    Last year I did not get chance to talk to you much.
+    <<wait 1>>
+    Have you talk to others yet? I zink that zey are in zeir rooms.
+===

@@ -332,6 +332,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -341,8 +343,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -363,9 +365,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -2568,6 +2573,110 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      weapons_30: 6287368773376091983
+      weapons_55: 1573790554392874026
+      weapons_8: -7706190253212291482
+      weapons_41: 1553533984958080060
+      weapons_0: 1098179606456428539
+      weapons_52: 509458704816665203
+      weapons_53: 1319971854038204275
+      weapons_13: -1499788451389146327
+      weapons_14: -5039132156621874023
+      weapons_59: -4597482386731112203
+      weapons_22: -2885549205037184772
+      weapons_29: 7642472461541729571
+      weapons_79: -5391606587995403844
+      weapons_82: -1808421731031243857
+      weapons_34: -2747368275626950390
+      weapons_99: -2566406984147735249
+      weapons_26: 5956946754449639209
+      weapons_33: 8217522810482615355
+      weapons_75: -5273352828864396553
+      weapons_45: 6344165849513713060
+      weapons_77: -5973717018470272431
+      weapons_32: 4609766379470990746
+      weapons_46: -206730959758790097
+      weapons_47: -1224407699458224109
+      weapons_42: -1746368594280729781
+      weapons_102: 3577260981815568747
+      weapons_15: 1715686085431780359
+      weapons_2: -7888296697152109952
+      weapons_36: -1160564495915953521
+      weapons_6: 8101326686158321518
+      weapons_1: -5557420877203330147
+      weapons_24: -9140482831790144931
+      weapons_73: -7358960594595976807
+      weapons_64: 7418208600850360205
+      weapons_12: -2600240032574155362
+      weapons_92: 4119476271544998659
+      weapons_74: 4987726698981329946
+      weapons_37: 9109090114378654661
+      weapons_3: 698664279297640794
+      weapons_39: 6339070183727964263
+      weapons_7: 853742892412031643
+      weapons_70: 3077602170192780464
+      weapons_78: -7359784732629101730
+      weapons_35: -9144315404355856836
+      weapons_65: -3318209509344148229
+      weapons_56: 6756321345216266374
+      weapons_83: -965441712312671913
+      weapons_62: 2205555829748391254
+      weapons_84: -1333196197817358094
+      weapons_16: 6321443046475953421
+      weapons_48: 82796351403726124
+      weapons_21: -1211484807944515241
+      weapons_101: 6700344862489540279
+      weapons_5: 2920547695714349933
+      weapons_67: 1429105229579479915
+      weapons_19: -6635782518697459388
+      weapons_10: -4855083040135353222
+      weapons_23: -1825381902100672638
+      weapons_49: 730065306185418244
+      weapons_66: -3842724872863601410
+      weapons_71: 591222161976700006
+      weapons_60: 8205316375199250334
+      weapons_95: -2319849771872599359
+      weapons_85: -4414978759280654867
+      weapons_9: -8508422110644630109
+      weapons_4: 2912464402848211330
+      weapons_50: -7425441122741141403
+      weapons_89: 8485984067611674822
+      weapons_11: 3975059572695951870
+      weapons_91: 2317899641212441392
+      weapons_61: -2474881562374834276
+      weapons_100: 9022899321057023968
+      weapons_72: 9055414437988535540
+      weapons_51: 9154987331259273082
+      weapons_69: 1852636489530631728
+      weapons_80: 7708253928338989308
+      weapons_86: -9069204747788495132
+      weapons_20: 1145637296735392538
+      weapons_68: 3342335176223512154
+      weapons_63: -1795126313263864185
+      weapons_90: -8868958124204428707
+      weapons_54: -197772985039708432
+      weapons_17: -7353613653143852761
+      weapons_38: 2757244013601477781
+      weapons_40: -5545751347971384733
+      weapons_57: 5845537116698209556
+      weapons_81: 5492113479279173881
+      weapons_96: -3733969374636494943
+      weapons_87: 3878528228893056540
+      weapons_93: -6008034685801074064
+      weapons_27: 781155818728307869
+      weapons_31: 7728853880080238148
+      weapons_25: 5629216859032522159
+      weapons_58: 6163231303300689012
+      weapons_18: -2639032509303485284
+      weapons_44: -5393098181117660916
+      weapons_28: 1808469803286354170
+      weapons_98: 647239543392768669
+      weapons_94: 4998491136249116849
+      weapons_88: 1083674800444532228
+      weapons_43: -7787731454986174500
+      weapons_97: 2376292037475231617
+      weapons_76: -7388535126706887160
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

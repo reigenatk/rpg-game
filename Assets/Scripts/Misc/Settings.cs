@@ -18,8 +18,8 @@ public static class Settings
     public static int idleUp;
     public static int idleDown;
 
-
-    public const float secondsPerGameSecond = 0.02f;
+    // 1 min in game = 1 sec irl (1/60)
+    public const float secondsPerGameSecond = 0.0166667f;
 
     // Inventory
     public static int playerInitialInventoryCapacity = 24;

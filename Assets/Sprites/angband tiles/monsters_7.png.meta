@@ -104,6 +104,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -113,8 +115,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -135,9 +137,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -744,6 +749,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      monsters_7_9: -1184062617075648149
+      monsters_7_13: 6764039166106988055
+      monsters_7_22: -3399392658099202591
+      monsters_7_11: 2919396485991585770
+      monsters_7_24: 1031099865883358656
+      monsters_7_21: 2713510017849476049
+      monsters_7_18: 260336568179506681
+      monsters_7_5: -6319041434911238053
+      monsters_7_8: 7316605174565581712
+      monsters_7_25: -3756387428495725432
+      monsters_7_26: 7932645128979809923
+      monsters_7_0: 7713904189903864428
+      monsters_7_15: 8256070212133171565
+      monsters_7_7: 6063204386085878916
+      monsters_7_3: -3357694230598131540
+      monsters_7_17: 1780757573762129317
+      monsters_7_1: 8570534855452306833
+      monsters_7_4: 799040604108097630
+      monsters_7_14: 2837419958376807763
+      monsters_7_16: -8369520263109444265
+      monsters_7_12: 3418885847557756855
+      monsters_7_19: 81777070659777456
+      monsters_7_23: -6290028324232228559
+      monsters_7_2: -6848027662660465797
+      monsters_7_20: 8463203447895197907
+      monsters_7_10: 3482714168340647260
+      monsters_7_6: -9020376764206602687
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

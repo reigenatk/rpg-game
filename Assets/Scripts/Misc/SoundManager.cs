@@ -42,7 +42,7 @@ public class SoundManager : MonoBehaviour
     {
         playSound((Sound)System.Enum.Parse(typeof(Sound), s));
     }
-    public void playSoundDetailed(Sound s, float volume, float pitch)
+/*    public void playSoundDetailed(Sound s, float volume, float pitch)
     {
         float oldPitch = audioSource.pitch;
         float oldVolume = audioSource.volume;
@@ -59,7 +59,7 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(GetAudioClip(s));
         audioSource.pitch = oldPitch;
         audioSource.volume = oldVolume;
-    }
+    }*/
 
     // Update is called once per frame
     public void playSound(Sound s)

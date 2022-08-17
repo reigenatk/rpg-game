@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static DialogueManager;
@@ -15,7 +16,7 @@ public class DialogueActivate : MonoBehaviour, Interactable
     // this is used for example when we want to sleep, well, we want user to see the "Go to sleep?" 
     // dialogue when its later than a certain time. But otherwise, we want it to do the usual dialogue.
     // so we should MAKE SURE TO PUT THE DIALOGUES IN A CERTAIN ORDER in the editor
-    // maybe we can do the latest ones (most restrictive) last, and so we iterate from the back of the list
+    // for now we can do the latest ones (most restrictive) last, and so we iterate from the back of the list
     [SerializeField] private List<DialogueWithTime> dialoguesToRun;
     [SerializeField] private SpriteRenderer[] dialogueImages;
 
@@ -37,12 +38,7 @@ public class DialogueActivate : MonoBehaviour, Interactable
 
     IEnumerator triggerDialogue(Player player)
     {
-        /*      levelLoader.FadeScreenOut();
-                player.disableMovement = true;
-                yield return new WaitForSeconds(1f);
-                player.setPosition(gameObject.transform.position + new Vector3(0, -2, 0));
-                player.faceUpwards();
-                player.DialogueUI.showDialogue(dialogueObject);*/
+        GameState gameState = FindObjectOfType<GameState>();
         Vector3 position = player.transform.position;
         string direction = player.getPlayerDirection();
 
@@ -70,6 +66,13 @@ public class DialogueActivate : MonoBehaviour, Interactable
 
 
         // ok now we are confirmed talking
+        // check whether the object we are talking to is human or not
+        // for now, we will do this by checking whether or not the object has a PlayerLoad script on it
+        // since only other players will have this script.
+        // if so, we gotta change the animation on the person so that they are "facing" our player
+        checkHumanFacing(direction);
+
+
         // decide which dialogue to use
         GameTime gt = FindObjectOfType<TimeManager>().gt;
         bool foundDialogue = false;
@@ -78,6 +81,9 @@ public class DialogueActivate : MonoBehaviour, Interactable
             if (foundDialogue) break;
 
             DialogueWithTime dwt = dialoguesToRun[i];
+            if (dwt.dayToPlay != gameState.getGameDay()) continue;
+
+            // if current time is later than this earliest time limit, then play it
             if (gt.compareTimes(dwt.earliestTime) == false)
             {
                 foundDialogue = true;
@@ -92,13 +98,47 @@ public class DialogueActivate : MonoBehaviour, Interactable
 
     }
 
+    public bool isAnotherPlayer()
+    {
+        return GetComponent<PlayerLoad>() != null;
+    }
+
+    // direction is the direction that OUR player is facing, so other person should be opposite.
+    private void checkHumanFacing(string direction)
+    {
+        if (isAnotherPlayer())
+        {
+            Animator animator = GetComponent<Animator>();
+            // so for example we want "Base Layer.kabowski-left-idle"
+            // down animations are just called "idle", so "kabowski-idle" 
+            string animationStateName = "";
+            switch (direction)
+            {
+                case "Left":
+                    animationStateName = "Base Layer." + gameObject.name.ToLower() + "-right-idle";
+                    break;
+                case "Right":
+                    animationStateName = "Base Layer." + gameObject.name.ToLower() + "-left-idle";
+                    break;
+                case "Down":
+                    animationStateName = "Base Layer." + gameObject.name.ToLower() + "-up-idle";
+                    break;
+                case "Up":
+                    animationStateName = "Base Layer." + gameObject.name.ToLower() + "-idle";
+                    break;
+            }
+            Debug.Log("Playing animation " + animationStateName);
+            animator.Play(animationStateName);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         isInside = true;
         if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
         {
             // player interacts with this one
-            player.Interactable = this;
+            player.interactables.Add(this);
             if (soundToPlay != null)
             {
                 GameObject.FindGameObjectWithTag("Manager").GetComponent<SoundManager>().playSound(soundToPlay);
@@ -122,10 +162,10 @@ public class DialogueActivate : MonoBehaviour, Interactable
         {
             // ok this is a bit confusing but basically its asking, is the 
             // current interactable equal to this object, if so then delete. Cuz we can 
-            // have multiple interactables in a certain moment
-            if (player.Interactable is DialogueActivate d && d == this)
+            // have multiple interactables in a certain moment so we have to check which one it is
+            if (player.interactables.Contains(this))
             {
-                player.Interactable = null;
+                player.interactables.Remove(this);
             }
         }
     }

@@ -26,9 +26,11 @@ public enum GameVariable
 {
     // this is just "hasEntered" + the name of the scene
     // make sure it matches the name of the scene in the editor, else it will fail!
-    // the hasEntered variables are just useful for first-time scene triggers. Like for instance
-    // first time upon entering commons, we should trigger a cutscene, etc.
-    hasEnteredIntroScene,
+    // the hasEntered variables are just useful for first-time scene triggers.
+    // Like for instance they help us detect our 
+    // first time upon entering commons for each day
+    // which then tells us that we should trigger a cutscene, etc.
+    hasEnteredDarkScene,
     hasEnteredBedroom,
     hasEnteredCommons,
     hasEnteredKabowskiRoom,
@@ -71,5 +73,15 @@ public enum SceneName
     KabowskiRoom,
     BrainsRoom,
     LancelotRoom,
-    IntroScene,
+    DarkScene,
+}
+
+public enum Moods
+{
+    Suicidal,
+    Unhinged,
+    Depressed,
+    Average,
+    Good,
+    LovingLife,
 }

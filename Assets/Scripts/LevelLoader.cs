@@ -18,8 +18,9 @@ public class LevelLoader : Singleton<LevelLoader>
     [SerializeField] private CinemachineVirtualCamera cam;
     [SerializeField] private Image faderImage = null;
     [SerializeField] List<SceneName> scenes;
-
     [SerializeField] List<float> orthoSizes;
+    [SerializeField] private GameObject players;
+    [SerializeField] private TimeManager timeManager;
 
     // make dictionaries manually bc unity editor doesn't support them for whatever reason
     private Dictionary<SceneName, float> sceneToStartingOrthoSize;
@@ -42,11 +43,43 @@ public class LevelLoader : Singleton<LevelLoader>
         public bool isTriggeredCutscene;
         // some extra conditions that must be either true or false
         public List<GameVariablePair> extraConditions;
+
+        public bool shouldPlayCutscene(SceneName scene)
+        {
+            GameState gameState = FindObjectOfType<GameState>();
+            // skip cutscenes that we will only trigger via Yarn + playCutscene 
+            if (isTriggeredCutscene == true)
+            {
+                return false;
+            }
+            // Debug.Log("Consindering " + c.cutsceneToPlay.ToString());
+            
+            bool isPlaying = true;
+            if (gameState.getGameDay() != dayToPlay)
+            {
+                // Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
+                return false;
+            }
+
+            // check if each condition is met. if not, set isPlaying to false
+            foreach (GameVariablePair gv in extraConditions)
+            {
+                if (gameState.getGameVariableEnum(gv.variable) != gv.desiredValue)
+                {
+                    // Debug.Log("Broken on " + gv.variable.ToString());
+                    return false;
+                }
+            }
+            return true;
+        }
     }
     [SerializeField] List<CutsceneCondtional> cutscenes;
     [SerializeField] GameState gameState;
     [SerializeField] Vector3 playerStartingPosition;
 
+    // only difference between Start() and FadeAndLoadScene() is that, Start doesn't have to unload anything
+    // and Start also has to initialize the dictionaries. Other than that they're essentially identical
+    // (at least the loading scene part) so I put that into one function called CreateScene
     private IEnumerator Start()
     {
 
@@ -74,49 +107,82 @@ public class LevelLoader : Singleton<LevelLoader>
         faderImage.color = new Color(0f, 0f, 0f, 1f);
         faderCanvasGroup.alpha = 1f;
 
-        // check if we will play any cutscenes for the starting scene
-        CutsceneCondtional cutsceneToPlayOnLoad = areWePlayingCutscene(startingSceneName);
-
-        // Start the first scene loading and wait for it to finish.
-        yield return StartCoroutine(LoadSceneAndSetActive(startingSceneName));
-
-        // If this event has any subscribers, call it.
-        EventHandler.CallAfterSceneLoadEvent();
-
-        // change camera to right place
-
-        if (GameObject.FindGameObjectWithTag("MainCamera") == null)
-        {
-            Debug.Log("Maincamera null");
-        }
-        if (cam == null)
-        {
-            Debug.Log("Cam null");
-        }
-
-
-        Debug.Log("Starting Ortho Size: " + sceneToStartingOrthoSize[startingSceneName]);
-        cam.m_Lens.OrthographicSize = sceneToStartingOrthoSize[startingSceneName];
-
-
-        // Once the scene is finished loading, start fading in.
-        StartCoroutine(Fade(0f));
-
-        // play the starting cutscene if there is one
-        if (cutsceneToPlayOnLoad != null)
-        {
-            cutsceneToPlayOnLoad.cutsceneToPlay.Play();
-        }
+        yield return StartCoroutine(CreateScene(startingSceneName, playerStartingPosition));
     }
 
     // so this acts as a "new day" kinda thing.
     [YarnCommand("goToSleep")]
     public void goToSleep()
     {
-        Debug.Log("Go to sleep");
+        Debug.Log("Going to sleep");
+        int curDay = gameState.getGameDay();
+        gameState.setGameDay(curDay + 1);
+
+        // pause the clock
+        timeManager.gameClockPaused = true;
+
+        // calculate time for new day and new energy/contentedness levels
+        float sleepPenalty = timeManager.gt.gameHour * 10;
+        Moods mood = gameState.calculateMood(-1.0f * sleepPenalty);
+        switch (mood)
+        {
+            case Moods.Suicidal:
+                timeManager.gt.advanceTime(10, 30);
+                gameState.setPlayerScore(PlayerScore.energy, 60.0f);
+                gameState.changePlayerScore(PlayerScore.contentedness, -5.0f);
+                break;
+            case Moods.Depressed:
+                timeManager.gt.advanceTime(10, 0);
+                gameState.setPlayerScore(PlayerScore.energy, 65.0f);
+                gameState.changePlayerScore(PlayerScore.contentedness, -2.5f);
+                break;
+            case Moods.Unhinged:
+                timeManager.gt.advanceTime(9, 30);
+                gameState.setPlayerScore(PlayerScore.energy, 70.0f);
+                gameState.changePlayerScore(PlayerScore.contentedness, 0.0f);
+                break;
+            case Moods.Average:
+                timeManager.gt.advanceTime(9, 0);
+                gameState.setPlayerScore(PlayerScore.energy, 80.0f);
+                gameState.changePlayerScore(PlayerScore.contentedness, 2.5f);
+                break;
+            case Moods.Good:
+                timeManager.gt.advanceTime(8, 30);
+                gameState.setPlayerScore(PlayerScore.energy, 85.0f);
+                gameState.changePlayerScore(PlayerScore.contentedness, 5.0f);
+                break;
+            case Moods.LovingLife:
+                timeManager.gt.advanceTime(8, 0);
+                gameState.setPlayerScore(PlayerScore.energy, 90.0f);
+                gameState.changePlayerScore(PlayerScore.contentedness, 7.5f);
+                break;
+        }
+
+        // reset game variables too
+        List<GameVariable> variablesToChange = new List<GameVariable>();
+        foreach (KeyValuePair<GameVariable, bool> gv in gameState.gameVariables)
+        {
+            // set all the hasEntered gamevariables to false again
+            // since its a new day, none of the rooms has been visited for this day.
+           
+            if (gv.Key.ToString().Contains("hasEntered"))
+            {
+                variablesToChange.Add(gv.Key);
+            }
+        }
+        foreach (GameVariable gv in variablesToChange)
+        {
+            gameState.gameVariables[gv] = false;
+        }
+
+        Debug.Log("Hello?");
+
+        // switch to dark scene
+        FadeAndLoadScene(SceneName.DarkScene, Vector3.zero);
+        
     }
 
-    // this just plays a cutscene, useful if we wanna do this from Yarn
+    // this just plays a cutscene (WITHOUT CHECKING ANYTHING like day and such), useful if we wanna do this from Yarn
     // also each time a scene is loaded it will check if any cutscenes need to be played
     // and it will go thru this as well.
     [YarnCommand("playCutscene")]
@@ -173,46 +239,15 @@ public class LevelLoader : Singleton<LevelLoader>
 
         // Set the newly loaded scene as the active scene (this marks it as the one to be unloaded next).
         SceneManager.SetActiveScene(newlyLoadedScene);
-
-        // if it's our first time entering the scene, mark it as visited
-        if (gameState.getGameVariable("hasEntered" + sceneName.ToString()) == false)
-        {
-            gameState.setGameVariable("hasEntered" + sceneName.ToString(), true);
-        }
     }
 
     private CutsceneCondtional areWePlayingCutscene(SceneName sceneName)
     {
         foreach (CutsceneCondtional c in CutscenesDict[sceneName])
         {
-            // skip cutscenes that we will only trigger via Yarn + playCutscene 
-            if (c.isTriggeredCutscene == true)
+            if (c.shouldPlayCutscene(sceneName))
             {
-                continue;
-            }
-            // Debug.Log("Consindering " + c.cutsceneToPlay.ToString());
-            bool isPlaying = true;
-            if (gameState.getGameDay() != c.dayToPlay)
-            {
-                Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
-                isPlaying = false;
-            }
-
-            // check if each condition is met. if not, set isPlaying to false
-            foreach (GameVariablePair gv in c.extraConditions)
-            {
-                if (gameState.getGameVariableEnum(gv.variable) != gv.desiredValue)
-                {
-                    Debug.Log("Broken on " + gv.variable.ToString());
-                    isPlaying = false;
-                    break;
-                }
-            }
-
-            // if no conditions were broken, we are playing this cutscene. Return it.
-            if (isPlaying == true)
-            {
-                return c;
+                c.cutsceneToPlay.Play();
             }
         }
         // if we can't find any cutscenes with all conditions met, then we're playing nothing
@@ -220,7 +255,7 @@ public class LevelLoader : Singleton<LevelLoader>
         return null;
     }
 
-    // This is the coroutine where the 'building blocks' of the script are put together.
+    // This is the main function that you should call to switch scene. It calls a bunch of helpers internally
     private IEnumerator FadeAndSwitchScenes(SceneName sceneName, Vector3 spawnPosition)
     {
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -235,28 +270,42 @@ public class LevelLoader : Singleton<LevelLoader>
         // Start fading to black and wait for it to finish before continuing.
         yield return StartCoroutine(Fade(1.0f));
 
-        CutsceneCondtional cutsceneToPlayOnLoad = areWePlayingCutscene(sceneName);
-
-        // Set player position if no cutscene to play, (because if cutscene then it will
-        // decide the starting location for us anyways)
-        if (cutsceneToPlayOnLoad == null)
-        {
-            Player.Instance.gameObject.transform.position = spawnPosition;
-        }
-
         //  Call before scene unload event.
         EventHandler.CallBeforeSceneUnloadEvent();
 
         // Unload the current active scene.
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 
+        yield return StartCoroutine(CreateScene(sceneName, spawnPosition));
 
+    }
+
+    // a helper function to instantiate a scene
+    public IEnumerator CreateScene(SceneName sceneName, Vector3 spawnPosition)
+    {
         // Start loading the given scene and wait for it to finish.
         yield return StartCoroutine(LoadSceneAndSetActive(sceneName));
 
         // Call after scene load event
         EventHandler.CallAfterSceneLoadEvent();
 
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        CutsceneCondtional cutsceneToPlayOnLoad = areWePlayingCutscene(sceneName);
+
+        // Set player position if no cutscene to play, (because if cutscene then it will
+        // decide the starting location for us anyways)
+        // also we make sure to put this BEFORE setting the gameVariable as sometimes cutscenes will depend
+        // on whether or not we have entered a room already
+        if (cutsceneToPlayOnLoad == null)
+        {
+            Player.Instance.gameObject.transform.position = spawnPosition;
+        }
+
+        // if it's our first time entering the scene, mark it as visited
+        if (gameState.getGameVariable("hasEntered" + sceneName.ToString()) == false)
+        {
+            gameState.setGameVariable("hasEntered" + sceneName.ToString(), true);
+        }
 
         // Debug.Log("Starting position: " + sceneToStartingCamPos[sceneName]);
         cam.transform.position = Player.Instance.gameObject.transform.position;
@@ -264,6 +313,12 @@ public class LevelLoader : Singleton<LevelLoader>
         // Debug.Log("Starting Ortho Size: " + sceneToStartingOrthoSize[sceneName]);
         cam.m_Lens.OrthographicSize = sceneToStartingOrthoSize[sceneName];
 
+        // check if we need to load in any players, and if so load them in
+        // if a cutscene is gonna play though, don't load them since the cutscene will do that
+        if (cutsceneToPlayOnLoad == null)
+        {
+            LoadPlayers(sceneName);
+        }
 
         // Start fading back in and wait for it to finish before exiting the function.
         yield return StartCoroutine(Fade(0f));
@@ -282,13 +337,40 @@ public class LevelLoader : Singleton<LevelLoader>
         }
 
         player.GetComponent<SpriteRenderer>().enabled = true;
+        player.EnableMovementAndAnimations();
+
+        // play some music if the scene demands it
+        FindObjectOfType<MusicManager>().playMusic(gameState.getGameDay(), sceneName);
 
         // play the starting cutscene if there is one
         if (cutsceneToPlayOnLoad != null)
         {
             cutsceneToPlayOnLoad.cutsceneToPlay.Play();
         }
+    }
 
+    private void LoadPlayers(SceneName sceneName)
+    {
+        // for each player, check if we should load it into this scene
+        foreach (Transform player in players.transform)
+        {
+            // Debug.Log("Considering to add player " + player.name);
+            PlayerLoad pl = player.gameObject.GetComponent<PlayerLoad>();
+            if (pl.checkAddPlayer(sceneName))
+            {
+                Debug.Log("Adding player " + player.name);
+                // if we should add player to this scene, then instantiate a copy of it and move it to that scene
+                // this would assume the scene (to put the player in) has already been loaded
+                GameObject newPlayer = Instantiate(pl.player);
+
+                // keep the same name, no (Clone) business
+                newPlayer.name = pl.player.name;
+                SceneManager.MoveGameObjectToScene(newPlayer, SceneManager.GetSceneByName(sceneName.ToString()));
+                GameObject playersObject = GameObject.Find("Players");
+                newPlayer.transform.parent = playersObject.transform;
+                newPlayer.SetActive(true);
+            }
+        }
     }
 
 
@@ -304,6 +386,7 @@ public class LevelLoader : Singleton<LevelLoader>
         }
     }
 
+    // used to go from black scene with just dialogue, to bedroom
     [YarnCommand("yarnLoadScene")]
     public void YarnLoadScene(string sceneName, float playerX, float playerY)
     {

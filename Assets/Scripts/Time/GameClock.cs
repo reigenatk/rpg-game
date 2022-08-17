@@ -55,7 +55,7 @@ public class GameClock : MonoBehaviour
         {
             gameHourString = "12";
         }
-        string time = gameHour.ToString() + " : " + minute + ampm;
+        string time = gameHourString + " : " + minute + ampm;
 
 
         timeText.SetText(time);

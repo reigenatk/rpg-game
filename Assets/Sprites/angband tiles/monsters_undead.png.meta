@@ -206,6 +206,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -215,8 +217,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -237,9 +239,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -1560,6 +1565,68 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      monsters_undead_49: 1077633472842104747
+      monsters_undead_40: 5703928126150724514
+      monsters_undead_22: 3544005370598886455
+      monsters_undead_37: 2522909445245379302
+      monsters_undead_44: 4784027989600355355
+      monsters_undead_15: -5742987242829690592
+      monsters_undead_48: 3241607914798749869
+      monsters_undead_27: 4110411888168239174
+      monsters_undead_53: -1600369061394824058
+      monsters_undead_29: -3539350174561322783
+      monsters_undead_55: 6403069148283251607
+      monsters_undead_9: 8781604179907441205
+      monsters_undead_36: -8669612488963355356
+      monsters_undead_2: -4367903653153481051
+      monsters_undead_25: -1084527946652022293
+      monsters_undead_4: 4327901361074681701
+      monsters_undead_38: 4159062479251922820
+      monsters_undead_35: -649271991011482933
+      monsters_undead_42: -3499808648443489045
+      monsters_undead_21: -4298210667267726997
+      monsters_undead_24: -1971123651948556808
+      monsters_undead_41: -6802059957132145521
+      monsters_undead_7: 1398733605804059835
+      monsters_undead_32: -2415079906499234651
+      monsters_undead_60: -8857860661099259097
+      monsters_undead_52: 4992116939047663208
+      monsters_undead_54: -3694652277461920742
+      monsters_undead_39: -8822544859055797256
+      monsters_undead_57: -98295544048649070
+      monsters_undead_18: -6484628683553147725
+      monsters_undead_34: -753442354632192817
+      monsters_undead_26: 8372501751763393423
+      monsters_undead_10: 4661662092852737701
+      monsters_undead_17: -3506857034557127577
+      monsters_undead_0: 450041034969649271
+      monsters_undead_47: 6800725899854854062
+      monsters_undead_46: -3435704698455181505
+      monsters_undead_45: 5418107472683597629
+      monsters_undead_59: -5442002227399434482
+      monsters_undead_56: 999889574211291863
+      monsters_undead_43: 5462097852298766233
+      monsters_undead_3: -3547874762037457178
+      monsters_undead_6: 8158235235185453451
+      monsters_undead_50: 6931543652032802190
+      monsters_undead_5: 8303001969615616615
+      monsters_undead_16: 5066917100541746199
+      monsters_undead_31: 6444553074161912630
+      monsters_undead_14: -3608398590028876474
+      monsters_undead_20: -7081780261549622685
+      monsters_undead_1: 8229115697312471744
+      monsters_undead_19: 720755040939292176
+      monsters_undead_28: 7999001609324445818
+      monsters_undead_23: 2366060886869330766
+      monsters_undead_30: 939609321955128810
+      monsters_undead_33: 4713319581182847167
+      monsters_undead_13: -6622698080137056420
+      monsters_undead_11: 1373731403924601912
+      monsters_undead_12: 6470853586065934419
+      monsters_undead_58: -326517389610891333
+      monsters_undead_8: 413429830403293100
+      monsters_undead_51: -4013660713251154747
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

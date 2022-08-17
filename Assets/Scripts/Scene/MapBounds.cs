@@ -20,11 +20,16 @@ public class MapBounds : MonoBehaviour
     /// </summary>
     void DoSwitchBoundingShape()
     {
-        PolygonCollider2D p = GameObject.FindGameObjectWithTag(Tags.BoundsConfiner).GetComponent<PolygonCollider2D>();
-        CinemachineConfiner c = GetComponent<CinemachineConfiner>();
-        c.m_BoundingShape2D = p;
+        GameObject p = GameObject.FindGameObjectWithTag(Tags.BoundsConfiner);
+        if (p != null)
+        {
+            PolygonCollider2D pc2d = p.GetComponent<PolygonCollider2D>();
+            CinemachineConfiner c = GetComponent<CinemachineConfiner>();
+            c.m_BoundingShape2D = pc2d;
 
-        // clear cache
-        c.InvalidatePathCache();
+            // clear cache
+            c.InvalidatePathCache();
+        }
+       
     }
 }

@@ -10,12 +10,11 @@ public class Player : Singleton<Player>
     private Camera mainCamera;
 
     // make something called Interactable that can be get and setted.
-    [SerializeField]  public Interactable Interactable { get; set; }
+    [SerializeField]  public List<Interactable> interactables { get; set; }
 
     public float RunningSpeed, WalkingSpeed, speed;
     public float xInput;
     public float yInput;
-    Transform GFX;
 
     Vector2 targetPos;
     LayerMask obstacleMask;
@@ -27,10 +26,12 @@ public class Player : Singleton<Player>
     public int sanity;
     SoundManager sm;
     [SerializeField] GameObject gameUI;
+    [SerializeField] GameState gameState;
     protected override void Awake()
     {
         base.Awake();
 
+        interactables = new List<Interactable>();
         // get the camera on the player like so
         mainCamera = Camera.main;
     }
@@ -38,7 +39,6 @@ public class Player : Singleton<Player>
     // Start is called before the first frame update
     void Start()
     {
-        GFX = GetComponentInChildren<SpriteRenderer>().transform;
         animator = GetComponent<Animator>();
 
         // check for player collisions against these layers
@@ -50,7 +50,7 @@ public class Player : Singleton<Player>
     void Update()
     {
         // can't move if talking to someone or if in cutscene
-        if (disableMovement || FindObjectOfType<GameState>().getGameVariableEnum(GameVariable.isCutscenePlaying))
+        if (disableMovement || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying))
         {
             return;
         }
@@ -64,7 +64,21 @@ public class Player : Singleton<Player>
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Interactable.Interact(this);
+            // if there's nothing to interact with, ignore this command
+            if (interactables.Count != 0)
+            {
+                // go thru all possible interactables 
+                // we prioritize players first, then items
+                foreach (Interactable i in interactables)
+                {
+                    if (i.isAnotherPlayer())
+                    {
+                        // prioritize it
+                        i.Interact(this);
+                    }
+                }
+                interactables[0].Interact(this);
+            }
         }
     }
 
@@ -116,19 +130,19 @@ public class Player : Singleton<Player>
     GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
 
         string playerDirection = "";
-        if (animationState.IsName("IdleUp"))
+        if (animationState.IsName("IdleUp") || animationState.IsName("WalkUp") || animationState.IsName("SprintUp"))
         {
             playerDirection = "Up";
         }
-        else if (animationState.IsName("IdleDown"))
+        else if (animationState.IsName("IdleDown") || animationState.IsName("WalkDown") || animationState.IsName("SprintDown"))
         {
             playerDirection = "Down";
         }
-        else if (animationState.IsName("IdleLeft"))
+        else if (animationState.IsName("IdleLeft") || animationState.IsName("WalkLeft") || animationState.IsName("SprintLeft"))
         {
             playerDirection = "Left";
         }
-        else if (animationState.IsName("IdleRight"))
+        else if (animationState.IsName("IdleRight") || animationState.IsName("WalkRight") || animationState.IsName("SprintRight"))
         {
             playerDirection = "Right";
         }
@@ -170,12 +184,6 @@ public class Player : Singleton<Player>
         isWalking = false;
         xInput = 0.0f;
         yInput = 0.0f;
-    }
-
-    public void faceUpwards()
-    {
-        ResetTriggers();
-        setAnimationState("Idle.IdleUp");
     }
 
     public Vector3 GetPlayerViewportPosition()

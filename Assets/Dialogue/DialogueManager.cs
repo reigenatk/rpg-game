@@ -34,6 +34,7 @@ public class DialogueManager : MonoBehaviour
     {
         public string dialogueToPlay;
         public GameTime earliestTime;
+        public int dayToPlay;
     }
 
     // we're gonna use strings instead

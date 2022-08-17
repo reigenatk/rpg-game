@@ -236,6 +236,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -245,8 +247,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -267,9 +269,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -1800,6 +1805,78 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      monsters_uniques_16: 6576320426703089532
+      monsters_uniques_45: 4582290573170237343
+      monsters_uniques_52: 1689547953040370337
+      monsters_uniques_59: -8077816299054196278
+      monsters_uniques_41: 5066842459754463952
+      monsters_uniques_46: 2201316629787753448
+      monsters_uniques_19: -1462535841749263906
+      monsters_uniques_33: 6087854843379178368
+      monsters_uniques_47: 4989172601792568608
+      monsters_uniques_20: -1757152899357030779
+      monsters_uniques_8: -2513476055925529009
+      monsters_uniques_40: -3699429609819824140
+      monsters_uniques_28: -7186517138304974942
+      monsters_uniques_6: 454356172375024129
+      monsters_uniques_66: 509231019258306946
+      monsters_uniques_70: 2941607531395776822
+      monsters_uniques_65: 2812894074178058818
+      monsters_uniques_22: -2748446864259389650
+      monsters_uniques_18: 5194000716002071481
+      monsters_uniques_15: -7727650204497513576
+      monsters_uniques_61: 1574869310146878139
+      monsters_uniques_21: -1892281764701265002
+      monsters_uniques_44: 2808121029704897545
+      monsters_uniques_1: 9077110660287688592
+      monsters_uniques_39: -462365030380876780
+      monsters_uniques_24: 1971204149025866158
+      monsters_uniques_9: 3905296126014377709
+      monsters_uniques_43: -2129557288070014384
+      monsters_uniques_54: 8131497970360564240
+      monsters_uniques_32: 2954015040129300963
+      monsters_uniques_56: -450056453135750790
+      monsters_uniques_7: -5405005236114236186
+      monsters_uniques_57: -4336224911104124719
+      monsters_uniques_55: -4514382764133514238
+      monsters_uniques_37: 3316032060224301291
+      monsters_uniques_68: -7098980422152033172
+      monsters_uniques_12: 2650171719070642555
+      monsters_uniques_29: 7659581131228058728
+      monsters_uniques_48: 7804291973045557441
+      monsters_uniques_36: 2798894207691956634
+      monsters_uniques_58: -4422460672522407384
+      monsters_uniques_2: -6109974657680333104
+      monsters_uniques_42: 8182781724004106401
+      monsters_uniques_38: -1473634989797866722
+      monsters_uniques_17: 4549106404748663654
+      monsters_uniques_31: -7309561096128028859
+      monsters_uniques_25: 136983707285854842
+      monsters_uniques_64: -100122527807094176
+      monsters_uniques_60: 7040955920992600012
+      monsters_uniques_63: 1130198861124802625
+      monsters_uniques_10: 3673389696240561457
+      monsters_uniques_3: -3894868877224363685
+      monsters_uniques_13: 4702226660811824200
+      monsters_uniques_50: 6539233776325557480
+      monsters_uniques_27: -6329777415668885675
+      monsters_uniques_49: -6457900135362781562
+      monsters_uniques_4: 3611047181543669833
+      monsters_uniques_14: -201406739810600422
+      monsters_uniques_26: -235807114602268247
+      monsters_uniques_11: -1645983796933234629
+      monsters_uniques_34: -2654064585711215692
+      monsters_uniques_62: 2150997392360731786
+      monsters_uniques_30: 2716652724991425751
+      monsters_uniques_5: -654483822698435511
+      monsters_uniques_23: -2665888904942640820
+      monsters_uniques_35: -6878747392737076454
+      monsters_uniques_0: 7499975951977038790
+      monsters_uniques_67: 489441219832505269
+      monsters_uniques_69: 6762049904327870655
+      monsters_uniques_51: 3727592861684691176
+      monsters_uniques_53: -2917982148693732139
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
