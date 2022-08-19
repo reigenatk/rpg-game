@@ -28,6 +28,7 @@ public class GameState : MonoBehaviour
     [SerializeField] TimeManager timeManager;
     public Moods playerMood;
     private int gameDay = 1;
+    public int numSecondsAwake = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -141,6 +142,7 @@ public class GameState : MonoBehaviour
                 contentednessBar.fillAmount = percentage;
                 // contentednessText.text = sformatted;
                 break;
+             
         }
     }
 

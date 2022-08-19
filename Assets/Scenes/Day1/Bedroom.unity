@@ -162,6 +162,7 @@ MonoBehaviour:
       gameMinute: 0
       gameSecond: 0
     dayToPlay: 1
+    extraConditions: []
   dialogueImages:
   - {fileID: 0}
   soundToPlay: 0
@@ -441,6 +442,7 @@ MonoBehaviour:
       gameMinute: 0
       gameSecond: 0
     dayToPlay: 1
+    extraConditions: []
   dialogueImages: []
   soundToPlay: 3
 --- !u!61 &468123721
@@ -476,6 +478,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1703288275}
     m_Modifications:
+    - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2544544162196667748, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
       propertyPath: m_Size.x
@@ -629,12 +666,12 @@ PrefabInstance:
     - target: {fileID: 3090238011185596429, guid: 954812e9c80a79d45bb2978bfa182bcd,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: -3.0652251
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 3090238011185596429, guid: 954812e9c80a79d45bb2978bfa182bcd,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: 3.1415396
+      value: 3.111087
       objectReference: {fileID: 0}
     - target: {fileID: 3090238011185596429, guid: 954812e9c80a79d45bb2978bfa182bcd,
         type: 3}
@@ -649,12 +686,12 @@ PrefabInstance:
     - target: {fileID: 3090238011185596429, guid: 954812e9c80a79d45bb2978bfa182bcd,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: 4.0806623
+      value: 4.047043
       objectReference: {fileID: 0}
     - target: {fileID: 3090238011185596429, guid: 954812e9c80a79d45bb2978bfa182bcd,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: -6.0197887
+      value: -6.160929
       objectReference: {fileID: 0}
     - target: {fileID: 3090238011185596429, guid: 954812e9c80a79d45bb2978bfa182bcd,
         type: 3}
@@ -1181,12 +1218,16 @@ MonoBehaviour:
       gameMinute: 0
       gameSecond: 0
     dayToPlay: 1
+    extraConditions: []
   - dialogueToPlay: D1_Bedroom_Bed_Gotosleep
     earliestTime:
-      gameHour: 23
+      gameHour: 0
       gameMinute: 0
       gameSecond: 0
     dayToPlay: 1
+    extraConditions:
+    - variable: 8
+      desiredValue: 1
   dialogueImages: []
   soundToPlay: 0
 --- !u!212 &1737711211

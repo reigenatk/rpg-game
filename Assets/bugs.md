@@ -16,4 +16,6 @@ Fix: Took me like 3 hrs but I figured it out, basically my Univeral Rendering Pi
 Bug: Characters runs straight thru walls!
 Fix: Change the fixedTimeStep to 0.005 in the Project Settings, check out [this thread](https://forum.unity.com/threads/what-are-the-necessary-settings-to-prevent-objects-passing-through-each-other-at-high-speeds.384519/)
 
+Bug: Cinemachine cam keeps snapping randomly
+Fix: Make sure Bounds Confiner is a rectangle! Even if its a little bit off, it will fail and have this bug. [Here](https://www.reddit.com/r/Unity3D/comments/9ubpur/cinemachine_camera_jumps_around_how_to_fix/).
 

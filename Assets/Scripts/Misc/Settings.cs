@@ -20,6 +20,7 @@ public static class Settings
 
     // 1 min in game = 1 sec irl (1/60)
     public const float secondsPerGameSecond = 0.0166667f;
+    public const int numSecondsAwakeMandatory = 14 * 3600;
 
     // Inventory
     public static int playerInitialInventoryCapacity = 24;

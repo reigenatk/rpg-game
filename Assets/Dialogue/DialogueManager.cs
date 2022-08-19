@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using static GameState;
 using static TimeManager;
 
 public class DialogueManager : MonoBehaviour
@@ -35,6 +36,7 @@ public class DialogueManager : MonoBehaviour
         public string dialogueToPlay;
         public GameTime earliestTime;
         public int dayToPlay;
+        public List<GameVariablePair> extraConditions;
     }
 
     // we're gonna use strings instead

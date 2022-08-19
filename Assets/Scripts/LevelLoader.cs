@@ -12,6 +12,7 @@ using Yarn.Unity;
 
 public class LevelLoader : Singleton<LevelLoader>
 {
+    public Vector3 defaultSceneLocation = new Vector3(-69.0f, -69.0f, 0.0f);
     private bool isFading;
     [SerializeField] private float fadeDuration = 1f;
     [SerializeField] private CanvasGroup faderCanvasGroup = null;
@@ -53,7 +54,7 @@ public class LevelLoader : Singleton<LevelLoader>
                 return false;
             }
             // Debug.Log("Consindering " + c.cutsceneToPlay.ToString());
-            
+
             bool isPlaying = true;
             if (gameState.getGameDay() != dayToPlay)
             {
@@ -75,7 +76,26 @@ public class LevelLoader : Singleton<LevelLoader>
     }
     [SerializeField] List<CutsceneCondtional> cutscenes;
     [SerializeField] GameState gameState;
-    [SerializeField] Vector3 playerStartingPosition;
+
+    [System.Serializable]
+    public class SceneStartingPositions {
+        public SceneName scene;
+        public Vector3 startingPosition;
+    }
+    [SerializeField] List<SceneStartingPositions> sceneStartingPositions;
+
+    public Vector3 getSceneStartingLocation(SceneName s)
+    {
+        foreach (SceneStartingPositions ss in sceneStartingPositions)
+        {
+            if (ss.scene == s)
+            {
+                return ss.startingPosition;
+            }
+        }
+        // shouldn't get to this point, since in the editor we should give each scene its own starting default spot
+        return Vector3.zero;
+    }
 
     // only difference between Start() and FadeAndLoadScene() is that, Start doesn't have to unload anything
     // and Start also has to initialize the dictionaries. Other than that they're essentially identical
@@ -86,8 +106,8 @@ public class LevelLoader : Singleton<LevelLoader>
         sceneToStartingOrthoSize = new Dictionary<SceneName, float>();
         CutscenesDict = new Dictionary<SceneName, List<CutsceneCondtional>>();
 
-        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        player.transform.position = playerStartingPosition;
+        // get the default starting position for this scene
+        Vector3 startingPosition = getSceneStartingLocation(startingSceneName);
 
         // make the dictionary because untiy can't make dictionaries
         for (int i = 0; i < scenes.Count; i++)
@@ -107,7 +127,7 @@ public class LevelLoader : Singleton<LevelLoader>
         faderImage.color = new Color(0f, 0f, 0f, 1f);
         faderCanvasGroup.alpha = 1f;
 
-        yield return StartCoroutine(CreateScene(startingSceneName, playerStartingPosition));
+        yield return StartCoroutine(CreateScene(startingSceneName, startingPosition));
     }
 
     // so this acts as a "new day" kinda thing.
@@ -118,8 +138,12 @@ public class LevelLoader : Singleton<LevelLoader>
         int curDay = gameState.getGameDay();
         gameState.setGameDay(curDay + 1);
 
-        // pause the clock
+        // pause the clock so we don't continue to leech energy, contentedness, etc.
         timeManager.gameClockPaused = true;
+
+        // disable UI
+        GameUI gameUI = FindObjectOfType<GameUI>();
+        gameUI.disableUI();
 
         // calculate time for new day and new energy/contentedness levels
         float sleepPenalty = timeManager.gt.gameHour * 10;
@@ -159,26 +183,24 @@ public class LevelLoader : Singleton<LevelLoader>
         }
 
         // reset game variables too
-        List<GameVariable> variablesToChange = new List<GameVariable>();
+        List<GameVariable> variablesToChangeToFalse = new List<GameVariable>();
         foreach (KeyValuePair<GameVariable, bool> gv in gameState.gameVariables)
         {
-            // set all the hasEntered gamevariables to false again
-            // since its a new day, none of the rooms has been visited for this day.
            
-            if (gv.Key.ToString().Contains("hasEntered"))
+            if (gv.Key.ToString().Contains("hasEntered") || gv.Key.ToString() == "canPlayerSleep")
             {
-                variablesToChange.Add(gv.Key);
+                variablesToChangeToFalse.Add(gv.Key);
             }
         }
-        foreach (GameVariable gv in variablesToChange)
+        // set all the hasEntered gamevariables to false again
+        // since its a new day, none of the rooms has been visited for this day.
+        foreach (GameVariable gv in variablesToChangeToFalse)
         {
             gameState.gameVariables[gv] = false;
         }
 
-        Debug.Log("Hello?");
-
         // switch to dark scene
-        FadeAndLoadScene(SceneName.DarkScene, Vector3.zero);
+        FadeAndLoadScene(SceneName.DarkScene, defaultSceneLocation);
         
     }
 
@@ -247,7 +269,7 @@ public class LevelLoader : Singleton<LevelLoader>
         {
             if (c.shouldPlayCutscene(sceneName))
             {
-                c.cutsceneToPlay.Play();
+                return c;
             }
         }
         // if we can't find any cutscenes with all conditions met, then we're playing nothing
@@ -313,6 +335,7 @@ public class LevelLoader : Singleton<LevelLoader>
         // Debug.Log("Starting Ortho Size: " + sceneToStartingOrthoSize[sceneName]);
         cam.m_Lens.OrthographicSize = sceneToStartingOrthoSize[sceneName];
 
+
         // check if we need to load in any players, and if so load them in
         // if a cutscene is gonna play though, don't load them since the cutscene will do that
         if (cutsceneToPlayOnLoad == null)
@@ -339,12 +362,14 @@ public class LevelLoader : Singleton<LevelLoader>
         player.GetComponent<SpriteRenderer>().enabled = true;
         player.EnableMovementAndAnimations();
 
+
         // play some music if the scene demands it
         FindObjectOfType<MusicManager>().playMusic(gameState.getGameDay(), sceneName);
 
         // play the starting cutscene if there is one
         if (cutsceneToPlayOnLoad != null)
         {
+            Debug.Log("Playing cutscene " + cutsceneToPlayOnLoad.ToString());
             cutsceneToPlayOnLoad.cutsceneToPlay.Play();
         }
     }
@@ -381,14 +406,22 @@ public class LevelLoader : Singleton<LevelLoader>
         // If a fade isn't happening then start fading and switching scenes.
         if (!isFading)
         {
-            Debug.Log("Loading new scene" + sceneName);
+            Debug.Log("Loading new scene " + sceneName);
+            if (spawnPosition == defaultSceneLocation)
+            {
+                // then use the default scene spawn point
+                spawnPosition = getSceneStartingLocation(sceneName);
+                Debug.Log("Spawn position is now " + spawnPosition);
+            }
             StartCoroutine(FadeAndSwitchScenes(sceneName, spawnPosition));
+            return;
         }
     }
 
     // used to go from black scene with just dialogue, to bedroom
+    // also if we don't specify a specific location it will assume to use the default location
     [YarnCommand("yarnLoadScene")]
-    public void YarnLoadScene(string sceneName, float playerX, float playerY)
+    public void YarnLoadScene(string sceneName, float playerX = -69.0f, float playerY = -69.0f)
     {
         Vector3 playerSpawn = new Vector3(playerX, playerY, 0);
         FadeAndLoadScene((SceneName)System.Enum.Parse(typeof(SceneName), sceneName), playerSpawn);

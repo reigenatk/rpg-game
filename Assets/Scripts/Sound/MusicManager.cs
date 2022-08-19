@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class MusicManager : MonoBehaviour
 {
@@ -22,8 +23,12 @@ public class MusicManager : MonoBehaviour
     {
         public GameObject music;
         public List<Constraints> conditions;
+
+        // is the music only triggerable via code
+        public bool isTriggerable;
         public bool checkConditions(int day, SceneName scene)
         {
+            if (isTriggerable) return false;
             foreach (Constraints c in conditions)
             {
                 if (c.day == day && c.sceneName == scene)
@@ -37,8 +42,30 @@ public class MusicManager : MonoBehaviour
     }
 
     [SerializeField] List<Music> musicToPlay;
-    private void Start()
+
+    [YarnCommand("stopAllMusic")]
+    public void stopAllMusic()
     {
+        foreach (Music m in musicToPlay)
+        {
+            if (m.music.GetComponent<AudioSource>().isPlaying)
+            {
+                m.music.GetComponent<AudioSource>().Stop();
+            }
+        }
+    }
+
+    // arg is the name of the gameobject under Music Object in persistant scene
+    [YarnCommand("playMusicName")]
+    public void playMusicName(string nameOfMusicToPlay)
+    {
+        foreach (Music m in musicToPlay)
+        {
+            if (m.music.name == nameOfMusicToPlay)
+            {
+                m.music.GetComponent<AudioSource>().Play();
+            }
+        }
     }
 
     // this will be called each time we load a new scene (from LevelLoader)
@@ -68,7 +95,8 @@ public class MusicManager : MonoBehaviour
                 {
                     if (curAudioSource != null)
                     {
-                        curAudioSource.Pause();
+                        // can do Pause() here instead if we want themes to pick up where they left off.
+                        curAudioSource.Stop();
                     }
                     m.music.GetComponent<AudioSource>().Play();
                     curAudioObject = m.music;
@@ -76,6 +104,11 @@ public class MusicManager : MonoBehaviour
                 }
             }
         }
+
+        // if we get here it means we found no suitable songs
+        // so just stop the current song, this scene should be silent
+        stopAllMusic();
+        return;
     }
 
 }

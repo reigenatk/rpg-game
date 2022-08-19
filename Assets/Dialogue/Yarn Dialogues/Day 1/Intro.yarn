@@ -1,30 +1,30 @@
 ﻿title: TrainStation
 ---
-Mom: I'm going to miss you so much, honey.
+Mom: I'm going to miss you so much, son.
+Your mother gives you a kiss on the cheek.
+It's a bit embarassing, because you are 20 years old.
 -> Me too...
-	Your mother gives you a kiss on the cheek.
-	It's a bit embarassing, because you are 20 years old.
 -> I won't miss you.
 	<<jump MomCrying>>
 -> ...
 Dad: Stay safe, okay?
+Your father pats you on the back.
+He's trying to get you to stop slouching.
+Something he's failed to correct, since you still have terrible posture.
 -> I will...
-	Your father pats you on the back.
-	He's trying to get you to stop slouching.
 -> Shut up.
 	<<jump DadYelling>>
 -> ...
 Dad: Make sure to call home often.
+Mom: Of course, only when you have time!
 -> No guarantees...
-	Mom: Of course, only when you have time!
-	Mom: We wouldn't want to bother our only son!
--> I'd rather jump off a bridge than call you.
+-> I'd rather jump off a bridge than call you two.
 	<<jump DadYelling>>
 -> ...
 Mom: And try to find a girlfriend!
+Dad: Remember, girls love capable man.
+Dad: Study harder. Find studious girl.
 -> I'll do my best...
-	Dad: Remember, girls love a capable man.
-	Dad: Speak confidently, and act natural.
 -> Can you stop talking already?
 	<<jump MomCrying>>
 -> ...
@@ -41,7 +41,7 @@ It's going to be a long ride.
 title: MomCrying
 ---
 	Your mom starts to sob. Your father is mad.
-	Dad: What the HELL was that for?
+	Dad: What da HELL was that for?
 	Dad grabs you by the collar as you try to leave.
 	Dad: Apologize to your mother, RIGHT NOW!.
 	<<playSoundString Manager TrainWhistle>>
@@ -54,11 +54,11 @@ title: MomCrying
 
 title: DadYelling
 ---
-	Your dad's face starts to turn red. You've really done it this time.
+	Your dad's face starts to turn violent. You've really done it this time.
 	ohfuck.jpeg
 	Dad: what the fuck did you just say to me?
 	Your mother tries to calm your dad down.
-	Mom: Please Paul, not here. There's people watching.
+	Mom: Please, not here. There's people watching.
 	Miraculously, it seems to work this time.
 	Dad: Get the hell out of my sight.
 	You board the train.
@@ -96,5 +96,5 @@ You slowly unpack everything...
 <<playSoundString Manager Boxes>>
 <<wait 5>>
 
-<<yarnLoadScene LevelLoader Bedroom 0.0 0.0>>
+<<yarnLoadScene LevelLoader Bedroom>>
 ===

@@ -42,6 +42,8 @@ Penalties are for example, sleeping longer (which is a disadvantage in this game
     - Energy refilled to 90%
     - +7.5% on Contentedness
 
+Also when determining earliest time that player can sleep, each player **must be awake at least for 14? (haven't decided, maybe 15 or 16) hours** before they can sleep. 
+So for example if you are doing well, 8am+14hrs = 10pm is earliest you can sleep. Or if you are depressed, you wake up at say noon, then 12+14 = 2am is earliest you can sleep (which compounds punishments).
 
 # Bedtime Penalties
 Every hour past 1am is +10 onto previous, starting at 10. So if you sleep between 1am-2am that's -10 pts, then -20 for 2am-3am, then -30 (3am-4am), -40 (4am-5am), -50 for (5am-6am), -60 for 6am-7am, and at 7am you will have pulled the all-nighter so we will advance game day (for fun, maybe we could do like from 7am-noon you lose energy at 2x the rate. We want the player to crash in middle of day as penalty for doing allnighter)
@@ -61,3 +63,15 @@ Added a mechanism to consider adding Players, each time a scene is loaded
 Updated project to 2021.3
 Fixed a lot of broken crap like pivots on the players
 Added multiple Interactables functionality on the Player
+
+# 8/17/22
+- Redid all the dialogue canvas related stuff (canvas now looks good, basically I deleted all the vertical layout group shit since it wasn't working and caused a huge headache), so now the game should look roughly OK on all resolutions/ all screen sizes, thanks to Canvas Scaler. 
+
+- Fixed bounds confiner bug
+
+- Added a "default spawn location" for certain scenes like DarkScene and Commons, so that when we call loadScene without any arguments, it will by default use certain starting points for both the player and the camera. For example, whenever we switch to Darkscene, both player and camera should switch to 0 -50 0, and so I set default position for Darkscene to that location.
+
+# 8/18/22
+- Finished the rough draft of the Night 1 Dream, also fixed some strange bugs. Still has a weird bug where its not running a Yarn node despite the name being correct, and the fix (for now) was to put it in a different .yarn file. But oh well.
+
+Probably work on composing a theme song for day 1 tmrw, as well as maybe testing out of energy mechanics (right now not working)

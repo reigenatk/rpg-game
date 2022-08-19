@@ -120,6 +120,12 @@ public class TimeManager : Singleton<TimeManager>
     {
         gt.gameSecond++;
         totalGameSeconds++;
+        gameState.numSecondsAwake++;
+        // Debug.Log(gameState.getGameVariable("canPlayerSleep"));
+        if (gameState.numSecondsAwake > Settings.numSecondsAwakeMandatory && gameState.getGameVariable("canPlayerSleep") == false)
+        {
+            gameState.setGameVariable("canPlayerSleep", true);
+        }
 
         gameState.playerMood = gameState.calculateMood();
 

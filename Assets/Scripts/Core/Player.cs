@@ -116,7 +116,7 @@ public class Player : Singleton<Player>
         // this is to avoid us making footstep noises when animator is moving around?
 
         /*if (FindObjectOfType<GameState>().getGameVariableEnum(GameVariable.isCutscenePlaying) == true) return;*/
-        sm.playSound(SoundManager.Sound.WalkingSound);
+        sm.playSoundOneShot(SoundManager.Sound.WalkingSound);
     }
 
     public void setAnimationState(string animationName)

@@ -19,4 +19,15 @@ public class GameUI : MonoBehaviour
     {
         playerBars.SetActive(true);
     }
+    
+    public void disableUI()
+    {
+        gameClock.SetActive(false);
+        playerBars.SetActive(false);
+    }
+    public void enableUI()
+    {
+        gameClock.SetActive(true);
+        playerBars.SetActive(true);
+    }
 }

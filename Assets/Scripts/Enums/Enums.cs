@@ -37,8 +37,14 @@ public enum GameVariable
     hasEnteredBrainsRoom,
     hasEnteredBathroomWTF,
     hasEnteredLancelotRoom,
+
+    // use this to know whether to enable player anims or not
     isCutscenePlaying,
+    // has the player stayed up long enough so that sleeping is available?
+    canPlayerSleep, 
+    
 }
+
 
 public enum PlayerScore
 {
@@ -47,6 +53,7 @@ public enum PlayerScore
     social,
     energy,
 }
+
 
 public enum ItemType
 {

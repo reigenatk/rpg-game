@@ -1,23 +1,109 @@
 title: D2_Lancelot_Commons
 ---
-Heylo, Steven, my friend.
-How vas your summer?
+Lancelot: Heylo, Steven, my friend.
+Lancelot: How vas your summer?
 -> Pretty good, thanks for asking.
-    Gud to hear, my friend.
+    Lancelot: Gud to hear, my friend.
     -> How was your summer?
-        Vury gud. I go back to Siberia, my home.
-        I drink lot of vodka and play csgo
+        Lancelot: Vury gud. I go back to Siberia, my home.
+        Lancelot: I drink lot of vodka and play csgo
         <<wait 1>>
-        I am glad to be back, Steven
+        Lancelot: I am glad to be back, Steven
         <<wait 1>>
-        Although I will miss my pet bear, Gasha.
+        Lancelot: Although I will miss my pet bear, Gasha.
     -> Talk to you later.
-        Goodbye.
+        Lancelot: Goodbye.
 -> Terrible.
-    Ah, Blyat. 
-    прости за это. School year vill be better.
-    Hopevully, ve can see each other more offen.
-    Last year I did not get chance to talk to you much.
+    Lancelot: Ah, Blyat. 
+    Lancelot: прости за это. School year vill be better.
+    Lancelot: Hopevully, ve can see each other more offen.
+    Lancelot: Last year I did not get chance to talk to you much.
     <<wait 1>>
-    Have you talk to others yet? I zink that zey are in zeir rooms.
+    Lancelot: Have you talk to others yet? I zink that zey are in zeir rooms.
+===
+
+title: D2_Sleep
+---
+<<playSoundString Manager NotBirthdaySong>>
+<<wait 17>>
+<<wait 2>>
+<<playSoundString Manager CandlesBlow>>
+<<wait 3>>
+A candle with the number "10" on it, is blown out.
+<<playMusicName MusicObject RestaurantAmbience>>
+<<wait 4>>
+The cake is okay. Your parents always order the same cake, so you know exactly what it will taste like.
+Out of the corner of your eye, you see something.
+Ralph is now waving goodbye.
+<<wait 1>>
+Ralph: Happy birthday, Steven!
+<<wait 1>>
+He follows his mother out of the buffet.
+<<wait 1>>
+A few more minutes pass.
+Vincent: Thanks for inviting us over!
+Josh: This buffet was the best!
+<<wait 1>>
+The twins and their mother wave as they leave.
+<<wait 1>>
+It's just you and your parents now.
+<<wait 1>>
+Mom: Alright Steven, let's get ready to go.
+Dad: I agree, you got school tomorrow.
+<<wait 2>>
+You exit the buffet with them, into the dark, starry parking lot.
+<<stopAllMusic MusicObject>>
+<<playSoundString Manager OpenShopDoor>>
+<<wait 3>>
+<<playMusicName MusicObject ParkingLotAmbience>>
+<<wait 2>>
+You start to cry.
+<<wait 2>>
+Mom: Why you crying?
+<<wait 2>>
+You try to stop, but the tears keep coming.
+<<wait 2>>
+Dad: Was food not good enough?
+<<wait 1>>
+...
+<<wait 2>>
+Mom: Don't be ungrateful.
+<<wait 2>>
+You're sitting on the curb.
+<<wait 2>>
+Dad: Steven! Get up this instant. Don't throw a tantrum on your birthday!
+Your mom holds up a hand as if to signal your dad, "not now".
+She puts a hand on your shoulder.
+<<wait 1>>
+Mom: Tell me what's wrong, honey?
+<<wait 3>>
+Steven: I don't want to get older.
+<<wait 2>>
+Your mom and dad look at each other, surprised.
+Dad: Why is that?
+<<wait 1>>
+Steven: I don't want to die.
+<<wait 1>>
+Your parents start to laugh. It doesn't make you feel any better.
+<<wait 1>>
+Mom: That's something you shouldn't worry about right now.
+Steven: Why? Everybody dies, right?
+Dad: You are young. You have a great life to look forward to.
+Mom: You should be excited, not sad. 
+Dad: Life is like great rollercoaster. You haven't even rode it. And you are already sad?
+<<wait 2>>
+<<stopAllMusic MusicObject>>
+Life is a rollercoaster, huh?
+Try high speed car crash instead.
+<<wait 1>>
+How was I already sad at such a young age?
+I guess it's because birthdays are terrible things to celebrate.
+Because objectively, it's one more year less to live.
+One more year, that I'll never get back.
+One step closer to my eventual death.
+And sitting here, ten years later, I haven't made any good memories in life.
+There was no rollercoaster.
+Maybe the ten year old me was crying because it knew I was never going to amount to anything.
+// load user back into bedroom for day 2
+<<yarnLoadScene LevelLoader Bedroom>>
 ===

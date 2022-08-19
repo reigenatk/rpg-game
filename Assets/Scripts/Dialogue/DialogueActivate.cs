@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static DialogueManager;
+using static GameState;
 using static TimeManager;
 
 public class DialogueActivate : MonoBehaviour, Interactable
@@ -83,15 +84,32 @@ public class DialogueActivate : MonoBehaviour, Interactable
             DialogueWithTime dwt = dialoguesToRun[i];
             if (dwt.dayToPlay != gameState.getGameDay()) continue;
 
-            // if current time is later than this earliest time limit, then play it
-            if (gt.compareTimes(dwt.earliestTime) == false)
+            // check all game conditions 
+            foreach (GameVariablePair gv in dwt.extraConditions)
             {
-                foundDialogue = true;
-                // if we are later than this limit, then play this dialogue
-                DialogueManager dm = GameObject.FindGameObjectWithTag("Manager").GetComponent<DialogueManager>();
-                dm.StartDialogueString(dwt.dialogueToPlay);
-                yield return new WaitForSeconds(1f);
+                if (gameState.getGameVariableEnum(gv.variable) != gv.desiredValue)
+                {
+/*                    Debug.Log("fail");*/
+
+                    // continue the outer loop
+                    goto Outerloop;
+                }
             }
+
+            // if current time is later than this earliest time limit, then play it
+            if (gt.compareTimes(dwt.earliestTime) == true)
+            {
+                continue;
+            }
+
+            // ok it passed all checks, run it
+            foundDialogue = true;
+            // if we are later than this limit, then play this dialogue
+            DialogueManager dm = GameObject.FindGameObjectWithTag("Manager").GetComponent<DialogueManager>();
+            dm.StartDialogueString(dwt.dialogueToPlay);
+            yield return new WaitForSeconds(1f);
+            Outerloop:
+                continue;
         }
         // if we get here its bad because we should've at least played some dialogue already
         // this means all dialogues are too early to be played? Which is an error
@@ -141,7 +159,7 @@ public class DialogueActivate : MonoBehaviour, Interactable
             player.interactables.Add(this);
             if (soundToPlay != null)
             {
-                GameObject.FindGameObjectWithTag("Manager").GetComponent<SoundManager>().playSound(soundToPlay);
+                GameObject.FindGameObjectWithTag("Manager").GetComponent<SoundManager>().playSoundOneShot(soundToPlay);
             }
         }
 /*        foreach (SpriteRenderer s in dialogueImages) {
