@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn;
+using Yarn.Unity;
 
 public class GameState : MonoBehaviour
 {
@@ -26,11 +28,12 @@ public class GameState : MonoBehaviour
     [SerializeField] TextMeshProUGUI contentednessText;
     [SerializeField] TextMeshProUGUI entertainmentText;
     [SerializeField] TimeManager timeManager;
+    [SerializeField] public InMemoryVariableStorage yarnVariables;
     public Moods playerMood;
     private int gameDay = 1;
     public int numSecondsAwake = 0;
 
-    // Start is called before the first frame update
+    // This is the function that INITIALIZES ALL GAME VARIABLES
     void Awake()
     {
         gameVariables = new Dictionary<GameVariable, bool>();
@@ -45,14 +48,30 @@ public class GameState : MonoBehaviour
         {
             if (foo == PlayerScore.energy)
             {
-                playerScore.Add(foo, 35.0f);
+                playerScore.Add(foo, 170.0f);
             }
             else
             {
                 playerScore.Add(foo, 100.0f);
             }
         }
+
+        // variables that live in yarn
+        setYarnVariable("$teethBrushed", false);
+        setYarnVariable("$isBedroomLampOn", false);
     }
+
+    public void setYarnVariable(string name, bool val)
+    {
+        yarnVariables.SetValue(name, val);
+    }
+    public bool getYarnVariable(string name)
+    {
+        yarnVariables.TryGetValue<bool>(name, out bool result);
+        return result;
+    }
+
+    // helper
     public float getPlayerScoreSum()
     {
         float ret = 0.0f;
@@ -90,15 +109,45 @@ public class GameState : MonoBehaviour
     public void changePlayerScore(PlayerScore ps, float delta)
     {
         float newVal = playerScore[ps] + delta;
-        
+        LevelLoader levelLoader = FindObjectOfType<LevelLoader>();
+
+        // only play the warning scenes once (per day). So say, user eats and energy goes back up.
+        // when it goes below 10 again we shouldn't run it again, that might get redundant.
+        if (newVal < 10.0f)
+        {
+            switch (ps)
+            {
+                case PlayerScore.energy:
+                    if (!getGameVariable("hasEnergyLowWarningPlayed"))
+                    {
+                        setGameVariable("hasEnergyLowWarningPlayed", true);
+                        levelLoader.playCutscene("EnergyLow");
+                    }
+                    break;
+                case PlayerScore.contentedness:
+                    levelLoader.playCutscene("ContentednessZero");
+                    break;
+                case PlayerScore.social:
+                    levelLoader.playCutscene("SocialZero");
+                    break;
+                case PlayerScore.entertained:
+                    levelLoader.playCutscene("EntertainedZero");
+                    break;
+            }
+        }
+
         if (newVal < 0.0f)
         {
-            LevelLoader levelLoader = FindObjectOfType<LevelLoader>();
+            Debug.Log("Zero " + ps.ToString());
+
+            // stop the time since player will either faint or enter cutscene
+            timeManager.gameClockPaused = true;
+            DialogueManager dm = FindObjectOfType<DialogueManager>();
             // trigger some kind of cutscene
             switch (ps)
             {
                 case PlayerScore.energy:
-                    levelLoader.playCutscene("EnergyZero");
+                    dm.StartDialogueString("OutOfEnergy");
                     break;
                 case PlayerScore.contentedness:
                     levelLoader.playCutscene("ContentednessZero");

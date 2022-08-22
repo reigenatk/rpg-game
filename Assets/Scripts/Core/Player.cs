@@ -110,7 +110,7 @@ public class Player : Singleton<Player>
             sm = FindObjectOfType<SoundManager>();
         }
 
-        if (disableMovement) return; // obviously no playing moving sounds if player can't move.
+        if (disableMovement || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying)) return; // obviously no playing moving sounds if player can't move.
 
         // if a cutscene is currently playing, don't let us make noises.
         // this is to avoid us making footstep noises when animator is moving around?

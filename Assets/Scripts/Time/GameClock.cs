@@ -6,7 +6,7 @@ public class GameClock : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timeText = null;
     [SerializeField] private TextMeshProUGUI dateText = null;
-
+    [SerializeField] private TextMeshProUGUI moodText = null;
 
 
     private void OnEnable()
@@ -60,6 +60,8 @@ public class GameClock : MonoBehaviour
 
         timeText.SetText(time);
         dateText.SetText(gameDayOfWeek + ". " + FindObjectOfType<GameState>().getGameDay());
+        GameState gameState = FindObjectOfType<GameState>();
+        moodText.SetText(gameState.playerMood.ToString());
     }
 
 }

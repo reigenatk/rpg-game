@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 using static DialogueManager;
 using static GameState;
 using static TimeManager;
@@ -82,7 +83,9 @@ public class DialogueActivate : MonoBehaviour, Interactable
             if (foundDialogue) break;
 
             DialogueWithTime dwt = dialoguesToRun[i];
-            if (dwt.dayToPlay != gameState.getGameDay()) continue;
+
+            // we will let day = -1 in the dialogue specification to mean, play any day.
+            if (dwt.dayToPlay != -1 && dwt.dayToPlay != gameState.getGameDay()) continue;
 
             // check all game conditions 
             foreach (GameVariablePair gv in dwt.extraConditions)
@@ -187,4 +190,5 @@ public class DialogueActivate : MonoBehaviour, Interactable
             }
         }
     }
+
 }

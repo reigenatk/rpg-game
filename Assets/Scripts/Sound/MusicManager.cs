@@ -43,14 +43,30 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField] List<Music> musicToPlay;
 
+    private IEnumerator stopMusic(AudioSource audioSource, float numSecondsToFadeOver)
+    {
+        yield return StartCoroutine(FadeAudioSource.StartFade(audioSource, numSecondsToFadeOver, 0.0f));
+        audioSource.Stop();
+    }
+
+    private IEnumerator startMusic(AudioSource audioSource, float numSecondsToFadeOver)
+    {
+        audioSource.Play();// if it was faded out, fade it back in
+        if (audioSource.volume == 0.0f)
+        {
+            yield return StartCoroutine(FadeAudioSource.StartFade(audioSource, numSecondsToFadeOver, 1.0f));
+        }
+    }
+
     [YarnCommand("stopAllMusic")]
-    public void stopAllMusic()
+    public IEnumerator stopAllMusic(float numSecondsToFadeOver)
     {
         foreach (Music m in musicToPlay)
         {
             if (m.music.GetComponent<AudioSource>().isPlaying)
             {
-                m.music.GetComponent<AudioSource>().Stop();
+                // fade the song out smoothly
+                yield return stopMusic(m.music.GetComponent<AudioSource>(), numSecondsToFadeOver);
             }
         }
     }
@@ -69,7 +85,7 @@ public class MusicManager : MonoBehaviour
     }
 
     // this will be called each time we load a new scene (from LevelLoader)
-    public void playMusic(int currentDay, SceneName currentSceneName)
+    public IEnumerator playMusic(int currentDay, SceneName currentSceneName)
     {
         AudioSource curAudioSource = null;
         if (curAudioObject != null)
@@ -89,26 +105,27 @@ public class MusicManager : MonoBehaviour
                 // we just want to do nothing.
                 if (isPlaying)
                 {
-                    return;
+                    yield break;
                 }
                 else
                 {
                     if (curAudioSource != null)
                     {
                         // can do Pause() here instead if we want themes to pick up where they left off.
-                        curAudioSource.Stop();
+                        yield return StartCoroutine(stopMusic(curAudioSource, 2.0f));
                     }
-                    m.music.GetComponent<AudioSource>().Play();
+                    AudioSource audioToPlay = m.music.GetComponent<AudioSource>();
+                    yield return StartCoroutine(startMusic(audioToPlay, 2.0f));
                     curAudioObject = m.music;
-                    return;
+                    yield break;
                 }
             }
         }
 
         // if we get here it means we found no suitable songs
         // so just stop the current song, this scene should be silent
-        stopAllMusic();
-        return;
+        yield return StartCoroutine(stopAllMusic(2.0f));
+        
     }
 
 }

@@ -5,14 +5,18 @@ using UnityEngine;
 public class DarkScene : MonoBehaviour
 {
     // Checks what day it is, runs certain dialogue based on that.
-    void Start()
+    private IEnumerator Start()
     {
         int day = FindObjectOfType<GameState>().getGameDay();
         DialogueManager dm = FindObjectOfType<DialogueManager>();
 
         // this scene always starts with no music
-        FindObjectOfType<MusicManager>().stopAllMusic();
-        Debug.Log("Day is " + day);
+        // fade out currently playing music, if any
+        yield return StartCoroutine(FindObjectOfType<MusicManager>().stopAllMusic(2.0f));
+
+        Debug.Log("Darkscene Day is " + day);
+
+        // then play the starting dialogue (aka dream) for the night
         switch (day)
         {
             case 1:

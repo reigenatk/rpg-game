@@ -182,12 +182,32 @@ public class LevelLoader : Singleton<LevelLoader>
                 break;
         }
 
+        bool isLampOn = gameState.getYarnVariable("$isBedroomLampOn");
+        if (isLampOn)
+        {
+            Debug.Log("Bedroom lamp is on, closing it " + isLampOn);
+            playCutscene("CloseLampLieInBed");
+        }
+        else
+        {
+            playCutscene("LieInBed");
+        }
+/*
+        // switch to dark scene
+        FadeAndLoadScene(SceneName.DarkScene, defaultSceneLocation);*/
+
+    }
+
+    // helper method for when there's a new day and we gotta reset all game variables for the next day
+    // this doesnt impact all variables- only the ones that are day dependent.
+    public void gameVariablesReset()
+    {
         // reset game variables too
         List<GameVariable> variablesToChangeToFalse = new List<GameVariable>();
         foreach (KeyValuePair<GameVariable, bool> gv in gameState.gameVariables)
         {
-           
-            if (gv.Key.ToString().Contains("hasEntered") || gv.Key.ToString() == "canPlayerSleep")
+
+            if (gv.Key.ToString().Substring(0, 3) == "has" || gv.Key.ToString() == "canPlayerSleep")
             {
                 variablesToChangeToFalse.Add(gv.Key);
             }
@@ -199,9 +219,10 @@ public class LevelLoader : Singleton<LevelLoader>
             gameState.gameVariables[gv] = false;
         }
 
-        // switch to dark scene
-        FadeAndLoadScene(SceneName.DarkScene, defaultSceneLocation);
-        
+        // change all necessary variables inside of yarn 
+
+        // teeth back to being unbrushed for next day
+        gameState.yarnVariables.SetValue("$teethBrushed", false);
     }
 
     // this just plays a cutscene (WITHOUT CHECKING ANYTHING like day and such), useful if we wanna do this from Yarn
@@ -214,6 +235,7 @@ public class LevelLoader : Singleton<LevelLoader>
         {
             if (c.cutsceneToPlay.name == cutscene)
             {
+                Debug.Log("Playing cutscene " + c.cutsceneToPlay.name);
                 c.cutsceneToPlay.Play();
                 break;
             }
@@ -284,13 +306,16 @@ public class LevelLoader : Singleton<LevelLoader>
         // stop player from moving once we hit scene switch point
         player.DisableMovementAndAnimations();
 
-        player.GetComponent<SpriteRenderer>().enabled = false;
+
 
         // Call before scene unload fade out event
         EventHandler.CallBeforeSceneUnloadFadeOutEvent();
 
         // Start fading to black and wait for it to finish before continuing.
         yield return StartCoroutine(Fade(1.0f));
+
+        // only now unrender player sprite (after fade finishes!)
+        player.GetComponent<SpriteRenderer>().enabled = false;
 
         //  Call before scene unload event.
         EventHandler.CallBeforeSceneUnloadEvent();
@@ -364,7 +389,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
 
         // play some music if the scene demands it
-        FindObjectOfType<MusicManager>().playMusic(gameState.getGameDay(), sceneName);
+        yield return StartCoroutine(FindObjectOfType<MusicManager>().playMusic(gameState.getGameDay(), sceneName));
 
         // play the starting cutscene if there is one
         if (cutsceneToPlayOnLoad != null)

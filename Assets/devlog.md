@@ -75,3 +75,7 @@ Added multiple Interactables functionality on the Player
 - Finished the rough draft of the Night 1 Dream, also fixed some strange bugs. Still has a weird bug where its not running a Yarn node despite the name being correct, and the fix (for now) was to put it in a different .yarn file. But oh well.
 
 Probably work on composing a theme song for day 1 tmrw, as well as maybe testing out of energy mechanics (right now not working)
+
+# 8/20/22
+Made a music fade out option so that it isn't just an instant cut. So now when you walk between scenes there's a slight fade out that it waits to finish before continuing (using coroutines)
+

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class TimeManager : Singleton<TimeManager>
 {
@@ -73,6 +75,23 @@ public class TimeManager : Singleton<TimeManager>
                 }
             }
         }
+
+        public int numericalTime()
+        {
+            return gameSecond + gameMinute * 60 + gameHour * 3600;
+        }
+
+        public int numSecondsFrom(GameTime b)
+        {
+            int curTimeNumerical = numericalTime();
+            int bNumerical = b.numericalTime();
+            if (bNumerical > curTimeNumerical) return bNumerical - curTimeNumerical;
+            else
+            {
+                bNumerical += 24 * 3600; // 1 day
+                return bNumerical - curTimeNumerical;
+            }
+        }
         
     }
     public GameTime gt;
@@ -89,9 +108,24 @@ public class TimeManager : Singleton<TimeManager>
     [SerializeField] private int socialDecayRate;
     [SerializeField] private int contentednessDecayRate;
     [SerializeField] private int entertainmentDecayRate;
+    [SerializeField] Light2D globalLight;
+    [SerializeField] List<ColorPoint> globalLightColors;
+
+
+    // a color point is just "turn the global light to certain color and intensity at hour x"
+    [System.Serializable]
+    public class ColorPoint
+    {
+        public Color color;
+        public float intensity;
+        public int gameHour;
+    }
+
     private void Start()
     {
-        gt = new GameTime(19, 30, 0);
+        // day 1 starts at 4:30 PM, we wanna enable sleeping at 11:00 PM which is 6:30,
+        // so day 1 player has roughly 6 min 30 sec to explore.
+        gt = new GameTime(16, 30, 0);
         EventHandler.CallAdvanceGameMinuteEvent(gameDayOfWeek, gt.gameHour, gt.gameMinute, gt.gameSecond);
     }
 
@@ -156,31 +190,61 @@ public class TimeManager : Singleton<TimeManager>
 
         }
 
+        lightingTick();
+
         if (totalGameSeconds % energyDecayRate == 0)
         {
-            float curScore = gameState.getPlayerScore(PlayerScore.energy);
             gameState.changePlayerScore(PlayerScore.energy, -1.0f);
             // Debug.Log("New energy is " + gameState.getPlayerScore(PlayerScore.energy));
         }
         if (totalGameSeconds % socialDecayRate == 0)
         {
-            float curScore = gameState.getPlayerScore(PlayerScore.social);
             gameState.changePlayerScore(PlayerScore.social, -1.0f);
         }
         if (totalGameSeconds % contentednessDecayRate == 0)
         {
-            float curScore = gameState.getPlayerScore(PlayerScore.contentedness);
             gameState.changePlayerScore(PlayerScore.contentedness, -1.0f);
         }
         if (totalGameSeconds % entertainmentDecayRate == 0)
         {
-            float curScore = gameState.getPlayerScore(PlayerScore.entertained);
             gameState.changePlayerScore(PlayerScore.entertained, -1.0f);
         }
 
 
     }
 
+    private void lightingTick()
+    {
+        // change the color of the scene based on what time it is
+        // make sure the list globalLightColors is sorted, with 3am first, 6am next, etc. Ending at 0am (aka midnight)
+        // check which time it is, and therefore which color we are lerping from, and to
+        // start from back since its sorted from lowest hour to highest, and we want first hour that it is greater than
+        int hourIdx = -1;
+        for (int i = globalLightColors.Count - 1; i >= 0; i--)
+        {
+            ColorPoint cp = globalLightColors[i];
+            if (gt.gameHour >= cp.gameHour)
+            {
+                hourIdx = i;
+                break;
+            }
+        }
+
+        Color fromColor = globalLightColors[hourIdx].color;
+        Color toColor = globalLightColors[(hourIdx + 1) % (globalLightColors.Count)].color;
+        float fromIntesity = globalLightColors[hourIdx].intensity;
+        float toIntensity = globalLightColors[(hourIdx + 1) % (globalLightColors.Count)].intensity;
+
+        int toHour = globalLightColors[(hourIdx + 1) % (globalLightColors.Count)].gameHour;
+        int numGameHoursBetween = toHour - globalLightColors[hourIdx].gameHour;
+        if (numGameHoursBetween < 0) numGameHoursBetween += 24; // say we go from 21 to 1, (aka a new day), then its -22 +24 = 2 hours passed
+
+        int numSecondsLeft = gt.numSecondsFrom(new GameTime(toHour, 0, 0));
+        float percentComplete = 1.0f - ((numSecondsLeft * 1.0f) / (numGameHoursBetween * 1.0f * 60 * 60));
+        /*        Debug.Log("num seconds left: " + numSecondsLeft + " going to hour " + toHour + " with percent complete: " + percentComplete);*/
+        globalLight.color = Color.Lerp(fromColor, toColor, percentComplete);
+        globalLight.intensity = Mathf.Lerp(fromIntesity, toIntensity, percentComplete);
+    }
 
     private string GetDayOfWeek()
     {

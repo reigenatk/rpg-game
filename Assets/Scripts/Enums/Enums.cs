@@ -43,6 +43,9 @@ public enum GameVariable
     // has the player stayed up long enough so that sleeping is available?
     canPlayerSleep, 
     
+    // cutscene related logic
+    hasEnergyLowWarningPlayed,
+
 }
 
 

@@ -32,6 +32,10 @@ public class SoundManager : MonoBehaviour
         NotBirthdaySong,
         CandlesBlow,
         OpenShopDoor,
+        LampToggle,
+        BedtimeYawn,
+        DeepSigh,
+        DriveByCar,
     }
     [SerializeField] public SoundAudioClip[] sounds;
     // Start is called before the first frame update
