@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 using Yarn;
 using Yarn.Unity;
@@ -30,8 +31,12 @@ public class GameState : MonoBehaviour
     [SerializeField] TimeManager timeManager;
     [SerializeField] public InMemoryVariableStorage yarnVariables;
     public Moods playerMood;
-    private int gameDay = 1;
+    public int gameDay = 1;
     public int numSecondsAwake = 0;
+
+    // saving some objects as well
+    public PlayableDirector cutscenePlaying;
+    public SceneTeleport curSceneTeleport;
 
     // This is the function that INITIALIZES ALL GAME VARIABLES
     void Awake()
@@ -65,6 +70,10 @@ public class GameState : MonoBehaviour
     {
         yarnVariables.SetValue(name, val);
     }
+    public void setYarnVariable(string name, int val)
+    {
+        yarnVariables.SetValue(name, val);
+    }
     public bool getYarnVariable(string name)
     {
         yarnVariables.TryGetValue<bool>(name, out bool result);
@@ -85,6 +94,26 @@ public class GameState : MonoBehaviour
     {
         gameVariables[GameVariable.isCutscenePlaying] = value;
     }
+    // this is called via SIGNAL from each timeline's signal emitters
+    public void cutsceneFinishedPlaying()
+    {
+        FindObjectOfType<Player>().GetComponent<BoxCollider2D>().enabled = true;
+        setCutscenePlaying(false);
+        cutscenePlaying = null;
+    }
+
+    // this is only here cuz we need the Manager object to distribute this to the actual SceneTeleport being referenced
+    [YarnCommand("KnockOnDoor")]
+    public void KnockOnDoor()
+    {
+        if (curSceneTeleport != null)
+        {
+            curSceneTeleport.KnockOnDoor();
+        }
+        
+    }
+
+
     public string getScore(PlayerScore ps)
     {
         float val = playerScore[ps];

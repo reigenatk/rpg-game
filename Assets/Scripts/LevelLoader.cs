@@ -9,6 +9,7 @@ using UnityEngine.Playables;
 using System;
 using static GameState;
 using Yarn.Unity;
+using System.Threading;
 
 public class LevelLoader : Singleton<LevelLoader>
 {
@@ -138,12 +139,18 @@ public class LevelLoader : Singleton<LevelLoader>
         int curDay = gameState.getGameDay();
         gameState.setGameDay(curDay + 1);
 
+        // notify yarn of this day change too, since which sleep dialogue we play depends on what day it is
+        gameState.setYarnVariable("$day", curDay + 1);
+
         // pause the clock so we don't continue to leech energy, contentedness, etc.
         timeManager.gameClockPaused = true;
 
         // disable UI
         GameUI gameUI = FindObjectOfType<GameUI>();
         gameUI.disableUI();
+
+        // set player animation state to face down
+        FindObjectOfType<Player>().setAnimationState("Base Layer.Idle.IdleDown");
 
         // calculate time for new day and new energy/contentedness levels
         float sleepPenalty = timeManager.gt.gameHour * 10;
@@ -182,20 +189,29 @@ public class LevelLoader : Singleton<LevelLoader>
                 break;
         }
 
+        // change the bedsheets to be on top of player
+        GameObject.Find("Bedsheets").GetComponent<SpriteRenderer>().sortingOrder = 1;
+
+        // if the lamp is on, play a cutscene where he closes it first then goes to sleep
         bool isLampOn = gameState.getYarnVariable("$isBedroomLampOn");
+        PlayableDirector endOfDayCutscene = null;
         if (isLampOn)
         {
             Debug.Log("Bedroom lamp is on, closing it " + isLampOn);
-            playCutscene("CloseLampLieInBed");
+            endOfDayCutscene = playCutscene("CloseLampLieInBed");
         }
         else
         {
-            playCutscene("LieInBed");
+            endOfDayCutscene = playCutscene("LieInBed");
         }
-/*
-        // switch to dark scene
-        FadeAndLoadScene(SceneName.DarkScene, defaultSceneLocation);*/
 
+        endOfDayCutscene.stopped += cutsceneFinished;
+    }
+
+    private void cutsceneFinished(PlayableDirector stoppedDirector)
+    {
+        GameObject.Find("Bedsheets").GetComponent<SpriteRenderer>().sortingOrder = 0;
+        FadeAndLoadScene(SceneName.DarkScene, defaultSceneLocation);
     }
 
     // helper method for when there's a new day and we gotta reset all game variables for the next day
@@ -229,20 +245,24 @@ public class LevelLoader : Singleton<LevelLoader>
     // also each time a scene is loaded it will check if any cutscenes need to be played
     // and it will go thru this as well.
     [YarnCommand("playCutscene")]
-    public void playCutscene(string cutscene)
+    public PlayableDirector playCutscene(string cutscene)
     {
         foreach (CutsceneCondtional c in cutscenes)
         {
             if (c.cutsceneToPlay.name == cutscene)
             {
+                // play it, also store that playing cutscene in gameState
+                gameState.setCutscenePlaying(true);
+                gameState.cutscenePlaying = c.cutsceneToPlay;
+                FindObjectOfType<Player>().GetComponent<BoxCollider2D>().enabled = false;
                 Debug.Log("Playing cutscene " + c.cutsceneToPlay.name);
                 c.cutsceneToPlay.Play();
-                break;
+                return c.cutsceneToPlay;
             }
         }
+        return null;
     }
 
-    [YarnCommand("Fade")]
     public IEnumerator Fade(float finalAlpha)
     {
         // Set the fading flag to true so the FadeAndSwitchScenes coroutine won't be called again.
@@ -272,6 +292,12 @@ public class LevelLoader : Singleton<LevelLoader>
         faderCanvasGroup.blocksRaycasts = false;
     }
 
+    [YarnCommand("FadeIn")]
+    public void yarnFadeIn()
+    {
+        StartCoroutine(Fade(1.0f));
+    }
+
     private IEnumerator LoadSceneAndSetActive(SceneName sceneName)
     {
 
@@ -285,13 +311,13 @@ public class LevelLoader : Singleton<LevelLoader>
         SceneManager.SetActiveScene(newlyLoadedScene);
     }
 
-    private CutsceneCondtional areWePlayingCutscene(SceneName sceneName)
+    private string areWePlayingCutscene(SceneName sceneName)
     {
         foreach (CutsceneCondtional c in CutscenesDict[sceneName])
         {
             if (c.shouldPlayCutscene(sceneName))
             {
-                return c;
+                return c.cutsceneToPlay.name;
             }
         }
         // if we can't find any cutscenes with all conditions met, then we're playing nothing
@@ -306,16 +332,14 @@ public class LevelLoader : Singleton<LevelLoader>
         // stop player from moving once we hit scene switch point
         player.DisableMovementAndAnimations();
 
-
-
         // Call before scene unload fade out event
         EventHandler.CallBeforeSceneUnloadFadeOutEvent();
 
+        // unrender player sprite (after fade finishes!)
+        player.GetComponent<SpriteRenderer>().enabled = false;
+
         // Start fading to black and wait for it to finish before continuing.
         yield return StartCoroutine(Fade(1.0f));
-
-        // only now unrender player sprite (after fade finishes!)
-        player.GetComponent<SpriteRenderer>().enabled = false;
 
         //  Call before scene unload event.
         EventHandler.CallBeforeSceneUnloadEvent();
@@ -337,7 +361,7 @@ public class LevelLoader : Singleton<LevelLoader>
         EventHandler.CallAfterSceneLoadEvent();
 
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        CutsceneCondtional cutsceneToPlayOnLoad = areWePlayingCutscene(sceneName);
+        string cutsceneToPlayOnLoad = areWePlayingCutscene(sceneName);
 
         // Set player position if no cutscene to play, (because if cutscene then it will
         // decide the starting location for us anyways)
@@ -394,8 +418,7 @@ public class LevelLoader : Singleton<LevelLoader>
         // play the starting cutscene if there is one
         if (cutsceneToPlayOnLoad != null)
         {
-            Debug.Log("Playing cutscene " + cutsceneToPlayOnLoad.ToString());
-            cutsceneToPlayOnLoad.cutsceneToPlay.Play();
+            playCutscene(cutsceneToPlayOnLoad);
         }
     }
 

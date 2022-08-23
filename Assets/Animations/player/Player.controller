@@ -1978,16 +1978,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -1347909083611020371}
-    m_Position: {x: 200, y: 0, z: 0}
+    m_Position: {x: 190, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5391540374191570242}
-    m_Position: {x: 235, y: 65, z: 0}
+    m_Position: {x: 220, y: -40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7779619388800041916}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_Position: {x: 230, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4382727089023034443}
-    m_Position: {x: 305, y: 195, z: 0}
+    m_Position: {x: 220, y: 270, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: -254874431294042380}

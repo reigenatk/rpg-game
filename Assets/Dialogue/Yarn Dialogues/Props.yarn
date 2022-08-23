@@ -68,25 +68,6 @@ It's a bedroom lamp...
 	<<jump Lamp_Off>>
 ===
 
-title: Lamp_On
----
-Would you like to turn it off?
--> Yes
-	<<set $isBedroomLampOn to false>>
-	<<toggleLight Lamp false>>
--> No
-===
-
-title: Lamp_Off
----
-Would you like to turn it on?
--> Yes
-	<<set $isBedroomLampOn to true>>
-	<<toggleLight Lamp true>>
--> No
-	Moonlight drowns out all but the brightest stars.
-===
-
 title: D1_Commons_Door
 ---
 ...

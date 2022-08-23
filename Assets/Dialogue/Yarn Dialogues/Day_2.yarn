@@ -123,16 +123,14 @@ And that was enough to make me cry.
 <<yarnLoadScene LevelLoader Bedroom>>
 ===
 
-title: LowEnergy
+title: D2_StartDay
 ---
-Jeez, I'm tired...
-I should probably sleep soon.
-===
-
-title: OutOfEnergy
----
-M-must...
-stay...
-awake-
-<<playCutscene LevelLoader EnergyZero>>
+<<playSoundString Manager WakeupAlarm>>
+Shoot!
+I already overslept...
+And what was the heck was that dream?
+<<wait 1>>
+Oh well, I gotta get to school.
+Even I don't ditch the first days. 
+It just feels wrong to ditch them, even though nothing important is ever said. 
 ===

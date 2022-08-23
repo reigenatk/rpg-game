@@ -36,6 +36,9 @@ public class SoundManager : MonoBehaviour
         BedtimeYawn,
         DeepSigh,
         DriveByCar,
+        LockedDoor,
+        KnockOnDoor,
+        WakeupAlarm,
     }
     [SerializeField] public SoundAudioClip[] sounds;
     // Start is called before the first frame update

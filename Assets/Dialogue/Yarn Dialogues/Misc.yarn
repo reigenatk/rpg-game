@@ -1,0 +1,59 @@
+﻿title: LowEnergy
+---
+Jeez, I'm tired...
+I should probably sleep soon.
+===
+
+title: OutOfEnergy
+---
+M-must...
+stay...
+awake-
+<<playCutscene LevelLoader EnergyZero>>
+===
+
+title: DoorIsntOpen
+---
+<<playSoundString Manager LockedDoor>>
+<<wait 3>>
+The door isn't open.
+Knock?
+-> Yes
+    <<KnockOnDoor Manager>>
+-> No
+===
+
+title: EndOfDayDialogue
+---
+
+<<if $day == 2>>
+    Well, what an utterly unproductive day.
+    I have my first lectures tomorrow...
+    Even as a 20-year old, I still dread the first day of school.
+    Icebreakers, syllabuses, and annoying people.
+    Let's just get through it.
+<<elseif $day == 3>>
+
+<<else>>
+
+<<endif>>
+===
+
+title: Lamp_On
+---
+Would you like to turn it off?
+-> Yes
+	<<set $isBedroomLampOn to false>>
+	<<toggleLight Lamp false>>
+-> No
+===
+
+title: Lamp_Off
+---
+Would you like to turn it on?
+-> Yes
+	<<set $isBedroomLampOn to true>>
+	<<toggleLight Lamp true>>
+-> No
+	Moonlight drowns out all but the brightest stars.
+===

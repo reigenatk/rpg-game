@@ -2322,6 +2322,8 @@ PlayableDirector:
     value: {fileID: 1210189924}
   - key: {fileID: 3281791426756817848, guid: 21547f09ca27cd94e871198ea4ec7df7, type: 2}
     value: {fileID: 1210189921}
+  - key: {fileID: -3364198134247617799, guid: 21547f09ca27cd94e871198ea4ec7df7, type: 2}
+    value: {fileID: 1922635429}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1091490966
@@ -2373,6 +2375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b3b90c3ae80ee4bb302ca4301171b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: {fileID: 1210189925}
+  player: {fileID: 1363732731}
 --- !u!82 &1210189921
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2549,6 +2553,15 @@ MonoBehaviour:
   - sound: 20
     audioClips:
     - {fileID: 8300000, guid: 1c1341fcdbbb4144e98057d1cfe5bf9a, type: 3}
+  - sound: 21
+    audioClips:
+    - {fileID: 8300000, guid: 932f580b136534947a91fce75a755cd1, type: 3}
+  - sound: 22
+    audioClips:
+    - {fileID: 8300000, guid: ff9f5dd3b1ae1a04198fb7ae29b260b5, type: 3}
+  - sound: 23
+    audioClips:
+    - {fileID: 8300000, guid: d0b9c0a6c102cf7498f76bdaa5e73ccc, type: 3}
 --- !u!4 &1210189923
 Transform:
   m_ObjectHideFlags: 0
@@ -2578,13 +2591,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Events:
     m_Signals:
-    - {fileID: 11400000, guid: d660f1aaf14666741b335f990d27f5af, type: 2}
+    - {fileID: 11400000, guid: e97fa559e401f5c4e9904d8a4598084f, type: 2}
     - {fileID: 11400000, guid: f1ab30e204ae47c44a5abc19cc915227, type: 2}
     - {fileID: 11400000, guid: e1831a633dd888f45845b229a008de9d, type: 2}
     - {fileID: 11400000, guid: eb6e1293ee01c1b42a64a394d6454764, type: 2}
     - {fileID: 11400000, guid: 28741d2c51d8e1e47af491528a272fb7, type: 2}
     - {fileID: 11400000, guid: bcb59501b32aac942a6af7e888870145, type: 2}
-    - {fileID: 11400000, guid: 34608b08c7a116348b658fb807b713a2, type: 2}
     - {fileID: 11400000, guid: fb9c6b910066c984eaf12565357e9056, type: 2}
     - {fileID: 11400000, guid: dc507cebca0d3ba4cbe8d5133ff60864, type: 2}
     - {fileID: 11400000, guid: 06aca0c6843185548a9333fcc81c6f07, type: 2}
@@ -2615,7 +2627,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: D1_GameInstructions
+            m_StringArgument: D1_StartDay
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
@@ -2678,22 +2690,8 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1210189925}
           m_TargetAssemblyTypeName: GameState, Assembly-CSharp
-          m_MethodName: setCutscenePlaying
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1210189925}
-          m_TargetAssemblyTypeName: GameState, Assembly-CSharp
-          m_MethodName: setCutscenePlaying
-          m_Mode: 6
+          m_MethodName: cutsceneFinishedPlaying
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2767,7 +2765,10 @@ MonoBehaviour:
   timeManager: {fileID: 1210189926}
   yarnVariables: {fileID: 3831113770911160658}
   playerMood: 0
+  gameDay: 1
   numSecondsAwake: 0
+  cutscenePlaying: {fileID: 0}
+  curSceneTeleport: {fileID: 0}
 --- !u!114 &1210189926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2970,6 +2971,8 @@ PlayableDirector:
     value: {fileID: 1210189924}
   - key: {fileID: 7415604111863806335, guid: a3a0e8ec0de4dba45b167a043478911e, type: 2}
     value: {fileID: 1575718975}
+  - key: {fileID: -5701062131173903612, guid: a3a0e8ec0de4dba45b167a043478911e, type: 2}
+    value: {fileID: 1922635429}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1280539864
@@ -4490,7 +4493,7 @@ GameObject:
   - component: {fileID: 1575718976}
   - component: {fileID: 1575718975}
   m_Layer: 0
-  m_Name: DynamicObjects
+  m_Name: CrossSceneObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6000,9 +6003,24 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 2a66fa7566311b94d9e680f64da1ad68, type: 2}
+    - {fileID: 11400000, guid: 538eaca061b9514438c6cf23e9811931, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls: []
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1922635428}
+          m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+          m_MethodName: yarnFadeIn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1937585868
 GameObject:
   m_ObjectHideFlags: 0
@@ -6051,7 +6069,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7769653, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6068,7 +6086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937585868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.56, y: -0.52, z: -10}
+  m_LocalPosition: {x: 1.24, y: -0.44, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6736,7 +6754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bec29c0a230741bdac901dba8da47ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yarnProject: {fileID: 7545569452688597077, guid: 8c0d53cdb3d49a947b6b7d0378aa5240,
+  yarnProject: {fileID: 7545569452688597077, guid: e7284d6369cc4bf43bb880dc74781bab,
     type: 3}
   _variableStorage: {fileID: 3831113770911160658}
   dialogueViews:
@@ -6750,9 +6768,9 @@ MonoBehaviour:
   onNodeStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1363732731}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: DisableMovementAndAnimations
+      - m_Target: {fileID: 1210189920}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DialogueStartedPlaying
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6765,9 +6783,9 @@ MonoBehaviour:
   onNodeComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1363732731}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: EnableMovementAndAnimations
+      - m_Target: {fileID: 1210189920}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DialogueFinishedPlaying
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6898,12 +6916,12 @@ PrefabInstance:
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.56
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.52
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}

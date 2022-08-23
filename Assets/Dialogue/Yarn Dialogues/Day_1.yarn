@@ -1,4 +1,4 @@
-﻿title: D1_GameInstructions
+﻿title: D1_StartDay
 ---
 Welp, this sucks.
 I forgot how much I hated being at school.
@@ -131,9 +131,3 @@ I also don't know whose idea it was to name him Lancelot. I guess his parents wa
 I guess he's pretty cool, aside from the loud parties and the fact that he makes this apartment smell like weed.
 ===
 
-title: EndOfDayDialogue
----
-Yet another day passes...
-Did I do well?
-<<yarnLoadScene LevelLoader DarkScene>>
-===

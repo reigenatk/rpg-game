@@ -79,3 +79,17 @@ Probably work on composing a theme song for day 1 tmrw, as well as maybe testing
 # 8/20/22
 Made a music fade out option so that it isn't just an instant cut. So now when you walk between scenes there's a slight fade out that it waits to finish before continuing (using coroutines)
 
+Started to mess with global light 2D to emulate passing days, so far so good. In TimeManager there is now a field which takes list of colors, which is the colors throughout the day, and the global light will Color.Lerp between them
+
+# 8/21/22
+Added a sleep scene before bed (with some dialogues and two cutscenes depending on whether or not the lamp is on), a lamp (using spotlight), added intensities to the Global Light Lerp thing, also fixed a ton of bugs, added sounds. Tiring stuff.
+
+# 8/22/22
+TODO: Different typing noises for Yarn depending on who is talking
+Fixed all the bugs from going to sleep.
+
+The way I did it was kinda convoluted, basically we keep track of whether or not a cutscene is Playing. If Dialogue is started while there is a cutscene, we PAUSE the cutscene, and once the dialogues finishes, we immediately send a signal to fade the screen out. Then after the cutscene (which is just a PlayableDirector) finishes running, there's going to be a .stopped event that we can subscribe to. I add a function in LevelLoader which simply just loads the DarkScene. Check out LieInBed.playabledirector for more info
+
+The reason why we can't fade and load the DarkScene in the timeline is because the Timeline screws with the position of the player, so when we want player to go to 0 -50 0, it won't since its still in the timeline.
+
+Oh, I also started on adding conditional teleporters (so for example during Day 2, we want to incentivise the user to exit the house, so we lock all the rooms once they enter the common area)

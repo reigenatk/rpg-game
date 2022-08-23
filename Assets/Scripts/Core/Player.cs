@@ -21,7 +21,6 @@ public class Player : Singleton<Player>
     bool isMoving;
     private bool isWalking, isRunning, isIdle;
     private Animator animator;
-    public bool disableMovement = false;
     public string lastFacedDirection;
     public int sanity;
     SoundManager sm;
@@ -49,8 +48,9 @@ public class Player : Singleton<Player>
     // Update is called once per frame
     void Update()
     {
+
         // can't move if talking to someone or if in cutscene
-        if (disableMovement || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying))
+        if (gameState.getGameVariableEnum(GameVariable.isDialoguePlaying) || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying))
         {
             return;
         }
@@ -110,12 +110,11 @@ public class Player : Singleton<Player>
             sm = FindObjectOfType<SoundManager>();
         }
 
-        if (disableMovement || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying)) return; // obviously no playing moving sounds if player can't move.
+        if (gameState.getGameVariableEnum(GameVariable.isDialoguePlaying) || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying)) return; // obviously no playing moving sounds if player can't move.
 
         // if a cutscene is currently playing, don't let us make noises.
         // this is to avoid us making footstep noises when animator is moving around?
 
-        /*if (FindObjectOfType<GameState>().getGameVariableEnum(GameVariable.isCutscenePlaying) == true) return;*/
         sm.playSoundOneShot(SoundManager.Sound.WalkingSound);
     }
 
@@ -163,9 +162,9 @@ public class Player : Singleton<Player>
 
     public void DisableMovementAndAnimations()
     {
+        // disable the animator
         GetComponent<Animator>().enabled = false;
-        // Debug.Log("Disabling movements");
-        disableMovement = true;
+
         ResetTriggers();
 
         // setAnimationState("Base Layer.Idle.IdleDown");
@@ -175,7 +174,7 @@ public class Player : Singleton<Player>
     {
         GetComponent<Animator>().enabled = true;
         // Debug.Log("Enabling movements");
-        disableMovement = false;
+
     }
 
     public void ResetTriggers()

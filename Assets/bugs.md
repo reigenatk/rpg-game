@@ -19,3 +19,8 @@ Fix: Change the fixedTimeStep to 0.005 in the Project Settings, check out [this 
 Bug: Cinemachine cam keeps snapping randomly
 Fix: Make sure Bounds Confiner is a rectangle! Even if its a little bit off, it will fail and have this bug. [Here](https://www.reddit.com/r/Unity3D/comments/9ubpur/cinemachine_camera_jumps_around_how_to_fix/).
 
+Bug: In the Cutscene where player falls asleep, in the last frame he changes directions to left-idle again even though the last animation state is Idle-down.
+~~Fix: Make sure the Wrap on Playable Director is set to Hold, rather than None. What this means is that, the Timeline will end on the last state that it was at. It was facing left because that's the last state the animation controller was in when we interacted with the bed (since we walk left and press E).~~
+EDIT: Still not fixed, so this introduces a new bug. Now I can't move my player to the dark scene coordinates of 0 -50 0, and it fails. Need to find a way to both end on the right state and also move the player. So wrap mode: hold is probably not it.
+Fix: Turns out the bug was because of the collisions! I have a box collider 2d on the player, and also on the bed. So in the gap between cutscene and dialogue, the box collider was slightly pushing my player! To fix this, I turn off box collider everytime a cutscene starts. Then I re-enable when the cutscene ends. Also I re-worked such that GameState now stores the actual PlayableDirector object for whatever cutscene is currently running.
+

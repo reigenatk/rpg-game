@@ -23,7 +23,7 @@ public class DialogueUI  : MonoBehaviour
     }
     public void showDialogue(DialogueObject dialogueObject)
     {
-        player.disableMovement = true;
+/*        player.disableMovement = true;*/
         dialogueBox.SetActive(true);
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
@@ -83,7 +83,7 @@ public class DialogueUI  : MonoBehaviour
 
     private void closeDialogueBox()
     {
-        player.disableMovement = false;
+/*        player.disableMovement = false;*/
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
     }

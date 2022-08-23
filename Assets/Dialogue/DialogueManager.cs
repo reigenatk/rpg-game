@@ -9,7 +9,8 @@ using static TimeManager;
 public class DialogueManager : MonoBehaviour
 {
 
-
+    [SerializeField] GameState gameState;
+    [SerializeField] Player player;
     PlayableDirector p;
 
 
@@ -23,6 +24,27 @@ public class DialogueManager : MonoBehaviour
         dr.StartDialogue(Enum.GetName(typeof(Dialogue), d));
     }*/
 
+    public void DialogueStartedPlaying()
+    {
+        if (gameState.cutscenePlaying != null)
+        {
+            // if there's a cutscene playing, pause the cutscene when running the dialgoue
+            gameState.cutscenePlaying.Pause();
+        }
+        gameState.setGameVariable("isDialoguePlaying", true);
+        player.DisableMovementAndAnimations();
+    }
+
+    public void DialogueFinishedPlaying()
+    {
+        if (gameState.cutscenePlaying != null)
+        {
+            // if there's a cutscene playing, resume the cutscene when the dialogue is done running
+            gameState.cutscenePlaying.Resume();
+        }
+        gameState.setGameVariable("isDialoguePlaying", false);
+        player.EnableMovementAndAnimations();
+    }
     public void StartDialogueString(string s)
     {
         Yarn.Unity.DialogueRunner dr = GameObject.FindGameObjectWithTag("DialogueSystem").GetComponent<Yarn.Unity.DialogueRunner>();

@@ -21,6 +21,7 @@ public enum Direction
 }
 
 
+// this MUST be done in order, otherwise it changes the values in the editor! Very annoying.
 [System.Serializable]
 public enum GameVariable
 {
@@ -40,12 +41,13 @@ public enum GameVariable
 
     // use this to know whether to enable player anims or not
     isCutscenePlaying,
+    isDialoguePlaying,
     // has the player stayed up long enough so that sleeping is available?
     canPlayerSleep, 
     
     // cutscene related logic
     hasEnergyLowWarningPlayed,
-
+    hasPlayerExitedHouse,
 }
 
 
