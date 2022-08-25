@@ -157,8 +157,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 881a7c0485fa4c5a0800000000000000
-      internalID: 8767542139237973773
+      spriteID: fbb999ab84cfb7d50800000000000000
+      internalID: 1104881533923128381
       vertices: []
       indices: 
       edges: []
@@ -178,8 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbb999ab84cfb7d50800000000000000
-      internalID: 1104881533923128381
+      spriteID: 06fcde00101bcf5e0800000000000000
+      internalID: -1694773589013001429
       vertices: []
       indices: 
       edges: []
@@ -199,7 +199,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bef42ac461a60e270800000000000000
+      spriteID: c081823ccf9021d4b931bdac615d70ce
       internalID: -6254912007006047323
       vertices: []
       indices: 
@@ -220,8 +220,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06fcde00101bcf5e0800000000000000
-      internalID: -1694773589013001429
+      spriteID: aade7731c51d6504ca66dee770bed9a5
+      internalID: 439945669
       vertices: []
       indices: 
       edges: []
@@ -238,10 +238,10 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       kabowski-Sheet_0: -5816426879014866813
-      kabowski-Sheet_4: -1694773589013001429
-      kabowski-Sheet_1: 8767542139237973773
+      kabowski-Sheet_4: 439945669
+      kabowski-Sheet_1: 1104881533923128381
       kabowski-Sheet_3: -6254912007006047323
-      kabowski-Sheet_2: 1104881533923128381
+      kabowski-Sheet_2: -1694773589013001429
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -85,21 +85,24 @@ public class DialogueActivate : MonoBehaviour, Interactable
             DialogueWithTime dwt = dialoguesToRun[i];
 
             // we will let day = -1 in the dialogue specification to mean, play any day.
-            if (dwt.dayToPlay != -1 && dwt.dayToPlay != gameState.getGameDay()) continue;
-
+            if (dwt.dayToPlay != -1 && (dwt.dayToPlay != gameState.getGameDay()))
+            {
+                Debug.Log("Failed to match days, expected day is " + dwt.dayToPlay);
+                continue;
+            }
             // check all game conditions 
             foreach (GameVariablePair gv in dwt.extraConditions)
             {
                 if (gameState.getGameVariableEnum(gv.variable) != gv.desiredValue)
                 {
-/*                    Debug.Log("fail");*/
+                    Debug.Log("fail on gamevariable " + gv.variable.ToString() + " value was " + gameState.getGameVariableEnum(gv.variable));
 
                     // continue the outer loop
                     goto Outerloop;
                 }
             }
 
-            // if current time is later than this earliest time limit, then play it
+            // if current time is earlier than this earliest time limit, then dont play it
             if (gt.compareTimes(dwt.earliestTime) == true)
             {
                 continue;

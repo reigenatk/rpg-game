@@ -120,12 +120,11 @@ It knew I was never going to amount to anything.
 That I wasn't fit to live a good life.
 And that was enough to make me cry.
 // load user back into bedroom for day 2
-<<yarnLoadScene LevelLoader Bedroom>>
+<<yarnLoadScene LevelLoader wakeUp>>
 ===
 
 title: D2_StartDay
 ---
-<<playSoundString Manager WakeupAlarm>>
 Shoot!
 I already overslept...
 And what was the heck was that dream?
@@ -133,4 +132,35 @@ And what was the heck was that dream?
 Oh well, I gotta get to school.
 Even I don't ditch the first days. 
 It just feels wrong to ditch them, even though nothing important is ever said. 
+===
+
+title: D2_Commons_OpenDoor
+---
+The outside world... how scary.
+<<wait 1>>
+Everytime I hear the noises of the outside world, a part of me dies.
+It reminds me of a society that I'm not a part of in any way.
+Here goes nothing...
+<<playCutsceneAndFade LevelLoader GoOutside OutsideHouse>>
+===
+
+title: D2_Kabowski_Still_Asleep_Knock
+---
+<<playSoundString Manager SnoringSounds>>
+<<wait 3>>
+Someone isn't attending class today...
+===
+
+title: D2_Brain_Annoyed_Knock
+---
+<<if $hasBrainSmashedGlassYet == false>>
+    <<playSoundString Manager SmashingGlass>>
+    <<wait 5>>
+    You hear an interesting array of expletives. 
+    Something tells you that you shouldn't bother Brain right now.
+    <<set $hasBrainSmashedGlassYet = true>>
+<<elseif $hasBrainSmashedGlassYet == true>>
+    Brain: Can you leave me alone!?
+    Brain: Don't you have your own trivial, worthless matters to attend to?
+<<endif>>
 ===

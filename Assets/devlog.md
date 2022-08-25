@@ -93,3 +93,13 @@ The way I did it was kinda convoluted, basically we keep track of whether or not
 The reason why we can't fade and load the DarkScene in the timeline is because the Timeline screws with the position of the player, so when we want player to go to 0 -50 0, it won't since its still in the timeline.
 
 Oh, I also started on adding conditional teleporters (so for example during Day 2, we want to incentivise the user to exit the house, so we lock all the rooms once they enter the common area)
+
+# 8/23/22
+Tried to make a leaving the house animation, also made a wakeup anim and some ways for easier debugging (skipping over dreams to start days instantly)
+
+TODO: make house scene
+
+# 8/24/22
+Made even more bugfixes, such as no moving between scene transitions, added knocking functionality and animations (if you go to door and it is locked, you can knock on it), made some animation triggers for playing simple animation + sound effects (dont use timeline for this, just instead create animation trigger and trigger it, then call playSoundString). We should reserve timeline usage for the most complicated scenes.
+
+Also made decent progress on drawing the outside scene. No music yet.

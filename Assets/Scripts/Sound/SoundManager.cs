@@ -39,6 +39,8 @@ public class SoundManager : MonoBehaviour
         LockedDoor,
         KnockOnDoor,
         WakeupAlarm,
+        SnoringSounds,
+        SmashingGlass,
     }
     [SerializeField] public SoundAudioClip[] sounds;
     // Start is called before the first frame update

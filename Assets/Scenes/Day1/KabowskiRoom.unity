@@ -865,6 +865,7 @@ MonoBehaviour:
       gameMinute: 0
       gameSecond: 0
     dayToPlay: 1
+    extraConditions: []
   dialogueImages: []
   soundToPlay: 0
 --- !u!1 &606530266
@@ -2487,6 +2488,7 @@ MonoBehaviour:
       gameMinute: 0
       gameSecond: 0
     dayToPlay: 1
+    extraConditions: []
   dialogueImages: []
   soundToPlay: 0
 --- !u!1 &943550845
@@ -2689,6 +2691,7 @@ MonoBehaviour:
       gameMinute: 0
       gameSecond: 0
     dayToPlay: 1
+    extraConditions: []
   dialogueImages: []
   soundToPlay: 0
 --- !u!1 &1079760541
@@ -2826,6 +2829,7 @@ MonoBehaviour:
       gameMinute: 0
       gameSecond: 0
     dayToPlay: 1
+    extraConditions: []
   dialogueImages: []
   soundToPlay: 0
 --- !u!61 &1079760546
@@ -3174,7 +3178,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 867a58bb1fab47f4f9d539f4aad98923, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

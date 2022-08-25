@@ -24,3 +24,6 @@ Bug: In the Cutscene where player falls asleep, in the last frame he changes dir
 EDIT: Still not fixed, so this introduces a new bug. Now I can't move my player to the dark scene coordinates of 0 -50 0, and it fails. Need to find a way to both end on the right state and also move the player. So wrap mode: hold is probably not it.
 Fix: Turns out the bug was because of the collisions! I have a box collider 2d on the player, and also on the bed. So in the gap between cutscene and dialogue, the box collider was slightly pushing my player! To fix this, I turn off box collider everytime a cutscene starts. Then I re-enable when the cutscene ends. Also I re-worked such that GameState now stores the actual PlayableDirector object for whatever cutscene is currently running.
 
+Bug: Tiles not being affected by the 2D Global Light
+Fix: Make sure the Material on the tilemap layers is "2D Lighting"
+

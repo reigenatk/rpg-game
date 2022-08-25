@@ -37,6 +37,7 @@ public class GameState : MonoBehaviour
     // saving some objects as well
     public PlayableDirector cutscenePlaying;
     public SceneTeleport curSceneTeleport;
+    public string currentRunningDialogueNode;
 
     // This is the function that INITIALIZES ALL GAME VARIABLES
     void Awake()
@@ -61,9 +62,16 @@ public class GameState : MonoBehaviour
             }
         }
 
+        // for Day 1, we don't wanna wakeup, so let's set that we have entered the bedroom already
+        // cuz otherwise it will play wakeup cutscene
+        setGameVariableEnum(GameVariable.hasEnteredBedroom, true);
+
         // variables that live in yarn
         setYarnVariable("$teethBrushed", false);
         setYarnVariable("$isBedroomLampOn", false);
+
+        // an event during Day 2, where Brain smashes some glass if you knock his door
+        setYarnVariable("$hasBrainSmashedGlassYet", false);
     }
 
     public void setYarnVariable(string name, bool val)
@@ -101,6 +109,8 @@ public class GameState : MonoBehaviour
         setCutscenePlaying(false);
         cutscenePlaying = null;
     }
+
+
 
     // this is only here cuz we need the Manager object to distribute this to the actual SceneTeleport being referenced
     [YarnCommand("KnockOnDoor")]
@@ -278,14 +288,20 @@ public class GameState : MonoBehaviour
     public void setGameVariable(string variableName, bool val)
     {
         GameVariable gv = gameVariableToEnum(variableName);
+        setGameVariableEnum(gv, val);
+    }
+
+    public void setGameVariableEnum(GameVariable gv, bool val)
+    {
         if (gameVariables.ContainsKey(gv))
         {
             gameVariables[gv] = val;
         }
-        else {
+        else
+        {
             gameVariables.Add(gv, val);
         }
-        Debug.Log("Set gamevariable " + variableName + " to " + val);
+        Debug.Log("Set gamevariable " + gv.ToString() + " to " + val);
     }
 
     public bool getGameVariable(string variableName)

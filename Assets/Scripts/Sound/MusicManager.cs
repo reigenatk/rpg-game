@@ -31,7 +31,7 @@ public class MusicManager : MonoBehaviour
             if (isTriggerable) return false;
             foreach (Constraints c in conditions)
             {
-                if (c.day == day && c.sceneName == scene)
+                if ((c.day == day || day == -1) && c.sceneName == scene)
                 {
                     // then this condition matches, we should play this song
                     return true;
@@ -66,6 +66,7 @@ public class MusicManager : MonoBehaviour
             if (m.music.GetComponent<AudioSource>().isPlaying)
             {
                 // fade the song out smoothly
+                Debug.Log("Fading out " + m.music.name);
                 yield return stopMusic(m.music.GetComponent<AudioSource>(), numSecondsToFadeOver);
             }
         }
@@ -79,6 +80,7 @@ public class MusicManager : MonoBehaviour
         {
             if (m.music.name == nameOfMusicToPlay)
             {
+                Debug.Log("Fading in " + nameOfMusicToPlay);
                 m.music.GetComponent<AudioSource>().Play();
             }
         }
@@ -109,11 +111,16 @@ public class MusicManager : MonoBehaviour
                 }
                 else
                 {
+                    // if we get here, we know that audio is not playing for the song we want
+
+                    // first stop the song that is currently playing
                     if (curAudioSource != null)
                     {
                         // can do Pause() here instead if we want themes to pick up where they left off.
                         yield return StartCoroutine(stopMusic(curAudioSource, 2.0f));
                     }
+
+                    // then start the song that we should play.
                     AudioSource audioToPlay = m.music.GetComponent<AudioSource>();
                     yield return StartCoroutine(startMusic(audioToPlay, 2.0f));
                     curAudioObject = m.music;
@@ -125,7 +132,7 @@ public class MusicManager : MonoBehaviour
         // if we get here it means we found no suitable songs
         // so just stop the current song, this scene should be silent
         yield return StartCoroutine(stopAllMusic(2.0f));
-        
+        curAudioObject = null;
     }
 
 }

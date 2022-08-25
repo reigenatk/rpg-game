@@ -1,0 +1,231 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.6f1 (7da38d85baf6) revision 8233869'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Education' Language: 'en' Physical Memory: 32717 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\Unity\2021.3.6f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker5
+-projectPath
+D:/Unity/Dungeon - Copy
+-logFile
+Logs/AssetImportWorker5.log
+-srvPort
+53451
+Successfully changed project path to: D:/Unity/Dungeon - Copy
+D:/Unity/Dungeon - Copy
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 93.67 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.6f1 (7da38d85baf6)
+[Subsystems] Discovering subsystems at path D:/Unity/2021.3.6f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Unity/Dungeon - Copy/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1660 Ti (ID=0x2182)
+    Vendor:   NVIDIA
+    VRAM:     5991 MB
+    Driver:   30.0.15.1295
+Initialize mono
+Mono path[0] = 'D:/Unity/2021.3.6f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/2021.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Unity/2021.3.6f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56516
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity/2021.3.6f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/Unity/2021.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002775 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 65.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.562 seconds
+Domain Reload Profiling:
+	ReloadAssembly (562ms)
+		BeginReloadAssembly (64ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (402ms)
+			LoadAssemblies (63ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (102ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (25ms)
+			SetupLoadedEditorAssemblies (230ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (66ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (114ms)
+				ProcessInitializeOnLoadMethodAttributes (41ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.009564 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 65.45 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Package Manager log level set to [2]
+Mono: successfully reloaded assembly
+- Completed reload, in  1.084 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1085ms)
+		BeginReloadAssembly (91ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (20ms)
+		EndReloadAssembly (897ms)
+			LoadAssemblies (72ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (208ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (51ms)
+			SetupLoadedEditorAssemblies (524ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (66ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (229ms)
+				ProcessInitializeOnLoadMethodAttributes (143ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 1.16 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4376 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 90 unused Assets / (0.7 MB). Loaded Objects now: 4809.
+Memory consumption went from 198.4 MB to 197.7 MB.
+Total: 6.470500 ms (FindLiveObjects: 0.364500 ms CreateObjectMapping: 0.112500 ms MarkObjects: 5.678900 ms  DeleteObjects: 0.313700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 333078.907222 seconds.
+  path: Assets/Sprites/Aseprite/Tile Sprites/road-with-white-box-export.png
+  artifactKey: Guid(eacc07bdaedc74440a1c32545e870043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Tile Sprites/road-with-white-box-export.png using Guid(eacc07bdaedc74440a1c32545e870043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a54fcf1e612af8d2606f53ba82a23a23') in 0.164145 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.027162 seconds.
+  path: Assets/Sprites/Aseprite/Dune Stuff/Melange.png
+  artifactKey: Guid(6fe97e60b8286d44fbe4f8653eb5c902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Dune Stuff/Melange.png using Guid(6fe97e60b8286d44fbe4f8653eb5c902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86dbe9da868f1a3cf449080f28153d49') in 0.053831 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/Aseprite/Dune Stuff/sand2.png
+  artifactKey: Guid(e52bf8dee6d92d840bc17b46401c1e6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Dune Stuff/sand2.png using Guid(e52bf8dee6d92d840bc17b46401c1e6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2af3d1e37a389f31910de14679053f9f') in 0.015481 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Sprites/Aseprite/Dune Stuff/thopterkey.png
+  artifactKey: Guid(2158c8d739703b64088818ff36909e01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Dune Stuff/thopterkey.png using Guid(2158c8d739703b64088818ff36909e01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c59e0c7a5456c0130fbd2a9d3678bff') in 0.031941 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Sprites/Aseprite/Dune Stuff/rock-decoration2.png
+  artifactKey: Guid(13875e11d26c651449278a90191f72b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Dune Stuff/rock-decoration2.png using Guid(13875e11d26c651449278a90191f72b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '844bb955b72949957ebb8eff9b6cb130') in 0.015079 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/Aseprite/Dune Stuff/sand2.asset
+  artifactKey: Guid(79a8602def565854e925cd4184cc5cdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Dune Stuff/sand2.asset using Guid(79a8602def565854e925cd4184cc5cdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4cf46b3064dee21933c0f725c83c020') in 0.030516 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Sprites/Aseprite/Dune Stuff/miner.png
+  artifactKey: Guid(969821a5d54b90f409899263a291448c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Dune Stuff/miner.png using Guid(969821a5d54b90f409899263a291448c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '843e2b9fca8dab0660e8332b74315de6') in 0.193468 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 29936.872526 seconds.
+  path: Assets/Sprites/Aseprite/Tiles/grass.asset
+  artifactKey: Guid(45add1d1cd09968459c7ccd14e7a5103) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Tiles/grass.asset using Guid(45add1d1cd09968459c7ccd14e7a5103) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6af43eaac2ae4effa843966734747ef') in 0.011518 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Sprites/Aseprite/Tiles/road-with-white-line.asset
+  artifactKey: Guid(3f663c7d579a26f4093263984f0ac13f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Tiles/road-with-white-line.asset using Guid(3f663c7d579a26f4093263984f0ac13f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c50387801c3cd488501825ac64475bb4') in 0.009617 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Sprites/Aseprite/Tiles/sidewalk.asset
+  artifactKey: Guid(f0e056b5f20bbcc4f83735a7448878aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Tiles/sidewalk.asset using Guid(f0e056b5f20bbcc4f83735a7448878aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f85f022f0c309e7a158760c23fdb245c') in 0.014040 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Sprites/Aseprite/Tiles/two-sided-grass.asset
+  artifactKey: Guid(7cda16e7e83deb4498276b5ddb025bd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/Tiles/two-sided-grass.asset using Guid(7cda16e7e83deb4498276b5ddb025bd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0299b29545caf218bcd8a013deb840b0') in 0.019301 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

@@ -30,6 +30,8 @@ public class LevelLoader : Singleton<LevelLoader>
 
     public SceneName startingSceneName;
 
+    // this helps us to keep track of which scene we should load after the cutscene finishes (for a cutscene + new scene pattern)
+    SceneName nextSceneToLoad;
 
     // cutscene type
     [System.Serializable]
@@ -37,7 +39,7 @@ public class LevelLoader : Singleton<LevelLoader>
     {
         // which cutscene it is
         public PlayableDirector cutsceneToPlay;
-        // the day it must be
+        // the day it must be. Set to -1 if it can play any day
         public int dayToPlay;
         // the scene this will play on
         public SceneName scene;
@@ -57,7 +59,7 @@ public class LevelLoader : Singleton<LevelLoader>
             // Debug.Log("Consindering " + c.cutsceneToPlay.ToString());
 
             bool isPlaying = true;
-            if (gameState.getGameDay() != dayToPlay)
+            if (gameState.getGameDay() != dayToPlay && dayToPlay != -1)
             {
                 // Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
                 return false;
@@ -205,14 +207,48 @@ public class LevelLoader : Singleton<LevelLoader>
             endOfDayCutscene = playCutscene("LieInBed");
         }
 
-        endOfDayCutscene.stopped += cutsceneFinished;
+        endOfDayCutscene.stopped += endOfDayCutsceneFinished;
     }
 
-    private void cutsceneFinished(PlayableDirector stoppedDirector)
+    private void endOfDayCutsceneFinished(PlayableDirector stoppedDirector)
     {
         GameObject.Find("Bedsheets").GetComponent<SpriteRenderer>().sortingOrder = 0;
         FadeAndLoadScene(SceneName.DarkScene, defaultSceneLocation);
     }
+
+    /*    [YarnCommand("leaveHouse")] 
+        public void leaveHouse()
+        {
+            PlayableDirector endOfDayCutscene = playCutscene("D2_Commons_OpenDoor");
+
+        }*/
+
+    [YarnCommand("playCutsceneAndFade")]
+    public void playCutsceneAndFade(string cutsceneName, string sceneToFadeTo)
+    {
+        PlayableDirector cutsceneObj = playCutscene(cutsceneName);
+        cutsceneObj.stopped += fadeAfterCutsceneFinishes;
+        nextSceneToLoad = (SceneName) Enum.Parse(typeof(SceneName), sceneToFadeTo);
+    }
+
+    public void fadeAfterCutsceneFinishes(PlayableDirector stoppedDirector)
+    {
+        FadeAndLoadScene(nextSceneToLoad, defaultSceneLocation);
+    }
+
+    [YarnCommand("wakeUp")]
+    public void wakeUp()
+    {
+        Debug.Log("Waking up");
+        timeManager.gameClockPaused = false;
+        GameUI gameUI = FindObjectOfType<GameUI>();
+        gameUI.enableUI();
+        FindObjectOfType<Player>().setAnimationState("Base Layer.Idle.IdleDown");
+        FindObjectOfType<LevelLoader>().YarnLoadScene("Bedroom");
+        playCutscene("WakeUp");
+    }
+
+
 
     // helper method for when there's a new day and we gotta reset all game variables for the next day
     // this doesnt impact all variables- only the ones that are day dependent.
@@ -328,6 +364,7 @@ public class LevelLoader : Singleton<LevelLoader>
     // This is the main function that you should call to switch scene. It calls a bunch of helpers internally
     private IEnumerator FadeAndSwitchScenes(SceneName sceneName, Vector3 spawnPosition)
     {
+
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         // stop player from moving once we hit scene switch point
         player.DisableMovementAndAnimations();

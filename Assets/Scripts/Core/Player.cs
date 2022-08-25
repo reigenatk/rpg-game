@@ -39,7 +39,6 @@ public class Player : Singleton<Player>
     void Start()
     {
         animator = GetComponent<Animator>();
-
         // check for player collisions against these layers
         obstacleMask = LayerMask.GetMask("Enemy");
         sm = FindObjectOfType<SoundManager>();
@@ -49,8 +48,8 @@ public class Player : Singleton<Player>
     void Update()
     {
 
-        // can't move if talking to someone or if in cutscene
-        if (gameState.getGameVariableEnum(GameVariable.isDialoguePlaying) || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying))
+        // can't move or enter input, if talking to someone or if in cutscene, or if transitioning between scenes (scene teleport)
+        if (gameState.getGameVariableEnum(GameVariable.isDialoguePlaying) || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying) || !GetComponent<Animator>().enabled)
         {
             return;
         }
@@ -110,7 +109,7 @@ public class Player : Singleton<Player>
             sm = FindObjectOfType<SoundManager>();
         }
 
-        if (gameState.getGameVariableEnum(GameVariable.isDialoguePlaying) || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying)) return; // obviously no playing moving sounds if player can't move.
+        if (gameState.getGameVariableEnum(GameVariable.isDialoguePlaying)) return; // obviously no playing moving sounds if player can't move.
 
         // if a cutscene is currently playing, don't let us make noises.
         // this is to avoid us making footstep noises when animator is moving around?
@@ -166,8 +165,31 @@ public class Player : Singleton<Player>
         GetComponent<Animator>().enabled = false;
 
         ResetTriggers();
+        setToIdleAnimation();
+    }
 
-        // setAnimationState("Base Layer.Idle.IdleDown");
+    public void setToIdleAnimation()
+    {
+        AnimatorStateInfo animationState = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+        if (animationState.IsName("WalkUp") || animationState.IsName("SprintUp"))
+        {
+            setAnimationState("Base Layer.Idle.IdleUp");
+
+        }
+        if (animationState.IsName("WalkDown") || animationState.IsName("SprintDown"))
+        {
+            setAnimationState("Base Layer.Idle.IdleDown");
+
+        }
+        if (animationState.IsName("WalkLeft") || animationState.IsName("SprintLeft"))
+        {
+            setAnimationState("Base Layer.Idle.IdleLeft");
+
+        }
+        if (animationState.IsName("WalkRight") || animationState.IsName("SprintRight"))
+        {
+            setAnimationState("Base Layer.Idle.IdleRight");
+        }
     }
 
     public void EnableMovementAndAnimations()

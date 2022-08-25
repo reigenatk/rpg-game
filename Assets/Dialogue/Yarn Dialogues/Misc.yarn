@@ -23,6 +23,23 @@ Knock?
 -> No
 ===
 
+
+title: D1_Bedroom_Bed_Gotosleep
+---
+It's pretty late...
+Should I sleep?
+-> Yes
+	Alright...
+	<<if $teethBrushed == false>> 
+		Would you like to brush your teeth first?
+		-> Ok, fine.
+			<<stop>>
+		-> No, I'm too depressed to brush my teeth.
+	<<endif>>
+	<<goToSleep LevelLoader>>
+-> Hell No!
+===
+
 title: EndOfDayDialogue
 ---
 
@@ -57,3 +74,9 @@ Would you like to turn it on?
 -> No
 	Moonlight drowns out all but the brightest stars.
 ===
+
+title: Knock_No_Response
+---
+There was no response...
+===
+

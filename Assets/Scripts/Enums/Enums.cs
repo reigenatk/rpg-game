@@ -21,7 +21,7 @@ public enum Direction
 }
 
 
-// this MUST be done in order, otherwise it changes the values in the editor! Very annoying.
+// You must add new entires at the very bottom, otherwise it changes the pre-existing values in the editor! Very annoying.
 [System.Serializable]
 public enum GameVariable
 {
@@ -48,6 +48,8 @@ public enum GameVariable
     // cutscene related logic
     hasEnergyLowWarningPlayed,
     hasPlayerExitedHouse,
+    hasEnteredOutsideHouse,
+    hasKabowskiSurprisedUs,
 }
 
 
@@ -86,6 +88,10 @@ public enum SceneName
     BrainsRoom,
     LancelotRoom,
     DarkScene,
+    OutsideHouse,
+    CollegeLawn,
+    InsideBuilding,
+    LectureHall,
 }
 
 public enum Moods

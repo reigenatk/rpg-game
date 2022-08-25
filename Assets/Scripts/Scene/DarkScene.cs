@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DarkScene : MonoBehaviour
 {
+    [SerializeField] private bool skipDreams;
+
     // Checks what day it is, runs certain dialogue based on that.
     private IEnumerator Start()
     {
@@ -16,19 +18,27 @@ public class DarkScene : MonoBehaviour
 
         Debug.Log("Darkscene Day is " + day);
 
-        // then play the starting dialogue (aka dream) for the night
-        switch (day)
+        if (skipDreams == false)
         {
-            case 1:
-                dm.StartDialogueString("TrainStation");
-                break;
-            case 2:
-                dm.StartDialogueString("D2_Sleep");
-                break;
-            default:
-                break;
+            // then play the starting dialogue (aka dream) for the night
+            switch (day)
+            {
+                case 1:
+                    dm.StartDialogueString("TrainStation");
+                    break;
+                case 2:
+                    dm.StartDialogueString("D2_Sleep");
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (skipDreams == true)
+        {
+            FindObjectOfType<LevelLoader>().wakeUp();
         }
     }
+
 
 
 }

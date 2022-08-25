@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GameState;
+using static TimeManager;
 
 public class PlayerLoad : MonoBehaviour
 {
@@ -13,12 +14,15 @@ public class PlayerLoad : MonoBehaviour
     [System.Serializable]
     public class PlayerCondtional
     {
-        // the day it must be
+        // the day it must be, set -1 if any day works
         public int dayToPlay;
         // the scene this will play on
         public SceneName scene;
         // some extra conditions that must be either true or false
         public List<GameVariablePair> extraConditions;
+
+        // all the valid times for this player to be in this scene
+        public List<ChunkOfTime> validTimes;
 
         public Vector3 loadPosition;
         public bool shouldAddPlayer(SceneName scene)
@@ -31,11 +35,26 @@ public class PlayerLoad : MonoBehaviour
             {
                 return false;
             }
-            if (gameState.getGameDay() != this.dayToPlay)
+
+            if (gameState.getGameDay() == -1 || (gameState.getGameDay() != this.dayToPlay))
             {
                 // Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
                 return false;
             }
+
+            bool foundValidTime = false;
+            // check if current time falls inside of chunk of valid times
+            foreach (ChunkOfTime cot in validTimes)
+            {
+                if (cot.isInChunk(TimeManager.Instance.gt))
+                {
+                    // its in the chunk, player is valid
+                    foundValidTime = true;
+                    break;
+                }
+            }
+            if (!foundValidTime) return false;
+           
 
             // check if each condition is met. if not, set isPlaying to false
             foreach (GameVariablePair gv in this.extraConditions)

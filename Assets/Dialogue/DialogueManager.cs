@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using Yarn.Unity;
 using static GameState;
 using static TimeManager;
 
@@ -11,6 +12,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] GameState gameState;
     [SerializeField] Player player;
+    [SerializeField] DialogueRunner dialogueRunner;
     PlayableDirector p;
 
 
@@ -24,7 +26,7 @@ public class DialogueManager : MonoBehaviour
         dr.StartDialogue(Enum.GetName(typeof(Dialogue), d));
     }*/
 
-    public void DialogueStartedPlaying()
+    public void DialogueNodeStartedPlaying()
     {
         if (gameState.cutscenePlaying != null)
         {
@@ -32,10 +34,11 @@ public class DialogueManager : MonoBehaviour
             gameState.cutscenePlaying.Pause();
         }
         gameState.setGameVariable("isDialoguePlaying", true);
+        gameState.currentRunningDialogueNode = dialogueRunner.CurrentNodeName;
         player.DisableMovementAndAnimations();
     }
 
-    public void DialogueFinishedPlaying()
+    public void DialogueNodeFinishedPlaying()
     {
         if (gameState.cutscenePlaying != null)
         {
@@ -44,6 +47,11 @@ public class DialogueManager : MonoBehaviour
         }
         gameState.setGameVariable("isDialoguePlaying", false);
         player.EnableMovementAndAnimations();
+    }
+
+    public void DialogueFinishedPlaying()
+    {
+    
     }
     public void StartDialogueString(string s)
     {

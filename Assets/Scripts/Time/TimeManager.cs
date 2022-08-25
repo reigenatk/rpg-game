@@ -7,6 +7,18 @@ using UnityEngine.Rendering.Universal;
 public class TimeManager : Singleton<TimeManager>
 {
     [System.Serializable]
+    public class ChunkOfTime
+    {
+        public GameTime startTime;
+        public GameTime endTime;
+
+        // is some time g within this chunk of time?
+        public bool isInChunk(GameTime g)
+        {
+            return (startTime.compareTimes(g) == true) && (endTime.compareTimes(g) == false);
+        }
+    }
+    [System.Serializable]
     public class GameTime
     {
         public int gameHour;
