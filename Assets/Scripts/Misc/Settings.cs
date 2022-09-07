@@ -18,13 +18,33 @@ public static class Settings
     public static int idleUp;
     public static int idleDown;
 
-    // 1 min in game = 1 sec irl (1/60)
-    public const float secondsPerGameSecond = 0.0166667f;
-    public const int numSecondsAwakeMandatory = 14 * 3600;
 
     // Inventory
     public static int playerInitialInventoryCapacity = 24;
     public static int playerMaximumInventoryCapacity = 48;
+
+    // for NPC cross scene movemenet
+    public const int maxGridWidth = 99999;
+    public const int maxGridHeight = 99999;
+
+    // 1 min in game = 1 sec irl (1/60)
+    public const float secondsPerGameSecond = 0.0166667f;
+    public const int numSecondsAwakeMandatory = 14 * 3600;
+
+    // Tilemap
+    public const float gridCellSize = 1f; // grid cell size in unity units
+    public const float gridCellDiagonalSize = 1.41f; // diagonal distance between unity cell centres
+    public static Vector2 cursorSize = Vector2.one;
+
+    //NPC Movement
+    public static float pixelSize = 0.0625f;
+
+    // NPC Animation Parameters
+    public static int walkUp;
+    public static int walkDown;
+    public static int walkLeft;
+    public static int walkRight;
+    public static int eventAnimation;
 
     // static constructor
     static Settings()
@@ -34,6 +54,13 @@ public static class Settings
         yInput = Animator.StringToHash("yInput");
         isWalking = Animator.StringToHash("isWalking");
         isRunning = Animator.StringToHash("isRunning");
+
+        // NPC Animation parameters
+        walkUp = Animator.StringToHash("walkUp");
+        walkDown = Animator.StringToHash("walkDown");
+        walkLeft = Animator.StringToHash("walkLeft");
+        walkRight = Animator.StringToHash("walkRight");
+        eventAnimation = Animator.StringToHash("eventAnimation");
 
 
         //toolEffect = Animator.StringToHash("toolEffect");

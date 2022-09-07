@@ -41,6 +41,9 @@ public class SoundManager : MonoBehaviour
         WakeupAlarm,
         SnoringSounds,
         SmashingGlass,
+        BusApproach,
+        BusDoorOpen,
+        BusDriveAway,
     }
     [SerializeField] public SoundAudioClip[] sounds;
     // Start is called before the first frame update

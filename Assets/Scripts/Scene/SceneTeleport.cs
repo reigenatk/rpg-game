@@ -11,6 +11,10 @@ public class SceneTeleport : MonoBehaviour
     [SerializeField] private SceneName sceneNameGoto;
     [SerializeField] private Vector3 scenePositionGoto = new Vector3();
 
+    // specify ON the teleporter, which direction the player should face if knocking
+    // this should be the name of the PlayableDirector to play in string form
+    [SerializeField] private string knockCutsceneToPlay;
+
     
     // a special condition is just anything other than open
     [System.Serializable]
@@ -27,7 +31,7 @@ public class SceneTeleport : MonoBehaviour
         {
             GameState gameState = FindObjectOfType<GameState>();
 
-            if (gameState.getGameDay() == -1 || (gameState.getGameDay() != gameDay))
+            if (gameState.getGameDay() != -1 && (gameState.getGameDay() != gameDay))
             {
                 Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
                 return false;
@@ -85,44 +89,31 @@ public class SceneTeleport : MonoBehaviour
 
     public void KnockOnDoor()
     {
-        LevelLoader levelLoader = LevelLoader.Instance;
         // play knocking on door cutscene
         // first check what direction the door is compared to player, so we know which knocking anim to play
         Player player = FindObjectOfType<Player>();
-        PlayableDirector knockingCutscene;
-        if (transform.position.x <= player.transform.position.x)
-        {
-            StartCoroutine(playKnockAnim("left"));
-        }
-        else
-        {
-            StartCoroutine(playKnockAnim("right"));
-        }
 
-    }
+        if (knockCutsceneToPlay == "KnockLeft")
+        {
+            player.setPosition(player.transform.position + new Vector3(0.1f, 0, 0));
+        }
+        else if (knockCutsceneToPlay == "KnockRight")
+        {
+            player.setPosition(player.transform.position + new Vector3(-0.1f, 0, 0));
+        }
+        else if (knockCutsceneToPlay == "KnockUp")
+        {
+            player.setPosition(player.transform.position + new Vector3(0, -0.1f, 0));
+        }
+        
+        LevelLoader.Instance.playCutscene(knockCutsceneToPlay);
 
-    private IEnumerator playKnockAnim(string direction)
-    {
-        Player player = FindObjectOfType<Player>();
-        SoundManager sm = FindObjectOfType<SoundManager>();
-        if (direction == "left")
-        {
-            Debug.Log("playing left knock anim");
-            player.GetComponent<Animator>().SetTrigger("knockLeft");
-            sm.playSoundString("KnockOnDoor");
-        }
-        else if (direction == "right")
-        {
-            Debug.Log("playing right knock anim");
-            player.GetComponent<Animator>().SetTrigger("knockRight");
-            sm.playSoundString("KnockOnDoor");
-        }
-        yield return new WaitForSeconds(5.0f);
-        playKnockDialogue();
+
     }
 
     public void playKnockDialogue()
     {
+        Debug.Log("checking for knock dialogue");
         // first check what we should do
         foreach (SceneTeleportSpecialConditions stc in specialTeleportConditions)
         {
@@ -149,7 +140,15 @@ public class SceneTeleport : MonoBehaviour
         Player player = collision.GetComponent<Player>();
 
         // let gameState know that we are currently in this teleporter.
-        gameState.curSceneTeleport = this;
+        if (gameState.curSceneTeleport == this)
+        {
+            // we were just in this, so dont run it again for now
+            return;
+        }
+        else
+        {
+            gameState.curSceneTeleport = this;
+        }
         if (player != null)
         {
             // is the door openable?
@@ -174,4 +173,16 @@ public class SceneTeleport : MonoBehaviour
         }
 
     }
-}
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Player player = collision.GetComponent<Player>();
+        if (player != null && player.GetComponent<BoxCollider2D>().enabled == true)
+        {
+            if (gameState.curSceneTeleport == this)
+            {
+                gameState.curSceneTeleport = null;
+            }
+        }
+    }
+}   

@@ -103,3 +103,79 @@ TODO: make house scene
 Made even more bugfixes, such as no moving between scene transitions, added knocking functionality and animations (if you go to door and it is locked, you can knock on it), made some animation triggers for playing simple animation + sound effects (dont use timeline for this, just instead create animation trigger and trigger it, then call playSoundString). We should reserve timeline usage for the most complicated scenes.
 
 Also made decent progress on drawing the outside scene. No music yet.
+
+# 8/28/22
+Finished up drawing outside scene for now, also made another transition to the next scene (bus picks the player up), title "Campus". Some important changes- inside of playCutscene I made it so that it will also search for the cutscene passed in as a string, so make sure you don't name two cutscenes the same. Also, make sure that **two cutscenes never play at the same time** (because we have cutscene is/isnt playing and all, it would get confusing fast).
+
+Also fixed some strange bug with the manual timeline thing I tried to do... Where character
+is knocking at the door while facing up, and it keeps doing some weird stuff
+
+I ended up just using timeline instead, but now there's still two problems:
+
+1. Unity is randomly crashing, dunno how but I seemed to have triggered this
+2. It's still playing some walking noises during the cutscene (after you select an option
+in the dialogue, it plays walking noises which is super annoying)
+
+# 8/29/22
+Started drawing Campus scene, added 2D Tilemap extras package for coordinate brush
+
+Starting to watch the pathfinding + tilemap properties lectures so that I can implement
+some NPC movement, since the outdoor scenes right now look really dumb without cars
+or NPCs moving around. It's a college campus for crying out loud
+
+A bit of a note to self, watch lecture 44 (@33:30) to see how to use tilemap grid properties (around 35 min in). But if you're lazy basically the GridProperties start as a disabled object, with all the data being stored in the scriptable object. To make something happen, you want to enable the object, draw the squares in using your tilemap editor (can just use any tile, collision tile for example), then re-disable the GridProperties. This will populate the scriptable object.
+
+Aside from populating the scriptable objects, we should make sure to keep GridProperties disabled during game runtime
+
+A* is actually not too complex to understand (lecture 86 does a good job), but I started working on implementing A* since we will use that pathfinding in our game.
+
+# 8/30/22 
+Not much tbh, spent the whole day doing 385 shit lmao, still isnt even working. Also I probably shouldnt have skimped out on a bunch of stuff.
+
+A* is in the works
+
+TODO: 
+- Figure out where to save the gridPropertiesDetailsDictionary object (probably in gameState?)
+
+# 8/31/22
+Ok I was thinking about how to make the camera pan to the bus when the bus cutscene occurs, I conclude that I have to put the bus in the persistant scene. Same with the lamp. We should put all that crap in the same scene since Cinemachine Track cannot see the virtual cameras if they are in different scenes.
+
+Ok update, after 3 hours of tinkering I got virtual cameras in the timeline too! Now bus riding scene looks pretty solid. Only thing I really had to do was move the Bus out of the OutsideHouse scene, into the Main scene. The key is the use an **activation track** to easily dictate when the bus should be rendered!
+
+# 9/3/22
+So in A*, we call BuildPath which calls PopulateGridNodesFromGridPropertiesDictionary which looks for a `Dictionary<string, GridPropertyDetails>`, where the key (of type string) is something of the form "X3Y10" for example, symbolizing the location 3,10 on the tilemap, and the value is a GrdiPropertyDetails object which is just some info from the scriptable object.
+
+It gets this dictionary from the SceneSave object, which comes from the GameObjectSave field on the GridPropertiesManager. This GameObjectSave is instantiated on Awake, and stores a dict of string (scene name) to SceneSave objects. TBH its hard to explain, just look at code.
+
+Just taking some notes as well- to make NPCs follow a specific path, paint on the Path tilemap and then set the Default Movement Penalty in NPCManager script (which has AStar on it) to a high value, that way Astar is forced to use our path to avoid high costs.
+
+# 9/4/22
+
+Ok tbh I feel like they complicated A* a bit, but IDK yet, just finished the main lecture and my character moves (finally). There's a bunch of pitfalls that I think lecturer could've made more clear, basically in the Scriptable Objects for GridProperties, the OriginX and OriginY fields are **relative to the tilemap!** You can find what this value is by using the Tile Pallete's inspector mode and then just clicking on the tile. Same with the ~Finish Position~ field in the AStarTest script as well, needs to be relative to the tilemap. This took me a while to figure out. When we say "relative to the tilemap" this means taking the world position and **subtracting** whatever the tilemap's transform is in the editor.
+
+Also the code function call tracing is just confusing, for example there are like 3 buildpaths, NPCPath's calls MPCManager's which calls aStar's. Why can't we just call aStar's directly? IDK. But it would make things simpler. 
+
+~~Also, if I'm not mistaken in this implementation, we are running A* every frame? This seems really time consuming... I think we're running every frame because if you look we can agree that AStar class' FindShortestPath method runs the whole A* algo, and FindShortestPath is being called by BuildPath, which again is ~~ 
+
+Never mind, so basically what's happening is actually pretty smart. We are running A* once (hence why in AStarTest, we immediatelly toggle off the MoveNPC boolean, because we only wanna run AStar once), and while AStar is running, another while loop (in FixedUpdate, class is NPCMovement) is sitting and staring at the stack that AStar is populating. It is constnatly checking how many entries are in the stack. The instant there is more than one entry in there, we will go to that next location. It's quite smart.
+
+Anyways A* is working now. My character is moving and animating, but looks absolutely horrendous, lol. Next step is to probably redraw it or we can move on for now with this character animation and go back later once we got all the infrastructure setup and then redraw things. Dunno. Probably will moveon to cross scene movement for now.
+
+Ok also I just realized I've been drawing my Pixels per unit all randomly. Probably shoulda stuck with one number (likely 16 is the best option, since its way less work to draw)... but I've been doing 16, 24 and 32 like a total dumbass. And I definitely have resolution issues...
+
+I added the Pixel Perfect Camera back, catch is you can't zoom since by definition the camera is at a single resolution... So maybe I can edit it programatically? And from now on, I will draw all my sprites at 16 probably and hopefully it works OK enough...
+
+Ok important other change, **if I make any more cinemachine Virtual cams, be sure to add under "Extensions", the Pixel Perfect extension! Because otherwise it also won't zoom properly, like the ortho size. If you add it though it will work.
+
+# 9/6/22
+
+Implemented a way to distinguish between the obscure item fader collider and the dialogue activate collider, by having the dialogue activate sit in a child object on the layer called "Dialogue Colliders". TBH I'm not sure if this is the best sollution but whatever. 
+
+The reason why we needed this is because if we put two colliders, both with trigger, on the same gameobject, with a dialogueActivate script, then when I enter the dialogue activate collider (which often sits a little bit in front of the object), the sprite will fade. Similarly, if I press "E" inside the fader collider (which often sits behind), the object will activate dialogue. We don't want this, obviously. It's not the end of the world either, but still, its nice to have separation.
+
+For **Routes**, simply change the so_SceneRouteList scriptable object. Or if you're confused watch lecture 90 (@20min). A weird thing is how we sometimes set positions to "999999", or six nines. What this means is to use either the start position or end position. 
+
+Also, it seems like cross-scene movement (the way that they implemented it) has the NPCs **moving** in the other scenes, **even if we are not in that scene**.
+
+TODO: There's still something really wrong with npcMovement.npcCurrentScene... And IDK what it is. But I bet that if I can solve this problem (which I earlier masked by removing an if-statement), then I can probably get this whole thing to work... Problem is right now its not even getting the right scene route because it thinks that npcCurrentScene is Bedroom, when it should be something else... I did try setting it manually to Campus, maybe I should do that again tomorrow and see how the execution of the code changes.
+

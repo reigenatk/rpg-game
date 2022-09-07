@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -107,7 +108,13 @@ public class TimeManager : Singleton<TimeManager>
         
     }
     public GameTime gt;
-    
+
+    public TimeSpan GetGameTime()
+    {
+        TimeSpan gameTime = new TimeSpan(gt.gameHour, gt.gameMinute, gt.gameSecond);
+
+        return gameTime;
+    }
 
     private int totalGameSeconds = 0;
     private string gameDayOfWeek = "Mon";

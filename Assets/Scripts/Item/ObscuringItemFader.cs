@@ -28,6 +28,10 @@ public class ObscuringItemFader : MonoBehaviour
             spriteRenderer.color = new Color(1f, 1f, 1f, currentAlpha);
             yield return null; // next frame will carry on and evaluate the while again
         }
+        if (GetComponent<Animator>() != null)
+        {
+            GetComponent<Animator>().enabled = false;
+        }
 
         // at the end just set it equal to target alpha
         spriteRenderer.color = new Color(1f, 1f, 1f, Settings.targetAlpha);
@@ -49,6 +53,12 @@ public class ObscuringItemFader : MonoBehaviour
             spriteRenderer.color = new Color(1f, 1f, 1f, currentAlpha);
             yield return null; // next frame will carry on and evaluate the while again
         }
+
+        if (GetComponent<Animator>() != null)
+        {
+            GetComponent<Animator>().enabled = true;
+        }
+
 
         // at the end just set it equal to target alpha
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);

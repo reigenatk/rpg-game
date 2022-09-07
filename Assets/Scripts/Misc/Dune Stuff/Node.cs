@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Node
+namespace DuneStuff
 {
-    public Vector2 position, parent;
-
-    public Node(Vector2 _position, Vector2 _parent)
+    public class Node
     {
-        position = _position;
-        parent = _parent;
+        public Vector2 position, parent;
+
+        public Node(Vector2 _position, Vector2 _parent)
+        {
+            position = _position;
+            parent = _parent;
+        }
     }
 }

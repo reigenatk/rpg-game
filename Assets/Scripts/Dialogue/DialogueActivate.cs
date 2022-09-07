@@ -159,7 +159,7 @@ public class DialogueActivate : MonoBehaviour, Interactable
     private void OnTriggerEnter2D(Collider2D other)
     {
         isInside = true;
-        if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
+        if (other.CompareTag("Player") && gameObject.layer == LayerMask.NameToLayer("Dialogue Colliders") && other.TryGetComponent(out Player player))
         {
             // player interacts with this one
             player.interactables.Add(this);
@@ -182,7 +182,7 @@ public class DialogueActivate : MonoBehaviour, Interactable
         {
             s.enabled = false;
         }*/
-        if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
+        if (other.CompareTag("Player") && gameObject.layer == LayerMask.NameToLayer("Dialogue Colliders") && other.TryGetComponent(out Player player))
         {
             // ok this is a bit confusing but basically its asking, is the 
             // current interactable equal to this object, if so then delete. Cuz we can 

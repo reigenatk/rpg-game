@@ -56,6 +56,8 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogueString(string s)
     {
         Yarn.Unity.DialogueRunner dr = GameObject.FindGameObjectWithTag("DialogueSystem").GetComponent<Yarn.Unity.DialogueRunner>();
+
+        // stop whatever dialogue is still running, dont wanna run two dialogues at once!
         dr.Stop();
         dr.StartDialogue(s);
     }

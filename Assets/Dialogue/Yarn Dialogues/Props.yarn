@@ -4,8 +4,6 @@ Ah yes, the bed.
 Where I spend 90% of my waking time.
 Staring at the ceiling, waiting for the day to end.
 <<wait 1>>
-I am so grateful for my bed.
-Because it helps me to sleep.
 And that's 8 hours where I don't need to be awake. 
 ===
 
@@ -250,4 +248,57 @@ title: D1_Lancelot_NorthKorea
 ---
 Lancelot isn't even Korean. He's Russian. 
 I dunno why he has this.
+===
+
+title: D2_House
+---
+My house looks quite nice on the outside.
+But then you realize that it's leased to four other tenants.
+So on top of my roomates, I get to deal with three other groups of people.
+<<wait 1>>
+Last year, we had a group of rowdy seniors who lived next door.
+Let's hope they graduated.
+===
+
+title: D2_Neighbors_House
+---
+This entire neighborhood is jam-packed with these leasable houses.
+<<wait 1>>
+Owned by some predatory leasing company who could care less about your experience.
+I don't ever talk to my neighbors, but I see them coming in and out of the house.
+===
+
+title: D2_Bus_Stop_House
+---
+<<if $day == 2>>
+	I have to take the bus to get to my classes.
+	I live about a mile away from campus, after all.
+	<<wait 1>>
+	Every time you take the bus, you kinda pray that it arrives on time.
+<<endif>>
+Would you like to ride the bus?
+-> Yes
+	<<playCutsceneAndFade LevelLoader TakeBusToCampus Campus>>
+-> No
+===
+
+title: D2_Bus_Stop_Campus
+---
+I can't wait for this bus to come... I gotta get out of here.
+Would you like to ride the bus?
+-> Yes
+	<<playCutsceneAndFade LevelLoader TakeBusToHouse OutsideHouse>>
+-> No
+===
+
+title: D2_Campus_Apartment
+---
+<<playCutscene LevelLoader LookAtApartmentBuilding>>
+===
+
+title: D2_Campus_Apartment_Text
+---
+Some of these high-rise apartments are actually quite nice, since they're so close to school.
+The only problem with them is that they're expensive, and loud.
+Usually have a ton of parties thrown in them too... ugh.
 ===

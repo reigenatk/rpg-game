@@ -8,6 +8,7 @@ TagManager:
   - MainCanvas
   - DialogueSystem
   - Manager
+  - Dialogue Collider
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Enemy
   - Wall
   - Floor
-  - Sandwrom
+  - Dialogue Colliders
   - 
   - 
   - 

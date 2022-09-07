@@ -26,6 +26,10 @@ public class Player : Singleton<Player>
     SoundManager sm;
     [SerializeField] GameObject gameUI;
     [SerializeField] GameState gameState;
+
+    // just a general purpose variable for disabling movements
+
+    bool disableMovement;
     protected override void Awake()
     {
         base.Awake();
@@ -49,7 +53,7 @@ public class Player : Singleton<Player>
     {
 
         // can't move or enter input, if talking to someone or if in cutscene, or if transitioning between scenes (scene teleport)
-        if (gameState.getGameVariableEnum(GameVariable.isDialoguePlaying) || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying) || !GetComponent<Animator>().enabled)
+        if (gameState.getGameVariableEnum(GameVariable.isDialoguePlaying) || gameState.getGameVariableEnum(GameVariable.isCutscenePlaying) || !GetComponent<Animator>().enabled || disableMovement)
         {
             return;
         }
@@ -119,13 +123,13 @@ public class Player : Singleton<Player>
 
     public void setAnimationState(string animationName)
     {
+        ResetTriggers();
         animator.Play(animationName);
     }
 
     public string getPlayerDirection()
     {
-        AnimatorStateInfo animationState = GameObject.FindGameObjectWithTag("Player").
-    GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo animationState = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
 
         string playerDirection = "";
         if (animationState.IsName("IdleUp") || animationState.IsName("WalkUp") || animationState.IsName("SprintUp"))
@@ -161,11 +165,20 @@ public class Player : Singleton<Player>
 
     public void DisableMovementAndAnimations()
     {
+        Debug.Log("Disable momvents");
         // disable the animator
         GetComponent<Animator>().enabled = false;
 
+        disableMovement = true;
         ResetTriggers();
         setToIdleAnimation();
+    }
+
+    public void EnableMovementAndAnimations()
+    {
+        Debug.Log("Enabling movements");
+        GetComponent<Animator>().enabled = true;
+        disableMovement = false;
     }
 
     public void setToIdleAnimation()
@@ -192,19 +205,19 @@ public class Player : Singleton<Player>
         }
     }
 
-    public void EnableMovementAndAnimations()
-    {
-        GetComponent<Animator>().enabled = true;
-        // Debug.Log("Enabling movements");
-
-    }
 
     public void ResetTriggers()
     {
         isRunning = false;
         isWalking = false;
+        animator.SetBool("isWalking", false); 
+        animator.SetBool("isRunning", false);
         xInput = 0.0f;
         yInput = 0.0f;
+        animator.ResetTrigger("idleLeft");
+        animator.ResetTrigger("idleRight");
+        animator.ResetTrigger("idleDown");
+        animator.ResetTrigger("idleUp");
     }
 
     public Vector3 GetPlayerViewportPosition()

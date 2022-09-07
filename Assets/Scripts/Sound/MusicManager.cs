@@ -31,7 +31,7 @@ public class MusicManager : MonoBehaviour
             if (isTriggerable) return false;
             foreach (Constraints c in conditions)
             {
-                if ((c.day == day || day == -1) && c.sceneName == scene)
+                if (((c.day == day) || (c.day == -1)) && c.sceneName == scene)
                 {
                     // then this condition matches, we should play this song
                     return true;
@@ -89,6 +89,7 @@ public class MusicManager : MonoBehaviour
     // this will be called each time we load a new scene (from LevelLoader)
     public IEnumerator playMusic(int currentDay, SceneName currentSceneName)
     {
+        Debug.Log("Checking if we need to play any music...");
         AudioSource curAudioSource = null;
         if (curAudioObject != null)
         {

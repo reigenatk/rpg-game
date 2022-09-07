@@ -47,9 +47,14 @@ public enum GameVariable
     
     // cutscene related logic
     hasEnergyLowWarningPlayed,
-    hasPlayerExitedHouse,
     hasEnteredOutsideHouse,
+    hasEnteredCampus,
+    hasEnteredBuilding,
+    hasEnteredLectureHall,
+    hasFinishedDay2Lecture,
     hasKabowskiSurprisedUs,
+
+    isBusCutscenePlaying,
 }
 
 
@@ -59,6 +64,12 @@ public enum PlayerScore
     contentedness,
     social,
     energy,
+}
+
+public enum GridBoolProperty
+{
+    isPath,
+    isNPCObstacle,
 }
 
 
@@ -89,7 +100,7 @@ public enum SceneName
     LancelotRoom,
     DarkScene,
     OutsideHouse,
-    CollegeLawn,
+    Campus,
     InsideBuilding,
     LectureHall,
 }

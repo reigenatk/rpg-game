@@ -2,35 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class zoomControl : MonoBehaviour
+namespace DuneStuff
 {
-
-    public Camera mainCamera; //Uses the camera. Made public for testing purposes//
-
-
-    void Start()
+    public class zoomControl : MonoBehaviour
     {
-        mainCamera = GetComponent<Camera>();  //Grabs the camera size for zooming
-                                              //
-    }
+
+        public Camera mainCamera; //Uses the camera. Made public for testing purposes//
 
 
-    void Update()
-    {
-        //Camera Zoom Function
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        void Start()
         {
-            if (mainCamera.orthographicSize > 3)
-            {
-                mainCamera.orthographicSize -= 1;
-            }
-
+            mainCamera = GetComponent<Camera>();  //Grabs the camera size for zooming
+                                                  //
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+
+
+        void Update()
         {
-            if (mainCamera.orthographicSize < 13)
+            //Camera Zoom Function
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
-                mainCamera.orthographicSize += 1;
+                if (mainCamera.orthographicSize > 3)
+                {
+                    mainCamera.orthographicSize -= 1;
+                }
+
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                if (mainCamera.orthographicSize < 13)
+                {
+                    mainCamera.orthographicSize += 1;
+                }
             }
         }
     }

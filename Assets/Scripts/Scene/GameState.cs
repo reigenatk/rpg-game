@@ -70,6 +70,9 @@ public class GameState : MonoBehaviour
         setYarnVariable("$teethBrushed", false);
         setYarnVariable("$isBedroomLampOn", false);
 
+        // start at day 1
+        setYarnVariable("$day", gameDay);
+
         // an event during Day 2, where Brain smashes some glass if you knock his door
         setYarnVariable("$hasBrainSmashedGlassYet", false);
     }
@@ -98,7 +101,7 @@ public class GameState : MonoBehaviour
         return ret;
     }
 
-    public void setCutscenePlaying(bool value)
+    public void setIsCutscenePlaying(bool value)
     {
         gameVariables[GameVariable.isCutscenePlaying] = value;
     }
@@ -106,8 +109,15 @@ public class GameState : MonoBehaviour
     public void cutsceneFinishedPlaying()
     {
         FindObjectOfType<Player>().GetComponent<BoxCollider2D>().enabled = true;
-        setCutscenePlaying(false);
+        setIsCutscenePlaying(false);
         cutscenePlaying = null;
+    }
+
+    // basically when a bus cutscene plays, we switch scenes right? But the new scene needs to know that the bus is still driving 
+    // so it will check if isBusCutscenePlaying is true, and if it is, it will play the bus arrival cutscene right when the scene loads.
+    public void setIsBusCutscenePlaying(bool value)
+    {
+        gameVariables[GameVariable.isBusCutscenePlaying] = value;
     }
 
 
@@ -120,7 +130,14 @@ public class GameState : MonoBehaviour
         {
             curSceneTeleport.KnockOnDoor();
         }
-        
+    }
+
+    public void PlayKnockOnDoorDialogue()
+    {
+        if (curSceneTeleport != null)
+        {
+            curSceneTeleport.playKnockDialogue();
+        }
     }
 
 
