@@ -15,3 +15,7 @@ but sometimes motivation is getting at me.
 
 # Synopsis
 More or less a game about being a depressed college student. You'll never guess where I got the inspiration for that from 😉
+
+# Screenshots
+![image](https://user-images.githubusercontent.com/69275171/190540075-f7da64eb-3efb-49bf-8670-a1acc11e6b92.png)
+![image](https://user-images.githubusercontent.com/69275171/190540144-6dd2f5c5-b51f-4e33-8464-eb40564fc295.png)
