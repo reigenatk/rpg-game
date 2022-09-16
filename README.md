@@ -8,7 +8,7 @@ My favorite kinds of games are probably indie RPG games, so I decided to give a 
 
 # Technologies
 This is made in Unity, 
-though I did consider using GameMaker Studio or Godot.
+though I did consider using GameMaker Studio or Godot (and even RPGMaker).
 But ultimately, I decided to stick to what I'm familiar with. 
 This is still in very rough development, I'd say it's like 20% done right now, and I don't even know if I'll finish it. I really want to, 
 but sometimes motivation is getting at me.
