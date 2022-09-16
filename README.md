@@ -1,5 +1,5 @@
 # rpg-game
-A 2D top-down RPG game I am making in Unity. Name still undecided. The end plan is to release it on itch.io, maybe even on Steam if I feel it's good enough. I wanna try to do my best job here though, so I'm going to set no deadlines.
+A 2D top-down RPG game I am making in Unity. It's going to be mostly dialogue/story driven. Name still undecided. The end plan is to release it on itch.io, maybe even on Steam if I feel it's good enough. I wanna try to do my best job here though, so I'm going to set no deadlines.
 
 I've actually been working on this since early 2021, but school got in the way, and also lack of motivation (as always)
 
