@@ -270,3 +270,10 @@ OK final update, I revamped the sound system to match that of the course, its ju
 Also added some cool pausing functionality between scenes, redid the Union stairs drawing so that it looks 10x better now. Good progress all around, tomorrow probably will continue drawing the downtown scene and also maybe get started on the lecture hall cutscene.
 
 Another thing I could do is rework the Cutscenes into a scriptable object, but I'm too lazy.
+
+# 10/14/22
+
+Basically a **Pool Manager** tries to avoid calling Instantiate and Destroy because apparently they are bad for performance? Too much garbage collection. Internally, pool manager is just a queue of gameobjects that are made in advance so that we don't have to instantiate.
+
+I probably can use this for my car driving mechanism thing- whatever, maybe later.
+
