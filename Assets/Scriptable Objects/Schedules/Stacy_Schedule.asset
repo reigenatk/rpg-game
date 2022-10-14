@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
+  m_Name: Stacy_Schedule
+  m_EditorClassIdentifier: 
+  npcScheduleEventList:
+  - hour: 8
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 91
+      y: -66
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+  - hour: 15
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 7
+    toGridCoordinate:
+      x: 32
+      y: -77
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}

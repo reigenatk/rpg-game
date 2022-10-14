@@ -1,0 +1,133 @@
+﻿title: D1_StartDay
+---
+Welp, this sucks.
+I forgot how much I hated being at school.
+It's worse than being at home, because I have to do things.
+<<wait 1>>
+At least when I'm home, I can NEET around and pretend I'm being productive.
+My parents wouldn't know either way.
+<<wait 1>>
+My room is smaller, the food is worse... 
+<<wait 1>>
+<<playSoundString Manager DriveByCar>>
+<<wait 6>>
+Everyday, I have to listen to those dumbass rich kids blast music in their fancy little cars 
+As they zoom down my street 20mph over the speed limit.
+Not to mention, I have nothing that you would expect from a typical college experience.
+I've never been to a party.
+I haven't made any friends here, much less a girlfriend.
+My grades are average, I can't even find the motivation to go to lecture hall most of the time.
+<<wait 1>>
+I mean, did you like going to college? 
+Be honest.
+-> Yes
+    You must've had somewhat of a normal life then. I envy you.
+-> No
+    Hey, at least it's over, right? You're probably like me.
+-> Haven't gone.
+    Well, you might like it, and you might not. Depends on who you are.
+You see, I don't think I'm very normal.
+<<wait 1>>
+Growing up, I've never had friends. 
+Or for the few that I did have, they always were my friend more or less out of pity.
+It's usually because I'm too afraid to put myself out there.
+I also have a really twisted sense of normalicy. I can tolerate being lonely most of the time.
+But sometimes, it gets too lonely, even for me.
+<<playSoundString Manager Sigh>>
+<<wait 5>>
+Oh well. I oughta make the most of my situation.
+Things aren't gonna get better on their own.
+<<playCutscene LevelLoader WalkToWindow>>
+===
+
+title: D1_OpenWindow
+---
+<<playSoundString Manager OpenWindow>>
+<<wait 1>>
+<<playSoundString Manager WindGust>>
+<<wait 2>>
+At least I can get some fresh air.
+<<wait 3>>
+I wonder what time it is, that train ride was long.
+<<enableGameClock GameUI>>
+<<wait 2>>
+
+Seems like it's the evening. Makes sense.
+<<wait 3>>
+I feel a bit tired.
+<<enablePlayerBars GameUI>>
+<<wait 5>>
+
+But I'm not quite tired enough to sleep yet...
+<<wait 1>>
+Let's see if anything's changed in this apartment.
+===
+
+title: D1_WalkIntoCommons
+---
+This is the common area. Looks like my roommates aren't around.
+Not that I would want to see them anyways.
+We didn't really talk much last year, and I have a feeling they don't like me.
+Maybe I should try talking to them more.
+===
+
+title: D1_WalkIntoKabowskiRoom
+---
+This is Kabowski's room.
+I honestly hate Kabowski.
+He's everything I'm not.
+Loud, popular, athletic, and stupid.
+<<wait 2>>
+Even his name is stupid.
+I'm pretty sure his real name is Donald.
+I saw it on the postage note on his packages.
+<<wait 1>>
+But he just tells everyone to call him Kabowski.
+<<wait 2>>
+The only reason he doesn't live in a frat is because he got charged for sexual assault.
+And of course, the frat kicked him out for that.
+<<wait 1>>
+He's denied this of course. He told us many times that it was a BS charge.
+I don't know whether to believe him or not.
+<<wait 2>>
+Oh well. At least he doesn't stay in the apartment often.
+===
+
+title: D1_WalkIntoBrainsRoom
+---
+This is Brain's room.
+Brain's real name is Brian.
+But Kabowski started calling him "The Brain" because he's really smart.
+<<wait 1>>
+And I guess the name stuck.
+<<wait 1>>
+I don't think Brain really likes it when we call him that.
+<<wait 1>>
+Brain is super good at everything, though.
+Last year, he won some award for discovering a more efficient algorithm for rocket fuel consumption.
+Or something like that.
+<<wait 2>>
+It's really weird for him to not be in his room.
+I wonder where he is.
+<<wait 2>>
+Anyway, I better leave before he comes back and finds me here.
+Brain gets real pissy about small things.
+===
+
+title: D1_WalkIntoLancelotsRoom
+---
+Lancelot is probably the most normal out of us three.
+He's the son of some rich oligarch from Russia.
+<<wait 1>>
+On the outside, he looks like your average business major. 
+But in reality, he's a drunkard, a smoking addict, and a wannabe rapper.
+<<wait 2>>
+He also throws loud parties every other day with his Russian buddies.
+<<wait 1>>
+I can't understand what he's saying half the time.
+<<wait 1>>
+I also don't know whose idea it was to name him Lancelot. I guess his parents watched King Arthur and decided it was a good name.
+<<wait 1>>
+I guess he's pretty cool, aside from the loud parties and the fact that he makes this apartment smell like weed.
+===
+

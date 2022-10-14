@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/PersistantScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Day1/Bedroom.unity
+    guid: c9ee4c6ccf72bbc45b94290e72c4e467
+  - enabled: 1
+    path: Assets/Scenes/Day1/Commons.unity
+    guid: 98e8bbe77aa81524d85ed592a0c4aef5
+  - enabled: 1
+    path: Assets/Scenes/Day1/KabowskiRoom.unity
+    guid: 2c34b74454f7e424bbd26f6ecd93a489
+  - enabled: 1
+    path: Assets/Scenes/Day1/BrainsRoom.unity
+    guid: 97f58dca7952cc14482152707f90e751
+  - enabled: 1
+    path: Assets/Scenes/Day1/BathroomWTF.unity
+    guid: b35fb77a732131343b50fe27757c2c8d
+  - enabled: 1
+    path: Assets/Scenes/DarkScene.unity
+    guid: 1758e757d73539944aec4dee33b870ac
+  - enabled: 1
+    path: Assets/Scenes/Day1/LancelotRoom.unity
+    guid: 6de6851a327618949b706af87734ff4f
+  - enabled: 1
+    path: Assets/Scenes/OutsideHouse.unity
+    guid: f5af2d8b75cc9b0448fa71529731bf57
+  - enabled: 1
+    path: Assets/Scenes/Campus.unity
+    guid: e631200372b7fd94f805d525c6e678e4
+  m_configObjects: {}

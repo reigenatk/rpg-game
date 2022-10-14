@@ -1,0 +1,241 @@
+title: D2_Lancelot_Commons
+---
+Lancelot: Heylo, Steven, my friend.
+Lancelot: How vas your summer?
+-> Pretty good, thanks for asking.
+    Lancelot: Gud to hear, my friend.
+    -> How was your summer?
+        Lancelot: Vury gud. I go back to Siberia, my home.
+        Lancelot: I drink lot of vodka and play csgo
+        <<wait 1>>
+        Lancelot: I am glad to be back, Steven
+        <<wait 1>>
+        Lancelot: Although I will miss my pet bear, Gasha.
+    -> Talk to you later.
+        Lancelot: Goodbye.
+-> Terrible.
+    Lancelot: Ah, Blyat. 
+    Lancelot: прости за это. School year vill be better.
+    Lancelot: Hopevully, ve can see each other more offen.
+    Lancelot: Last year I did not get chance to talk to you much.
+    <<wait 1>>
+    Lancelot: Have you talk to others yet? I zink that zey are in zeir rooms.
+===
+
+title: D2_Sleep
+---
+<<playSoundString Manager NotBirthdaySong>>
+<<wait 17>>
+<<wait 2>>
+<<playSoundString Manager CandlesBlow>>
+<<wait 3>>
+A candle with the number "10" on it, is blown out.
+<<playMusicName MusicObject RestaurantAmbience>>
+<<wait 4>>
+The cake is okay. Your parents always order the same cake, so you know exactly what it will taste like.
+Out of the corner of your eye, you see something.
+Your childhood friend, Ralph, is now waving goodbye.
+<<wait 1>>
+Ralph: Happy birthday, Steven!
+<<wait 1>>
+He follows his mother out of the buffet.
+<<wait 1>>
+A few more minutes pass.
+Vincent: Thanks for inviting us over!
+Josh: This buffet was the best!
+<<wait 1>>
+The twins and their mother wave as they leave.
+<<wait 1>>
+It's just you and your parents now.
+<<wait 1>>
+Mom: Alright Steven, let's get ready to go.
+Dad: I agree, you got school tomorrow.
+<<wait 2>>
+You exit the buffet with them, into the dark, starry parking lot.
+<<stopAllMusic MusicObject>>
+<<playSoundString Manager OpenShopDoor>>
+<<wait 3>>
+<<playMusicName MusicObject ParkingLotAmbience>>
+<<wait 2>>
+You start to cry.
+<<wait 2>>
+Mom: Why you crying?
+<<wait 2>>
+You try to stop, but the tears keep coming.
+<<wait 2>>
+Dad: Was food not good enough?
+<<wait 1>>
+...
+<<wait 2>>
+Mom: Don't be ungrateful.
+<<wait 2>>
+You're sitting on the curb.
+<<wait 2>>
+Dad: Steven! Get up this instant. Don't throw a tantrum on your birthday!
+Your mom holds up a hand as if to signal your dad, "not now".
+She puts a hand on your shoulder.
+<<wait 1>>
+Mom: Tell me what's wrong, honey?
+<<wait 3>>
+I don't want to get older.
+<<wait 2>>
+Your mom and dad look at each other, surprised.
+Dad: Why is that?
+<<wait 1>>
+I don't want to die.
+<<wait 1>>
+Your parents start to laugh. It doesn't make you feel any better.
+<<wait 1>>
+Mom: That's something you shouldn't worry about right now.
+Why? Everybody dies, right?
+What's the point of living, if we all die anyway?
+<<wait 2>>
+Your parents pause to think a little.
+Something tells you they don't quite know the answer either.
+But back then, you thought they would know.
+Dad: You are young. You have a great life to look forward to.
+Mom: You should be excited, not sad. 
+Dad: Life is like great rollercoaster. You haven't even rode it. And you are already sad?
+<<wait 2>>
+<<stopAllMusic MusicObject>>
+Life is a rollercoaster, huh?
+What a joke. There was no rollercoaster.
+I have no friends, no achievements, no memories to look back on fondly.
+And whose fault is it?
+<<wait 2>>
+No one but mine.
+<<wait 2>>
+Just be social. Just be productive. Just live a better life!
+<<wait 1>>
+Yeah. All of life is just that easy, isn't it?
+<<wait 1>>
+I'm turning 20 tomorrow. A whole decade has passed since this memory.
+And yet it still remains ingrained in my mind.
+Because I still feel the same way as I do back then. 
+The only thing that has changed is that I now have a large pile of regrets.
+Regrets that I have to carry with me, until I die.
+<<wait 1>>
+Maybe the young version of me sensed something.
+It knew I was never going to amount to anything. 
+That I wasn't fit to live a good life.
+And that was enough to make me cry.
+// load user back into bedroom for day 2
+<<yarnLoadScene LevelLoader wakeUp 2.0f>>
+===
+
+title: D2_StartDay
+---
+Shoot!
+I already overslept...
+And what was the heck was that dream?
+<<wait 1>>
+Oh well, I gotta get to school.
+Even I don't ditch the first days. 
+It just feels wrong to ditch them, even though nothing important is ever said. 
+===
+
+title: D2_Commons_OpenDoor
+---
+The outside world... how scary.
+<<wait 1>>
+Everytime I hear the noises of the outside world, a part of me dies.
+It reminds me of a society that I'm not a part of in any way.
+Here goes nothing...
+<<playCutsceneAndFade LevelLoader GoOutside OutsideHouse>>
+===
+
+title: D2_Kabowski_Still_Asleep_Knock
+---
+<<playSoundString Manager SnoringSounds>>
+<<wait 3>>
+Someone isn't attending class today...
+===
+
+title: D2_Brain_Annoyed_Knock
+---
+<<if $hasBrainSmashedGlassYet == false>>
+    <<playSoundString Manager SmashingGlass>>
+    <<wait 5>>
+    You hear an interesting array of expletives. 
+    Something tells you that you shouldn't bother Brain right now.
+    <<set $hasBrainSmashedGlassYet = true>>
+<<elseif $hasBrainSmashedGlassYet == true>>
+    Brain: Can you leave me alone!?
+    Brain: Don't you have your own trivial, worthless matters to attend to?
+<<endif>>
+===
+
+title: D2_Lancelot_Room_Before_School
+---
+Lancelot: сука блять, vat are you trying to do, bro?
+Lancelot: You go in my room for wat?
+===
+
+title: D2_Tried_To_Enter_House_Without_School
+---
+I still gotta get to school...
+Let's go catch the bus.
+===
+
+title: Day2_LookAtBusStop
+---
+This is the bus stop. I need to take it to get to campus.
+Otherwise, it's a 20 minute one-way walk.
+It'll also cost me some energy.
+But it might be nice getting some fresh air... The bus is always crowded and I hate it.
+===
+
+title: D2_WalkToCampus
+---
+Should I walk to campus? (-5% energy, +20 minutes, +5% contentedness)
+-> Yes
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+    <<changePlayerScoreString Manager "energy" -5.0>>
+    <<AdvanceXMinutes Manager 20>> 
+    <<yarnLoadScene LevelLoader Campus 2.0>>
+-> No
+===
+
+title: Day2_LookAtUnion
+---
+This is the Union, where my classes are held. 
+It's quite an old building. 
+I should head here next.
+===
+
+title: Day2_LookAtGreenStreet
+---
+This is Green Street, where most of the tall apartments complexes and restaurants are.
+It's also where all the partying happens. I wonder what it'd be like to go to a party...
+Anyways, I should get to class.
+===
+
+title: Day2_LookAtCoffee
+---
+I've never really liked the taste of coffee, it always makes me feel way too jittery to get anything done.
+But I will admit that coffee shops are very nice to sit around in.
+For more serious work though, I prefer to be in my room.
+===
+
+title: Day2_LectureHall
+---
+The lecture hall, aka, the room that I visit once and never return to.
+Unless, there's an exam or something. Then I have to come here.
+Because all my classes record lectures, it's easy to just get lazy and watch them online.
+People always say I'm "wasting my money" by not going to lectures, but it's not like I'm learning anything either way.
+===
+
+title: Day2_Enter_Lecture_Hall
+---
+God, I hate opening doors.
+The judgemental eyes of people peering at me. 
+There's no worse feeling for an introvert.
+Oh well, let's make it quick.
+I don't care what anyone here thinks of me.
+After all, I stopped caring a long time ago.
+I'm just a ghost of the old me, who was desparate to fit in. Now, I've given up.
+And even with all that, why am I so afraid?
+...
+Oh well, everyone in here will be dead in 100 years. Including me.
+<<playCutsceneAndFade LevelLoader OpenLectureHallDoors LectureHall>>
+===

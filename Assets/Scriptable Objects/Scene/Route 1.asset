@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7fe82c65ddba784db9833668091f210, type: 3}
+  m_Name: Route 1
+  m_EditorClassIdentifier: 
+  sceneRouteList:
+  - fromSceneName: 8
+    toSceneName: 7
+    scenePathList:
+    - sceneName: 8
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 26
+        y: -79
+    - sceneName: 7
+      fromGridCell:
+        x: 63
+        y: -69
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 7
+    toSceneName: 8
+    scenePathList:
+    - sceneName: 7
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 63
+        y: -69
+    - sceneName: 8
+      fromGridCell:
+        x: 26
+        y: -79
+      toGridCell:
+        x: 999999
+        y: 999999
