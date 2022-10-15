@@ -4,7 +4,7 @@ A 2D top-down dialogue-driven RPG game I am making in Unity. It's going to be mo
 I've actually been working on this since around September 2021, but school got in the way, and also lack of motivation (as always). I only now remembered that GitHub exists, which is why the commit is a bit late
 
 # Motivation
-My favorite kinds of games are probably story-driven indie RPG games. Think Pokemon style games- dialogue boxes, open world exploration. So I decided to give a shot at making one. 
+My favorite kinds of games are probably story-driven indie adventure games. Think Pokemon style- dialogue boxes, pixel art tilemaps, open world exploration- with a sprinkle of cutscenes, and a memorable soundtrack. So I decided to give a shot at making one. 
 
 I've always been amazed at how much one developer can do. Some of my favorite games were developed by one person (or a team of small people). Games like **LISA, Undertale, OneShot, OMORI, Stardew Valley**, (and recently, I played Katana Zero which was insanely good).
 

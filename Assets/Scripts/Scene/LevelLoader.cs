@@ -333,7 +333,7 @@ public class LevelLoader : Singleton<LevelLoader>
         return cutscene;
     }
 
-    public IEnumerator Fade(float finalAlpha)
+    public IEnumerator Fade(float finalAlpha, float time = 1.0f)
     {
         // Set the fading flag to true so the FadeAndSwitchScenes coroutine won't be called again.
         isFading = true;
@@ -363,9 +363,15 @@ public class LevelLoader : Singleton<LevelLoader>
     }
 
     [YarnCommand("FadeIn")]
-    public void FadeIn()
+    public void FadeIn(float time = 1.0f)
     {
-        StartCoroutine(Fade(1.0f));
+        StartCoroutine(Fade(1.0f, time));
+    }
+
+    [YarnCommand("FadeOut")]
+    public void FadeOut(float time = 1.0f)
+    {
+        StartCoroutine(Fade(0.0f, time));
     }
 
     private IEnumerator LoadSceneAndSetActive(SceneName sceneName)

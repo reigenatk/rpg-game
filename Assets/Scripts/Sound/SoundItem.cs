@@ -35,6 +35,10 @@ public class SoundItem
         BusApproach,
         BusDoorOpen,
         BusDriveAway,
+        UncannyLecture,
+        AudienceLaughter,
+        SchoolBell,
+        AirHorn,
     }
 
     public SoundName soundName;

@@ -216,3 +216,24 @@ MonoBehaviour:
     soundPitchRandomVariationMin: 1
     soundPitchRandomVariationMax: 1
     soundVolume: 1
+  - soundName: 29
+    soundClips:
+    - {fileID: 8300000, guid: 3bf0b55c739ed9c4b99de042eee70b4b, type: 3}
+    soundDescription: A lecture that gets weirder and weirder
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 30
+    soundClips:
+    - {fileID: 8300000, guid: 22c17d5a740cda14cb73dc8cf4ab9dbd, type: 3}
+    soundDescription: Player gets laughed at for falling asleep
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 31
+    soundClips:
+    - {fileID: 8300000, guid: a09d27104e2a2344e8b05ad6bf20a5ea, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1

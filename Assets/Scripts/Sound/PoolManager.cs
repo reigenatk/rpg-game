@@ -34,13 +34,14 @@ public class PoolManager : Singleton<PoolManager>
 
         parentGameObject.transform.SetParent(objectPoolTransform);
 
-
+        Debug.Log("A");
         if (!poolDictionary.ContainsKey(poolKey))
         {
             poolDictionary.Add(poolKey, new Queue<GameObject>());
 
             for (int i = 0; i < poolSize; i++)
             {
+                Debug.Log("B");
                 GameObject newObject = Instantiate(prefab, parentGameObject.transform) as GameObject;
                 newObject.SetActive(false);
 

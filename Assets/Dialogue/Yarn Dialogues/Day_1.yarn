@@ -9,7 +9,7 @@ My parents wouldn't know either way.
 <<wait 1>>
 My room is smaller, the food is worse... 
 <<wait 1>>
-<<playSoundString Manager DriveByCar>>
+<<playSoundString AudioManager DriveByCar>>
 <<wait 6>>
 Everyday, I have to listen to those dumbass rich kids blast music in their fancy little cars 
 As they zoom down my street 20mph over the speed limit.
@@ -33,7 +33,7 @@ Or for the few that I did have, they always were my friend more or less out of p
 It's usually because I'm too afraid to put myself out there.
 I also have a really twisted sense of normalicy. I can tolerate being lonely most of the time.
 But sometimes, it gets too lonely, even for me.
-<<playSoundString Manager Sigh>>
+<<playSoundString AudioManager Sigh>>
 <<wait 5>>
 Oh well. I oughta make the most of my situation.
 Things aren't gonna get better on their own.
@@ -42,9 +42,9 @@ Things aren't gonna get better on their own.
 
 title: D1_OpenWindow
 ---
-<<playSoundString Manager OpenWindow>>
+<<playSoundString AudioManager OpenWindow>>
 <<wait 1>>
-<<playSoundString Manager WindGust>>
+<<playSoundString AudioManager WindGust>>
 <<wait 2>>
 At least I can get some fresh air.
 <<wait 3>>

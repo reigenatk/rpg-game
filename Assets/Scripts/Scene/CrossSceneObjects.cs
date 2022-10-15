@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using Yarn.Unity;
 
 
 // this is a CROSS SCENE OBJECT (meaning, we will put this in many scenes) that exposes a bunch of functions on objects that are in other scenes.
@@ -58,6 +59,22 @@ public class CrossSceneObjects : MonoBehaviour
         // this should trigger the closing animation
         GameObject.Find("LectureHallDoors").GetComponent<Animator>().SetBool("Closing", true);
         GameObject.Find("LectureHallDoors").GetComponent<Animator>().SetBool("Opening", false);
+    }
+
+    public void turnOnLectureHallStudents()
+    {
+        AudioSource lectureHallTalking = GameObject.Find("LectureHallLedge").GetComponent<AudioSource>();
+        StartCoroutine(FadeAudioSource.StartFade(lectureHallTalking, 3.0f, 0.0f));
+        lectureHallTalking.Play();
+    }
+
+    // K I just hardcoded the ledge in the middle to have the audio source of the students.
+    [YarnCommand("shutUpLectureHallStudents")]
+    public void shutUpLectureHallStudents()
+    {
+        Debug.Log("Trying to shutup students");
+        AudioSource lectureHallTalking = GameObject.Find("LectureHallLedge").GetComponent<AudioSource>();
+        StartCoroutine(FadeAudioSource.StartFade(lectureHallTalking, 3.0f, 0.0f));
     }
 
 

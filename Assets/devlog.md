@@ -273,7 +273,7 @@ Another thing I could do is rework the Cutscenes into a scriptable object, but I
 
 # 10/14/22
 
-Basically a **Pool Manager** tries to avoid calling Instantiate and Destroy because apparently they are bad for performance? Too much garbage collection. Internally, pool manager is just a queue of gameobjects that are made in advance so that we don't have to instantiate.
+Basically a **Pool Manager** tries to avoid calling Instantiate and Destroy because apparently they are bad for performance? Too much garbage collection. Internally, pool manager is just a queue of gameobjects that are made in advance so that we don't have to instantiate. So like, we say "instantiate 20 of these objects on the game start" and then they never get destroyed, instead they merely activated and de-activated.
 
-I probably can use this for my car driving mechanism thing- whatever, maybe later.
+I probably can use this for my car driving mechanism thing since I'm creating a bunch of new car objects then destroying them each time- whatever, maybe later. The only difference is performance.
 

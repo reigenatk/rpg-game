@@ -24,10 +24,10 @@ Lancelot: How vas your summer?
 
 title: D2_Sleep
 ---
-<<playSoundString Manager NotBirthdaySong>>
+<<playSoundString AudioManager NotBirthdaySong>>
 <<wait 17>>
 <<wait 2>>
-<<playSoundString Manager CandlesBlow>>
+<<playSoundString AudioManager CandlesBlow>>
 <<wait 3>>
 A candle with the number "10" on it, is blown out.
 <<playMusicName MusicObject RestaurantAmbience>>
@@ -53,7 +53,7 @@ Dad: I agree, you got school tomorrow.
 <<wait 2>>
 You exit the buffet with them, into the dark, starry parking lot.
 <<stopAllMusic MusicObject>>
-<<playSoundString Manager OpenShopDoor>>
+<<playSoundString AudioManager OpenShopDoor>>
 <<wait 3>>
 <<playMusicName MusicObject ParkingLotAmbience>>
 <<wait 2>>
@@ -146,7 +146,7 @@ Here goes nothing...
 
 title: D2_Kabowski_Still_Asleep_Knock
 ---
-<<playSoundString Manager SnoringSounds>>
+<<playSoundString AudioManager SnoringSounds>>
 <<wait 3>>
 Someone isn't attending class today...
 ===
@@ -154,7 +154,7 @@ Someone isn't attending class today...
 title: D2_Brain_Annoyed_Knock
 ---
 <<if $hasBrainSmashedGlassYet == false>>
-    <<playSoundString Manager SmashingGlass>>
+    <<playSoundString AudioManager SmashingGlass>>
     <<wait 5>>
     You hear an interesting array of expletives. 
     Something tells you that you shouldn't bother Brain right now.
@@ -238,4 +238,112 @@ And even with all that, why am I so afraid?
 ...
 Oh well, everyone in here will be dead in 100 years. Including me.
 <<playCutsceneAndFade LevelLoader OpenLectureHallDoors LectureHall>>
+===
+
+title: Day2_Lecture
+---
+Huh, it's one of those lecture halls where the doors are in the back.
+Thank goodness. No one sees me.
+<<wait 2>>
+<<playSoundString AudioManager SchoolBell>>
+<<wait 3>>
+Seems like the lecture is starting, I should sit down.
+<<wait 1>>
+Shit, the only seat is in the front.
+<<wait 1>>
+I hate front seats, but I can't just stand. That'd look too awkward.
+===
+
+title: Day2_LectureFallAsleep
+---
+So..
+boring... 
+<<FadeIn LevelLoader 1.0>>
+<<changePlayerScoreString Manager "entertained" -5.0>>
+<<playSoundString AudioManager SnoringSounds>>
+<<playSoundString AudioManager UncannyLecture>>
+Wake up?
+<<FadeOut LevelLoader 0.3>>
+-> Yes 
+    <<jump Day2_LectureWakeup>>
+-> Nah (+2% energy)
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 20>>
+    <<changePlayerScoreString Manager "energy" 2.0>>
+How about now?
+<<FadeOut LevelLoader 0.3>>
+-> Ok, wakeup
+    <<jump Day2_LectureWakeup>>
+-> Nah, keep sleeping (+2% energy)
+<<FadeIn LevelLoader 0.3>>
+    <<wait 15>>
+    <<changePlayerScoreString Manager "energy" 2.0>>
+Surely now?
+<<FadeOut LevelLoader 0.3>>
+-> Ok, wakeup
+    <<jump Day2_LectureWakeup>>
+-> No, let him sleep (+2% energy)
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 15>>
+    <<changePlayerScoreString Manager "energy" 2.0>>
+Ok, he's still sleeping. Surely you don't need more energy?
+<<FadeOut LevelLoader 0.3>>
+-> Ok, enough sleeping.
+    <<jump Day2_LectureWakeup>>
+-> No, the man is tired. (+2% energy)
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 15>>
+    <<changePlayerScoreString Manager "energy" 2.0>>
+Dude, wtf. You need to play the game, you know. This lecture doesn't go on forever.
+<<FadeOut LevelLoader 0.3>>
+-> Ok, fine.
+    <<jump Day2_LectureWakeup>>
+-> No, I just wanna sleep (+2% energy)
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 15>>
+    <<changePlayerScoreString Manager "energy" 2.0>>
+So you downloaded this game to just listen to a history lecture?
+<<FadeOut LevelLoader 0.3>>
+-> No, I wanna play now.
+    <<jump Day2_LectureWakeup>>
+-> Yeah (+2% energy)
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 15>>
+    <<changePlayerScoreString Manager "energy" 2.0>>
+    <<jump Day2_DidntWakeup>>
+===
+
+title: Day2_LectureWakeup
+---
+<<FadeOut LevelLoader 1.0>>
+Woah, did I just fall asleep?
+And what is the professor even saying?
+<<wait 5>>
+Damn, I'm really out of it today.
+<<stopSoundStringFade AudioManager UncannyLecture>>
+Oh well, looks like lecture is over.
+<<changePlayerScoreString Manager "energy" -30.0>>
+<<changePlayerScoreString Manager "entertained" -10.0>>
+<<changePlayerScoreString Manager "social" -10.0>>
+<<changePlayerScoreString Manager "contentedness" 20.0>>
+===
+
+title: Day2_DidntWakeup
+---
+Well, I warned you.
+<<stopSoundStringFade AudioManager UncannyLecture>>
+<<wait 3>>
+<<playSoundString AudioManager AirHorn>>
+<<FadeOut LevelLoader 0.1>>
+<<wait 2>>
+<<playSoundString AudioManager LaughedAt>>
+<<wait 5>>
+<<changePlayerScoreString Manager "energy" -50.0>>
+<<changePlayerScoreString Manager "entertained" -30.0>>
+<<changePlayerScoreString Manager "social" -50.0>>
+<<changePlayerScoreString Manager "contentedness" -30.0>>
+Shit. They're laughing at me.
+Game: -50% Social, -30% Contentedness, -30% entertained
+Fuck Shit dammit
+Why do I embarass myself wherever I go?
 ===

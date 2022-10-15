@@ -4,6 +4,7 @@ using UnityEngine;
 public class Sound : MonoBehaviour
 {
     private AudioSource audioSource;
+    public SoundItem soundItem;
 
     private void Awake()
     {
@@ -12,6 +13,7 @@ public class Sound : MonoBehaviour
 
     public void SetSound(SoundItem soundItem)
     {
+        this.soundItem = soundItem;
         audioSource.pitch = Random.Range(soundItem.soundPitchRandomVariationMin, soundItem.soundPitchRandomVariationMax);
         audioSource.volume = soundItem.soundVolume;
         float randomSound = Random.Range(0, soundItem.soundClips.Length);
@@ -25,6 +27,7 @@ public class Sound : MonoBehaviour
     {
         if (audioSource.clip != null)
         {
+            // Debug.Log(gameObject.name + " set active, playing");
             audioSource.Play();
         }
     }

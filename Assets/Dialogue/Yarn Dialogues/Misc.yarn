@@ -19,7 +19,7 @@ awake-
 
 title: DoorIsntOpen
 ---
-<<playSoundString Manager LockedDoor>>
+<<playSoundString AudioManager LockedDoor>>
 <<wait 3>>
 The door isn't open.
 Knock?
