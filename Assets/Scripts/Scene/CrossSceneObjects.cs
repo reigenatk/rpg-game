@@ -10,6 +10,7 @@ using Yarn.Unity;
 // All of these functions are called VIA SIGNALS
 public class CrossSceneObjects : MonoBehaviour
 {
+    [SerializeField] SpriteRenderer CoomerHead;
     
     // helper to call the toggleLight on the PropsToggle.cs function (across scenes)
     public void turnOffLamp()
@@ -48,6 +49,16 @@ public class CrossSceneObjects : MonoBehaviour
         FindObjectOfType<LevelLoader>().FadeIn();
     }
 
+    public void fadeInValue(float time)
+    {
+        FindObjectOfType<LevelLoader>().FadeIn(time);
+    }
+
+    public void fadeOutValue(float time)
+    {
+        FindObjectOfType<LevelLoader>().FadeOut(time);
+    }
+
     public void openLectureHallDoors()
     {
         // this should trigger the opening animation
@@ -61,10 +72,12 @@ public class CrossSceneObjects : MonoBehaviour
         GameObject.Find("LectureHallDoors").GetComponent<Animator>().SetBool("Opening", false);
     }
 
+    [YarnCommand("turnOnLectureHallStudents")]
     public void turnOnLectureHallStudents()
     {
         AudioSource lectureHallTalking = GameObject.Find("LectureHallLedge").GetComponent<AudioSource>();
-        StartCoroutine(FadeAudioSource.StartFade(lectureHallTalking, 3.0f, 0.0f));
+        lectureHallTalking.time = Random.value * lectureHallTalking.clip.length;
+        StartCoroutine(FadeAudioSource.StartFade(lectureHallTalking, 3.0f, 1.0f));
         lectureHallTalking.Play();
     }
 
@@ -74,6 +87,7 @@ public class CrossSceneObjects : MonoBehaviour
     {
         Debug.Log("Trying to shutup students");
         AudioSource lectureHallTalking = GameObject.Find("LectureHallLedge").GetComponent<AudioSource>();
+        lectureHallTalking.time = Random.value * lectureHallTalking.clip.length;
         StartCoroutine(FadeAudioSource.StartFade(lectureHallTalking, 3.0f, 0.0f));
     }
 
@@ -86,5 +100,38 @@ public class CrossSceneObjects : MonoBehaviour
                 FindObjectOfType<Player>().setToIdleAnimation();
                 break;
         }
+    }
+
+    public void enablePlates()
+    {
+        GameObject plates = GameObject.Find("Plates");
+        if (plates)
+        {
+            foreach (SpriteRenderer sr in plates.GetComponentsInChildren<SpriteRenderer>())
+            {
+                sr.enabled = true;
+            }
+        }
+    }
+    public void disablePlates()
+    {
+        GameObject plates = GameObject.Find("Plates");
+        if (plates)
+        {
+            foreach (SpriteRenderer sr in plates.GetComponentsInChildren<SpriteRenderer>())
+            {
+                sr.enabled = false;
+            }
+        }
+    }
+
+    public void enableCoomer()
+    {
+        CoomerHead.enabled = true;
+    }
+
+    public void disableCoomer()
+    {
+        CoomerHead.enabled = false;
     }
 }

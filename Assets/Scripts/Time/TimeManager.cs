@@ -17,6 +17,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
     private GameObjectSave gameObjectSave;
     public GameObjectSave GameObjectSave { get => gameObjectSave; set => gameObjectSave = value; }
 
+
     protected override void Awake()
     {
         base.Awake();
@@ -161,17 +162,12 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
         return gameTime;
     }
 
-    [YarnCommand("SetTimeRunning")]
-    public void SetTimeRunning(bool isRunning)
-    {
-        gameClockPaused = isRunning;
-    }
 
     // this is the number of seconds that have elapsed total in game (previous saves included)
     private int totalGameSeconds = 0;
     private string gameDayOfWeek = "Mon";
 
-    // is the time moving forward?
+    // is paused?
     public bool gameClockPaused = false;
 
     // this is the internal time.Delta time clock for THIS RUN of the game
@@ -215,13 +211,18 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
 
     private void Update()
     {
-        if (!gameClockPaused)
+        if (gameClockPaused == true)
         {
-            GameTick();
+            // Debug.Log("Game clock is Paused");
+        }
+        else if (gameState.cutscenePlaying != null)
+        {
+            // cutscene is playing
+            // Debug.Log("Cutscene is playing so pause time");
         }
         else
         {
-            Debug.Log("Game clock is Paused");
+            GameTick();
         }
     }
 
@@ -279,6 +280,12 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
         }
 
         if (doesThisSceneUseDynamicLights() == true) lightingTick();
+        else
+        {
+            // keep global light at 1
+            globalLight.intensity = 1.0f;
+            globalLight.color = Color.white;
+        }
 
 
         if (totalGameSeconds % energyDecayRate == 0)

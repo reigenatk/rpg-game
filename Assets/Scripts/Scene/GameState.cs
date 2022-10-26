@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using Yarn;
 using Yarn.Unity;
 
-public class GameState : MonoBehaviour
+public class GameState : Singleton<GameState>
 {
     [System.Serializable]
     public class GameVariablePair
@@ -31,11 +31,13 @@ public class GameState : MonoBehaviour
 
 
 
+
     [SerializeField] TimeManager timeManager;
     [SerializeField] public InMemoryVariableStorage yarnVariables;
 
     // basically specify which variables are 1 time events (in entire game, only happens once) vs variables that should be reset daily
     [SerializeField] List<GameVariable> variablesToNotResetEachDay;
+    [SerializeField] List<GameVariablePair> initialGameState; // sets some game variables for debugging purposes
 
     public Moods playerMood;
     public int gameDay = 1;
@@ -74,15 +76,29 @@ public class GameState : MonoBehaviour
         // cuz otherwise it will play wakeup cutscene
         setGameVariableEnum(GameVariable.hasEnteredBedroom, true);
 
-        // variables that live in yarn
-        setYarnVariable("$teethBrushed", false);
-        setYarnVariable("$isBedroomLampOn", false);
-
         // start at day 1
         setYarnVariable("$day", gameDay);
 
-        // an event during Day 2, where Brain smashes some glass if you knock his door
-        setYarnVariable("$hasBrainSmashedGlassYet", false);
+        resetDailyYarnVariables();
+
+        // set OUR variables
+        foreach (GameVariablePair gvp in initialGameState)
+        {
+            setGameVariable(gvp.variable.ToString(), gvp.desiredValue);
+        }
+    }
+
+    public void resetDailyYarnVariables()
+    {
+        setYarnVariable("$teethBrushed", false);
+        setYarnVariable("$isBedroomLampOn", false);
+        setYarnVariable("$numTimesNutted", 0);
+
+        if (getYarnVariable("$wasNiceToRoomates") == true)
+        {
+            setYarnVariable("$numTimesNiceToRoomates", getYarnVariableInt("$numTimesNiceToRoomates") + 1);
+        }
+        setYarnVariable("$wasNiceToRoomates", false);
     }
 
     public void setYarnVariable(string name, bool val)
@@ -96,6 +112,12 @@ public class GameState : MonoBehaviour
     public bool getYarnVariable(string name)
     {
         yarnVariables.TryGetValue<bool>(name, out bool result);
+        return result;
+    }
+
+    public int getYarnVariableInt(string name)
+    {
+        yarnVariables.TryGetValue<int>(name, out int result);
         return result;
     }
 
@@ -136,10 +158,22 @@ public class GameState : MonoBehaviour
     {
         gameVariables[GameVariable.isCutscenePlaying] = value;
     }
+
+    // stop any running cutscene
+    [YarnCommand("stopRunningCutscene")]
+    public void stopRunningCutscene()
+    {
+        if (cutscenePlaying != null)
+        {
+            cutscenePlaying.Stop();
+            cutsceneFinishedPlaying();
+        }
+    }
+
     // this is called via SIGNAL from each timeline's signal emitters
     public void cutsceneFinishedPlaying()
     {
-        
+        GameUI.Instance.enableUI();
         FindObjectOfType<Player>().GetComponent<BoxCollider2D>().enabled = true;
         setIsCutscenePlaying(false);
         cutscenePlaying = null;
@@ -352,9 +386,10 @@ public class GameState : MonoBehaviour
     }
 
     // Update is called once per frame
-    [YarnFunction("SetGameVariable")]
+    [YarnCommand("SetGameVariable")]
     public void setGameVariable(string variableName, bool val)
     {
+        Debug.Log("Set the game variable " + variableName + " to " + val);
         GameVariable gv = gameVariableToEnum(variableName);
         setGameVariableEnum(gv, val);
     }
@@ -381,8 +416,16 @@ public class GameState : MonoBehaviour
 
     public bool getGameVariableEnum(GameVariable gv)
     {
-
-        return gameVariables[gv];
+        if (gameVariables != null)
+        {
+            return gameVariables[gv];
+        }
+        else
+        {
+            Debug.Log("[ERROR] gameVariables is null!");
+            return false;
+        }
+        
     }
 
     public GameVariable gameVariableToEnum(string name)

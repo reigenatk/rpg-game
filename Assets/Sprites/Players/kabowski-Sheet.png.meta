@@ -226,6 +226,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: kabowski-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc4e868abb2487419bccbe86043a0cd
+      internalID: 799686782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -240,6 +261,7 @@ TextureImporter:
       kabowski-Sheet_0: -5816426879014866813
       kabowski-Sheet_4: 439945669
       kabowski-Sheet_1: 1104881533923128381
+      kabowski-Sheet_5: 799686782
       kabowski-Sheet_3: -6254912007006047323
       kabowski-Sheet_2: -1694773589013001429
   spritePackingTag: 

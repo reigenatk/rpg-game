@@ -199,6 +199,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: professor-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c0c76cf611d454e978e25b052ccb2a
+      internalID: 1868543880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -210,6 +231,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      professor-Sheet_4: 1868543880
       professor-Sheet_2: 1138043888
       professor-Sheet_1: 275460566
       professor-Sheet_0: -2028382100

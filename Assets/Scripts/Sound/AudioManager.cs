@@ -11,9 +11,14 @@ public class AudioManager : Singleton<AudioManager>
     [Header("Other")]
     // Sound list and dictionary
     [SerializeField] private SO_SoundList so_soundList = null;
+    [SerializeField] LineView lineView;
 
     private Dictionary<SoundName, SoundItem> soundDictionary;
     List<Sound> currentlyPlaying = new List<Sound>();
+
+    [SerializeField] private float fastTalkingSpeed = 55.0f;
+    [SerializeField] private float slowTalkingSpeed = 25.0f;
+    [SerializeField] private float normalTalkingSpeed = 40.0f;
 
     protected override void Awake()
     {
@@ -39,8 +44,42 @@ public class AudioManager : Singleton<AudioManager>
 
     public void playTypewriterSound()
     {
-        Debug.Log("play typewriter sound");
-        PlaySound(SoundName.TypewriterSound);
+        // kind of unintuitive but I'll try- adjust the typewriter SPEED too depending on whose talking
+        // make Nikolai talk slower, the Brain faster, and everyone else at normal speed. 
+
+        switch (lineView.personTalking)
+        {
+            case "Brain":
+                lineView.typewriterEffectSpeed = fastTalkingSpeed;
+                break;
+            case "Nikolai":
+                lineView.typewriterEffectSpeed = slowTalkingSpeed;
+                break;
+            default:
+                lineView.typewriterEffectSpeed = normalTalkingSpeed;
+                break;
+        }
+
+        // typerwriter sounds!
+        switch (lineView.personTalking)
+        {
+            case "Stacy":
+                PlaySound(SoundName.StacyTypewriterSound);
+                break;
+            case "Kabowski":
+                PlaySound(SoundName.KabowskiTypewriterSound);
+                break;
+            case "Nikolai":
+                PlaySound(SoundName.NikolaiTypewriterSound);
+                break;
+            case "Brain":
+                PlaySound(SoundName.BrainTypewriterSound);
+                break;
+            default:
+                PlaySound(SoundName.TypewriterSound);
+                break;
+        }
+        
     }
 
     [YarnCommand("stopSoundString")]
@@ -63,7 +102,7 @@ public class AudioManager : Singleton<AudioManager>
             // if we find said sound
             if (g.soundItem.soundName == soundName)
             {
-                g.transform.parent.gameObject.SetActive(false);
+                g.gameObject.SetActive(false);
                 currentlyPlaying.Remove(g);
                 break;
             }
@@ -87,10 +126,10 @@ public class AudioManager : Singleton<AudioManager>
     // this fades out an audio sample before deleting it. So it doesn't instantly stop.
     IEnumerator FadeAudioAndDelete(Sound g)
     {
-        GameObject parent = g.transform.parent.gameObject;
-        AudioSource a = parent.GetComponent<AudioSource>();
+        GameObject obj = g.gameObject;
+        AudioSource a = obj.GetComponent<AudioSource>();
         yield return StartCoroutine(FadeAudioSource.StartFade(a, 3.0f, 0.0f));
-        parent.SetActive(false);
+        obj.SetActive(false);
         currentlyPlaying.Remove(g);
     }
 

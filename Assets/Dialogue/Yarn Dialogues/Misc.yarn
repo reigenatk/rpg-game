@@ -1,6 +1,24 @@
 ﻿title: Declarations
 ---
+// one time events
+<<declare $hasBrainSmashedGlassYet = false>>
+<<declare $acceptedBibleStudy = false>> // by default we haven't met stacy yet
+
+// reset these every day
+<<declare $teethBrushed = false>>
+<<declare $isBedroomLampOn = false>>
+<<declare $numTimesNutted = 0>>
+<<declare $wasNiceToRoomates = false>>
+
+// local variables
+<<declare $contentednessNerf = 0>>
+<<declare $entertainedBuff = 0>>
+
+// variables set by c# code
 <<declare $minTilNextBus = 1>>
+
+// total counts
+<<declare $numTimesNiceToRoomates = 0>>
 ===
 
 title: LowEnergy
@@ -85,3 +103,49 @@ title: Knock_No_Response
 There was no response...
 ===
 
+title: COOM_DEMON
+---
+Would you like to summon...
+The coom demon?
+<<if $numTimesNutted > 0>>
+	Be warned that summoning the coom demon multiple times a day is not recommended.
+<<endif>>
+
+-> Yes
+	<<playCutscene LevelLoader Coom>>
+-> No
+	On a nofap streak, eh?
+===
+
+title: PostNutClarity
+---
+<<set $contentednessNerf = round(random_range(1, 4) * 10)>>
+<<if $numTimesNutted > 0>>
+	<<set $contentednessNerf = $contentednessNerf + 5*$numTimesNutted>>
+<<endif>>
+<<if $contentednessNerf >= 30>>
+	Game: The post nut clarity hits you hard...
+	What the hell am I doing with my life? 
+	Game: You lose {$contentednessNerf} contentendess!
+	<<changePlayerScoreString Manager "contentedness" {-1 * $contentednessNerf}>>
+<<else>>
+	Game: The post-nut clarity hits you, but you're used to it now.
+	A necessary sacrifice.
+	Game: You lose {$contentednessNerf} contentendess!
+	<<changePlayerScoreString Manager "contentedness" {-1 * $contentednessNerf}>>
+<<endif>>
+
+<<set $entertainedBuff = round(random_range(0, 6) * 5)>>
+<<if $entertainedBuff >= 15>>
+	That did feel pretty good, though.
+	Game: You gain {$entertainedBuff} entertainment!
+	<<changePlayerScoreString Manager "entertained" {$entertainedBuff}>>
+<<else>>
+	Game: Your dopamine receptors don't get much pleasure from this anymore..
+	Jerking off doesn't even make me feel that much better anymore...
+	Game: You gain {$entertainedBuff} entertainment.
+	<<changePlayerScoreString Manager "entertained" {$entertainedBuff}>>
+<<endif>>
+<<set $numTimesNutted = $numTimesNutted + 1>>
+Was it worth it?
+===

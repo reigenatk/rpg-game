@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 using Yarn.Unity;
 using static GameState;
 using static TimeManager;
@@ -13,26 +14,54 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameState gameState;
     [SerializeField] Player player;
     [SerializeField] DialogueRunner dialogueRunner;
+
+    // the reason why we only disable non-NPC animators, is cuz we still want NPCs, that is people who move around on the map, to keep moving.
+    // At least I think we do. When we talk to someone, the NPCs around shouldn't stop. Though they might stop since we pause time during cutscene dialogues... huh
+    // I will have to test this later.
+    [SerializeField] GameObject nonNPCObject;
+    [SerializeField] GameObject NPCsObject;
     PlayableDirector p;
 
 
-/*    // converts from editor friendly enum to a string and actually calls StartDialogue from Yarn spinner
-    public void StartDialogueEnum(Dialogue d)
-    {
-        Yarn.Unity.DialogueRunner dr = GameObject.FindGameObjectWithTag("DialogueSystem").GetComponent<Yarn.Unity.DialogueRunner>();
-        dr.Stop();
-
-        // sends Enum to string. Since we made it such that Yarn nodes are exact same as the enum names, this works
-        dr.StartDialogue(Enum.GetName(typeof(Dialogue), d));
-    }*/
-
     public void DialogueNodeStartedPlaying()
     {
+        // https://answers.unity.com/questions/1496855/controlling-timeline-through-script.html
+        // so problem is, unity doesnt keep playing the animation that was playing in the timeline, if we pause it mid-timeline. 
+        // what this means is, if I have say kabowski look up during the timeline, then timeline pauses (for dialogue)
+        // then kabowski's animator will RESOLVE TO WHATEVER DEFAULT ANIM IS ON HIS ANIMATOR! Which is bad, I want it to keep playing
+        // whatever the timeline was playing. So I'm hoping using the scripting API, I can somehow find the clip that 
+        // was playing on each character, and then just manually play it somehow?
+
+        // maybe another less complex solution- disable animators on all non-NPCs before entering dialogue?
+        // That way they will freeze? Then enable right before dialogue starts playing again? This is just like how we handled it for
+        // the player char. yeah, that might work... OK EDIT: I'll just do the same for NPCs too, cuz NPCs won't move if time is paused
+        // so if I don't pause animations then it'll look like they're walking stationary which is arguably worse than just pausing them.
+        // I have no clue how to make the NPCs still move on a schedule tho if I pause time for cutscenes... hm. Problem for another day maybe?
         if (gameState.cutscenePlaying != null)
         {
             // if there's a cutscene playing, pause the cutscene when running the dialgoue
+            /*TimelineAsset timelineAsset = (TimelineAsset) gameState.cutscenePlaying.playableAsset;
+            foreach (var track in timelineAsset.GetOutputTracks())
+            {
+                foreach (var clip in track.GetClips())
+                {
+                    
+                }
+            }*/
             gameState.cutscenePlaying.Pause();
+            foreach (Animator a in nonNPCObject.GetComponentsInChildren<Animator>())
+            {
+                // get each animator, then disable it!
+                a.enabled = false;
+            }
+            foreach (Animator a in NPCsObject.GetComponentsInChildren<Animator>())
+            {
+                // get each animator, then disable it!
+                a.enabled = false;
+            }
         }
+
+        
         gameState.setGameVariable("isDialoguePlaying", true);
         gameState.currentRunningDialogueNode = dialogueRunner.CurrentNodeName;
         player.DisableMovementAndAnimations();
@@ -43,9 +72,23 @@ public class DialogueManager : MonoBehaviour
         if (gameState.cutscenePlaying != null)
         {
             // if there's a cutscene playing, resume the cutscene when the dialogue is done running
+            Debug.Log("resuming cutscene " + gameState.cutscenePlaying.name);
             gameState.cutscenePlaying.Resume();
+
+            // enable all non-npc animators
+            foreach (Animator a in nonNPCObject.GetComponentsInChildren<Animator>())
+            {
+                // get each animator, then enable it!
+                a.enabled = true;
+            }
+            foreach (Animator a in NPCsObject.GetComponentsInChildren<Animator>())
+            {
+                // get each animator, then disable it!
+                a.enabled = true;
+            }
         }
         gameState.setGameVariable("isDialoguePlaying", false);
+
         player.EnableMovementAndAnimations();
     }
 

@@ -132,6 +132,10 @@ public class LevelLoader : Singleton<LevelLoader>
         faderImage.color = new Color(0f, 0f, 0f, 1f);
         faderCanvasGroup.alpha = 1f;
 
+        // Unload the scene we're gonna load in, if its already loaded
+        Debug.Log("Scene name is " + startingSceneName.ToString());
+        yield return SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(startingSceneName.ToString()).buildIndex);
+
         yield return StartCoroutine(CreateScene(startingSceneName, startingPosition));
     }
 
@@ -147,8 +151,8 @@ public class LevelLoader : Singleton<LevelLoader>
     public void advanceDay()
     {
         gameState.gameStateAdvanceDay();
-      
 
+        GameState.Instance.resetDailyYarnVariables();
         // pause the clock so we don't continue to leech energy, contentedness, etc.
         timeManager.gameClockPaused = true;
 
@@ -321,11 +325,22 @@ public class LevelLoader : Singleton<LevelLoader>
     // helper for above function
     public PlayableDirector playCutsceneInternal(PlayableDirector cutscene)
     {
-        // pause time
-        FindObjectOfType<TimeManager>().gameClockPaused = true;
+        // pause time (OK EDIT IDK WHY TF THIS ISNT WORKING so I just made it check in TimeManager instead)
+        // TimeManager.Instance.gameClockPaused = true;
 
         // play it, also store that playing cutscene in gameState
         gameState.setIsCutscenePlaying(true);
+
+        GameUI.Instance.disableUI();
+
+        // stop any already playing ctuscenes
+        if (gameState.cutscenePlaying != null)
+        {
+            gameState.cutscenePlaying.Stop();
+            FindObjectOfType<GameState>().cutsceneFinishedPlaying(); 
+        }
+
+        // set the current cutscene playing to the new one
         gameState.cutscenePlaying = cutscene;
         FindObjectOfType<Player>().GetComponent<BoxCollider2D>().enabled = false;
         Debug.Log("Playing cutscene " + cutscene.name);
@@ -371,6 +386,7 @@ public class LevelLoader : Singleton<LevelLoader>
     [YarnCommand("FadeOut")]
     public void FadeOut(float time = 1.0f)
     {
+        Debug.Log("Fading Out");
         StartCoroutine(Fade(0.0f, time));
     }
 
@@ -427,8 +443,9 @@ public class LevelLoader : Singleton<LevelLoader>
         if (clipToPlay != null)
         {
             Debug.Log("Playing sound effect between scenes: " + clipToPlay.name);
-            GameObject.Find("Manager").GetComponent<AudioSource>().PlayOneShot(clipToPlay);
+            GameObject.Find("Audio").GetComponent<AudioSource>().PlayOneShot(clipToPlay);
         }
+        Debug.Log("Finished playing sound effect");
 
         //  Call before scene unload event.
         EventHandler.CallBeforeSceneUnloadEvent();
@@ -436,8 +453,17 @@ public class LevelLoader : Singleton<LevelLoader>
         // Unload the current active scene.
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 
+        // Unload the scene we're gonna load in, if its already loaded
+        Debug.Log("Scene name is " + startingSceneName.ToString());
+        yield return SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(startingSceneName.ToString()).buildIndex);
+
         // add an artifical delay of extra time if desired
-        yield return new WaitForSeconds(delay);
+        if (delay != 0.0f)
+        {
+            Debug.Log("Delaying an artificial " + delay + "seconds");
+            yield return new WaitForSeconds(delay);
+        }
+        
 
         yield return StartCoroutine(CreateScene(sceneName, spawnPosition));
 

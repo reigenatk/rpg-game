@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
+  m_Name: Becky_Schedule
+  m_EditorClassIdentifier: 
+  npcScheduleEventList:
+  - hour: 6
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 91
+      y: -66
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    description: goes to stare at waterfall
+  - hour: 8
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 42
+      y: -107
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    description: 10pm goes home
+  - hour: 12
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 10
+    toGridCoordinate:
+      x: 100
+      y: -102
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    description: goes to lecture
+  - hour: 15
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 42
+      y: -107
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    description: 3pm back to coffee shop
+  - hour: 18
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 161
+      y: -65
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    description: 6pm goes to green st in front of bar
+  - hour: 22
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 7
+    toGridCoordinate:
+      x: 26
+      y: -53
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    description: 10pm goes home

@@ -108,7 +108,7 @@ public class NPCMovement : MonoBehaviour
 
                    
                     npcCurrentScene = npcMovementStep.sceneName;
-                    Debug.Log("Setting npcCurrentScene to " + npcCurrentScene);
+                    // Debug.Log("Setting npcCurrentScene for " + gameObject.name + " to " + npcCurrentScene);
 
                     // If NPC is about the move to a new scene reset position to starting point in new scene and update the step times
                     if (npcCurrentScene != npcPreviousMovementStepScene)
@@ -119,7 +119,7 @@ public class NPCMovement : MonoBehaviour
                         transform.position = GetWorldPosition(npcCurrentGridPosition, npcCurrentScene);
                         npcPreviousMovementStepScene = npcCurrentScene;
                         npcPath.UpdateTimesOnPath();
-                        Debug.Log("Moving scenes, setting NPC position to grid position " + npcCurrentGridPosition + " world position " + GetWorldPosition(npcCurrentGridPosition, npcCurrentScene));
+                        Debug.Log("Moving scenes, setting NPC " + gameObject.name + "'s position to grid position " + npcCurrentGridPosition + " world position " + GetWorldPosition(npcCurrentGridPosition, npcCurrentScene));
                     }
 
 
@@ -131,7 +131,7 @@ public class NPCMovement : MonoBehaviour
                         npcMovementStep = npcPath.npcMovementStepStack.Pop();
 
                         npcNextGridPosition = (Vector3Int)npcMovementStep.gridCoordinate;
-                        Debug.Log("Next grid position " + npcNextGridPosition);
+                        Debug.Log("Next grid position for " + gameObject.name + npcNextGridPosition);
 
                         TimeSpan npcMovementStepTime = new TimeSpan(npcMovementStep.hour, npcMovementStep.minute, npcMovementStep.second);
 
@@ -246,7 +246,7 @@ public class NPCMovement : MonoBehaviour
 
     public void SetNPCActiveInScene()
     {
-        Debug.Log("Set NPC Active");
+        // Debug.Log("Set NPC " + gameObject.name + "Active");
         spriteRenderer.enabled = true;
         boxCollider2D.enabled = true;
         npcActiveInScene = true;
@@ -254,7 +254,7 @@ public class NPCMovement : MonoBehaviour
 
     public void SetNPCInactiveInScene()
     {
-        Debug.Log("Set NPC Inactive");
+        // Debug.Log("Set NPC" + gameObject.name + " Inactive");
         spriteRenderer.enabled = false;
         boxCollider2D.enabled = false;
         npcActiveInScene = false;

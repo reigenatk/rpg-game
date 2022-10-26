@@ -27,3 +27,16 @@ Fix: Turns out the bug was because of the collisions! I have a box collider 2d o
 Bug: Tiles not being affected by the 2D Global Light
 Fix: Make sure the Material on the tilemap layers is "2D Lighting"
 
+Bug: Thinking that a smaller `Max Distance` for Unity Audio Sources means that the sound will decay faster as the target moves away.
+
+Fix: It actually makes it stay at a certain level forever, regardless of the sound! If you hover over the tooltip it says "the max distance that the sound **will stop attenuating at!**", which is significant since attenuation = sound goes lower! SO by setting max distance to 5, I'm making it so that past 5 unity units, the sound will stop going lower! What a disaster!
+
+Instead I should **set max distance to a higher value** if I want the sound to decay faster. That also explains why the default is 300, its not that extraordinary after all.
+
+Actually I just used a custom rolloff, which zeros out at around 15. Thing is, Unity default makes it so that it decays over a long period of time, meaning if I set max distance to 200, it will slowly decay from like 0.1 to 0.0 from like distance = 20 to 200, which is annoying, cuz I want it so that once it hits a certain distance (like 20) it instantly hits 0 and stays at zero.
+
+Bug (unsolved): Why doesn't this work in LevelLoader?
+`TimeManager.Instance.gameClockPaused = true;`
+If I do this, the time doesn't pause whenever a cutscene plays. Huh?
+
+But if I check if cutscenePlaying != null in the TimeManager, it works. Da fuk

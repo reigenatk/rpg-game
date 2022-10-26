@@ -1,25 +1,25 @@
 title: D2_Lancelot_Commons
 ---
-Lancelot: Heylo, Steven, my friend.
-Lancelot: How vas your summer?
+Nikolai: Heylo, Steven, my friend.
+Nikolai: How vas your summer?
 -> Pretty good, thanks for asking.
-    Lancelot: Gud to hear, my friend.
+    Nikolai: Gud to hear, my friend.
     -> How was your summer?
-        Lancelot: Vury gud. I go back to Siberia, my home.
-        Lancelot: I drink lot of vodka and play csgo
+        Nikolai: Vury gud. I go back to Siberia, my home.
+        Nikolai: I drink lot of vodka and play csgo
         <<wait 1>>
-        Lancelot: I am glad to be back, Steven
+        Nikolai: I am glad to be back, Steven
         <<wait 1>>
-        Lancelot: Although I will miss my pet bear, Gasha.
+        Nikolai: Although I will miss my pet bear, Gasha.
     -> Talk to you later.
-        Lancelot: Goodbye.
+        Nikolai: Goodbye.
 -> Terrible.
-    Lancelot: Ah, Blyat. 
-    Lancelot: прости за это. School year vill be better.
-    Lancelot: Hopevully, ve can see each other more offen.
-    Lancelot: Last year I did not get chance to talk to you much.
+    Nikolai: Ah, Blyat. 
+    Nikolai: прости за это. School year vill be better.
+    Nikolai: Hopevully, ve can see each other more offen.
+    Nikolai: Last year I did not get chance to talk to you much.
     <<wait 1>>
-    Lancelot: Have you talk to others yet? I zink that zey are in zeir rooms.
+    Nikolai: Have you talk to others yet? I zink that zey are in zeir rooms.
 ===
 
 title: D2_Sleep
@@ -167,8 +167,8 @@ title: D2_Brain_Annoyed_Knock
 
 title: D2_Lancelot_Room_Before_School
 ---
-Lancelot: сука блять, vat are you trying to do, bro?
-Lancelot: You go in my room for wat?
+Nikolai: сука блять! vat are you trying to do?
+Nikolai: You go in my room for vat?
 ===
 
 title: D2_Tried_To_Enter_House_Without_School
@@ -232,11 +232,8 @@ The judgemental eyes of people peering at me.
 There's no worse feeling for an introvert.
 Oh well, let's make it quick.
 I don't care what anyone here thinks of me.
-After all, I stopped caring a long time ago.
-I'm just a ghost of the old me, who was desparate to fit in. Now, I've given up.
-And even with all that, why am I so afraid?
 ...
-Oh well, everyone in here will be dead in 100 years. Including me.
+Right?
 <<playCutsceneAndFade LevelLoader OpenLectureHallDoors LectureHall>>
 ===
 
@@ -262,66 +259,86 @@ boring...
 <<changePlayerScoreString Manager "entertained" -5.0>>
 <<playSoundString AudioManager SnoringSounds>>
 <<playSoundString AudioManager UncannyLecture>>
-Wake up?
+<<wait 2>>
 <<FadeOut LevelLoader 0.3>>
+<<wait 0.5>>
+Wake him up?
 -> Yes 
     <<jump Day2_LectureWakeup>>
 -> Nah (+2% energy)
-    <<FadeIn LevelLoader 0.3>>
-    <<wait 20>>
     <<changePlayerScoreString Manager "energy" 2.0>>
-How about now?
+    <<wait 2>>
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 1>>
 <<FadeOut LevelLoader 0.3>>
+<<wait 0.5>>
+How about now?
 -> Ok, wakeup
     <<jump Day2_LectureWakeup>>
 -> Nah, keep sleeping (+2% energy)
-<<FadeIn LevelLoader 0.3>>
-    <<wait 15>>
     <<changePlayerScoreString Manager "energy" 2.0>>
-Surely now?
+    <<wait 2>>
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 1>>
 <<FadeOut LevelLoader 0.3>>
+<<wait 0.5>>
+Surely now?
 -> Ok, wakeup
     <<jump Day2_LectureWakeup>>
 -> No, let him sleep (+2% energy)
-    <<FadeIn LevelLoader 0.3>>
-    <<wait 15>>
     <<changePlayerScoreString Manager "energy" 2.0>>
-Ok, he's still sleeping. Surely you don't need more energy?
+    <<wait 2>>
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 1>>
 <<FadeOut LevelLoader 0.3>>
+<<wait 0.5>>
+Ok, he's still sleeping. Surely you don't need more energy?
 -> Ok, enough sleeping.
     <<jump Day2_LectureWakeup>>
 -> No, the man is tired. (+2% energy)
-    <<FadeIn LevelLoader 0.3>>
-    <<wait 15>>
     <<changePlayerScoreString Manager "energy" 2.0>>
-Dude, wtf. You need to play the game, you know. This lecture doesn't go on forever.
+    <<wait 2>>
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 1>>
 <<FadeOut LevelLoader 0.3>>
+<<wait 0.5>>
+You need to play the game, you know. This lecture doesn't go on forever.
 -> Ok, fine.
     <<jump Day2_LectureWakeup>>
 -> No, I just wanna sleep (+2% energy)
-    <<FadeIn LevelLoader 0.3>>
-    <<wait 15>>
     <<changePlayerScoreString Manager "energy" 2.0>>
-So you downloaded this game to just listen to a history lecture?
+    <<wait 2>>
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 1>>
 <<FadeOut LevelLoader 0.3>>
+<<wait 0.5>>
+So you played this game to just listen to a history lecture?
 -> No, I wanna play now.
     <<jump Day2_LectureWakeup>>
 -> Yeah (+2% energy)
-    <<FadeIn LevelLoader 0.3>>
-    <<wait 15>>
     <<changePlayerScoreString Manager "energy" 2.0>>
-    <<jump Day2_DidntWakeup>>
+    <<wait 2>>
+    <<FadeIn LevelLoader 0.3>>
+    <<wait 1>>
+    <<stopSoundStringFade AudioManager UncannyLecture>>
+    <<wait 4>>
+    <<playCutscene LevelLoader Airhorned>>
 ===
 
 title: Day2_LectureWakeup
 ---
+<<SetGameVariable Manager "hasFinishedLecture" true>>
 <<FadeOut LevelLoader 1.0>>
+<<wait 2>>
 Woah, did I just fall asleep?
-And what is the professor even saying?
+<<wait 2>>
+God, I don't remember a thing he said.
 <<wait 5>>
 Damn, I'm really out of it today.
 <<stopSoundStringFade AudioManager UncannyLecture>>
 Oh well, looks like lecture is over.
+<<turnOnLectureHallStudents CrossSceneObjects>>
+<<stopRunningCutscene Manager>> // nvm it works now. This just stops any currently running cutscene, pretty useful
 <<changePlayerScoreString Manager "energy" -30.0>>
 <<changePlayerScoreString Manager "entertained" -10.0>>
 <<changePlayerScoreString Manager "social" -10.0>>
@@ -330,20 +347,257 @@ Oh well, looks like lecture is over.
 
 title: Day2_DidntWakeup
 ---
-Well, I warned you.
-<<stopSoundStringFade AudioManager UncannyLecture>>
-<<wait 3>>
-<<playSoundString AudioManager AirHorn>>
-<<FadeOut LevelLoader 0.1>>
-<<wait 2>>
-<<playSoundString AudioManager LaughedAt>>
-<<wait 5>>
+<<SetGameVariable Manager "hasFinishedLecture" true>>
 <<changePlayerScoreString Manager "energy" -50.0>>
 <<changePlayerScoreString Manager "entertained" -30.0>>
 <<changePlayerScoreString Manager "social" -50.0>>
-<<changePlayerScoreString Manager "contentedness" -30.0>>
+<<changePlayerScoreString Manager "contentedness" -40.0>>
 Shit. They're laughing at me.
 Game: -50% Social, -30% Contentedness, -30% entertained
 Fuck Shit dammit
 Why do I embarass myself wherever I go?
+Why do I have to be a walking joke? 
+<<wait 1>>
+I gotta get out of here before I lose more face.
 ===
+
+title: Day2_Finished_Lecture
+---
+Well, that was a blast. 
+<<wait 1>>
+Another day of learning things that I will never once use in my life.
+<<wait 1>>
+Oh well, At least I tried going to class for once.
++10% Contentedness 
+<<changePlayerScoreString Manager "contentedness" 10.0>>
+<<wait 2>>
+Anyways, I better go home. There's nothing else to do today.
+===
+
+title: Day2_Stacy_Hey
+---
+Hey!
+===
+
+title: Day2_Stacy_UpHere
+---
+Up here!
+===
+
+title: Day2_StacyTalk
+---
+You: S-sorry, I didn't see you there!
+<<wait 1>>
+Stacy: It's okay!
+Stacy: I should be apologizing for bothering you. 
+Stacy: I'm Stacy, nice to meet you.
+<<wait 4>>
+You: Is she waiting for me to introduce myself?
+<<wait 1>>
+You: My name is-
+Stacy: We're-
+<<wait 2>>
+Shit!
+Stacy: Sorry, you go ahead. What's your name?
+You: It's S-steven.
+<<wait 1>>
+Stacy: Nice to meet you Steven!
+Stacy: We're having a Bible Study today. Would you like to come?
+-> S-sure
+    <<wait 1>>
+    You: Yeah, sure.
+    Stacy: Awesome! 
+    Stacy: It's everyday from 5-9pm right here! There will be food, too.
+    <<set $acceptedBibleStudy = true>>
+-> Not sure
+    <<wait 1>>
+    You: Sorry, I'm not sure yet...
+    Stacy: No problem! It's from everyday from 5-9pm right here, if you wanna come!
+    Stacy: We'd be glad to meet you!
+-> No
+    <<wait 1>>
+    You: Um, sorry- I don't really believe in God.
+    Stacy: oh- that's okay! If you ever feel like learning more, feel free to come.
+    Stacy: We're here everyday at 5pm!
+You: o-ok, thanks.
+===
+
+title: Day2_After_Stacy
+---
+<<if $acceptedBibleStudy == true>>
+    I'm not sure whether going to this is a great idea.
+    But she seemed too nice to turn down.
+    <<wait 1>>
+    Do I actually go to it?
+    -> Yes
+        Are you sure? I'll probably get ousted for not being a Christian.
+        <<wait 1>>
+        I haven't gone to Sunday school in ages.
+        And I'm not sure if they're my kind of people...
+        <<wait 1>>
+        But Christians are usually very nice people.
+        And I could use some friends.
+        It was nice talking for that brief moment. Rarely happens to me ever.
+        <<changePlayerScoreString Manager "loneliness" 10.0>>
+        <<wait 1>>
+        Anyways, she said 5pm. Guess I'll decide then.
+    -> No
+        <<jump Day2_Reject_Church>>
+<<elseif $acceptedBibleStudy == false>>
+    <<jump Day2_Reject_Church>>
+<<endif>>
+===
+
+title: Day2_Reject_Church
+---
+Yeah, I think it's just too big of a challenge for me.    
+Worship songs, prayer, small groups...
+It's just too much for a shut-in.
+<<wait 1>>
+I don't mind religion, I'm just scared of the social contact.
+Also, God forbid I get labelled as one of those dudes who just goes to church to pickup girls.
+<<wait 2>>
+That girl was super nice, though.
+I can't remember the last time a girl talked to me first.
+Much less laughed at my joke. 
+<<changePlayerScoreString Manager "loneliness" 50.0>>
+<<wait 3>>
+Wait, she was probably laughing at me. Shit.
+<<changePlayerScoreString Manager "loneliness" -40.0>>
+<<wait 1>>
+God, I must've sounded so weird.
+Blargh. If I end up ditching, let's hope I never run into her again.
+I think she said 5pm?
+<<wait 1>>
+Oh well, guess I have some free time for now.
+===
+
+
+title: Day2_Commons_Scene
+---
+Kabowski: As I was saying Nikolai, White Claws.
+Kabowski: They're like the equivalent of vodka here in the USA.
+Kabowski: You have got to try them.
+<<wait 1>>
+Nikolai: vite.. claw.
+Nikolai: Iz zis vite claw strong like vodka?
+Kabowski: Strong? Yeah dude, if you shotgun a whole pack. 
+Kabowski: Have I shown you how to shotgun yet? It's simple. 
+Kabowski: Key. Left hand. Or right hand, if you're right handed. 
+Kabowski: White claw. Right hand. Punch that sucker right in. Now-
+Nikolai: Oh look, Steven iz back.
+
+===
+
+
+title: Day2_Commons_Scene2
+---
+Kabowski: Look who it is. Man of the hour. Stevie Wonder.
+Kabowski: I missed ya, buddy.
+-> Hey Kabowski, how was your summer?
+    Kabowski: Lean, mean and pristine. I went to Europe.
+    -> Is that so? Where?
+    -> What'd you do?
+    Kabowski: We went all over- Deutschland, France, Spain.
+    Kabowski: Couple of buddies and I. Real low key.
+    Kabowski: Who am I kidding, it was a blast.
+    Kabowski: Let's see, I got drunk, went to more music festivals I can remember, oh- and I'm still undefeated at beer pong.
+    Kabowski: Fucked a couple of real babes, too.
+    <<wait 2>>
+    Sounds like Kabowski had a fun summer.
+    See, this is why I can't stand him.
+    Part of me wishes I could be him, and yet part of me feels sorry for him.
+    <<wait 1>>
+    He lives such a naive life, happy and carefree.
+    He wouldn't know a thing about being lonely. About never setting hands on a girl. 
+    He wouldn't know a thing about having no friends to ask to travel with. 
+    He doesn't understand me.
+    <<jump Day2_Commons_Eating>>
+-> What's up guys
+    Kabowski: Woah, you look much stronger than before. Been going to the gym this summer?
+    -> Yes
+    -> No
+    Kabowski: Well, if you ever need a spotter, you know where to find me.
+    Nikolai: Vat is spotter?
+    Kabowski: Oh, it's like the dude that makes sure you don't drop the weight on yourself.
+    Kabowski: You know bench press Nikolai? Do they have those in Russia?
+    <<wait 2>>
+    Ah shit. I started Kabowski on some stupid shit.
+    Now he's gonna lecture Nikolai on the gym. And Nikolai's too nice to stop him.
+    <<wait 2>>
+    This is why I hate Kabowski. Everything's about the gym.
+    But in many ways, I understand why. 
+    His appearance is all he's got going for him.
+    And once he gets old, well, what's he going to do?
+    <<wait 2>>
+    He lives for the here and now. Living the best youth possible is all he cares about.
+    And in many ways, he's smart for that. Youth is the peak of life, after all. One that I've utterly wasted.
+    <<wait 2>>
+    Kabowski's that firework at the firework show that shoots up high into the sky at twice the speed of the others, then explodes in a giant BOOM.
+    <<wait 2>>
+    Which of course, is better than my life trajectory.
+    I would be the firework that gets lit and doesn't go anywhere, then gets tossed out.
+    <<jump Day2_Commons_Eating>>
+-> Fuck off
+    Kabowski: Woah, what'd I do wrong buddy?
+    Kabowski: Nikolai, I think Mr. grumpy over there is in a bad mood. 
+    Nikolai: Yes, vury bad mud. Maybe you shouldn't talk to him anymur
+    <<set $wasNiceToRoomates = false>>
+    Screw these losers.
+    I've got work to do.
+    Well, I don't really. But I just don't want to talk to them. It's too much effort.
+    And it's not like I have anything to say to them... or anything in common with them.
+    Kabowski is such a dickhead, he'll probably make fun of me or something.
+    <<wait 1>>
+    And Nikolai... well, is just Nikolai. He doesn't understand half of what I say.
+    <<wait 1>>
+    God knows what Brain is up to...
+    <<wait 1>>
+    I hate my fucking roommates. 
+    I can't believe I thought I would make close friends with them when I first arrived to college.
+    What a joke.
+===
+title: Day2_Commons_Eating
+---
+<<set $wasNiceToRoomates = true>>
+<<changePlayerScoreString Manager "loneliness" 15.0>>
+<<wait 2>>
+Anyways, I should leave this conversation. He'll babble on forever.
+<<wait 2>>
+Nikolai: Hey vait- Steven. Vant to eat vis us tonight? 
+<<wait 1>>
+You want me to eat with you?
+<<wait 2>>
+Kabowski: Yeah dude. Nikolai's cooking up some serious macros.
+-> Sure
+    Nikolai: Okay, great. 
+    <<playCutscene LevelLoader EatingDay2>>
+-> No thanks
+    Nikolai: Aw, ok. See yu later, zen.
+===
+
+title: Day2_Nikolai_Food
+---
+Nikolai: Okay guyz, today I hav here Пирожки, or Pirozhki.
+Nikolai: It is like meat pie. I hope yu enjoy.
+<<wait 1>>
+Kabowski: Hell yeah! Smells amazing, Nikolai.
+<<wait 1>>
+Nikolai: Thanks. Alzough I am confused. Where is Brian?
+<<wait 1>>
+Kabowski: Oh, you mean THE almighty Brain? Not sure. Here, I'll call him.
+<<wait 2>>
+Kabowski: (in a angelic voice) [wave][bounce]oh braaaaaaaaaaainnnnnnn~![/]
+<<wait 2>>
+Kabowski: [wave][bounce]braaaaaaaaaaainnnnnnnyyyyy boooooo~![/]
+<<wait 1>>
+Nikolai: Hm, seems he's vury busy.
+===
+
+title: Day2_Brain_Exits_Lair
+---
+Brain: Will You idiots..
+<<wait 1>>
+Brain: Keep it DOWN?!?
+===
+

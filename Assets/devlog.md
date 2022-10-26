@@ -277,3 +277,58 @@ Basically a **Pool Manager** tries to avoid calling Instantiate and Destroy beca
 
 I probably can use this for my car driving mechanism thing since I'm creating a bunch of new car objects then destroying them each time- whatever, maybe later. The only difference is performance.
 
+OK and I finished the lecture hall scene and some other sound management stuff. Lookin good, maybe next we add some characters with unique dialogues to really make it feel like a college campus. Finished drawing the professor and making some weird audio for the lecture (and cutscene where player falls asleep). Also we need to find some way to fill the lecture hall so it doesn't look empty as hell.
+
+# 10/15/22
+
+I made it so that in the code, you cannot have two cutscenes playing at once. Like, one cutscene plays, which triggers a dialogue, which has Yarn call playCutscene, this will simply just stop the first cutscene and start the second. This is to avoid confusing bugs where two cutscenes are fighting over the animator (not that it's confusing enough already lmao)
+
+Okay, the lecuter hall scene is in a playable state. Not the best, but oh well. Can't have everything perfect, I guess.
+
+# 10/24/22
+
+One week break XD I have to stop doing this, seriously. No zero days. The sooner I finish this project, the sooner I get to move onto doing something else. I mean, I know I could probably start working on something now, but
+1. I wouldn't be able to devote all my energy to it with this project still looming over my head, and
+2. It would just feel bad leaving this project unfinished after having spent so many hours on it already. I need to see this to completion.
+
+Strategies: Work at least 3hr a day. My average is around that. I've gone way higher before, but that's how you burnout. And less is just not enough to get any meaningful work done.
+
+Made stacy sprite, animated it up. Had a weird bug which scared me for a second, basically I was trying to define her schedule and I made the target square of one of the paths an obstacle as well. Thing is, obstacles (the way we implemented it) have no penalty values. Instead, they just are completely unwalkable for NPC. So it made it seem like the NPC scripts were broken for the longest time. Then I realized this and removed the obstacle tile, and behold, it works again.
+
+Also added `H` key to remove HUD 
+
+Oh also, TIL about **Yarn Spinner Declares**
+
+Basically its just an organizational thing that gets ran everytime Yarn starts up. I put it in a dialogue node called Declarations in `Misc.yarn` like so:
+```
+title: Declarations
+---
+<<declare $minTilNextBus = 1>>
+<<declare $acceptedBibleStudy = false>>
+===
+```
+
+Another cool thing I did was implement **a more robust spacebar skipping dialogue thing**. Basically, before when you press spacebar it skipped the entire dialogue, but now it shows the whole text on the first spacebar press, then skips on the second. This is much closer to modern RPG games (for instance I think OMORI, Oneshot, etc. all have this system- you can't just skip the dialogue in one press, it still shows the whole thing once before continuing). This is more or less to **prevent the player from skipping the whole story**/ skipping all the important bits. Especially since story is often an emphasis in these types of games.
+
+Implementing seemed daunting but I just read `LineView.cs` in detail, and how it interacts with `DialogueAdvanceInput.cs` and I was able to hack together a solution by only adding like 10 lines, which is pretty sick!
+
+Drew another building for Campus scene. Tmrw will work on revamping Room scene, an maybe add the jerk off cutscene xD 
+
+LMAO another like 8hr workday or something. God my working habits are so unhealthy wtf
+
+# 10/25/22
+
+Jerk off cutscene added :sunglasses:
+
+Also added like 2-line fix so that **I can now keep scenes loaded in the editor when pressing play**, this is huge since on startup it will unload all the scenes that have loaded already. Just a nice QOL as a dev. Shoulda had this way earlier.
+
+Also added arriving home cutscene and halfway done with eating cutscene. God, cutscenes take forever to make. Is this really what fuckin all RPG adventure game devs have to go thru? 
+
+Added different talk sounds for Kabowski and Nikolai
+
+Added different typing speeds, starting to play with Yarn Markup to make cool character effects. We'll see tomorrow about this. 
+
+Maybe if my game was more focused on gameplay as opposed to dialogue it would be different... But I'm tryna focus on the dialogue cuz I want it to be story based.
+
+I made a few important fixes tho. The biggest one being, we now pause non-NPC animators when in a cutscene. By "non-NPC" I mean things that don't move around on a time schedule. For instance, the NPCs in our game move based on what time it is, that is, they trigger movement via the timer. So, if we pause time then the animators should be paused too, or we find out some way to keep the NPCs moving without the time. Not sure how though. See DialogueManager.cs:40
+

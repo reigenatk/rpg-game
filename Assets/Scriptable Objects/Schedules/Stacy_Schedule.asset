@@ -13,25 +13,63 @@ MonoBehaviour:
   m_Name: Stacy_Schedule
   m_EditorClassIdentifier: 
   npcScheduleEventList:
-  - hour: 8
+  - hour: 6
     minute: 0
     priority: 1
     day: 0
     weather: 0
     toSceneName: 8
     toGridCoordinate:
-      x: 91
-      y: -66
-    npcFacingDirectionAtDestination: 0
+      x: 118
+      y: -51
+    npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
-  - hour: 15
+    description: Goes to coffee shop on green
+  - hour: 8
     minute: 0
     priority: 1
     day: 0
     weather: 0
-    toSceneName: 7
+    toSceneName: 9
     toGridCoordinate:
-      x: 32
-      y: -77
+      x: 40
+      y: -107
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    description: union coffe shop
+  - hour: 12
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 10
+    toGridCoordinate:
+      x: 101
+      y: -102
     npcFacingDirectionAtDestination: 0
     animationAtDestination: {fileID: 0}
+    description: Lecture
+  - hour: 16
+    minute: 15
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 132
+      y: -66
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    description: sushi 4:15
+  - hour: 21
+    minute: 30
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 26
+      y: -83
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    description: 9:30 Goes "home" (slightly below campus)

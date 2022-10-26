@@ -163,7 +163,7 @@ public class DialogueActivate : MonoBehaviour, Interactable
         {
             // player interacts with this one
             player.interactables.Add(this);
-            if (soundToPlay != null)
+            if (soundToPlay != SoundName.NoSound)
             {
                 AudioManager.Instance.PlaySound(soundToPlay);
             }

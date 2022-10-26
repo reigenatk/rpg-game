@@ -39,6 +39,10 @@ public class SoundItem
         AudienceLaughter,
         SchoolBell,
         AirHorn,
+        StacyTypewriterSound,
+        KabowskiTypewriterSound,
+        NikolaiTypewriterSound,
+        BrainTypewriterSound,
     }
 
     public SoundName soundName;

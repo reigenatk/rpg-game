@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class NPCScheduleEvent
 {
+    // hour min second is when the NPC shoudl START moving, not when itll arrive.
     public int hour;
     public int minute;
     public int priority;
@@ -13,6 +14,7 @@ public class NPCScheduleEvent
     public GridCoordinate toGridCoordinate;
     public Direction npcFacingDirectionAtDestination = Direction.none;
     public AnimationClip animationAtDestination;
+    public string description; // for me
 
     public int Time
     {

@@ -57,7 +57,7 @@ public class NPCPath : MonoBehaviour
 
                     ScenePath scenePath = sceneRoute.scenePathList[i];
 
-                    // Check if this is the final destination
+                    // Check if this is the final destination (MEANING ITS 99999 or whatever absurdly large value of 9s we set it to, in the scriptable object).
                     if (scenePath.toGridCell.x >= Settings.maxGridWidth || scenePath.toGridCell.y >= Settings.maxGridHeight)
                     {
                         Debug.Log("1");
@@ -93,7 +93,7 @@ public class NPCPath : MonoBehaviour
 
                     Vector2Int toGridPosition = new Vector2Int(toGridX, toGridY);
 
-                    Debug.Log("Scenepath found, fromGridPosition is " + fromGridPosition + " toGridPosition is " + toGridPosition);
+                    Debug.Log("Scenepath found for " + gameObject.name + " fromGridPosition is " + fromGridPosition + " toGridPosition is " + toGridPosition);
 
                     // Build path and add movement steps to movement step stack
                     NPCManager.Instance.BuildPath(scenePath.sceneName, fromGridPosition, toGridPosition, npcMovementStepStack);

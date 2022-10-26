@@ -72,6 +72,18 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    public void stopAllMusicNoCoroutine(float numSecondsToFadeOver)
+    {
+        StartCoroutine(stopAllMusic(numSecondsToFadeOver));
+    }
+
+    public void startAllMusicNoCoroutine(float numSecondsToFadeOver)
+    {
+        // get the song that was paused via curAudioObject
+        AudioSource curAudioSource = curAudioObject.GetComponent<AudioSource>();
+        StartCoroutine(startMusic(curAudioSource, numSecondsToFadeOver));
+    }
+
     // arg is the name of the gameobject under Music Object in persistant scene
     [YarnCommand("playMusicName")]
     public void playMusicName(string nameOfMusicToPlay)
