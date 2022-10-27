@@ -9,13 +9,31 @@ My favorite kinds of games are probably story-driven indie adventure games. Thin
 I've always been amazed at how much one developer can do. Some of my favorite games were developed by one person (or a team of small people). Games like **LISA, Undertale, OneShot, OMORI, Stardew Valley**, (and recently, I played Katana Zero which was insanely good).
 
 # Technologies
-This is made in Unity, though I did consider using GameMaker Studio or Godot (and even RPGMaker).
+This is made in **Unity (2021.3.6f1)**, though I did consider using GameMaker Studio or Godot (and even RPGMaker).
 But ultimately, I decided to stick to what I'm familiar with. My only previous experience is my [zombies project](https://github.com/reigenatk/zombiez), which was a lot of fun, but in 3D, so it was kind of a different beast.
-This is still in very rough development, I'd say it's like 20% done right now, and I don't even know if I'll have the actual ability to finish it. I really want to, 
-but sometimes motivation is getting at me. I've got a ton of stuff to learn, specifically how to not make my pixel art look terrible.
+
+## ART
+
+I'm proud to say, **ALL THE ART IS MADE BY ME!** I set out with this goal in mind. Not a single pixel that you see is imported from somewhere else. This means a few things:
+
+1. The art is subpar. 
+    Yes, I know the game isn't beautiful. I'm not an artist. I'm a programmer. But I want to get better at art. And I want to make the claim that **every pixel on the screen is made by yours truly**. I'm using **Aesprite** as the art program of choice (which btw, is awesome! [Check it out](https://github.com/aseprite/aseprite), its free and open source)
+2. I'm using pixel art
+    You may notice everything is pixel art, that's because I feel pixel art is substantially easier than vector art, especially for us programmer-minded folks to get our heads around. Just look at Stardew Valley- great game, and its all pixel art.
+
+## Music
+
+Also, I composed a few of the songs. I had some knowledge going in as an amateur music producer so hopefully they aren't too bad.
+
+I guess overall, I'm really trying to make this game my own. No assets from anyone else, period. I did get a lot of help with the code part from a [44 HOUR UDEMY COURSE](https://www.udemy.com/course/unity-2d-game-developer-course-farming-rpg/), though. I've seen probably like 70% of it. Some of the more specific chapters I skipped over. But I'd say like 60% of my code is original. And there's a crap ton of code.
 
 # Synopsis
 More or less a game about being a depressed college student. You'll never guess where I got the inspiration for that from 😉
+
+Hopefully I'll get to explore some themes of loneliness and really capture that sentiment of being surrounded by people, yet being totally alone inside. That feeling of time passing you by, that dreading feeling of "I'm wasting my 20s", and the desparation that comes with it. Put simply, I want to try snapshot my current life and put it in a game as a time machine of sorts 💩
+
+# Progress
+Feel free to check out the [devlog](https://github.com/reigenatk/rpg-game/blob/master/devlog.md) for recent updates!
 
 # Screenshots
 
