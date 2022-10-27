@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 
-public class MusicManager : MonoBehaviour
+public class MusicManager : Singleton<MusicManager>
 {
     AudioSource audioSource;
 
@@ -61,6 +61,7 @@ public class MusicManager : MonoBehaviour
     [YarnCommand("stopAllMusic")]
     public IEnumerator stopAllMusic(float numSecondsToFadeOver)
     {
+        // Debug.Log("Stopping all music");
         foreach (Music m in musicToPlay)
         {
             if (m.music.GetComponent<AudioSource>().isPlaying)
@@ -72,6 +73,18 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    public bool isMusicPlaying()
+    {
+        foreach (Music m in musicToPlay)
+        {
+            if (m.music.GetComponent<AudioSource>().isPlaying)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void stopAllMusicNoCoroutine(float numSecondsToFadeOver)
     {
         StartCoroutine(stopAllMusic(numSecondsToFadeOver));
@@ -80,8 +93,16 @@ public class MusicManager : MonoBehaviour
     public void startAllMusicNoCoroutine(float numSecondsToFadeOver)
     {
         // get the song that was paused via curAudioObject
-        AudioSource curAudioSource = curAudioObject.GetComponent<AudioSource>();
-        StartCoroutine(startMusic(curAudioSource, numSecondsToFadeOver));
+        if (curAudioObject != null)
+        {
+            AudioSource curAudioSource = curAudioObject.GetComponent<AudioSource>();
+            StartCoroutine(startMusic(curAudioSource, numSecondsToFadeOver));
+        }
+        else
+        {
+            Debug.Log("No music to start");
+        }
+
     }
 
     // arg is the name of the gameobject under Music Object in persistant scene

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
 
 public class TimeManager : Singleton<TimeManager>, ISaveable
@@ -187,7 +188,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
     {
         foreach (SceneName s in scenesThatShouldHaveColorChange)
         {
-            if (LevelLoader.Instance.curScene == s) return true;
+            if (SceneManager.GetActiveScene().name == s.ToString()) return true;
         }
         return false;
     }

@@ -28,6 +28,7 @@ public class GameState : Singleton<GameState>
     [SerializeField] ScoreCategoryUI social;
     [SerializeField] ScoreCategoryUI contentedness;
     [SerializeField] ScoreCategoryUI entertainment;
+    [SerializeField] GameObject npcs;
 
 
 
@@ -173,6 +174,11 @@ public class GameState : Singleton<GameState>
     // this is called via SIGNAL from each timeline's signal emitters
     public void cutsceneFinishedPlaying()
     {
+        // disable all NPC characters
+        foreach (SpriteRenderer sr in npcs.GetComponentsInChildren<SpriteRenderer>())
+        {
+            sr.enabled = false;
+        }
         GameUI.Instance.enableUI();
         FindObjectOfType<Player>().GetComponent<BoxCollider2D>().enabled = true;
         setIsCutscenePlaying(false);

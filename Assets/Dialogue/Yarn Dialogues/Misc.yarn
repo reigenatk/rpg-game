@@ -19,6 +19,10 @@
 
 // total counts
 <<declare $numTimesNiceToRoomates = 0>>
+<<declare $kabowskiFriendProgress = 0>>
+<<declare $nikolaiFriendProgress = 0>>
+<<declare $brainFriendProgress = 0>>
+<<declare $stacyFriendProgress = 0>>
 ===
 
 title: LowEnergy

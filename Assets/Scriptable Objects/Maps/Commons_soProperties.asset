@@ -15,6 +15,6 @@ MonoBehaviour:
   sceneName: 1
   gridWidth: 300
   gridHeight: 300
-  originX: -4
-  originY: -8
+  originX: -5
+  originY: -9
   gridPropertyList: []

@@ -52,7 +52,9 @@ public enum GameVariable
     hasEnteredInsideBuilding,
     hasEnteredLectureHall,
     hasFinishedLecture,
-    hasKabowskiSurprisedUs,
+    
+    // each day there will be a new scene when the player arrives home. This is set to true after that scene has concluded
+    hasFinishedHomeScene, 
 
     isBusCutscenePlaying,
 

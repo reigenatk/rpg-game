@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
+  m_Name: Brain_Schedule
+  m_EditorClassIdentifier: 
+  npcScheduleEventList:
+  - hour: 2
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 4
+    toGridCoordinate:
+      x: 10
+      y: -2
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 4dcbd090d53aeee4e92c5181f6b6cc0a,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 9b891af6cd38b22459ab91c9d601d6ba, type: 3}
+    description: Sleeping
+  - hour: 5
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 4
+    toGridCoordinate:
+      x: 7
+      y: -1
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 7400000, guid: 71bef9a1b5f403f428c8066901bb4ec6,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: fe706198b3ac1234283fd7c87014cbc6, type: 3}
+    description: Works on computer stuff
+  - hour: 7
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 1
+    toGridCoordinate:
+      x: 9
+      y: 4
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 7ed350667473ece439d78683f97eb978,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 6079f6d0344a36a409a94d629037bd7b, type: 3}
+    description: Eats breakfast
+  - hour: 10
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 4
+    toGridCoordinate:
+      x: 7
+      y: -1
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 71bef9a1b5f403f428c8066901bb4ec6,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: fe706198b3ac1234283fd7c87014cbc6, type: 3}
+    description: Back to work
+  - hour: 13
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 1
+    toGridCoordinate:
+      x: 7
+      y: -2
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: 1:30pm he goes outside to stretch
+  - hour: 14
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 7
+    toGridCoordinate:
+      x: 31
+      y: -69
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Continuation of last one
+  - hour: 17
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 1
+    toGridCoordinate:
+      x: 7
+      y: -1
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 71bef9a1b5f403f428c8066901bb4ec6,
+      type: 2}
+    audioToPlay: {fileID: 0}
+    description: 5pm he does some chemistry

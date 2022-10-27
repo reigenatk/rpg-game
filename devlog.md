@@ -332,3 +332,20 @@ Maybe if my game was more focused on gameplay as opposed to dialogue it would be
 
 I made a few important fixes tho. The biggest one being, we now pause non-NPC animators when in a cutscene. By "non-NPC" I mean things that don't move around on a time schedule. For instance, the NPCs in our game move based on what time it is, that is, they trigger movement via the timer. So, if we pause time then the animators should be paused too, or we find out some way to keep the NPCs moving without the time. Not sure how though. See DialogueManager.cs:40
 
+# 10/26/22
+
+Polishing the arrive home scene, made eating scene
+
+I'm planning on doing this: for each character we have two versions an NPC version and a non-NPC. For example. There's a NPC Brain which will follow some schedule (sit in room for X hours of day, go outside for a bit, etc.), and then once a cutscene plays, we will disable the NPC version's sprite renderer and refer to the non-NPC version in the Timeline. I can't use the NPC's since idk how the NPC movement scripts will interact with Timeline, and tbh, I don't wanna know. I have a feeling that it'll be ugly
+
+Note to self, do not use rotation with animations, or flipX flipY bullshit. Just make it in Aesprite. IT's so much nicer not having to deal with Unity's random crap of things just not working. Example: I made animation with a 90 degree Y rotation, since the bed for Brain was horizontal instead of vertical. Then when I try to play this animation, the sprite switches, but the rotation just doesn't change. wtf?
+
+So I just rotated the sprite itself in Aesprite. Still have no clue why it didn't work.
+
+Also major progres today with Brain's daily schedule. I also **got rid of door Knocking mechanism** (so like 2 days of work was for nothing lmAO). But my logic is, why tf have knocking in this game? Just make the other roommates' rooms avialable 24/7, that way its more interesting and you can snoop on whatever they are doing at any time. So now, what you do is you enter roomate's rooms, and you talk to the roomate. **Depending on how good your relation is with them, different dialogues are triggered. Which then trigger different cutscenes**. For instance if you were rude to them in the past and its one of the later days, then they will likely just ignore you or give you little attention. 
+
+Oh also, I made each roommate also an NPC copy as well, made progress of defining Brain's daily routine a bit. Will do the same for other two as well, and perhaps all other characters we add to this game. Hopefully if I add enough characters it'll start to feel like a real small town, with each person having their own little routine? Who knows.
+
+Also still have to draw MainQuad scene, and maybe that's all for the scenes. Drawing campus was hard enough man. But I have to make a quad scene probably, and I can add like grass field and disgusting spikeball players and shit.
+
+Da game is coming together AAAAAA just need like 20 more uniquely drawn characters and some more original music, more good art, and hopefully we're good. Way harder to do than it sounds. At least I probably have like 10min of gameplay already, maybe 15. IDK.

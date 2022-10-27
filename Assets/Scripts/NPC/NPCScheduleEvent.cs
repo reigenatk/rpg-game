@@ -14,6 +14,7 @@ public class NPCScheduleEvent
     public GridCoordinate toGridCoordinate;
     public Direction npcFacingDirectionAtDestination = Direction.none;
     public AnimationClip animationAtDestination;
+    public AudioClip audioToPlay; // what audio is gonna play once NPC gets to the spot?
     public string description; // for me
 
     public int Time
@@ -24,6 +25,7 @@ public class NPCScheduleEvent
         }
     }
 
+    // this is used by AStarTest, you can disregard since Astar now works (hopefully!?)
     public NPCScheduleEvent(int hour, int minute, int priority, int day, SceneName toSceneName, GridCoordinate toGridCoordinate, AnimationClip animationAtDestination)
     {
         this.hour = hour;

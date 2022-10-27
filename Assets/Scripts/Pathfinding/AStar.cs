@@ -92,7 +92,7 @@ public class AStar : MonoBehaviour
             //  current node = the node in the open list with the lowest fCost
             Node currentNode = openNodeList[0];
             openNodeList.RemoveAt(0);
-            Debug.Log("Current Node " + currentNode.gridPosition);
+            // Debug.Log("[FindShortestPath] Current Node " + currentNode.gridPosition);
 
             // add current node to the closed list
             closedNodeList.Add(currentNode);

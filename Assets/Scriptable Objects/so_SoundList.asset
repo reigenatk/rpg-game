@@ -254,22 +254,24 @@ MonoBehaviour:
   - soundName: 34
     soundClips:
     - {fileID: 8300000, guid: 57b4e4ddcb559574486a79b17ce46b52, type: 3}
+    - {fileID: 8300000, guid: e601ed114effe524bb44ca9b7f694d70, type: 3}
     soundDescription: Annoying, scratchy sound
     soundPitchRandomVariationMin: 0.898
-    soundPitchRandomVariationMax: 1.088
-    soundVolume: 0.511
+    soundPitchRandomVariationMax: 1.19
+    soundVolume: 0.283
   - soundName: 35
     soundClips:
     - {fileID: 8300000, guid: 534bb457637a6b4459fd9a32accf4e65, type: 3}
+    - {fileID: 8300000, guid: cbec95d638863a949ae13910429283f5, type: 3}
     soundDescription: idk just normal, more retro sound
-    soundPitchRandomVariationMin: 0.898
-    soundPitchRandomVariationMax: 1.088
-    soundVolume: 0.58
+    soundPitchRandomVariationMin: 0.745
+    soundPitchRandomVariationMax: 1.134
+    soundVolume: 0.348
   - soundName: 36
     soundClips:
     - {fileID: 8300000, guid: 6b5994cb9a1664644af7cd7077b3b6a9, type: 3}
     - {fileID: 8300000, guid: 4d849ec3ead4ff643abb313d4c0afb61, type: 3}
     soundDescription: idk
-    soundPitchRandomVariationMin: 0.898
-    soundPitchRandomVariationMax: 1.088
+    soundPitchRandomVariationMin: 0.792
+    soundPitchRandomVariationMax: 1.301
     soundVolume: 0.58

@@ -50,6 +50,10 @@ public class NPCMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField] public bool npcActiveInScene = false;
 
+    // audio source on the NPC
+    AudioSource audioSource;
+    AudioClip npcTargetAudioClip; // audio to play once movement complete
+
     private bool sceneLoaded = false;
 
     private Coroutine moveToGridPositionRoutine;
@@ -73,6 +77,7 @@ public class NPCMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         npcPath = GetComponent<NPCPath>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = animatorOverrideController;
@@ -165,7 +170,8 @@ public class NPCMovement : MonoBehaviour
                     }
 
                 }
-                // else if no more NPC movement steps
+                // else if no more NPC movement steps. This means we have finished our movement and now we wanna 
+                // play the appropriate custom anim and also audio if desired.
                 else
                 {
                     ResetMoveAnimation();
@@ -173,10 +179,13 @@ public class NPCMovement : MonoBehaviour
                     SetNPCFacingDirection();
 
                     SetNPCEventAnimation();
+
+                    SetNPCAudio();
                 }
             }
         }
     }
+
 
     public void SetScheduleEventDetails(NPCScheduleEvent npcScheduleEvent)
     {
@@ -185,6 +194,7 @@ public class NPCMovement : MonoBehaviour
         npcTargetWorldPosition = GetWorldPosition(npcTargetGridPosition, npcTargetScene);
         npcFacingDirectionAtDestination = npcScheduleEvent.npcFacingDirectionAtDestination;
         npcTargetAnimationClip = npcScheduleEvent.animationAtDestination;
+        npcTargetAudioClip = npcScheduleEvent.audioToPlay;
         ClearNPCEventAnimation();
     }
 
@@ -205,6 +215,18 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
+    private void SetNPCAudio()
+    {
+        // if we wanna play audio once we get there, then start playing it now.
+        if (npcTargetAudioClip != null && audioSource.clip == null)
+        {
+            Debug.Log(gameObject.name + " Is playing audioclip " + npcTargetAudioClip + " after reaching destination ");
+            audioSource.clip = npcTargetAudioClip;
+            audioSource.Play();
+        }
+    }
+
+    // this is called before any movement occurs? So we do things here like 
     public void ClearNPCEventAnimation()
     {
         animatorOverrideController[blankAnimation] = blankAnimation;
@@ -347,6 +369,12 @@ public class NPCMovement : MonoBehaviour
     {
         // Debug.Log("MoveToGridPosition running");
         npcIsMoving = true;
+        if (audioSource.isPlaying)
+        {
+            // turn off the audio from a previous state (if there was one)
+            audioSource.clip = null;
+            audioSource.Stop();
+        }
 
         // change the animation to appropriate value
         SetMoveAnimation(gridPosition);
@@ -374,14 +402,14 @@ public class NPCMovement : MonoBehaviour
                     // create a unitvector and multiply it by the distance needed to move
                     Vector3 unitVector = Vector3.Normalize(npcNextWorldPosition - transform.position);
                     Vector2 move = new Vector2(unitVector.x * npcCalculatedSpeed * Time.fixedDeltaTime, unitVector.y * npcCalculatedSpeed * Time.fixedDeltaTime);
-                    Debug.Log("MovePosition running: move " + move + " unit vector " + unitVector);
+                    Debug.Log("[MovePosition running for " + gameObject.name+ "] distance " + move + " unit vector " + unitVector);
                     rigidBody2D.MovePosition(rigidBody2D.position + move);
 
                     yield return waitForFixedUpdate;
                 }
             }
         }
-        Debug.Log("MoveToGridPosition finished");
+        Debug.Log("MoveToGridPosition finished for " + gameObject.name);
         rigidBody2D.position = npcNextWorldPosition;
         npcCurrentGridPosition = gridPosition;
         npcNextGridPosition = npcCurrentGridPosition;

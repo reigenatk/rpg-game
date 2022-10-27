@@ -438,7 +438,7 @@ title: Day2_After_Stacy
         But Christians are usually very nice people.
         And I could use some friends.
         It was nice talking for that brief moment. Rarely happens to me ever.
-        <<changePlayerScoreString Manager "loneliness" 10.0>>
+        <<changePlayerScoreString Manager "social" 10.0>>
         <<wait 1>>
         Anyways, she said 5pm. Guess I'll decide then.
     -> No
@@ -460,10 +460,10 @@ Also, God forbid I get labelled as one of those dudes who just goes to church to
 That girl was super nice, though.
 I can't remember the last time a girl talked to me first.
 Much less laughed at my joke. 
-<<changePlayerScoreString Manager "loneliness" 50.0>>
+<<changePlayerScoreString Manager "social" 50.0>>
 <<wait 3>>
 Wait, she was probably laughing at me. Shit.
-<<changePlayerScoreString Manager "loneliness" -40.0>>
+<<changePlayerScoreString Manager "social" -40.0>>
 <<wait 1>>
 God, I must've sounded so weird.
 Blargh. If I end up ditching, let's hope I never run into her again.
@@ -475,16 +475,18 @@ Oh well, guess I have some free time for now.
 
 title: Day2_Commons_Scene
 ---
-Kabowski: As I was saying Nikolai, White Claws.
-Kabowski: They're like the equivalent of vodka here in the USA.
-Kabowski: You have got to try them.
+Kabowski: As I was saying Nikolai, <size=100px>White Claws.</size>
+Kabowski: It is <size=100px><color="orange">THE</color></size> drink over here.
+Kabowski: You have <size=100px>got</size> to try them.
 <<wait 1>>
 Nikolai: vite.. claw.
 Nikolai: Iz zis vite claw strong like vodka?
+<<wait 1>>
 Kabowski: Strong? Yeah dude, if you shotgun a whole pack. 
 Kabowski: Have I shown you how to shotgun yet? It's simple. 
 Kabowski: Key. Left hand. Or right hand, if you're right handed. 
-Kabowski: White claw. Right hand. Punch that sucker right in. Now-
+Kabowski: White claw. Other hand. 
+Kabowski: Punch that sucker right in. Now-
 Nikolai: Oh look, Steven iz back.
 
 ===
@@ -510,7 +512,7 @@ Kabowski: I missed ya, buddy.
     <<wait 1>>
     He lives such a naive life, happy and carefree.
     He wouldn't know a thing about being lonely. About never setting hands on a girl. 
-    He wouldn't know a thing about having no friends to ask to travel with. 
+    What it's like having no friends to ask to travel with. 
     He doesn't understand me.
     <<jump Day2_Commons_Eating>>
 -> What's up guys
@@ -528,15 +530,18 @@ Kabowski: I missed ya, buddy.
     This is why I hate Kabowski. Everything's about the gym.
     But in many ways, I understand why. 
     His appearance is all he's got going for him.
-    And once he gets old, well, what's he going to do?
+    And once he gets old, well, what's he going to do? Read books?
     <<wait 2>>
-    He lives for the here and now. Living the best youth possible is all he cares about.
-    And in many ways, he's smart for that. Youth is the peak of life, after all. One that I've utterly wasted.
+    He's the kind of person that lives for the here and now. Living the best youth possible is all he cares about.
+    And in many ways, he's smart for that. Youth is the peak of life, after all.
+    It's not cringe to care about how you look, or work out to pick up girls.
+    Finding a partner and having kids is literally the definition of "making it", after all.
     <<wait 2>>
-    Kabowski's that firework at the firework show that shoots up high into the sky at twice the speed of the others, then explodes in a giant BOOM.
+    People like Kabowski kind of remind me of fireworks at the firework show that shoot up super high into the sky at twice the speed of the others, then explodes in a giant BOOM.
+    And people clap and cheer.
     <<wait 2>>
-    Which of course, is better than my life trajectory.
-    I would be the firework that gets lit and doesn't go anywhere, then gets tossed out.
+    Meanwhile, I would be the firework that gets lit and doesn't go anywhere, then gets tossed out after the show.
+    Completely unknown to anyone.
     <<jump Day2_Commons_Eating>>
 -> Fuck off
     Kabowski: Woah, what'd I do wrong buddy?
@@ -560,10 +565,14 @@ Kabowski: I missed ya, buddy.
 title: Day2_Commons_Eating
 ---
 <<set $wasNiceToRoomates = true>>
-<<changePlayerScoreString Manager "loneliness" 15.0>>
+<<changePlayerScoreString Manager "social" 15.0>>
 <<wait 2>>
 Anyways, I should leave this conversation. He'll babble on forever.
-<<wait 2>>
+At least I tried talking to them.
+===
+
+title: Day2_Commons_After_Walk_Away
+---
 Nikolai: Hey vait- Steven. Vant to eat vis us tonight? 
 <<wait 1>>
 You want me to eat with you?
@@ -578,7 +587,7 @@ Kabowski: Yeah dude. Nikolai's cooking up some serious macros.
 
 title: Day2_Nikolai_Food
 ---
-Nikolai: Okay guyz, today I hav here Пирожки, or Pirozhki.
+Nikolai: Okay guyz, today I hav here Russian Pirozhki.
 Nikolai: It is like meat pie. I hope yu enjoy.
 <<wait 1>>
 Kabowski: Hell yeah! Smells amazing, Nikolai.
@@ -587,17 +596,37 @@ Nikolai: Thanks. Alzough I am confused. Where is Brian?
 <<wait 1>>
 Kabowski: Oh, you mean THE almighty Brain? Not sure. Here, I'll call him.
 <<wait 2>>
-Kabowski: (in a angelic voice) [wave][bounce]oh braaaaaaaaaaainnnnnnn~![/]
+Kabowski: <size=150px>oh braaaaaaaaaaainnnnnnn~!</size>
 <<wait 2>>
-Kabowski: [wave][bounce]braaaaaaaaaaainnnnnnnyyyyy boooooo~![/]
+Kabowski: <size=150px>braaaaaaaaaaainnnnnnnyyyyy boooooo~!</size>
 <<wait 1>>
 Nikolai: Hm, seems he's vury busy.
 ===
 
 title: Day2_Brain_Exits_Lair
 ---
-Brain: Will You idiots..
+Brain: <size=100px>Will You idiots..</size>
 <<wait 1>>
-Brain: Keep it DOWN?!?
+Brain: <size=150px><color="red">Keep it DOWN?!?</color></size>
+Brain: <size=75px>I'm in a call with my professor, for fuck's sake</size>
 ===
 
+title: Day2_After_Brain_Mad
+---
+Kabowski: Hahahahaha
+Kabowski: What's his deal? I'm only joking.
+<<wait 1>>
+Nikolai: Okey, let's start vithout him.
+<<changePlayerScoreString Manager "energy" 15.0>>
+===
+
+title: Day2_After_Meal
+---
+Kabowski: Woo! That was a great meal Nikolai.
+Kabowski: Gotta go do my supline leg lifts now. I'll catch you guys later.
+Nikolai: spasiba, Kabovski. And thank yu Stevun for coming.
+-> No Problem
+-> Thanks for cooking.
+Nikolai: Catch yu ull latur.
+<<changePlayerScoreString Manager "social" 15.0>>
+===

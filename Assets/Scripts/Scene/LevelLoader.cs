@@ -23,6 +23,7 @@ public class LevelLoader : Singleton<LevelLoader>
     [SerializeField] List<float> orthoSizes;
     [SerializeField] private GameObject players;
     [SerializeField] private TimeManager timeManager;
+    [SerializeField] private GameObject npcs;
 
     // make dictionaries manually bc unity editor doesn't support them for whatever reason
     private Dictionary<SceneName, float> sceneToStartingOrthoSize;
@@ -102,6 +103,21 @@ public class LevelLoader : Singleton<LevelLoader>
         return Vector3.zero;
     }
 
+    // https://answers.unity.com/questions/1305859/unload-all-scenes-except-one.html
+    void UnloadAllScenesExcept(string sceneName)
+    {
+        int c = SceneManager.sceneCount;
+        for (int i = 0; i < c; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            print(scene.name);
+            if (scene.name != sceneName)
+            {
+                SceneManager.UnloadSceneAsync(scene);
+            }
+        }
+    }
+
     // only difference between Start() and FadeAndLoadScene() is that, Start doesn't have to unload anything
     // and Start also has to initialize the dictionaries. Other than that they're essentially identical
     // (at least the loading scene part) so I put that into one function called CreateScene
@@ -133,8 +149,9 @@ public class LevelLoader : Singleton<LevelLoader>
         faderCanvasGroup.alpha = 1f;
 
         // Unload the scene we're gonna load in, if its already loaded
-        Debug.Log("Scene name is " + startingSceneName.ToString());
-        yield return SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(startingSceneName.ToString()).buildIndex);
+        Debug.Log("Starting scene to load is " + startingSceneName.ToString());
+        UnloadAllScenesExcept("PersistantScene");
+
 
         yield return StartCoroutine(CreateScene(startingSceneName, startingPosition));
     }
@@ -333,6 +350,12 @@ public class LevelLoader : Singleton<LevelLoader>
 
         GameUI.Instance.disableUI();
 
+        // disable all NPC characters
+        foreach (SpriteRenderer sr in npcs.GetComponentsInChildren<SpriteRenderer>())
+        {
+            sr.enabled = false;
+        }
+
         // stop any already playing ctuscenes
         if (gameState.cutscenePlaying != null)
         {
@@ -453,9 +476,8 @@ public class LevelLoader : Singleton<LevelLoader>
         // Unload the current active scene.
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 
-        // Unload the scene we're gonna load in, if its already loaded
-        Debug.Log("Scene name is " + startingSceneName.ToString());
-        yield return SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(startingSceneName.ToString()).buildIndex);
+        Debug.Log("Loading in scene " + sceneName);
+
 
         // add an artifical delay of extra time if desired
         if (delay != 0.0f)
@@ -559,13 +581,12 @@ public class LevelLoader : Singleton<LevelLoader>
     private void LoadPlayers(SceneName sceneName)
     {
         // for each player, check if we should load it into this scene
-        foreach (Transform player in players.transform)
+        foreach (PlayerLoad pl in players.gameObject.transform.GetComponentsInChildren<PlayerLoad>())
         {
             // Debug.Log("Considering to add player " + player.name);
-            PlayerLoad pl = player.gameObject.GetComponent<PlayerLoad>();
             if (pl.checkAddPlayer(sceneName))
             {
-                Debug.Log("Adding player " + player.name);
+                Debug.Log("Adding player " + pl.gameObject);
                 // if we should add player to this scene, then instantiate a copy of it and move it to that scene
                 // this would assume the scene (to put the player in) has already been loaded
                 GameObject newPlayer = Instantiate(pl.player);
