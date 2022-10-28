@@ -153,3 +153,25 @@ title: PostNutClarity
 <<set $numTimesNutted = $numTimesNutted + 1>>
 Was it worth it?
 ===
+
+title: WalkToCampus
+---
+Should I walk to campus? (-5% energy, +20 minutes, +5% contentedness)
+-> Yes
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+    <<changePlayerScoreString Manager "energy" -5.0>>
+    <<AdvanceXMinutes Manager 20>> 
+    <<yarnLoadScene LevelLoader Campus 2.0>>
+-> No, I'll ride the bus
+===
+
+title: WalkToHome
+---
+Walk home? (-5% energy, +20 minutes, +5% contentedness)
+-> Yes
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+    <<changePlayerScoreString Manager "energy" -5.0>>
+    <<AdvanceXMinutes Manager 20>> 
+    <<yarnLoadScene LevelLoader OutsideHouse 2.0>>
+-> No, I'll ride the bus
+===

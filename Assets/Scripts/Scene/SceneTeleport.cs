@@ -10,13 +10,11 @@ public class SceneTeleport : MonoBehaviour
 {
     [SerializeField] private SceneName sceneNameGoto;
     [SerializeField] private Vector3 scenePositionGoto = new Vector3();
-    [SerializeField] private bool disableKnock; // this decides if we will ask the player to knock or not. 
+
     [SerializeField] private float extraDelay; // change this if you want it to take a little longer to go to next scene 
     [SerializeField] private AudioClip teleportSound; // a sound to optionally play before teleporting
 
-    // specify ON the teleporter, which direction the player should face if knocking
-    // this should be the name of the PlayableDirector to play in string form
-    [SerializeField] private string knockCutsceneToPlay;
+
 
     
     // a special condition is just anything other than open
@@ -79,19 +77,7 @@ public class SceneTeleport : MonoBehaviour
         gameState = FindObjectOfType<GameState>();
     }
 
-    public bool isClosed()
-    {
-        foreach (SceneTeleportSpecialConditions stc in specialTeleportConditions)
-        {
-            if (stc.isSpecialConditionMet())
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void KnockOnDoor()
+/*    public void KnockOnDoor()
     {
         // play knocking on door cutscene
         // first check what direction the door is compared to player, so we know which knocking anim to play
@@ -113,28 +99,20 @@ public class SceneTeleport : MonoBehaviour
         LevelLoader.Instance.playCutscene(knockCutsceneToPlay);
 
 
-    }
+    }*/
 
     public void playKnockDialogue()
     {
-        Debug.Log("checking for knock dialogue");
+        Debug.Log("checking for dialogue to play before teleport");
         // first check what we should do
         foreach (SceneTeleportSpecialConditions stc in specialTeleportConditions)
         {
             if (stc.isSpecialConditionMet())
             {
-                // ok so check which condition it is, either no response or more dialogue
-                if (stc.knockDialogue == null)
-                {
-                    // then no response
-                    FindObjectOfType<DialogueManager>().StartDialogueString("Knock_No_Response");
-                    return;
-                }
-                else
-                {
-                    // otherwise play that special dialogue
-                    FindObjectOfType<DialogueManager>().StartDialogueString(stc.knockDialogue);
-                }
+                // play that special dialogue
+                Debug.Log("Playing dialogue before teleport: " + stc.knockDialogue);
+                FindObjectOfType<DialogueManager>().StartDialogueString(stc.knockDialogue);
+
             }
         }
     }
@@ -155,21 +133,9 @@ public class SceneTeleport : MonoBehaviour
         }
         if (player != null)
         {
-            // is the door openable?
-            if (isClosed() == true)
-            {
-                if (disableKnock)
-                {
-                    playKnockDialogue();
-                }
-                else
-                {
-                    FindObjectOfType<DialogueManager>().StartDialogueString("DoorIsntOpen");
-                }
-                
-                return;
-            }
-            
+            // check if there's dialogue to play
+            playKnockDialogue();
+
             //  Calculate players new position
             //  if new positions are specified for x or y, then use the current value
 

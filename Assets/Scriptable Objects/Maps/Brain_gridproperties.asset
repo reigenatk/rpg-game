@@ -270,6 +270,11 @@ MonoBehaviour:
     gridBoolValue: 1
   - gridCoordinate:
       x: 6
+      y: 0
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 6
       y: 1
     gridBoolProperty: 1
     gridBoolValue: 1
@@ -321,6 +326,11 @@ MonoBehaviour:
   - gridCoordinate:
       x: 8
       y: -3
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 8
+      y: 0
     gridBoolProperty: 1
     gridBoolValue: 1
   - gridCoordinate:

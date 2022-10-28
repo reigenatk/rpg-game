@@ -39,7 +39,7 @@ public class AStarTest : MonoBehaviour
 
             NPCScheduleEvent npcScheduleEvent = new NPCScheduleEvent(0, 0, 0, 0, sceneName, new GridCoordinate(finishPosition.x, finishPosition.y), eventAnimationClip);
 
-            npcPath.BuildPath(npcScheduleEvent);
+            npcPath.BuildPath(npcScheduleEvent, gameObject.name);
 
         }
 

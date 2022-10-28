@@ -186,17 +186,136 @@ MonoBehaviour:
   - fromSceneName: 1
     toSceneName: 3
     scenePathList:
-    - sceneName: 4
+    - sceneName: 1
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 2
+        y: 2
+    - sceneName: 3
+      fromGridCell:
+        x: 11
+        y: 1
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 3
+    toSceneName: 1
+    scenePathList:
+    - sceneName: 3
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 11
+        y: 1
+    - sceneName: 1
+      fromGridCell:
+        x: 2
+        y: 2
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 5
+    toSceneName: 1
+    scenePathList:
+    - sceneName: 5
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 11
+        y: 1
+    - sceneName: 1
+      fromGridCell:
+        x: 2
+        y: 5
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 1
+    toSceneName: 5
+    scenePathList:
+    - sceneName: 1
       fromGridCell:
         x: 999999
         y: 999999
       toGridCell:
         x: 2
         y: 5
-    - sceneName: 1
+    - sceneName: 5
       fromGridCell:
-        x: 12
+        x: 11
         y: 1
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 11
+    toSceneName: 9
+    scenePathList:
+    - sceneName: 11
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 84
+        y: 6
+    - sceneName: 9
+      fromGridCell:
+        x: 56
+        y: -97
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 9
+    toSceneName: 11
+    scenePathList:
+    - sceneName: 9
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 56
+        y: -97
+    - sceneName: 11
+      fromGridCell:
+        x: 84
+        y: 6
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 11
+    toSceneName: 8
+    scenePathList:
+    - sceneName: 11
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 69
+        y: 5
+    - sceneName: 8
+      fromGridCell:
+        x: 78
+        y: -43
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 8
+    toSceneName: 11
+    scenePathList:
+    - sceneName: 8
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 78
+        y: -43
+    - sceneName: 11
+      fromGridCell:
+        x: 69
+        y: 5
       toGridCell:
         x: 999999
         y: 999999

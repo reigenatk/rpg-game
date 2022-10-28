@@ -2595,6 +2595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
+      propertyPath: extraDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
+        type: 3}
       propertyPath: disableKnock
       value: 1
       objectReference: {fileID: 0}
@@ -2603,6 +2608,11 @@ PrefabInstance:
       propertyPath: sceneNameGoto
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
+        type: 3}
+      propertyPath: teleportSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bd5a8dcd6a2961e4388792063c8ea5e7, type: 3}
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
       propertyPath: knockDirection
@@ -2631,12 +2641,12 @@ PrefabInstance:
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
       propertyPath: specialTeleportConditions.Array.data[0].gameDay
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
       propertyPath: specialTeleportConditions.Array.data[0].knockDialogue
-      value: D2_WalkToCampus
+      value: WalkToCampus
       objectReference: {fileID: 0}
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
@@ -19785,12 +19795,12 @@ PrefabInstance:
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
       propertyPath: scenePositionGoto.x
-      value: 2.6
+      value: 7.2
       objectReference: {fileID: 0}
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
       propertyPath: scenePositionGoto.y
-      value: 4.95
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}

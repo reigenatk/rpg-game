@@ -104,7 +104,10 @@ public class NPCMovement : MonoBehaviour
             if (npcIsMoving == false)
             {
                 // set npc current and next grid position - to take into account the npc might be animating
-                npcCurrentGridPosition = GetGridPosition(transform.position);
+
+                npcCurrentGridPosition = Vector3Int.FloorToInt(CrossGridCoord(transform.position, npcCurrentScene));
+
+                //Debug.Log("[NPC " + gameObject.name + "] " + " is starting at ITS OWN grid position of " + npcCurrentGridPosition + " for grid in scene " + npcCurrentScene + " his world pos though is" + transform.position);
                 npcNextGridPosition = npcCurrentGridPosition;
 
                 if (npcPath.npcMovementStepStack.Count > 0)
@@ -165,7 +168,7 @@ public class NPCMovement : MonoBehaviour
                             npcCurrentGridPosition = (Vector3Int)npcMovementStep.gridCoordinate;
                             npcNextGridPosition = npcCurrentGridPosition;
                             transform.position = GetWorldPosition(npcCurrentGridPosition, npcCurrentScene);
-                            Debug.Log("NPC not in scene, set world position to " + transform.position);
+                            Debug.Log("NPC " + gameObject.name + " is not in scene, set world position to " + transform.position);
                         }
                     }
 
@@ -320,15 +323,35 @@ public class NPCMovement : MonoBehaviour
 
     /// <summary>
     ///  returns the world position (centre of grid square) from gridPosition
+    ///  
     /// </summary>
     public Vector3 GetWorldPosition(Vector3Int gridPosition, SceneName nameOfScene)
     {
         Vector3 worldPosition = grid.CellToWorld(gridPosition);
+
         worldPosition -= grid.transform.position;
-        worldPosition += NPCManager.Instance.getTilemapOffset(nameOfScene);
+
+        Vector3 tilemapOffset = NPCManager.Instance.getTilemapOffset(nameOfScene);
+
+        worldPosition += tilemapOffset;
+
 
         // Get centre of grid square
         return new Vector3(worldPosition.x + Settings.gridCellSize / 2.0f, worldPosition.y + Settings.gridCellSize / 2.0f, worldPosition.z);
+    }
+
+    /// Another way to say it, given some world position (x,y) in terms of Grid A, tell us what the grid position is for another grid B (which is linked by the second arg, scene name)
+    public Vector3 CrossGridCoord(Vector3 gridPosition, SceneName nameOfScene)
+    {
+        Vector3Int localGridPos = grid.WorldToCell(gridPosition);
+        Vector3 vector3ized = (Vector3)localGridPos;
+        // Debug.Log("Local grid pos " + localGridPos);
+
+        vector3ized += NPCManager.Instance.getTilemapOffset(FindObjectOfType<GameState>().getCurrentSceneEnum()); // back to the tilemap centered at 0,0
+        vector3ized -= NPCManager.Instance.getTilemapOffset(nameOfScene);
+        // Debug.Log("vector3ized is " + vector3ized);
+        Vector3Int gridBLocalPos = Vector3Int.FloorToInt(vector3ized);
+        return gridBLocalPos;
     }
 
     private void InitialiseNPC()

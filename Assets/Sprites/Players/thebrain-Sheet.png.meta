@@ -373,6 +373,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: thebrain-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 48
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3869961e8d0088948884f07b06387ead
+      internalID: -441512353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thebrain-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 0
+        width: 48
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3907979de030d654c93b3b1f4f1efe7d
+      internalID: -89691631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thebrain-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 48
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d463e63faeca6d4487c5a34868f3fc7
+      internalID: 1731999111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thebrain-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 48
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 963ff0e1170ed8a4ebca8f05212d2f61
+      internalID: 1209655280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -388,11 +472,15 @@ TextureImporter:
       thebrain-Sheet_6: -1150236526
       thebrain-Sheet_0: -5808646686503018685
       thebrain-Sheet_10: 1451471510
+      thebrain-Sheet_13: -89691631
       thebrain-Sheet_1: 2418729437844439814
+      thebrain-Sheet_14: 1731999111
       thebrain-Sheet_7: 1636650057
+      thebrain-Sheet_15: 1209655280
       thebrain-Sheet_4: -9195303098722957800
       thebrain-Sheet_11: 1062175489
       thebrain-Sheet_2: -7899450822205993843
+      thebrain-Sheet_12: -441512353
       thebrain-Sheet_3: 6093808989188276457
       thebrain-Sheet_5: 1126037579
       thebrain-Sheet_9: 1488434990

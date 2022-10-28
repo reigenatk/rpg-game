@@ -35,4 +35,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Campus.unity
     guid: e631200372b7fd94f805d525c6e678e4
+  - enabled: 1
+    path: Assets/Scenes/InsideBuilding.unity
+    guid: 66c857145f8a91747a42276e696804ca
+  - enabled: 1
+    path: Assets/Scenes/LectureHall.unity
+    guid: 6ad76a98f8202534aba33125a7e706a3
+  - enabled: 1
+    path: Assets/Scenes/MainQuad.unity
+    guid: 0e8a18bbb359eab4d95398381a76631a
   m_configObjects: {}

@@ -61,7 +61,7 @@ public class NPCSchedule : MonoBehaviour
                     continue;
 
                 //Schdule matches
-                Debug.Log("Schedule Matches! " + npcScheduleEvent);
+                Debug.Log("Schedule Matches for NPC " + gameObject.name + npcScheduleEvent);
                 matchingNPCScheduleEvent = npcScheduleEvent;
                 break;
             }
@@ -75,7 +75,7 @@ public class NPCSchedule : MonoBehaviour
         if (matchingNPCScheduleEvent != null)
         {
             // Build path for matching schedule (just like we did in AStarTest)
-            npcPath.BuildPath(matchingNPCScheduleEvent);
+            npcPath.BuildPath(matchingNPCScheduleEvent, gameObject.name);
         }
     }
 }

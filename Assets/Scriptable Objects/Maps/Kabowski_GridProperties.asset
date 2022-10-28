@@ -12,12 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b021d5880b02d4e8f5537ad7a9777f, type: 3}
   m_Name: Kabowski_GridProperties
   m_EditorClassIdentifier: 
-  sceneName: 0
+  sceneName: 3
   gridWidth: 300
   gridHeight: 300
   originX: 1
   originY: -7
   gridPropertyList:
+  - gridCoordinate:
+      x: 7
+      y: 0
+    gridBoolProperty: 0
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 8
+      y: 0
+    gridBoolProperty: 0
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 9
+      y: 0
+    gridBoolProperty: 0
+    gridBoolValue: 1
   - gridCoordinate:
       x: 9
       y: 1
@@ -37,4 +52,139 @@ MonoBehaviour:
       x: 12
       y: 1
     gridBoolProperty: 0
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 6
+      y: -3
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 7
+      y: -3
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 7
+      y: -2
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 7
+      y: 2
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 8
+      y: -3
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 8
+      y: -2
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 8
+      y: 1
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 8
+      y: 2
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 9
+      y: -3
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 9
+      y: 4
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 9
+      y: 5
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 10
+      y: -3
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 10
+      y: -1
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 10
+      y: 0
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 10
+      y: 4
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 10
+      y: 5
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 11
+      y: -3
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 11
+      y: -1
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 11
+      y: 0
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 12
+      y: -3
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 12
+      y: -2
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 12
+      y: -1
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 12
+      y: 0
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 12
+      y: 3
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 12
+      y: 4
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 12
+      y: 5
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 12
+      y: 6
+    gridBoolProperty: 1
     gridBoolValue: 1

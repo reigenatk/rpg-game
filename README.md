@@ -6,7 +6,9 @@ I've actually been working on this since around September 2021, but school got i
 # Motivation
 My favorite kinds of games are probably story-driven indie adventure games. Think Pokemon style- dialogue boxes, pixel art tilemaps, open world exploration- with a sprinkle of cutscenes, and a memorable soundtrack. So I decided to give a shot at making one. 
 
-I've always been amazed at how much one developer can do. Some of my favorite games were developed by one person (or a team of small people). Games like **LISA, Undertale, OneShot, OMORI, Stardew Valley**, (and recently, I played Katana Zero which was insanely good).
+Also, I've always had the belief that **games are powerful story telling tools**. To me, games are like interactive movies. Developers create a world, and players interact with said world. And they are a modern innovation, constantly improving with stronger and stronger hardware. 
+
+I've always been amazed at how much one motivated developer can do. Some of my favorite games were developed by one person (or a team of small people). Games like **LISA, Undertale, OneShot, OMORI, Stardew Valley**, (and recently, I played Katana Zero which was insanely good). So, I wanted to **try to become** a solo developer, too. This is also known as "indie" game development.
 
 # Technologies
 This is made in **Unity (2021.3.6f1)**, though I did consider using GameMaker Studio or Godot (and even RPGMaker).
@@ -25,7 +27,7 @@ I'm proud to say, **ALL THE ART IS MADE BY ME!** I set out with this goal in min
 
 Also, I composed a few of the songs. I had some knowledge going in as an amateur music producer so hopefully they aren't too bad.
 
-I guess overall, I'm really trying to make this game my own. No assets from anyone else, period. I did get a lot of help with the code part from a [44 HOUR UDEMY COURSE](https://www.udemy.com/course/unity-2d-game-developer-course-farming-rpg/), though. I've seen probably like 70% of it. Some of the more specific chapters I skipped over. But I'd say like 60% of my code is original. And there's a crap ton of code.
+I guess overall, I'm really trying to make this game my own. No assets from anyone else, period. I did get a lot of help with the code part from a [44 HOUR UDEMY COURSE](https://www.udemy.com/course/unity-2d-game-developer-course-farming-rpg/), though. I've seen probably like 70% of it. Some of the more specific chapters I skipped over. But I'd say like 60% of my code is original. And there's a crap ton of code, just look at the size of my [Scripts folder](https://github.com/reigenatk/rpg-game/tree/master/Assets/Scripts).
 
 # Synopsis
 More or less a game about being a depressed college student. You'll never guess where I got the inspiration for that from 😉

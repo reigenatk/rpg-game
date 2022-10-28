@@ -12,4 +12,168 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
   m_Name: Kabowski_Schedule
   m_EditorClassIdentifier: 
-  npcScheduleEventList: []
+  npcScheduleEventList:
+  - hour: 0
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 3
+    toGridCoordinate:
+      x: 7
+      y: -1
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: c81ec70d686098145a47e3bcc4078f7c,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: f0c82a3f6c973b9489b57815a5b5f650, type: 3}
+    description: Sleep
+  - hour: 9
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 3
+    toGridCoordinate:
+      x: 9
+      y: 3
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: b2e8ffae85ba9b546b29b3eb05ed7202,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 2b06cde6035099e4e8b4717d9b30c121, type: 3}
+    description: 9am workout
+  - hour: 10
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 1
+    toGridCoordinate:
+      x: 4
+      y: 4
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: d8b4ae3e303fe2141818d824cb64d709,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: e409b48274e5a88498c22614958790cc, type: 3}
+    description: 11am drink shake
+  - hour: 11
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 7
+    toGridCoordinate:
+      x: 44
+      y: -69
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: e8aebd2846efc3f4a881cbba9fe5ddd3,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 8bf09c68befdd604481a39e3339bac07, type: 3}
+    description: 1pm aesthetics outside
+  - hour: 12
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 86
+      y: -65
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: e8aebd2846efc3f4a881cbba9fe5ddd3,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 52b7a38fa36b2544b8f54d7cdbc5bd84, type: 3}
+    description: 3pm aesthetics on campus
+  - hour: 13
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 148
+      y: -67
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: e8aebd2846efc3f4a881cbba9fe5ddd3,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: a55dda203d1295043b143445409a37d9, type: 3}
+    description: aesthetics downtown
+  - hour: 15
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 43
+      y: -107
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: b2e8ffae85ba9b546b29b3eb05ed7202,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 2b06cde6035099e4e8b4717d9b30c121, type: 3}
+    description: 7pm Go to coffee shop for aesthetics
+  - hour: 19
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 78
+      y: 19
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: b2e8ffae85ba9b546b29b3eb05ed7202,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 2b06cde6035099e4e8b4717d9b30c121, type: 3}
+    description: 7pm Go to coffee shop for workout
+  - hour: 20
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 78
+      y: -52
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: going home
+  - hour: 20
+    minute: 40
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 7
+    toGridCoordinate:
+      x: 34
+      y: -69
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: going home
+  - hour: 21
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 1
+    toGridCoordinate:
+      x: 6
+      y: 1
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: going home
+  - hour: 23
+    minute: 10
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 3
+    toGridCoordinate:
+      x: 9
+      y: 2
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: going home

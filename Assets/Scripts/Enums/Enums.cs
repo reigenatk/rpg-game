@@ -57,7 +57,7 @@ public enum GameVariable
     hasFinishedHomeScene, 
 
     isBusCutscenePlaying,
-
+    hasEnteredMainQuad,
 }
 
 

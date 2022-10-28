@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn;
 using Yarn.Unity;
@@ -195,26 +196,10 @@ public class GameState : Singleton<GameState>
         gameVariables[GameVariable.isBusCutscenePlaying] = value;
     }
 
-
-
-    // this is only here cuz we need the Manager object to distribute this to the actual SceneTeleport being referenced
-    [YarnCommand("KnockOnDoor")]
-    public void KnockOnDoor()
+    public SceneName getCurrentSceneEnum()
     {
-        if (curSceneTeleport != null)
-        {
-            curSceneTeleport.KnockOnDoor();
-        }
+        return (SceneName)Enum.Parse(typeof(SceneName), SceneManager.GetActiveScene().name);
     }
-
-    public void PlayKnockOnDoorDialogue()
-    {
-        if (curSceneTeleport != null)
-        {
-            curSceneTeleport.playKnockDialogue();
-        }
-    }
-
 
     public string getScore(PlayerScore ps)
     {

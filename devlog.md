@@ -10,6 +10,19 @@ For example, the scene between the outside house and campus has a teleporter tha
 
 Also the `knock cutscene to play` field is just the name of the cutscene that plays when we knock. Leave blank if not a door.
 
+# Things to do if you want to make another scene
+Warning- its kinda complicated. Didn't really design the game with making scenes being an easy process in mind, oopsies.
+
+- Create a new enum in Enums.cs, also create the `hasEntered` followed by the name of your scene variable. **Make sure that the scene name and the enum are the exact same!** Since we rely on parsing strings to enum.
+
+- Add an entry to LevelLoader, both the initial zoom and also the enum of the scene itself. It's the first two lists, pretty obvious where it is. And specify default spawn location if desired.
+
+- Create a Scriptable Object for tilemap properties, populate the Origin X, Origin Y, Grid width and height fields. Hook that up to the list in GridPropertiesManager, and also to the "Is Map" and "NPCObstacle" tilemaps.
+
+- Specify the offset of the tilemap in NPCManager's `Tilemap Offsets` list. Important! Without this, NPC movement will not work (or without the stuff above, too, as I spent 45 min trying to debug one time)
+
+- Hopefully it works!?
+
 # Time
 
 Game Time scale:
@@ -349,3 +362,17 @@ Oh also, I made each roommate also an NPC copy as well, made progress of definin
 Also still have to draw MainQuad scene, and maybe that's all for the scenes. Drawing campus was hard enough man. But I have to make a quad scene probably, and I can add like grass field and disgusting spikeball players and shit.
 
 Da game is coming together AAAAAA just need like 20 more uniquely drawn characters and some more original music, more good art, and hopefully we're good. Way harder to do than it sounds. At least I probably have like 10min of gameplay already, maybe 15. IDK.
+
+# 10/27/22
+
+I feel like I do way more work than I write in the devlog, cuz there's so many bugs and I fix them and then instantly move to the next one and forget about what I did earlier.
+
+But I did a pretty high profile bug today, basically it was line 20 or something in NPCMovement, and it only became evident once I had more than one NPC (finished Brain's schedule btw). The bug was basically that it was trying to get the coordinates using the grid loaded in the scene (of which there's only ever one, cuz only one scene is loaded at a time).
+
+But the problem is we want it to use its own scene's grid, which isn't loaded. SO to solve this I wrote this method `CrossGridCoord`. It's super similar to `GetWorldPosition` but not exactly the same. Super confusing stuff but just printing a ton of debug statements helped I guess. Fingers crossed it completely works now!
+
+Lotta art done today, started on MainQuad scene, which will probably be my last scene. RN the teleporters are acting strange again (wtf?) so yeah gotta fix that... 
+
+Haha ok my freaking bounds confiner had a collider on it. Not the first time I did that.
+
+But yeah, one more scene to go. Added some funny animations (mostly for kabowski), after I verify his schedule works, I will do Nikolai, and then just focus on all the content (cutscene, storyline, more characters, game progression etc.)

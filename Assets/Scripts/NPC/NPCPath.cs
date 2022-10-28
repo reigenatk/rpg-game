@@ -20,8 +20,9 @@ public class NPCPath : MonoBehaviour
         npcMovementStepStack.Clear();
     }
 
-    public void BuildPath(NPCScheduleEvent npcScheduleEvent)
+    public void BuildPath(NPCScheduleEvent npcScheduleEvent, string nameOfPersonToBuildPathFor)
     {
+        Debug.Log("Building path for " + nameOfPersonToBuildPathFor);
         ClearPath();
 
         // If schedule event is for the same scene as the current NPC scene
@@ -93,7 +94,7 @@ public class NPCPath : MonoBehaviour
 
                     Vector2Int toGridPosition = new Vector2Int(toGridX, toGridY);
 
-                    Debug.Log("Scenepath found for " + gameObject.name + " fromGridPosition is " + fromGridPosition + " toGridPosition is " + toGridPosition);
+                    Debug.Log("Scenepath found for " + gameObject.name + " fromGridPosition is " + fromGridPosition + " toGridPosition is " + toGridPosition + " going to scene " + npcScheduleEvent.toSceneName);
 
                     // Build path and add movement steps to movement step stack
                     NPCManager.Instance.BuildPath(scenePath.sceneName, fromGridPosition, toGridPosition, npcMovementStepStack);

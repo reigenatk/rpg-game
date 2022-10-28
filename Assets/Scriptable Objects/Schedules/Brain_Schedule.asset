@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Brain_Schedule
   m_EditorClassIdentifier: 
   npcScheduleEventList:
-  - hour: 2
+  - hour: 0
     minute: 0
     priority: 0
     day: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
     animationAtDestination: {fileID: 7400000, guid: 4dcbd090d53aeee4e92c5181f6b6cc0a,
       type: 2}
     audioToPlay: {fileID: 8300000, guid: 9b891af6cd38b22459ab91c9d601d6ba, type: 3}
-    description: Sleeping
+    description: 12am go to sleep
   - hour: 5
     minute: 0
     priority: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     toGridCoordinate:
       x: 7
       y: -2
-    npcFacingDirectionAtDestination: 4
+    npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: 1:30pm he goes outside to stretch
@@ -90,22 +90,49 @@ MonoBehaviour:
     toSceneName: 7
     toGridCoordinate:
       x: 31
-      y: -69
+      y: -67
     npcFacingDirectionAtDestination: 4
-    animationAtDestination: {fileID: 0}
+    animationAtDestination: {fileID: 7400000, guid: b4a0c5956ce12b94c8b0d7b617691b9c,
+      type: 2}
     audioToPlay: {fileID: 0}
     description: Continuation of last one
   - hour: 17
-    minute: 15
+    minute: 0
     priority: 0
     day: 0
     weather: 0
     toSceneName: 1
     toGridCoordinate:
       x: 7
-      y: -1
+      y: -2
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: 5pm he does some chemistry
+  - hour: 17
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 4
+    toGridCoordinate:
+      x: 9
+      y: 5
     npcFacingDirectionAtDestination: 4
     animationAtDestination: {fileID: 7400000, guid: 71bef9a1b5f403f428c8066901bb4ec6,
       type: 2}
-    audioToPlay: {fileID: 0}
+    audioToPlay: {fileID: 8300000, guid: 4d0e2b3501650cb4aaee4be3736cd097, type: 3}
     description: 5pm he does some chemistry
+  - hour: 23
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 1
+    toGridCoordinate:
+      x: 8
+      y: -1
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: 11:15pm chill in commons
