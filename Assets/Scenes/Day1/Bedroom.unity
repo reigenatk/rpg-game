@@ -408,13 +408,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguesToRun:
-  - dialogueToPlay: D1_Bedroom_Bed
+  - dialogueToPlay: D2_Bedroom_Sleep
     earliestTime:
       gameHour: 0
       gameMinute: 0
       gameSecond: 0
     dayToPlay: 1
-    extraConditions: []
+    extraConditions:
+    - variable: 9
+      desiredValue: 1
   - dialogueToPlay: D1_Bedroom_Bed_Gotosleep
     earliestTime:
       gameHour: 0
@@ -424,6 +426,13 @@ MonoBehaviour:
     extraConditions:
     - variable: 9
       desiredValue: 1
+  - dialogueToPlay: D1_Bedroom_Bed
+    earliestTime:
+      gameHour: 0
+      gameMinute: 0
+      gameSecond: 0
+    dayToPlay: 1
+    extraConditions: []
   dialogueImages: []
   soundToPlay: 0
 --- !u!61 &268049239

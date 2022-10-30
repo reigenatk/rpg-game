@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7fe82c65ddba784db9833668091f210, type: 3}
-  m_Name: Nikolai_Map
+  m_Script: {fileID: 11500000, guid: d6fa2d92fc1b3f34da284357edf89c3b, type: 3}
+  m_Name: Day2_ArriveRoom
   m_EditorClassIdentifier: 
-  sceneRouteList: []

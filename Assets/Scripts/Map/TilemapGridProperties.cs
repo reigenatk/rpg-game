@@ -46,6 +46,7 @@ public class TilemapGridProperties : MonoBehaviour
     {
         // Compress timemap bounds
         tilemap.CompressBounds();
+        Debug.Log("[TilemapGridProperties] cell bounds: " + tilemap.cellBounds);
 
         // Only populate in the editor
         if (!Application.IsPlaying(gameObject))
@@ -68,6 +69,8 @@ public class TilemapGridProperties : MonoBehaviour
                         }
                     }
                 }
+
+
             }
         }
     }
@@ -76,7 +79,7 @@ public class TilemapGridProperties : MonoBehaviour
     {        // Only populate in the editor
         if (!Application.IsPlaying(gameObject))
         {
-            Debug.Log("DISABLE PROPERTY TILEMAPS");
+            // Debug.Log("DISABLE PROPERTY TILEMAPS");
         }
     }
 #endif

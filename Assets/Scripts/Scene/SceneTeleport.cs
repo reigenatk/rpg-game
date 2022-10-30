@@ -13,10 +13,10 @@ public class SceneTeleport : MonoBehaviour
 
     [SerializeField] private float extraDelay; // change this if you want it to take a little longer to go to next scene 
     [SerializeField] private AudioClip teleportSound; // a sound to optionally play before teleporting
+    bool isThereDialogueToPlay = false;
 
 
 
-    
     // a special condition is just anything other than open
     [System.Serializable]
     public class SceneTeleportSpecialConditions
@@ -112,7 +112,8 @@ public class SceneTeleport : MonoBehaviour
                 // play that special dialogue
                 Debug.Log("Playing dialogue before teleport: " + stc.knockDialogue);
                 FindObjectOfType<DialogueManager>().StartDialogueString(stc.knockDialogue);
-
+                isThereDialogueToPlay = true;
+                return;
             }
         }
     }
@@ -134,24 +135,58 @@ public class SceneTeleport : MonoBehaviour
         if (player != null)
         {
             // check if there's dialogue to play
-            playKnockDialogue();
+            if (FindObjectOfType<LevelLoader>().cutscenesandDialoguesEnabled)
+            {
+                // only play if we're not debugging
+                playKnockDialogue();
+            }
+
 
             //  Calculate players new position
             //  if new positions are specified for x or y, then use the current value
+            if (isThereDialogueToPlay)
+            {
+                StartCoroutine(WaitToteleportPlayer(player));
+            }
+            else
+            {
+                // just teleport the player instantly
+                TeleportPlayer(player);
+            }
+            
+        }
 
-            float xPosition = Mathf.Approximately(scenePositionGoto.x, 0f) ? player.transform.position.x : scenePositionGoto.x;
+    }
 
-            float yPosition = Mathf.Approximately(scenePositionGoto.y, 0f) ? player.transform.position.y : scenePositionGoto.y;
+    public void TeleportPlayer(Player player)
+    {
+        GameState gameState = FindObjectOfType<GameState>();
+        Debug.Log("teleporting player from " + gameState.getCurrentSceneEnum() + " to " + sceneNameGoto);
+        float xPosition = Mathf.Approximately(scenePositionGoto.x, 0f) ? player.transform.position.x : scenePositionGoto.x;
 
-            float zPosition = 0f;
+        float yPosition = Mathf.Approximately(scenePositionGoto.y, 0f) ? player.transform.position.y : scenePositionGoto.y;
 
+        float zPosition = 0f;
+        LevelLoader.Instance.FadeAndLoadScene(sceneNameGoto, new Vector3(xPosition, yPosition, zPosition), delay: extraDelay, clipToPlay: teleportSound);
+    }
+
+    public IEnumerator WaitToteleportPlayer(Player player)
+    {
+        if (gameState.currentRunningDialogueNode != null)
+        {
+            yield return null;
+        }
+        else
+        {
+            Debug.Log("Is dialogue to play set to null again");
+            isThereDialogueToPlay = false; // dialogue is done
 
 
             // Teleport to new scene (pass in an optional sound to play as well)
-            LevelLoader.Instance.FadeAndLoadScene(sceneNameGoto, new Vector3(xPosition, yPosition, zPosition), delay: extraDelay, clipToPlay: teleportSound);
-
+            // never mind- do all the teleporting via yarn instead. Cuz sometimes we can just play a dialgoue and then NOT teleport the player
+            // or sometimes we wanna play a cutscene after playing the dialogue.
+            // LevelLoader.Instance.FadeAndLoadScene(sceneNameGoto, new Vector3(xPosition, yPosition, zPosition), delay: extraDelay, clipToPlay: teleportSound);
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)

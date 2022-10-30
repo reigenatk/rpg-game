@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Brain_gridproperties
   m_EditorClassIdentifier: 
   sceneName: 4
-  gridWidth: 300
-  gridHeight: 300
+  gridWidth: 23
+  gridHeight: 21
   originX: -4
   originY: -7
   gridPropertyList:
@@ -149,6 +149,16 @@ MonoBehaviour:
     gridBoolProperty: 0
     gridBoolValue: 1
   - gridCoordinate:
+      x: -4
+      y: -7
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: -4
+      y: 13
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
       x: 1
       y: 4
     gridBoolProperty: 1
@@ -426,5 +436,15 @@ MonoBehaviour:
   - gridCoordinate:
       x: 12
       y: 6
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 18
+      y: -7
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 18
+      y: 13
     gridBoolProperty: 1
     gridBoolValue: 1

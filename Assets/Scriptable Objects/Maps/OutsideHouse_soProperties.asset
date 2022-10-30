@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: OutsideHouse_soProperties
   m_EditorClassIdentifier: 
   sceneName: 7
-  gridWidth: 300
-  gridHeight: 300
+  gridWidth: 47
+  gridHeight: 36
   originX: 19
-  originY: -85
+  originY: -87
   gridPropertyList:
   - gridCoordinate:
       x: 26
@@ -489,78 +489,18 @@ MonoBehaviour:
     gridBoolProperty: 0
     gridBoolValue: 1
   - gridCoordinate:
-      x: 20
-      y: -77
+      x: 19
+      y: -87
     gridBoolProperty: 1
     gridBoolValue: 1
   - gridCoordinate:
-      x: 20
-      y: -69
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 21
-      y: -77
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 21
-      y: -69
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 22
-      y: -77
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 22
-      y: -69
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 23
-      y: -77
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 23
-      y: -69
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 24
-      y: -77
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 24
-      y: -69
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 25
-      y: -77
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 25
-      y: -69
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 26
-      y: -69
+      x: 19
+      y: -52
     gridBoolProperty: 1
     gridBoolValue: 1
   - gridCoordinate:
       x: 27
       y: -78
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 27
-      y: -69
     gridBoolProperty: 1
     gridBoolValue: 1
   - gridCoordinate:
@@ -686,5 +626,15 @@ MonoBehaviour:
   - gridCoordinate:
       x: 61
       y: -68
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 65
+      y: -87
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 65
+      y: -52
     gridBoolProperty: 1
     gridBoolValue: 1

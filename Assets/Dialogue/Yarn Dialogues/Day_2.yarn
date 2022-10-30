@@ -168,7 +168,7 @@ title: D2_Brain_Annoyed_Knock
 title: D2_Lancelot_Room_Before_School
 ---
 Nikolai: сука блять! vat are you trying to do?
-Nikolai: You go in my room for vat?
+Nikolai: You don't hev schul tuday?
 ===
 
 title: D2_Tried_To_Enter_House_Without_School
@@ -183,17 +183,6 @@ This is the bus stop. I need to take it to get to campus.
 Otherwise, it's a 20 minute one-way walk.
 It'll also cost me some energy.
 But it might be nice getting some fresh air... The bus is always crowded and I hate it.
-===
-
-title: D2_WalkToCampus
----
-Should I walk to campus? (-5% energy, +20 minutes, +5% contentedness)
--> Yes
-    <<changePlayerScoreString Manager "contentedness" 5.0>>
-    <<changePlayerScoreString Manager "energy" -5.0>>
-    <<AdvanceXMinutes Manager 20>> 
-    <<yarnLoadScene LevelLoader Campus 2.0>>
--> No
 ===
 
 title: Day2_LookAtUnion
@@ -561,6 +550,7 @@ Kabowski: I missed ya, buddy.
     I hate my fucking roommates. 
     I can't believe I thought I would make close friends with them when I first arrived to college.
     What a joke.
+    <<SetGameVariable Manager "hasFinishedHomeScene" true>>
 ===
 title: Day2_Commons_Eating
 ---
@@ -583,6 +573,7 @@ Kabowski: Yeah dude. Nikolai's cooking up some serious macros.
     <<playCutscene LevelLoader EatingDay2>>
 -> No thanks
     Nikolai: Aw, ok. See yu later, zen.
+    <<SetGameVariable Manager "hasFinishedHomeScene" true>>
 ===
 
 title: Day2_Nikolai_Food
@@ -629,4 +620,20 @@ Nikolai: spasiba, Kabovski. And thank yu Stevun for coming.
 -> Thanks for cooking.
 Nikolai: Catch yu ull latur.
 <<changePlayerScoreString Manager "social" 15.0>>
+<<SetGameVariable Manager "hasFinishedHomeScene" true>>
+===
+
+title: Day2_Arrive_Room
+---
+What a tiring day.
+<<wait 1>>
+Can't remember the last time I went so many places.
+<<wait 1>>
+I have free time now, I guess. 
+What to do? 
+===
+
+title: D2_Bedroom_Sleep
+---
+
 ===

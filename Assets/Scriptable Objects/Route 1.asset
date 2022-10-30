@@ -101,14 +101,14 @@ MonoBehaviour:
   - fromSceneName: 10
     toSceneName: 9
     scenePathList:
-    - sceneName: 9
+    - sceneName: 10
       fromGridCell:
         x: 999999
         y: 999999
       toGridCell:
         x: 102
         y: -104
-    - sceneName: 10
+    - sceneName: 9
       fromGridCell:
         x: 81
         y: -100

@@ -33,7 +33,7 @@ public class NPCPath : MonoBehaviour
 
             Vector2Int npcTargetGridPosition = (Vector2Int)npcScheduleEvent.toGridCoordinate;
 
-            Debug.Log("npcmovement scene " + npcMovement.npcCurrentScene + " currentGridPos " + npcCurrentGridPosition + " targetGridPos " + npcTargetGridPosition);
+            Debug.Log("For NPC " + nameOfPersonToBuildPathFor + " npcmovement scene " + npcMovement.npcCurrentScene + " currentGridPos " + npcCurrentGridPosition + " targetGridPos " + npcTargetGridPosition);
             // Build path and add movement steps to movement step stack
             NPCManager.Instance.BuildPath(npcScheduleEvent.toSceneName, npcCurrentGridPosition, npcTargetGridPosition, npcMovementStepStack);
 

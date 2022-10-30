@@ -58,6 +58,10 @@ public class NPCMovement : MonoBehaviour
 
     private Coroutine moveToGridPositionRoutine;
 
+    public bool hasSpriteBeenOffsetted = true;
+    public float npcOffsetX;
+    public float npcOffsetY;
+
     private void OnEnable()
     {
         EventHandler.AfterSceneLoadEvent += AfterSceneLoad;
@@ -107,11 +111,12 @@ public class NPCMovement : MonoBehaviour
 
                 npcCurrentGridPosition = Vector3Int.FloorToInt(CrossGridCoord(transform.position, npcCurrentScene));
 
-                //Debug.Log("[NPC " + gameObject.name + "] " + " is starting at ITS OWN grid position of " + npcCurrentGridPosition + " for grid in scene " + npcCurrentScene + " his world pos though is" + transform.position);
+                // Debug.Log("[NPC " + gameObject.name + "] " + " is starting at ITS OWN grid position of " + npcCurrentGridPosition + " for grid in scene " + npcCurrentScene + " his world pos though is" + transform.position);
                 npcNextGridPosition = npcCurrentGridPosition;
 
                 if (npcPath.npcMovementStepStack.Count > 0)
                 {
+                    hasSpriteBeenOffsetted = false;
                     NPCMovementStep npcMovementStep = npcPath.npcMovementStepStack.Peek();
 
                    
@@ -121,13 +126,13 @@ public class NPCMovement : MonoBehaviour
                     // If NPC is about the move to a new scene reset position to starting point in new scene and update the step times
                     if (npcCurrentScene != npcPreviousMovementStepScene)
                     {
-                        
+
                         npcCurrentGridPosition = (Vector3Int)npcMovementStep.gridCoordinate;
                         npcNextGridPosition = npcCurrentGridPosition;
                         transform.position = GetWorldPosition(npcCurrentGridPosition, npcCurrentScene);
                         npcPreviousMovementStepScene = npcCurrentScene;
                         npcPath.UpdateTimesOnPath();
-                        Debug.Log("Moving scenes, setting NPC " + gameObject.name + "'s position to grid position " + npcCurrentGridPosition + " world position " + GetWorldPosition(npcCurrentGridPosition, npcCurrentScene));
+                        Debug.Log("Moving scenes to " + npcMovementStep.sceneName + " setting NPC" + gameObject.name + "'s position to grid position " + npcCurrentGridPosition + " world position " + GetWorldPosition(npcCurrentGridPosition, npcCurrentScene));
                     }
 
 
@@ -177,6 +182,14 @@ public class NPCMovement : MonoBehaviour
                 // play the appropriate custom anim and also audio if desired.
                 else
                 {
+                    if (hasSpriteBeenOffsetted == false)
+                    {
+                        // Debug.Log("pos is at first " + transform.position);
+                        hasSpriteBeenOffsetted = true;
+                        transform.position = transform.position + new Vector3(npcOffsetX, 0, 0);
+                        transform.position = transform.position + new Vector3(0, npcOffsetY, 0);
+                        // Debug.Log("pos is now " + transform.position);
+                    }
                     ResetMoveAnimation();
 
                     SetNPCFacingDirection();
@@ -198,6 +211,8 @@ public class NPCMovement : MonoBehaviour
         npcFacingDirectionAtDestination = npcScheduleEvent.npcFacingDirectionAtDestination;
         npcTargetAnimationClip = npcScheduleEvent.animationAtDestination;
         npcTargetAudioClip = npcScheduleEvent.audioToPlay;
+        npcOffsetX = npcScheduleEvent.offsetX;
+        npcOffsetY = npcScheduleEvent.offsetY;
         ClearNPCEventAnimation();
     }
 
@@ -205,17 +220,21 @@ public class NPCMovement : MonoBehaviour
     // blankAnimation and then triggers eventAnimation bool
     private void SetNPCEventAnimation()
     {
+
         if (npcTargetAnimationClip != null)
         {
             ResetIdleAnimation();
             animatorOverrideController[blankAnimation] = npcTargetAnimationClip;
             animator.SetBool(Settings.eventAnimation, true);
+
         }
         else
         {
+
             animatorOverrideController[blankAnimation] = blankAnimation;
             animator.SetBool(Settings.eventAnimation, false);
         }
+
     }
 
     private void SetNPCAudio()

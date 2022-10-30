@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: LectureHall_GridProperties
   m_EditorClassIdentifier: 
   sceneName: 10
-  gridWidth: 300
-  gridHeight: 300
-  originX: 91
-  originY: -107
+  gridWidth: 26
+  gridHeight: 27
+  originX: 88
+  originY: -108
   gridPropertyList:
   - gridCoordinate:
       x: 93

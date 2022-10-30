@@ -40,3 +40,65 @@ Bug (unsolved): Why doesn't this work in LevelLoader?
 If I do this, the time doesn't pause whenever a cutscene plays. Huh?
 
 But if I check if cutscenePlaying != null in the TimeManager, it works. Da fuk
+
+Bug: Is Path wasn't doing anything at ALL!
+
+Fix: Holy shit this took me like 2hrs to fix. Essentially it came down to me printing out which tiles the program was assigning the path penalty to (which is 0), and which ones it was assigning the default tile penalty to (which is a large value like 100). Turns out, **it wasn't assigning any default tile penalties!** This meant that all tiles had a penalty of 0 and as a result my path thing wasn't doing anything at all.
+
+The problem? An else statement was one level too deep. Specifically line 287, in `Astar.cs` the function called `PopulateGridNodesFromGridPropertiesDictionary`. The line where it says 
+
+```
+else
+{
+    Debug.Log("coords " + x + ", " + y + " is default");
+    Node node = gridNodes.GetGridNode(x, y);
+    node.movementPenalty = defaultMovementPenalty;
+}
+```
+Was one level too deep. When I was copy pasta-ing from the RPG course I probably fuckin didn't pay attention or something when doing it.
+
+But ok, now it works! Only downside is, I set all the width/heights to 300 so that means it has to loop 90,000 times in one frame, which as you can tell just bricks the game for a second. So I probably need to either make my tilemaps smaller for each scene (uh oh, Campus scene might have a problem here), or I can somehow find a way to do all this in the Editor code when we set the scriptable object for each tilemap grid properties object.
+
+EDIT: Huh, ok so I checked his code and it has the else statement in the same level as the others. Which is strange because that makes no sense- there is no grid property entry for a default tile. Here's the code
+
+```
+    // populate obstacle and path info for grid
+    for (int x = 0; x < gridDimensions.x; x++)
+    {
+        for (int y = 0; y < gridDimensions.y; y++)
+        {
+            GridPropertyDetails gridPropertyDetails = GridPropertiesManager.Instance.GetGridPropertyDetails(x + gridOrigin.x, y + gridOrigin.y, sceneSave.gridPropertyDetailsDictionary);
+
+            if (gridPropertyDetails != null)
+            {
+                // If NPC obstacle
+                if (gridPropertyDetails.isNPCObstacle == true)
+                {
+                    Node node = gridNodes.GetGridNode(x, y);
+                    node.isObstacle = true;
+                }
+                else if (gridPropertyDetails.isPath == true)
+                {
+                    Node node = gridNodes.GetGridNode(x, y);
+                    node.movementPenalty = pathMovementPenalty;
+                }
+                else
+                {
+                    Node node = gridNodes.GetGridNode(x, y);
+                    node.movementPenalty = defaultMovementPenalty;
+                }
+            }
+        }
+    }
+}
+```
+
+Basically, I'm arguing that the last else statement should be one level outwards (so the same level as the if statement) because gridPropertyDetails will be null for a tile that we didn't paint the `Is Path` or `IsNPCObstacle` tile on. Because the scriptable object is just a list of coordinates that have these special designations. Otherwise, its not in the list, aka, its null. SO the if checks whether or not its null (that is, whether its painted), and if its not painted, we do an else. 
+
+I swear to god his code is just wrong. Maybe I should tell the Udemy course dude. Cuz this wasted me forever. And tbh I don't watch his vids closely so IDK where he typed this in but it seems incorrect. Cuz my game works now, after doing the fix I just said. wtf?
+
+~~So I'm thinking, I add some code into `TilemapGridProperties` which is the editor script responsible for populating tilemap info.~~
+
+Actually scratch above idea, kinda dumb. Instead I'll just set proper height and width. Don't think there's any way I can save from looping over the size of the grid anyways (so what if I store it in the scriptable object? It's still gonna have to read every entry, right?) Like, its still gonna have to assign a movement penalty to each grid coordinate (note I said GRID coordinate, relative to the grid ORIGIN which isn't the tilemap transform offset, btw (which again I shoulda just set to 0 for all the maps, but I was dumb)).
+
+Again, it's that (2, 2) is at point (1,1) if the grid origin is at (1,1) kinda thing.

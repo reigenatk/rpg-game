@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Kabowski_GridProperties
   m_EditorClassIdentifier: 
   sceneName: 3
-  gridWidth: 300
-  gridHeight: 300
-  originX: 1
-  originY: -7
+  gridWidth: 21
+  gridHeight: 24
+  originX: 0
+  originY: -9
   gridPropertyList:
   - gridCoordinate:
       x: 7

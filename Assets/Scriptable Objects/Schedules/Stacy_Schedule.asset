@@ -24,7 +24,10 @@ MonoBehaviour:
       y: -51
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
     description: Goes to coffee shop on green
+    offsetX: 0
+    offsetY: 0
   - hour: 8
     minute: 0
     priority: 1
@@ -33,10 +36,13 @@ MonoBehaviour:
     toSceneName: 9
     toGridCoordinate:
       x: 40
-      y: -107
-    npcFacingDirectionAtDestination: 3
+      y: -106
+    npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
     description: union coffe shop
+    offsetX: 0
+    offsetY: 0
   - hour: 12
     minute: 0
     priority: 1
@@ -48,8 +54,26 @@ MonoBehaviour:
       y: -102
     npcFacingDirectionAtDestination: 0
     animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
     description: Lecture
-  - hour: 16
+    offsetX: 0.3
+    offsetY: 0
+  - hour: 15
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 81
+      y: -104
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: sushi 1
+    offsetX: 0
+    offsetY: 0
+  - hour: 15
     minute: 15
     priority: 1
     day: 0
@@ -60,7 +84,40 @@ MonoBehaviour:
       y: -66
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
-    description: sushi 4:15
+    audioToPlay: {fileID: 0}
+    description: sushi 3pm
+    offsetX: 0
+    offsetY: 0
+  - hour: 16
+    minute: 15
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 73
+      y: 17
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: 3:15 goes to Main Quad
+    offsetX: 0
+    offsetY: 0
+  - hour: 17
+    minute: 0
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 75
+      y: -107
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: 5pm stand outside of Bible study room
+    offsetX: 0
+    offsetY: 0
   - hour: 21
     minute: 30
     priority: 1
@@ -72,4 +129,7 @@ MonoBehaviour:
       y: -83
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
     description: 9:30 Goes "home" (slightly below campus)
+    offsetX: 0
+    offsetY: 0

@@ -17,9 +17,13 @@ Warning- its kinda complicated. Didn't really design the game with making scenes
 
 - Add an entry to LevelLoader, both the initial zoom and also the enum of the scene itself. It's the first two lists, pretty obvious where it is. And specify default spawn location if desired.
 
-- Create a Scriptable Object for tilemap properties, populate the Origin X, Origin Y, Grid width and height fields. Hook that up to the list in GridPropertiesManager, and also to the "Is Map" and "NPCObstacle" tilemaps.
+- Create a Scriptable Object for tilemap properties, populate the Origin X, Origin Y, Grid width and height fields. Hook that up to the list in GridPropertiesManager, and also to the "Is Map" and "NPCObstacle" tilemaps. as a reminder, the Grid Origin has to be a tile coordinate that is left of and below all the tiles that you are using in your scene. The reason we need Grid Origin is basically this: we represent the tilemap as a 2D array. Thus if we use a tile with negative coordinates (say tile -1, -1 on the grid), then we will get an indexing error. Thus we can first say OK, the origin is at -2, -2, so the point -1, -1 is actually (1,1) RELATIVE to the origin of -2, -2. Because (-1 - (-2) = 1). 
 
 - Specify the offset of the tilemap in NPCManager's `Tilemap Offsets` list. Important! Without this, NPC movement will not work (or without the stuff above, too, as I spent 45 min trying to debug one time)
+
+- If the scene has NPC movement to it, then make sure to populate the Route scriptable objects with appropriate entries on how to get into the rooms.
+
+- Adjust the bounds confiner, make sure TRIGGER IS SET
 
 - Hopefully it works!?
 

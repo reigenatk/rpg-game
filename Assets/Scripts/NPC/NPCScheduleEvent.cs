@@ -17,6 +17,10 @@ public class NPCScheduleEvent
     public AudioClip audioToPlay; // what audio is gonna play once NPC gets to the spot?
     public string description; // for me
 
+    // small offset to add to the final sprite once it reaches its destination (between 0.0 and 1.0)
+    public float offsetX;
+    public float offsetY;
+
     public int Time
     {
         get

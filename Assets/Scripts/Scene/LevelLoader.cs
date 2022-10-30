@@ -25,6 +25,10 @@ public class LevelLoader : Singleton<LevelLoader>
     [SerializeField] private TimeManager timeManager;
     [SerializeField] private GameObject npcs;
 
+
+    // for my ease of use- when debugging I dont wanna see cutscenes sometimes
+    public bool cutscenesandDialoguesEnabled= true;
+
     // make dictionaries manually bc unity editor doesn't support them for whatever reason
     private Dictionary<SceneName, float> sceneToStartingOrthoSize;
     private Dictionary<SceneName, List<CutsceneCondtional>> CutscenesDict;
@@ -52,6 +56,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
         public bool shouldPlayCutscene(SceneName scene)
         {
+
             GameState gameState = FindObjectOfType<GameState>();
             // skip cutscenes that we will only trigger via Yarn + playCutscene 
             if (isTriggeredCutscene == true)
@@ -428,6 +433,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
     private string areWePlayingCutscene(SceneName sceneName)
     {
+        if (cutscenesandDialoguesEnabled == false) return null;
         foreach (CutsceneCondtional c in CutscenesDict[sceneName])
         {
             if (c.shouldPlayCutscene(sceneName))

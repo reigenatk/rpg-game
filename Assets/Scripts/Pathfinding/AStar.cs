@@ -10,9 +10,9 @@ public class AStar : MonoBehaviour
 
     // movement penalties are used by us, the creator of the maps, to encourage A* to use predetermined routes called "Paths"
     // otherwise A* will run as normal and just take shortest distance, which isn't always what we want.
-    [Range(0, 20)]
+    [Range(0, 100)]
     [SerializeField] private int pathMovementPenalty = 0;
-    [Range(0, 20)]
+    [Range(0, 100)]
     [SerializeField] private int defaultMovementPenalty = 0;
 
     // gridNodes is just an array of A* Node objects
@@ -80,6 +80,7 @@ public class AStar : MonoBehaviour
     private bool FindShortestPath()
     {
         // Add start node to open list
+        Debug.Log("Start node " + startNode.gridPosition);
         openNodeList.Add(startNode);
 
         // Loop through open node list until empty
@@ -92,7 +93,7 @@ public class AStar : MonoBehaviour
             //  current node = the node in the open list with the lowest fCost
             Node currentNode = openNodeList[0];
             openNodeList.RemoveAt(0);
-            // Debug.Log("[FindShortestPath] Current Node " + currentNode.gridPosition);
+            Debug.Log("[FindShortestPath] Current Node " + currentNode.gridPosition);
 
             // add current node to the closed list
             closedNodeList.Add(currentNode);
@@ -125,6 +126,7 @@ public class AStar : MonoBehaviour
         Vector2Int currentNodeGridPosition = currentNode.gridPosition;
 
         Node validNeighbourNode;
+        Debug.Log("Current Node :" + currentNode.gridPosition);
 
         // Loop through all directions (8 of them)
         for (int i = -1; i <= 1; i++)
@@ -145,6 +147,7 @@ public class AStar : MonoBehaviour
                     {
                         // so you can see here, the "cost" that we artifically made is literally just added to the raw distance
                         // which would in turn make it harder for this path to be selected, since the overall H-cost would be higher
+                        Debug.Log("Movement penalty of node " + validNeighbourNode.gridPosition + " is " + validNeighbourNode.movementPenalty);
                         newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, validNeighbourNode) + validNeighbourNode.movementPenalty;
                     }
                     else
@@ -204,7 +207,7 @@ public class AStar : MonoBehaviour
 
         if (neighbourNode.isObstacle || closedNodeList.Contains(neighbourNode))
         {
-            // Debug.Log(neighboutNodeXPosition + ", " + neighbourNodeYPosition + " Is obsctacle or closed already");
+            Debug.Log(neighboutNodeXPosition + ", " + neighbourNodeYPosition + " Is obsctacle or closed already");
             return null;
         }
         else
@@ -276,14 +279,16 @@ public class AStar : MonoBehaviour
                             }
                             else if (gridPropertyDetails.isPath == true)
                             {
+                                // Debug.Log("coords " + x + ", " + y + " is path");
                                 Node node = gridNodes.GetGridNode(x, y);
                                 node.movementPenalty = pathMovementPenalty;
                             }
-                            else
-                            {
-                                Node node = gridNodes.GetGridNode(x, y);
-                                node.movementPenalty = defaultMovementPenalty;
-                            }
+                        }
+                        else
+                        {
+                            // Debug.Log("coords " + x + ", " + y + " is default");
+                            Node node = gridNodes.GetGridNode(x, y);
+                            node.movementPenalty = defaultMovementPenalty;
                         }
                     }
                 }

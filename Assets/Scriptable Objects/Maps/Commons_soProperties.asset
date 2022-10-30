@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Commons_soProperties
   m_EditorClassIdentifier: 
   sceneName: 1
-  gridWidth: 300
-  gridHeight: 300
+  gridWidth: 25
+  gridHeight: 24
   originX: -5
-  originY: -9
+  originY: -10
   gridPropertyList:
   - gridCoordinate:
       x: 1

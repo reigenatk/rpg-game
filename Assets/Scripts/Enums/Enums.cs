@@ -58,6 +58,7 @@ public enum GameVariable
 
     isBusCutscenePlaying,
     hasEnteredMainQuad,
+    hasEnteredClassroom,
 }
 
 
