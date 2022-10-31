@@ -102,3 +102,18 @@ I swear to god his code is just wrong. Maybe I should tell the Udemy course dude
 Actually scratch above idea, kinda dumb. Instead I'll just set proper height and width. Don't think there's any way I can save from looping over the size of the grid anyways (so what if I store it in the scriptable object? It's still gonna have to read every entry, right?) Like, its still gonna have to assign a movement penalty to each grid coordinate (note I said GRID coordinate, relative to the grid ORIGIN which isn't the tilemap transform offset, btw (which again I shoulda just set to 0 for all the maps, but I was dumb)).
 
 Again, it's that (2, 2) is at point (1,1) if the grid origin is at (1,1) kinda thing.
+
+Bug: The pattern `GameState.Instance.something` doesn't work anymore, and keeps returning NullReferenceException, even though GameInstance inherits from Singleton. So I'm just doing FindObjectOfType again, but it'd be nice to know why it broke when it was working OK before.
+
+Fix: ??
+
+Bug: When not in the scene, NPC audio isn't switching correctly. For instance, when Brain wakes up to go get breakfast, his audio is still playing the snoring sounds instead of the eating breakfast sounds..
+
+Fix: ??
+
+Bug: If I collide with a walking NPC, I start to slide along with them despite not moving. The only way I can break this movement is if I collide with something else. Dafuq?
+
+Fix: ??
+
+Tip: If NPC is going to the edge of one scene then stopping, its probably cause there is a "No shortest path found" message in the console. This is usually caused (at least it has like 3x for me already) by a NPCObstacle square on your target destination. Or A*  legit just can't find a path found to that tile (it is surrounded by NPCObstacles, for instance).
+

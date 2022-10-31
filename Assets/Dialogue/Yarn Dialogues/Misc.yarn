@@ -9,6 +9,12 @@
 <<declare $isBedroomLampOn = false>>
 <<declare $numTimesNutted = 0>>
 <<declare $wasNiceToRoomates = false>>
+<<declare $day = 1>>
+<<declare $talkedToNikolaiAlready = false>>
+<<declare $talkedToKabowskiAlready = false>>
+<<declare $talkedToBrainAlready = false>>
+<<declare $talkedToStacyAlready = false>>
+<<declare $talkedToBeckyAlready = false>>
 
 // local variables
 <<declare $contentednessNerf = 0>>
@@ -16,6 +22,7 @@
 
 // variables set by c# code
 <<declare $minTilNextBus = 1>>
+<<declare $isInNikolaiRoom = false>>
 
 // total counts
 <<declare $numTimesNiceToRoomates = 0>>
@@ -51,7 +58,7 @@ Knock?
 ===
 
 
-title: D1_Bedroom_Bed_Gotosleep
+title: GoToSleep
 ---
 It's pretty late...
 Should I sleep?
@@ -67,16 +74,42 @@ Should I sleep?
 -> Hell No!
 ===
 
+title: CantGoToSleep
+---
+<<if $day == 1>>
+	Ah yes, the bed.
+	Where I spend 90% of my waking time.
+	Staring at the ceiling, waiting for the day to end.
+	<<wait 1>>
+	And that's 8 hours where I don't need to be awake. 
+<<elseif $day == 2>>
+	I can't sleep yet.
+	I know there's nothing to do, but lying in bed will only make me feel worse.
+	Let's try to find something to do, my problems won't fix themselves.
+<<endif>>
+===
+
 title: EndOfDayDialogue
 ---
 
-<<if $day == 2>>
+<<if $day == 1>>
     Well, what an utterly unproductive day.
     I have my first lectures tomorrow...
     Even as a 20-year old, I still dread the first day of school.
     Icebreakers, syllabuses, and annoying people.
     Let's just get through it.
-<<elseif $day == 3>>
+<<elseif $day == 2>>
+	What a long day.
+	It sounds sad to say, but this was probably my most eventful day so far this year.
+	<<wait 1>>
+	Which is funny, because I didn't even do that much.
+	<<wait 1>>
+	Walking to lecture, talking to roommates, hell, even a girl.
+	Most people would shrug that off as a normal day in the life.
+	<<wait 1>>
+	But it's special, even hard for me to do.
+	<<wait 1>>
+	At least I can go to sleep today, thinking that I tried.
 
 <<else>>
 
@@ -113,9 +146,11 @@ Would you like to summon...
 The coom demon?
 <<if $numTimesNutted > 0>>
 	Be warned that summoning the coom demon multiple times a day is not recommended.
+	Side effects include lethargy, a dose of shame, and diminishing returns.
 <<endif>>
 
 -> Yes
+	If you say so...
 	<<playCutscene LevelLoader Coom>>
 -> No
 	On a nofap streak, eh?
@@ -174,4 +209,12 @@ Walk home? (-5% energy, +20 minutes, +5% contentedness)
     <<AdvanceXMinutes Manager 20>> 
     <<yarnLoadScene LevelLoader OutsideHouse 2.0>>
 -> No, I'll ride the bus
+===
+
+
+title: AlreadyTalkedToday
+---
+I already talked to them today... 
+It might be awkward if I talk to them again so soon.
+Let's wait until tomorrow.
 ===

@@ -27,8 +27,10 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: f0c82a3f6c973b9489b57815a5b5f650, type: 3}
     description: Sleep
-  - hour: 9
-    minute: 0
+    offsetX: 0
+    offsetY: 0
+  - hour: 6
+    minute: 30
     priority: 0
     day: 0
     weather: 0
@@ -41,7 +43,9 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: 2b06cde6035099e4e8b4717d9b30c121, type: 3}
     description: 9am workout
-  - hour: 10
+    offsetX: 0
+    offsetY: 0
+  - hour: 8
     minute: 0
     priority: 0
     day: 0
@@ -55,6 +59,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: e409b48274e5a88498c22614958790cc, type: 3}
     description: 11am drink shake
+    offsetX: 0
+    offsetY: 0
   - hour: 11
     minute: 0
     priority: 0
@@ -69,6 +75,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: 8bf09c68befdd604481a39e3339bac07, type: 3}
     description: 1pm aesthetics outside
+    offsetX: 0
+    offsetY: 0
   - hour: 12
     minute: 0
     priority: 0
@@ -83,6 +91,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: 52b7a38fa36b2544b8f54d7cdbc5bd84, type: 3}
     description: 3pm aesthetics on campus
+    offsetX: 0
+    offsetY: 0
   - hour: 13
     minute: 0
     priority: 0
@@ -97,6 +107,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: a55dda203d1295043b143445409a37d9, type: 3}
     description: aesthetics downtown
+    offsetX: 0
+    offsetY: 0
   - hour: 15
     minute: 0
     priority: 0
@@ -111,6 +123,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: 2b06cde6035099e4e8b4717d9b30c121, type: 3}
     description: 7pm Go to coffee shop for aesthetics
+    offsetX: 0
+    offsetY: 0
   - hour: 19
     minute: 15
     priority: 0
@@ -125,6 +139,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: 2b06cde6035099e4e8b4717d9b30c121, type: 3}
     description: 7pm Go to coffee shop for workout
+    offsetX: 0
+    offsetY: 0
   - hour: 20
     minute: 15
     priority: 0
@@ -138,6 +154,8 @@ MonoBehaviour:
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: going home
+    offsetX: 0
+    offsetY: 0
   - hour: 20
     minute: 40
     priority: 0
@@ -151,6 +169,8 @@ MonoBehaviour:
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: going home
+    offsetX: 0
+    offsetY: 0
   - hour: 21
     minute: 0
     priority: 0
@@ -164,6 +184,8 @@ MonoBehaviour:
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: going home
+    offsetX: 0
+    offsetY: 0
   - hour: 23
     minute: 10
     priority: 0
@@ -177,3 +199,5 @@ MonoBehaviour:
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: going home
+    offsetX: 0
+    offsetY: 0

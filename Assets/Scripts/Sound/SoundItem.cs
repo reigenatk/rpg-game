@@ -43,6 +43,9 @@ public class SoundItem
         KabowskiTypewriterSound,
         NikolaiTypewriterSound,
         BrainTypewriterSound,
+        Sobbing,
+        DadTypewriterSound,
+        MomTypewriterSound,
     }
 
     public SoundName soundName;

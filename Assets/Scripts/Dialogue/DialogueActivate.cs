@@ -122,9 +122,10 @@ public class DialogueActivate : MonoBehaviour, Interactable
 
     }
 
+    // remember this script is on the NPC so we can just check for the presence of an NPC script to know if its an NPC or an inanimate object
     public bool isAnotherPlayer()
     {
-        return GetComponent<PlayerLoad>() != null;
+        return transform.parent.gameObject.GetComponent<NPCMovement>();
     }
 
     // direction is the direction that OUR player is facing, so other person should be opposite.
@@ -132,29 +133,38 @@ public class DialogueActivate : MonoBehaviour, Interactable
     {
         if (isAnotherPlayer())
         {
-            Animator animator = GetComponent<Animator>();
+
+            // since this sits in the dialogue collider object we gotta go one level up to get the NPCMovement
+            NPCMovement npcMovement = transform.parent.gameObject.GetComponent<NPCMovement>();
+            npcMovement.isNPCBeingTalkedTo = true;
+            FindObjectOfType<GameState>().currentNPCBeingTalkedTo = npcMovement;
+            Debug.Log("Setting current NPC being talked to value of " + npcMovement);
+            Animator animator = transform.parent.gameObject.GetComponent<Animator>();
+
             // so for example we want "Base Layer.kabowski-left-idle"
             // down animations are just called "idle", so "kabowski-idle" 
-            string animationStateName = "";
+            string animationTriggerName = "";
             switch (direction)
             {
                 case "Left":
-                    animationStateName = "Base Layer." + gameObject.name.ToLower() + "-right-idle";
+                    animationTriggerName = "idleRight";
                     break;
                 case "Right":
-                    animationStateName = "Base Layer." + gameObject.name.ToLower() + "-left-idle";
+                    animationTriggerName = "idleLeft";
                     break;
                 case "Down":
-                    animationStateName = "Base Layer." + gameObject.name.ToLower() + "-up-idle";
+                    animationTriggerName = "idleUp";
                     break;
                 case "Up":
-                    animationStateName = "Base Layer." + gameObject.name.ToLower() + "-idle";
+                    animationTriggerName = "idleDown";
                     break;
             }
-            Debug.Log("Playing animation " + animationStateName);
-            animator.Play(animationStateName);
+            Debug.Log("Playing animation " + animationTriggerName);
+            animator.SetBool(animationTriggerName, true);
+
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

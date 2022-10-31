@@ -93,7 +93,7 @@ public class AStar : MonoBehaviour
             //  current node = the node in the open list with the lowest fCost
             Node currentNode = openNodeList[0];
             openNodeList.RemoveAt(0);
-            Debug.Log("[FindShortestPath] Current Node " + currentNode.gridPosition);
+            // Debug.Log("[FindShortestPath] Current Node " + currentNode.gridPosition);
 
             // add current node to the closed list
             closedNodeList.Add(currentNode);
@@ -126,7 +126,7 @@ public class AStar : MonoBehaviour
         Vector2Int currentNodeGridPosition = currentNode.gridPosition;
 
         Node validNeighbourNode;
-        Debug.Log("Current Node :" + currentNode.gridPosition);
+        // Debug.Log("Current Node :" + currentNode.gridPosition);
 
         // Loop through all directions (8 of them)
         for (int i = -1; i <= 1; i++)
@@ -147,7 +147,7 @@ public class AStar : MonoBehaviour
                     {
                         // so you can see here, the "cost" that we artifically made is literally just added to the raw distance
                         // which would in turn make it harder for this path to be selected, since the overall H-cost would be higher
-                        Debug.Log("Movement penalty of node " + validNeighbourNode.gridPosition + " is " + validNeighbourNode.movementPenalty);
+                        // Debug.Log("Movement penalty of node " + validNeighbourNode.gridPosition + " is " + validNeighbourNode.movementPenalty);
                         newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, validNeighbourNode) + validNeighbourNode.movementPenalty;
                     }
                     else
@@ -207,7 +207,7 @@ public class AStar : MonoBehaviour
 
         if (neighbourNode.isObstacle || closedNodeList.Contains(neighbourNode))
         {
-            Debug.Log(neighboutNodeXPosition + ", " + neighbourNodeYPosition + " Is obsctacle or closed already");
+            // Debug.Log(neighboutNodeXPosition + ", " + neighbourNodeYPosition + " Is obsctacle or closed already");
             return null;
         }
         else

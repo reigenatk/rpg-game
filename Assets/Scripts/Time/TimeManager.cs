@@ -214,12 +214,18 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
     {
         if (gameClockPaused == true)
         {
-            // Debug.Log("Game clock is Paused");
+            Debug.Log("Game clock is Paused");
         }
         else if (gameState.cutscenePlaying != null)
         {
             // cutscene is playing
-            // Debug.Log("Cutscene is playing so pause time");
+            Debug.Log("Cutscene is playing so pause time");
+        }
+        else if (gameState.currentRunningDialogueNode != null && gameState.currentRunningDialogueNode != "")
+        {
+            // idk why (for above) but checking against null isnt sufficient, we gotta check against empty string?
+            // Dialogue is playing
+            Debug.Log("Dialogue is playing so pause time");
         }
         else
         {

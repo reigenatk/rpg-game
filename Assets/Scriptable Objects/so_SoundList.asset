@@ -275,3 +275,24 @@ MonoBehaviour:
     soundPitchRandomVariationMin: 0.792
     soundPitchRandomVariationMax: 1.301
     soundVolume: 0.58
+  - soundName: 37
+    soundClips:
+    - {fileID: 8300000, guid: c3f628af5c8969a40977746891d9aa02, type: 3}
+    soundDescription: sob for dream 1
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 0.548
+  - soundName: 38
+    soundClips:
+    - {fileID: 8300000, guid: 8b1909f40a6f59a45b6acf531696b65e, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 0.596
+    soundPitchRandomVariationMax: 0.812
+    soundVolume: 0.548
+  - soundName: 39
+    soundClips:
+    - {fileID: 8300000, guid: 8b1909f40a6f59a45b6acf531696b65e, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1.259
+    soundPitchRandomVariationMax: 1.5
+    soundVolume: 0.548

@@ -31,7 +31,7 @@ public class NPCManager : Singleton<NPCManager>
                 return to.offset;
             }
         }
-        Debug.Log("TILEMAP NOT FOUND");
+        Debug.Log("TILEMAP for " + sceneName + "NOT FOUND");
         return Vector3.zero;
     }
 

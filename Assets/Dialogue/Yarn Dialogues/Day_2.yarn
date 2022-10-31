@@ -22,7 +22,7 @@ Nikolai: How vas your summer?
     Nikolai: Have you talk to others yet? I zink that zey are in zeir rooms.
 ===
 
-title: D2_Sleep
+title: Day1GoingToDay2Dream
 ---
 <<playSoundString AudioManager NotBirthdaySong>>
 <<wait 17>>
@@ -32,8 +32,10 @@ title: D2_Sleep
 A candle with the number "10" on it, is blown out.
 <<playMusicName MusicObject RestaurantAmbience>>
 <<wait 4>>
-The cake is okay. Your parents always order the same cake, so you know exactly what it will taste like.
+The cake is okay. Your parents always order the same cake, because it's cheap.
+You know exactly what it will taste like.
 Out of the corner of your eye, you see something.
+<<wait 1>>
 Your childhood friend, Ralph, is now waving goodbye.
 <<wait 1>>
 Ralph: Happy birthday, Steven!
@@ -58,6 +60,7 @@ You exit the buffet with them, into the dark, starry parking lot.
 <<playMusicName MusicObject ParkingLotAmbience>>
 <<wait 2>>
 You start to cry.
+<<playSoundString AudioManager Sobbing>>
 <<wait 2>>
 Mom: Why you crying?
 <<wait 2>>
@@ -92,7 +95,10 @@ What's the point of living, if we all die anyway?
 <<wait 2>>
 Your parents pause to think a little.
 Something tells you they don't quite know the answer either.
-But back then, you thought they would know.
+<<wait 1>>
+That can't be right.
+Mom and Dad always know the answer.
+<<wait 3>>
 Dad: You are young. You have a great life to look forward to.
 Mom: You should be excited, not sad. 
 Dad: Life is like great rollercoaster. You haven't even rode it. And you are already sad?
@@ -100,24 +106,36 @@ Dad: Life is like great rollercoaster. You haven't even rode it. And you are alr
 <<stopAllMusic MusicObject>>
 Life is a rollercoaster, huh?
 What a joke. There was no rollercoaster.
+More like dumpster fire.
+<<wait 1>>
 I have no friends, no achievements, no memories to look back on fondly.
 And whose fault is it?
 <<wait 2>>
 No one but mine.
 <<wait 2>>
+No one but mine.
+<<wait 2>>
+NO ONE BUT MINE.
 Just be social. Just be productive. Just live a better life!
 <<wait 1>>
-Yeah. All of life is just that easy, isn't it?
+So they say.
+Why don't you tell poor people to just stop being poor?
 <<wait 1>>
-I'm turning 20 tomorrow. A whole decade has passed since this memory.
-And yet it still remains ingrained in my mind.
-Because I still feel the same way as I do back then. 
+All of life is just that easy, isn't it?
+<<wait 1>>
+At least for normal people, it is.
+<<wait 3>>
+I'm turning 20 tomorrow. A whole decade has passed.
+And nothing has improved.
 The only thing that has changed is that I now have a large pile of regrets.
 Regrets that I have to carry with me, until I die.
 <<wait 1>>
 Maybe the young version of me sensed something.
+<<wait 1>>
 It knew I was never going to amount to anything. 
+<<wait 1>>
 That I wasn't fit to live a good life.
+<<wait 1>>
 And that was enough to make me cry.
 // load user back into bedroom for day 2
 <<yarnLoadScene LevelLoader wakeUp 2.0f>>
@@ -635,5 +653,8 @@ What to do?
 
 title: D2_Bedroom_Sleep
 ---
+Would you like to sleep?
+-> Yes
 
+-> No
 ===

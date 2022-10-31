@@ -77,6 +77,10 @@ So for example if you are doing well, 8am+14hrs = 10pm is earliest you can sleep
 # Bedtime Penalties
 Every hour past 1am is +10 onto previous, starting at 10. So if you sleep between 1am-2am that's -10 pts, then -20 for 2am-3am, then -30 (3am-4am), -40 (4am-5am), -50 for (5am-6am), -60 for 6am-7am, and at 7am you will have pulled the all-nighter so we will advance game day (for fun, maybe we could do like from 7am-noon you lose energy at 2x the rate. We want the player to crash in middle of day as penalty for doing allnighter)
 
+# Dark scene ideas
+
+On iPhone lol
+
 # 8/14/22
 Added a "Is Triggered Cutscene" option to the LevelLoader, so we can distinguish between cutscenes that get triggered via code, vs cutscenes that are ran through each time a new scene is loaded. 
 
@@ -380,3 +384,35 @@ Lotta art done today, started on MainQuad scene, which will probably be my last 
 Haha ok my freaking bounds confiner had a collider on it. Not the first time I did that.
 
 But yeah, one more scene to go. Added some funny animations (mostly for kabowski), after I verify his schedule works, I will do Nikolai, and then just focus on all the content (cutscene, storyline, more characters, game progression etc.)
+
+# 10/29/22
+Fixed pathing bug, did lots of art yesterday, today did lots of debugging and verified the schedules for all 3 NPCs that I made so far. AKA, the transitions between scenes and all look good enough. So now I might start blindly making schedules without rly looking too closely at them.
+
+Todo is Nikolai's schedule next, and then probably start on the Day 2 go to sleep / dream and also maybe work on the bible study cutscene (classroom is completely drawn!)
+
+# 10/30/22
+
+Finished Nikolai schedule and anims
+
+Just for reference, Unity supports a [rich text scheme](http://digitalnativestudios.com/textmeshpro/docs/rich-text/) which I can use to spice up the dialogues that appear inside of Yarn Spinner's boxes.
+
+Go to `Day2_Brain_Exits_Lair` dialogue for an example. The only problem I have with this method is that it's quite verbose. I dunno if I'll do any animating text. Like the ones they had in Night in the Woods. It was super nice but it also seems like a lot of work. Maybe I focus now on the dialogue first then once everythings done, we come back to this problem.
+
+Now that we have all the NPCs for now, we can add `DialogueActivate` scripts to each, and so now the player can theoretically talk to them. I'm afraid they won't stop though so we gotta do some work there as well to make sure their animation stops and they talk to the player? 
+
+Okay, big changes to some movement and dialogue related stuff. First off, **Dialogue nodes pause time now as well!** I couldn't find a good reason not to do this, the only reason I thought of was that we cannot have NPCs moving in the background now during our dialogues, which would've made the game feel more realistic I suppose. But its too much of a hassle. 
+
+I also revamped the `DialogueActive` script onto the NPCs as mentioned above, required some changes but overall worked OK. You can now talk to NPCs **inside of running animations** and they will stop, look at you, and then once the dialogue is done, go back to doing what they were before. This is huge!
+
+Only problem is, right now talking to NPCs on the move is really buggy. For example, Becky is walking on the OutsideHouse scene. I talk to her, she turns to look at me, but after I finish the dialogue, she doesn't keep going on her merry way. She just get stuck there. Right now I'm not sure why this is happening, but I suspect the answer lies somewhere in NPCMovement so I will go look in there tomorrow.
+
+If I can't figure it out its not the end of the world, we can just make it so you can't talk to NPCs that are moving. But I would prefer you could, to make the game feel real.
+
+Also I setup a sort of "friendship points" system, using Nikolai as an example. Basically each character starts off at friendship score of 0, then if you are mean to them it goes to -1, -2 etc. and if you are nice it goes up. Caps at -2 and 2. Then depending on your score, you will get different dialogue from them.
+
+This sounds hard but isn't really with Yarn variables. The hard part is writing all the dialogue, but that shouldn't be too bad after I get the game setup properly.
+
+Didn't do much art today tbh. But still gotta do the Main Quad scene and then we'll be all good. Oh yeah, I also tested the transition between Day 2 sleeping and Day 3, so we're good to go. Made some changes to DarkScene as well. Overall super productive today :D
+
+# 10/31/22
+

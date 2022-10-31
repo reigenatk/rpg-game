@@ -12,4 +12,194 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
   m_Name: Nikolai_Schedule
   m_EditorClassIdentifier: 
-  npcScheduleEventList: []
+  npcScheduleEventList:
+  - hour: 0
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 5
+    toGridCoordinate:
+      x: 4
+      y: 0
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: bf7238b103d4d644fbc18e0162bcecd2,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 5e65d431c5bba584b848f6b8ff6763c7, type: 3}
+    description: SLEEP
+    offsetX: 0.5
+    offsetY: 0
+  - hour: 8
+    minute: 45
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 1
+    toGridCoordinate:
+      x: 10
+      y: 4
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: aafb38af37b046846ac63521aafbe7b7,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 3a1ffc81f1d0f744db00cc42e0228107, type: 3}
+    description: Drink Vodka
+    offsetX: 0
+    offsetY: 0
+  - hour: 10
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 7
+    toGridCoordinate:
+      x: 48
+      y: -69
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 7400000, guid: aafb38af37b046846ac63521aafbe7b7,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 3a1ffc81f1d0f744db00cc42e0228107, type: 3}
+    description: Walk to Campus
+    offsetX: 0
+    offsetY: 0
+  - hour: 10
+    minute: 40
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 94
+      y: -64
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: c010f1df990247248966f5a8e83cc663,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: b22910de17797bb41b37300fb22d885e, type: 3}
+    description: Read book on bench
+    offsetX: 0
+    offsetY: 0
+  - hour: 12
+    minute: 10
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 89
+      y: 11
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 6ac5a26d7f3c4b648a2875b68425bf2c,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 8c9cb2d25364cab4298aeff1be1742f0, type: 3}
+    description: Call someone on Main quad porch
+    offsetX: 0
+    offsetY: 0
+  - hour: 14
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 64
+      y: -107
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 7400000, guid: 6ac5a26d7f3c4b648a2875b68425bf2c,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 8c9cb2d25364cab4298aeff1be1742f0, type: 3}
+    description: Stand and call someone in the hallways
+    offsetX: 0
+    offsetY: 0
+  - hour: 16
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 45
+      y: -78
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: c010f1df990247248966f5a8e83cc663,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: b22910de17797bb41b37300fb22d885e, type: 3}
+    description: Wait to take bus home
+    offsetX: 0
+    offsetY: 0
+  - hour: 17
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 7
+    toGridCoordinate:
+      x: 48
+      y: -69
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Wait to take bus home
+    offsetX: 0
+    offsetY: 0
+  - hour: 17
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 1
+    toGridCoordinate:
+      x: 10
+      y: 4
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 7400000, guid: aafb38af37b046846ac63521aafbe7b7,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 3a1ffc81f1d0f744db00cc42e0228107, type: 3}
+    description: Chill in commons
+    offsetX: 0
+    offsetY: 0
+  - hour: 18
+    minute: 10
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 5
+    toGridCoordinate:
+      x: 7
+      y: 0
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 517b6bf80c75b9542a954d3af7d511dc,
+      type: 2}
+    audioToPlay: {fileID: 0}
+    description: Dance 6:10pm - 8pm
+    offsetX: 0
+    offsetY: 0
+  - hour: 20
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 1
+    toGridCoordinate:
+      x: 10
+      y: 5
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Get Food at Fridge
+    offsetX: 0
+    offsetY: 0
+  - hour: 20
+    minute: 20
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 5
+    toGridCoordinate:
+      x: 7
+      y: -2
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 517b6bf80c75b9542a954d3af7d511dc,
+      type: 2}
+    audioToPlay: {fileID: 0}
+    description: Dance 10pm to midnight
+    offsetX: 0
+    offsetY: 0

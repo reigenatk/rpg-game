@@ -27,6 +27,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: 9b891af6cd38b22459ab91c9d601d6ba, type: 3}
     description: 12am go to sleep
+    offsetX: 0
+    offsetY: 0
   - hour: 5
     minute: 0
     priority: 0
@@ -41,6 +43,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: fe706198b3ac1234283fd7c87014cbc6, type: 3}
     description: Works on computer stuff
+    offsetX: 0
+    offsetY: 0
   - hour: 7
     minute: 30
     priority: 0
@@ -48,13 +52,15 @@ MonoBehaviour:
     weather: 0
     toSceneName: 1
     toGridCoordinate:
-      x: 9
+      x: 8
       y: 4
     npcFacingDirectionAtDestination: 4
     animationAtDestination: {fileID: 7400000, guid: 7ed350667473ece439d78683f97eb978,
       type: 2}
     audioToPlay: {fileID: 8300000, guid: 6079f6d0344a36a409a94d629037bd7b, type: 3}
     description: Eats breakfast
+    offsetX: 0
+    offsetY: 0
   - hour: 10
     minute: 30
     priority: 0
@@ -69,6 +75,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: fe706198b3ac1234283fd7c87014cbc6, type: 3}
     description: Back to work
+    offsetX: 0
+    offsetY: 0
   - hour: 13
     minute: 30
     priority: 0
@@ -82,6 +90,8 @@ MonoBehaviour:
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: 1:30pm he goes outside to stretch
+    offsetX: 0
+    offsetY: 0
   - hour: 14
     minute: 0
     priority: 0
@@ -96,6 +106,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 0}
     description: Continuation of last one
+    offsetX: 0
+    offsetY: 0
   - hour: 17
     minute: 0
     priority: 0
@@ -109,6 +121,8 @@ MonoBehaviour:
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: 5pm he does some chemistry
+    offsetX: 0
+    offsetY: 0
   - hour: 17
     minute: 15
     priority: 0
@@ -123,6 +137,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: 4d0e2b3501650cb4aaee4be3736cd097, type: 3}
     description: 5pm he does some chemistry
+    offsetX: 0
+    offsetY: 0
   - hour: 23
     minute: 15
     priority: 0
@@ -136,3 +152,5 @@ MonoBehaviour:
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: 11:15pm chill in commons
+    offsetX: 0
+    offsetY: 0

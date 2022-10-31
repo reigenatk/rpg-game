@@ -174,7 +174,7 @@ public class LevelLoader : Singleton<LevelLoader>
     {
         gameState.gameStateAdvanceDay();
 
-        GameState.Instance.resetDailyYarnVariables();
+        FindObjectOfType<GameState>().resetDailyYarnVariables();
         // pause the clock so we don't continue to leech energy, contentedness, etc.
         timeManager.gameClockPaused = true;
 
@@ -532,7 +532,7 @@ public class LevelLoader : Singleton<LevelLoader>
             // Debug.Log("Starting position: " + sceneToStartingCamPos[sceneName]);
             cam.transform.position = Player.Instance.gameObject.transform.position;
 
-            Debug.Log("Setting Ortho Size: " + sceneToStartingOrthoSize[sceneName]);
+            // Debug.Log("Setting Ortho Size: " + sceneToStartingOrthoSize[sceneName]);
             cam.m_Lens.OrthographicSize = sceneToStartingOrthoSize[sceneName];
         }
 
@@ -544,8 +544,18 @@ public class LevelLoader : Singleton<LevelLoader>
             LoadPlayers(sceneName);
         }
 
+        // SCENE SPECIFIC CHECKS
+
         // Start fading back in and wait for it to finish before exiting the function.
-        yield return StartCoroutine(Fade(0f));
+        // dont fade in if its the darkscene since we want the darkscene to stay dark.
+        // We can then fade in at will using the yarn commands
+        if (sceneName != SceneName.DarkScene)
+        {
+            yield return StartCoroutine(Fade(0f));
+        }
+
+
+
 
         // Call after scene load fade in event
         EventHandler.CallAfterSceneLoadFadeInEvent();
@@ -638,5 +648,7 @@ public class LevelLoader : Singleton<LevelLoader>
         Vector3 playerSpawn = new Vector3(playerX, playerY, 0);
         FadeAndLoadScene((SceneName)System.Enum.Parse(typeof(SceneName), sceneName), playerSpawn, delay);
     }
+
+      
 
 }

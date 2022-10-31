@@ -108,7 +108,8 @@ public enum SceneName
     InsideBuilding,
     LectureHall,
     MainQuad,
-    Classroom
+    Classroom,
+    PersistantScene,
 }
 
 public enum Moods

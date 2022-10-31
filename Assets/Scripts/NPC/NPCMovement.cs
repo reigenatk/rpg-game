@@ -62,6 +62,9 @@ public class NPCMovement : MonoBehaviour
     public float npcOffsetX;
     public float npcOffsetY;
 
+    // this will be set to true by 
+    public bool isNPCBeingTalkedTo = false;
+
     private void OnEnable()
     {
         EventHandler.AfterSceneLoadEvent += AfterSceneLoad;
@@ -139,6 +142,11 @@ public class NPCMovement : MonoBehaviour
                     // If NPC is in current scene then set NPC to active to make visible, pop the movement step off the stack and then call method to move NPC
                     if (npcCurrentScene.ToString() == SceneManager.GetActiveScene().name)
                     {
+                        // no moving if NPC is being talked to, which means no popping anything from the stack, which is good cuz time is paused too when dialogue runs.
+                        if (isNPCBeingTalkedTo)
+                        {
+                            return;
+                        }
                         SetNPCActiveInScene();
 
                         npcMovementStep = npcPath.npcMovementStepStack.Pop();
@@ -149,6 +157,7 @@ public class NPCMovement : MonoBehaviour
                         TimeSpan npcMovementStepTime = new TimeSpan(npcMovementStep.hour, npcMovementStep.minute, npcMovementStep.second);
 
                         MoveToGridPosition(npcNextGridPosition, npcMovementStepTime, TimeManager.Instance.GetGameTime());
+
                     }
 
                     // else if NPC is not in current scene then set NPC to inactive to make invisible
@@ -182,6 +191,7 @@ public class NPCMovement : MonoBehaviour
                 // play the appropriate custom anim and also audio if desired.
                 else
                 {
+                    // make sure we apply the offset for this location (if we need it)
                     if (hasSpriteBeenOffsetted == false)
                     {
                         // Debug.Log("pos is at first " + transform.position);
@@ -205,11 +215,13 @@ public class NPCMovement : MonoBehaviour
 
     public void SetScheduleEventDetails(NPCScheduleEvent npcScheduleEvent)
     {
+
         npcTargetScene = npcScheduleEvent.toSceneName;
         npcTargetGridPosition = (Vector3Int)npcScheduleEvent.toGridCoordinate;
         npcTargetWorldPosition = GetWorldPosition(npcTargetGridPosition, npcTargetScene);
         npcFacingDirectionAtDestination = npcScheduleEvent.npcFacingDirectionAtDestination;
         npcTargetAnimationClip = npcScheduleEvent.animationAtDestination;
+        Debug.Log("Set audio clip to play to be " + npcTargetAudioClip);
         npcTargetAudioClip = npcScheduleEvent.audioToPlay;
         npcOffsetX = npcScheduleEvent.offsetX;
         npcOffsetY = npcScheduleEvent.offsetY;
@@ -220,8 +232,14 @@ public class NPCMovement : MonoBehaviour
     // blankAnimation and then triggers eventAnimation bool
     private void SetNPCEventAnimation()
     {
-
-        if (npcTargetAnimationClip != null)
+        // check whether or not user is trying to talk to this NPC
+        if (isNPCBeingTalkedTo)
+        {
+            // if being talked to, then we just wanna let the dialogue activate script take control of the NPC. So do nothing here.
+            // actually also clear out the event animations. The NPC should just face the player in one of the 4 directions.
+            ClearNPCEventAnimation();
+        }
+        else if (npcTargetAnimationClip != null)
         {
             ResetIdleAnimation();
             animatorOverrideController[blankAnimation] = npcTargetAnimationClip;
@@ -242,7 +260,7 @@ public class NPCMovement : MonoBehaviour
         // if we wanna play audio once we get there, then start playing it now.
         if (npcTargetAudioClip != null && audioSource.clip == null)
         {
-            Debug.Log(gameObject.name + " Is playing audioclip " + npcTargetAudioClip + " after reaching destination ");
+            Debug.Log(gameObject.name + " Is playing audioclip " + npcTargetAudioClip.name + " after reaching destination ");
             audioSource.clip = npcTargetAudioClip;
             audioSource.Play();
         }
@@ -256,10 +274,22 @@ public class NPCMovement : MonoBehaviour
 
         // Clear any rotation on npc
         transform.rotation = Quaternion.identity;
+
+        if (audioSource.isPlaying)
+        {
+            // turn off the audio from a previous state (if there was one)
+            audioSource.clip = null;
+            audioSource.Stop();
+        }
     }
 
     private void SetNPCFacingDirection()
     {
+        if (isNPCBeingTalkedTo)
+        {
+            // if being talked to, then we just wanna let the dialogue activate script take control of animation states for the NPC. So do nothing here.
+            return;
+        }
         ResetIdleAnimation();
 
         switch (npcFacingDirectionAtDestination)
@@ -404,19 +434,24 @@ public class NPCMovement : MonoBehaviour
     // this actually moves the NPC, it just starts a Coroutine. We need coroutine because we want it to smoothly move
     private void MoveToGridPosition(Vector3Int gridPosition, TimeSpan npcMovementStepTime, TimeSpan gameTime)
     {
-        moveToGridPositionRoutine = StartCoroutine(MoveToGridPositionRoutine(gridPosition, npcMovementStepTime, gameTime));
+        if (!isNPCBeingTalkedTo)
+        {
+            moveToGridPositionRoutine = StartCoroutine(MoveToGridPositionRoutine(gridPosition, npcMovementStepTime, gameTime));
+        }
+        
     }
 
     private IEnumerator MoveToGridPositionRoutine(Vector3Int gridPosition, TimeSpan npcMovementStepTime, TimeSpan gameTime)
     {
+
+        if (isNPCBeingTalkedTo)
+        {
+            yield break;
+        }
+
         // Debug.Log("MoveToGridPosition running");
         npcIsMoving = true;
-        if (audioSource.isPlaying)
-        {
-            // turn off the audio from a previous state (if there was one)
-            audioSource.clip = null;
-            audioSource.Stop();
-        }
+
 
         // change the animation to appropriate value
         SetMoveAnimation(gridPosition);
@@ -451,6 +486,11 @@ public class NPCMovement : MonoBehaviour
                 }
             }
         }
+        if (isNPCBeingTalkedTo)
+        {
+            yield break;
+        }
+        // otherwise force the NPC to the right position
         Debug.Log("MoveToGridPosition finished for " + gameObject.name);
         rigidBody2D.position = npcNextWorldPosition;
         npcCurrentGridPosition = gridPosition;

@@ -60,7 +60,6 @@ public class DialogueManager : MonoBehaviour
                 a.enabled = false;
             }
         }
-
         
         gameState.setGameVariable("isDialoguePlaying", true);
         gameState.currentRunningDialogueNode = dialogueRunner.CurrentNodeName;
@@ -94,7 +93,18 @@ public class DialogueManager : MonoBehaviour
 
     public void DialogueFinishedPlaying()
     {
-    
+        NPCMovement NPCBeingTalkedTo = FindObjectOfType<GameState>().currentNPCBeingTalkedTo;
+        if (NPCBeingTalkedTo != null)
+        {
+            // say that we're done talking to this NPC
+            NPCBeingTalkedTo.isNPCBeingTalkedTo = false;
+
+            // then also say that we're not talking to this NPC anymore.
+            FindObjectOfType<GameState>().currentNPCBeingTalkedTo = null;
+        }
+
+        // also set there to be no more dialogue playing, this will start up game time again
+        gameState.currentRunningDialogueNode = null;
     }
     public void StartDialogueString(string s)
     {
@@ -116,7 +126,8 @@ public class DialogueManager : MonoBehaviour
 
     // we're gonna use strings instead
 /*
-    // all the interactable dialogue in the game
+    // all the interactable dialogue in the game 
+    // EDIT: LOL no way too much dialogue, this  was a shit idea
     [System.Serializable]
     public enum Dialogue
     {

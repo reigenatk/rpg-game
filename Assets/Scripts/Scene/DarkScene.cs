@@ -9,6 +9,7 @@ public class DarkScene : MonoBehaviour
     // Checks what day it is, runs certain dialogue based on that.
     private IEnumerator Start()
     {
+        // the value in here is the day that we are MOVING to. 
         int day = FindObjectOfType<GameState>().getGameDay();
         DialogueManager dm = FindObjectOfType<DialogueManager>();
 
@@ -27,7 +28,10 @@ public class DarkScene : MonoBehaviour
                     dm.StartDialogueString("TrainStation");
                     break;
                 case 2:
-                    dm.StartDialogueString("D2_Sleep");
+                    dm.StartDialogueString("Day1GoingToDay2Dream");
+                    break;
+                case 3:
+                    dm.StartDialogueString("Day2GoingToDay3Dream");
                     break;
                 default:
                     break;

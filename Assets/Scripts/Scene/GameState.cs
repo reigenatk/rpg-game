@@ -47,9 +47,12 @@ public class GameState : Singleton<GameState>
     public Weather currentWeather = Weather.None;
 
     // saving some objects as well
-    public PlayableDirector cutscenePlaying;
-    public SceneTeleport curSceneTeleport;
-    public string currentRunningDialogueNode;
+    public PlayableDirector cutscenePlaying = null;
+    public SceneTeleport curSceneTeleport = null;
+    public string currentRunningDialogueNode = null;
+
+    // need this to basically tell the NPC when its done being talked to
+    public NPCMovement currentNPCBeingTalkedTo = null;
 
     // This is the function that INITIALIZES ALL GAME VARIABLES
     void Awake()
@@ -90,6 +93,20 @@ public class GameState : Singleton<GameState>
         }
     }
 
+    private void Update()
+    {
+        // we want to tell yarn when nikolai is in his room and music is blasting, so we can create some custom dialogue
+        // that lets the player ask Nikolai to turn down his music.
+        if (getCurrentSceneEnum() == SceneName.LancelotRoom && FindObjectOfType<Subwoofer>().isSubwooferPlaying)
+        {
+            FindObjectOfType<GameState>().setYarnVariable("$isInNikolaiRoom", true);
+        }
+        else
+        {
+            FindObjectOfType<GameState>().setYarnVariable("$isInNikolaiRoom", false);
+        }
+    }
+
     public void resetDailyYarnVariables()
     {
         setYarnVariable("$teethBrushed", false);
@@ -101,14 +118,27 @@ public class GameState : Singleton<GameState>
             setYarnVariable("$numTimesNiceToRoomates", getYarnVariableInt("$numTimesNiceToRoomates") + 1);
         }
         setYarnVariable("$wasNiceToRoomates", false);
+
+        // day was already advanced, tell yarn about that
+        setYarnVariable("$gameDay", gameDay);
+
+        // reset dialogue varialbes
+        setYarnVariable("$talkedToNikolaiAlready", false);
+        setYarnVariable("$talkedToKabowskiAlready", false);
+        setYarnVariable("$talkedToBrainAlready", false);
+        setYarnVariable("$talkedToStacyAlready", false);
+        setYarnVariable("$talkedToBeckyAlready", false);
+
     }
 
     public void setYarnVariable(string name, bool val)
     {
+        // Debug.Log("[Set Yarn Variable] " + name + " to val " + val);
         yarnVariables.SetValue(name, val);
     }
     public void setYarnVariable(string name, int val)
     {
+        // Debug.Log("[Set Yarn Variable] " + name + " to val " + val);
         yarnVariables.SetValue(name, val);
     }
     public bool getYarnVariable(string name)
