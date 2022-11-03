@@ -1,5 +1,7 @@
 # rpg-game
-A 2D top-down dialogue-driven RPG game I am making in Unity. It's going to be mostly dialogue/story driven. Name still undecided. The end plan is to release it on itch.io, maybe even on Steam if I feel it's good enough. I wanna try to do my best job here though, so I'm going to set no deadlines.
+A 2D top-down dialogue-driven RPG game I am making in Unity. It's going to be mostly dialogue/story driven. Name still undecided. The end plan is to release it on itch.io, ~~maybe even on Steam if I feel it's good enough~~ NOPE ITS TOO BAD TO RELEASE FOR ANY KIND OF ATTENTION XD. 
+
+~~I wanna try to do my best job here though, so I'm going to set no deadlines.~~ EDIT: I think I'll try to push this game to a point where I am no longer having fun working on it. I mean, that part already kinda passed, but that's cause I have a very low attention span. I've never stuck with a project this long so I feel somewhat compelled to keep going and see where it takes me. I still feel like I have a lot of ideas on where to take this game so I wanna keep pushing it. I guess **I'll quit working on it when I run out of ideas**, and try to publish it then.
 
 I've actually been working on this since around September 2021, but school got in the way, and also lack of motivation (as always). I only now remembered that GitHub exists, which is why the commit is a bit late
 
@@ -16,18 +18,18 @@ But ultimately, I decided to stick to what I'm familiar with. My only previous e
 
 ## ART
 
-I'm proud to say, **ALL THE ART IS MADE BY ME!** I set out with this goal in mind. Not a single pixel that you see is imported from somewhere else. This means a few things:
+I'm proud to say, **ALL THE ART IS MADE BY ME!** (of course not literally, I took heavy inspiration from real things by taking photos of my campus, and also plenty of online memes). This means a few things:
 
 1. The art is subpar. 
-    Yes, I know the game isn't beautiful. I'm not an artist. I'm a programmer. But I want to get better at art. And I want to make the claim that **every pixel on the screen is made by yours truly**. I'm using **Aesprite** as the art program of choice (which btw, is awesome! [Check it out](https://github.com/aseprite/aseprite), its free and open source)
+    Yes, I know the game isn't beautiful. I'm not an artist. I'm a programmer. But I want to get better at art. And I want to make the claim that **every pixel on the screen is made by yours truly**. I'm using **Aesprite** as the art program of choice (which btw, is awesome and was easy to pick up, even for a monkey like me. [Check it out](https://github.com/aseprite/aseprite), its free and open source)
 2. I'm using pixel art
-    You may notice everything is pixel art, that's because I feel pixel art is substantially easier than vector art, especially for us programmer-minded folks to get our heads around. Just look at Stardew Valley- great game, and its all pixel art.
+    That's because I feel pixel art is substantially easier than vector art, especially for us programmer-minded folks to get our heads around. Just look at Stardew Valley- great game, and its all pixel art. I've already learned lots of techniques such as color palletes and anti-alisaing, and I tried to apply as much of that as I could to make the art look better. Obviously though, it looks far from a game like [Eastward](https://preview.redd.it/54u005ly3rh71.jpg?width=1920&format=pjpg&auto=webp&s=c31dc37a81b1788950b886bdcc7846c8878a92ec) where the art is literally perfect. But hey, this is my first project where I'm making the assets. Give me some slack.
 
 ## Music
 
 Also, I composed a few of the songs. I had some knowledge going in as an amateur music producer so hopefully they aren't too bad.
 
-To summarize, I'm really trying to make this game my own. No assets from anyone else, period. I did get a lot of help with the code part from a [44 HOUR UDEMY COURSE](https://www.udemy.com/course/unity-2d-game-developer-course-farming-rpg/), though. I've seen probably like 70% of it. Some of the more specific chapters I skipped over. But I'd say like 60% of my code is original. And there's a crap ton of code, just look at the size of my [Scripts folder](https://github.com/reigenatk/rpg-game/tree/master/Assets/Scripts).
+To summarize, I'm really trying to make this game my own. I did get a lot of help with the code part from a [44 HOUR UDEMY COURSE](https://www.udemy.com/course/unity-2d-game-developer-course-farming-rpg/), though. I've seen probably like 70% of it. Some of the more specific chapters I skipped over. But I'd say like 60% of my code is original. And there's a crap ton of code, just look at the size of my [Scripts folder](https://github.com/reigenatk/rpg-game/tree/master/Assets/Scripts).
 
 # Synopsis
 More or less a game about being a depressed college student. You'll never guess where I got the inspiration for that from 😉

@@ -10,6 +10,7 @@ using System;
 using static GameState;
 using Yarn.Unity;
 using System.Threading;
+using static TimeManager;
 
 public class LevelLoader : Singleton<LevelLoader>
 {
@@ -21,6 +22,7 @@ public class LevelLoader : Singleton<LevelLoader>
     [SerializeField] private Image faderImage = null;
     [SerializeField] List<SceneName> scenes;
     [SerializeField] List<float> orthoSizes;
+
     [SerializeField] private GameObject players;
     [SerializeField] private TimeManager timeManager;
     [SerializeField] private GameObject npcs;
@@ -54,6 +56,8 @@ public class LevelLoader : Singleton<LevelLoader>
         // some extra conditions that must be either true or false
         public List<GameVariablePair> extraConditions;
 
+        // valid times (if empty ignore)
+        [SerializeField] List<ChunkOfTime> validTimes;
         public bool shouldPlayCutscene(SceneName scene)
         {
 
@@ -72,6 +76,20 @@ public class LevelLoader : Singleton<LevelLoader>
                 return false;
             }
 
+            if (validTimes.Count != 0)
+            {
+                foreach (ChunkOfTime c in validTimes)
+                {
+                    // must find at least one valid chunk of time. If none we will return false
+                    if (c.isInChunk(TimeManager.Instance.gt))
+                    {
+                        goto foundValidTime;
+                    }
+                }
+                return false;
+            }
+
+            foundValidTime:
             // check if each condition is met. if not, set isPlaying to false
             foreach (GameVariablePair gv in extraConditions)
             {

@@ -113,7 +113,17 @@ Fix: ??
 
 Bug: If I collide with a walking NPC, I start to slide along with them despite not moving. The only way I can break this movement is if I collide with something else. Dafuq?
 
-Fix: ??
+Fix: Fixed on 10/31/22
 
 Tip: If NPC is going to the edge of one scene then stopping, its probably cause there is a "No shortest path found" message in the console. This is usually caused (at least it has like 3x for me already) by a NPCObstacle square on your target destination. Or A*  legit just can't find a path found to that tile (it is surrounded by NPCObstacles, for instance).
 
+Bug: NPC Character doesn't turn around immediately when you talk to them.
+Fix: There was an exit time on some of the animations. For example when becky walks down street in Outside House scene and I talk to her from above, she does one cycle on IdleDown before going IdleUp. So yeah we fix this by just saying Any State -> Idle Up has **No exit time**
+
+Bug (kinda): Right now, let's say I wanna do some dialogue, then an animation, then some more dialogue. Pretty common pattern. Well I have to make **two** dialogues for this, one before the animation and one after. Cuz, if I try doing some animation trigger stuff inside of Yarn, the cutscene is still active so I think the timeline is still overriding the animation controller and therefore not letting us trigger our animation.
+
+So my goal is to find a way to (inside of yarn) trigger a short animation state before reverting back to the original state. This would be so much more efficient than having to make a new cutscene whenever the characters in the scene feature even the smallest animation change. A prime example was Kabowski turning around in the eating scene. Such a small change, but I need to make a dialogue before and a dialogue after for it.
+
+Dev Tip: Just like how you don't wanna put an enum inside a list of enums since it will screw up what you currently have in Unity editor (since unity depends on the order in which they appear to determine which one you want), in the same way, when you make new animation frames for a character, **do not put them in between the extisting frames**. Like for instance say I have frames 1-10, then I want to put this new frame at position 11 ALWAYS. Otherwise the animations that I currently have, that use frames 1-10, might use this new frame that I insert in (say at position 9), which will screw up what I already have.
+
+Also Unity kinda sucks in that if you add more animation frames you have to re-apply the slice operation. I wish there was some functionality to just auto do it for you. But oh well.

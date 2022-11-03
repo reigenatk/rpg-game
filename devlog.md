@@ -416,3 +416,44 @@ Didn't do much art today tbh. But still gotta do the Main Quad scene and then we
 
 # 10/31/22
 
+Yay, so now we got it such that NPCs will continue movement after being talked to. And they will stop when you talk to them. Fix was in `DialogueFinishedPlaying`, I just added this line `NPCBeingTalkedTo.npcIsMoving = false;` which basically says "ok, this NPC has no movement, please assign one to it". The problem earlier (NPC wasn't moving after a dialogue) was cuz npcIsMoving was true, so the game thought that the NPC had a movement already. So we explicitly have to say "no it doesnt have a movement".
+
+The function `CancelNPCMovement` also does a similar thing (I noticed this later) but its what we want plus some extra stuff, which is too much (for example it clears the NPC path which is our A* info, thats wrong since we will still need this after the matter).
+
+K I think I know the problem with the "moving after colliding with NPC" problem.
+
+Basically a **rigidbody** in Unity is just a way of controlling multiple colliders. Both the NPC and player has one. My problem is that the Player, after collision with the NPC, still has his rigidbody velocity set to nonzero value. The only way to fix this is to detect collisions between NPC and player, and if NPC has zero rigidbody velocity, then player must as well. Maybe I could say, OnCollisionExit with player, check if our velocity is zero. If it is, set player rigidbody velocity to zero as well?
+
+Anyways [this thread from 2011](https://forum.unity.com/threads/how-to-make-rigid-body-stop-moving-after-collision.88066/) has the exact same question.
+
+And yay, I fixed it. Now it should be fully working! I just needed to add an OnCollisionExit2D on the Player class. I first tried adding it on the DialogueActivate script and it wasn't working which made me confused (not sure why this doesn't work), but now its ok.
+
+Drew Pepe, tried (and failed) to add wojak). I think some sprites are just too hard. Planning to add one more character (like a quintesential christian guy) into the Bible scene, and then we can do that cutscene tmrw.
+
+Idea: Maybe also do a second club? Like some sport club, or some niche hobby club (like anime or whatever? XD)
+
+# 11/1/22
+
+Damn I did so much freakin art today lmao. Added like 5 characters. World will definitely will feel more full once I finish putting all of them in game. I drew them tho cuz I'm tryna figure out the bible study scene. Still gotta add the guitar player guy, then we're good. Then I can work on the scene :P
+
+This shit is so much work actually xD, but very entertaining to try to draw pixel art versions of wojaks and pepe lol
+
+Codewise everything went ok today, dont think I made many changes at all.
+
+Todo: Add radio to boomer anim, rig up all the animations, finish brad sprite then start work on cutscene. Lots of stuff to do :( but I'm sure once I finish this the game will feel more alive. It's already kinda fun seeing my NPCs run around on the map, and it will def be much more fun when we get even more NPCs.
+
+# 11/2/22
+
+Jesus I think I really bit off wayy more than I could chew with this game. Fuck the steam release, fuck all that shit. This game is so bad XD
+
+Anyways, finished up the two characters I was talking about yesterday. At this point I think I have all I need to make a few club cutscenes. TBH IDK I might just ditch the social aspect of this game. Takes wayyy too many NPCs to make this game feel like a real town. At this point I'm just happy that everythings working, but I can't imagine drawing like 20+ more NPCs (at which point I think I could start saying the town is immersive)... And animating all that shit? No way.
+
+I think again I'll just focus on the cutscenes and stuff, to be honest no one will play this anyway or care about it, and if I don't care about it, then I shouldn't put so much effort. After all I don't think there's anything special going on in this game that you can't find elsewhere, lol.
+
+Hopefully I can kinda finish this game before next semester starts (ok tbh there's no way that's happening if I don't want to churn out a shit game) so I can turn my attention to new things? Let's try to use that as extra motivation to bust our butts these next few weeks and really try to make some nontrivial progress on the cutscenes and what not. Most of the characters seem to be done, I just gotta make the dialogue interesting. 
+
+Another todo might be to research a more interesting dialogue window, and also a way to display a face next to the text. That way there's more emotion attached to the dialogues lol
+
+Again, my goal with this game isn't to make perfection, I just want to convey emotion and give the player a glimpse of my college life. 
+
+

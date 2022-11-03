@@ -29,7 +29,7 @@ public class NPCMovement : MonoBehaviour
 
     [SerializeField] private float npcMinSpeed = 0.1f;
     [SerializeField] private float npcMaxSpeed = 5.0f;
-    private bool npcIsMoving = false;
+    public bool npcIsMoving = false;
 
     [HideInInspector] public AnimationClip npcTargetAnimationClip;
 
@@ -56,7 +56,7 @@ public class NPCMovement : MonoBehaviour
 
     private bool sceneLoaded = false;
 
-    private Coroutine moveToGridPositionRoutine;
+    public Coroutine moveToGridPositionRoutine;
 
     public bool hasSpriteBeenOffsetted = true;
     public float npcOffsetX;
@@ -107,8 +107,15 @@ public class NPCMovement : MonoBehaviour
     {
         if (sceneLoaded)
         {
-            
-            if (npcIsMoving == false)
+            // Debug.Log("stack for " + gameObject.name + " now has " + npcPath.npcMovementStepStack.Count + " entries, isMoving: " + npcIsMoving);
+            // no moving if NPC is being talked to, which means no popping anything from the stack, which is good cuz time is paused too when dialogue runs.
+            if (isNPCBeingTalkedTo)
+            {
+                SetNPCActiveInScene();
+                Debug.Log("Being talked to");
+                return;
+            }
+            else if (npcIsMoving == false)
             {
                 // set npc current and next grid position - to take into account the npc might be animating
 
@@ -142,13 +149,9 @@ public class NPCMovement : MonoBehaviour
                     // If NPC is in current scene then set NPC to active to make visible, pop the movement step off the stack and then call method to move NPC
                     if (npcCurrentScene.ToString() == SceneManager.GetActiveScene().name)
                     {
-                        // no moving if NPC is being talked to, which means no popping anything from the stack, which is good cuz time is paused too when dialogue runs.
-                        if (isNPCBeingTalkedTo)
-                        {
-                            return;
-                        }
                         SetNPCActiveInScene();
 
+                        Debug.Log("Popping, stack now has " + npcPath.npcMovementStepStack.Count + " entries");
                         npcMovementStep = npcPath.npcMovementStepStack.Pop();
 
                         npcNextGridPosition = (Vector3Int)npcMovementStep.gridCoordinate;
@@ -577,6 +580,12 @@ public class NPCMovement : MonoBehaviour
         animator.SetBool(Settings.idleDown, true);
     }
 
+    public void ResetAllAnimation()
+    {
+        ClearNPCEventAnimation();
+        ResetMoveAnimation();
+        ResetIdleAnimation();
+    }
     private void ResetMoveAnimation()
     {
         animator.SetBool(Settings.walkRight, false);

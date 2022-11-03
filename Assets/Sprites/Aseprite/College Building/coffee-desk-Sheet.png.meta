@@ -123,8 +123,8 @@ TextureImporter:
         y: 0
         width: 180
         height: 72
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4890206, y: 0.08783482}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,8 +144,8 @@ TextureImporter:
         y: 0
         width: 180
         height: 72
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4890206, y: 0.08783482}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,8 +165,8 @@ TextureImporter:
         y: 0
         width: 180
         height: 72
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4890206, y: 0.08783482}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,8 +186,8 @@ TextureImporter:
         y: 0
         width: 180
         height: 72
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4890206, y: 0.08783482}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,6 +195,27 @@ TextureImporter:
       bones: []
       spriteID: 7ffa344cf86a66e409dc71d13e8c9804
       internalID: 442705975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coffee-desk-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 180
+        height: 72
+      alignment: 9
+      pivot: {x: 0.4890206, y: 0.08783482}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c556cd826630b84d8a890dc1db56be4
+      internalID: 635249536
       vertices: []
       indices: 
       edges: []
@@ -212,6 +233,7 @@ TextureImporter:
     nameFileIdTable:
       coffee-desk-Sheet_3: 442705975
       coffee-desk-Sheet_0: 159933410
+      coffee-desk-Sheet_4: 635249536
       coffee-desk-Sheet_1: 32944078
       coffee-desk-Sheet_2: -200618254
   spritePackingTag: 

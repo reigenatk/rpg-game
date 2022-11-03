@@ -60,7 +60,7 @@ MonoBehaviour:
     audioToPlay: {fileID: 8300000, guid: 6079f6d0344a36a409a94d629037bd7b, type: 3}
     description: Eats breakfast
     offsetX: 0
-    offsetY: 0
+    offsetY: -0.34
   - hour: 10
     minute: 30
     priority: 0

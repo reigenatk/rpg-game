@@ -1,0 +1,197 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
+  m_Name: Doomer
+  m_EditorClassIdentifier: 
+  npcScheduleEventList:
+  - hour: 7
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 142
+      y: -61
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Gets haircut lmao
+    offsetX: 0
+    offsetY: 0
+  - hour: 8
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 83
+      y: -56
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 7e983fa05a7a58a4bab901e011189989,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: f08a74a0497fbaa4993c1930339f4e84, type: 3}
+    description: Park bench smokin
+    offsetX: 0
+    offsetY: -0.4
+  - hour: 10
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 88
+      y: 7
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Looking up at Quad
+    offsetX: 0
+    offsetY: 0.1
+  - hour: 11
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 58
+      y: -109
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Lecture
+    offsetX: 0
+    offsetY: 0
+  - hour: 11
+    minute: 45
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 10
+    toGridCoordinate:
+      x: 106
+      y: -99
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Lecture
+    offsetX: -0.2
+    offsetY: -0.2
+  - hour: 14
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 58
+      y: -109
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Go home
+    offsetX: 0
+    offsetY: 0
+  - hour: 14
+    minute: 20
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 88
+      y: 7
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 7e983fa05a7a58a4bab901e011189989,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: f08a74a0497fbaa4993c1930339f4e84, type: 3}
+    description: Nopes outta lecture early
+    offsetX: 0
+    offsetY: -0.3
+  - hour: 15
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 124
+      y: -64
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Dinna @ Panda
+    offsetX: 0
+    offsetY: 0
+  - hour: 16
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 58
+      y: -109
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Bible STudy
+    offsetX: 0
+    offsetY: 0
+  - hour: 17
+    minute: 10
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 12
+    toGridCoordinate:
+      x: 77
+      y: -92
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Bible STudy
+    offsetX: 0
+    offsetY: 0
+  - hour: 21
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 45
+      y: -118
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Go home
+    offsetX: 0
+    offsetY: 0
+  - hour: 22
+    minute: 10
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 169
+      y: -52
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Go home
+    offsetX: 0
+    offsetY: 0

@@ -59,6 +59,7 @@ public enum GameVariable
     isBusCutscenePlaying,
     hasEnteredMainQuad,
     hasEnteredClassroom,
+    hasPlayerGoneToChurch, // set to false every day, set to true when u talk to stacy at 5pm
 }
 
 

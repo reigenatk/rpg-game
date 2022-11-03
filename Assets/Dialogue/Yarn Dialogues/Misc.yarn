@@ -20,9 +20,10 @@
 <<declare $contentednessNerf = 0>>
 <<declare $entertainedBuff = 0>>
 
-// variables set by c# code
+// variables set by c# code (event based)
 <<declare $minTilNextBus = 1>>
 <<declare $isInNikolaiRoom = false>>
+<<declare $isBibleStudyOpen = false>>
 
 // total counts
 <<declare $numTimesNiceToRoomates = 0>>
@@ -30,6 +31,7 @@
 <<declare $nikolaiFriendProgress = 0>>
 <<declare $brainFriendProgress = 0>>
 <<declare $stacyFriendProgress = 0>>
+
 ===
 
 title: LowEnergy

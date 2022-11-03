@@ -689,6 +689,11 @@ MonoBehaviour:
     gridBoolProperty: 0
     gridBoolValue: 1
   - gridCoordinate:
+      x: 74
+      y: -105
+    gridBoolProperty: 0
+    gridBoolValue: 1
+  - gridCoordinate:
       x: 75
       y: -109
     gridBoolProperty: 0
@@ -891,46 +896,6 @@ MonoBehaviour:
   - gridCoordinate:
       x: 40
       y: -123
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 40
-      y: -122
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 40
-      y: -121
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 40
-      y: -120
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 40
-      y: -119
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 40
-      y: -118
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 40
-      y: -117
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 40
-      y: -116
-    gridBoolProperty: 1
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 40
-      y: -115
     gridBoolProperty: 1
     gridBoolValue: 1
   - gridCoordinate:
@@ -1754,6 +1719,16 @@ MonoBehaviour:
     gridBoolProperty: 1
     gridBoolValue: 1
   - gridCoordinate:
+      x: 72
+      y: -105
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 72
+      y: -104
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
       x: 73
       y: -112
     gridBoolProperty: 1
@@ -1770,7 +1745,7 @@ MonoBehaviour:
     gridBoolValue: 1
   - gridCoordinate:
       x: 73
-      y: -106
+      y: -104
     gridBoolProperty: 1
     gridBoolValue: 1
   - gridCoordinate:
@@ -1790,7 +1765,12 @@ MonoBehaviour:
     gridBoolValue: 1
   - gridCoordinate:
       x: 74
-      y: -106
+      y: -107
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 74
+      y: -104
     gridBoolProperty: 1
     gridBoolValue: 1
   - gridCoordinate:
@@ -1816,6 +1796,16 @@ MonoBehaviour:
   - gridCoordinate:
       x: 75
       y: -106
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 75
+      y: -105
+    gridBoolProperty: 1
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 75
+      y: -104
     gridBoolProperty: 1
     gridBoolValue: 1
   - gridCoordinate:

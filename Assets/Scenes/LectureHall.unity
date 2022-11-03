@@ -4314,9 +4314,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
+      propertyPath: extraDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
+        type: 3}
       propertyPath: sceneNameGoto
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
+        type: 3}
+      propertyPath: teleportSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 53c685ab60ef4fe44bae83f62d103ca0, type: 3}
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
       propertyPath: scenePositionGoto.x

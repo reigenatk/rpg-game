@@ -13,11 +13,18 @@ public class Building : MonoBehaviour
     [SerializeField] AudioSource daytimeMusic;
     [SerializeField] AudioSource nightclubMusic;
     Animator a;
+    AudioSource asource;
 
     // Start is called before the first frame update
     void Start()
     {
-        a = GetComponent<Animator>(); 
+        a = GetComponent<Animator>();
+        if (!isBar)
+        {
+            // get the one and only audio source
+            asource = GetComponent<AudioSource>();
+        }
+
     }
 
     // Update is called once per frame
@@ -28,10 +35,24 @@ public class Building : MonoBehaviour
             // current time is BEFORE open time. So do not open it.
             if (isBar)
             {
-                daytimeMusic.enabled = false;
-                nightclubMusic.enabled = true;
+                if (daytimeMusic.isPlaying)
+                {
+                    daytimeMusic.Pause();
+                }
+                if (!nightclubMusic.isPlaying)
+                {
+                    nightclubMusic.Play();
+                }
             }
-
+            else
+            {
+                if (asource.isPlaying)
+                {
+                    asource.Pause();
+                }
+                
+            }
+            a.SetBool("open", false);
             a.SetBool("closed", true);
         }
         else if (TimeManager.Instance.gt.compareTimes(OpenTime) == false && TimeManager.Instance.gt.compareTimes(CloseTime) == true)
@@ -39,8 +60,21 @@ public class Building : MonoBehaviour
             // then its open
             if (isBar)
             {
-                daytimeMusic.enabled = true;
-                nightclubMusic.enabled = false;
+                if (!daytimeMusic.isPlaying)
+                {
+                    daytimeMusic.Play();
+                }
+                if (nightclubMusic.isPlaying)
+                {
+                    nightclubMusic.Pause();
+                }
+            }
+            else
+            {
+                if (!asource.isPlaying)
+                {
+                    asource.Play();
+                }
             }
             a.SetBool("closed", false);
             a.SetBool("open", true);
@@ -50,9 +84,23 @@ public class Building : MonoBehaviour
             // greater than both open + close times- means its past the close time hence its closed
             if (isBar)
             {
-                daytimeMusic.enabled = false;
-                nightclubMusic.enabled = true;
+                if (daytimeMusic.isPlaying)
+                {
+                    daytimeMusic.Pause();
+                }
+                if (!nightclubMusic.isPlaying)
+                {
+                    nightclubMusic.Play();
+                }
             }
+            else
+            {
+                if (asource.isPlaying)
+                {
+                    asource.Pause();
+                }
+            }
+            a.SetBool("open", false);
             a.SetBool("closed", true);
         }
     }

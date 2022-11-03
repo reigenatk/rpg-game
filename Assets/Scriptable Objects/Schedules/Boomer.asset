@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
+  m_Name: Boomer
+  m_EditorClassIdentifier: 
+  npcScheduleEventList:
+  - hour: 8
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 99
+      y: -51
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 32f52e7ff9fb94544b23a872dd266043,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 6aa5b881a815c8c4cada145a8c01a675, type: 3}
+    description: Jam on the park bench in front of union
+    offsetX: 0
+    offsetY: 0
+  - hour: 11
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 77
+      y: 7
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: e587fe364f054d74f81d67a592d77eaf,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: d1e604e2768839d4c98c4fac78b0f08a, type: 3}
+    description: Jam on the park bench in front of union
+    offsetX: 0
+    offsetY: 0
+  - hour: 13
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 134
+      y: -66
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Chill on Green St
+    offsetX: 0
+    offsetY: 0
+  - hour: 16
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 122
+      y: -44
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Go to frat? building
+    offsetX: 0
+    offsetY: 0
+  - hour: 18
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 74
+      y: -69
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 7400000, guid: e587fe364f054d74f81d67a592d77eaf,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 7445ec2c77071124b93643db511c7a74, type: 3}
+    description: Chill on Campus
+    offsetX: 0
+    offsetY: 0
+  - hour: 20
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 154
+      y: -63
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Go to bar
+    offsetX: 0
+    offsetY: 0
+  - hour: 22
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 106
+      y: -34
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Go home (Slightly above the vertical road)
+    offsetX: 0
+    offsetY: 0

@@ -99,6 +99,10 @@ public class DialogueManager : MonoBehaviour
             // say that we're done talking to this NPC
             NPCBeingTalkedTo.isNPCBeingTalkedTo = false;
 
+            // also say that it is NOT moving, so that the FixedUpdate in NPCMovement.cs will run and try to find the next task for it to do
+            // because if npcIsMoving is true, the NPC will not do anything, its assumed it already has a movement
+            NPCBeingTalkedTo.npcIsMoving = false;
+
             // then also say that we're not talking to this NPC anymore.
             FindObjectOfType<GameState>().currentNPCBeingTalkedTo = null;
         }

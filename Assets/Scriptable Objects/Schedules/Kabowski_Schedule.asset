@@ -52,15 +52,15 @@ MonoBehaviour:
     weather: 0
     toSceneName: 1
     toGridCoordinate:
-      x: 4
+      x: 11
       y: 4
     npcFacingDirectionAtDestination: 4
-    animationAtDestination: {fileID: 7400000, guid: d8b4ae3e303fe2141818d824cb64d709,
+    animationAtDestination: {fileID: 7400000, guid: ea380bf2b47d2a54981396c1df1a823b,
       type: 2}
-    audioToPlay: {fileID: 8300000, guid: e409b48274e5a88498c22614958790cc, type: 3}
+    audioToPlay: {fileID: 8300000, guid: dc518f6861323ad4ba2e6bccdcebf224, type: 3}
     description: 11am drink shake
     offsetX: 0
-    offsetY: 0
+    offsetY: -0.79
   - hour: 11
     minute: 0
     priority: 0
@@ -116,8 +116,8 @@ MonoBehaviour:
     weather: 0
     toSceneName: 9
     toGridCoordinate:
-      x: 43
-      y: -107
+      x: 51
+      y: -113
     npcFacingDirectionAtDestination: 4
     animationAtDestination: {fileID: 7400000, guid: b2e8ffae85ba9b546b29b3eb05ed7202,
       type: 2}
@@ -141,8 +141,8 @@ MonoBehaviour:
     description: 7pm Go to coffee shop for workout
     offsetX: 0
     offsetY: 0
-  - hour: 20
-    minute: 15
+  - hour: 19
+    minute: 45
     priority: 0
     day: 0
     weather: 0

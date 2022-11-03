@@ -514,6 +514,153 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: kabowski-squat-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 0
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e9b229024ee9c84499c314a3b5f82ce
+      internalID: -877598386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabowski-squat-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 0
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7995f78097659b45a2cd70d8c7e7209
+      internalID: 1336191575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabowski-squat-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 0
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62f86b4eeef9e6b4ba30b3f9559ccc3e
+      internalID: 1112991610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabowski-squat-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 0
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e78599ae65a1de4dbd64ff8c95350e5
+      internalID: 93598138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabowski-squat-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 0
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425d33307e241e74393c3c499134d249
+      internalID: -1868778067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabowski-squat-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 0
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9294e3880cb00749b4b48a3e55b9f44
+      internalID: 2061380125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabowski-squat-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 0
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b17c52c12db16c4985362bfb7ec1f4f
+      internalID: -1277424614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -525,15 +672,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      kabowski-squat-Sheet_23: -1868778067
+      kabowski-squat-Sheet_24: 2061380125
       kabowski-squat-Sheet_13: 816434784
       kabowski-squat-Sheet_11: 769717089
+      kabowski-squat-Sheet_25: -1277424614
       kabowski-squat-Sheet_2: -1011229213
       kabowski-squat-Sheet_7: 1263663685
+      kabowski-squat-Sheet_22: 93598138
       kabowski-squat-Sheet_12: 752499238
       kabowski-squat-Sheet_15: 362304323
       kabowski-squat-Sheet_8: -2030686663
       kabowski-squat-Sheet_9: -1178980644
+      kabowski-squat-Sheet_21: 1112991610
       kabowski-squat-Sheet_6: 803954270
+      kabowski-squat-Sheet_19: -877598386
+      kabowski-squat-Sheet_20: 1336191575
       kabowski-squat-Sheet_4: -2012332641
       kabowski-squat-Sheet_18: 43647153
       kabowski-squat-Sheet_16: -86154125

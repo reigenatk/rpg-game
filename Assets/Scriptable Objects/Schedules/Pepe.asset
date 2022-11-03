@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
+  m_Name: Pepe
+  m_EditorClassIdentifier: 
+  npcScheduleEventList:
+  - hour: 7
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 47
+      y: -67
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: 
+    offsetX: 0
+    offsetY: 0
+  - hour: 8
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 134
+      y: -66
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 229c1aea53120df449308bb902cbb028,
+      type: 2}
+    audioToPlay: {fileID: 0}
+    description: 
+    offsetX: 0
+    offsetY: 0
+  - hour: 10
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 76
+      y: 12
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Watching people on the Quad
+    offsetX: 0
+    offsetY: 0
+  - hour: 11
+    minute: 20
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 57
+      y: -108
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Reading on Inside Building Couches
+    offsetX: 0
+    offsetY: 0
+  - hour: 11
+    minute: 40
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 10
+    toGridCoordinate:
+      x: 100
+      y: -99
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Lecturte
+    offsetX: -0.15
+    offsetY: -0.3
+  - hour: 15
+    minute: 10
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 69
+      y: -108
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 69fb5ceaeee513348b7bf46dc5123bfb,
+      type: 2}
+    audioToPlay: {fileID: 0}
+    description: Laptop on Courches
+    offsetX: 0
+    offsetY: 0
+  - hour: 16
+    minute: 45
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 12
+    toGridCoordinate:
+      x: 67
+      y: -92
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: a64741b52306c0c49ad09f4439567500,
+      type: 2}
+    audioToPlay: {fileID: 0}
+    description: 
+    offsetX: 0
+    offsetY: 0
+  - hour: 21
+    minute: 10
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 40
+      y: -117
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Leaves Church
+    offsetX: 0
+    offsetY: 0
+  - hour: 21
+    minute: 40
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 48
+      y: -64
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Leaves Church
+    offsetX: 0
+    offsetY: 0

@@ -43,8 +43,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 8300000, guid: 3a1ffc81f1d0f744db00cc42e0228107, type: 3}
     description: Drink Vodka
-    offsetX: 0
-    offsetY: 0
+    offsetX: -0.12
+    offsetY: -0.52
   - hour: 10
     minute: 15
     priority: 0

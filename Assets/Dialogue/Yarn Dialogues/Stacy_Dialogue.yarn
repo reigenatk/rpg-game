@@ -1,0 +1,32 @@
+﻿title: Stacy_Dialogue
+---
+<<if $isBibleStudyOpen == true>>
+    Stacy: Oh, you came!
+    <<wait 2>>
+    Stacy: It's Steven, right?
+    <<wait 1>>
+    Stacy:  I didn't think you would come! Not many people do.
+    <<wait 1>>
+    Stacy: Anyways, come in! We're almost ready to start.
+<<else>>
+    <<jump Stacy_Normal_Dialogue>>
+<<endif>>
+===
+
+title: Stacy_Normal_Dialogue
+---
+<<if $talkedToStacyAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+<<if $stacyFriendProgress == 0>>
+	<<jump Stacy_Start>>
+<<elseif $stacyFriendProgress == 1>>
+	<<jump Stacy_Familiar>>
+<<elseif $stacyFriendProgress == -1>>
+	<<jump Stacy_Unfriendly>>
+<<elseif $stacyFriendProgress == -2>>
+	<<jump Stacy_NotFriends>>
+<<endif>>
+===
+

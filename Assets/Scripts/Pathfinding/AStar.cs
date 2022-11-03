@@ -69,7 +69,7 @@ public class AStar : MonoBehaviour
             npcMovementStep.gridCoordinate = new Vector2Int(nextNode.gridPosition.x + originX, nextNode.gridPosition.y + originY);
 
             npcMovementStepStack.Push(npcMovementStep);
-            Debug.Log("Pushing onto stack the coordinates: " + npcMovementStep.gridCoordinate + " For scene " + sceneName);
+            Debug.Log("Pushing onto stack the coordinates: " + npcMovementStep.gridCoordinate + " For scene " + sceneName + " stack has size " + npcMovementStepStack.Count);
             nextNode = nextNode.parentNode;
         }
     }

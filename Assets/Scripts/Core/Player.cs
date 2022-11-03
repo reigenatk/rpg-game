@@ -429,5 +429,19 @@ public class Player : Singleton<Player>, ISaveable
     {
         // player is on persistant scene so we dont need to do anything here
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log("Collision Exit with " + collision.gameObject.name);
+        // check that its a player collision
+        if (collision.gameObject.GetComponent<NPCMovement>() != null)
+        {
+            Debug.Log("Exiting Collision with an NPC");
+
+            // STOP the rigidbody if we leave contact with an NPC 
+            // if this isn't here we get that weird bug where player moves infinitely after hitting an NPC.
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+    }
 }
 

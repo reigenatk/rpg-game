@@ -319,3 +319,37 @@ MonoBehaviour:
       toGridCell:
         x: 999999
         y: 999999
+  - fromSceneName: 12
+    toSceneName: 9
+    scenePathList:
+    - sceneName: 12
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 65
+        y: -95
+    - sceneName: 9
+      fromGridCell:
+        x: 74
+        y: -107
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 9
+    toSceneName: 12
+    scenePathList:
+    - sceneName: 9
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 74
+        y: -107
+    - sceneName: 12
+      fromGridCell:
+        x: 65
+        y: -95
+      toGridCell:
+        x: 999999
+        y: 999999

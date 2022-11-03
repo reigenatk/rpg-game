@@ -13,12 +13,9 @@ public class Subwoofer : MonoBehaviour
     public bool isSubwooferPlaying;
     GameState gameState;
     AudioLowPassFilter lowpass;
+    Discoball dball;
 
-    [YarnCommand("TurnDownMusic")]
-    public void TurnDownMusic()
-    {
-
-    }
+    
 
     private void Start()
     {
@@ -27,6 +24,7 @@ public class Subwoofer : MonoBehaviour
         animator = GetComponent<Animator>();
         gameState = FindObjectOfType<GameState>();
         lowpass = GetComponent<AudioLowPassFilter>();
+        dball = FindObjectOfType<Discoball>();
     }
 
     bool isInRoomWeCareAbout()
@@ -50,6 +48,10 @@ public class Subwoofer : MonoBehaviour
         {
             if (cot.isInChunk(TimeManager.Instance.gt))
             {
+                if (!dball.isRunning)
+                {
+                    dball.startDiscoball();
+                }
                 // then it is in chunk, play the music
 
                 // dont play if we are not in a cutscene, not already playing it, and also if its day 1 (we dont wanna overwhelm new player so dont play for day 1)
@@ -116,6 +118,10 @@ public class Subwoofer : MonoBehaviour
 
     public void stopSubwoofer()
     {
+        if (dball.isRunning)
+        {
+            dball.stopDiscoball();
+        }
         Debug.Log("Stopping subwoofer");
         if (!MusicManager.Instance.isMusicPlaying())
         {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stacy_Schedule
   m_EditorClassIdentifier: 
   npcScheduleEventList:
-  - hour: 6
+  - hour: 8
     minute: 0
     priority: 1
     day: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
     description: Goes to coffee shop on green
     offsetX: 0
     offsetY: 0
-  - hour: 8
+  - hour: 10
     minute: 0
     priority: 1
     day: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
       y: -106
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
-    audioToPlay: {fileID: 0}
+    audioToPlay: {fileID: 8300000, guid: 3287d3d7c4f5ccc46b6a51c42f2d3d4c, type: 3}
     description: union coffe shop
     offsetX: 0
     offsetY: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
     audioToPlay: {fileID: 0}
     description: 5pm stand outside of Bible study room
     offsetX: 0
-    offsetY: 0
+    offsetY: 0.4
   - hour: 21
     minute: 30
     priority: 1

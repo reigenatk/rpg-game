@@ -159,8 +159,17 @@ public class DialogueActivate : MonoBehaviour, Interactable
                     animationTriggerName = "idleDown";
                     break;
             }
+            // reset all previous animations
+            npcMovement.ResetAllAnimation();
+
+            // stop any moving coroutines (otherwise character will still move a bit before fully stopping)
+            if (npcMovement.moveToGridPositionRoutine != null)
+            {
+                StopCoroutine(npcMovement.moveToGridPositionRoutine);
+            }
             Debug.Log("Playing animation " + animationTriggerName);
             animator.SetBool(animationTriggerName, true);
+
 
         }
     }
