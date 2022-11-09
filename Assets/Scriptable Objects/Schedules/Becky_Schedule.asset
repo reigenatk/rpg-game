@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Becky_Schedule
   m_EditorClassIdentifier: 
   npcScheduleEventList:
-  - hour: 8
-    minute: 0
+  - hour: 7
+    minute: 30
     priority: 1
     day: 0
     weather: 0
@@ -28,23 +28,23 @@ MonoBehaviour:
     description: goes to stare at waterfall
     offsetX: 0
     offsetY: 0
-  - hour: 10
+  - hour: 9
     minute: 0
     priority: 1
     day: 0
     weather: 0
     toSceneName: 9
     toGridCoordinate:
-      x: 42
-      y: -107
+      x: 51
+      y: -106
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: 10pm goes home
-    offsetX: 0
-    offsetY: 0
-  - hour: 12
-    minute: 0
+    offsetX: 0.3
+    offsetY: -0.4
+  - hour: 11
+    minute: 45
     priority: 1
     day: 0
     weather: 0
@@ -65,14 +65,15 @@ MonoBehaviour:
     weather: 0
     toSceneName: 9
     toGridCoordinate:
-      x: 42
-      y: -105
+      x: 51
+      y: -106
     npcFacingDirectionAtDestination: 1
-    animationAtDestination: {fileID: 0}
-    audioToPlay: {fileID: 0}
+    animationAtDestination: {fileID: 7400000, guid: 0cee064df91f12b4d9262870dd457de1,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 93abd9d761ba33346b729f321762e8d2, type: 3}
     description: 3pm back to coffee shop
-    offsetX: 0
-    offsetY: 0
+    offsetX: 0.3
+    offsetY: -0.4
   - hour: 18
     minute: 0
     priority: 1
@@ -83,8 +84,9 @@ MonoBehaviour:
       x: 161
       y: -65
     npcFacingDirectionAtDestination: 1
-    animationAtDestination: {fileID: 0}
-    audioToPlay: {fileID: 0}
+    animationAtDestination: {fileID: 7400000, guid: 0cee064df91f12b4d9262870dd457de1,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 93abd9d761ba33346b729f321762e8d2, type: 3}
     description: 6pm goes to green st in front of bar
     offsetX: 0
     offsetY: 0
@@ -110,11 +112,11 @@ MonoBehaviour:
     weather: 0
     toSceneName: 7
     toGridCoordinate:
-      x: 47
-      y: -64
+      x: 26
+      y: -54
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
-    description: 10pm goes home (neighboring house!)
+    description: 10pm goes home (above tile in outside house)
     offsetX: 0
     offsetY: 0

@@ -121,7 +121,7 @@ public class GridPropertiesManager : MonoBehaviour
             sceneSave.gridPropertyDetailsDictionary = gridPropertyDictionary;
 
             // If we are in the starting scene, set it so its easier to access?
-            if (so_GridProperties.sceneName == FindObjectOfType<LevelLoader>().startingSceneName)
+            if (so_GridProperties.sceneName == FindObjectOfType<GameState>().startingScene)
             {
                 this.gridPropertyDictionary = gridPropertyDictionary;
             }

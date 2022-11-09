@@ -3,27 +3,40 @@
 // one time events
 <<declare $hasBrainSmashedGlassYet = false>>
 <<declare $acceptedBibleStudy = false>> // by default we haven't met stacy yet
+<<declare $hasGoneToBibleStudy = false>>
+<<declare $saidStacyWasHotInFrontOfLaura = false>>
+<<declare $coomerWasExposed = false>>
 
 // reset these every day
 <<declare $teethBrushed = false>>
 <<declare $isBedroomLampOn = false>>
 <<declare $numTimesNutted = 0>>
 <<declare $wasNiceToRoomates = false>>
-<<declare $day = 1>>
 <<declare $talkedToNikolaiAlready = false>>
 <<declare $talkedToKabowskiAlready = false>>
 <<declare $talkedToBrainAlready = false>>
 <<declare $talkedToStacyAlready = false>>
 <<declare $talkedToBeckyAlready = false>>
+<<declare $talkedToDoomerAlready = false>>
+<<declare $talkedToDoomerGirlAlready = false>>
+<<declare $talkedToPepeAlready = false>>
+<<declare $talkedToBoomerAlready = false>>
+<<declare $talkedToBloomerAlready = false>>
+<<declare $talkedToCoomerAlready = false>>
+<<declare $talkedTSoyjackRedditAlready = false>>
+<<declare $talkedTSoyjackDiscordAlready = false>>
+
 
 // local variables
 <<declare $contentednessNerf = 0>>
 <<declare $entertainedBuff = 0>>
 
-// variables set by c# code (event based)
+// variables set by c# code and events (time + location based)
 <<declare $minTilNextBus = 1>>
+<<declare $day = 1>>
 <<declare $isInNikolaiRoom = false>>
 <<declare $isBibleStudyOpen = false>>
+<<declare $isStalkingStacy = false>>
 
 // total counts
 <<declare $numTimesNiceToRoomates = 0>>
@@ -31,7 +44,17 @@
 <<declare $nikolaiFriendProgress = 0>>
 <<declare $brainFriendProgress = 0>>
 <<declare $stacyFriendProgress = 0>>
-
+<<declare $beckyFriendProgress = 0>>
+<<declare $doomerFriendProgress = 0>>
+<<declare $doomergirlFriendProgress = 0>>
+<<declare $pepeFriendProgress = 0>>
+<<declare $boomerFriendProgress = 0>>
+<<declare $bloomerFriendProgress = 1>>
+<<declare $coomerFriendProgress = 0>>
+<<declare $numTimesCoomerExposed = 0>>
+<<declare $soyjackredditFriendProgress = 0>>
+<<declare $soyjackdiscordFriendProgress = 0>>
+<
 ===
 
 title: LowEnergy
@@ -216,7 +239,184 @@ Walk home? (-5% energy, +20 minutes, +5% contentedness)
 
 title: AlreadyTalkedToday
 ---
-I already talked to them today... 
-It might be awkward if I talk to them again so soon.
-Let's wait until tomorrow.
+Mind: I already talked to them today... 
+Mind: It might be awkward if I talk to them again so soon. #e:stern
+Mind: Let's wait until tomorrow. #e:shy
+===
+
+title: BibleStudy
+---
+
+Chase: Everyone! Let's get started. 
+<<wait 1>>
+Chase: Actually, before we begin, let's go around the room and introduce ourselves.
+<<wait 1>>
+Chase: Steven, how about you go first?
+===
+
+title: BibleStudy_Introductions
+---
+Introduce yourself?
+-> Yes
+	Steven: Uhh, h-hi guys, I'm Steven. #e:shy
+	<<wait 2>>
+	Voice: Tell them more, dumbass...
+	<<wait 2>>
+	Steven: My favorite color is Red. 
+	<<wait 2>>
+	Voice: No! Not that! Haha you sound so stupid. #e:cringe
+	Steven: Uhhh... I'm a junior...
+	<<wait 4>>
+	Steven: Uhm...
+	<<wait 2>>
+	Mind: Shit! I'm freezing up... This is bad... #e:shocked
+	<<changePlayerScoreString Manager "social" -40.0>>
+	<<wait 2>>
+	Chase: Thanks for introducing yourself, Steven! I love the color red too! #e:big-smile
+	<<changePlayerScoreString Manager "social" 30.0>>
+	<<wait 2>>
+	Mind: At least Chase is nice enough to cover up for me. #e:weary
+	Voice: You did so bad! #e:laugh
+-> Hell No
+	<<wait 6>>
+	Chase: It's okay if you don't want to. Guys, this is Steven. 
+	<<wait 3>>
+	Voice: You awkward fuck, you shoulda just introduced yourself. 
+	Voice: Look at them, judging you. #e:laugh
+	<<changePlayerScoreString Manager "social" -20.0>>
+	<<wait 3>>
+<<jump Other_Introductions>>
+===
+
+title: Other_Introductions
+---
+Chase: Let's go around the room.
+<<wait 2>>
+Keith: Hi, I'm Keith. I'm a sophomore.
+<<wait 2>>
+Pepe: Hello, I'm Pepe. I'm studying mechanical engineering.
+<<wait 2>>
+Laura: Hey, I'm Laura.
+<<wait 2>>
+
+Voice: Awkward... #e:cringe
+-> Say something back to everyone
+	Steven: Nice to meet you guys...
+-> Say nothing
+	<<wait 4>>
+	<<changePlayerScoreString Manager "social" -10.0>>
+	Voice: You probably shoulda said something... #e:cringe
+===
+
+title: Stacy_Arrive
+---
+Stacy: I'm here! 
+<<wait 1>>
+Chase: Hey Stacy! Perfect timing, we were just gonna start.
+Stacy: yay! How's everyone doing?
+<<wait 2>>
+Pepe: Good, I did the prayer thing you told me to do last time.
+<<wait 2>>
+Stacy: Awesome! Did you feel God's presence with you at all?
+<<wait 1>>
+Pepe: Yeah, a bit. I guess it helped me feel a bit better. #e:feelsgoodman
+Pepe: But it still feels like I'm talking to no one at times. #e:feelsbadman
+<<wait 2>>
+Chase: God speaks to each of us in his own way, Pepe.
+Chase: I'm glad that you are trying!
+<<wait 1>>
+Stacy: How about you, Keith? How was your day?
+Keith: Pretty rough. I tried my best to avoid my, uh...
+Keith: My... problems #e:sad
+<<wait 1>>
+Chase: Thanks for sharing, Keith. We all deal with temptation in various ways.
+Chase: But remember, God has blessed us with the Holy Spirit, which is stronger than all evil.
+Stacy: We will pray for you, Keith! #e:smile
+Keith: T-thanks, stacy!
+<<wait 4>>
+Laura: I'm assuming I need to share? #e:looking
+Stacy: Only if you want, Laura! #e:smile
+Laura: ...
+Laura: I guess I tried reading the Bible a bit.
+Laura: Not that any of it really makes sense to me... #e:looking
+<<wait 1>>
+Laura: I still don't really get what Christianity is about.
+Laura: Do you guys really believe in a heaven and hell? #e:neutral
+Laura: That somehow, magically, we will live past death? It sounds like a fairytale to me.
+<<wait 2>>
+Stacy: It is not the work of magic, but faith, that keeps us steady, my dear friend.
+Stacy: The world would be bleak if not for the sacrafice of Jesus. #e:smile
+<<wait 1>>
+Chase: Amen. #e:slight-smile
+Chase: We'll learn more about this in the coming weeks. I'm glad you started to read ahead! #e:big-smile
+<<wait 3>>
+Stacy: Steven! I'm going to pick on you! Tell us why you decided to come today. #e:smile
+<<wait 1>>
+Voice: Shit! Don't mess this up! #e:laugh
+-> I want to make new friends
+	Steven: I, er...
+	<<wait 1>>
+	Steven: I want to make new friends... #e:embarassed
+	<<wait 2>>
+	Pepe: That's why I came originally, too. #e:feelsgoodman
+	Pepe: Everyone here is really nice, you'll like it.
+	<<wait 1>>
+	Chase: Just like he said, we're your friends now!
+	Chase: Feel free to ask us for anything, even outside of here.
+	<<wait 1>>
+	-> Thanks, guys
+	-> ...
+-> I think you're really hot
+	Steven: Because you look absolutely stunning tonight.
+	<<wait 2>>
+	<<playSoundString AudioManager crickets>>
+	<<wait 5>>
+	<<changePlayerScoreString Manager "social" -10.0>>
+	Voice: Hahaha what are you doing!?
+	Stacy: Uhm... thanks, Steven. #e:laughing
+	<<wait 1>>
+	<<set $saidStacyWasHotInFrontOfLaura = true>>
+-> I want to learn more about God
+	Steven: I guess I want to learn more about religion...
+	Steven: I've never gotten into the whole "church" thing.
+	<<wait 1>>
+	Chase: Well that's why we're here! #e:slight-smile
+	Chase: It's suprising since in today's world, not many people care or know about God.
+	Chase: No one wants to be bossed around, or follow rules.
+	<<wait 1>>
+	Stacy: But being a Christian is much more than that! It's not just a rulebook.
+	Stacy: It's a calling, a purpose in an otherwise bleak life. #e:smile
+	<<wait 2>>
+	Stacy: My roommate, Laura, is also new here. She's trying to grapple with it as well, so don't worry! 
+	<<wait 1>>
+	Laura: ... 
+	Laura: I only came here because you told me to... #e:looking
+	Laura: But I guess it's been a nice change of pace from my routine life #e:looking-away-smile
+	Stacy: Exactly! A little force was required to get her to show up, but she enjoys it #e:laughing
+
+<<if $saidStacyWasHotInFrontOfLaura == true>>
+	Chase: Well, err, let's get rolling, shall we! #e:confused
+<<else>>
+	Chase: Well, I'm glad we could all meet one another. Let's get going!
+<<endif>>
+===
+
+title: After_Sermon
+---
+	Stacy: Thank you for coming, everyone!
+	Chase: Can we just come together for a quick prayer?
+	<<FadeIn LevelLoader 1.0>>
+	<<playSoundString AudioManager Prayer>>
+	<<wait 8.5>>
+	<<FadeOut LevelLoader 1.0>>
+	Chase: Have a great week, guys!
+	<<wait 1>>
+	Mind: That was fun. It feels good to be around people, even though I may not be very religious.
+	<<wait 2>>
+	Voice: You still did a terrible job #e:laugh
+	<<wait 1>>
+	Mind: Whatever. I didn't expect to do great. At least some people know who I am now.
+	<<changePlayerScoreString Manager "social" 50.0>>
+	<<set $hasGoneToBibleStudy = true>>
+	<<SetTime Manager 20 50 0>>
 ===

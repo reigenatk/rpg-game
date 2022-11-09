@@ -28,13 +28,13 @@ public class ScoreCategoryUI : MonoBehaviour
         // Debug.Log("Font size is " + fontSize + " for change of " + delta);
         if (delta > 0.0f)
         {
-            // green
+            // green for positive changes
             TextDelta.color = new Color(0, 255, 8, 2);
             TextDelta.text = String.Format("+{0:0.#\\%}", delta);
         }
         else
         {
-            // red 
+            // red for negative changes
             TextDelta.color = new Color(255, 57, 0, 255);
             TextDelta.text = String.Format("{0:0.#\\%}", delta); 
         }

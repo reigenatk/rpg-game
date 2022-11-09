@@ -155,14 +155,14 @@ MonoBehaviour:
     priority: 0
     day: 0
     weather: 0
-    toSceneName: 12
+    toSceneName: 14
     toGridCoordinate:
-      x: 77
-      y: -92
+      x: 72
+      y: -90
     npcFacingDirectionAtDestination: 0
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
-    description: Bible STudy
+    description: Chill in other classroom with soys
     offsetX: 0
     offsetY: 0
   - hour: 21

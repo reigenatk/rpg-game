@@ -23,7 +23,7 @@ public class LevelLoader : Singleton<LevelLoader>
     [SerializeField] List<SceneName> scenes;
     [SerializeField] List<float> orthoSizes;
 
-    [SerializeField] private GameObject players;
+    [SerializeField] private GameObject nonnpcs;
     [SerializeField] private TimeManager timeManager;
     [SerializeField] private GameObject npcs;
 
@@ -35,7 +35,6 @@ public class LevelLoader : Singleton<LevelLoader>
     private Dictionary<SceneName, float> sceneToStartingOrthoSize;
     private Dictionary<SceneName, List<CutsceneCondtional>> CutscenesDict;
 
-    public SceneName startingSceneName;
     public SceneName curScene;
 
     // this helps us to keep track of which scene we should load after the cutscene finishes (for a cutscene + new scene pattern)
@@ -151,6 +150,7 @@ public class LevelLoader : Singleton<LevelLoader>
         CutscenesDict = new Dictionary<SceneName, List<CutsceneCondtional>>();
 
         // get the default starting position for this scene
+        SceneName startingSceneName = FindObjectOfType<GameState>().startingScene;
         Vector3 startingPosition = getSceneStartingLocation(startingSceneName);
 
         // make the dictionary because untiy can't make dictionaries
@@ -350,14 +350,7 @@ public class LevelLoader : Singleton<LevelLoader>
             }
         }
 
-        // ok if its not a cutscene in the persistant scene, maybe its a cutscene in the loaded scene
-        GameObject localCutscene = null;
-        localCutscene = GameObject.Find(cutscene);
-        if (localCutscene != null)
-        {
-            // if we found a possible cutscene, play it and return it
-            return playCutsceneInternal(localCutscene.GetComponent<PlayableDirector>());
-        }
+
         // else ok there really is no cutscene with this name
         return null;
     }
@@ -365,6 +358,12 @@ public class LevelLoader : Singleton<LevelLoader>
     // helper for above function
     public PlayableDirector playCutsceneInternal(PlayableDirector cutscene)
     {
+        Debug.Log("Playing cutscene internal " + cutscene.name);
+        if (gameState.cutscenePlaying == cutscene)
+        {
+            // to stop this weird bug where a cutscene runs twice of the same name???
+            return null;
+        }
         // pause time (OK EDIT IDK WHY TF THIS ISNT WORKING so I just made it check in TimeManager instead)
         // TimeManager.Instance.gameClockPaused = true;
 
@@ -373,23 +372,35 @@ public class LevelLoader : Singleton<LevelLoader>
 
         GameUI.Instance.disableUI();
 
+        Debug.Log("Disabling sprite renderers on NPC");
         // disable all NPC characters
         foreach (SpriteRenderer sr in npcs.GetComponentsInChildren<SpriteRenderer>())
         {
+            // Debug.Log("Disabling sprite renderer on NPC " + sr.name);
             sr.enabled = false;
+            // Debug.Log(sr.enabled);
+        }
+        Debug.Log("Enabling sprite renderers on non NPC");
+        // enable all Non NPC characters
+        foreach (SpriteRenderer sr2 in nonnpcs.GetComponentsInChildren<SpriteRenderer>())
+        {
+            // Debug.Log("Enabling sprite renderer on non-NPC " + sr2.name);
+            sr2.enabled = true;
+            // Debug.Log(sr2.enabled);
         }
 
         // stop any already playing ctuscenes
         if (gameState.cutscenePlaying != null)
         {
+            Debug.Log("Cutscene was already playing called " + gameState.cutscenePlaying + ", stopping it");
             gameState.cutscenePlaying.Stop();
-            FindObjectOfType<GameState>().cutsceneFinishedPlaying(); 
+            
         }
 
         // set the current cutscene playing to the new one
         gameState.cutscenePlaying = cutscene;
         FindObjectOfType<Player>().GetComponent<BoxCollider2D>().enabled = false;
-        Debug.Log("Playing cutscene " + cutscene.name);
+
         cutscene.Play();
         return cutscene;
     }
@@ -555,12 +566,12 @@ public class LevelLoader : Singleton<LevelLoader>
         }
 
 
-        // check if we need to load in any players, and if so load them in
+/*        // check if we need to load in any players, and if so load them in
         // if a cutscene is gonna play though, don't load them since the cutscene will do that
         if (cutsceneToPlayOnLoad == null)
         {
             LoadPlayers(sceneName);
-        }
+        }*/
 
         // SCENE SPECIFIC CHECKS
 
@@ -615,7 +626,7 @@ public class LevelLoader : Singleton<LevelLoader>
     private void LoadPlayers(SceneName sceneName)
     {
         // for each player, check if we should load it into this scene
-        foreach (PlayerLoad pl in players.gameObject.transform.GetComponentsInChildren<PlayerLoad>())
+        foreach (PlayerLoad pl in nonnpcs.gameObject.transform.GetComponentsInChildren<PlayerLoad>())
         {
             // Debug.Log("Considering to add player " + player.name);
             if (pl.checkAddPlayer(sceneName))

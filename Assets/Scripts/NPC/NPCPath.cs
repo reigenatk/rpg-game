@@ -100,6 +100,20 @@ public class NPCPath : MonoBehaviour
                     NPCManager.Instance.BuildPath(scenePath.sceneName, fromGridPosition, toGridPosition, npcMovementStepStack);
                 }
             }
+            else
+            {
+                // if no scene path specified, lets just move the person there instantly. Think the fast track part of A* if it lags behind in time
+                Debug.Log("No scene path, moving " + gameObject.name + "to " + npcScheduleEvent.toGridCoordinate.x + ", " + npcScheduleEvent.toGridCoordinate.y + " in scene " + npcScheduleEvent.toSceneName);
+                NPCMovement npcMovement = GetComponent<NPCMovement>();
+
+                // gotta do this so that the animations are gonna be played properly. Cuz its still gonna use NPCMovement to trigger the stuff
+                npcMovement.SetScheduleEventDetails(npcScheduleEvent);
+                Vector3 npcNextWorldPosition = npcMovement.GetWorldPosition(new Vector3Int(npcScheduleEvent.toGridCoordinate.x, npcScheduleEvent.toGridCoordinate.y, 0), npcScheduleEvent.toSceneName);
+                GetComponent<Rigidbody2D>().position = npcNextWorldPosition;
+                npcMovement.npcIsMoving = false;
+                npcMovement.npcCurrentScene = npcScheduleEvent.toSceneName;
+                GetComponent<SpriteRenderer>().enabled = true;
+            }
         }
 
         // Debug.Log("Number of stuffs on stack " + npcMovementStepStack.Count);

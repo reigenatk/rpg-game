@@ -28,21 +28,21 @@ MonoBehaviour:
     description: Goes to coffee shop on green
     offsetX: 0
     offsetY: 0
-  - hour: 10
+  - hour: 9
     minute: 0
     priority: 1
     day: 0
     weather: 0
     toSceneName: 9
     toGridCoordinate:
-      x: 40
-      y: -106
+      x: 52
+      y: -107
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
-    audioToPlay: {fileID: 8300000, guid: 3287d3d7c4f5ccc46b6a51c42f2d3d4c, type: 3}
+    audioToPlay: {fileID: 0}
     description: union coffe shop
-    offsetX: 0
-    offsetY: 0
+    offsetX: 0.5
+    offsetY: -0.7
   - hour: 12
     minute: 0
     priority: 1
@@ -57,7 +57,7 @@ MonoBehaviour:
     audioToPlay: {fileID: 0}
     description: Lecture
     offsetX: 0.3
-    offsetY: 0
+    offsetY: 0.3
   - hour: 15
     minute: 0
     priority: 1
@@ -103,8 +103,8 @@ MonoBehaviour:
     description: 3:15 goes to Main Quad
     offsetX: 0
     offsetY: 0
-  - hour: 17
-    minute: 0
+  - hour: 16
+    minute: 40
     priority: 1
     day: 0
     weather: 0
@@ -125,8 +125,23 @@ MonoBehaviour:
     weather: 0
     toSceneName: 8
     toGridCoordinate:
-      x: 26
-      y: -83
+      x: 80
+      y: -67
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: 9:30 Goes "home" (slightly below campus)
+    offsetX: 0
+    offsetY: 0
+  - hour: 22
+    minute: 30
+    priority: 1
+    day: 0
+    weather: 0
+    toSceneName: 7
+    toGridCoordinate:
+      x: 49
+      y: -63
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}

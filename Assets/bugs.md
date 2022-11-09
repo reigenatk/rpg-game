@@ -127,3 +127,8 @@ So my goal is to find a way to (inside of yarn) trigger a short animation state 
 Dev Tip: Just like how you don't wanna put an enum inside a list of enums since it will screw up what you currently have in Unity editor (since unity depends on the order in which they appear to determine which one you want), in the same way, when you make new animation frames for a character, **do not put them in between the extisting frames**. Like for instance say I have frames 1-10, then I want to put this new frame at position 11 ALWAYS. Otherwise the animations that I currently have, that use frames 1-10, might use this new frame that I insert in (say at position 9), which will screw up what I already have.
 
 Also Unity kinda sucks in that if you add more animation frames you have to re-apply the slice operation. I wish there was some functionality to just auto do it for you. But oh well.
+
+Bug: Had one where cutscenes would trigger twice when talking to someone, despite their being only one collider and one dialogue activate script... I'm lost on this 
+
+Fix: So I just hacked together a solution by storing the name of the cutscene that is running in GameState and then checking if the next one we want to run is of the same name, and if it is, to do nothing... But this doesn't solve the fact that its running twice, or tell me why that's even occuring...
+

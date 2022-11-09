@@ -1,0 +1,128 @@
+﻿title: Boomer_Vars
+---
+
+// one time dialogue variables
+<<declare $didBoomerDialogue1 = false>>
+<<declare $didBoomerDialogue2 = false>>
+<<declare $hasMetBoomer = false>>
+===
+title: Boomer_Dialogue
+---
+<<jump Boomer_Normal_Dialogue>>
+===
+
+title: Boomer_Normal_Dialogue
+---
+<<if $talkedToBoomerAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+
+<<if $boomerFriendProgress == 0>>
+	<<jump Boomer_Start>>
+<<elseif $boomerFriendProgress >= 1>>
+	<<jump Boomer_Familiar>>
+<<elseif $boomerFriendProgress <= -1>>
+	<<jump Boomer_Unfriendly>>
+<<endif>>
+===
+
+title: Boomer_Familiar
+---
+Michael: Steven, weather's great today, isn't it?
+-> Let's chat
+    Steven: Totally. Let's chat.
+    Michael: Okay, let me get a coffee first, though.
+    <<FadeIn LevelLoader 0.5>>
+    <<jump Boomer_Chat_Decide>>
+===
+
+title: Boomer_Chat_Decide
+---
+<<playSoundString AudioManager TimeTicking>>
+<<wait 4>>
+<<if $didBoomerDialogue1 == false>>
+    <<set $didBoomerDialogue1 = true>>
+    <<jump Chat_End_1>>
+<<elseif $didBoomerDialogue2 == false>>
+	<<set $didBoomerDialogue2 = true>>
+    <<jump Chat_End_2>>
+<<else>>
+    <<jump Chat_End_Generic>>
+<<endif>>
+===
+
+title: Boomer_Chat_End_1
+---
+Michael: 
+<<jump Boomer_Improve_Friendship_Most>>
+===
+
+
+title: Boomer_Chat_End_Generic
+---
+Keith: Alright man, I gotta go coom. I'll catch you later.
+Steven: Later.
+<<wait 2>>
+<<jump Boomer_Improve_Friendship_Most>>
+===
+
+title: Boomer_Unfriendly
+---
+
+===
+
+title: Boomer_Start
+---
+
+===
+
+// only called from the highest level of friendship 
+title: Boomer_Improve_Friendship_Most
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $boomerFriendProgress = $boomerFriendProgress + 1>>
+
+    <<AdvanceXMinutes Manager 60>>
+	<<changePlayerScoreString Manager "entertained" 30.0>>
+	<<changePlayerScoreString Manager "social" 30.0>>
+	<<set $talkedToBoomerAlready = true>>
+===
+
+title: Boomer_Improve_Friendship
+---
+	<<set $boomerFriendProgress = $boomerFriendProgress + 1>>
+	<<changePlayerScoreString Manager "entertained" 20.0>>
+	<<changePlayerScoreString Manager "social" 20.0>>
+	<<set $talkedToBoomerAlready = true>>
+===
+
+title: Boomer_Improve_Friendship_Less
+---
+	<<set $boomerFriendProgress = $boomerFriendProgress + 1>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToBoomerAlready = true>>
+===
+
+title: Boomer_Ruin_Friendship
+---
+	<<set $boomerFriendProgress = $boomerFriendProgress - 1>>
+    <<if $boomerFriendProgress < -1>>
+        <<set $boomerFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" -10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToBoomerAlready = true>>
+===
+
+title: Boomer_Ruin_Friendship_Less
+---
+	<<set $boomerFriendProgress = $boomerFriendProgress - 1>>
+    <<if $boomerFriendProgress < -1>>
+        <<set $boomerFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" -20.0>>
+	<<changePlayerScoreString Manager "social" 20.0>>
+	<<set $talkedToBoomerAlready = true>>
+===

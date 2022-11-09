@@ -49,6 +49,8 @@ public class DialogueManager : MonoBehaviour
                 }
             }*/
             gameState.cutscenePlaying.Pause();
+
+            // we need to do this otherwise the non npcs and npcs will do their default animations which we dont want
             foreach (Animator a in nonNPCObject.GetComponentsInChildren<Animator>())
             {
                 // get each animator, then disable it!
@@ -83,7 +85,7 @@ public class DialogueManager : MonoBehaviour
             foreach (Animator a in NPCsObject.GetComponentsInChildren<Animator>())
             {
                 // get each animator, then disable it!
-                a.enabled = true;
+                a.enabled = false;
             }
         }
         gameState.setGameVariable("isDialoguePlaying", false);

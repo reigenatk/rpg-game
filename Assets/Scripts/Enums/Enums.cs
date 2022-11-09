@@ -60,6 +60,7 @@ public enum GameVariable
     hasEnteredMainQuad,
     hasEnteredClassroom,
     hasPlayerGoneToChurch, // set to false every day, set to true when u talk to stacy at 5pm
+    hasEnteredClassroom2,
 }
 
 
@@ -111,6 +112,7 @@ public enum SceneName
     MainQuad,
     Classroom,
     PersistantScene,
+    Classroom2
 }
 
 public enum Moods

@@ -353,3 +353,85 @@ MonoBehaviour:
       toGridCell:
         x: 999999
         y: 999999
+  - fromSceneName: 9
+    toSceneName: 14
+    scenePathList:
+    - sceneName: 9
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 63
+        y: -107
+    - sceneName: 14
+      fromGridCell:
+        x: 77
+        y: -95
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 14
+    toSceneName: 9
+    scenePathList:
+    - sceneName: 14
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 77
+        y: -95
+    - sceneName: 9
+      fromGridCell:
+        x: 63
+        y: -107
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 11
+    toSceneName: 14
+    scenePathList:
+    - sceneName: 11
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 84
+        y: 6
+    - sceneName: 9
+      fromGridCell:
+        x: 56
+        y: -97
+      toGridCell:
+        x: 63
+        y: -107
+    - sceneName: 14
+      fromGridCell:
+        x: 77
+        y: -95
+      toGridCell:
+        x: 999999
+        y: 999999
+  - fromSceneName: 14
+    toSceneName: 8
+    scenePathList:
+    - sceneName: 14
+      fromGridCell:
+        x: 999999
+        y: 999999
+      toGridCell:
+        x: 77
+        y: -95
+    - sceneName: 9
+      fromGridCell:
+        x: 63
+        y: -107
+      toGridCell:
+        x: 47
+        y: -121
+    - sceneName: 8
+      fromGridCell:
+        x: 91
+        y: -50
+      toGridCell:
+        x: 999999
+        y: 999999

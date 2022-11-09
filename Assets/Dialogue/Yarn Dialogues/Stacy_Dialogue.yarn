@@ -5,9 +5,9 @@
     <<wait 2>>
     Stacy: It's Steven, right?
     <<wait 1>>
-    Stacy:  I didn't think you would come! Not many people do.
-    <<wait 1>>
-    Stacy: Anyways, come in! We're almost ready to start.
+    Stacy: I didn't expect many people to show up!
+    <<wait 2>>
+    Stacy: A-Anyways, come in! We're almost ready to start.
 <<else>>
     <<jump Stacy_Normal_Dialogue>>
 <<endif>>

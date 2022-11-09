@@ -99,7 +99,7 @@ MonoBehaviour:
       x: 69
       y: -108
     npcFacingDirectionAtDestination: 4
-    animationAtDestination: {fileID: 7400000, guid: 69fb5ceaeee513348b7bf46dc5123bfb,
+    animationAtDestination: {fileID: 7400000, guid: 229c1aea53120df449308bb902cbb028,
       type: 2}
     audioToPlay: {fileID: 0}
     description: Laptop on Courches
@@ -113,14 +113,13 @@ MonoBehaviour:
     toSceneName: 12
     toGridCoordinate:
       x: 67
-      y: -92
-    npcFacingDirectionAtDestination: 4
-    animationAtDestination: {fileID: 7400000, guid: a64741b52306c0c49ad09f4439567500,
-      type: 2}
+      y: -90
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: 
-    offsetX: 0
-    offsetY: 0
+    offsetX: -0.15
+    offsetY: -0.3
   - hour: 21
     minute: 10
     priority: 0
@@ -128,10 +127,11 @@ MonoBehaviour:
     weather: 0
     toSceneName: 9
     toGridCoordinate:
-      x: 40
-      y: -117
-    npcFacingDirectionAtDestination: 0
-    animationAtDestination: {fileID: 0}
+      x: 46
+      y: -115
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 69fb5ceaeee513348b7bf46dc5123bfb,
+      type: 2}
     audioToPlay: {fileID: 0}
     description: Leaves Church
     offsetX: 0

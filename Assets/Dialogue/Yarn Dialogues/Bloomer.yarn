@@ -1,0 +1,305 @@
+﻿title: Bloomer_Vars
+---
+
+// one time dialogue variables
+<<declare $didBloomerDialogue1 = false>>
+<<declare $didBloomerDialogue2 = false>>
+<<declare $didBloomerDialogue3 = false>>
+<<declare $hasMetBloomer = false>>
+===
+title: Bloomer_Dialogue
+---
+<<if $isBibleStudyOpen == true>>
+    <<set $hasMetBloomer = true>>
+    Person: Hey there! 
+    <<wait 1>>
+    Person: Are you here for Bible Study?
+    -> Yes
+        Steven: Yes...
+        Person: Great! Stacy already told me all about you.
+        Person: You're Steven, right?
+    -> No
+        Steven: No...
+        Person: Don't be shy! We're all sinners here. Come join us!
+    Chase: My name is Chase, by the way. #e:slight-smile
+    <<wait 1>>
+    Chase: I'm so glad that God has blessed us with your presence today. #e:big-smile
+    Chase: Go ahead and sit down.
+    <<playCutscene LevelLoader BibleStudy>>
+<<else>>
+    <<jump Bloomer_Normal_Dialogue>>
+<<endif>>
+
+===
+
+title: Bloomer_Normal_Dialogue
+---
+<<if $talkedToBloomerAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+<<if $bloomerFriendProgress == 0>>
+	<<jump Bloomer_Start>>
+<<elseif $bloomerFriendProgress >= 1>>
+	<<jump Bloomer_Familiar>>
+<<elseif $bloomerFriendProgress <= -1>>
+	<<jump Bloomer_Unfriendly>>
+<<endif>>
+===
+
+title: Bloomer_Familiar
+---
+Chase: Steven! How's it been?
+-> Let's chat
+    Steven: Good, Chase. And you?
+    Chase: Pretty busy lately, but well enough.
+    Steven: Do you have some time? I'd like to chat...
+    Chase: Sure thing! #e:big-smile
+    <<FadeIn LevelLoader 0.5>>
+    <<jump Bloomer_Chat_Decide>>
+===
+
+title: Bloomer_Chat_Decide
+---
+<<playSoundString AudioManager TimeTicking>>
+<<wait 4>>
+<<if $didBloomerDialogue2 == false>>
+    <<set $didBloomerDialogue2 = true>>
+    <<jump Chat_End_2>>
+<<elseif $didBloomerDialogue1 == false>>
+    <<set $didBloomerDialogue1 = true>>
+    <<jump Chat_End_1>>
+<<elseif $didBloomerDialogue3 == false>>
+    <<set $didBloomerDialogue3 = true>>
+    <<jump Chat_End_3>>
+<<else>>
+    <<jump Chat_End_Generic>>
+<<endif>>
+===
+
+title: Chat_End_1
+---
+Chase: So anyways, I told them I didn't want to go. #e:sad
+Steven: Wow, seems like you really had a different career laid out if you wanted... #e:thinking
+Chase: Yes, But I prefer being here. The people are my age and I don't really desire money. 
+<<wait 1>>
+Steven: I wish I was talented like that... #e:weary
+Chase: It takes practice! Find something you like and learn it well.
+Chase: Anyways, I gotta go, Steven. Nice chatting with you! #e:slight-smile
+Steven: You as well, Chase. #e:smile
+<<jump Bloomer_Improve_Friendship_Most>>
+===
+
+title: Chat_End_2
+---
+Chase: So why didn't you go? #e:confused
+Steven: Well, I just didn't want to confuse her. She might've thought I was interested.
+Chase: Were you though? #e:confused
+Steven: It's... It's complicated...
+Steven: I mean, I did like her, but...
+Steven: I just can't ever see myself getting into a relationship #e:weary
+Steven: I can barely hold down friendships, how am I supposed to talk to a girl? #e:embarassed
+Steven: Even if she happened to like me back, she'd probably dump me for being a boring loser... #e:shy
+<<wait 1>>
+Chase: Well, you aren't as bad at talking as you might think.
+Chase: In fact, you're plenty of fun to chat with! #e:slight-smile
+Chase: Keep your head up. 
+<<wait 1>>
+Steven: Really? #e:embarassed
+<<wait 1>>
+Steven: Thanks... #e:shy
+Chase: I mean it. Also, I gotta go. It's been fun! 
+Steven: Y-Yeah, thanks for chatting! #e:smile
+<<jump Bloomer_Improve_Friendship_Most>>
+===
+
+title: Chat_End_3
+---
+Chase: That cow was named Patricia. 
+Chase: But we had to put her down last fall. #e:sad
+Steven: Damn. #e:stern
+<<wait 1>>
+Chase: Yeah, it's pretty sad. I cried for a long time. #e:surprised
+Chase: But like all good things in life, everything must eventually die. #e:sad
+<<wait 1>>
+Chase: Just like us humans. We live for a little while, and then are no more.. #e:surprised
+Chase: That's why I try so hard in life, because it's the only thing I've got. #e:surprised
+Chase: Aside from heaven, of course. 
+Chase: But the idea is, I want to live a good life so that once I'm up there, I can look back with no regrets. #e:surprised
+<<wait 1>>
+Steven: So like, "live your best life"?
+Chase: Yeah, basically that. Or you could say "taking my life seriously".
+Chase: It seems like you might have a problem doing that.
+<<wait 2>>
+Steven: I do, I feel like I'm not really conscious about how short life really is.
+Steven: And as a result, I live all willy-nilly and avoid doing things I should. #e:thinking
+Steven: But one day, there may come a day when I can't do what I want anymore. #e:weary
+Steven: Either due to old age, or a decaying mind, or whatever. #e:shy
+<<wait 1>>
+Steven: And that scares me. #e:weary
+<<wait 1>>
+Chase: No one is fully conscious of life all the time. That's why I wake in the morning and pray to God. #e:surprised
+Chase: And thank him for each day. Because it could all end at any moment. 
+<<wait 0.5>>
+Chase: I'm starting to sound preachy again. We can save this for Bible Study! #e:slight-smile
+<<wait 0.5>>
+Steven: Haha, ok. I think I gotta go do some work. #e:smile
+Chase: Alright, it's been fun! See ya later.
+<<jump Bloomer_Improve_Friendship_Most>>
+===
+
+title: Chat_End_Generic
+---
+Chase: Anyways, I gotta get going.
+Steven: Alright, thanks for chatting with me! #e:smile
+Chase: Any time! #e:big-smile
+<<jump Bloomer_Improve_Friendship_Most>>
+===
+
+title: Bloomer_Unfriendly
+---
+Chase: Hey there... #e:surprised
+Chase: I uh, I'm sorry about last time. #e:sad
+-> You are forgiven
+    Steven: It's okay... #e:stern
+-> What are you talking about
+    Steven: I don't know what you are talking about. #e:stern
+    Chase: Well, uh, last time we didn't get off on a good foot...
+    Chase: But I really want to be friends with you!
+    -> And I don't
+        Steven: Well I don't, okay? Piss off #e:stern
+        Chase: Lord Jesus be with him... #e:sad
+        Steven: I don't need Jesus either! #e:angry
+        Voice: Hahahahaha #e:laugh
+        <<jump Bloomer_Ruin_Friendship_Less>>
+    -> Okay, let's try to be friends...
+        Steven: I uh, I guess I'm sorry too... #e:embarassed
+        Steven: We should start over.
+        Chase: Okay! #e:big-smile
+        <<jump Bloomer_Improve_Friendship_Less>>
+===
+
+title: Bloomer_Start
+---
+<<if $hasMetBloomer == false >>
+    Person: I don't think I know you, what's your name?
+    Steven: I'm Steven.
+    Chase: Ah, cool. I'm Chase.
+    <<set $hasMetBloomer = true>>
+<<else>>
+    Chase: Hey Steven! #e:slight-smile
+    Chase: Can I help you with something?
+<<endif>>
+-> Hair
+    Steven: Uh, you have nice hair! It's very curly.
+    <<wait 1>>
+    Chase: haha, thanks! I don't do much to it usually.
+    Voice: Noooo don't say that, now he thinks you're gay or something #e:sad
+    Chase: And you have, uh....
+    Chase: No hair. But that's ok. 
+    Chase: I'm sure you'll grow some! #e:slight-smile
+    <<jump Bloomer_Improve_Friendship>>
+-> Guitar
+    Chase: I taught myself, using the internet!
+    <<wait 1>>
+    Chase: I hope my playing is ok, do you think it's good?
+    -> It's good
+        Steven: You play... pretty well actually
+        Chase: I'm glad you enjoy it! #e:big-smile
+        Chase: Just trying to spread some positivity around campus, you know? #e:slight-smile
+        <<jump Bloomer_Improve_Friendship>>
+    -> It sucks ass
+        Steven: You....
+        Steven: You suck at guitar, please stop playing everywhere, it's making my ears bleed. #e:angry
+        Steven: No one wants to hear your stupid worship songs...
+        <<wait 1>>
+        Chase: Oh, I'm sorry about that... #e:confused
+        <<wait 1>>
+        Chase: I er.., I think I should go now #e:surprised
+        <<jump Bloomer_Ruin_Friendship>>
+-> Smiling
+    Chase: Because I have the hope of heaven in my future, brother! #e:big-smile
+    Chase: Furthermore, there's so much to do in life!
+    Chase: I could learn a new skill, eat great food, talk with my many friends, exercise...
+    <<wait 1>>
+    Chase: How could I not be happy? It's such a blessing to be alive!
+    -> You have a point
+        Steven: I guess...
+        <<wait 1>>
+        Chase: You seem kinda down, brother. Keep your head up, it'll get better!
+        <<wait 1>>
+        Mind: Will it really? #e:sad
+        Mind: Normal people always say this phrase, "it's gonna get better"
+        <<wait 1>>
+        Mind: But there isn't any guarantee of that. #e:sad
+        Mind: It only gets better for them, because there are other people in their lives..
+        Mind: People to help pick them up when they fall. #e:thinking
+        Mind: I don't have anyone like that... #e:sad
+        <<jump Bloomer_Improve_Friendship>>
+    -> You disgust me
+        Steven: To be honest, I hate idiots like you... #e:shocked
+        Steven: Always smiling stupidly, for what? #e:angry
+        Steven: Life isn't all roses and rainbows for everyone. So stop rubbing it off others. #e:shocked
+        Chase: Woah, buddy, I'm sorry. We don't have to talk anymore, ok? #e:surprised
+        Steven: I'm not your buddy! #e:angry
+        <<wait 2>>
+        Voice: Hahaha what's the deal, man? #e:laugh
+        Voice: You can't even make friends with the Christian guy... #e:laugh
+        Voice: That's like, failing the tutorial of Social 101 #e:cringe
+        Mind: I don't care, I hate it when happy people try to flex on those who aren't happy #e:shocked
+        <<wait 1>>
+        Mind: It's like, just keep that shit to yourself. We get it. You have a good life. #e:angry
+        <<wait 1>> 
+        Mind: Maybe I kinda overreacted, though... #e:stern
+        <<jump Bloomer_Ruin_Friendship>>
+===
+
+// only called from the highest level of friendship 
+title: Bloomer_Improve_Friendship_Most
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $bloomerFriendProgress = $bloomerFriendProgress + 1>>
+
+    <<AdvanceXMinutes Manager 60>>
+	<<changePlayerScoreString Manager "entertained" 30.0>>
+	<<changePlayerScoreString Manager "social" 30.0>>
+	<<set $talkedToBloomerAlready = true>>
+===
+
+title: Bloomer_Improve_Friendship
+---
+	<<set $bloomerFriendProgress = $bloomerFriendProgress + 1>>
+	<<changePlayerScoreString Manager "entertained" 20.0>>
+	<<changePlayerScoreString Manager "social" 20.0>>
+	<<set $talkedToBloomerAlready = true>>
+===
+
+title: Bloomer_Improve_Friendship_Less
+---
+	<<set $bloomerFriendProgress = $bloomerFriendProgress + 1>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToBloomerAlready = true>>
+===
+
+title: Bloomer_Ruin_Friendship
+---
+	<<set $bloomerFriendProgress = $bloomerFriendProgress - 1>>
+    <<if $bloomerFriendProgress < -1>>
+        <<set $bloomerFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" -10.0>>
+	<<changePlayerScoreString Manager "social" 20.0>>
+	<<set $talkedToBloomerAlready = true>>
+===
+
+title: Bloomer_Ruin_Friendship_less
+---
+	<<set $bloomerFriendProgress = $bloomerFriendProgress - 1>>
+    <<if $bloomerFriendProgress < -1>>
+        <<set $bloomerFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" -20.0>>
+	<<changePlayerScoreString Manager "social" 20.0>>
+	<<set $talkedToBloomerAlready = true>>
+===

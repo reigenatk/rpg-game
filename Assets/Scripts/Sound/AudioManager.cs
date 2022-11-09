@@ -20,6 +20,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private float slowTalkingSpeed = 25.0f;
     [SerializeField] private float normalTalkingSpeed = 40.0f;
 
+
     protected override void Awake()
     {
         base.Awake();
@@ -74,6 +75,33 @@ public class AudioManager : Singleton<AudioManager>
                 break;
             case "Brain":
                 PlaySound(SoundName.BrainTypewriterSound);
+                break;
+            case "Chase":
+                PlaySound(SoundName.BloomerTypewriterSound);
+                break;
+            case "Michael":
+                PlaySound(SoundName.BoomerTypewriterSound);
+                break;
+            case "Laura":
+                PlaySound(SoundName.DoomerGirlTypewriterSound);
+                break;
+            case "Keith":
+                PlaySound(SoundName.CoomerTypewriterSound);
+                break;
+            case "Pepe":
+                PlaySound(SoundName.PepeTypewriterSound);
+                break;
+            case "Dylan":
+                PlaySound(SoundName.DoomerTypewriterSound);
+                break;
+            case "Sawyer":
+                PlaySound(SoundName.SoyRedditTypewriterSound);
+                break;
+            case "Benny":
+                PlaySound(SoundName.SoyDiscordTypewriterSound);
+                break;
+            case "Voice":
+                PlaySound(SoundName.VoiceTypewriterSound);
                 break;
             default:
                 PlaySound(SoundName.TypewriterSound);

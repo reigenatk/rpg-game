@@ -241,6 +241,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: coooomer-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04b7db0907d6a94e8ef9da0321def4b
+      internalID: 133482928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -252,6 +273,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      coooomer-Sheet_6: 133482928
       coooomer-Sheet_3: -754212700
       coooomer-Sheet_5: -1915147296
       coooomer-Sheet_2: 366398101

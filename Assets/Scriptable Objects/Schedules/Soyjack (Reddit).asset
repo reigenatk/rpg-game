@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
+  m_Name: Soyjack (Reddit)
+  m_EditorClassIdentifier: 
+  npcScheduleEventList:
+  - hour: 8
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 82
+      y: -53
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 7400000, guid: 28fb6f95ed0719b4dad01546eb0ba19b,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 02a6fe321eb27ac48a35d13664593773, type: 3}
+    description: soyboying on campus
+    offsetX: 0
+    offsetY: 0
+  - hour: 9
+    minute: 20
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 91
+      y: 10
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 7400000, guid: dd72125acc717d642af5eb0b4b7ef975,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 02a6fe321eb27ac48a35d13664593773, type: 3}
+    description: soyboying on main quad
+    offsetX: 0
+    offsetY: 0
+  - hour: 10
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 14
+    toGridCoordinate:
+      x: 73
+      y: -90
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 7400000, guid: 4b959e4ee16a92d478d541f639c645d1,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: af1f7cb5381a74e4eab18276b9893f30, type: 3}
+    description: soy boy with other soy in the soy room
+    offsetX: 0
+    offsetY: 0
+  - hour: 11
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 81
+      y: -110
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: 
+    offsetX: 0
+    offsetY: 0
+  - hour: 11
+    minute: 45
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 10
+    toGridCoordinate:
+      x: 97
+      y: -97
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 98d6228e117ea444f84b823a9fdbb1c6,
+      type: 2}
+    audioToPlay: {fileID: 0}
+    description: go to lecture
+    offsetX: 0.1
+    offsetY: -0.4
+  - hour: 15
+    minute: 13
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 45
+      y: -104
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Chill in coffee shop with other soy
+    offsetX: 0
+    offsetY: 0
+  - hour: 16
+    minute: 45
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 14
+    toGridCoordinate:
+      x: 76
+      y: -93
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 28fb6f95ed0719b4dad01546eb0ba19b,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: af1f7cb5381a74e4eab18276b9893f30, type: 3}
+    description: Soy club!!
+    offsetX: 0
+    offsetY: 0
+  - hour: 17
+    minute: 45
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 14
+    toGridCoordinate:
+      x: 74
+      y: -93
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 7400000, guid: 4b959e4ee16a92d478d541f639c645d1,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: af1f7cb5381a74e4eab18276b9893f30, type: 3}
+    description: 
+    offsetX: 0
+    offsetY: 0
+  - hour: 18
+    minute: 45
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 14
+    toGridCoordinate:
+      x: 169
+      y: -82
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 35c98d9d548f65649a28bf29af692ab3,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 030c9255fe78ab44a95785477c488135, type: 3}
+    description: Time 2 game
+    offsetX: 0
+    offsetY: 0
+  - hour: 20
+    minute: 20
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 129
+      y: -64
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Outing with the boys to get some dinner
+    offsetX: 0
+    offsetY: 0
+  - hour: 21
+    minute: 10
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 132
+      y: -66
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 7400000, guid: 4b959e4ee16a92d478d541f639c645d1,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 02a6fe321eb27ac48a35d13664593773, type: 3}
+    description: live soying on green
+    offsetX: 0
+    offsetY: 0
+  - hour: 22
+    minute: 45
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 169
+      y: -82
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home (far right side of campus)
+    offsetX: 0
+    offsetY: 0

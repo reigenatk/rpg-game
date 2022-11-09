@@ -20,11 +20,6 @@ MonoBehaviour:
   gridPropertyList:
   - gridCoordinate:
       x: 65
-      y: -96
-    gridBoolProperty: 0
-    gridBoolValue: 1
-  - gridCoordinate:
-      x: 65
       y: -95
     gridBoolProperty: 0
     gridBoolValue: 1
@@ -606,6 +601,11 @@ MonoBehaviour:
   - gridCoordinate:
       x: 77
       y: 35
+    gridBoolProperty: 0
+    gridBoolValue: 1
+  - gridCoordinate:
+      x: 78
+      y: -96
     gridBoolProperty: 0
     gridBoolValue: 1
   - gridCoordinate:

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -112,7 +113,7 @@ public class NPCMovement : MonoBehaviour
             if (isNPCBeingTalkedTo)
             {
                 SetNPCActiveInScene();
-                Debug.Log("Being talked to");
+                // Debug.Log("Being talked to");
                 return;
             }
             else if (npcIsMoving == false)
@@ -251,7 +252,7 @@ public class NPCMovement : MonoBehaviour
         }
         else
         {
-
+            // if no animation specified, just play blank anim (character will dissapear)
             animatorOverrideController[blankAnimation] = blankAnimation;
             animator.SetBool(Settings.eventAnimation, false);
         }
@@ -285,6 +286,8 @@ public class NPCMovement : MonoBehaviour
             audioSource.Stop();
         }
     }
+
+
 
     private void SetNPCFacingDirection()
     {

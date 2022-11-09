@@ -240,16 +240,22 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
     {
         public ChunkOfTime whenEventActive;
         public string yarnVariableName;
+        public NPCMovement npcMovement; // (optional) so we can only set this variable true when the NPC stops moving (since it makes no sense to talk to someone on their way to somewhere and still have a special event trigger)
     }
     [SerializeField] List<GameEvent> specialEvents;
     public void CheckSpecialEvents()
     {
         foreach (GameEvent ge in specialEvents)
         {
-            if (ge.whenEventActive.isInChunk(gt))
+            if (ge.whenEventActive.isInChunk(gt) && !ge.npcMovement.npcIsMoving)
             {
                 // tell yarn its active (so yarn knows to give special dialogues)
                 gameState.setYarnVariable(ge.yarnVariableName, true);
+            }
+            else
+            {
+                // if NOT in event, set it false!
+                gameState.setYarnVariable(ge.yarnVariableName, false);
             }
         }
     }
@@ -409,14 +415,18 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
         }
     }
     [YarnCommand("AdvanceXMinutes")]
-    public void AdvanceXSeconds(float numMinutes)
+    public void AdvanceXMinutes(int numMinutes)
     {
-        Debug.Log("Advacing time by " + numMinutes + " minutes");
-        for (int i = 0; i < numMinutes * 60; i++)
-        {
-            UpdateGameSecond();
-        }
+        gt.advanceTime(0, numMinutes);
     }
+
+    [YarnCommand("SetTime")]
+    public void setTime(int hour, int min, int sec)
+    {
+        gt = new GameTime(hour, min, sec);
+    }
+
+
 
     public void TestAdvanceGameMinute()
     {

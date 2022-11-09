@@ -49,7 +49,7 @@ public class AStar : MonoBehaviour
             }
             else
             {
-                Debug.Log("No shortest Path found");
+                Debug.Log("No shortest Path found to scene " + sceneName);
             }
         }
         return false;

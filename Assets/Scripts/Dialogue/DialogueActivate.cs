@@ -167,11 +167,21 @@ public class DialogueActivate : MonoBehaviour, Interactable
             {
                 StopCoroutine(npcMovement.moveToGridPositionRoutine);
             }
-            Debug.Log("Playing animation " + animationTriggerName);
+            Debug.Log("Playing animation on NPC " + animationTriggerName);
             animator.SetBool(animationTriggerName, true);
 
 
         }
+    }
+
+    [YarnCommand("SetNPCAnimation")]
+    public void SetNPCAnimation(string boolName)
+    {
+        NPCMovement npcMovement = transform.parent.gameObject.GetComponent<NPCMovement>();
+        npcMovement.ResetAllAnimation();
+        Debug.Log("Playing animation on NPC " + boolName);
+        Animator animator = transform.parent.gameObject.GetComponent<Animator>();
+        animator.SetBool(boolName, true);
     }
 
 

@@ -10,6 +10,8 @@ public class PlayerLoad : MonoBehaviour
     // the actual object to load
     [SerializeField]        
     public GameObject player;
+    private GameState gameState;
+    private SpriteRenderer spriteRenderer;
 
     [System.Serializable]
     public class PlayerCondtional
@@ -83,5 +85,19 @@ public class PlayerLoad : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void Start()
+    {
+        gameState = FindObjectOfType<GameState>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        if (gameState.getYarnVariable("$coomerWasExposed") == true)
+        {
+            spriteRenderer.enabled = false;
+        }
     }
 }

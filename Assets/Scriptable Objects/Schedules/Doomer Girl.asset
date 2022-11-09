@@ -12,4 +12,170 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
   m_Name: Doomer Girl
   m_EditorClassIdentifier: 
-  npcScheduleEventList: []
+  npcScheduleEventList:
+  - hour: 8
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 35
+      y: -78
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Wait by bus stop
+    offsetX: 0
+    offsetY: 0
+  - hour: 9
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 78
+      y: 24
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 5f19b63b9bb19b04d80b0a6c899899b6,
+      type: 2}
+    audioToPlay: {fileID: 0}
+    description: listen to music
+    offsetX: 0
+    offsetY: 0
+  - hour: 10
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 64
+      y: -107
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: lecture
+    offsetX: 0
+    offsetY: 0
+  - hour: 10
+    minute: 50
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 14
+    toGridCoordinate:
+      x: 21
+      y: -69
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home
+    offsetX: 0
+    offsetY: 0
+  - hour: 11
+    minute: 20
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 64
+      y: -107
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home
+    offsetX: 0
+    offsetY: 0
+  - hour: 11
+    minute: 45
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 10
+    toGridCoordinate:
+      x: 104
+      y: -102
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home
+    offsetX: 0.25
+    offsetY: -0.3
+  - hour: 15
+    minute: 25
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 76
+      y: -107
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home
+    offsetX: 0
+    offsetY: 0
+  - hour: 16
+    minute: 55
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 12
+    toGridCoordinate:
+      x: 72
+      y: -93
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: church
+    offsetX: 0
+    offsetY: 0
+  - hour: 21
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 76
+      y: -107
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home
+    offsetX: 0
+    offsetY: 0
+  - hour: 21
+    minute: 35
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 81
+      y: -67
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home
+    offsetX: 0
+    offsetY: 0
+  - hour: 22
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 7
+    toGridCoordinate:
+      x: 49
+      y: -63
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home (neighbors house, lives with stacy)
+    offsetX: 0
+    offsetY: 0

@@ -136,7 +136,7 @@ public class Player : Singleton<Player>, ISaveable
         // if a cutscene is currently playing, don't let us make noises.
         // this is to avoid us making footstep noises when animator is moving around?
 
-        AudioManager.Instance.PlaySound(SoundName.WalkingSound);
+        AudioManager.Instance.PlaySound(SoundName.RobotWalk);
     }
 
     public void setAnimationState(string animationName)

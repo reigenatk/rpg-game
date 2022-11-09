@@ -46,6 +46,19 @@ public class SoundItem
         Sobbing,
         DadTypewriterSound,
         MomTypewriterSound,
+        BloomerTypewriterSound,
+        DoomerGirlTypewriterSound,
+        PepeTypewriterSound,
+        DoomerTypewriterSound,
+        SoyRedditTypewriterSound,
+        SoyDiscordTypewriterSound,
+        CoomerTypewriterSound,
+        BoomerTypewriterSound,
+        RobotWalk,
+        VoiceTypewriterSound,
+        Crickets,
+        Prayer,
+        TimeTicking,
     }
 
     public SoundName soundName;

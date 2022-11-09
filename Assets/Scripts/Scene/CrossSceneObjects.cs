@@ -11,6 +11,7 @@ using Yarn.Unity;
 public class CrossSceneObjects : MonoBehaviour
 {
     [SerializeField] SpriteRenderer CoomerHead;
+    [SerializeField] Animator CoomerNPCAnimator;
     
     // helper to call the toggleLight on the PropsToggle.cs function (across scenes)
     public void turnOffLamp()
@@ -91,7 +92,12 @@ public class CrossSceneObjects : MonoBehaviour
         StartCoroutine(FadeAudioSource.StartFade(lectureHallTalking, 3.0f, 0.0f));
     }
 
-
+    [YarnCommand("FaceCoomerDown")]
+    public void faceCoomerDown()
+    {
+        CoomerNPCAnimator.SetBool("idleUp", false);
+        CoomerNPCAnimator.SetBool("idleDown", true);
+    }
     public void facePlayerDirection(string direction)
     {
         switch (direction)

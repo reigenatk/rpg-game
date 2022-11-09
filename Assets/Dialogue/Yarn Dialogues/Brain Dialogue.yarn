@@ -1,5 +1,22 @@
 ﻿title: Brain_Dialogue
-tags:
 ---
+<<jump Brain_Normal_Dialogue>>
 
+===
+
+title: Brain_Normal_Dialogue
+---
+<<if $talkedToBrainAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+<<if $brainFriendProgress == 0>>
+	<<jump Brain_Start>>
+<<elseif $brainFriendProgress == 1>>
+	<<jump Brain_Familiar>>
+<<elseif $brainFriendProgress == -1>>
+	<<jump Brain_Unfriendly>>
+<<elseif $brainFriendProgress == -2>>
+	<<jump Brain_NotFriends>>
+<<endif>>
 ===

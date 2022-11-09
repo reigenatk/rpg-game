@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
+  m_Name: Soyjak (Discord)
+  m_EditorClassIdentifier: 
+  npcScheduleEventList:
+  - hour: 8
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 81
+      y: 22
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 7400000, guid: 0e763de4d33e2414bb617fe762fe23b2,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: bcd06642efa9acf41a2c5840f33aa932, type: 3}
+    description: 
+    offsetX: 0
+    offsetY: 0
+  - hour: 10
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 14
+    toGridCoordinate:
+      x: 76
+      y: -90
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: fe05f5cf898d93a419770df65636cfdc,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 4376a948b976bb1448ea799b80b1f6c5, type: 3}
+    description: 
+    offsetX: 0
+    offsetY: 0
+  - hour: 11
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 80
+      y: -104
+    npcFacingDirectionAtDestination: 1
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Go to class
+    offsetX: 0
+    offsetY: 0
+  - hour: 11
+    minute: 45
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 10
+    toGridCoordinate:
+      x: 98
+      y: -97
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: ebe1dc2a369c48045874512e1758c532,
+      type: 2}
+    audioToPlay: {fileID: 0}
+    description: 
+    offsetX: 0.5
+    offsetY: -0.3
+  - hour: 15
+    minute: 15
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 43
+      y: -104
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 8300000, guid: 3b85ced3a20eb234fbb832ec28c5e739, type: 3}
+    description: Talk with other soy
+    offsetX: 0
+    offsetY: 0
+  - hour: 17
+    minute: 10
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 14
+    toGridCoordinate:
+      x: 75
+      y: -89
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 44f4be8b0586a184b865d11484f1ac7d,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: a8359cc064265374cb1ee67dac696a70, type: 3}
+    description: 
+    offsetX: 0
+    offsetY: 0
+  - hour: 19
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 14
+    toGridCoordinate:
+      x: 73
+      y: -88
+    npcFacingDirectionAtDestination: 2
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 8300000, guid: ebca65b5939a2f041953e1e922fd1025, type: 3}
+    description: 
+    offsetX: 0
+    offsetY: 0
+  - hour: 20
+    minute: 25
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 131
+      y: -64
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: eating
+    offsetX: 0
+    offsetY: 0
+  - hour: 21
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 57
+      y: -67
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 6b8b546ded8818c42b80da9948bd6d77,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 0d9d593c41ef2334ea894993625cf895, type: 3}
+    description: soying on green
+    offsetX: 0
+    offsetY: 0
+  - hour: 23
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 169
+      y: -82
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: home
+    offsetX: 0
+    offsetY: 0

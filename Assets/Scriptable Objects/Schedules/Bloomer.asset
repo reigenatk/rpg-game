@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cecd34231b0254497e27e1fdd1ba2c, type: 3}
+  m_Name: Bloomer
+  m_EditorClassIdentifier: 
+  npcScheduleEventList:
+  - hour: 8
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 119
+      y: -63
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: Go get food
+    offsetX: 0
+    offsetY: 0
+  - hour: 10
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 11
+    toGridCoordinate:
+      x: 91
+      y: 20
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: c303a409dfc845640965411a4b91a82c,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 81353d2292dc5d04fadeff14cc723bb6, type: 3}
+    description: go home
+    offsetX: 0
+    offsetY: 0
+  - hour: 12
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 52
+      y: -119
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: c303a409dfc845640965411a4b91a82c,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: 81353d2292dc5d04fadeff14cc723bb6, type: 3}
+    description: go home
+    offsetX: 0.5
+    offsetY: 0.5
+  - hour: 16
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 12
+    toGridCoordinate:
+      x: 71
+      y: -88
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: 4518d767a93766c40ae2747bf262b2a6,
+      type: 2}
+    audioToPlay: {fileID: 0}
+    description: '"talk"'
+    offsetX: 0
+    offsetY: 0
+  - hour: 18
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 12
+    toGridCoordinate:
+      x: 69
+      y: -88
+    npcFacingDirectionAtDestination: 4
+    animationAtDestination: {fileID: 7400000, guid: c303a409dfc845640965411a4b91a82c,
+      type: 2}
+    audioToPlay: {fileID: 8300000, guid: d6efd26d68f474746b4ec3b6082f133d, type: 3}
+    description: guitar
+    offsetX: 0
+    offsetY: 0
+  - hour: 21
+    minute: 30
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 9
+    toGridCoordinate:
+      x: 69
+      y: -109
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home
+    offsetX: 0
+    offsetY: 0
+  - hour: 22
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 8
+    toGridCoordinate:
+      x: 85
+      y: -69
+    npcFacingDirectionAtDestination: 3
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home
+    offsetX: 0
+    offsetY: 0
+  - hour: 23
+    minute: 0
+    priority: 0
+    day: 0
+    weather: 0
+    toSceneName: 7
+    toGridCoordinate:
+      x: 26
+      y: -83
+    npcFacingDirectionAtDestination: 0
+    animationAtDestination: {fileID: 0}
+    audioToPlay: {fileID: 0}
+    description: go home
+    offsetX: 0
+    offsetY: 0

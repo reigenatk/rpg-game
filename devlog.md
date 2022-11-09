@@ -27,6 +27,14 @@ Warning- its kinda complicated. Didn't really design the game with making scenes
 
 - Hopefully it works!?
 
+# Things to do to make new character
+- Duplicate existing character
+- Change all animation clips to appropriate values, create all animations
+- Set their starting location on the map, also set their current scene to whatever scene they will start in
+- Make a `headshots` scriptable object with all the head pictures and put into the Headshot object
+- make a new typewriter sound enum in `SoundItem.cs`, and link that up to the switch statement in `AudioManager.cs`
+- Profit
+
 # Time
 
 Game Time scale:
@@ -456,4 +464,41 @@ Another todo might be to research a more interesting dialogue window, and also a
 
 Again, my goal with this game isn't to make perfection, I just want to convey emotion and give the player a glimpse of my college life. 
 
+Tmrw: Sort out the classroom scene, finish the animators for other NPCs, and hopefully start working on some cutscenes!
+
+
+# 11/3/22
+OK, all schedules have been officially added. Hurray. Campus definitely feels a little more lively, surely the player will run into a few people now (unless he holes himself up in the room).
+
+Now I will work on church cutscene and dialogues. Added lots more audio today as well, some really troll ones in there xD
+
+# 11/4/22
+
+Thinking heavily today about headshot, u know every rpg has it, where it shows the character's face on the left side of the screen. That way you get a close up and it feels more realistic ig?
+
+Problem is I need to read in each line of dialogue, and see who is talking. Then also somehow I need to be able to pass in using Yarn, which face I want. I was thinking about using a YarnCommand each time we wanna change the face, but now it seems a better solution is using [Yarn tags](https://docs.yarnspinner.dev/getting-started/writing-in-yarn/tags-metadata)? Then we use the `nameUpdated` function in `Headshots.cs` which really is called by the `OnNameUpdate` function in `DialogueCharacterNameView.cs`, to extract the metadata of the line, and hopefully see whether or not we should use a default headshot or a custom one.
+
+Complicated! Let's see if I can get this working. Because the alternative is just, we talk to people and they just talk and stuff but there's no emotion involved.
+
+Ok for future reference when doing **metadata** we put something like `#e:slight-smile` in the yarn dialogue. I chose "e" but it could be any word or letter, this e stands for expression. And then slight-smile is the name of the string in the scriptable object, which has a corresponding sprite. When the metadata is put into a String[], the elements then look like `e:slight-smile`, so without the `#` symbol. Therefore I can now get rid of the first two letters to get my desired string, which we will go find the sprite with. And if there is no metadata then we can assume we want the default sprite. Cool.
+
+OK I think the headshot system is working. Suprisingly not that terrible, hurray for Yarn. Not hurray for having to put tags in all my Yarn dialogues now xD
+
+At least no tag = default so that's a net positive.
+
+Also just a sidenote, **stop moving scripts around in the file heiarchy**, it keeps causing these weird "Missing Script" bugs to appear in Unity and then I have to re-enter in all the fields. Really annoying.
+
+# 11/5/22
+
+OK I changed the player anims all to the Robot character. We're committing to that. Also I am pretty much done with church cutscene, just gotta find non cancer sounds for each of the players. Harder than expected.
+
+# 11/8/22
+
+Ok finished fixing a few bugs, biggest one was that at end of the scene it would just freeze, the problem was the way I was advancing time. I fixed it using two things: First we now just **instantly set the time to the value we want**, instead of using the for loop to call the `UpdateGameSecond` method a few thousand times. Then you might say, well then the NPCs aren't gonna move properly.
+
+Not anymore. I added the ability for NPCs to move between scenes, even if there is no scene route between them. Adding this was actually pretty easy since its already inside the NPC Move coroutine whenever the time lags behind. The only problem is that it doesn't look realistic since the NPC just teleports into the right place, but thats totally fine for me. So now you can hop around in time and NPCs will still move around just fine. Perfect.
+
+Finished Bible Study scene, finished bloomer dialogue (general), now I was working on the coomer dialogue and a cutscene where you bust him for being a stalker.
+
+Made a really retarded scene where cops chase the coomer around lol. Still doesnt work yet, theres this weird bug where the cutscene doesnt run cuz the animators are supposedly disabled on the non-npcs... wtf?
 

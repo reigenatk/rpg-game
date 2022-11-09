@@ -30,8 +30,8 @@ public class GameState : Singleton<GameState>
     [SerializeField] ScoreCategoryUI contentedness;
     [SerializeField] ScoreCategoryUI entertainment;
     [SerializeField] GameObject npcs;
-
-
+    [SerializeField] GameObject nonnpcs;
+    public SceneName startingScene;
 
 
     [SerializeField] TimeManager timeManager;
@@ -40,6 +40,7 @@ public class GameState : Singleton<GameState>
     // basically specify which variables are 1 time events (in entire game, only happens once) vs variables that should be reset daily
     [SerializeField] List<GameVariable> variablesToNotResetEachDay;
     [SerializeField] List<GameVariablePair> initialGameState; // sets some game variables for debugging purposes
+
 
     public Moods playerMood;
     public int gameDay = 1;
@@ -90,6 +91,12 @@ public class GameState : Singleton<GameState>
         foreach (GameVariablePair gvp in initialGameState)
         {
             setGameVariable(gvp.variable.ToString(), gvp.desiredValue);
+        }
+
+        // start with all non npcs disabled
+        foreach (SpriteRenderer sr in nonnpcs.GetComponentsInChildren<SpriteRenderer>())
+        {
+            sr.enabled = false;
         }
     }
 
@@ -205,8 +212,15 @@ public class GameState : Singleton<GameState>
     // this is called via SIGNAL from each timeline's signal emitters
     public void cutsceneFinishedPlaying()
     {
-        // disable all NPC characters
+        // enable all NPC characters
+        Debug.Log("Enabling all NPC chars sprite renderers");
         foreach (SpriteRenderer sr in npcs.GetComponentsInChildren<SpriteRenderer>())
+        {
+            sr.enabled = true;
+        }
+        // disable all Non NPC characters
+        Debug.Log("Disabling all Non-NPC chars sprite renderers");
+        foreach (SpriteRenderer sr in nonnpcs.GetComponentsInChildren<SpriteRenderer>())
         {
             sr.enabled = false;
         }
@@ -269,6 +283,7 @@ public class GameState : Singleton<GameState>
     [YarnCommand("changePlayerScoreString")]
     public void changePlayerScoreString(string ps, float delta)
     {
+        Debug.Log("Changing player score " + ps + " by value " + delta);
         changePlayerScore(Settings.ParseEnum<PlayerScore>(ps), delta);
     }
 
