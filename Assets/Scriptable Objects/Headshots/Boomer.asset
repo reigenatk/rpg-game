@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headshots:
   - headshotName: normal
-    sprite: {fileID: -128514120, guid: af5dd3ccec7b0024cb112adebb5bb7e0, type: 3}
+    sprite: {fileID: -1786208690, guid: 70cd0bfa7603f4f47bb65a7c7e7feed4, type: 3}
+  - headshotName: sad
+    sprite: {fileID: 124278288, guid: 70cd0bfa7603f4f47bb65a7c7e7feed4, type: 3}
+  - headshotName: talking
+    sprite: {fileID: 209029423, guid: 70cd0bfa7603f4f47bb65a7c7e7feed4, type: 3}
   charactersThatUseTheseHeadshots:
   - Michael
   scaleToUse: 2

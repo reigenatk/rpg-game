@@ -103,6 +103,15 @@ public class AudioManager : Singleton<AudioManager>
             case "Voice":
                 PlaySound(SoundName.VoiceTypewriterSound);
                 break;
+            case "Chris":
+                PlaySound(SoundName.ZoomerTypewriterSound);
+                break;
+            case "Mom":
+                PlaySound(SoundName.MomTypewriterSound);
+                break;
+            case "Dad":
+                PlaySound(SoundName.DadTypewriterSound);
+                break;
             default:
                 PlaySound(SoundName.TypewriterSound);
                 break;

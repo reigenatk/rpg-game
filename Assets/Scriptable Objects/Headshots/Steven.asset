@@ -19,7 +19,7 @@ MonoBehaviour:
     sprite: {fileID: -1044338548, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
   - headshotName: bored
     sprite: {fileID: -810117105, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
-  - headshotName: shocked
+  - headshotName: oshit
     sprite: {fileID: -1145343584, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
   - headshotName: angry
     sprite: {fileID: -1481577236, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
@@ -27,14 +27,36 @@ MonoBehaviour:
     sprite: {fileID: 134167743, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
   - headshotName: embarassed
     sprite: {fileID: 1263203670, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
-  - headshotName: thinking
+  - headshotName: worried
     sprite: {fileID: 1341097290, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
-  - headshotName: kinda-angry
+  - headshotName: smirk
     sprite: {fileID: 441122074, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
   - headshotName: stern
     sprite: {fileID: 546863340, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
-  - headshotName: smile
+  - headshotName: yikes
     sprite: {fileID: -1725152997, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: think1
+    sprite: {fileID: -377562965, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: think2
+    sprite: {fileID: 1753945192, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: smile
+    sprite: {fileID: -2123537164, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: laugh
+    sprite: {fileID: -1842076152, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: angry2
+    sprite: {fileID: -1472781557, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: shocked
+    sprite: {fileID: 602664228, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: huh
+    sprite: {fileID: 259245835, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: cringe
+    sprite: {fileID: -1037042926, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: dsmile
+    sprite: {fileID: 866832881, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: comfy
+    sprite: {fileID: 715708040, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: angry3
+    sprite: {fileID: 951275317, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
   charactersThatUseTheseHeadshots:
   - Steven
   - Mind

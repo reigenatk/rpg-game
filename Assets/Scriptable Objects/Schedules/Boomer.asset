@@ -20,8 +20,8 @@ MonoBehaviour:
     weather: 0
     toSceneName: 8
     toGridCoordinate:
-      x: 144
-      y: -60
+      x: 99
+      y: -51
     npcFacingDirectionAtDestination: 4
     animationAtDestination: {fileID: 7400000, guid: 32f52e7ff9fb94544b23a872dd266043,
       type: 2}
@@ -82,8 +82,8 @@ MonoBehaviour:
     weather: 0
     toSceneName: 8
     toGridCoordinate:
-      x: 74
-      y: -69
+      x: 86
+      y: -52
     npcFacingDirectionAtDestination: 2
     animationAtDestination: {fileID: 7400000, guid: e587fe364f054d74f81d67a592d77eaf,
       type: 2}

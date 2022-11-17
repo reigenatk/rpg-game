@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headshots:
   - headshotName: normal
+    sprite: {fileID: 1926857719, guid: 1e093258c08ebcd41a8ea0196d8ad1f0, type: 3}
+  - headshotName: sad
     sprite: {fileID: 1585510809, guid: 1e093258c08ebcd41a8ea0196d8ad1f0, type: 3}
   charactersThatUseTheseHeadshots:
   - Becky

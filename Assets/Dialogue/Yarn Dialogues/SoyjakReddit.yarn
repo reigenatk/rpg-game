@@ -1,5 +1,325 @@
-﻿title: Soyjak_Reddit_Dialogue
-tags:
+﻿title: Reddit_Vars
 ---
 
+// one time dialogue variables
+<<declare $didRedditDialogue1 = false>>
+<<declare $didRedditDialogue2 = false>>
+<<declare $hasMetReddit = false>>
+===
+title: Reddit_Dialogue
+---
+<<if $isGamingClub == true>>
+	<<playCutscene LevelLoader SoyboyGaming>>
+<<else>>
+	<<jump Reddit_Normal_Dialogue>>
+<<endif>>
+
+===
+
+title: Reddit_Normal_Dialogue
+---
+<<if $talkedToRedditAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+<<if $RedditFriendProgress == 0>>
+	<<jump Reddit_Start>>
+<<elseif $RedditFriendProgress >= 1>>
+	<<jump Reddit_Familiar>>
+<<elseif $RedditFriendProgress <= -1>>
+	<<jump Reddit_Unfriendly>>
+<<endif>>
+===
+
+title: Reddit_Familiar
+---
+	Sawyer: Hello. Steven. #e:smug
+	<<wait 1.5>>
+	Sawyer: Get it? I said "r slash" because its like reddit subreddits you know!? #e:wow
+	<<wait 1>>
+	Steven: Yeah... #e:bored
+	Benny: What do you want? #e:normal
+	-> Let's chat
+		Steven: Wanna have a chat? #e:think1
+		<<wait 1>>
+		Benny: Sure.
+		<<jump Reddit_Chat_Decide>>
+	-> Nothing
+		Steven: Never mind.
+===
+
+title: Reddit_Chat_Decide
+---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didRedditDialogue1 == false>>
+    <<set $didRedditDialogue1 = true>>
+    <<jump Reddit_Chat_End_1>>
+<<elseif $didRedditDialogue2 == false>>
+	<<set $didRedditDialogue2 = true>>
+    <<jump Reddit_Chat_End_2>>
+<<else>>
+	-> Dance 
+		<<jump Reddit_Dance>>
+	-> Something Random
+    	<<jump Reddit_Chat_End_Generic>>
+<<endif>>
+===
+
+title: Reddit_Chat_End_1
+---
+Sawyer: So what do you think? R/am I the asshole!? #e:wow
+Steven: I dunno, dude. Did you try talking to them in real life at all? #e:bored
+<<wait 1>>
+Steven: You know? Like not using reddit? #e:bored
+Sawyer: Why would you suggest that? #e:rage
+<<wait 3>>
+Sawyer: Oh yeah, dude I red the funniest TIFU post today. #e:talking
+Sawyer: You know tifu? It stands for "today I f'd up" #e:wow
+Sawyer: Where I said "f" because it's like a bad word, you know. #e:rage
+Sawyer: Nyuk nyuk nyuk nyuk #e:smile
+Sawyer laughs uncontrollably for 2.4 seconds
+<<wait 2>>
+Steven: Yeah... #e:bored
+Sawyer: Also omigad I love r/politics #e:excited
+Sawyer: Orange man bad! Free tibet! Xi jinping is winnie the pooh #e:excited
+Sawyer: Also omg I love AOC she's so strong and beautiful and brave. #e:wow
+<<wait 1>>
+Sawyer: Reddit is such a wonderful place. A melting pot of intelligent minds, if you will. #e:smug
+<<wait 1>>
+Sawyer: Don't you agree? #e:excited
+<<wait 2>>
+Steven: Yeah?
+<<wait 1>>
+Sawyer: Mhm. It's shaped so much of who I am today. I couldn't live without it! #e:wow
+<<wait 0.5>>
+Sawyer: Not like those instagram normies. Bah! They're missing out. #e:smug
+Sawyer: So, what do you say? Want to come to the r/noahgettheboat meetup this Saturday? #e:wow
+<<wait 3>>
+-> Politely decline
+	Steven: Uhhh, I think I'm busy.
+	Steven: No thanks. #e:yikes
+	Sawyer: Whaaaat, no just hear me out for a second... #e:wow
+-> Impolitely decline
+	Steven: What the fuck? #e:yikes
+Sawyer: No so basically, the subreddit's name is a pun on the biblical story of noah's ark. #e:talking
+Sawyer: The entire premise of the subreddit is to make fun of outrageous acts commited by people. #e:wow
+Sawyer: And it's like "haha, noah get the boat cuz this guy is so stupid!" #e:smug
+<<wait 1>>
+Sawyer: Get it? Cause everyone died in Noah's Ark? #e:smile
+<<wait 1>>
+Sawyer: Cause God flooded the world!? #e:talking
+<<wait 3>>
+Sawyer: Get it!? #e:excited
+Sawyer starts uncontrollably laughing...
+<<wait 1>>
+Voice: Oh my god, I can't take this guy anymore #e:sad
+Voice: Please leave! #e:cringe
+<<wait 1>>
+You decide to leave before Sawyer starts talking again.
+<<jump Reddit_Improve_Friendship_Most>>
+===
+
+title: Soydance_done
+---
+Sawyer: Whew! How was it?
+<<wait 1>>
+Steven: I'm kinda dizzy... #e:think1
+Steven: But that was fun! #e:smile
+<<set $RedditFriendProgress = $RedditFriendProgress + 1>>
+<<changePlayerScoreString Manager "entertained" 10.0>>
+<<changePlayerScoreString Manager "social" 10.0>>
+<<set $talkedToRedditAlready = true>>
+Sawyer: Hooray for soy! #e:wow
+<<AdvanceXMinutes Manager 50>>
+===
+
+title: Reddit_Chat_End_2
+---
+Sawyer: So there's this one sub right... #e:smile
+Sawyer: It's called r/antiwork #e:wow
+<<wait 1>>
+Sawyer: Basically we're reviving the spirit of the working class. #e:smile
+<<wait 1>>
+Sawyer: And we're standing up to employers who are abusing our rights #e:smug
+Sawyer: It's truly the most amazing thing I've ever been a part of #e:smile
+<<wait 1>>
+Sawyer sniffles a bit...
+<<wait 1>>
+Sawyer: It's just, so... #e:sniffle
+Sawyer sniffles again...
+Sawyer: So... powerful #e:sniffle
+Sawyer: I just can't believe Reddit is having such a powerful impact on the world #e:sniffle
+Sawyer: Every day we're fighting like HELL for LGBTQIA+ rights, working rights, and anti-facism #e:sniffle
+Sawyer: It's like we're soldiers on a battlefield. We've taken casualties, but we won't give up. #e:sniffle
+<<wait 2>>
+Sawyer: And every day, I can wake up and know I was a part of that. #e:sniffle
+Sawyer: I long for the day when I can finally look up at the sky and say, "We did it, reddit" #e:sniffle
+Sawyer: And then perhaps get a few Reddit Golds. #e:sniffle
+<<wait 2>>
+Voice: AAAAAA stop talking to him!!! I CANT TAKE THIS ANYMORE AAAA #e:cringe
+<<wait 2>>
+Steven: That's great, Sawyer. #e:embarassed
+Steven: Look man, I gotta go. #e:think1
+Sawyer: Okay Steven. You go. Thanks for listening. #e:sniffle
+<<jump Reddit_Improve_Friendship_Most>>
+===
+
+
+title: Reddit_Chat_End_Generic
+---
+Steven: Anyways, I gotta go.
+Sawyer: Okay! When are we talking next time?
+<<jump Reddit_Improve_Friendship_Most>>
+===
+
+title: Reddit_Unfriendly
+---
+Sawyer: ...
+<<wait 2>>
+Sawyer: What do you want?
+<<wait 1>>
+-> Be Nice
+	Steven: Look Sawyer, I'm sorry about last time. #e:worried
+	Steven: I didn't mean it, I promise. Can we be friends? #e:smile
+	<<wait 1>>
+	Sawyer: r/no. I don't make friends with homophobes.
+	<<jump Reddit_Ruin_Friendship_Less>>
+-> Insult
+	<<jump Insult_Reddit>>
+===
+
+title: Reddit_Start
+---
+<<if $hasMetReddit == false>>
+	Sawyer: ...
+	<<wait 1>>
+	Sawyer: Are you looking at me?
+	<<wait 1>>
+	Steven: Um... yeah, wanna chat? #e:shy
+	Sawyer: Ok...? 
+	Steven: I'm Steven. #e:worried
+	Steven: I'm a junior here... #e:shy
+	<<wait 1>>
+	Sawyer: Okay? Cool? I'm Sawyer?
+	Sawyer: He/him pronouns. #e:excited
+<<endif>>
+Sawyer: So........ what is it?
+-> Dance
+	<<jump Reddit_Dance>>
+
+===
+
+title: Reddit_Dance
+---
+Steven: What is that dance you do all the time?
+Sawyer: It's the soyboy dance! #e:wow
+Sawyer: I use it to burn some calories after drinking some nutritious soy milk! #e:wow
+Sawyer: Did you know that soymilk is better than traditional milk? #e:talking
+Sawyer: It provides the same nutrients but is plant-based so we can save the cows! #e:excited
+Sawyer: It's rich in omega-3, antioxidants, and is totally vegan! #e:excited
+<<wait 1>>
+Sawyer: What were we talking about again? Oh. The dance #e:smile
+-> Insult
+	Steven: You look really dumb doing it. #e:laugh
+	Sawyer: Hey! You take that back! #e:rage
+	<<jump Reddit_Ruin_Friendship>>
+-> Be nice
+	Steven: Uh, it's very interesting #e:smile
+	Sawyer: Want to learn how to do it? #e:wow
+	<<wait 1>>
+	Steven: Sure... #e:think1
+	// IMPROVE FRIENDSHIP MANUALLY
+	<<set $RedditFriendProgress = $RedditFriendProgress + 1>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToRedditAlready = true>>
+	<<FadeIn LevelLoader 1.0>>
+	<<wait 3>>
+	<<playCutscene LevelLoader SoyboyDance>>
+===
+
+title: Soydance_1
+---
+Sawyer: So you start by pointing both directions really fast #e:wow
+===
+
+title: Soydance_2
+---
+Sawyer: Then once you get the hang of that, you can put your hands up as well in the middle #e:excited
+===
+
+title: Insult_Reddit
+---
+Steven: Why do you act like this? #e:stern
+Steven: Disgusting, inbred cretin. #e:angry2
+Steven: You are a weak, excuse of a man who thinks he's doing something for the world by being the loudest voice on the internet #e:angry
+Steven: You unironically believe that retweeting sjw spam on twitter will help free the Uyghurs. #e:angry2
+Steven: You think that politicians actually care about you and your opinion. #e:angry2
+<<wait 1>>
+Steven: Don't you have any shame for who you are? For how you're being manipulated by people? #e:angry
+Steven: Can you even form an opinion on your own without looking at what others think? #e:angry
+Steven: You disgust me. #e:stern
+<<wait 2>>
+Sawyer: Wha!
+Sawyer: How did yo- 
+Sawyer: Hey! That's racist, homophobic, bigoted, mysoginistic, abelist, and transphobic! #e:rage
+Sawyer: I'm cancelling you for that! #e:rage
+<<wait 2>>
+Steven: Go ahead, cancel me, that's all you people know how to do. #e:stern
+<<jump Reddit_Ruin_Friendship_Less>>
+===
+
+title: Reddit_Improve_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $RedditFriendProgress = $RedditFriendProgress + 2>>
+    <<if $RedditFriendProgress > 1>>
+        <<set $RedditFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToRedditAlready = true>>
+===
+
+title: Reddit_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $RedditFriendProgress = $RedditFriendProgress + 2>>
+    <<if $RedditFriendProgress > 1>>
+        <<set $RedditFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToRedditAlready = true>>
+===
+
+title: Reddit_Ruin_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $RedditFriendProgress = $RedditFriendProgress - 2>>
+    <<if $RedditFriendProgress < -1>>
+        <<set $RedditFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToRedditAlready = true>>
+===
+
+title: Reddit_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $RedditFriendProgress = $RedditFriendProgress - 2>>
+    <<if $RedditFriendProgress < -1>>
+        <<set $RedditFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToRedditAlready = true>>
 ===

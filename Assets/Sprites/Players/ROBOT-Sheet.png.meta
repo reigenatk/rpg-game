@@ -577,6 +577,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ROBOT-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 48
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c110c8d3ba0dbca4f8c4f78f59562f12
+      internalID: -1773147503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBOT-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 0
+        width: 48
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d7f2ce5317d19643bc0ee059fcd30ea
+      internalID: -409151060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -603,12 +645,14 @@ TextureImporter:
       ROBOT-Sheet_15: 2007223320
       ROBOT-Sheet_21: -1393496719
       ROBOT-Sheet_2: 2133052959
+      ROBOT-Sheet_23: -409151060
       ROBOT-Sheet_16: -958536017
       ROBOT-Sheet_6: 1339549237
       ROBOT-Sheet_14: 242849919
       ROBOT-Sheet_12: 728051424
       ROBOT-Sheet_7: 1240258135
       ROBOT-Sheet_18: -848804548
+      ROBOT-Sheet_22: -1773147503
       ROBOT-Sheet_1: 2136552256
   spritePackingTag: 
   pSDRemoveMatte: 0

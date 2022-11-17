@@ -19,7 +19,7 @@ public class DarkScene : MonoBehaviour
 
         Debug.Log("Darkscene Day is " + day);
 
-        if (skipDreams == false)
+        if (!skipDreams)
         {
             // then play the starting dialogue (aka dream) for the night
             switch (day)
@@ -28,9 +28,11 @@ public class DarkScene : MonoBehaviour
                     dm.StartDialogueString("TrainStation");
                     break;
                 case 2:
+                    
                     dm.StartDialogueString("Day1GoingToDay2Dream");
                     break;
                 case 3:
+                    yield return StartCoroutine(LevelLoader.Instance.Fade(0.0f, 1.0f)); // fade back out
                     dm.StartDialogueString("Day2GoingToDay3Dream");
                     break;
                 default:

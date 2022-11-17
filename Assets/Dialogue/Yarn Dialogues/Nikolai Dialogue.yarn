@@ -1,8 +1,21 @@
-﻿title: Nikolai_Dialogue
+﻿title: Nikolai_Vars
+---
+<<declare $hasMetNikolai = false>> // no need to use this since Day2 we get forced dialogue with Nikolai
+<<declare $didNikolaiDialogue1 = false>>
+<<declare $didNikolaiDialogue2 = false>>
+<<declare $didNikolaiRussia = false>>
+<<declare $hasTurnedDownMusic = false>>
+<<declare $didNikolaiEnglish = false>>
+<<declare $isNikolaiJamming = false>>
+===
+
+title: Nikolai_Dialogue
 ---
 <<if $talkedToNikolaiAlready == true>>
     <<jump AlreadyTalkedToday>>
 <<endif>>
+
+
 
 <<if $nikolaiFriendProgress == 0>>
 	<<jump Nikolai_Start>>
@@ -10,71 +23,283 @@
 	<<jump Nikolai_Familiar>>
 <<elseif $nikolaiFriendProgress == -1>>
 	<<jump Nikolai_Unfriendly>>
-<<elseif $nikolaiFriendProgress == -2>>
-	<<jump Nikolai_NotFriends>>
 <<endif>>
 ===
 
-title: Nikolai_NotFriends
+title: Nikolai_Familiar
 ---
-Nikolai: ...
-<<if $isInNikolaiRoom == true>>
-    -> Turn down the music, asshole!
+Nikolai: Steven. My друг. How ar yu tuday? #e:smile
+<<if $isNikolaiJamming == true && $hasTurnedDownMusic == false>>
+    -> Music
+        Steven: Yo... Nikolai #e:smile
         <<wait 2>>
-        Nikolai: Vy do you zink yu can tel me vat to do?
-        <<wait 2>>
-        Nikolai: Vy ar yu ztill here? Get out ov my roum!
-    -> Don't bring up the music
+		Steven: Could you, um... #e:shy
+		<<wait 1>>
+		Steven: Turn down the music? #e:shy
+		Steven: I can't focus... #e:think1
+        <<wait 1>>
+		Nikolai: VAT!? #e:smile
+		<<wait 1>>
+		Steven: Turn down the music! #e:worried
+		<<wait 1>>
+		Nikolai: I KENNOT HEAR YU! #e:smile
+		<<wait 3>>
+		Voice: Raise your voice... #e:laugh
+		Voice: He can't hear you!
+		<<wait 2>>
+		Steven: TURN DOWN THE MUSIC PLEASE #e:smile 
+		<<wait 2>>
+		Nikolai: Oh, sorry about zat, Steven. Yes, I vill turn it down immediately. #e:smile 
+		<<jump Nikolai_Ruin_Friendship_Less>>
+		Steven: Thanks. #e:smile
+		<<wait 1>>
+		Nikolai: Yes. My apologies again. #e:smile
+		<<set $hasTurnedDownMusic = true>>
+		<<TurnDownMusic CrossSceneObjects>>
+		Mind: Huh. 
+		Mind: I guess, all I had to do was ask... #e:smile
+		<<wait 1>>
+		Voice: Obviously, ya dumbass! Most people are nice enough to comply with you.. #e:evil1
+		Voice: As long as you aren't on bad terms with them... #e:thinking
+		<<wait 1>>
+		Mind: I don't know why that didn't occur to me last year...
+		<<wait 2>>
+		Mind: Well, at least that's some progress. #e:dsmile
+		Mind: Now I can actually hear my thoughts in my own room. #e:smile
+		<<changePlayerScoreString Manager "contentedness" 10.0>>
+		<<wait 2>>
+    -> Nothing
         Game: You don't say anything.
+<<else>>
+	-> Let's chat
+		Steven: Wanna chat?
+		Nikolai: Em, yes. I can.
+		<<jump Nikolai_Chat_Decide>>
+	-> Nothing
+		Steven: Never mind...
+		Nikolai: Okey, goodbye. #e:smile
 <<endif>>
+===
+
+title: Nikolai_Chat_Decide
+---
+
+<<if $didNikolaiEnglish == false>>
+	-> English
+		<<jump Nikolai_English>>
+	-> Talk about something else
+<<endif>>
+<<if $didNikolaiRussia == false>>
+	-> Lifting
+		<<jump Nikolai_Russia>>
+	-> Talk about something else
+<<endif>>
+
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didNikolaiDialogue1 == false>>
+    <<set $didNikolaiDialogue1 = true>>
+    <<jump Nikolai_Chat_End_1>>
+<<else>>
+	-> Russia 
+		<<jump Nikolai_Russia>>
+	-> English 
+		<<jump Nikolai_English>>
+	-> Generic Chat
+    	<<jump Nikolai_Chat_End_Generic>>
+<<endif>>
+===
+
+title: Nikolai_Chat_End_1
+---
+Nikolai: Yes, I hev girlfriend in Russia. #e:talking
+Nikolai: Her nem vas Sofia Eketerena Anitchka.
+<<wait 2>>
+Nikolai: I still talk to her very much. I em talking to her on phone. #e:smile
+<<wait 1>>
+Steven: Oh, wow #e:dsmile
+<<wait 1>>
+Steven: How did, uh, you two meet? #e:smile
+<<wait 1>>
+Nikolai: Vell, is funny story.
+Nikolai: My friend tell me zat she like me. 
+Nikolai: But, I didn't believe, so I esk her.
+Nikolai: And it turns out to not be true et al.
+Nikolai: She said "I don't know who yu are".
+<<wait 2>>
+Nikolai: So, I vas very embarassed. Because I did not expect zis.
+<<wait 1>>
+Nikolai: But turns out, she ectually like me vury much.
+<<wait 2>>
+Steven: So, like a crush?
+Nikolai: Yes, a crush. She does not vant to tell me hur real feeling.
+<<wait 2>>
+Steven: Oh, that's funny.
+<<wait 2>>
+Nikolai: Yes. But ve start to talk after zis, and I start to like her too.
+<<wait 1>>
+Steven: Aw.
+<<wait 2>>
+Steven: Do you miss her? 
+<<wait 2>>
+Mind: Actually, that's a stupid question. #e:cringe
+Voice: Why would you ask that #e:cringe
+<<wait 1>>
+Nikolai: I mean, yes. I am always worried she vill fall in love vith another.
+<<wait 2>>
+Mind: Oh, that took a dark turn. #e:worried
+<<wait 1>>
+Nikolai: I am sad zat I cannot live out my life vith her.
+Nikolai: But, in Russian, ve have saying. 
+Nikolai: Если вы любите кататься на санках, вам должно нравиться тащить сани #e:smile
+Nikolai: If you like to sled, you have to like to drag the sledge. #e:smile
+<<wait 3>>
+Steven: Ah. Interesting.
+Nikolai: Yes. Anyways, thanks fur asking about me, Steven. Next time, ve talk about yu. #e:smile
+Steven: Wh- #e:oshit
+<<wait 1>>
+Steven: ok... #e:shy
+<<jump Nikolai_Improve_Friendship_Most>>
+===
+
+title: Nikolai_Chat_End_Generic
+---
+Nikolai: Okey, Steven. It vas nice to chat vith you agein.
+Nikolai: On other hand, I feel like my English is getting bit better.
+Nikolai: So, sank you for zat. #e:smile
+<<wait 2>>
+Steven: Yeah, no problem Nikolai. #e:dsmile
+Steven: I'll see you later. #e:smile
+<<jump Nikolai_Improve_Friendship_Most>>
 ===
 
 title: Nikolai_Unfriendly
 ---
-Nikolai: Oh, Steven. Um, Vat do yu vant?
-<<if $isInNikolaiRoom == true>>
-    -> Your music is a little annoying. Can you turn it down?
-        Nikolai: Okey, I vill do it after zis song.
-    -> Don't bring up the music
-        Game: You don't say anything.
+Nikolai: Oh, Steven. Um, vat do yu vant?
+<<if $isNikolaiJamming == true && $hasTurnedDownMusic == false>>
+    -> Music
+		Steven: Turn down the music! #e:angry3
+		<<wait 1>>
+		Nikolai: I KENNOT HEAR YU! #e:smile
+		<<wait 3>>
+		Voice: Raise your voice #e:laugh
+		<<wait 2>>
+		Steven: TURN DOWN THE MUSIC PLEASE #e:angry
+		<<wait 2>>
+        Nikolai: Okey... Maybe. 
+		<<wait 2>>
+		Nikolai: I vill do it after zis song. #e:smile
+		// never does it KEK
+    -> Nothing
+		Steven: ... #e:stern
+<<else>>
+	-> Be nice
+		Steven: Look Nikolai, I was a bit of a dick to you last time. #e:think1
+		Steven: Can we be friends again #e:smile
+		<<wait 1>>
+		Nikolai: You was... dick? I don't understand zis. 
+		Steven: Oh... um #e:worried
+		Steven: Rude? Do you understand that? #e:smile
+		<<wait 1>>
+		Nikolai: Oh. 
+		<<wait 2>>
+		Nikolai: It is no mattur. I am still friend vith yu. #e:smile
+		<<wait 1>>
+		Nikolai: But next time, plz be mur considerate to me. 
+		<<wait 2>>
+		Steven: Ok, sure. #e:smile
+		<<jump Nikolai_Improve_Friendship_Less>>
+	-> Insult
+		Steven: Vut?
+		Steven: Vladimir Putin! Vodka blyat!
+		<<wait 1>>
+		Nikolai: You speak Russian!? #e:smile
+		<<wait 2>>
+		Steven: No I don't speak your stupid language! #e:smirk
+		<<wait 2>>
+		Steven: Why would I ever do that! #e:laugh
+		<<wait 1>>
+		Nikolai: ...
+		<<wait 2>>
+		Nikolai: If yu hev nothing nice to sey, than leave. #e:angry
+		<<jump Nikolai_Ruin_Friendship_Less>>
+	-> Nothing
+		Steven: ...
 <<endif>>
 ===
 
 title: Nikolai_Start
 ---
-Nikolai: Hullo Steven, how vas yur claszes tuday?
-<<if $isInNikolaiRoom == true>>
-    -> Hey, could you turn down the music?
+Nikolai: Hullo Steven!
+<<if $isInNikolaiRoom == true && $hasTurnedDownMusic == false>>
+	Nikolai: Vat do you need? 
+    -> Music
+		Steven: Hey, can you turn down the music, please? #e:shy
+		<<wait 2>>
+		Nikolai: VAT!? #e:smile
+		<<wait 1>>
+		Steven: Turn down the music! #e:worried
+		<<wait 1>>
+		Nikolai: I KENNOT HEAR YU! #e:smile
+		<<wait 3>>
+		Voice: Raise your voice #e:laugh
+		<<wait 2>>
+		Steven: TURN DOWN THE MUSIC PLEASE #e:angry3
+		<<wait 2>>
         Nikolai: Oh, sorry about zat.
-        Nikolai: I like to play music loud
-        Nikolai:because zat is how ve du it in Russia.
+        Nikolai: I like to play music loud.. #e:smile
+        Nikolai: Becuz zat is how ve du it in Russia. #e:smile
         <<wait 2>>
         Nikolai: But, if it iz bozering you zen I kan turn et down.
-    -> Don't bring up the music
-        Game: You don't say anything.
+		<<TurnDownMusic CrossSceneObjects>>
+		<<set $hasTurnedDownMusic = true>>
+		Nikolai: Okey, hopefully it iz less loud in yur rum now. #e:smile
+		<<wait 2>>
+		Steven: Thanks, man. #e:smile
+		<<wait 2>>
+		Mind: Huh. 
+		Mind: I guess, all I had to do was ask... #e:smile
+		<<wait 1>>
+		Voice: Obviously, ya dumbass! Most people are nice enough to comply with you.. #e:evil1
+		Voice: As long as you aren't on bad terms with them... #e:thinking
+		<<wait 1>>
+		Mind: I don't know why that didn't occur to me last year...
+		<<wait 2>>
+		Mind: Well, at least that's some progress. #e:dsmile
+		Mind: Now I can actually hear my thoughts in my own room. #e:smile
+		<<changePlayerScoreString Manager "contentedness" 10.0>>
+		<<wait 2>>
+<<else>>
+	Nikolai: How are you classes today? 
+	-> Good, how about you?
+		Nikolai: A little bit tough. I sink my English is not zo gud.
+		Nikolai: My teachur in Russia speak vury little English.
+		Nikolai: Zo we did not lurn much.
+		<<wait 1>>
+		Nikolai: I em still practizing. Sorry I done speak vury vell
+		<<jump Nikolai_English>>
+	-> Boring, as always
+		Nikolai: Haha, da. Schul is not my favorite eizer. 
+		Nikolai: I prefer my old school much mur. In my hometown of Ботуобуйинский наслег
+		<<jump Nikolai_Russia>>
+	-> Nothing
+		Steven: Actually, can't talk right now, sorry.
+		<<jump Nothing>>
 <<endif>>
--> Good, how about you?
-	Nikolai: A little bit tough. I sink my English is not zo gud.
-	Nikolai: My teachur in Russia speak vury little English.
-    Nikolai: Zo we did not lurn much.
-    <<wait 1>>
-	Nikolai: I em still practizing. Sorry I done speak vury vell
-	<<jump Nikolai_Start_3>>
--> Boring, as always
-	Nikolai: Haha, da. Schul is not my favorite eizer. 
-	Nikolai: I prefer my old school much mur. In my hometown of Ботуобуйинский наслег
-	<<jump Nikolai_Start_2>>
 ===
 
-title: Nikolai_Start_2
+title: Nikolai_Russia
 ---
+<<set $didNikolaiRussia = true>>
 -> How was life like in Russia?
 	Nikolai: Vury simple. Vury ordinary, but people wur vury nice.
     Nikolai: Lots ov gud memories zer.
     <<wait 1>>
 	Nikolai: I mizz it. But it is vury far frum here.
 	<<jump Nikolai_Start_5>>
--> Why did you come here then?
+-> Why did you come here?
 	Nikolai: Vell, zat is complicated buziness. My fathur iz vury rich guy.
 	Nikolai: In Russia, university iz not zo gud. Come to America iz better. Or so my father zinks.
 	<<wait 1>>
@@ -82,8 +307,9 @@ title: Nikolai_Start_2
 	<<jump Nikolai_Start_5>>
 ===
 
-title: Nikolai_Start_3
+title: Nikolai_English
 ---
+<<set $didNikolaiEnglish = true>>
 -> You're doing good, I can understand you.
 	<<jump Nikolai_Start_4>>
 -> Your english is good, but it could use some improving. I can help.
@@ -180,20 +406,54 @@ title: Nikolai_Start_5
 		<<jump Nikolai_Improve_Friendship>>
 ===
 
-
 title: Nikolai_Improve_Friendship
 ---
-	<<set $nikolaiFriendProgress = $nikolaiFriendProgress + 1>>
-	<<changePlayerScoreString Manager "entertained" 20.0>>
-	<<changePlayerScoreString Manager "social" 30.0>>
+    <<FadeOut LevelLoader 1.0>>
+	<<set $nikolaiFriendProgress = $nikolaiFriendProgress + 2>>
+    <<if $nikolaiFriendProgress > 1>>
+        <<set $nikolaiFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToNikolaiAlready = true>>
+===
+
+title: Nikolai_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $nikolaiFriendProgress = $nikolaiFriendProgress + 2>>
+    <<if $nikolaiFriendProgress > 1>>
+        <<set $nikolaiFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
 	<<set $talkedToNikolaiAlready = true>>
 ===
 
 title: Nikolai_Ruin_Friendship
 ---
-	<<set $nikolaiFriendProgress = $nikolaiFriendProgress - 1>>
-	<<changePlayerScoreString Manager "entertained" 40.0>>
-	<<changePlayerScoreString Manager "social" 20.0>>
+    <<FadeOut LevelLoader 1.0>>
+	<<set $nikolaiFriendProgress = $nikolaiFriendProgress - 2>>
+    <<if $nikolaiFriendProgress < -1>>
+        <<set $nikolaiFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
 	<<set $talkedToNikolaiAlready = true>>
 ===
 
+title: Nikolai_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $nikolaiFriendProgress = $nikolaiFriendProgress - 2>>
+    <<if $nikolaiFriendProgress < -1>>
+        <<set $nikolaiFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToNikolaiAlready = true>>
+===

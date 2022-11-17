@@ -67,15 +67,15 @@ MonoBehaviour:
     weather: 0
     toSceneName: 10
     toGridCoordinate:
-      x: 98
+      x: 99
       y: -97
     npcFacingDirectionAtDestination: 4
     animationAtDestination: {fileID: 7400000, guid: ebe1dc2a369c48045874512e1758c532,
       type: 2}
     audioToPlay: {fileID: 0}
     description: 
-    offsetX: 0.5
-    offsetY: -0.3
+    offsetX: -0.5
+    offsetY: -0.4
   - hour: 15
     minute: 15
     priority: 0

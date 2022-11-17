@@ -19,7 +19,7 @@ MonoBehaviour:
     sprite: {fileID: 59314839, guid: 117e21f487766c14b83961473f51b392, type: 3}
   - headshotName: smoking
     sprite: {fileID: 1822170222, guid: 117e21f487766c14b83961473f51b392, type: 3}
-  - headshotName: eyesclosed
+  - headshotName: down
     sprite: {fileID: -2124730247, guid: 117e21f487766c14b83961473f51b392, type: 3}
   charactersThatUseTheseHeadshots:
   - Dylan

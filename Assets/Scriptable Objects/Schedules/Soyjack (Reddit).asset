@@ -52,8 +52,8 @@ MonoBehaviour:
     weather: 0
     toSceneName: 14
     toGridCoordinate:
-      x: 73
-      y: -90
+      x: 71
+      y: -88
     npcFacingDirectionAtDestination: 2
     animationAtDestination: {fileID: 7400000, guid: 4b959e4ee16a92d478d541f639c645d1,
       type: 2}
@@ -90,8 +90,8 @@ MonoBehaviour:
       type: 2}
     audioToPlay: {fileID: 0}
     description: go to lecture
-    offsetX: 0.1
-    offsetY: -0.4
+    offsetX: 0.2
+    offsetY: -0.5
   - hour: 15
     minute: 13
     priority: 0

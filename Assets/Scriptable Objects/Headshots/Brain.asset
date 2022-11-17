@@ -13,8 +13,18 @@ MonoBehaviour:
   m_Name: Brain
   m_EditorClassIdentifier: 
   headshots:
+  - headshotName: smile
+    sprite: {fileID: -1854246267, guid: bd7713da8fdc5b14e8b940f77b2d6265, type: 3}
   - headshotName: normal
-    sprite: {fileID: 1216656137, guid: 34c3cb221ba891441ac886c7cc3f5820, type: 3}
+    sprite: {fileID: 559243166, guid: bd7713da8fdc5b14e8b940f77b2d6265, type: 3}
+  - headshotName: bored
+    sprite: {fileID: -2011530087, guid: bd7713da8fdc5b14e8b940f77b2d6265, type: 3}
+  - headshotName: angry
+    sprite: {fileID: 235973647, guid: bd7713da8fdc5b14e8b940f77b2d6265, type: 3}
+  - headshotName: looking
+    sprite: {fileID: -2052685999, guid: bd7713da8fdc5b14e8b940f77b2d6265, type: 3}
+  - headshotName: talking
+    sprite: {fileID: 2027916230, guid: bd7713da8fdc5b14e8b940f77b2d6265, type: 3}
   charactersThatUseTheseHeadshots:
   - Brain
   scaleToUse: 3

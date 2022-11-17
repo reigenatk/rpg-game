@@ -4,11 +4,20 @@
 // one time dialogue variables
 <<declare $didBoomerDialogue1 = false>>
 <<declare $didBoomerDialogue2 = false>>
-<<declare $hasMetBoomer = false>>
+<<declare $hasMetBoomer = true>>
+<<declare $hasAcceptedFootballGame = true>>
+<<declare $hasGoneToFootballGame = false>>
+<<declare $didBoomerMusic = false>>
+<<declare $didBoomerFootball = false>>
 ===
 title: Boomer_Dialogue
 ---
-<<jump Boomer_Normal_Dialogue>>
+<<if $isFootballGame == true && $hasAcceptedFootballGame && $hasGoneToFootballGame == false>>
+	// go to game
+	<<playCutscene LevelLoader Football>>
+<<else>>
+	<<jump Boomer_Normal_Dialogue>>
+<<endif>>
 ===
 
 title: Boomer_Normal_Dialogue
@@ -27,102 +36,378 @@ title: Boomer_Normal_Dialogue
 <<endif>>
 ===
 
+title: Before_Football_Game
+---
+Michael: Ya ready for some football, SONNY? #e:talking
+<<wait 1>>
+Steven: Yeah, I guess... #e:worried
+Michael: Awesome. Let's get going.
+===
+
+title: After_Football_Game
+---
+<<SetTime Manager 22 30 0>> // 6PM -> 10:30 PM
+Voice: Wow, I've never seen you so bored, and I've been in your head for years! #e:laugh
+<<wait 1>>
+Steven: Seriously, how does anyone find that entertaining? #e:yikes
+Steven: Loud crowds, Drunk idiots, hot sun... #e:weary
+<<wait 1>>
+Steven: Plus I could barely tell how the game was even going. #e:bored
+Steven: God, I should've never went. What a waste of time. #e:stern
+<<changePlayerScoreString Manager "entertained" -50.0>>
+<<changePlayerScoreString Manager "energy" -30.0>>
+<<wait 3>>
+Michael: So, what'd you think?
+Voice: Oh shit, what to say? #e:concerned
+<<wait 2>>
+-> Tell the truth
+	Steven: I, um...
+	<<wait 2>>
+	Steven: Look man, I just can't enjoy sports. #e:bored
+	Steven: I really tried, trust me. It was just boring. #e:weary
+	<<wait 2>>
+	Michael: ... #e:sad
+	<<wait 1>>
+	Michael: Hey man, no shame in that.
+	Michael: We all like our own things. I appreciate you coming, regardless #e:talking
+	Michael: Have a nice night.
+	Steven: Yeah, you too. 
+	<<wait 1>>
+	Steven: Oh well, at least I was honest. That feels good.
+	<<changePlayerScoreString Manager "social" 10.0>>
+-> Lie
+	Steven: I er, loved it. #e:smile
+	Voice: You liar!
+	<<wait 1>>
+	Michael: Always happy to help. See, some things you just have to try out! #e:talking
+	Michael: Anyways, I'll see you next week, yeah?
+	<<wait 1>>
+	Steven: t-totally! #e:yikes
+	<<changePlayerScoreString Manager "social" -10.0>>
+<<set $hasGoneToFootballGame = true>>
+===
+
 title: Boomer_Familiar
 ---
-Michael: Steven, weather's great today, isn't it?
+Michael: Steven! Weather's great today, isn't it?
+<<if $hasAcceptedFootballGame == false>>
+	Michael: By the way, we should go to the football game sometime together.
+	Michael: I've got tickets.
+	Steven: Are you sure?
+	Michael: Totally. It's no big deal, really. One of my buddies gets free tickets.
+	Michael: You don't seem like the kinda guy to go to one yourself.
+	Micahel: 6PM, meet me on campus. In front of the union. 
+	<<set $hasAcceptedFootballGame = true>>
+<<endif>>
+Michael: Anyways, what is it you need?
 -> Let's chat
     Steven: Totally. Let's chat.
     Michael: Okay, let me get a coffee first, though.
-    <<FadeIn LevelLoader 0.5>>
     <<jump Boomer_Chat_Decide>>
+-> Nothing
+	Michael: Alright, later then. #e:talking
 ===
 
 title: Boomer_Chat_Decide
 ---
+<<if $didBoomerMusic == false>>
+	-> Music
+		<<jump Boomer_Music>>
+	-> Talk about something else
+<<endif>>
+<<if $didBoomerFootball == false>>
+	-> Football
+		<<jump Boomer_Football>>
+	-> Talk about something else
+<<endif>>
+
 <<playSoundString AudioManager TimeTicking>>
 <<wait 4>>
+
 <<if $didBoomerDialogue1 == false>>
     <<set $didBoomerDialogue1 = true>>
     <<jump Chat_End_1>>
-<<elseif $didBoomerDialogue2 == false>>
-	<<set $didBoomerDialogue2 = true>>
-    <<jump Chat_End_2>>
 <<else>>
-    <<jump Chat_End_Generic>>
+	-> Music 
+		<<jump Boomer_Music>>
+	-> Football 
+		<<jump Boomer_Football>>
+	-> Generic Chat
+    	<<jump Boomer_Chat_End_Generic>>
 <<endif>>
 ===
 
 title: Boomer_Chat_End_1
 ---
-Michael: 
+Michael: So anyways, once a Zeta, forever a Zeta.
+Michael: "Seek the Noblest"... is our motto.
+<<wait 2>>
+Michael: I still talk to many of my brothers, even today. #e:talking
+Michael: One's working as a doctor, one's a semi-professional baseball player...
+Michael: And one's even the governor of his county. #e:talking
+<<wait 2>>
+Michael: Sometimes, walking into the old frat house still gets me emotional. #e:talking
+Michael: I know the boys in there only see an old fart like me #e:talking
+Michael: But they don't understand that I was once young like them.
+Michael: Hating my parents, cheating on exams, and having too much alcohol #e:talking
+<<wait 2>>
+Michael: I spent some of my best years in those houses, and they feel so recent.
+Michael: Even though it was over 30 years ago. #e:talking
+<<wait 2>>
+Steven: ... #e:think2
+<<wait 2>>
+Michael: Value your time, Steven. I know you didn't ask, but I thought I'd share. 
+Michael: Time is really the most precious resource.
+Michael: Every old person wishes they were young again. #e:talking
+<<wait 2>>
+Michael: I can tell you're the nervous type. #e:talking
+Michael: Always wondering what people will think of you.
+Michael: But you're a good kid. All you gotta do is put yourself out there. #e:talking
+Michael: One step at a time. It'll stop being scary once you do it enough. #e:talking
+Steven: I guess.. #e:think1
+<<wait 2>>
+Steven: Thanks for the advice, I guess. #e:smile
+Michael: No, thank you for listening. 
+Michael: Remember, I'm always here to chat. #e:talking
 <<jump Boomer_Improve_Friendship_Most>>
 ===
 
 
 title: Boomer_Chat_End_Generic
 ---
-Keith: Alright man, I gotta go coom. I'll catch you later.
-Steven: Later.
-<<wait 2>>
+Michael: Well, that was a nice talk. I gotta go get an oil change. #e:talking
+Michael: I'll catch you around, is that what the kids say these days?
+Steven: Yeah. #e:smile
+Michael: Alright, then I'll catch ya later. 
 <<jump Boomer_Improve_Friendship_Most>>
 ===
 
 title: Boomer_Unfriendly
 ---
-
+	Michael: What? #e:sad
+	-> Insult
+		Steven: Has anyone ever told you that you look 50? Because you definitely do. #e:smile
+		Michael: Fuck off before I call the police. #e:sad
+		<<jump Boomer_Ruin_Friendship_Less>>
+	-> Try to make up
+		Steven: Look, I think we got off on the wrong foot.
+		Michael: I don't know what you're talking about, buddy. #e:sad
+		-> Keep Trying
+			Steven: I was mean to you last time. Let's move past that. #e:worried
+			Michael: ... #e:sad
+			Michael: Okay. Apology accepted, but no more monkey business. #e:sad
+			Michael: My number one rule in life is to surround myself with people that make me better.
+			Michael: And if you can't adhere to that, I won't talk to you any more. #e:sad
+			<<wait 1>>
+			Steven: Okay.
+			<<wait 1>>
+			Michael: Now scram, I'll talk later. I've got stuff to do right now. #e:sad
+			<<jump Boomer_Improve_Friendship_Less>>
+		-> Insult
+			Steven: Whatever, I hope your wrinkly wife cheats on you. #e:smile
+			Michael: Insulting me still won't get you laid, ya loser. #e:sad
+			<<jump Boomer_Ruin_Friendship_Less>>
+	-> Nothing
+		Steven: Never mind.
+	
 ===
 
 title: Boomer_Start
 ---
+<<if $hasMetBoomer == false>>
+	Person: Hey there!
+	Person: I don't know you, but I'm Michael McDavid.
+	Michael: Class of 1987. 
+	Steven: Hey, I'm Steven... #e:shy
+	Steven: Class of... #e:worried
+	<<wait 1>>
+	Steven: Well, I haven't graduated yet. #e:shy
+	<<playSoundString AudioManager BoomerLaugh>>
+	<<wait 4>>
+	Michael: Try to make your last few years last while ya can.
+	Michael: Once you get out, it won't feel the same.
+	<<set $hasMetBoomer = true>>
+<<endif>>
+Michael: So how can I help ya?
+-> Music
+	<<jump Boomer_Music>>
+-> Football
+	<<jump Boomer_Football>>
+-> Nothing
+	Steven: Never mind.
+===				
 
+title: Boomer_Music
+---
+<<set $didBoomerMusic = true>>
+Steven: You got uh, an interesting taste in music. #e:shy
+Steven: Do you have any recommendations? #e:worried
+<<wait 2>>
+Michael: Interesting taste? No, I just play old music.
+Michael: The tunes from back in the day, you know? 
+<<wait 1>>
+Michael: I mean, surely you know the classics right? #e:talking
+Michael: Beach Boys, Prince, Bon Jovi, MJ, The Beatles, Led Zeppelin..
+-> Insult
+	Steven: Look boomer, I don't care. Turn that shit off. It's annoying #e:angry2
+	Michael: Woah, buddy. #e:sad
+	Michael: It's just music, no need to be upset.
+	Steven: No! It's not just music! 
+	Steven: It's your way of virtue signaling that you grew up in a better time. #e:angry2
+	Steven: Nobody cares what you and your stupid friends did back in the 80s. #e:angry
+	Steven: The only thing in common with your failure of a life and my life #e:angry
+	Steven: Is that we happened to go to the same school. #e:angry
+	<<wait 1>>
+	Voice: Hahahaha #e:laugh
+	Voice: where's your respect for elders?  #e:concerned
+	Steven: Screw that! I've never met a boomer whose entire personality wasn't the college they graduated from.
+	<<wait 1>>
+	Steven: Plus, they came from a better time... one where people actually talked face to face. #e:angry2
+	Steven: And social media didn't corrupt their entire livelihood. They don't get to talk. #e:angry2
+	<<jump Boomer_Ruin_Friendship>>
+-> Listen
+	<<wait 0.5>>
+	<<FadeIn LevelLoader 0.5>>
+	<<playSoundString AudioManager TenHoursLater>>
+	<<wait 2>>
+	<<FadeOut LevelLoader 1.0>>
+	<<wait 2>>
+	Michael: Whitney, ABBA, ACDC, The Rolling Stones, Queen
+	Steven: ...  #e:bored
+	Steven: This was a mistake... #e:bored
+	Steven: I forgot that boomers can talk forever about their favorite things... #e:bored
+	<<wait 2>>
+	Michael: Whitney, ABBA, ACDC, The Rolling Stones, Queen #e:talking
+	Michael: Pink Floyd, Abbey Road... #e:talking
+	<<wait 1>>
+	Michael: And Nirvana, of course.
+	<<wait 1>>
+	Michael: Kids today are REALLY missing out. #e:talking
+	<<wait 1>>
+	Steven: Is that so? #e:bored
+	<<wait 1>>
+	Michael: Hey kid, I know I just bored you out. I appreciate you listening to me.
+	<<wait 1>>
+	Michael: But I'm not tryna bore you. Seriously, listen to older music. You won't regret it. #e:talking
+	Michael: Anyways, I appreciate you listenin to me. Even my grandsons don't wanna do that. #e:sad
+	Michael: Now excuse me, I gotta go blast more Purple Rain on campus. #e:talking
+	Steven: Later...
+	<<jump Boomer_Improve_Friendship>>
 ===
 
-// only called from the highest level of friendship 
-title: Boomer_Improve_Friendship_Most
+title: Boomer_Football
 ---
-    <<FadeOut LevelLoader 1.0>>
-	<<set $boomerFriendProgress = $boomerFriendProgress + 1>>
-
-    <<AdvanceXMinutes Manager 60>>
-	<<changePlayerScoreString Manager "entertained" 30.0>>
-	<<changePlayerScoreString Manager "social" 30.0>>
-	<<set $talkedToBoomerAlready = true>>
+<<set $didBoomerFootball = true>>
+Steven: So uh, how is the football team doing this season?
+Voice: You idiot! Why would you ask him that? #e:evil1
+Voice: You don't even care about football, why are you asking him this?
+Mind: Shut up, it's called letting people talk about their interests!
+<<wait 1>>
+Michael: Football? Oh, we're doing terrible this season. 
+Michael: Just horrible. The coach is being overpayed, the freshmen suck #e:sad
+Michael: The beer taste like sewer water... #e:sad
+Michael: Just an utter disaster! #e:sad
+<<wait 2>>
+Steven: Oh, I'm sorry to hear that...
+<<playSoundString AudioManager BoomerLaugh>>
+<<wait 4>>
+Michael: Just kidding! Got ya.
+Michael: I just wanted to see if you watched football at all. 
+Michael: What, do you live under a rock? We're second in the divison!
+<<wait 1>>
+-> Insult 
+	Steven: Well I'M sorry, Mr. my entire personality is my favorite football team #e:bored
+	Steven: I hope we lose by one point and your beer turns out to be actual sewage #e:stern
+	Michael: Woah, someone's still a virgin #e:sad
+	Michael: Maybe learnin a bit about, like, the most obvious things ever might get ya laid? Hahahaha #e:sad
+	<<wait 2>>
+	Voice: Ooooooooooof u got destroyed! #e:laugh
+	<<wait 1>>
+	Steven: Asshole... I hate boomers. #e:angry
+	Steven: At least they'll die off soon.. #e:angry2
+	<<jump Ruin_Friendship>>
+-> Play along
+	Steven: oh, sorry... I don't watch much football...
+	<<wait 1>>
+	Michael: Then why would you ask me about it?
+	Voice: This guy is reading you like a book. #e:think 
+	Voice: See I told you not to ask him.
+	<<wait 1>>
+	Steven: I... just figured you would know about the team.  #e:worried
+	Michael: What, cause I'm old and drink beer and act like a football dad? #e:sad
+	<<wait 1>>
+	Steven: Well... yea.. #e:shy
+	<<wait 3>>
+	Michael: Hey, no problem buddy. I'll get you caught up on football culture in no time.
+	<<wait 1>>
+	Michael: Tell you what, how about you come with me and my buddies to the bar next time?
+	Michael: Always down to teach a new fan how to appreciate the great American sport of football. 
+	Michael: We are on the older side, though.
+	-> Accept
+		Steven: Oh okay, sure. #e:worried
+		Michael: Alright. You'll have to find me though. Meet me in front of the union at 6PM. 
+		Michael: We can head to the game together. #e:talking
+		Steven: I don't really...
+	-> Decline
+		Steven: Uh, maybe later.
+		Michael: Oh come on, I insist. You were nice enough to take my joke earlier.
+		Michael: 6PM. On campus. In front of the union.
+		Steven: I don't really...
+	Michael: Ah-Ah-Ah... No more words. Learn to be decisive, Steven.
+	<<wait 1>>
+	Michael: I'll be waiting for you there.
+	<<set $hasAcceptedFootballGame = true>>
+	<<jump Boomer_Improve_Friendship>>
 ===
 
 title: Boomer_Improve_Friendship
 ---
-	<<set $boomerFriendProgress = $boomerFriendProgress + 1>>
-	<<changePlayerScoreString Manager "entertained" 20.0>>
-	<<changePlayerScoreString Manager "social" 20.0>>
-	<<set $talkedToBoomerAlready = true>>
+    <<FadeOut LevelLoader 1.0>>
+	<<set $boomerFriendProgress = $boomerFriendProgress + 2>>
+    <<if $boomerFriendProgress > 1>>
+        <<set $boomerFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToboomerAlready = true>>
 ===
 
 title: Boomer_Improve_Friendship_Less
 ---
-	<<set $boomerFriendProgress = $boomerFriendProgress + 1>>
-	<<changePlayerScoreString Manager "entertained" 10.0>>
-	<<changePlayerScoreString Manager "social" 10.0>>
-	<<set $talkedToBoomerAlready = true>>
+    <<FadeOut LevelLoader 1.0>>
+	<<set $boomerFriendProgress = $boomerFriendProgress + 2>>
+    <<if $boomerFriendProgress > 1>>
+        <<set $boomerFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToboomerAlready = true>>
 ===
 
 title: Boomer_Ruin_Friendship
 ---
-	<<set $boomerFriendProgress = $boomerFriendProgress - 1>>
+    <<FadeOut LevelLoader 1.0>>
+	<<set $boomerFriendProgress = $boomerFriendProgress - 2>>
     <<if $boomerFriendProgress < -1>>
         <<set $boomerFriendProgress = -1>>
     <<endif>>
-	<<changePlayerScoreString Manager "entertained" -10.0>>
-	<<changePlayerScoreString Manager "social" 10.0>>
-	<<set $talkedToBoomerAlready = true>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToboomerAlready = true>>
 ===
 
 title: Boomer_Ruin_Friendship_Less
 ---
-	<<set $boomerFriendProgress = $boomerFriendProgress - 1>>
+    <<FadeOut LevelLoader 1.0>>
+	<<set $boomerFriendProgress = $boomerFriendProgress - 2>>
     <<if $boomerFriendProgress < -1>>
         <<set $boomerFriendProgress = -1>>
     <<endif>>
-	<<changePlayerScoreString Manager "entertained" -20.0>>
-	<<changePlayerScoreString Manager "social" 20.0>>
-	<<set $talkedToBoomerAlready = true>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToboomerAlready = true>>
 ===

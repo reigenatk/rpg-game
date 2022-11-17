@@ -1,0 +1,346 @@
+﻿title: Pepe_Vars
+---
+
+// one time dialogue variables
+<<declare $didPepeDialogue1 = false>>
+<<declare $didPepeDialogue2 = false>>
+<<declare $hasMetPepe = false>>
+===
+title: Pepe_Dialogue
+---
+<<jump Pepe_Normal_Dialogue>>
+===
+
+title: Pepe_Normal_Dialogue
+---
+<<if $talkedToPepeAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+
+<<if $pepeFriendProgress == 0>>
+	<<jump Pepe_Start>>
+<<elseif $pepeFriendProgress >= 1>>
+	<<jump Pepe_Familiar>>
+<<elseif $pepeFriendProgress <= -1>>
+	<<jump Pepe_Unfriendly>>
+<<endif>>
+===
+
+title: Pepe_Familiar
+---
+Michael: Steven, weather's great today, isn't it?
+-> Let's chat
+    Steven: Totally. Let's chat.
+    Michael: Okay, let me get a coffee first, though.
+    <<jump Pepe_Chat_Decide>>
+===
+
+title: Pepe_Chat_Decide
+---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didPepeDialogue1 == false>>
+    <<set $didPepeDialogue1 = true>>
+    <<jump Pepe_Chat_End_1>>
+<<else>>
+    -> Frog 
+        <<jump Pepe_Frog>>
+    -> Generic Chat
+        <<jump Chat_End_Generic>>
+<<endif>>
+===
+
+title: Pepe_Chat_End_1
+---
+Pepe: Damn, you're roommate is a Chad?
+<<wait 1>>
+Steven: Yeah, he is.
+<<wait 1>>
+Pepe: Damn, no way dude. You must hate his guts.
+<<wait 1>>
+-> Agree
+    Steven: I can't stand his ass. #e:angry2
+    <<wait 2>>
+    Pepe: Man, chads don't understand how good they have it. 
+    Steven: Yeah. Neither do women.
+    <<wait 1>>
+    Pepe: God, I can't stand them. #e:rage
+    <<wait 2>>
+    Pepe: I wish I could press a button and just kill all chads instantly, you know?
+    <<wait 1>>
+    Steven: Yeah. I'd boil them alive in a deep frier and watch them scream in pain. #e:comfy
+    Pepe: Hahaha... And then throw them into a furnance. #e:smile 
+    Steven: Or force them to watch us incels smash their 10/10 girlfriends.
+    Pepe: Oh, that would be great too. #e:smile
+    <<wait 2>>
+    Pepe: You're funny, man. I like you. #e:smile
+-> Neutral
+    Steven: I mean, I don't talk to him ever.
+    Pepe: But doesn't just being around him infuriate you?
+    Pepe: Knowing that for every chick you see on the street, he's probably rawdogged her already? #e:rage
+    Pepe: Knowing that he mogs you in literally every category possible? #e:rage
+    Pepe: Knowing that he'll probably get more interviews than you, more money than you..
+    Pepe: More kids than you, more happiness than you, all because he was born a chad?
+    Pepe: That doesn't piss you off?
+    -> Yes
+        Steven: Of course it does.
+        <<wait 2>>
+        Pepe: Fuck em all, I say. I never had a chance.
+        Pepe: Neither did you.
+        <<wait 1>>
+        Pepe: All we can do is cope.
+        Steven: Amen.
+        <<wait 2>>
+    -> No
+        Steven: No.
+        Pepe: How? You and I are subhuman. We might as well have never been born.
+        Pepe: Can we maxx our way out of this? Deep down I don't think so.
+        Pepe: It's all cope, man. Maxxing is the only way to keep yourself sane.
+        Pepe: But I know many people who've just given up, and they just NEET all day.
+        <<wait 2>>
+        Pepe: Dude, I think I'm gonna rope soon. I can't take it anymore.
+        Pepe: I'm just gonna decay into my 30s, and still be single.
+        Pepe: No amount of improoving is ever gonna make me look human to any girl.
+        Steven: All we can do is cope, brother. NGMI.
+    Pepe: Haha...
+    Pepe: Ur based, man. We should chat more.
+-> Disagree
+    Steven: Surprisingly, not really.
+    Steven: I kinda despised him, at first anyways.
+    Steven: But he's a nice person. I think we shouldn't hate on chads.
+    Steven: They're just people who got dealt a better hand, like you said.
+    <<wait 2>>
+    Pepe: ... 
+    Pepe: I don't understand.
+    <<wait 1>>
+    Pepe: Can we at least agree that women suck?
+    -> Agree
+        Steven: Yeah. Screw all roasties. Only chasing after chads. #e:angry2
+        Pepe: That's right brother. All women are whores and deserve to die. #e:rage
+        Pepe: They dare to say that they live harder lives, when a simp is waiting at every corner to comfort them over any minor inconvenience. #e:rage
+        Pepe: Meanwhile, us incels, who actually suffer... #e:rage
+        Pepe: What do we get? Whose here to comfort us? #e:rage
+        Pepe: No one. All because we were born the wrong way. #e:rage
+        Steven: What a cruel world. #e:bored
+    -> Disagree
+        Steven: No, women aren't the problem either.
+        <<wait 3>>
+        Pepe: Man, screw you. #e:rage 
+        Pepe: I don't believe you're one of us anymore. #e:rage
+        Pepe: Go suck some more liberal dick, you cuck. #e:rage
+        <<jump Pepe_Ruin_Friendship>>
+
+
+<<jump Pepe_Improve_Friendship_Most>>
+===
+
+title: Pepe_Chat_End_Generic
+---
+Pepe: Anyways, thanks for chatting with me man.
+Pepe: You're the most based person on this shitty campus. #e:smile
+Pepe: Honestly, you make my day. #e:smile
+Steven: Heh, thanks. #e:smile
+Steven: Take care of yourself, man. #e:smile
+Pepe: You too #e:smile
+<<jump Pepe_Improve_Friendship_Most>>
+===
+
+title: Pepe_Unfriendly
+---
+Pepe: Get away, disgusting normalfag #e:sad
+<<wait 1>>
+-> Insult
+    Steven: Stop using dumb terminology, ya disgusting incel. #e:smirk
+    Steven: Go touch some grass. And maybe take a shower, too. #e:laugh
+    Pepe: Kill yourself, faggot. #e:rage
+    <<jump Pepe_Ruin_Friendship_Less>>
+-> Be Nice
+    Steven: Look man, I'm sorry I didn't really understand you last time. #e:think1
+    <<wait 1>>
+    Steven: I really am like you, I swear. I didn't mean to offend you. #e:smile
+    <<wait 2>>
+    Pepe: Okay. But don't ever say that stupid shit again.
+    Pepe: I don't talk to retards. 
+    <<wait 1>>
+    Steven: Okay #e:worried.
+    <<jump Pepe_Improve_Friendship_Less>>
+-> Nothing
+    Steven: ...
+===
+
+title: Pepe_Start
+---
+<<if $hasMetPepe == false>>
+    Pepe: ...
+    Pepe: Umm, do I know you? 
+    <<wait 1>>
+    Steven: Uh, no, I don't think so. #e:shy
+    Steven: What's your name?
+    Pepe: Pepe.
+    Steven: Oh, uh, cool. What year are you in? #e:worried
+    Pepe: I'm a junior. You?
+    Steven: Same.. #e:shy
+    <<set $hasMetPepe = true>>
+<<endif>>
+Pepe: So, why did you talk to me?
+-> Frog
+    <<jump Pepe_Frog>>
+
+
+===
+
+title: Pepe_Frog
+---
+Steven: Uh, I just noticed that you didn't really fit in, is all.
+<<wait 1>>
+Pepe: What...
+Pepe: How can you tell?
+<<wait 2>>
+Steven: Well, you're not human. #e:shy
+Steven: You're a frog. #e:worried
+<<wait 1>>
+Pepe: Fuck! #e:rage
+<<wait 1>>
+Pepe: I thought my looksmaxx worked. You can still tell? #e:sad
+<<wait 1>>
+Voice: I mean, he's literally a frog. In a human world. #e:think
+Voice: What is he thinking? 
+Voice: It doesn't matter how much he tries. #e:evil2
+Voice: He'll never fit in #e:evil1
+<<wait 2>>
+Pepe: Wait, you're inhuman too.
+Pepe: Thank god. #e:smile
+Pepe: I thought you were some normie. 
+<<wait 3>>
+Pepe: Man, it sucks being like this. I just want to be like the others. #e:sad
+<<wait 1>>
+Steven: Yeah.. It's over for us, isn't it? #e:bored
+Pepe: Totally over.
+<<wait 2>> 
+Pepe: Are you still trying to looksmaxx?
+<<wait 2>>
+-> Act dumb
+    Steven: What's that? #e:think1
+    Pepe: Oh come on man, you know.
+    Steven: No, I really don't.
+    Pepe: Why act dumb? You're a robot, you know what I'm talking about.
+    -> Still act dumb
+        Steven: What's a normie? #e:huh
+        <<wait 2>>
+        Pepe starts to REEEE uncontrollably.
+        It seems his autism is kicking in.
+        <<playSoundString AudioManager Reeee>>
+        <<wait 5>>
+        <<jump Pepe_Ruin_Friendship>>
+    -> Respond
+        <<jump Pepe_Respond>>
+-> Respond
+    <<jump Pepe_Respond>>
+===
+
+title: Pepe_Respond
+---
+Steven: I mean... I've given up. #e:bored
+Steven: Have you not? #e:weary
+<<wait 2>>
+Steven: What's it all for anyways? There'll be nothing but scraps for us once we get our shit together. #e:bored
+<<wait 1>>
+<<if $hasGoneToBibleStudy == true>>
+    Pepe: Are you sure? I saw you at Bible study the other day.
+    Pepe: You have to at least be churchmaxxing.
+    <<wait 2>>
+    Steven: I mean... Maybe. 
+    Steven: But I'm not there to pick up Pepe or anything...
+    <<wait 1>>
+    Pepe: Yeah, Pepe's probably already with that chad singer guy. #e:sad
+    Pepe: What's his name again? 
+    Steven: Chase? #e:worried
+    Pepe: Yeah, that's the name.
+    Pepe: God, I can't stand him.
+    Pepe: I wanna slap that stupid smile of his... #e:rage
+    <<jump Pepe_Improve_Friendship>>
+<<else>>
+    Pepe: I mean, you do have a point. #e:sad
+    Pepe: We'll be miles behind everyone else. 
+    Pepe: But I wouldn't be able to take it if I couldn't improoove.
+    Pepe: Because, if you aren't doing anything to make it better, then why not just rope? #e:sad
+    <<wait 2>>
+    Pepe: You know what I mean?
+    <<wait 2>>
+    Steven: I'm... #e:weary
+    Steven: ...scared of that. I don't want to die. #e:bored
+    <<wait 2>>
+    Steven: Instead of roping, I just cope. #e:smirk
+    Steven: You know, the saying, "rope or cope"? #e:worried
+    <<wait 2>>
+    Steven: You either choose to numb the pain... Or just make it end. #e:think2
+    Steven: I choose to numb it. #e:weary
+    Steven: I just dull my life with video games, anime, and other stupid shit. #e:bored
+    <<wait 2>>
+    Pepe: Fair. Hey look man, that takes courage to admit. #e:sad
+    Pepe: Us outcasts... we should stick together.
+    Pepe: Maybe we can help each other. #e:smile
+    <<wait 1>>
+    Steven: Yeah, for sure. Let's talk more. #e:smile
+    Pepe: Sure. 
+    <<wait 2>> 
+    Pepe: I'm glad I found you. #e:smile
+    <<jump Pepe_Improve_Friendship>>
+<<endif>>
+===
+
+
+title: Pepe_Improve_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $pepeFriendProgress = $pepeFriendProgress + 2>>
+    <<if $pepeFriendProgress > 1>>
+        <<set $pepeFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToPepeAlready = true>>
+===
+
+title: Pepe_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $pepeFriendProgress = $pepeFriendProgress + 2>>
+    <<if $pepeFriendProgress > 1>>
+        <<set $pepeFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToPepeAlready = true>>
+===
+
+title: Pepe_Ruin_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $pepeFriendProgress = $pepeFriendProgress - 2>>
+    <<if $pepeFriendProgress < -1>>
+        <<set $pepeFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToPepeAlready = true>>
+===
+
+title: Pepe_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $pepeFriendProgress = $pepeFriendProgress - 2>>
+    <<if $pepeFriendProgress < -1>>
+        <<set $pepeFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToPepeAlready = true>>
+===

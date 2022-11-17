@@ -30,7 +30,11 @@ public class CrossSceneObjects : MonoBehaviour
         GameObject.Find("Door").GetComponent<Animator>().SetBool("Closing", true);
     }
 
-
+    [YarnCommand("TurnDownMusic")]
+    public void TurnDownMusic()
+    {
+        FindObjectOfType<Subwoofer>().turnItDown();
+    }
     public void turnOffPlayerSprite()
     {
         GameObject.Find("Player").GetComponent<SpriteRenderer>().enabled = false;
@@ -38,6 +42,18 @@ public class CrossSceneObjects : MonoBehaviour
     public void turnOnPlayerSprite()
     {
         GameObject.Find("Player").GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    [YarnCommand("GetRidOfObject")]
+    public void GetRidOfObject(string s)     
+    {
+        GameObject.Find(s).GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    [YarnCommand("EnableObject")]
+    public void EnableObject(string s)
+    {
+        GameObject.Find(s).GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public void cutsceneFinishedPlaying()

@@ -430,6 +430,153 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: robot-face-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a32a2b9522f650445bf61c6da658cf66
+      internalID: -1472781557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-face-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba00c6544adcbf43bf3f889e77fb14b
+      internalID: 602664228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-face-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b95efec63f0a6944f889f11fc15a0a9d
+      internalID: 259245835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-face-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485dcbbafe60938408ce81e218d801d2
+      internalID: -1037042926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-face-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750c2f91b9aae154e90ff0c0eda95fdf
+      internalID: 715708040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-face-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775dea92eff01de479897cd9f5210eb6
+      internalID: 866832881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot-face-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145943bbd2103db4bbffe78caac51599
+      internalID: 951275317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -442,14 +589,21 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       robot-face-Sheet_3: -1145343584
+      robot-face-Sheet_19: 715708040
+      robot-face-Sheet_21: 951275317
       robot-face-Sheet_8: 441122074
+      robot-face-Sheet_17: 259245835
       robot-face-Sheet_13: -2123537164
+      robot-face-Sheet_16: 602664228
+      robot-face-Sheet_20: 866832881
       robot-face-Sheet_0: -1044338548
       robot-face-Sheet_11: -377562965
       robot-face-Sheet_12: 1753945192
       robot-face-Sheet_4: 1263203670
+      robot-face-Sheet_15: -1472781557
       robot-face-Sheet_14: -1842076152
       robot-face-Sheet_9: 546863340
+      robot-face-Sheet_18: -1037042926
       robot-face-Sheet_1: 474396399
       robot-face-Sheet_7: 1341097290
       robot-face-Sheet_6: -1481577236

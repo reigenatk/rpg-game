@@ -184,6 +184,10 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
     [SerializeField] List<ColorPoint> globalLightColors;
     [SerializeField] List<SceneName> scenesThatShouldHaveColorChange; // which scenes should the global light changing effect be enabled for?
 
+    // gameplay elements
+    [SerializeField] int dialogueSlowdownRate; // slow time down by a certain factor when dialogue is playing
+    [SerializeField] int dialogueSlowdownCounter = 0;
+    [SerializeField] List<int> canTalkAgainTimes; // points in the game where we will reset all the "can talk to X NPC" related yarn variables. How about every 6 hours? so 0, 6, 12, 18 (6pm).
     bool doesThisSceneUseDynamicLights()
     {
         foreach (SceneName s in scenesThatShouldHaveColorChange)
@@ -212,6 +216,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
 
     private void Update()
     {
+        // filter out the cases where time SHOULDNT run first
         if (gameClockPaused == true)
         {
             // Debug.Log("Game clock is Paused");
@@ -221,16 +226,34 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
             // cutscene is playing
             // Debug.Log("Cutscene is playing so pause time");
         }
+        else if (gameState.getCurrentSceneEnum() == SceneName.DarkScene)
+        {
+            // time doesnt advance in dark scene lol
+
+        }
         else if (gameState.currentRunningDialogueNode != null && gameState.currentRunningDialogueNode != "")
         {
             // idk why (for above) but checking against null isnt sufficient, we gotta check against empty string?
             // Dialogue is playing
             // Debug.Log("Dialogue is playing so pause time");
+
+            // do a tick every (dialogueSlowdownRate) seconds
+            if (dialogueSlowdownCounter == dialogueSlowdownRate)
+            {
+                dialogueSlowdownCounter = 0;
+                GameTick();
+            }
+            else
+            {
+                dialogueSlowdownCounter++;
+            }
         }
         else
         {
             GameTick();
         }
+
+
 
         CheckSpecialEvents();
     }
@@ -247,8 +270,13 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
     {
         foreach (GameEvent ge in specialEvents)
         {
-            if (ge.whenEventActive.isInChunk(gt) && !ge.npcMovement.npcIsMoving)
+            // only trigger the event if the player has stopped moving
+            if (ge.whenEventActive.isInChunk(gt))
             {
+                if (ge.npcMovement != null)
+                {
+                    if (ge.npcMovement.npcIsMoving) continue;
+                }
                 // tell yarn its active (so yarn knows to give special dialogues)
                 gameState.setYarnVariable(ge.yarnVariableName, true);
             }
@@ -311,6 +339,15 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
 
             EventHandler.CallAdvanceGameMinuteEvent(gameDayOfWeek, gt.gameHour, gt.gameMinute, gt.gameSecond);
 
+        }
+
+        // reset NPC talkable variables
+        foreach (int gameHour in canTalkAgainTimes)
+        {
+            if ((gt.gameHour == gameHour) && (gt.gameMinute == 0) && (gt.gameSecond == 0))
+            {
+                FindObjectOfType<GameState>().canTalkToAllNPCsAgain();
+            }
         }
 
         if (doesThisSceneUseDynamicLights() == true) lightingTick();

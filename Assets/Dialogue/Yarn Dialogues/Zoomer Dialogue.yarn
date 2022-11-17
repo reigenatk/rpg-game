@@ -1,0 +1,477 @@
+﻿title: Zoomer_Vars
+---
+
+// one time dialogue variables
+
+<<declare $talkedToZoomerAlready = false>>
+<<declare $zoomerFriendProgress = 0>> // no way to declare negative numbers in yarn >:(
+<<set $zoomerFriendProgress = -1>>
+<<declare $didZoomerDialogue1 = false>>
+<<declare $didZoomerDialogue2 = false>>
+<<declare $hasMetZoomer = false>>
+<<declare $didZoomerDance = false>>
+<<declare $didZoomerFashion = false>>
+===
+title: Zoomer_Dialogue
+---
+<<jump Zoomer_Normal_Dialogue>>
+===
+
+title: Zoomer_Normal_Dialogue
+---
+<<if $talkedToZoomerAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+
+<<if $zoomerFriendProgress == 0>>
+	<<jump Zoomer_Start>>
+<<elseif $zoomerFriendProgress >= 1>>
+	<<jump Zoomer_Familiar>>
+<<elseif $zoomerFriendProgress <= -1>>
+	<<jump Zoomer_Unfriendly>>
+<<endif>>
+===
+
+title: Zoomer_Familiar
+---
+Chris: Vibe check?
+Steven: Sorry, what's that? #e:dsmile
+Chris: Vibe check? #e:cool
+<<wait 1>>
+Steven: I still don't get it.
+Chris: Iykyk, fam.
+Chris: Anyways, what's up?
+-> Let's chat
+    Steven: You down for a chat? #e:smile
+    <<wait 1>>
+    Chris: Sure fam. 
+    <<jump Zoomer_Chat_Decide>>
+-> Let's eat.
+    Steven: Wanna go get something to eat?
+    <<wait 2>>
+    Chris: Yessir, I'm hungry as hell.
+    Chris: I could eat a whole house right now, on momma. #e:talking
+    <<wait 2>>
+    Chris: Let's go get some sushi, bruh. #e:cool
+    <<playCutscene LevelLoader GetSushi>>
+
+===
+
+title: Zoomer_After_Eat
+---
+Chris: Damn, homie That sushi gas, on Trevor. #e:cool
+<<wait 1>>
+Steven: That was pretty good... #e:comfy
+<<wait 2>>
+Chris: I'll catch you around, homeboy...
+<<wait 1>>
+Steven: Cya. #e:smile 
+<<changePlayerScoreString Manager "energy" 30.0>>
+<<changePlayerScoreString Manager "social" 20.0>>
+<<changePlayerScoreString Manager "contentedness" 10.0>>
+<<wait 2>>
+===
+
+title: Zoomer_Chat_Decide
+---
+<<if $didZoomerDance == false>>
+	-> Dance
+		<<jump Zoomer_Dance>>
+	-> Talk about something else
+<<endif>>
+<<if $didZoomerFashion == false>>
+	-> Help
+		<<jump Zoomer_Fashion>>
+	-> Talk about something else
+<<endif>>
+
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didZoomerDialogue1 == false>>
+    <<set $didZoomerDialogue1 = true>>
+    <<jump Zoomer_Chat_End_1>>
+<<else>>
+    -> Dance 
+        <<jump Zoomer_Dance>>
+    -> Help 
+        <<jump Zoomer_Fashion>>
+    -> Generic Chat
+        <<jump Zoomer_Chat_End_Generic>>
+<<endif>>
+===
+
+title: Zoomer_Chat_End_1
+---
+Chris: Awww, shiet. That new album, you listen yet?
+Chris: Shieeeeet... 
+Chris: Lil Poopie is ON something.. ya feel?
+Chris: He's a prophet, forreal. Moses. He be doing things nobady done before in the rap scene.
+Chris: I feel so proud to be alive right now so I can hear dis shit, ya feel?
+Chris: Them bars preaching to me, ya feel?
+<<wait 1>>
+Steven: Yeah... totally! Fire stuff, amirite? #e:cringe
+Steven: No cap..? #e:cringe
+<<wait 2>>
+Mind: I have no clue what he's talking about. #e:oshit
+Voice: You have no clue what he's talking about. #e:thinking
+Chris: Anyways, gotta fly, Stevie. #e:cool
+Chris: Hey, wanna play some amongus tonight? 
+Chris: I be thinking you mad sus, homie.
+Voice: Decline! Decline it! #e:cringe
+<<wait 2>>
+-> Yes
+    Steven: Yeah sure, I'll play. #e:smile
+    Chris: Yeaaaaa buddy. 
+    Chris: I'll see you online later. #e:cool
+-> No 
+    Steven: Um, I'm busy. Got homework. Sorry bro. #e:think1
+    Chris: Hey, issss gooooood, man. You be grinding, I gotchu. 
+    Chris: Maybe we can play some bball later, aight?
+    Steven: Alright. See ya. #e:smile 
+    <<wait 2>>
+    Voice: God, why are you agreeing to all this shit? #e:cringe
+    Voice: Just tell him you don't like him already!
+    <<wait 2>>
+    Mind: No. He's a valuable resource.
+    Mind: I can't afford to lose the only normie friend I've got. #e:stern
+<<jump Zoomer_Improve_Friendship_Most>>
+===
+
+
+title: Zoomer_Chat_End_Generic
+---
+Chris: I finna bust that cap GOAT Clapback smol guap snatched, ya feel?
+Steven: Uhhhhh....
+Steven: Not really #e:smile
+<<wait 1>>
+Chris: Is all good, Steven. You be sending me. Anyway, I be headin off now. #e:cool
+<<wait 1>>
+Steven: Okay... see you around? #e:smile
+<<wait 1>>
+Voice: God, what is he even saying? #e:cringe
+<<jump Zoomer_Improve_Friendship_Most>>
+===
+
+title: Zoomer_Unfriendly
+---
+Chris: Eyyo, I ain't tryan throw hands here.
+Chris: We got beef? I finna smack you homie. You betta back off.
+<<wait 2>>
+-> Insult
+    Steven: Finna no cap busta nut in yo woke cap shawty sheeeeeesh #e:smirk
+    <<wait 4>>
+    Steven: That's what you sound like, you stupid coconut. #e:laugh
+    <<wait 1>>
+    Steven: Your mother is a hoe, literally. #e:laugh
+    Steven: Your rich daddy probably hired her for a night and forgot to put a condom on. #e:angry2
+    Steven: Go and suck him off more so he can pay you some cash to buy your stupid clothes. #e:angry
+    <<wait 1>>
+    Chris: Ayo- I'm dead, cuz. I ain't mad no more atchu.
+    Chris: I know you be an incel. You just tryna get under my skin.
+    Chris: But I ain't about that life, ya feel?
+    Steven: Stop virtue signaling! #e:angry
+    <<wait 1>>
+    Chris: You tweakin, cuz. Go getcho head checked. #e:cool
+    Voice: OOOOooooo.
+    Voice: He's right. Why are you even insulting him? His life is set. #e:evil2
+    Voice: You're just a little mosquito in front of his face. #e:laugh
+    Mind: FUuuuck! You're right. #e:angry2
+    Mind: No matter how much I insult him, he's still daddy's boy. #e:angry2
+    Mind: I'm not rich. I'm not guaranteed a cushy life. #e:angry2
+    Mind: God, I hate his guts. I hope he chokes on his martini. #e:angry
+    <<jump Zoomer_Ruin_Friendship_Less>>
+-> Make up
+    Steven: No, we don't have beef. #e:stern
+    <<wait 1>>
+    Steven: I was just being an asshat last time. #e:shy
+    Steven: I'm sorry, Chris. Can we be bros again? #e:think2
+    <<wait 2>>
+    Steven: I just.. wanna have some friends and I guess I came off the wrong way. #e:think1
+    <<wait 3>>
+    Chris: Ayo dawg, its cool. I be stayin low-key, you know what I mean?
+    Chris: I appreciate yo apology. #e:talking
+    Chris: We turning a new leaf now. We gonn have a good friendship, cuz. #e:cool
+    <<jump Zoomer_Improve_Friendship_Less>>
+===
+
+title: Zoomer_Start
+---
+<<if $hasMetZoomer == false>>
+    Chris: <color=\#FFB6C1> Sheeeeeeeeeeeeeeeeesh! </color>
+    Chris: New face, who dis?
+    <<wait 1>>
+    Steven: Uhh, hey.. I'm Steven...
+    Steven: Can we be friends? #e:smile
+    Chris: Ok bet. I'm Chris.
+    <<wait 1>>
+<<endif>>
+Chris: So, what's going on, chief?
+-> Dance
+    <<jump Zoomer_Dance>>
+-> Help
+    <<jump Zoomer_Fashion>>
+
+===
+
+title: Zoomer_Dance
+---
+<<set $didZoomerDance = true>>
+Steven: Uh, why do you dance around so much?
+Steven: Like, everytime I see you on campus, you're doing some kind of dance.
+<<wait 2>>
+Chris: That's cuz I'm tryna make it, cuz.
+Chris: I finna blow up on TikTok, ya feel me?
+Chris: An if that don't work, Imma become a soundcloud rapper.
+<<wait 2>>
+Steven: Oh, wow... Ambitious career choices... #e:smile
+<<wait 2>>
+Chris: Ye, cuz. All my songs are bops, for reaaaal. Im goated, ya feel me cuzz?
+Chris: I ain't gonna stay in school, periodt. #e:normal
+-> Insult
+    Steven: Your taste in music is shit! #e:stern
+    Steven: You unironically to the same rappers, whose songs sound exactly the same. #e:stern
+    Steven: The rappers you worship are all high school dropouts who fuck bitches and do drugs for a living. #e:angry2
+    Steven: Half of them are going to OD in a few years. How can you not see that you are being used? #e:angry
+    Steven: They don't give a fucking shit about you. You are just a statistic, a number in their paycheck. #e:angry2
+    <<wait 2>>
+    <<wait 1>>
+    Chris: Naw, dawg. Lil poopie loves me. He's the best.
+    Chris: He raps about hard issues... Like uuuuuhhhhhh... #e:neutral
+    <<wait 3>>
+    Chris: Like suicide...... oh and.... and anxiety, and uuuuuuhhhh..
+    <<wait 2>>
+    Steven: See, dumbass? #e:stern
+    <<wait 1>>
+    Steven: All these rappers do is try to look cool, so low IQ retards like you will think they are cool #e:angry2
+    Steven: It's a monkey worshipping festival, you cretin. Can't you see? Have you even heard what real music sounds like? #e:angry
+    <<wait 2>>
+    Chris: Woah dawg. You are not vibin right now. #e:neutral
+    Chris walks away. He seems kinda fazed.
+    <<wait 2>>
+    Mind: God, I can't stand these rap retards. Speaking words and playing their loud ass basses. #e:angry
+    <<wait 2>>
+    Mind: They don't even know the first thing about music, and they all wanna be a musician. #e:angry2
+    Mind: Just cuz they saw some random idiot go famous from soundcloud rapping. #e:angry
+    <<jump Zoomer_Ruin_Friendship>>
+-> Stay quiet
+    Steven: ...
+Chris: School's for nerds and I ain't a nerd. I woke as hell. #e:rage 
+Chris: Music and dancing's my calling. #e:cool
+<<wait 2>>
+Steven: But.. You realize not many people make it as an influencer, right?
+<<wait 2>>
+Chris: Homie, I got 2k followers on instagram. I ain't no random.
+Chris: You tweakin if you think I be some normal guy.
+<<wait 1>>
+Chris: I High-key be making brand deals in my free time, and you finna tell me I ain't shit?
+Chris: You tryna roast me, cuz? 
+-> Insult
+    Steven: Yes, I am. 2k followers? First off all, that ain't shit. #e:stern
+    Steven: Most of them are probably bots that you paid for. #e:angry2
+    Steven: And the rest are your stupid rich friends from your preppy high school. #e:angry2
+    Steven: You annoy the shit out of me. You're not gonna make it as an influencer. #e:angry2
+    Steven: You have no talents, besides dancing to some shitty song. #e:angry
+    Steven: But it doesn't matter, because your mommy and daddy are gonna pay for everything in your life, anyways. #e:angry
+    Chris: Ey, homie? You tryna throw hands? #e:rage
+    Chris: Take a seat, cuz. I ain't gonna take that from you. #e:rage
+    Steven: Or what are you gonna do, huh?
+    Chris: Or I'll-... #e:rage
+    <<wait 2>>
+    Chris: I'll... #e:rage
+    <<wait 3>>
+    Chris doesn't seem to know what to do.
+    Chris: My father's gonna know about this! #e:rage
+    Chris: And he finna expell you from the university, you runt! #e:rage
+    Voice: Oooooh, seems like his daddy is powerful. #e:evil1
+    Voice: You gonna apologize soon? He might not be lying... #e:thinking 
+    Mind: Never! I put this little bitch in his place. I'm not apologizing for shit. #e:angry2
+    <<jump Zoomer_Ruin_Friendship>>
+-> Make up
+    Steven: No, I'm not tryna insult you... You can make it, for sure.. #e:smile
+    Steven: It's just... well.. you haven't made it yet, so I'm providing some motivation. #e:smile
+    <<wait 2>>
+    Chris: Ahhh. I'm weak, cuzz. Getting me on that grindset, yeah? #e:talking
+    Chris: Don't worry. In a year, I'll be making world tours. #e:cool
+    Chris: Here. My soundcloud ID is 652744745-788731291. 
+    Chris: Check me out, cuzzz. #e:cool
+    <<wait 2>>
+    Steven: Yeah, totally. I'll be sure to check it out.. #e:smile
+    Voice: This guy is way over his head. #e:evil2
+    Mind: Yeah, but I don't wanna make him mad. #e:worried
+    Mind: He seems super serious about this stuff. #e:yikes
+    <<jump Zoomer_Improve_Friendship>>
+===
+
+title: Zoomer_Fashion
+---
+<<set $didZoomerFashion = true>>
+Steven: Hey, so I was wondering if you could give me some tips on how to be more... #e:shy
+<<wait 2>>
+Steven: How to be more... #e:worried
+<<wait 3>>
+Steven: More cool... #e:embarassed
+<<wait 3>>
+Chris: Hold on a sec.. I don't catch yo drift, cuzzz.
+<<wait 1>>
+Chris: Ahh, akshually, never mind. I see you cuzz. 
+Chris: You wanna have some drip like me, instead of being a cheugy lil nerd. #e:talking
+Chris: Bet. No Cap, I got the best fashion tastes on campus. #e:neutral
+Chris: You came the right guy. Other people be axing me all the time what you just axed. #e:cool
+<<wait 2>>
+Steven: So, you'll help me? #e:think1
+Chris: Course, fam. I ain't about that selfish shit. I know my roots, you feel me? #e:talking
+Chris: It wasn't long ago when I was a huge L like you. #e:neutral
+Chris: But now, I'm a big W. #e:cool
+Chris: I'll transform you to be the CEO of bitches, you feel? #e:talking
+<<FadeIn LevelLoader 1>>
+<<wait 3>>
+Chris: Now the trick to looking fly, is simple dressing.
+Chris: None of that boujee shit, ya feel? #e:talking
+Chris: Some famous name brands is all you need. 
+Chris: Now first up: the t-shirt. #e:cool
+Chris: Me myself, I be reppin the Rip N dip mostly... #e:talking
+Chris: Sometimes I'm feelin the Lacoste, or the Tommy Hilfiger. #e:talking
+Chris: Fo' the shoes, we got some Vans style 73, you know what I mean? #e:talking
+Chris: These mo'fos make me feel like Jesus, you feel? I be walkin on water. #e:talking
+Chris: Fo' the shorts, we go those Outlier New ways. Cotton make those bitches go crazy. #e:cool
+Chris: None o that polyester shit, ya feel? #e:talking
+Chris: You can also wear crocs, but that shit camp asf. #e:talking
+<<wait 2>>
+Chris: You good so far? 
+Steven: Uhh... yeah. Writing it down.. #e:shy
+<<wait 2>>
+Chris: Cuz this part is most important. 
+Chris: Yo hair.
+<<wait 2>>
+Chris: I be puttin mad hours into researching hair, homie. #e:talking
+Chris: Them smart ass scientists be releasing mad papers about which hair attracts them bitches. #e:talking
+<<wait 2>>
+Chris: And I be reading all of that shit, day and night. 
+Chris: The conclusion I came to is.. #e:talking
+<<wait 3>>
+Chris: Perms all day, baby. That shit hits different.
+Chris: You go over to OMG Hair on campus. #e:talking
+Chris: They gonna treat you right. #e:talking
+Chris: After you get that perm baby- you be looking snatched, ya feel me? #e:cool
+<<wait 2>>
+Chris: YA feeel mee cuzzzz!? #e:cool
+<<FadeOut LevelLoader 1.0>>
+<<wait 2>>
+Steven: Y-Yeah.. sorry.. tryna... write all this down. #e:shy
+<<wait 2>>
+Chris: No problem. You my boy, so I ain't gonna charge you no guap. I gotchu, homie. #e:talking
+<<wait 1>>
+Steven: Thanks... It's just.. a lot of info. #e:think1
+<<wait 2>>
+Chris: Tell you wat. I know you be feelin a little down, since I'm so dapper. #e:cool
+Chris: But it really ain't all that bad.
+Chris: All you gotta do is finesse. #e:talking
+Chris: And you'll be feelin like a main character in no time. #e:cool
+Chris: Cuz the way you lookin now, you finna get cancelled, you feel me? #e:talking
+-> Insult
+    Steven: You know what... #e:stern
+    Steven: Fuck you. #e:angry2
+    Steven: Screw you and your brands #e:angry2
+    Steven: Screw your retarded shoes and ur goofy ass shorts #e:angry2
+    Steven: You are a fuckin basic, heartless, spoiled little runt. #e:angry
+    Steven: Your hair looks like a wet mop, and yet it still has more character than you. #e:angry
+    <<wait 2>>
+    Steven: I can't understand half the words you're saying, and you're only talking this way to sound cool. #e:angry
+    Steven: Are you so fucking stupid that you can't even think for yourself? #e:angry
+    Steven: Have you ever even had a unique thought, something that didn't come from others? #e:angry2
+    Steven: Can you only copy shit you see on Tiktok and instagram, you fuckin sheep? #e:angry
+    Steven: Can you not realize there's more to life than how people perceive you? #e:angry2
+    <<wait 1>>
+    Voice: Woah! That's the biggest outburst I've ever seen from you! #e:laugh
+    Voice: Give that idiot zoomer a piece of your mind! #e:evil1
+    <<wait 1>>
+    Chris: H--hey! you tryna clapback, homie? #e:rage
+    Chris: I ain't tryna throw hands, chief. You are not vibing right now. #e:rage
+    Steven: Stop using these fucking retarded words! #e:angry
+    Steven: You're not cool, you will never be cool, and you know it. #e:angry
+    Steven: Get a fucking hobby, a skill, a life, instead of spending all of your time chasing bitches. #e:angry
+    <<wait 2>>
+    Voice: Hahahaha #e:laugh
+    Mind: God, I can't stand these fucking loser zoomer fuckboy wannabes. #e:angry2
+    Mind: They think they're so cool, but they're literally the most retarded people on the planet. #e:angry2
+    Mind: I could walk down any main street of any college campus, and see thousands of these cumbrains everywhere. #e:angry2
+    <<jump Zoomer_Ruin_Friendship>>
+-> Agree 
+    Steven: Yeah... I guess I don't look great right now... #e:think2
+    Steven: I've just never given a lot of thought to how I look, I guess. #e:weary
+    <<wait 2>>
+    Chris: Ey dawg, its fixable. I seen worse, you know what I mean? 
+    Chris: If that old version of you be livin rent free in yo head, then you gotta evict his ass. #e:talking
+    Chris: Like I said. Finesse, not stress. #e:cool
+    Steven: Thanks for the tips, Chris. #e:smile
+    <<jump Zoomer_Improve_Friendship>>
+===
+
+title: Zoomer_Improve_Friendship_Most
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $zoomerFriendProgress = $zoomerFriendProgress + 2>>
+    <<if $zoomerFriendProgress > 1>>
+        <<set $zoomerFriendProgress = 1>>
+    <<endif>>
+    <<AdvanceXMinutes Manager 60>>
+	<<changePlayerScoreString Manager "entertained" 15.0>>
+    <<changePlayerScoreString Manager "contentedness" 15.0>>
+	<<changePlayerScoreString Manager "social" 15.0>>
+	<<set $talkedToZoomerAlready = true>>
+===
+
+title: Zoomer_Improve_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $zoomerFriendProgress = $zoomerFriendProgress + 2>>
+    <<if $zoomerFriendProgress > 1>>
+        <<set $zoomerFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToZoomerAlready = true>>
+===
+
+title: Zoomer_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $zoomerFriendProgress = $zoomerFriendProgress + 2>>
+    <<if $zoomerFriendProgress > 1>>
+        <<set $zoomerFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToZoomerAlready = true>>
+===
+
+title: Zoomer_Ruin_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $zoomerFriendProgress = $zoomerFriendProgress - 2>>
+    <<if $zoomerFriendProgress < -1>>
+        <<set $zoomerFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToZoomerAlready = true>>
+===
+
+title: Zoomer_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $zoomerFriendProgress = $zoomerFriendProgress - 2>>
+    <<if $zoomerFriendProgress < -1>>
+        <<set $zoomerFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToZoomerAlready = true>>
+===

@@ -209,14 +209,39 @@ public class GameState : Singleton<GameState>
         }
     }
 
+   
+    public void canTalkToAllNPCsAgain()
+    {
+        setYarnVariable("$talkedToNikolaiAlready", false);
+        setYarnVariable("$talkedToKabowskiAlready", false);
+        setYarnVariable("$talkedToBrainAlready", false);
+        setYarnVariable("$talkedToStacyAlready", false);
+        setYarnVariable("$talkedToBeckyAlready", false);
+        setYarnVariable("$talkedToDoomerAlready", false);
+        setYarnVariable("$talkedToDoomerGirlAlready", false);
+        setYarnVariable("$talkedToPepeAlready", false);
+        setYarnVariable("$talkedToBoomerAlready", false);
+        setYarnVariable("$talkedToBloomerAlready", false);
+        setYarnVariable("$talkedToCoomerAlready", false);
+        setYarnVariable("$talkedToRedditAlready", false);
+        setYarnVariable("$talkedToDiscordAlready", false);
+        setYarnVariable("$talkedToZoomerAlready", false);
+    }
+
     // this is called via SIGNAL from each timeline's signal emitters
     public void cutsceneFinishedPlaying()
     {
+        Debug.Log("cutscene finished playing");
         // enable all NPC characters
         Debug.Log("Enabling all NPC chars sprite renderers");
         foreach (SpriteRenderer sr in npcs.GetComponentsInChildren<SpriteRenderer>())
         {
             sr.enabled = true;
+        }
+        Debug.Log("Enabling all Audio on npcs");
+        foreach (AudioSource asr in npcs.GetComponentsInChildren<AudioSource>())
+        {
+            asr.enabled = true;
         }
         // disable all Non NPC characters
         Debug.Log("Disabling all Non-NPC chars sprite renderers");
@@ -224,10 +249,18 @@ public class GameState : Singleton<GameState>
         {
             sr.enabled = false;
         }
+/*        foreach (Animator a in npcs.GetComponentsInChildren<Animator>())
+        {
+            a.enabled = true;
+        }*/
+
         GameUI.Instance.enableUI();
         FindObjectOfType<Player>().GetComponent<BoxCollider2D>().enabled = true;
         setIsCutscenePlaying(false);
         cutscenePlaying = null;
+
+        // fade in again (if faded out)
+        LevelLoader.Instance.FadeOut(1.0f);
 
         // start up game clock again
         FindObjectOfType<TimeManager>().gameClockPaused = false;
@@ -366,10 +399,6 @@ public class GameState : Singleton<GameState>
 
         }
     }
-
-   
-
-
 
     public int getGameDay()
     {

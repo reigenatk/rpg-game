@@ -354,7 +354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199736915}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8768108, y: -2.3059113, z: 0.7128906}
+  m_LocalPosition: {x: 2.09, y: 0.45, z: 0.7128906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -535,7 +535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468123716}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3331892, y: -0.56591153, z: 0.7128906}
+  m_LocalPosition: {x: 1.41, y: -1.85, z: 0.7128906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -598,7 +598,7 @@ MonoBehaviour:
     extraConditions: []
   dialogueImages:
   - {fileID: 0}
-  soundToPlay: 0
+  soundToPlay: 3
 --- !u!61 &503822067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -636,6 +636,8 @@ GameObject:
   - component: {fileID: 576780282}
   - component: {fileID: 576780283}
   - component: {fileID: 576780284}
+  - component: {fileID: 576780286}
+  - component: {fileID: 576780285}
   m_Layer: 0
   m_Name: wardrobe
   m_TagString: Untagged
@@ -724,7 +726,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.054250598, y: 0.0135630965}
+  m_Offset: {x: 0.054250598, y: -0.51184386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -735,8 +737,46 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8218658, y: 1.8643726}
+  m_Size: {x: 2.8218658, y: 0.8135587}
   m_EdgeRadius: 0
+--- !u!61 &576780285
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576780281}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.09114182, y: 0.39137447}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.5, y: 2}
+    newSize: {x: 3.5, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.717251, y: 0.9599087}
+  m_EdgeRadius: 0
+--- !u!114 &576780286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576780281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961482b0702fc4f4495deb7a020cb68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &741550917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -767,12 +807,12 @@ PrefabInstance:
     - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2
+      value: 2.6666667
       objectReference: {fileID: 0}
     - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
+      value: 2.6666667
       objectReference: {fileID: 0}
     - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
@@ -1441,12 +1481,12 @@ PrefabInstance:
     - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 3
+      value: 3.6
       objectReference: {fileID: 0}
     - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
@@ -1597,6 +1637,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2544544162196667748, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7, type: 3}
     - {fileID: 6432865312291100084, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7, type: 3}
+    - {fileID: 2226902105004673352, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7, type: 3}
 --- !u!850595691 &1289987360
 LightingSettings:
@@ -2193,6 +2234,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1996990852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9179047957203888401, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1231895639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1996990855
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996990852}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.3366834, y: 0.048873425}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.6, y: 2.4}
+    newSize: {x: 3, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9266331, y: 2.3022532}
+  m_EdgeRadius: 0
 --- !u!4 &1524245629794587412
 Transform:
   m_ObjectHideFlags: 0
@@ -7200,9 +7273,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
+      propertyPath: extraDelay
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
+        type: 3}
       propertyPath: sceneNameGoto
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
+        type: 3}
+      propertyPath: teleportSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bfadb92f1270a6c42abf00479d6fb8eb, type: 3}
     - target: {fileID: 7443245243718010382, guid: 8a9a090dfca33034e8a3fc28852b1d79,
         type: 3}
       propertyPath: scenePositionGoto.x

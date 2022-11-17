@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headshots:
   - headshotName: normal
-    sprite: {fileID: -604293010, guid: eddbf10645445c341b223c6a5c6ffd5b, type: 3}
+    sprite: {fileID: -1004030920, guid: 143937eb7ca965446933e4f09533ddd2, type: 3}
+  - headshotName: talking
+    sprite: {fileID: 265078981, guid: 143937eb7ca965446933e4f09533ddd2, type: 3}
+  - headshotName: sad
+    sprite: {fileID: -787207719, guid: 143937eb7ca965446933e4f09533ddd2, type: 3}
+  - headshotName: neutral
+    sprite: {fileID: 339876025, guid: 143937eb7ca965446933e4f09533ddd2, type: 3}
   charactersThatUseTheseHeadshots:
   - Kabowski
   scaleToUse: 3

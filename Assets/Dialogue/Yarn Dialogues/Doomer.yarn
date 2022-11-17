@@ -1,5 +1,347 @@
-﻿title: Doomer_Dialogue
-tags:
+﻿title: Doomer_Vars
 ---
 
+// one time dialogue variables
+<<declare $didDoomerDialogue1 = false>>
+<<declare $didDoomerDialogue2 = false>>
+<<declare $hasMetDoomer = false>>
+===
+title: Doomer_Dialogue
+---
+<<jump Doomer_Normal_Dialogue>>
+===
+
+title: Doomer_Normal_Dialogue
+---
+<<if $talkedToDoomerAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+
+<<if $doomerFriendProgress == 0>>
+	<<jump Doomer_Start>>
+<<elseif $doomerFriendProgress >= 1>>
+	<<jump Doomer_Familiar>>
+<<elseif $doomerFriendProgress <= -1>>
+	<<jump Doomer_Unfriendly>>
+<<endif>>
+===
+
+title: Doomer_Familiar
+---
+Dylan: Hey Steven. Gloomy day today, isn't it?
+Steven: Eh, it's kinda sunny out. It's all in your head. #e:smirk
+Dylan: I guess.. you need something?
+-> Let's chat
+    Steven: Wanna have a chat?
+    Dylan: Alright. But only for a while. #e:smile
+    <<jump Doomer_Chat_Decide>>
+-> Nothing
+	Steven: Never mind...
+===
+
+title: Doomer_Chat_Decide
+---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didDoomerDialogue1 == false>>
+    <<set $didDoomerDialogue1 = true>>
+    <<jump Doomer_Chat_End_1>>
+<<elseif $didDoomerDialogue2 == false>>
+	<<set $didDoomerDialogue2 = true>>
+    <<jump Doomer_Chat_End_2>>
+<<else>>
+	-> Smoking 
+		<<jump Doomer_Smoking>>
+	-> Generic Chat
+    	<<jump Doomer_Chat_End_Generic>>
+<<endif>>
+===
+
+title: Doomer_Chat_End_1
+---
+Dylan: So yeah, that's how it went... #e:down
+Dylan: She more or less just started to ghost me, and then one day out of the blue, she said it was over #e:smoking
+Dylan: The only reason she gave was that I was too boring for her.
+<<wait 1>>
+Steven: Damn, dude. 
+Steven: That sounds tough. #e:bored
+<<wait 1>>
+Dylan: It felt really bad at first, but the more I think of it, the less I care. #e:smoking
+Dylan: She would've dumped me sooner or later. For Chad. #e:smoking
+<<wait 1>>
+Dylan: You get what I mean? #e:down
+<<wait 1>>
+Steven: I mean... #e:worried
+Steven: I don't have any experience. #e:embarassed
+<<wait 1>>
+Dylan: Honestly, that's nothing to be ashamed of. Fuck women, dude. #e:smoking
+Dylan: Just focus that extra energy on yourself. #e:smile
+<<wait 1>>
+Dylan: You probably think that I'm much better than you. I'm not. #e:smoking
+<<wait 1>>
+Dylan: She was just my first, is all. 
+Dylan: And probably my last. #e:smoking
+<<wait 1>>
+Steven: How did you two meet? #e:think2
+Dylan: School. She was like me when we first met. But she changed a ton. #e:down
+Dylan: And eventually I couldn't even believe she was the same person.
+Steven: Oh... #e:think1
+<<wait 2>>
+Dylan: Thanks for chatting with me, bro. I gotta go.
+Steven: Yeah, catch you later. #e:worried
+<<wait 2>>
+Voice: Wow, sounds like that guy had a lot of emotional baggage! #e:laugh
+Voice: See, maybe it's not so bad to be single. #e:evil1
+<<wait 1>>
+Mind: I mean, that's just one guy's experience... 
+Mind: He did seem really down about it though.
+<<jump Doomer_Improve_Friendship_Most>>
+===
+
+title: Doomer_Chat_End_2
+---
+Dylan: I mean, be honest with me. Have you thought about it? #e:smoking
+<<wait 2>>
+Steven: What? #e:worried
+<<wait 2>>
+Dylan: You know what.
+<<wait 3>>
+Steven: At times, yes. I'm too much of a pussy, though. #e:weary
+<<wait 1>>
+Dylan: Hey, at least you're honest. #e:smoking
+<<wait 1>>
+Steven: Are you also too scared of killing yourself? 
+<<wait 1>>
+Dylan: Shhh, quiet. There's people around. 
+Steven: Oops, sorry #e:oshit
+<<wait 2>>
+Dylan: No, I'm not scared of it. I'm just, worried about my mom.
+Dylan: She cares too much about me. I'm afraid it would cause her to snap. #e:down
+<<wait 1>>
+Dylan: She thinks I'm doing so great. 
+Dylan: She still has the picture of young, innocent Dylan in her head.
+Dylan: The one who never smoked a cigarette.
+Dylan: The one who is still with his girlfriend. #e:smoking
+Dylan: The one who would never even dream of killing himself. #e:smoking
+<<wait 2>>
+Dylan: How do you think she would react if she suddenly heard I was dead? #e:smoking
+<<wait 2>>
+Dylan: I don't really talk to my mom much. But I love her.
+Dylan: That's what's keeping me here. #e:smile
+Dylan: Maybe once she's gone, I can finally let go of it all. #e:smoking
+<<wait 2>>
+Steven: Makes sense... #e:think1
+<<wait 2>>
+<<playSoundString AudioManager PhoneRing>>
+<<wait 5>>
+Dylan: Well I gotta go. Looks like she's calling me right now. 
+<<wait 1>>
+Dylan: Thanks for listening. You're one of the few people I can talk to. #e:smile
+<<wait 2>>
+Steven: You as well. Let's talk again soon. #e:smile
+<<jump Doomer_Improve_Friendship_Most>>
+===
+
+
+title: Doomer_Chat_End_Generic
+---
+Dylan: Fuck the world, that's what I say. 
+<<wait 1>>
+Steven: Agreed. Alright, I gotta go. #e:smile
+Dylan: Later. #e:smile
+<<jump Doomer_Improve_Friendship_Most>>
+===
+
+title: Doomer_Unfriendly
+---
+Dylan: Not you again. 
+Dylan: Back to make fun of me again? #e:smoking
+-> Insult
+	Steven: Yep. You're pathetic. #e:stern
+	Steven: Instead of whining about how you're a victim of everything, why don't you do anything about it? #e:angry2
+	Dylan: Because it's all pointless. You still don't get it. #e:smoking
+	Dylan: I'm arguing that no matter what I try, it's not gonna get better.
+	Steven: That's so retarded! Of course it will if you just try! #e:angry2
+	Dylan: Look, I don't wanna talk to you if you're gonna get emotional. #e:smoking
+	Steven: I'm not emotional! #e:angry
+	<<wait 2>>
+	Voice: hahaha  #e:laugh
+	Voice: this guy is really getting under your skin! #e:think
+	<<jump Doomer_Ruin_Friendship_Less>>
+-> Be Nice
+	Steven: No, I'm here to apologize. I was rude last time. #e:shy
+	<<wait 2>>
+	Dylan: ... #e:down
+	Dylan: It's ok man. I can tell you're going through a lot, too. #e:smoking
+	<<wait 1>>
+	Dylan: Just, be more mindful next time, ok? #e:smile
+	Dylan: Yes, I'm all the things you said. But I also am still trying. #e:down
+	Dylan: I haven't killed myself, right? #e:down
+	<<wait 1>>
+	Steven: Yeah. I know that feel. #e:stern
+	<<wait 2>>
+	Steven: Hang in there, man. #e:smile
+	Dylan: Thanks. You too. #e:smile
+	<<jump Doomer_Improve_Friendship_Less>>
+-> Nothing
+	Steven: Never mind...
+===
+
+title: Doomer_Start
+---
+<<if $hasMetDoomer == false>>
+	Dylan: ... #e:smoking
+	Dylan: If its about Christianity, I don't wanna hear it.
+	<<wait 1>>
+	Steven: What? No. I'm just here to say hi. #e:shy
+	<<wait 1>>
+	Dylan: Oh. Hey then. I'm Dylan. #e:smoking
+	Steven: Steven. Nice to meet you. #e:worried
+	<<set $hasMetDoomer = true>>
+<<endif>>
+
+Dylan: So what do you need?
+<<if $hasGoneToGamingClub == true>>
+-> Gaming Club
+	Steven: You were at the gaming club, right?
+<<endif>>
+
+-> Smoking
+	<<jump Doomer_Smoking>>
+-> Nothing
+	Steven: Never mind...
+===
+
+title: Doomer_Smoking
+---
+Steven: Why do you smoke so much? #e:think1
+<<wait 1>>
+Dylan: That's easy. I use it to cope. #e:down
+Steven: Cope with what?
+Dylan: Well, I don't like using the word, but "depression" #e:smoking
+<<wait 1>>
+Steven: What makes you depressed? #e:think2
+Dylan: Well, mostly that the world is pointless. #e:smoking
+Dylan: I wakeup everyday, and there's no meaning to it all.
+Dylan: Nothing to look forward to. Nothing to dread.
+Dylan: No reason to get up in the mornings. No reason to stay in bed, either.
+Dylan: It's just pure grey- a neutral land of nothingness.
+<<wait 1>>
+-> Insult
+	Steven: waaah waah waaah. So your life sucks. Why don't you improve it ya big baby? #e:angry2
+	<<wait 2>>
+	Dylan: hahaha #e:smile
+	Dylan: You're funny. #e:smile
+	<<wait 1>>
+	Steven: I'm not joking. #e:stern
+	Dylan: Well I don't care. Either way, I don't wanna hear advice from you. 
+	Steven: Then don't expect to see any change! #e:angry
+	Dylan: Who said I expected to see any change? #e:smoking
+	<<wait 1>>
+	Voice: Ooooo, he just juked you out. 
+	Voice: Doomers don't care about their lives, remember? #e:concerned
+	<<wait 1>>
+	Steven: Whatever, you stupid edgelord. #e:angry2 
+	<<wait 1>>
+	Dylan: Hey man, you made my day. You're funny. #e:smoking
+	Dylan: "Just fix the problem", I'll keep that idea in mind. #e:smile
+	<<wait 1>>
+	Steven: You're retarded! #e:angry
+	<<jump Doomer_Ruin_Friendship>>
+-> Be Nice
+	Steven: You could just do something in your life? Maybe some hobbies?
+	Dylan: I've tried. And every single attempt has failed. #e:down
+	Dylan: Look, I appreciate your concern. But it's over for me. #e:smoking
+	Dylan: It feels like there's something inherently wrong with me.
+	Dylan: And I've given up trying to solve the puzzle. #e:down
+	<<wait 1>>
+	-> Reach out more
+		Steven: It'll get better, man.
+		<<wait 3>>
+		Dylan: I hate when people say that to me.
+	-> Give it up
+		<<wait 3>>
+		Dylan: I appreciate you asking, though. You seem pretty out of it, too. #e:smile
+		<<wait 1>>
+		Steven: Yeah, I'm a robot. #e:think1
+	<<wait 1>>
+	Dylan: That's just what therapists say to get you to leave, so they can take your money. #e:smoking
+	<<wait 1>>
+	Dylan: You don't know that it's gonna get better. No one knows anything about anything. #e:smoking
+	<<wait 1>>
+	Dylan: Not a soul would give less of a shit if I died today...
+	Dylan: If I'm sad, or happy, or embarassed, or jealous...
+	Dylan: Every day just passes us by, one after the other. #e:smoking
+	Dylan: Until our time is up. Then we die. #e:smoking
+	<<wait 1>>
+	Dylan: Look, what I'm saying is, the sooner you stop caring, the better. #e:smoking
+	<<wait 1>>
+	Steven: I guess. That's very honest. #e:stern
+	<<wait 2>>
+	Dylan: Hey, I'm the most honest guy you'll ever find. 
+	<<wait 2>>
+	Dylan: Gotta go now. I'll talk to you later.
+	Steven: Later.
+	<<wait 2>>
+	Voice: Sheeesh, that guy is on every color of pill. #e:concerned
+	Voice: Red, blue, black. The entire rainbow! #e:evil1
+	<<wait 2>>
+	Steven: Yeah, this guy makes pessimists look like optimists. 
+	Steven: But I relate pretty hard to him. Maybe we could be good friends. #e:smile
+	<<jump Doomer_Improve_Friendship>>
+===
+
+title: Doomer_Improve_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $doomerFriendProgress = $doomerFriendProgress + 2>>
+    <<if $doomerFriendProgress > 1>>
+        <<set $doomerFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToDoomerAlready = true>>
+===
+
+title: Doomer_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $doomerFriendProgress = $doomerFriendProgress + 2>>
+    <<if $doomerFriendProgress > 1>>
+        <<set $doomerFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToDoomerAlready = true>>
+===
+
+title: Doomer_Ruin_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $doomerFriendProgress = $doomerFriendProgress - 2>>
+    <<if $doomerFriendProgress < -1>>
+        <<set $doomerFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToDoomerAlready = true>>
+===
+
+title: Doomer_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $doomerFriendProgress = $doomerFriendProgress - 2>>
+    <<if $doomerFriendProgress < -1>>
+        <<set $doomerFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToDoomerAlready = true>>
 ===

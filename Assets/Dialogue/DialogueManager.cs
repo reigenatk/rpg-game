@@ -85,7 +85,7 @@ public class DialogueManager : MonoBehaviour
             foreach (Animator a in NPCsObject.GetComponentsInChildren<Animator>())
             {
                 // get each animator, then disable it!
-                a.enabled = false;
+                a.enabled = true;
             }
         }
         gameState.setGameVariable("isDialoguePlaying", false);

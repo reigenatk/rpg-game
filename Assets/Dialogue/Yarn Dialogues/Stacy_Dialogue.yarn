@@ -1,16 +1,16 @@
-﻿title: Stacy_Dialogue
+﻿title: Stacy_Vars
 ---
-<<if $isBibleStudyOpen == true>>
-    Stacy: Oh, you came!
-    <<wait 2>>
-    Stacy: It's Steven, right?
-    <<wait 1>>
-    Stacy: I didn't expect many people to show up!
-    <<wait 2>>
-    Stacy: A-Anyways, come in! We're almost ready to start.
-<<else>>
-    <<jump Stacy_Normal_Dialogue>>
-<<endif>>
+
+// one time dialogue variables
+<<declare $didStacyDialogue1 = false>>
+<<declare $didStacyDialogue2 = false>>
+<<declare $hasMetStacy = false>> // no need for this, player is forced to meet stacy
+<<declare $didStacyLaura = false>>
+<<declare $didStacyHome = false>>
+===
+title: Stacy_Dialogue
+---
+<<jump Stacy_Normal_Dialogue>>
 ===
 
 title: Stacy_Normal_Dialogue
@@ -19,14 +19,392 @@ title: Stacy_Normal_Dialogue
     <<jump AlreadyTalkedToday>>
 <<endif>>
 
+
 <<if $stacyFriendProgress == 0>>
 	<<jump Stacy_Start>>
-<<elseif $stacyFriendProgress == 1>>
+<<elseif $stacyFriendProgress >= 1>>
 	<<jump Stacy_Familiar>>
-<<elseif $stacyFriendProgress == -1>>
+<<elseif $stacyFriendProgress <= -1>>
 	<<jump Stacy_Unfriendly>>
-<<elseif $stacyFriendProgress == -2>>
-	<<jump Stacy_NotFriends>>
 <<endif>>
 ===
 
+title: Stacy_Familiar
+---
+Stacy: Steven! How are you?
+-> Let's chat
+    Steven: Doing well, Stacy. #e:smile
+	Steven: Wanna chat? #e:smile
+    Stacy: Sure! #e:smile
+    <<jump Stacy_Chat_Decide>>
+===
+
+title: Stacy_Chat_Decide
+---
+<<if $didStacyLaura == false>>
+	-> Laura
+		<<jump Stacy_Laura>>
+	-> Talk about something else
+<<endif>>
+<<if $didStacyHome == false>>
+	-> Home
+		<<jump Stacy_Home>>
+	-> Talk about something else
+<<endif>>
+
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didStacyDialogue1 == false>>
+    <<set $didStacyDialogue1 = true>>
+    <<jump Stacy_Chat_End_1>>
+<<else>>
+	-> Laura 
+		<<jump Stacy_Laura>>
+	-> Home 
+		<<jump Stacy_Home>>
+	-> Generic Chat
+    	<<jump Chat_End_Generic>>
+<<endif>>
+===
+
+title: Stacy_Chat_End_1
+---
+Stacy: I mean, Chase has been a friend for a while now...
+Stacy: We met freshman year, and since the leaders of the club graduated last year...
+Stacy: Him and I stepped up to try and take charge of it ourselves...
+<<wait 2>>
+Stacy: The thing is, not many people show up to Bible study. #e:neutral
+Stacy: I think, many people find it hard to make time. #e:neutral
+Stacy: Everyone says they're doing homework, or sleeping. #e:neutral
+Stacy: But I'm proud of how we were able to keep it up this semester.
+<<if $hasGoneToBibleStudy>>
+	Stacy: And as you saw when you went, we were able to reach out to a few people.
+	Stacy: Which is all that counts! If we can even improve the lives of one person, it would be a success in my book! #e:smile
+<<endif>>
+<<wait 1>>
+Steven: Um...
+Steven: Are you and Chase together?
+<<wait 2>>
+Mind: Shit! That's probably not OK to ask someone! #e:oshit
+Voice: You dumbass!
+<<wait 1>>
+Stacy: Haha #e:laughing
+Stacy: Chase and I...
+Stacy: You're.. asking if we're dating? #e:neutral
+<<wait 1>>
+-> Yes
+	Steven: Uh.. yeah? If you don't mind sharing? #e:smile
+-> No
+	Steven: Uhm... never mind.
+Stacy: No, its... alright to ask. #e:smile
+<<wait 2>>
+Stacy: Why do you want to know?
+-> I love you
+	Steven: Because, Stacy... #e:embarassed 
+	Steven: I...
+	Steven: I like you.
+	<<wait 5>>
+	Stacy: Um... #e:neutral
+	Stacy seems uncomfortable.
+	Stacy: I'm sorry Steven, I don't feel the same way. #e:neutral
+	<<wait 1>>
+	Steven: ... #e:oshit
+	<<playSoundString AudioManager BlueScreen>>
+	<<wait 4>>
+	<<QuitGame UI>> // lol
+-> Curious 
+	Steven: Oh... Just, uh, curious. #e:smile
+	Stacy: I'm.. not sure if I'm comfortable answering. 
+	Stacy: But I'll just say, we're very good friends.
+	<<wait 2>>
+	Voice: OOOoooo she's taken, confirmed!
+	Voice: Why would you even ask? #e:cringe
+	Voice: You have ZERO chance with her! #e:laugh
+	<<wait 1>>
+	Steven: Shit #e:oshit
+	Steven: At least I tried. #e:angry2
+
+<<jump Stacy_Improve_Friendship_Most>>
+===
+
+
+title: Stacy_Chat_End_Generic
+---
+Stacy: Steven, thanks for chatting with me.
+Stacy: To be honest, you are such a good friend to chat with. #e:smile
+Stacy: I know I can be chatty sometimes, and you're a great listener. 
+Stacy: So I appreciate it! #e:smile
+Steven: Heh, no problem #e:smile
+Voice: "friend" #e:laugh
+Steven: Shut up! #e:angry2
+<<wait 2>>
+Stacy: I'm sorry? #e:neutral
+<<wait 4>>
+Steven: Shit! I didn't mean to say that out loud #e:oshit
+<<wait 1>>
+Stacy: Oh... okay. It's alright. #e:neutral
+<<wait 1>>
+Mind: God damn you, voice! #e:angry2
+<<jump Stacy_Improve_Friendship_Most>>
+===
+
+title: Stacy_Unfriendly
+---
+Stacy: Steven...
+Stacy: I don't want you to be mad at me, ok?
+Stacy: I think we shouldn't talk...
+<<wait 1>>
+-> Insult
+	Steven: Yes. I don't want to talk to a cookie-cutter, bible loving girl. #e:smirk
+	Steven: You are one in a million. It'd be more interesting to talk to a can opener. #e:laugh
+	Voice: Ooooo, nice roast. #e:laugh
+	<<wait 2>>
+	Stacy starts to cry.
+	Voice: But was it worth making her cry? #e:thinking
+	Steven: Yes. I hate generic bible loving girls. They think they're so special. #e:angry2
+	Steven: It's like, no you're not. Just shut up already and marry some Christian guy. #e:angry 
+	<<jump Stacy_Ruin_Friendship_Less>>
+-> Be nice
+	Steven: Look Stacy, I'm sorry. #e:weary
+	Steven: I probably said something I didn't mean. #e:think1
+	<<wait 1>>
+	Steven: Can we start over? #e:shy
+	<<wait 1>>
+	Stacy: Of course, Steven. That's what I'm trying to say.
+	Stacy: I forgive you! #e:smile
+	<<jump Stacy_Improve_Friendship_Less>>
+===
+
+title: Stacy_Start
+---
+Stacy: Hey Steven, do you need something?
+<<if $hasGoneToBibleStudy>>
+Stacy: Also, thank you so much for coming to Bible Study! #e:smile
+<<wait 2>>
+Stacy: It gets lonely sometimes there, it's not a big club.
+Stacy: Chase and I were very happy to see you there!
+Steven: Heh, no problem! I enjoyed it too! #e:smile
+Stacy: Anyways, what was it you wanted?
+<<endif>>
+-> Laura
+	<<jump Stacy_Laura>>
+-> Home
+	<<jump Stacy_Home>>
+===
+
+title: Stacy_Laura
+---
+<<set $didStacyLaura = true>>
+Steven: I was just curious if you could tell me more about Laura?
+Steven: You two seem pretty close. #e:think1
+<<wait 1>>
+Stacy: Laura? Oh. Of course.
+Stacy: She's.. very shy. #e:neutral
+Stacy: You've talked with her, havent you? #e:neutral
+-> Yes
+	Steven: Yeah... I did #e:think2
+	<<wait 1>>
+	Stacy: Then you know. She doesn't trust people very easily.
+	Stacy: I'm glad she was able to open up to you about herself... #e:smile
+	Stacy: She's... quite lonely. I never see her leave her room. #e:neutral
+	<<wait 1>>
+	<<jump Stacy_Laura_Rant>>
+-> No
+	Stacy: Well, let's just put it this way... #e:neutral
+	Stacy: She's very quiet. #e:neutral
+	Stacy: And she doesn't trust people at all. #e:neutral
+	Stacy: Even as her roommate, I don't really know much about her.
+	<<wait 1>>
+	Steven: How did you two meet?
+	<<jump Stacy_Laura_Rant>>
+===
+
+title: Stacy_Laura_Rant
+---
+Stacy: Well, we were assigned to be roommates, in freshman year.
+Stacy: I don't think I could've met anyone more different than me #e:laughing
+Stacy: At first, I didn't really know how to talk to her... #e:smile
+<<wait 1>>
+Stacy: But over time, she opened up to me a bit. And now I can call her my friend.
+<<wait 2>>
+Stacy: But like I said, she isn't without problems.
+<<if $hasGoneToBibleStudy == true>>
+	Stacy: That day, when you saw her at Bible Study... #e:neutral
+	Stacy: Well... let's just say I have to drag her there everytime. #e:neutral
+	Stacy: I want to see her happy... But she always seems sad. #e:neutral
+<<endif>>
+<<wait 1>>
+Steven: Do you know if... I mean, does she ever tell you why she's so sad all the time?
+Stacy: No.. When I ask her she just says something about being tired, or sick. #e:neutral
+Stacy: But I don't believe that excuse anymore. #e:neutral
+<<wait 2>>
+Stacy: Now that you brought it up... Can I ask you a favor? #e:neutral
+Stacy: Could you talk to her more often? #e:neutral
+Stacy: Since she's opened up to you, it'd make her happy if you socialize with her some more.
+<<wait 1>>
+-> Yes
+	Steven: Sure, I can try...
+-> Maybe
+	Steven: Maybe. Only if I see a chance to, I will.
+-> Insult
+	Steven: No. You know what, Laura is an oversensitive little hoe.
+	Steven: I don't care if she dies alone. I don't want to talk to her.
+	Stacy: *gasp* #e:neutral
+	Stacy: Steven, how could you?
+	Steven: And to be honest, you are an annoying little hoe, too. Fuck off.
+	<<wait 2>>
+	Stacy starts to sob.
+	<<wait 2>>
+	Voice: Why would you do that? #e:laugh
+	<<jump Stacy_Ruin_Friendship>>
+<<wait 1>>
+Stacy: Thanks! #e:smile
+Stacy: I really appreicate this, Steven. I worry for her a lot. #e:neutral
+Stacy: This will make me feel more assured. #e:smile
+<<jump Stacy_Improve_Friendship>>
+===
+
+title: Stacy_Home
+---
+<<set $didStacyHome = true>>
+Steven: I was just wondering if you wanted to talk a bit? #e:shy
+<<wait 2>>
+Stacy: Sure! I'm always down to chat. #e:smile
+<<wait 1>>
+Steven: So, uh, where are you from?
+<<wait 1>>
+Voice: Dumbass! #e:cringe
+Voice: That makes you sound like a stalker. #e:cringe
+Steven: Shit! #e:oshit
+<<wait 1>>
+Stacy: Why do you need to know? #e:laughing
+<<wait 1>>
+Steven: Sorr- #e:oshit
+Stacy: I'm playing with you. I'm from a small town in the middle of the state.
+Stacy: You probably never heard of it. It's called Middleton.
+<<wait 1>>
+Stacy: How about you?
+Steven: Oh... I'm from the suburbs. #e:smile
+Stacy: Cool!
+<<wait 2>>
+Steven: Life must be pretty different there, right? #e:smile
+Stacy: Definitely! I miss it sometimes, but there's so much more to do here.
+Stacy: Back there, the only thing I ever did was go to church.
+<<wait 2>>
+Steven: Were there cows and everything?
+<<wait 2>>
+Mind: Shit! What kind of a joke was that? #e:oshit
+Stacy: Hahaha... #e:laughing
+Stacy: Yeah, of course!
+Stacy: Well, my family had cows, only. But most have cows and chickens. #e:smile
+<<wait 2>>
+-> Complement
+	Steven: That must be so nice, having acres of empty land and a big blue sky over your head. #e:comfy
+	<<wait 1>>
+	Stacy: It sure is. I think everyone should experience it at least once in their lives.
+	Stacy: If you ever get the chance to live for a week on a farm, I highly recommend it!
+	<<wait 1>>
+	Steven: I'll keep that in mind... #e:think1
+	Stacy: Anyways, thanks for talking to me Steven! #e:smile
+	Stacy: I gotta go now, but we can talk sometime again!
+	Steven: Yeah, s-sure! #e:smile
+	<<jump Stacy_Improve_Friendship>>
+-> Insult
+	Steven: Did it smell like shit all the time?
+	<<wait 4>>
+	Stacy: Um...
+	Stacy: It's not really good to say that word, Steven.
+	<<wait 1>>
+	-> Why not?
+		Steven: Why not? #e:angry2
+		Steven: What if I said every bad word in front of you right now? #e:angry2
+		Steven: Am I going to hell? #e:angry
+		<<wait 1>>
+		Steven: Fuck. #e:shocked
+		Steven: Shit. #e:shocked
+		<<wait 1>>
+		Stacy: Steven, please stop... #e:neutral
+		<<wait 2>>
+		Steven: Bitch. Ass. #e:shocked
+		Stacy turns away, and stops talking to you.
+		Voice: Why so mean to her? #e:laugh
+		<<wait 2>>
+		Steven: Because she's an oversensitive bitch who actually believs in religion. #e:angry2
+		Steven: People like this need sense slapped into them.
+		<<jump Stacy_Ruin_Friendship>>
+	-> Keep Insulting
+		Steven: Look, I don't care. I'm not a Christian, ok? #e:angry2
+		Steven: I don't believe in your silly rules about swear words. #e:angry2
+		Steven: A word is just a word. I'm just asking you a question. #e:angry
+		Steven: And you haven't answered me. #e:angry
+		<<wait 2>>
+		Stacy starts to sob. She seems like she's about to cry.
+		<<jump Stacy_Ruin_Friendship>>
+===
+title: Stacy_Improve_Friendship_Most
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $stacyFriendProgress = $stacyFriendProgress + 2>>
+    <<if $stacyFriendProgress > 1>>
+        <<set $stacyFriendProgress = 1>>
+    <<endif>>
+    <<AdvanceXMinutes Manager 60>>
+	<<changePlayerScoreString Manager "entertained" 15.0>>
+    <<changePlayerScoreString Manager "contentedness" 15.0>>
+	<<changePlayerScoreString Manager "social" 15.0>>
+	<<set $talkedToStacyAlready = true>>
+===
+
+title: Stacy_Improve_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $stacyFriendProgress = $stacyFriendProgress + 2>>
+    <<if $stacyFriendProgress > 1>>
+        <<set $stacyFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToStacyAlready = true>>
+===
+
+title: Stacy_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $stacyFriendProgress = $stacyFriendProgress + 2>>
+    <<if $stacyFriendProgress > 1>>
+        <<set $stacyFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToStacyAlready = true>>
+===
+
+title: Stacy_Ruin_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $stacyFriendProgress = $stacyFriendProgress - 2>>
+    <<if $stacyFriendProgress < -1>>
+        <<set $stacyFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToStacyAlready = true>>
+===
+
+title: Stacy_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $stacyFriendProgress = $stacyFriendProgress - 2>>
+    <<if $stacyFriendProgress < -1>>
+        <<set $stacyFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToStacyAlready = true>>
+===

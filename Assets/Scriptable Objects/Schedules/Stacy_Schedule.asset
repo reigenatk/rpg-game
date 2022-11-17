@@ -56,8 +56,8 @@ MonoBehaviour:
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: Lecture
-    offsetX: 0.3
-    offsetY: 0.3
+    offsetX: 0.4
+    offsetY: -0.35
   - hour: 15
     minute: 0
     priority: 1
@@ -117,7 +117,7 @@ MonoBehaviour:
     audioToPlay: {fileID: 0}
     description: 5pm stand outside of Bible study room
     offsetX: 0
-    offsetY: 0.4
+    offsetY: 0
   - hour: 21
     minute: 30
     priority: 1

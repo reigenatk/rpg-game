@@ -14,8 +14,14 @@ public class Subwoofer : MonoBehaviour
     GameState gameState;
     AudioLowPassFilter lowpass;
     Discoball dball;
+    public bool turnedItDown = false; // has Steven talked to the person about shutting the hell up? This is one time event.
+    [SerializeField] float turnedDownVolume;
+    [SerializeField] float turnedUpVolume;
+    public void turnItDown()
+    {
+        turnedItDown = true;
 
-    
+    }
 
     private void Start()
     {
@@ -73,7 +79,7 @@ public class Subwoofer : MonoBehaviour
                     }
                 }
 
-                // only care about subwoofer if we are in the house. Otherwise we dont care- we're too far away
+                // if its playing, check that we in the house. Otherwise we dont care- we're too far away
                 if (isInRoomWeCareAbout())
                 {
                     if (gameState.getCurrentSceneEnum() == SceneName.LancelotRoom)
@@ -91,15 +97,33 @@ public class Subwoofer : MonoBehaviour
                         lowpass.cutoffFrequency = 979;
                     }
 
-                    // repeatedly pause all music- we dont want any other music to play when subwoofer is active
-                    MusicManager.Instance.stopAllMusicNoCoroutine(1.0f);
+                    // what volume to use?
+                    if (turnedItDown == true)
+                    {
+                        audioSource.volume = turnedDownVolume;
+                        // repeatedly pause all music- we dont want any other music to play when subwoofer is active
+                        MusicManager.Instance.stopAllMusicNoCoroutine(1.0f);
+                    }
+                    else
+                    {
+                        audioSource.volume = turnedUpVolume;
+                        if (!MusicManager.Instance.isMusicPlaying())
+                        {
+                            MusicManager.Instance.startAllMusicNoCoroutine(1f);
+                        }
+                    }
+
                 }
                 else
                 {
-                    // not in relevant scene- STOP music
+                    // not in relevant scene- STOP subwoofer music
                     if (isSubwooferPlaying)
                     {
                         stopSubwoofer();
+                        if (!MusicManager.Instance.isMusicPlaying())
+                        {
+                            MusicManager.Instance.startAllMusicNoCoroutine(1f);
+                        }
                     }
                 }
 

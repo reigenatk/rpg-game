@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headshots:
   - headshotName: normal
-    sprite: {fileID: 561088342, guid: 3f6bc19466b20e646bbcd6b9b0d5860a, type: 3}
+    sprite: {fileID: 776011523, guid: b9806e2051623704fa23a8a09a641141, type: 3}
+  - headshotName: smile
+    sprite: {fileID: -205661321, guid: b9806e2051623704fa23a8a09a641141, type: 3}
+  - headshotName: angry
+    sprite: {fileID: -1967807522, guid: b9806e2051623704fa23a8a09a641141, type: 3}
+  - headshotName: talking
+    sprite: {fileID: -1755977206, guid: b9806e2051623704fa23a8a09a641141, type: 3}
   charactersThatUseTheseHeadshots:
   - Nikolai
   scaleToUse: 3

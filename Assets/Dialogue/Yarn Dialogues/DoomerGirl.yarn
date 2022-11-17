@@ -1,5 +1,489 @@
-﻿title: Doomer_Girl_Dialogue
-tags:
+﻿title: DoomerGirl_Vars
 ---
 
+// one time dialogue variables
+<<declare $didDoomerGirlDialogue1 = false>>
+<<declare $didDoomerGirlDialogue2 = false>>
+<<declare $didDGStacyDialogue = false>>
+<<declare $didDGMusicDialogue = false>>
+<<declare $hasMetDoomerGirl = true>>
+===
+title: DoomerGirl_Dialogue
+---
+<<jump DoomerGirl_Normal_Dialogue>>
+===
+
+title: DoomerGirl_Normal_Dialogue
+---
+<<if $talkedToDoomerGirlAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+
+<<if $doomerGirlFriendProgress == 0>>
+	<<jump DoomerGirl_Start>>
+<<elseif $doomerGirlFriendProgress >= 1>>
+	<<jump DoomerGirl_Familiar>>
+<<elseif $doomerGirlFriendProgress <= -1>>
+	<<jump DoomerGirl_Unfriendly>>
+<<endif>>
+===
+
+title: DoomerGirl_Familiar
+---
+Laura: Hey.
+-> Let's chat
+	Steven: Wanna chat? #e:shy
+	Laura: Sure.
+    <<jump DoomerGirl_Chat_Decide>>
+-> Nothing
+	Steven: Never mind.
+	Laura: Ok.
+===
+
+title: DoomerGirl_Chat_Decide
+---
+
+<<if $didDGStacyDialogue == false>>
+	-> Stacy
+		<<jump Doomer_Girl_Stacy>>
+	-> Talk about something else
+<<endif>>
+
+<<if $didDGMusicDialogue == false>>
+	-> Music
+		<<jump Doomer_Girl_Music>>
+	-> Talk about something else
+<<endif>>
+
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didDoomerGirlDialogue1 == false>>
+    <<set $didDoomerGirlDialogue1 = true>>
+    <<jump DoomerGirl_Chat_End_1>>
+<<elseif $didDoomerGirlDialogue2 == false>>
+	<<set $didDoomerGirlDialogue2 = true>>
+    <<jump DoomerGirl_Chat_End_2>>
+<<else>>
+	-> Stacy 
+		<<jump Doomer_Girl_Stacy>>
+	-> Music 
+		<<jump Doomer_Girl_Music>>
+	-> Generic Chat
+    	<<jump DoomerGirl_Chat_End_Generic>>
+<<endif>>
+===
+
+title: DoomerGirl_Chat_End_1
+---
+Laura: I guess that's why I look down on most people.
+Laura: It's like, they don't really understand what it's like to be me, you know? #e:looking
+<<wait 1>>
+Laura: Like, if an average girl spent a day in my shoes, she would probably wanna die. #e:looking
+<<wait 1>>
+Laura: I know it's not good to brag about being lonely or depressed...
+Laura: But that's kind of how I look at it, you know? #e:looking
+Laura: I'm miserable, but at least I can pretend that I'm strong enough to bear this misery. #e:neutral
+Laura: And that makes me dissociate from most normal people, because I can't relate to them.
+<<wait 1>>
+Steven: No, that makes sense. I feel the same way sometimes.
+<<wait 1>>
+Laura: Like Stacy for instance. 
+Laura: I'm glad I met her. She's a genuinely good hearted person.
+<<wait 1>>
+Laura: But on the other hand, she will never understand me fully.
+<<wait 1>>
+Laura: Because she's always been surrounded by people who love her.
+Laura: People who tell her how beautiful and amazing she is.
+<<wait 1>>
+Laura: The saddest moment of her life is probably equal to my happiest moments.
+<<wait 1>>
+Laura: Only someone like you would truly know how it feels. #e:neutral
+<<wait 2>>
+Steven: I think the problem is, us depressed people just don't gather together. #e:think1
+Laura: Yeah... #e:looking
+Laura: If we could all somehow get to know one another... #e:neutral
+Laura: But we're all to shy to reach out.
+<<if $hasMetDoomer>>
+	Steven: Well, there's a few other depressed people around here too. #e:think1
+	Steven: Have you met Dylan? #e:worried
+	<<wait 1>>
+	Laura: Is he the guy who smokes a lot and never comes to class? #e:looking-away-smile
+	<<wait 1>>
+	Steven: Yeah, that's the one. #e:smile
+	<<wait 1>>
+	Laura: I haven't talked to him, no.
+	Steven: Well, maybe we could meet up sometime and talk. #e:smile
+	Steven: You know, nothing serious or anything
+	<<wait 1>>
+	Laura: hmmm. #e:looking 
+	Laura: Maybe. #e:neutral
+<<else>>
+<<wait 1>>
+<<endif>>
+Laura: Anyways, thanks for listening to my thoughts. #e:looking-away-smile
+Steven: It was a pleasure. Let's talk later. #e:smile
+Laura: Okay #e:looking-smile
+<<jump DoomerGirl_Improve_Friendship_Most>>
+===
+
+title: DoomerGirl_Chat_End_2
+---
+Laura: I mean, I've just always been a little weird, I guess. 
+<<wait 1>>
+Laura: There's no moment where I can really pinpoint things going wrong...
+<<wait 1>>
+Laura: It's just, all my life I've never liked to talk to others... You know? #e:looking
+<<wait 1>>
+Steven: Yeah, I feel the same way. I think autism is the word. #e:think1
+<<wait 2>>
+Laura: Hahaha #e:looking-away-smile
+<<wait 1>>
+Laura: I mean, maybe. Although that word gets abused a lot. #e:looking-smile
+<<wait 3>>
+Laura: But you get what I'm saying, right?
+<<wait 2>>
+Laura: It's like, sure, I could go to a stuffy bar and have loud music blasted into my ears...
+Laura: But why do that when I could play a game in my comfy room? #e:looking
+<<wait 2>>
+Laura: Sure, I could try to socialize with all the other girls... #e:neutral
+Laura: But why do that when all they talk about is clothing and boys? #e:looking
+<<wait 2>>
+Laura: It's like each time, I'm faced with the decision: 
+Laura: Do I do what I actually like, or pretend to be someone I'm not? #e:looking
+<<wait 1>>
+Laura: I like being alone.
+<<wait 1>>
+Laura: Yet I also crave the company of other people. 
+Laura: Sometimes, being introverted feels like a curse.
+<<wait 1>>
+Steven: Hard relate... #e:bored
+Steven: For me, its cause I'm socially anxious. #e:think2
+<<wait 1>>
+Laura: I mean, you talk pretty well, actually. #e:looking-away-smile.
+<<wait 1>>
+Laura: But in general, I think its hard to be socially confident after spending so much time alone. #e:neutral
+Laura: It's easy to forget how to socialize.
+Laura: After all, being social is a skill. #e:neutral
+<<wait 1>>
+Steven: Fair. #e:think1
+<,wait 2
+Steven: I think I read somewhere that being lonely is like smoking 10 cigarettes a day. #e:bored
+<<wait 2>>
+Laura: Oh, I wouldn't doubt it. Loneliness really sucks sometimes. #e:looking-away-smile
+Laura: But at least we're talking now, right? #e:looking-smile
+Steven: Yeah. #e:smile
+Laura: I gotta go, but we can chat later. #e:looking-away-smile
+Steven: Cya #e:smile
+===
+
+title: DoomerGirl_Chat_End_Generic
+---
+Laura: Alright, cya later. #e:smile
+Steven: Later. #e:smile
+<<jump DoomerGirl_Improve_Friendship_Most>>
+===
+
+title: DoomerGirl_Unfriendly
+---
+Laura: ...
+<<wait 3>>
+Laura: ... #e:looking
+-> Apologize
+	Steven: Look, I'm sory about last time.
+	Steven: I just... don't really like it when people act all smart in front of me.
+	<<wait 2>>
+	Steven: I guess, I should've expected it though, considering the way you act.
+	<<wait 2>>
+	Laura: Nah, I was being too judgy. I'm sorry about that. 
+	<<wait 2>>
+	Laura: I just have a tendency to be overly sarcastic. #e:looking
+	Laura: Sorry if I hurt your feelings. #e:neutral
+	<<wait 1>>
+	Steven: It's ok. I'm a robot. I don't have feelings. #e:smile
+	<<wait 1>>
+	Laura: haha... #e:looking-away-smile
+	<<wait 1>>
+	Laura: So we're cool, then? #e:looking-smile
+	<<wait 1>>
+	Steven: Yeah. #e:smile
+	<<jump DoomerGirl_Improve_Friendship_Less>>
+-> Insult
+	Steven: Don't look at me, you disgusting witch! #e:laugh
+	<<wait 1>>
+	Laura: Does insulting others make you feel better? #e:looking
+	Laura: Maybe I should try it...
+	<<jump DoomerGirl_Ruin_Friendship_Less>>
+-> Nothing
+	Steven: ...
+===
+
+// can only talk to her if met her at Bible Study
+title: DoomerGirl_Start
+---
+<<if $hasMetDoomerGirl == false && $hasGoneToBibleStudy == false>>
+	Laura: ...
+	Steven: H-hey, I'm Steven!
+	Laura: Sorry, I don't know you... #e:looking
+	<<wait 1>>
+	Voice: What's her deal? #e:evil1
+	<<jump Nothing>>
+<<elseif $hasMetDoomerGirl == false && $hasGoneToBibleStudy == true>>
+	Laura: ...
+	Steven: H-hey, it's Laura, right? #e:worried
+	Laura: Yeah... #e:looking
+	Laura: And you're... Steven? #e:looking
+	Steven: You remember me? #e:embarassed
+	Laura: Yeah, you were at Bible Study.
+	<<set $hasMetDoomerGirl = true>>
+<<endif>>
+	Laura: What do you want? #e:looking
+	-> Stacy
+		<<jump Doomer_Girl_Stacy>>
+	-> Music
+		<<jump Doomer_Girl_Music>>
+	-> Nothing
+		Steven: Never mind.
+===
+
+title: Nothing
+---
+
+===
+
+title: Doomer_Girl_Stacy
+---
+<<set $didDGStacyDialogue = true>>
+Steven: Say, Stacy said you were her roomate, right? #e:worried
+<<wait 1>>
+Laura: Yeah... Stacy and I live together. #e:looking
+<<wait 1>>
+Steven: Oh cool. Do you guys know each other from high school? #e:smile
+<<wait 1>>
+Laura: No, we met here. She just invited me to live with her. #e:neutral
+<<wait 1>>
+Laura: What's... your relationship with her? #e:looking
+Steven: Me? #e:embarassed
+Steven: Oh, she just, uh, invited me to Bible Study so I went. #e:shy
+<<wait 1>>
+Laura: ... #e:looking-away-smile
+Laura: She does that with... everyone. #e:looking-smile
+<<wait 1>>
+Laura: What made you come, is what I mean. #e:looking
+Voice: Oho, this girls onto you! #e:evil1
+Voice: What are you gonna tell her? #e:think
+<<wait 1>>
+-> Truth
+	<<jump Tell_Truth>>
+-> Lie
+	Steven: I, uh, believe in God! #e:cringe
+	<<wait 1>>
+	Laura: You expect me to believe that? #e:looking-away-smile
+	Laura: I mean, just look at you... There's no way. #e:looking
+	Laura: You definitely have other reasons #e:neutral
+	-> Love
+		<<wait 1>>
+		Steven: Truth be told... I have a crush on stacy... #e:embarassed
+		<<wait 1>>
+		Laura: Do you actually? #e:looking
+		<<wait 1>>
+		Laura: If so... 
+		Laura: Good luck competing with that coomer who comes to Bible Study too. #e:looking
+		Laura: Pretty sure he's also in love with Stacy. #e:looking
+		-> Tell Truth
+			Steven: I'm just kidding... #e:smile
+			<<jump Tell_Truth>>
+		-> Keep lying
+			<<wait 2>>
+			Steven: Well then, please tell her of my love~ #e:embarassed
+			<<wait 5>>
+			Laura: ...ew. #e:looking
+			Laura: Please go away... 
+			<<jump DoomerGirl_Ruin_Friendship>>
+	-> Tell Truth
+		<<jump Tell_Truth>>
+===
+
+title: Doomer_Girl_Music
+---
+<<set $didDGMusicDialogue = true>>
+Steven: So, what kind of music do you listen to? #e:think1
+Steven: I see you listening to stuff on the Main Quad a lot. #e:smile
+<<wait 1>>
+Laura: That's... 
+Laura: Kinda creepy #e:looking
+<<wait 1>>
+Mind: shit! #e:oshit
+<<wait 1>>
+Laura: But I'll answer the question. Mostly Radiohead and My Chemical Romance...
+Laura: Sometimes noise music as well...
+-> Play Along
+	Steven: Oh, those are some great bands.. #e:embarassed
+	<<wait 1>>
+	Laura: Yeah? You listen to them too? #e:looking
+	Steven: Totally #e:smile
+	<<wait 2>>
+	Laura: You're totally lying. #e:looking
+	Laura: But it's cool. #e:looking
+	Laura: I appreciate the sentiment. #e:neutral
+	-> Insult
+		Steven: Oh yeah? 
+		Steven: Well guess what, mrs. neurodivergent
+		Steven: I'll let you in on a little secret.
+		Steven: You're just like all the other girls.
+		Steven: You might think you're all quirky and different because of your specialized tastes.
+		Steven: oh, look at me! I watch anime instead of The Bachelorette! I'm so smart and different!
+		<<wait 1>>
+		Steven: Wow I'm so special! I deserve a guy who is just a special as me!
+		<<wait 1>>
+		Steven: But deep down, you're an emotionless, boring whore.
+		Voice: You tell her!
+		<<wait 2>>
+		Laura: ...
+		Laura: I would say I'm sorry, but quite honestly... 
+		Laura: I don't even know if that would calm you down. #e:looking
+		Laura: You seem to have quite a lot of bottled up anger towards women.
+		Laura: Have you ever thought about the fact that they might NOT be the source of all your problems? #e:looking
+		<<jump DoomerGirl_Ruin_Friendship>>
+	-> Don't say anything
+-> Don't Play Along
+	Steven: That's great... #e:smile
+	Steven: Never heard of that shit! #e:laugh
+	<<wait 1>>
+	Laura: ha... #e:looking-smile
+	Laura: At least you were honest... #e:looking-away-smile
+<<wait 1>>
+Laura: And what do you listen to?
+Steven: uhhhh... #e:shy
+Steven: Mostly random game OSTs... I'm not really a huge music guy. #e:embarassed
+Steven: I guess electronic music is cool... #e:worried
+<<wait 1>>
+Steven: I'd say my favorite is techno music though...
+<<wait 2>> 
+Voice: Cause your a robot? #e:concerned
+Voice: Wow, well played. #e:think
+<<wait 1>>
+Laura: Oh, I love EDM as well. #e:neutral 
+Laura: Maybe you can show me some songs. #e:looking-away-smile
+<<wait 2>>
+Steven: Yeah, maybe... #e:think1
+Laura: Just not now. 
+Laura: See you around. #e:looking
+<<jump DoomerGirl_Improve_Friendship>>
+===
+
+title: Tell_Truth
+---
+Steven: To be completely honest.. #e:think1 
+Steven: I just don't have many friends. #e:weary
+<<wait 1>>
+Laura: I suspected as much... #e:neutral
+<<wait 1>>
+Steven: What do you mean, suspected?
+<<wait 1>>
+Voice: She's calling you a loser!
+Mind: Shut up, dumbass! #e:angry
+<<wait 1>>
+Voice: See? #e:evil2
+<<wait 1>>
+Laura: I mean, look at you. You don't seem like the social kind. #e:looking-away-smile
+<<wait 1>>
+-> Insult
+	<<jump Angry_At_Doomer_Girl>>
+-> Be nice about It
+	Steven: I suppose not... #e:bored
+	Steven: What gives it away? 
+	<<wait 1>>
+	Laura: The way you walk.
+	Laura: The way you talk. #e:looking
+	Laura: The clothes you wear. #e:neutral
+	Laura: The way you look at me #e:looking-away-smile
+	<<wait 2>>
+	Laura: So, everything, basically. #e:looking-smile
+	<<wait 2>>
+	-> Play along
+		Steven: Hahaha #e:laugh
+		Steven: Good one. #e:smile
+		Steven: But why be so mean?
+		Laura: I'm not trying to be mean... #e:looking-away-smile
+		<<wait 2>>
+		Laura: I mean, you can kinda tell based on looks alone... #e:looking-smile
+		Laura: ...who has their life together, and who doesn't. #e:looking-away-smile
+		<<wait 1>>
+		Steven: So, your life must be terrible, then.
+		<<wait 3>>
+		Laura: Hey, I'm not denying that. #e:looking
+		<<wait 1>>
+		Steven: How so?
+		<<wait 1>>
+		Laura: Maybe I'll tell you next time #e:looking-away-smile
+	-> Insult
+		<<jump Angry_At_Doomer_Girl>>
+===
+
+title: Angry_At_Doomer_Girl
+---
+Steven: Yeah? #e:stern
+Steven: And you act like you are doing much better? #e:angry2
+<<wait 1>>
+Laura: yawn... Just another person who can't take a joke...
+Steven: At least I'm not making assumptions about people's lives based on their appearance! #e:angry
+Laura: I said, it was a joke. #e:looking
+Laura: ...
+<<jump DoomerGirl_Ruin_Friendship>>
+===
+
+
+title: DoomerGirl_Improve_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $doomerGirlFriendProgress = $doomerGirlFriendProgress + 2>>
+    <<if $doomerGirlFriendProgress > 1>>
+        <<set $doomerGirlFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToDoomerGirlAlready = true>>
+===
+
+title: DoomerGirl_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $doomerGirlFriendProgress = $doomerGirlFriendProgress + 2>>
+    <<if $doomerGirlFriendProgress > 1>>
+        <<set $doomerGirlFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToDoomerGirlAlready = true>>
+===
+
+title: DoomerGirl_Ruin_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $doomerGirlFriendProgress = $doomerGirlFriendProgress - 2>>
+    <<if $doomerGirlFriendProgress < -1>>
+        <<set $doomerGirlFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToDoomerGirlAlready = true>>
+===
+
+title: DoomerGirl_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $doomerGirlFriendProgress = $doomerGirlFriendProgress - 2>>
+    <<if $doomerGirlFriendProgress < -1>>
+        <<set $doomerGirlFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToDoomerGirlAlready = true>>
 ===

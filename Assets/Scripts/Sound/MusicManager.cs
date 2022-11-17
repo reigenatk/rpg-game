@@ -46,7 +46,7 @@ public class MusicManager : Singleton<MusicManager>
     private IEnumerator stopMusic(AudioSource audioSource, float numSecondsToFadeOver)
     {
         yield return StartCoroutine(FadeAudioSource.StartFade(audioSource, numSecondsToFadeOver, 0.0f));
-        audioSource.Stop();
+        audioSource.Pause(); // set to .Pause if you want songs to leave from where you last stopped them.
     }
 
     private IEnumerator startMusic(AudioSource audioSource, float numSecondsToFadeOver)
@@ -90,6 +90,7 @@ public class MusicManager : Singleton<MusicManager>
         StartCoroutine(stopAllMusic(numSecondsToFadeOver));
     }
 
+    [YarnCommand("StartAllMusic")]
     public void startAllMusicNoCoroutine(float numSecondsToFadeOver)
     {
         // get the song that was paused via curAudioObject

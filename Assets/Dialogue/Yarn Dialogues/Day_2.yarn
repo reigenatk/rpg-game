@@ -3,16 +3,16 @@ title: D2_Lancelot_Commons
 Nikolai: Heylo, Steven, my friend.
 Nikolai: How vas your summer?
 -> Pretty good, thanks for asking.
-    Nikolai: Gud to hear, my friend.
+    Nikolai: Gud to hear, my friend. #e:smile
     -> How was your summer?
-        Nikolai: Vury gud. I go back to Siberia, my home.
-        Nikolai: I drink lot of vodka and play csgo
+        Nikolai: Vury gud. I go back to Siberia, my home. #e:smile
+        Nikolai: I drink lot of vodka and play csgo. #e:smile
+        <<wait 2>>
+        Nikolai: I am glad to be back, Steven. #e:smile
         <<wait 1>>
-        Nikolai: I am glad to be back, Steven
-        <<wait 1>>
-        Nikolai: Although I will miss my pet bear, Gasha.
+        Nikolai: Although I will miss my pet bear, Gasha. 
     -> Talk to you later.
-        Nikolai: Goodbye.
+        Nikolai: Goodbye. #e:smile
 -> Terrible.
     Nikolai: Ah, Blyat. 
     Nikolai: прости за это. School year vill be better.
@@ -24,32 +24,37 @@ Nikolai: How vas your summer?
 
 title: Day1GoingToDay2Dream
 ---
+<<wait 2>>
+??: And a one..
+??: And a two..
+??: And a one two!
 <<playSoundString AudioManager NotBirthdaySong>>
 <<wait 17>>
 <<wait 2>>
 <<playSoundString AudioManager CandlesBlow>>
 <<wait 3>>
-A candle with the number "10" on it, is blown out.
+Game: A candle with the number "10" on it, is blown out.
 <<playMusicName MusicObject RestaurantAmbience>>
 <<wait 4>>
-The cake is okay. Your parents always order the same cake, because it's cheap.
-You know exactly what it will taste like.
+The cake is okay. Your parents always order the same one because it's "cheap"...
+So you know exactly what it will taste like.
+<<wait 2>>
 Out of the corner of your eye, you see something.
 <<wait 1>>
-Your childhood friend, Ralph, is now waving goodbye.
+Ralph is now waving goodbye.
 <<wait 1>>
 Ralph: Happy birthday, Steven!
+He says, with a big smile on his face.
 <<wait 1>>
-He follows his mother out of the buffet.
-<<wait 1>>
-A few more minutes pass.
+His mom gives you a smile, and the two of them walk out of the diner.
+<<wait 3>>
 Vincent: Thanks for inviting us over!
 Josh: This buffet was the best!
 <<wait 1>>
 The twins and their mother wave as they leave.
 <<wait 1>>
 It's just you and your parents now.
-<<wait 1>>
+<<wait 3>>
 Mom: Alright Steven, let's get ready to go.
 Dad: I agree, you got school tomorrow.
 <<wait 2>>
@@ -143,13 +148,17 @@ And that was enough to make me cry.
 
 title: D2_StartDay
 ---
-Shoot!
-I already overslept...
-And what was the heck was that dream?
-<<wait 1>>
-Oh well, I gotta get to school.
-Even I don't ditch the first days. 
-It just feels wrong to ditch them, even though nothing important is ever said. 
+Steven: Shoot! #e:shy
+<<wait 2>>
+Steven: I already overslept... #e:worried
+Steven: Also what the heck was that dream? #e:bored
+<<wait 2>>
+Steven: Oh well, I gotta get to school. #e:boredd
+Steven: Even I don't ditch the first days. #e:think1
+<<wait 2>>
+Steven: It just feels wrong to ditch the first day.
+Steven: I wanna pretend that I will start on a good note for this semester. #e:stern
+Steven: Even though I know that deep down, this motivation is not gonna last. #e:weary
 ===
 
 title: D2_Commons_OpenDoor
@@ -178,90 +187,118 @@ title: D2_Brain_Annoyed_Knock
     Something tells you that you shouldn't bother Brain right now.
     <<set $hasBrainSmashedGlassYet = true>>
 <<elseif $hasBrainSmashedGlassYet == true>>
-    Brain: Can you leave me alone!?
-    Brain: Don't you have your own trivial, worthless matters to attend to?
+    Brain: Can you leave me alone!? #e:angry
+    Brain: Don't you have your own trivial, worthless matters to attend to? #e:angry
 <<endif>>
 ===
 
 title: D2_Lancelot_Room_Before_School
 ---
-Nikolai: сука блять! vat are you trying to do?
-Nikolai: You don't hev schul tuday?
+Nikolai: сука блять! vat are you trying to do? #e:angry
+Nikolai: You don't hev schul tuday? #e:neutral
 ===
 
 title: D2_Tried_To_Enter_House_Without_School
 ---
-I still gotta get to school...
-Let's go catch the bus.
+Steven: I still gotta get to school...
+Steven: Let's do that first, I can't skip the first day...
 ===
 
 title: Day2_LookAtBusStop
 ---
-This is the bus stop. I need to take it to get to campus.
-Otherwise, it's a 20 minute one-way walk.
-It'll also cost me some energy.
-But it might be nice getting some fresh air... The bus is always crowded and I hate it.
+Steven: This is the bus stop. I need to take it to get to campus. #e:think1
+Steven:  Otherwise, it's a 20 minute one-way walk. #e:stern
+<<wait 2>>
+Steven: Walking will definitely cost me some <color=yellow>energy</color>
+<<wait 1>>
+Steven: But it might be nice getting some fresh air at times, too... #e:stern
+Steven: The bus is always crowded and I hate it. #e:bored
 ===
 
 title: Day2_LookAtUnion
 ---
-This is the Union, where my classes are held. 
-It's quite an old building. 
-I should head here next.
+Steven: This is the Union. I'm sure other universities have this too. #e:think1
+Steven: It's that one old ass building that was founded in like 1850 or whatever. #e:stern
+<<wait 1>>
+Steven: My classes are held here. 
 ===
 
 title: Day2_LookAtGreenStreet
 ---
-This is Green Street, where most of the tall apartments complexes and restaurants are.
-It's also where all the partying happens. I wonder what it'd be like to go to a party...
-Anyways, I should get to class.
+Steven: This is Green Street, the bustling "downtown" of the campus. #e:stern
+<<wait 1>>
+Steven: There's a bunch of high-rise apartments, bars, and plenty of food. #e:stern
+<<wait 2>>
+Steven: Where all the cool kids hang out, I guess. #e:bored
+<<wait 1>>
 ===
 
 title: Day2_LookAtCoffee
 ---
-I've never really liked the taste of coffee, it always makes me feel way too jittery to get anything done.
-But I will admit that coffee shops are very nice to sit around in.
-For more serious work though, I prefer to be in my room.
+Steven: As with any university, there's a fancy coffee shop in every building. #e:bored
+<<wait 2>>
+Steven: I've never really liked the taste of coffee. #e:worried
+Steven: It always makes me feel way too jittery to get anything done. #e:think1
+<<wait 1>>
+Steven: Also, I never understand people who just sit around in coffee shops. #e:smile
+Steven: How can they focus when there's so much ambience around them? #e:huh
+Steven: I have to be in my room to get anything serious done. #e:weary 
+
 ===
 
 title: Day2_LectureHall
 ---
-The lecture hall, aka, the room that I visit once and never return to.
-Unless, there's an exam or something. Then I have to come here.
-Because all my classes record lectures, it's easy to just get lazy and watch them online.
-People always say I'm "wasting my money" by not going to lectures, but it's not like I'm learning anything either way.
+Steven: Ah, The lecture hall. We meet again. #e:smile
+Steven: The room that everyone goes to on the first day, and then never returns to. #e:smile
+<<wait 2>>
+Steven: Unless, there's an exam or something. Then everyone comes here.
+<<wait 1>>
+Steven: Everyone says that you're "wasting your money" if you don't go to lecture. #e:think1
+Steven: But honestly, I'm not learning any more than if I just sat at home. #e:smile
+<<wait 1>>
+Steven: First off, most lectures are recorded... #e:think1
+<<wait 1>>
+Steven: And even if they weren't, the professor usually talks about something that is completely irrelevant to the course. #e:smirk
+Steven: So it's not like it'd help you get a good grade, anyways. #e:bored
+<<wait 1>>
+Steven: The professors couldn't care less. They just want their paycheck. #e:laugh
 ===
 
 title: Day2_Enter_Lecture_Hall
 ---
-God, I hate opening doors.
-The judgemental eyes of people peering at me. 
-There's no worse feeling for an introvert.
-Oh well, let's make it quick.
-I don't care what anyone here thinks of me.
-...
-Right?
+Mind: God, I hate opening doors. #e:cringe
+<<wait 1>>
+Mind: The judgemental eyes of people peering at me. #e:cringe
+Mind: As they start thinking to themselves "Who's this person? I don't know him!" #e:laugh
+Mind: And then their gazes turn away, rife with judgement... #e:think1
+Mind: And they forever deem me as a loser by the way I walked in the room... #e:bored 
+<<wait 4>>
+Mind: There's no worse feeling than a bunch of people staring at you for an introvert. #e:weary
+Mind: Your mind starts to overload. You wonder what each and every one of them thinks of you in that moment. #e:bored
+<<wait 2>>
+Mind: Oh well, let's make it quick. #e:bored
+Mind: I just gotta tell myself to not care what anyone here thinks of me. #e:bored
+Mind: ... #e:think1
 <<playCutsceneAndFade LevelLoader OpenLectureHallDoors LectureHall>>
 ===
 
 title: Day2_Lecture
 ---
-Huh, it's one of those lecture halls where the doors are in the back.
-Thank goodness. No one sees me.
+Steven: Huh, it's one of those lecture halls where the doors are in the back. #e:worried
+Steven: Thank goodness. No one sees me. #e:smile
 <<wait 2>>
 <<playSoundString AudioManager SchoolBell>>
 <<wait 3>>
-Seems like the lecture is starting, I should sit down.
+Steven: Seems like the lecture is starting, I should sit down.
 <<wait 1>>
-Shit, the only seat is in the front.
-<<wait 1>>
-I hate front seats, but I can't just stand. That'd look too awkward.
+Steven: I hate front seats, but I can't just stand. That'd look too awkward. #e:think2
 ===
 
 title: Day2_LectureFallAsleep
 ---
-So..
-boring... 
+Steven: So.. #e:bored 
+<<wait 2>>
+Steven: boring... #e:bored 
 <<FadeIn LevelLoader 1.0>>
 <<changePlayerScoreString Manager "entertained" -5.0>>
 <<playSoundString AudioManager SnoringSounds>>
@@ -337,13 +374,14 @@ title: Day2_LectureWakeup
 <<SetGameVariable Manager "hasFinishedLecture" true>>
 <<FadeOut LevelLoader 1.0>>
 <<wait 2>>
-Woah, did I just fall asleep?
+Mind: Woah, did I just fall asleep?
 <<wait 2>>
-God, I don't remember a thing he said.
+Mind: God, I don't remember a thing he said.
 <<wait 5>>
-Damn, I'm really out of it today.
+Mind: Damn, I'm really out of it today. #e:bored
+Mind: Usually I can at least stay awake for the lecture. #e:weary
 <<stopSoundStringFade AudioManager UncannyLecture>>
-Oh well, looks like lecture is over.
+Mind: Oh well, looks like lecture is over.
 <<turnOnLectureHallStudents CrossSceneObjects>>
 <<stopRunningCutscene Manager>> // nvm it works now. This just stops any currently running cutscene, pretty useful
 <<changePlayerScoreString Manager "energy" -30.0>>
@@ -359,95 +397,102 @@ title: Day2_DidntWakeup
 <<changePlayerScoreString Manager "entertained" -30.0>>
 <<changePlayerScoreString Manager "social" -50.0>>
 <<changePlayerScoreString Manager "contentedness" -40.0>>
-Shit. They're laughing at me.
+Mind: Shit. They're laughing at me. #e:shy
+<<wait 2>>
 Game: -50% Social, -30% Contentedness, -30% entertained
-Fuck Shit dammit
-Why do I embarass myself wherever I go?
-Why do I have to be a walking joke? 
+Mind: Fuck Shit dammit #e:angry
+Mind: Why do I embarass myself flawlessly, everywhere I go? #e:angry2
 <<wait 1>>
-I gotta get out of here before I lose more face.
+Mind: I gotta get out of here before I lose more face. #e:bored
 ===
 
 title: Day2_Finished_Lecture
 ---
-Well, that was a blast. 
+Mind: Well, that was a blast. #e:weary
 <<wait 1>>
-Another day of learning things that I will never once use in my life.
+Mind: Another day of learning useless shit that I will never once use in my life. #e:stern
 <<wait 1>>
-Oh well, At least I tried going to class for once.
-+10% Contentedness 
+Mind: Oh well, At least I tried going to class for once. #e:dsmile
 <<changePlayerScoreString Manager "contentedness" 10.0>>
-<<wait 2>>
-Anyways, I better go home. There's nothing else to do today.
+<<wait 4>>
+Mind: Anyways, I better go home. There's nothing else to do today. #e:bored
 ===
 
 title: Day2_Stacy_Hey
 ---
-Hey!
+Stacy: Hey!
 ===
 
 title: Day2_Stacy_UpHere
 ---
-Up here!
+Stacy: Up here!
 ===
 
 title: Day2_StacyTalk
 ---
-You: S-sorry, I didn't see you there!
+Steven: S-sorry, I didn't see you there! #e:worried
 <<wait 1>>
 Stacy: It's okay!
 Stacy: I should be apologizing for bothering you. 
-Stacy: I'm Stacy, nice to meet you.
+Stacy: I'm Stacy, nice to meet you. #e:smile
 <<wait 4>>
-You: Is she waiting for me to introduce myself?
+Steven: Is she waiting for me to introduce myself? #e:shy
 <<wait 1>>
-You: My name is-
+Steven: My name is- 
 Stacy: We're-
 <<wait 2>>
-Shit!
-Stacy: Sorry, you go ahead. What's your name?
-You: It's S-steven.
+Mind: Shit! We talked at the same time... #e:cringe
+<<wait 2>>
+Voice: Ya cringe idiot, why didn't you introduce yourself immediately? #e:evil
+Voice: Now look what you've done #e:laugh
+<<wait 2>>
+Stacy: Sorry, you go ahead. What's your name? #e:neutral
+Steven: It's S-steven. #e:think1
 <<wait 1>>
-Stacy: Nice to meet you Steven!
+Stacy: Nice to meet you Steven! #e:smile
+<<wait 2>>
 Stacy: We're having a Bible Study today. Would you like to come?
 -> S-sure
     <<wait 1>>
-    You: Yeah, sure.
-    Stacy: Awesome! 
+    Steven: Yeah, sure. #e:smile
+    Stacy: Awesome! #e:smile
     Stacy: It's everyday from 5-9pm right here! There will be food, too.
     <<set $acceptedBibleStudy = true>>
 -> Not sure
     <<wait 1>>
-    You: Sorry, I'm not sure yet...
+    Steven: Sorry, I'm not sure yet... #e:think1
     Stacy: No problem! It's from everyday from 5-9pm right here, if you wanna come!
-    Stacy: We'd be glad to meet you!
+    Stacy: We'd be glad to meet you! #e:smile
 -> No
     <<wait 1>>
-    You: Um, sorry- I don't really believe in God.
+    Steven: Um, sorry- I don't really believe in God. #e:think1
     Stacy: oh- that's okay! If you ever feel like learning more, feel free to come.
-    Stacy: We're here everyday at 5pm!
-You: o-ok, thanks.
+    Stacy: We're here everyday at 5pm! #e:smile
+Steven: o-ok, thanks. #e:dsmile
 ===
 
 title: Day2_After_Stacy
 ---
 <<if $acceptedBibleStudy == true>>
-    I'm not sure whether going to this is a great idea.
-    But she seemed too nice to turn down.
+    Mind: I'm not sure whether going to this is a great idea.
+    Mind: But she seemed too nice to turn down.
     <<wait 1>>
-    Do I actually go to it?
+    Mind: Do I actually go to it?
     -> Yes
-        Are you sure? I'll probably get ousted for not being a Christian.
+        Mind: Are you sure? I'll probably get ousted for not being a Christian. #e:cringe 
         <<wait 1>>
-        I haven't gone to Sunday school in ages.
-        And I'm not sure if they're my kind of people...
+        Mind: I haven't gone to Sunday school in ages. #e:weary
+        Mind: And I'm not sure if they're my kind of people... #e:stern
         <<wait 1>>
-        But Christians are usually very nice people.
-        And I could use some friends.
-        It was nice talking for that brief moment. Rarely happens to me ever.
+        Mind: But Christians are usually very nice people. #e:dsmile 
+        Mind: And I could use some friends. #e:dsmile 
+        <<wait 2>>
+        Mind: It felt nice talking for that brief moment. #e:smile
+        Mind: I can't remember the last time I talked to someone... not including forced interactions... #e:weary
+        <<wait 2>>
         <<changePlayerScoreString Manager "social" 10.0>>
         <<wait 1>>
-        Anyways, she said 5pm. Guess I'll decide then.
+        Mind: Anyways, she said 5pm. Guess I'll decide then.
     -> No
         <<jump Day2_Reject_Church>>
 <<elseif $acceptedBibleStudy == false>>
@@ -457,33 +502,42 @@ title: Day2_After_Stacy
 
 title: Day2_Reject_Church
 ---
-Yeah, I think it's just too big of a challenge for me.    
-Worship songs, prayer, small groups...
-It's just too much for a shut-in.
-<<wait 1>>
-I don't mind religion, I'm just scared of the social contact.
-Also, God forbid I get labelled as one of those dudes who just goes to church to pickup girls.
+Steven: Yeah, I think it's just too big of a challenge for me. #e:bored
+Steven: Worship songs, prayer, small groups... #e:shy 
+Steven: It's just too much for a shut-in like me to handle. #e:weary
 <<wait 2>>
-That girl was super nice, though.
-I can't remember the last time a girl talked to me first.
-Much less laughed at my joke. 
+Steven: I don't mind religion, I'm just scared of the social contact. #e:cringe
+<<wait 2>>
+Steven: Also, God forbid I get labelled as one of those dudes who just goes to church to pickup girls. #e:think1
+Steven: I don't wanna come across as desparate. #e:cringe
+<<wait 3>>
+Steven: That girl was super nice, though.
+Steven: I can't remember the last time I talked to a girl... #e:think2
+Steven: She even laughed. #e:think1
 <<changePlayerScoreString Manager "social" 50.0>>
 <<wait 3>>
-Wait, she was probably laughing at me. Shit.
+Voice: She was laughing at you, you dumbass!
+<<wait 1>>
+Steven: Shit. You're right. #e:oshit
 <<changePlayerScoreString Manager "social" -40.0>>
-<<wait 1>>
-God, I must've sounded so weird.
-Blargh. If I end up ditching, let's hope I never run into her again.
-I think she said 5pm?
-<<wait 1>>
-Oh well, guess I have some free time for now.
+<<wait 3>>
+Steven: God, I must've sounded so weird. 
+Voice: You did sound weird.
+Voice: She could totally tell you're a loser. #e:laugh
+<<wait 2>>
+Steven: I would argue with you, but you're right... #e:bored
+<<wait 2>>
+Steven: Blargh. Let's hope I never run into her again. #e:bored
+Steven: I think she said they meet at 5pm? So I just need to make a mental note: Don't be around that area at 5pm. #e:dsmile
+<<wait 2>>
+Steven: Anyways, guess I have some free time for now.
 ===
 
 
 title: Day2_Commons_Scene
 ---
 Kabowski: As I was saying Nikolai, <size=100px>White Claws.</size>
-Kabowski: It is <size=100px><color="orange">THE</color></size> drink over here.
+Kabowski: It is <size=100px><color="orange">THE</color></size> drink over here. #e:talking
 Kabowski: You have <size=100px>got</size> to try them.
 <<wait 1>>
 Nikolai: vite.. claw.
@@ -507,67 +561,80 @@ Kabowski: I missed ya, buddy.
     Kabowski: Lean, mean and pristine. I went to Europe.
     -> Is that so? Where?
     -> What'd you do?
-    Kabowski: We went all over- Deutschland, France, Spain.
-    Kabowski: Couple of buddies and I. Real low key.
-    Kabowski: Who am I kidding, it was a blast.
+    Kabowski: We went all over- Deutschland, France, Spain. #e:neutral
+    Kabowski: Couple of buddies and I. It was terrible. #e:sad 
+    <<wait 4>>
+    Kabowski: Ah, who am I kidding, it was a blast. #e:talking
     Kabowski: Let's see, I got drunk, went to more music festivals I can remember, oh- and I'm still undefeated at beer pong.
-    Kabowski: Fucked a couple of real babes, too.
+    Kabowski: Fucked a couple of real babes, too. #e:talking
     <<wait 2>>
-    Sounds like Kabowski had a fun summer.
-    See, this is why I can't stand him.
-    Part of me wishes I could be him, and yet part of me feels sorry for him.
-    <<wait 1>>
-    He lives such a naive life, happy and carefree.
-    He wouldn't know a thing about being lonely. About never setting hands on a girl. 
-    What it's like having no friends to ask to travel with. 
-    He doesn't understand me.
+    Mind: Sounds like Kabowski had a fun summer.
+    Mind: See, this is why I can't stand him. #e:angry2 
+    Mind: Part of me wishes I could punch his stupid face 
+    Mind: And yet part of me feels sorry for him... #e:think1
+    <<wait 2>>
+    Mind: What is it like to live in such blissful ignorance? 
+    Mind: To have never felt loneliness?
+    Mind: To always have someone to talk to?
+    <<wait 2>>
+    Mind: It must be nice... #e:bored
     <<jump Day2_Commons_Eating>>
 -> What's up guys
     Kabowski: Woah, you look much stronger than before. Been going to the gym this summer?
     -> Yes
     -> No
-    Kabowski: Well, if you ever need a spotter, you know where to find me.
+    Kabowski: Well, if you ever need a spotter, you know where to find me. #e:talking
     Nikolai: Vat is spotter?
-    Kabowski: Oh, it's like the dude that makes sure you don't drop the weight on yourself.
-    Kabowski: You know bench press Nikolai? Do they have those in Russia?
+    Kabowski: Oh, it's like the dude that makes sure you don't drop the weight on yourself. #e:neutral
+    Kabowski: You know bench press Nikolai? Do they have those in Russia? #e:talking
     <<wait 2>>
-    Ah shit. I started Kabowski on some stupid shit.
-    Now he's gonna lecture Nikolai on the gym. And Nikolai's too nice to stop him.
+    Mind: Ah shit. I started Kabowski on some stupid shit.
+    Mind: Now he's gonna lecture Nikolai on the gym. And Nikolai's too nice to stop him.
     <<wait 2>>
-    This is why I hate Kabowski. Everything's about the gym.
-    But in many ways, I understand why. 
-    His appearance is all he's got going for him.
-    And once he gets old, well, what's he going to do? Read books?
+    Mind: This is why I hate Kabowski. Everything's about the gym.
+    Mind: But in many ways, I understand why. #e:stern
+    Mind: His appearance is all he's got going for him.
+    Mind: And once he gets old, well, what's he going to do? Read books? #e:smile
     <<wait 2>>
-    He's the kind of person that lives for the here and now. Living the best youth possible is all he cares about.
-    And in many ways, he's smart for that. Youth is the peak of life, after all.
-    It's not cringe to care about how you look, or work out to pick up girls.
-    Finding a partner and having kids is literally the definition of "making it", after all.
+    Mind: No. He's the kind of person that lives for the here and now. Living the best youth possible is all he cares about. #e:stern
+    Mind: And in many ways, he's smart for that. Youth is the peak of life, after all. #e:think1
     <<wait 2>>
-    People like Kabowski kind of remind me of fireworks at the firework show that shoot up super high into the sky at twice the speed of the others, then explodes in a giant BOOM.
-    And people clap and cheer.
+    Mind: If you can't make it when you are young, how will you when you are old? #e:bored
     <<wait 2>>
-    Meanwhile, I would be the firework that gets lit and doesn't go anywhere, then gets tossed out after the show.
-    Completely unknown to anyone.
+    Mind: It's not cringe at all to care about how you look, or work out to pick up girls.
+    Mind: Finding a partner and having kids is literally the definition of "making it" in life.
+    <<wait 2>>
+    Mind: People like Kabowski kind of remind me of fireworks at the firework show that shoot up super high into the sky at twice the speed of the others, then explodes in a giant BOOM.
+    Mind: And people clap and cheer for him loudly. #e:think1
+    <<wait 2>>
+    Mind: Meanwhile, I would be the firework that gets lit and doesn't go anywhere... #e:think2
+    Mind: A complete dud. #e:bored
+    <<wait 2>>
     <<jump Day2_Commons_Eating>>
 -> Fuck off
-    Kabowski: Woah, what'd I do wrong buddy?
-    Kabowski: Nikolai, I think Mr. grumpy over there is in a bad mood. 
-    Nikolai: Yes, vury bad mud. Maybe you shouldn't talk to him anymur
+    Kabowski: Woah, what'd I do wrong buddy? #e:sad
+    Kabowski: Nikolai, I think Mr. grumpy over there is in a bad mood. #e:sad
+    <<wait 1>>
+    Nikolai: Yes, vury bad mud. Maybe you shouldn't talk to him anymur #e:neutral
     <<set $wasNiceToRoomates = false>>
-    Screw these losers.
-    I've got work to do.
-    Well, I don't really. But I just don't want to talk to them. It's too much effort.
-    And it's not like I have anything to say to them... or anything in common with them.
-    Kabowski is such a dickhead, he'll probably make fun of me or something.
+    <<wait 2>>
+    Mind: Screw these losers. #e:stern
+    Mind: I've got work to do. #e:stern
+    <<wait 2.0f>>
+    Mind: Well, I don't really. There's nothing interesting happening in my life. #e:think1
+    Mind: But I just don't want to talk to them. It's too much effort. #e:stern
+    <<wait 2>>
+    Mind: And it's not like I have anything to say to them... or anything in common with them. #e:think2
+    Mind: Kabowski is such an insufferable prick. #e:angry2
     <<wait 1>>
-    And Nikolai... well, is just Nikolai. He doesn't understand half of what I say.
+    Mind: Nikolai doesn't understand half of what I say. #e:angry2
     <<wait 1>>
-    God knows what Brain is up to...
+    Mind: God knows what Brain is up to... #e:angry2
     <<wait 1>>
-    I hate my fucking roommates. 
-    I can't believe I thought I would make close friends with them when I first arrived to college.
-    What a joke.
+    Mind: I hate my fucking roommates. #e:angry
+    Mind: I can't believe I thought they would be my best friends when I first arrived here. #e:stern
+    <<wait 2>>
+    Mind: What a joke. #e:smirk
     <<SetGameVariable Manager "hasFinishedHomeScene" true>>
 ===
 title: Day2_Commons_Eating
@@ -575,86 +642,114 @@ title: Day2_Commons_Eating
 <<set $wasNiceToRoomates = true>>
 <<changePlayerScoreString Manager "social" 15.0>>
 <<wait 2>>
-Anyways, I should leave this conversation. He'll babble on forever.
-At least I tried talking to them.
+Steven: I should leave this conversation. He'll babble on forever. #e:bored
+<<wait 1>>
+Steven: At least I tried talking to my roommates. #e:smile
+<<changePlayerScoreString Manager "contentedness" 15.0>>
 ===
 
 title: Day2_Commons_After_Walk_Away
 ---
-Nikolai: Hey vait- Steven. Vant to eat vis us tonight? 
+Nikolai: Hey vait- Steven. Vant to eat vis us tonight?  #e:smile
 <<wait 1>>
-You want me to eat with you?
+Steven: You want me to eat with you? #e:huh 
 <<wait 2>>
-Kabowski: Yeah dude. Nikolai's cooking up some serious macros.
+Kabowski: Yeah dude. Nikolai's cooking up some serious macros. #e:talking
 -> Sure
-    Nikolai: Okay, great. 
+    Steven: Yeah, sure... #e:smile
+    Nikolai: Okay, great. #e:smile
     <<playCutscene LevelLoader EatingDay2>>
 -> No thanks
-    Nikolai: Aw, ok. See yu later, zen.
+    Steven: Nah, I'm good. #e:stern
+    Nikolai: Aw, ok. See yu later, zen. #e:neutral 
     <<SetGameVariable Manager "hasFinishedHomeScene" true>>
 ===
 
 title: Day2_Nikolai_Food
 ---
-Nikolai: Okay guyz, today I hav here Russian Pirozhki.
-Nikolai: It is like meat pie. I hope yu enjoy.
+Nikolai: Okay guyz, today I hav here Russian Pirozhki. #e:smile
+Nikolai: It is like meat pie. I hope yu enjoy. #e:smile
 <<wait 1>>
 Kabowski: Hell yeah! Smells amazing, Nikolai.
 <<wait 1>>
-Nikolai: Thanks. Alzough I am confused. Where is Brian?
+Nikolai: Thanks. Alzough I am confused. Where is Brian? #e:neutral
 <<wait 1>>
 Kabowski: Oh, you mean THE almighty Brain? Not sure. Here, I'll call him.
 <<wait 2>>
-Kabowski: <size=150px>oh braaaaaaaaaaainnnnnnn~!</size>
+Kabowski: <size=150px>oh braaaaaaaaaaainnnnnnn~!</size> #e:talking 
 <<wait 2>>
-Kabowski: <size=150px>braaaaaaaaaaainnnnnnnyyyyy boooooo~!</size>
-<<wait 1>>
-Nikolai: Hm, seems he's vury busy.
+Kabowski: <size=150px>braaaaaaaaaaainnnnnnnyyyyy boooooo~!</size> #e:talking
+<<wait 4>>
+Nikolai: Hm, seems he's vury busy. #e:smile
 ===
 
 title: Day2_Brain_Exits_Lair
 ---
-Brain: <size=100px>Will You idiots..</size>
+Brain: <size=100px>Will You idiots..</size> 
 <<wait 1>>
-Brain: <size=150px><color="red">Keep it DOWN?!?</color></size>
-Brain: <size=75px>I'm in a call with my professor, for fuck's sake</size>
+Brain: <size=150px><color="red">Keep it DOWN?!?</color></size> #e:angry
+<<wait 2>>
+Brain: <size=75px>I'm in a call with my professor, for fuck's sake</size> #e:angry
 ===
 
 title: Day2_After_Brain_Mad
 ---
-Kabowski: Hahahahaha
+Kabowski: Hahahahaha 
 Kabowski: What's his deal? I'm only joking.
 <<wait 1>>
-Nikolai: Okey, let's start vithout him.
+Nikolai: Okey, let's start vithout him. #e:smile
 <<changePlayerScoreString Manager "energy" 15.0>>
 ===
 
 title: Day2_After_Meal
 ---
-Kabowski: Woo! That was a great meal Nikolai.
+Kabowski: Woo! That was a great meal Nikolai. 
 Kabowski: Gotta go do my supline leg lifts now. I'll catch you guys later.
-Nikolai: spasiba, Kabovski. And thank yu Stevun for coming.
+Nikolai: spasiba, Kabovski. #e:smile
+Nikolai: And thank yu Stevun for coming. #e:smile
 -> No Problem
+    Steven: Yeah, of course.. #e:smile
 -> Thanks for cooking.
-Nikolai: Catch yu ull latur.
+    Steven: No, thank you for cooking. #e:smile
+Nikolai: Catch yu ull latur. #e:smile
 <<changePlayerScoreString Manager "social" 15.0>>
 <<SetGameVariable Manager "hasFinishedHomeScene" true>>
 ===
 
 title: Day2_Arrive_Room
 ---
-What a tiring day.
-<<wait 1>>
-Can't remember the last time I went so many places.
-<<wait 1>>
-I have free time now, I guess. 
-What to do? 
+Steven: What a tiring day. #e:weary
+<<wait 3>>
+Steven: Can't remember the last time I had such an eventful 24 hours...
+<<wait 3>>
+Steven: Which is sad to say, because all I did was go to school... #e:bored 
+Steven: ...a feat considered normal by most people... But for some reason its notable to me.. #e:weary
+<<wait 2>>
+Steven: Anyways, guess I have free time now. #e:think1
+<<wait 2>>
+Steven: Back to the meaningless drull of existing inside my room... #e:weary
+===
+
+title: Day2_Main_Quad
+---
+Steven: This is the Main Quad. It's the large grassy lawn that the University takes pictures of and posts on their website. #e:weary
+<<wait 2>>
+Steven: I guess it's fine, except for the fact that it's crawling with students, sipping their overpriced coffee and doing english papers on their macbooks. Yuck. #e:stern
+<<wait 2>>
+===
+
+title: Day2_Classroom
+---
+Steven: This is the classroom. Clubs usually use these rooms to meet. #e:think1
+Steven: Sometimes the classes will also have discussion groups and study sessions in here. #e:think2
+<<wait 2>>
+Steven: Not that I've ever been to either... #e:weary 
 ===
 
 title: D2_Bedroom_Sleep
 ---
-Would you like to sleep?
+Game: Would you like to sleep?
 -> Yes
-
+    
 -> No
 ===

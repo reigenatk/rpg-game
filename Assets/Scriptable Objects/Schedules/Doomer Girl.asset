@@ -35,8 +35,8 @@ MonoBehaviour:
     weather: 0
     toSceneName: 11
     toGridCoordinate:
-      x: 78
-      y: 24
+      x: 74
+      y: 20
     npcFacingDirectionAtDestination: 4
     animationAtDestination: {fileID: 7400000, guid: 5f19b63b9bb19b04d80b0a6c899899b6,
       type: 2}
@@ -102,8 +102,8 @@ MonoBehaviour:
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: go home
-    offsetX: 0.25
-    offsetY: -0.3
+    offsetX: 0.44
+    offsetY: -0.4
   - hour: 15
     minute: 25
     priority: 0

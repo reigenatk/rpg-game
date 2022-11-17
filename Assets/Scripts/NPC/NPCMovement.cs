@@ -65,7 +65,7 @@ public class NPCMovement : MonoBehaviour
 
     // this will be set to true by 
     public bool isNPCBeingTalkedTo = false;
-
+    private GameState gameState;
     private void OnEnable()
     {
         EventHandler.AfterSceneLoadEvent += AfterSceneLoad;
@@ -100,7 +100,7 @@ public class NPCMovement : MonoBehaviour
     private void Start()
     {
         waitForFixedUpdate = new WaitForFixedUpdate();
-
+        gameState = FindObjectOfType<GameState>();
         SetIdleAnimation();
     }
 
@@ -450,10 +450,6 @@ public class NPCMovement : MonoBehaviour
     private IEnumerator MoveToGridPositionRoutine(Vector3Int gridPosition, TimeSpan npcMovementStepTime, TimeSpan gameTime)
     {
 
-        if (isNPCBeingTalkedTo)
-        {
-            yield break;
-        }
 
         // Debug.Log("MoveToGridPosition running");
         npcIsMoving = true;
@@ -461,6 +457,13 @@ public class NPCMovement : MonoBehaviour
 
         // change the animation to appropriate value
         SetMoveAnimation(gridPosition);
+
+
+        if (isNPCBeingTalkedTo)
+        {
+            // please dont move the npc if its being talked to, or if there's any dialogue being played?
+            yield break;
+        }
 
         npcNextWorldPosition = GetWorldPosition(gridPosition, npcCurrentScene);
 

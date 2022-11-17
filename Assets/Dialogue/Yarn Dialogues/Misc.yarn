@@ -23,9 +23,10 @@
 <<declare $talkedToBoomerAlready = false>>
 <<declare $talkedToBloomerAlready = false>>
 <<declare $talkedToCoomerAlready = false>>
-<<declare $talkedTSoyjackRedditAlready = false>>
-<<declare $talkedTSoyjackDiscordAlready = false>>
-
+<<declare $talkedToRedditAlready = false>>
+<<declare $talkedToDiscordAlready = false>>
+<<declare $alreadyCookedToday = false>>
+<<declare $hasEatenSnack = false>>
 
 // local variables
 <<declare $contentednessNerf = 0>>
@@ -35,9 +36,13 @@
 <<declare $minTilNextBus = 1>>
 <<declare $day = 1>>
 <<declare $isInNikolaiRoom = false>>
+
+// time events
 <<declare $isBibleStudyOpen = false>>
 <<declare $isStalkingStacy = false>>
-
+<<declare $isFootballGame = false>>
+<<declare $isGamingClub = false>>
+<<declare $hasGoneToGamingClub = false>>
 // total counts
 <<declare $numTimesNiceToRoomates = 0>>
 <<declare $kabowskiFriendProgress = 0>>
@@ -46,15 +51,16 @@
 <<declare $stacyFriendProgress = 0>>
 <<declare $beckyFriendProgress = 0>>
 <<declare $doomerFriendProgress = 0>>
-<<declare $doomergirlFriendProgress = 0>>
+<<declare $doomerGirlFriendProgress = 1>>
 <<declare $pepeFriendProgress = 0>>
-<<declare $boomerFriendProgress = 0>>
-<<declare $bloomerFriendProgress = 1>>
+<<declare $boomerFriendProgress = 1>>
+<<declare $bloomerFriendProgress = 0>>
 <<declare $coomerFriendProgress = 0>>
 <<declare $numTimesCoomerExposed = 0>>
-<<declare $soyjackredditFriendProgress = 0>>
-<<declare $soyjackdiscordFriendProgress = 0>>
-<
+<<declare $RedditFriendProgress = 0>>
+<<declare $DiscordFriendProgress = 0>>
+
+
 ===
 
 title: LowEnergy
@@ -269,7 +275,7 @@ Introduce yourself?
 	<<wait 4>>
 	Steven: Uhm...
 	<<wait 2>>
-	Mind: Shit! I'm freezing up... This is bad... #e:shocked
+	Mind: Shit! I'm freezing up... This is bad... #e:oshit
 	<<changePlayerScoreString Manager "social" -40.0>>
 	<<wait 2>>
 	Chase: Thanks for introducing yourself, Steven! I love the color red too! #e:big-smile
@@ -319,8 +325,8 @@ Pepe: Good, I did the prayer thing you told me to do last time.
 <<wait 2>>
 Stacy: Awesome! Did you feel God's presence with you at all?
 <<wait 1>>
-Pepe: Yeah, a bit. I guess it helped me feel a bit better. #e:feelsgoodman
-Pepe: But it still feels like I'm talking to no one at times. #e:feelsbadman
+Pepe: Yeah, a bit. I guess it helped me feel a bit better. #e:smile
+Pepe: But it still feels like I'm talking to no one at times. #e:sad
 <<wait 2>>
 Chase: God speaks to each of us in his own way, Pepe.
 Chase: I'm glad that you are trying!
@@ -358,7 +364,7 @@ Voice: Shit! Don't mess this up! #e:laugh
 	<<wait 1>>
 	Steven: I want to make new friends... #e:embarassed
 	<<wait 2>>
-	Pepe: That's why I came originally, too. #e:feelsgoodman
+	Pepe: That's why I came originally, too. #e:smile
 	Pepe: Everyone here is really nice, you'll like it.
 	<<wait 1>>
 	Chase: Just like he said, we're your friends now!
@@ -420,3 +426,6 @@ title: After_Sermon
 	<<set $hasGoneToBibleStudy = true>>
 	<<SetTime Manager 20 50 0>>
 ===
+
+
+

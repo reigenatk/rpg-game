@@ -192,7 +192,8 @@ public class DialogueActivate : MonoBehaviour, Interactable
         {
             // player interacts with this one
             player.interactables.Add(this);
-            if (soundToPlay != SoundName.NoSound)
+            // only play the sound if the object is in the scene tho
+            if (soundToPlay != SoundName.NoSound && transform.parent.GetComponent<SpriteRenderer>().enabled == true)
             {
                 AudioManager.Instance.PlaySound(soundToPlay);
             }

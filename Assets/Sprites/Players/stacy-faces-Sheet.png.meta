@@ -178,6 +178,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: stacy-faces-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 457430010dc6482468473066bf358d2d
+      internalID: -1098665247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -190,6 +211,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       stacy-faces-Sheet_1: -390515265
+      stacy-faces-Sheet_3: -1098665247
       stacy-faces-Sheet_2: 736307118
       stacy-faces-Sheet_0: 638271865
   spritePackingTag: 

@@ -4,10 +4,12 @@
 // one time dialogue variables
 <<declare $didCoomerDialogue1 = false>>
 <<declare $hasMetCoomer = false>>
+<<declare $didCoomerHair = false>>
+<<declare $didCoomerBiceps = false>>
 ===
 title: Coomer_Dialogue
 ---
-<<if $isStalkingStacy == true>>
+<<if $isStalkingCoomer == true>>
     <<playCutscene LevelLoader BustingTheCoomer>>
 <<else>>
     <<jump Coomer_Normal_Dialogue>>
@@ -17,7 +19,7 @@ title: Coomer_Dialogue
 
 
 
-title: Stalking_Stacy_2
+title: Stalking_Coomer_2
 ---
 Steven: What da heck are you doing, man?
 <<wait 1>>
@@ -42,7 +44,7 @@ Keith: Uhhhh...... gender studies!
 Mind: Should I report this guy to campus police? #e:bored
 Mind: He's literally a sexual assault waiting to happen...  #e:stern
 <<wait 3>>
-Voice: DO ITTTTTT #e:evil
+Voice: DO ITTTTTT #e:evil1
 Voice: It'll be hilarious #e:laugh
 -> Yes
     Mind: It's probably my obligation to protect these girls...
@@ -112,19 +114,40 @@ Keith: Hey Steven, what's up?
 -> Let's chat
     Steven: Not much. Wanna have a chat?
     Keith: Sure.
-    <<FadeIn LevelLoader 0.5>>
     <<jump Coomer_Chat_Decide>>
+-> Nothing
+    Steven: Not much. Actually woops, I gotta go. #e:shy
+    Keith: Alright, catch ya later.
 ===
 
 title: Coomer_Chat_Decide
 ---
+<<if $didCoomerBiceps == false>>
+    -> Biceps
+        <<jump Coomer_Biceps>>
+    -> Talk about something else
+<<endif>>
+
+<<if $didCoomerHair == false>>
+    -> Hair
+        <<jump Coomer_Hair>>
+    -> Talk about something else
+<<endif>>
+
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
 <<playSoundString AudioManager TimeTicking>>
-<<wait 4>>
+<<wait 6>>
 <<if $didCoomerDialogue1 == false>>
     <<set $didCoomerDialogue1 = true>>
     <<jump Chat_End_1>>
 <<else>>
-    <<jump Chat_End_Generic>>
+    -> Hair 
+        <<jump Coomer_Hair>>
+    -> Biceps 
+        <<jump Coomer_Biceps>>
+    -> Generic Chat
+        <<jump Coomer_Chat_End_Generic>>
 <<endif>>
 ===
 
@@ -168,8 +191,11 @@ Keith: Get away from me!
         Keith: G-Go away!
         <<jump Coomer_Ruin_Friendship_Less>>
     <<else>>
-        Keith: hmm... give me one good reason.
-        Keith: You're not a hot girl, I can't coom to you, I don't need any irl friends at the moment, and you were mean to me last time.
+        Keith: hmm... give me one good reason to talk to you.
+        <<wait 2>>
+        Keith: You're not a hot girl so I can't coom to you...
+        Keith: I don't need any irl friends at the moment..
+        Keith: and you were being mean to me last time because of my masturbation addiction...
         <<wait 2>>
         -> Be Honest
             Steven: Look, I don't have many friends either. #e:shy
@@ -191,6 +217,8 @@ Keith: Get away from me!
             Steven: Just kidding, ya fuckin coomer. Why would anyone want to be your friend? #e:laugh
             Keith: ... #e:sad
             <<jump Coomer_Ruin_Friendship_Less>>
+        -> Nothing
+	        Steven: ... never mind.
     <<endif>>
 ===
 
@@ -200,8 +228,8 @@ title: Coomer_Start
     Keith: Hey, I don't know you...
     Steven: Oh- my name is Steven.
     Keith: Mine's Keith. 
+    <<set $hasMetCoomer = true>>
 <<endif>>
-<<set $hasMetCoomer = true>>
 <<if $numTimesCoomerExposed > 0>>
     Keith: Hey, look man. I don't wanna talk to you unless you promise not to call the cops on me again.
     <<wait 1>>
@@ -214,132 +242,163 @@ title: Coomer_Start
 <<endif>>
 Keith: So what is it?
 -> Biceps
-    Steven: Hey man, how do you have such strong biceps?
-    <<wait 1>>
-    Keith: It's only my right arm, dude. My left arm is wimpy as hell.
-    Keith: My secret is 10000 jelqs per day.
-    Keith: Followed by extensive forearm workout through excessive mouse clicking
-    Keith: And of course. The technique. God, my technique is great.
-    Keith: None of that death grip bullcrap. No.
-    Keith: My technique is the accumulation of decades of study. Years of hard work.
-    Keith: Toiled behind a locked door, under the covers. When you were out with your girlfriend, I was cooming.
-    Keith: I have perfected the art of the nut. 
-    <<wait 1>>
-    Keith: I could write a book about it, but that would be precious time off from cooming.
-    Keith: If cooming was a sport, I would be Michael Jordan. Faker. Babe Ruth. Wayne Gretzsky.
-    Keith: The undisputed GOAT.
-    <<wait 1>>
-    -> Insult
-        Steven: Didn't ask, dude. Plus, masturbating is bad for you. #e:worried
-        <<wait 1>>
-        Keith: Wow, water is wet. Keep on going dude. What other obvious things can you tell me? #e:sad
-        Keith: You could've just pretended to like my speech. But you're just socially clueless like that. #e:sad
-        -> Insult 
-            Steven: Screw you, degenerate coomer.
-            Keith: Okay incel. Cry more.
-            <<jump Coomer_Ruin_Friendship>>
-        -> Make up
-            Steven: I'm sorry. I just don't think masturbating should be glamorized.
-            <<wait 1>>
-            Keith: Fair enough. Hey listen, let's talk more, ok? I'll tell you my real thoughts on it later.
-            <<jump Coomer_Improve_Friendship>>
-    -> Applaud
-        Steven: Wow, sounds like you are very good at masturbating, man.
-        Steven: I wish I could be as good as you.
-        <<wait 1>>
-        Keith: Nah, its just the only thing that brings me meaning in life.
-        Keith: Don't be like me. But hey, thanks for making me feel proud for a little while.
-        Keith: I'm glad you enjoyed my monologue.
-        <<jump Coomer_Improve_Friendship>>
+    <<jump Coomer_Biceps>>
 -> Hair
-    Steven: Where is all your hair?
-    Keith: I lost it all to cooming, of course.
-    Keith: Did you know that male semen contains over 200 separate proteins
-    Keith: as well as vitamins, and minerals, most notably zinc and selenium?
-    Keith: Excessive loss of which, can cause hair loss?
-    <<wait 2>>
-    Keith: Citation (APA): National Archives and Records Administration. (n.d.). Hetch Hetchy Environmental Debates. National Archives and Records Administration. Retrieved November 7, 2022?
-    <<wait 2>>
-    Keith: Well, now you know.
-    <<wait 2>>
-    Steven: So the whole thing about coomers losing hair isn't a myth?
+    <<jump Coomer_Hair>>
+-> Nothing
+	Steven: Never mind.
+===
+
+title: Coomer_Hair
+---
+<<set $didCoomerHair = true>>
+Steven: Where is all your hair?
+Keith: I lost it all to cooming, of course.
+Keith: Did you know that male semen contains over 200 separate proteins
+Keith: as well as vitamins, and minerals, most notably zinc and selenium?
+Keith: Excessive loss of which, can cause hair loss?
+<<wait 2>>
+Keith: Citation (APA): National Archives and Records Administration. (n.d.). Hetch Hetchy Environmental Debates. National Archives and Records Administration. Retrieved November 7, 2022?
+<<wait 2>>
+Keith: Well, now you know.
+<<wait 2>>
+Steven: So the whole thing about coomers losing hair isn't a myth?
+<<wait 1>>
+Keith: Does it seem like one? I mean, look at me!
+<<wait 1>>
+-> Why don't you stop?
+    Steven: So why not stop? #e:think1
+    Keith: Have you ever heard of withdrawal?
+    Keith: Why can't everyone who starts smoking just quit at will?
+    Keith: It's cause of the brain being so conditioned to getting that dopamine.
+    Keith: That it will keep on annoying you until you give in.
     <<wait 1>>
-    Keith: Does it seem like one? I mean, look at me!
-    <<wait 1>>
-    -> Why don't you stop?
-        Steven: So why not stop? #e:think1
-        Keith: Have you ever heard of withdrawal?
-        Keith: Why can't everyone who starts smoking just quit at will?
-        Keith: It's cause of the brain being so conditioned to getting that dopamine.
-        Keith: That it will keep on annoying you until you give in.
-        <<wait 1>>
-        Keith: Truth be told, I don't like being this way. #e:sad
-        Keith: But I just don't know how to get out of this hole. #e:sad
-        Keith: That's why I've been going to Bible study. To see if they know. #e:sad
-        -> Good luck
-            Steven: Good luck, man... #e:smile
-            Keith: Hey, thanks. You're a nice guy.
-            <<jump Coomer_Improve_Friendship>>
-        -> You're a loser
-            Steven: Pffft. #e:bored
-            Steven: You're a loser, and you will be a coomer forever. #e:smirk
-            Keith: ... #e:sad
-            Keith: Why say that man? You know I'm trying... Screw you. #e:sad
-            <<jump Coomer_Ruin_Friendship>>
+    Keith: Truth be told, I don't like being this way. #e:sad
+    Keith: But I just don't know how to get out of this hole. #e:sad
+    Keith: That's why I've been going to Bible study. To see if they know. #e:sad
+    -> Good luck
+        Steven: Good luck, man... #e:smile
+        Keith: Hey, thanks. You're a nice guy.
+        <<jump Coomer_Improve_Friendship>>
     -> You're a loser
         Steven: Pffft. #e:bored
         Steven: You're a loser, and you will be a coomer forever. #e:smirk
         Keith: ... #e:sad
         Keith: Why say that man? You know I'm trying... Screw you. #e:sad
         <<jump Coomer_Ruin_Friendship>>
+-> You're a loser
+    Steven: Pffft. #e:bored
+    Steven: You're a loser, and you will be a coomer forever. #e:smirk
+    Keith: ... #e:sad
+    Keith: Why say that man? You know I'm trying... Screw you. #e:sad
+    <<jump Coomer_Ruin_Friendship>>
 ===
 
-// only called from the highest level of friendship 
-title: Coomer_Improve_Friendship_Most
+title: Coomer_Biceps
 ---
-    <<FadeOut LevelLoader 1.0>>
-	<<set $coomerFriendProgress = $coomerFriendProgress + 1>>
-
-    <<AdvanceXMinutes Manager 60>>
-	<<changePlayerScoreString Manager "entertained" 30.0>>
-	<<changePlayerScoreString Manager "social" 30.0>>
-	<<set $talkedToCoomerAlready = true>>
+<<set $didCoomerBiceps = true>>
+Steven: Hey man, how do you have such strong biceps?
+<<wait 1>>
+Keith: It's only my right arm, dude. My left arm is wimpy as hell.
+<<wait 1>>
+Steven: So, what's the secret?
+<<wait 1>>
+Keith: I do, uh... exercises... #e:sad
+<<wait 1>>
+Steven: Bicep curls? #e:think1
+<<wait 1>>
+Keith: No. 10000 jelqs per day.
+Keith: Followed by extensive forearm workout through excessive mouse clicking.
+Keith: Finally, at least 5 hours of jackhammering my manhood until it hurts to pee.
+<<wait 1>>
+Keith: But I don't do it with poor technique.
+<<wait 1>>
+Keith: No, I make every rep count.
+Keith: None of that death grip bullcrap.
+<<wait 1>>
+Keith: My technique is the accumulation of decades of study. Years of hard work.
+Keith: Toiling behind a locked door, under the covers. 
+Keith: When you were out with your girlfriend, I was cooming.
+<<wait 1>>
+Keith: Some say that I was cooming in the womb.
+Keith: And the result? Hair loss and this jacked right arm.
+<<wait 1>>
+Keith: I could write a book about it, but that would be precious time off from cooming.
+Keith: If cooming was a sport, I would be Michael Jordan. Faker. Babe Ruth. Wayne Gretzsky.
+Keith: The undisputed GOAT.
+<<wait 1>>
+-> Insult
+    Steven: Didn't ask, dude. Plus, masturbating is bad for you. #e:worried
+    <<wait 1>>
+    Keith: Wow, water is wet. Keep on going dude. What other obvious things can you tell me? #e:sad
+    Keith: You could've just pretended to like my speech. But you're just socially clueless like that. #e:sad
+    -> Insult 
+        Steven: Screw you, degenerate coomer.
+        Keith: Okay incel. Cry more.
+        <<jump Coomer_Ruin_Friendship>>
+    -> Make up
+        Steven: I'm sorry. I just don't think masturbating should be glamorized.
+        <<wait 1>>
+        Keith: Fair enough. Hey listen, let's talk more, ok? I'll tell you my real thoughts on it later.
+        <<jump Coomer_Improve_Friendship>>
+-> Applaud
+    Steven: Wow, sounds like you are very good at masturbating, man.
+    Steven: I wish I could be as good as you.
+    <<wait 1>>
+    Keith: Nah, its just the only thing that brings me meaning in life.
+    Keith: Don't be like me. But hey, thanks for making me feel proud for a little while.
+    Keith: I'm glad you enjoyed my monologue.
+    <<jump Coomer_Improve_Friendship>>
 ===
 
 title: Coomer_Improve_Friendship
 ---
-	<<set $coomerFriendProgress = $coomerFriendProgress + 1>>
-	<<changePlayerScoreString Manager "entertained" 20.0>>
-	<<changePlayerScoreString Manager "social" 20.0>>
+    <<FadeOut LevelLoader 1.0>>
+	<<set $coomerFriendProgress = $coomerFriendProgress + 2>>
+    <<if $coomerFriendProgress > 1>>
+        <<set $coomerFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
 	<<set $talkedToCoomerAlready = true>>
 ===
 
 title: Coomer_Improve_Friendship_Less
 ---
-	<<set $coomerFriendProgress = $coomerFriendProgress + 1>>
-	<<changePlayerScoreString Manager "entertained" 10.0>>
-	<<changePlayerScoreString Manager "social" 10.0>>
+    <<FadeOut LevelLoader 1.0>>
+	<<set $coomerFriendProgress = $coomerFriendProgress + 2>>
+    <<if $coomerFriendProgress > 1>>
+        <<set $coomerFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
 	<<set $talkedToCoomerAlready = true>>
 ===
 
 title: Coomer_Ruin_Friendship
 ---
-	<<set $coomerFriendProgress = $coomerFriendProgress - 1>>
+    <<FadeOut LevelLoader 1.0>>
+	<<set $coomerFriendProgress = $coomerFriendProgress - 2>>
     <<if $coomerFriendProgress < -1>>
         <<set $coomerFriendProgress = -1>>
     <<endif>>
-	<<changePlayerScoreString Manager "entertained" -10.0>>
-	<<changePlayerScoreString Manager "social" 10.0>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
 	<<set $talkedToCoomerAlready = true>>
 ===
 
 title: Coomer_Ruin_Friendship_Less
 ---
-	<<set $coomerFriendProgress = $coomerFriendProgress - 1>>
+    <<FadeOut LevelLoader 1.0>>
+	<<set $coomerFriendProgress = $coomerFriendProgress - 2>>
     <<if $coomerFriendProgress < -1>>
         <<set $coomerFriendProgress = -1>>
     <<endif>>
-	<<changePlayerScoreString Manager "entertained" -20.0>>
-	<<changePlayerScoreString Manager "social" 20.0>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
 	<<set $talkedToCoomerAlready = true>>
 ===

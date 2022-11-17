@@ -19,6 +19,8 @@ MonoBehaviour:
     sprite: {fileID: -390515265, guid: bb94466f1f5682b42a1ddafaedd4005e, type: 3}
   - headshotName: smile
     sprite: {fileID: 736307118, guid: bb94466f1f5682b42a1ddafaedd4005e, type: 3}
+  - headshotName: neutral
+    sprite: {fileID: -1098665247, guid: bb94466f1f5682b42a1ddafaedd4005e, type: 3}
   charactersThatUseTheseHeadshots:
   - Stacy
   scaleToUse: 3

@@ -1,4 +1,287 @@
-﻿title: Becky_Dialogue
+﻿title: Becky_Vars
 ---
-	Hello
+
+// one time dialogue variables
+<<declare $didBeckyDialogue1 = false>>
+<<declare $didBeckyDialogue2 = false>>
+<<declare $hasMetBecky = false>>
+<<declare $didBeckyKabowski = false>>
+<<declare $didBeckyStacy = false>>
+===
+title: Becky_Dialogue
+---
+<<jump Becky_Normal_Dialogue>>
+===
+
+title: Becky_Normal_Dialogue
+---
+<<if $talkedToBeckyAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+// cant make friends with becky because YOU ARENT CHAD
+<<if $beckyFriendProgress >= 0>>
+	<<jump Becky_Start>>
+<<elseif $beckyFriendProgress <= -1>>
+	<<jump Becky_Unfriendly>>
+<<endif>>
+===
+
+title: Becky_Familiar
+---
+Becky: Stevennnn, how are youuuu?~! 
+-> Boba
+	Steven: Wanna get boba, Becky? #e:worried
+	Becky: Omg suree, I looooove boba! <3
+    <<jump Becky_Chat_Decide>>
+-> Nothing
+	Steven: Never Mind #e:shy
+	Becky: Okaaaay~~!
+===
+
+title: Becky_Chat_Decide
+---
+
+<<if $didBeckyStacy == false>>
+	-> Stacy
+		<<jump Becky_Stacy>>
+	-> Talk about something else
+<<endif>>
+
+<<if $didBeckyKabowski == false>>
+	-> Kabowski
+		<<jump Becky_Kabowski>>
+	-> Talk about something else
+<<endif>>
+
+<<playSoundString AudioManager TimeTicking>>
+<<wait 4>>
+<<if $didBeckyDialogue1 == false>>
+    <<set $didBeckyDialogue1 = true>>
+    <<jump Becky_Chat_End_1>>
+<<else>>
+	-> Stacy 
+		<<jump Becky_Stacy>>
+	-> Kabowski 
+		<<jump Becky_Kabowski>>
+	-> Generic Chat
+    	<<jump Becky_Chat_End_Generic>>
+<<endif>>
+===
+
+title: Becky_Chat_End_1
+---
+Becky: Like omigad that boba was like so gooood...
+<<wait 1>>
+Steven: Yeah, I agree... #e:smile
+Voice: The boba was good, but the conversation wasn't... #e:thinking
+<<wait 1>>
+Mind: Yeah, no shit! She lectured me on Greys Anatomy for 30 minutes! #e:weary
+Steven: I wish girls had more actual interests besides watching tv and scrolling social media... #e:bored
+Steven: It'd be much easier to relate to them that way... #e:bored
+<<jump Becky_Improve_Friendship_Most>>
+===
+
+
+title: Becky_Chat_End_Generic
+---
+Becky: Like omigad that boba was like so gooood...
+<<wait 1>>
+Steven: Yeah, I agree... #e:smile
+Voice: The boba was good, but the conversation wasn't... #e:thinking
+<<wait 1>>
+Mind: Yeah, no shit! She lectured me on some random netflix show for 30 minutes! #e:weary
+Steven: I wish girls had more actual interests besides watching tv and scrolling social media... #e:bored
+Steven: It'd be much easier to relate to them that way... #e:bored
+<<jump Becky_Improve_Friendship_Most>>
+===
+
+title: Becky_Unfriendly
+---
+Becky: Ohmagaaaad ewwwwwwwwww... #e:sad
+Becky: Get away from me you dirty incellll like omgggg.... #e:sad
+Mind: I haven't even said anything! #e:oshit
+<<wait 1>>
+Becky goes back to scrolling her phone. She eyes you every now and then with an angry glance...
+<<jump Becky_Ruin_Friendship>>
+===
+
+title: Becky_Start
+---
+<<if $hasMetBecky == false>>
+	Becky: Hello!~
+	<<wait 1>>
+	Steven: H-hey, how are you?
+	Becky: omigod gooooood~
+	<<wait 1>>
+	Steven: I'm Steven.
+	Becky: Beckyyyyy~~
+	<<set $hasMetBecky = true>>
+<<endif>>
+
+Becky: So like, what do you waaaaant?
+<<wait 1>>
+Steven: I-
+<<wait 0.1>>
+Becky: Omigod are you flirting with meeeeee? 
+<<wait 1>>
+Becky: Sorryyyy, I have a boyfriendddddddddd....
+<<wait 1>>
+Steven: Wha- #e:embarassed
+Steven: Who said I'm flirting with you? #e:yikes
+Voice: hahahahaha this girl #e:laugh
+<<wait 1>>
+Mind: Like when did I say this was even remotely romantic?
+<<wait 1>>
+Becky: Well, like, I dunnooooo... #e:sad
+Becky: It kinda sounds like you were hitting on meeee... 
+<<wait 1>>
+Mind: What is she on about..? #e:huh
+Becky: Anyways, what did you waaant?
+-> Stacy
+	<<jump Becky_Stacy>>
+-> Kabowski
+	<<jump Becky_Kabowski>>
+-> Nothing
+	Steven: Never mind.
+===
+
+title: Becky_Kabowski
+---
+<<set $didBeckyKabowski = true>>
+Becky: Omigod, is your roommate Kabowskiiiii?
+<<wait 1>>
+Steven: Yeah, why?
+Becky: ohmagaaad Kabowski is so hawt....
+Becky: We were at Coachella last yearrrrr omg
+Becky: Hashtag kurrazzzzyyyy!
+Becky: He drank like suh many white claws ohmagaaad
+<<wait 1>>
+Steven: That's... great.?
+<<wait 3>>
+Becky: Omagaaad, like, do you have his numberrrrrr? 
+<<wait 1>>
+-> Lie
+	Steven: Sorry, no I don't...
+	Becky: Awwwwww... #e:sad
+	<<wait 1>>
+	Becky proceeds to start scrolling instagram. You've bored her.
+	<<wait 3>>
+	Voice: Hahaha you're so boring she doesn't even care about you anymore! #e:laugh
+	Steven: Bye? #e:worried
+	Becky doesn't look up.
+	<<wait 3>>
+	Steven: Hello? #e:stern
+	Becky still doesn't look up. 
+	Steven: What is this?!? #e:oshit
+	Steven: Is this how insignificant I am to the average girl? #e:weary
+	<<jump Becky_Improve_Friendship>>
+-> Don't Lie
+	Steven: Yeah, here it is...
+	You show Becky the number. She starts to fiddle with her phone
+	<<wait 5>>
+	She's not looking up at you. Seems like she forgot about your conversation already.
+	Voice: Ooooooo, mogged by Chad! Time to move on... #e:evil1
+	Mind: These girls, man... How does anyone talk to them? #e:bored
+	Mind: Am I invisible to them unless I have a sharp jawline and abs? #e:weary
+	Voice: Pretty much.. #e:cringe
+	<<jump Becky_Improve_Friendship>>
+===
+
+title: Becky_Stacy
+---
+<<set $didBeckyStacy = true>>
+Steven: I'm actually here to ask about Stacy
+Becky: Omigod, do you like Stacyyyyy!?
+Becky: Oh.
+Becky: My.
+Becky: Gad.
+Becky: That is so cuuuuuute...!
+<<wait 2>>
+Steven: No! Wha- #e:embarassed
+-> Insult
+	Steven: Stop spewing random crap out of your mouth! #e:angry2
+	<<wait 2>>
+	Becky: Ummmm, mister that is no way to talk to a girl. #e:sad
+	Becky: I'm leaving. #e:sad
+	<<wait 1>>
+	Steven: Good! I didn't want to talk to you anyways! #e:angry
+	<<wait 2>>
+	Voice: Oh shit, you shouldn't have said that... #e:think
+	Voice: Now she's gonna tell Stacy about this... #e:cringe
+	<<wait 2>>
+	Mind: Shit.. You're right. #e:shocked
+	<<jump Becky_Ruin_Friendship>>
+-> Keep going
+	Steven: Can you listen to me for one second? #e:stern
+	Becky: Omigaaad sorryyyyy~
+	<<wait 2>>
+	Steven: I'm just one of Stacy's friends. I don't like her in any way.
+	Voice: Are you sure? #e:laugh
+	Mind: Shut up, voice! #e:angry
+	<<wait 1>>
+	Steven: How long have you known her? #e:smile
+	<<wait 2>>
+	Becky: Stacyyy? Omg we go way backkkk...
+	Becky: Like, Middle School baaaack... #e:sad
+	Steven: Oh, ok.
+	Becky: Yaassssss queen! 
+	Becky: Girlfriends for liiiiife..
+	Steven: That's it, thanks. #e:think1
+	Steven: I'll talk to you later... #e:smile
+	<<wait 1>>
+	Becky: Ok baiiiiii ^_^
+	<<jump Becky_Improve_Friendship>>
+===
+
+title: Becky_Improve_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $beckyFriendProgress = $beckyFriendProgress + 2>>
+    <<if $beckyFriendProgress > 1>>
+        <<set $beckyFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToBeckyAlready = true>>
+===
+
+title: Becky_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $beckyFriendProgress = $beckyFriendProgress + 2>>
+    <<if $beckyFriendProgress > 1>>
+        <<set $beckyFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToBeckyAlready = true>>
+===
+
+title: Becky_Ruin_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $beckyFriendProgress = $beckyFriendProgress - 2>>
+    <<if $beckyFriendProgress < -1>>
+        <<set $beckyFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToBeckyAlready = true>>
+===
+
+title: Becky_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $beckyFriendProgress = $beckyFriendProgress - 2>>
+    <<if $beckyFriendProgress < -1>>
+        <<set $beckyFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToBeckyAlready = true>>
 ===

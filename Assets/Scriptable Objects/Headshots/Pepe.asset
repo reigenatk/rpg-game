@@ -15,10 +15,12 @@ MonoBehaviour:
   headshots:
   - headshotName: normal
     sprite: {fileID: 427011419, guid: 9f10e1e9fbb9bc744823af8d5edd2e7b, type: 3}
-  - headshotName: feelsgoodman
+  - headshotName: smile
     sprite: {fileID: -644359802, guid: 9f10e1e9fbb9bc744823af8d5edd2e7b, type: 3}
-  - headshotName: feelsbadman
+  - headshotName: sad
     sprite: {fileID: -64633061, guid: 9f10e1e9fbb9bc744823af8d5edd2e7b, type: 3}
+  - headshotName: rage
+    sprite: {fileID: -571464203, guid: 9f10e1e9fbb9bc744823af8d5edd2e7b, type: 3}
   charactersThatUseTheseHeadshots:
   - Pepe
   scaleToUse: 2

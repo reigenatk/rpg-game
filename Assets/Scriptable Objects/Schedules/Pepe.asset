@@ -87,7 +87,7 @@ MonoBehaviour:
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
     description: Lecturte
-    offsetX: -0.15
+    offsetX: -0.3
     offsetY: -0.3
   - hour: 15
     minute: 10

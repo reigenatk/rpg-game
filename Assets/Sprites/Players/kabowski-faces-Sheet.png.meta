@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3f6bc19466b20e646bbcd6b9b0d5860a
+guid: 143937eb7ca965446933e4f09533ddd2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lancelot-faces_0
+      name: kabowski-faces-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,8 +130,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d076e86f0cb8fd74cab26d553778005b
-      internalID: 561088342
+      spriteID: 2e2a09ee5ba25e448b0dd72f7c43bfa4
+      internalID: -1004030920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabowski-faces-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc5dc1d556152b43abd0ec29ff92ef2
+      internalID: 265078981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabowski-faces-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d80fda90d777cb4f80e0644ad4268bc
+      internalID: -787207719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabowski-faces-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae733679e9010d342b8d8ae8f56388ab
+      internalID: 339876025
       vertices: []
       indices: 
       edges: []
@@ -147,7 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lancelot-faces_0: 561088342
+      kabowski-faces-Sheet_1: 265078981
+      kabowski-faces-Sheet_2: -787207719
+      kabowski-faces-Sheet_3: 339876025
+      kabowski-faces-Sheet_0: -1004030920
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

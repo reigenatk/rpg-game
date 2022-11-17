@@ -7,12 +7,27 @@ public class GameUI : Singleton<GameUI>
 {
     [SerializeField] private GameObject gameClock;
     [SerializeField] private GameObject playerBars;
+    GameState gameState;
     // Start is called before the first frame update
     public bool UIDisabled = false;
 
+    private void Start()
+    {
+        gameState = FindObjectOfType<GameState>();
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        // if in dark scene, NO enabling game UI bars.
+        if (gameState.getCurrentSceneEnum() == SceneName.DarkScene)
+        {
+            if (!UIDisabled)
+            {
+                UIDisabled = true;
+                disableUI();
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.H))
         {
             if (UIDisabled)
             {

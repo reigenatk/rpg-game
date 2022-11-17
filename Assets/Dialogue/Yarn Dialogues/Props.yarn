@@ -1,41 +1,251 @@
-﻿
+﻿title: Props_Vars
+---
+<<declare $hasDoneGameDialogue = false>>
+<<declare $hasDoneSocialDialogue = false>>
+<<declare $hasDoneSchoolRant = false>>
+<<declare $hasDoneSchoolRant2 = false>>
+<<declare $didHomework = false>>
+<<declare $didProjects = false>>
+===
+
 title: D1_Bedroom_Window
 ---
-The outside world... how scary.
+Steven: The outside world... #e:worried
+<<wait 2>> 
+Steven: How scary... #e:weary
 ===
 
 title: D1_Bedroom_Peripherals
 ---
-Computers are kind of like humans.
-They depend on so many parts to work well.
-Parts that over time, break, degrade, and rust. 
-I guess even computers have age.
+<<if $day == 1>>
+	Steven: My beloved PC. #e:comfy
+	Steven: Without this, I don't know if I could live. #e:stern
+	<<wait 2>>
+	Steven: It's my only cope in this world... #e:think1
+	Steven: My only friend. #e:think1
+	Steven: And yet, it can't talk, or feel. 
+	Steven: It's a source of limitless entertainment, and yet I am bored all day on it. #e:huh
+	<<wait 2>>
+	Steven: At the end of the day, when I turn it off.. #e:think2
+	Steven: And stare my blank expression through the dark reflection of my monitor. #e:think1
+	Steven: Can I really say I am happy? #e:stern
+<<else>>
+	Steven: Hello again, PC. #e:think1
+	<<playSoundString AudioManager TurnOnPC>>
+	<<wait 13>>
+	<<if $day == 2>>
+		Steven: Sorry for cheating on you today. #e:smile
+		Steven: I was talking with real people. #e:worried
+		Steven: But I promise, you're still first in my heart. #e:smile
+	<<endif>>
+	<<wait 2>>
+	Steven: What shall we do today? #e:smile
+	<<wait 2>>
+	Steven: Anything goes, really. As long as its entertaining enough.. and keeps my mind off my problems. #e:stern
+	Steven: Or if its just homework... well... #e:bored
+	Steven: I may or may not do homework.. It depends on my mood. #e:weary
+	<<wait 2>>
+	-> Play vidya
+		Steven: I guess I could go for some gaming right now... #e:smile
+		<<if $hasDoneGameDialogue == false>>
+			Steven: Although, games stopped being fun a long time ago... #e:huh
+			<<wait 2>>
+			Steven: Eventually I peaked in skill, so I started smurfing on noobs. #e:smile
+			Steven: That was fun for a while, until it became boring. #e:stern
+			<<wait 2>>
+			Steven: So I started trolling. #e:smile
+			Steven: Which was also enjoyable until it wasn't. #e:think1
+			<<wait 2>>
+			Steven: So now, I log on to play for what reason? #e:think2
+			<<wait 3>>
+			Steven: I guess... there's no reason anymore.
+			Steven: ... #e:think1 
+			<<set $hasDoneGameDialogue = true>>
+		<<endif>>
+		<<stopAllMusic MusicObject 0.5>>
+		<<wait 0.5>>
+		<<FadeIn LevelLoader 1.0>>
+		<<wait 2>>
+		<<playSoundString AudioManager GamingSounds>>
+		<<wait 29>>
+		<<FadeOut LevelLoader 1.0>>
+		<<wait 2>>
+		Steven: Yaaaaaaaaaay..... #e:stern
+		Steven: We won...... #e:stern
+		<<wait 1>>
+		Steven: So exiting.... #e:weary
+		<<changePlayerScoreString Manager "entertained" 1.0>>
+		<<changePlayerScoreString Manager "contentedness" -10.0>>
+		<<wait 2>>
+		<<StartAllMusic MusicObject 0.5>>
+		<<wait 0.5>>
+		Steven: Man, fuck games. There's nothing fun to play at all. #e:angry2
+	-> Read Social Media
+		Steven: Let's just scroll some random videos in my feed... #e:huh
+		<<if $hasDoneSocialDialogue == false>>
+			Steven: I don't even know why I bother scrolling social media anymore... #e:weary
+			Steven: It's not like I know any of these people personally... #e:think1
+			Steven: And they sure as hell don't know me.
+			<<wait 2>>
+			Steven: So why do I spent so much time looking at their lives? #e:stern
+			<<wait 2>>
+			Steven: Probably because I have some desire to know what is considered cool, or trendy. #e:huh
+			Steven: I want to know what being normal looks and feels like... 
+			<<wait 2>>
+			Steven: Also because it makes you feel like you're being social...
+			Steven: I mean, it's in the name. <color=yellow>Social</color> media.
+			<<wait 2>>
+			Steven: But it's ironic, because it couldn't be further from the truth. #e:smile
+			<<wait 2>>
+			Steven: Social media has done nothing but isolate everyone. #e:stern
+			Steven: And everyone's way too addicted to it, to admit it. #e:bored
+			<<wait 2>>
+			Steven: Oh well. I don't feel like using my brain right now. #e:stern
+			<<set $hasDoneSocialDialogue = true>>
+		<<endif>>
+		<<stopAllMusic MusicObject 0.5>>
+		<<wait 0.5>>
+		<<FadeIn LevelLoader 1.0>>
+		<<wait 2>>
+		<<playSoundString AudioManager WatchingVideos>>
+		<<wait 36>>
+		<<FadeOut LevelLoader 1.0>>
+		<<wait 2>>
+		Steven: What a snore fest. I think I lost brain cells.
+		<<wait 1>>
+		Steven: Insert cookie cutter Tiktoker \#24129412 with his cringe Proxima Nova font... #e:bored
+		Steven: ...the female text to speech... #e:bored
+		Steven: ...and his cringy zoomer perm. #e:bored
+		<<wait 2>>
+		Steven: How does anyone find this entertaining?
+		<<changePlayerScoreString Manager "entertained" -10.0>>
+		<<changePlayerScoreString Manager "contentedness" -10.0>>
+		<<wait 3>>
+		<<StartAllMusic MusicObject 0.5>>
+		<<wait 0.5>>
+	-> Be productive
+		Steven: Okay, I think I should do some work.
+		Steven: I know I could goof off right now, but it's not worth it.
+		Steven: How should I be productive?
+		-> Homework
+			Steven: You want me to do homework...?
+			<<if $hasDoneSchoolRant == false>>
+				Steven: You know, I haven't said it yet, but I hate school.
+				Steven: Not for the traditional reasons you might think. #e:think1
+				<<wait 2>>
+				Steven: I've been an A student up until college. #e:stern
+				<<wait 1>>
+				Steven: I'm a pretty smart person, too. 
+				Steven: But there's just something about the way they teach here that ticks me off. #e:angry2
+				<<wait 1>>
+				Steven: None of the professors give a shit about the courses they teach. #e:angry2
+				Steven: And none of the content is actually interesting. #e:angry2
+				<<wait 1>>
+				Steven: It's just a huge scam. I pay thousands of dollars to learn a concept..
+				Steven: ...that I could've googled for FREE... #e:think1
+				Steven: ...and watch some random guy explain the concept better than my professor ever could. #e:think2
+				Steven: Is that a joke? #e:huh
+				<<wait 1>>
+				Steven: It's just.. hard to take my classes seriously when that's the case. #e:weary
+				Steven: Fuck school, man. #e:angry2
+				Steven: The only thing keeping me here is my parents, and my sense of purpose. #e:stern
+				Steven: If going to college wasn't the most normal thing to do, I would be long gone. #e:smile
+				<<set $hasDoneSchoolRant = true>>
+			<<endif>>
+			<<wait 2>>
+			Steven: Ok, let's just bullshit some random assignment that I have due tomorrow. #e:smile
+			<<set $didHomework = true>>
+		-> Passion Projects
+			Steven: Ok, I don't wanna do schoolwork. #e:stern 
+			Steven: Let's learn something cool instead. #e:think1
+			Steven: Something I actually give a shit about. #e:smile
+			<<set $didProjects = true>>
+		<<stopAllMusic MusicObject 0.5>>
+		<<wait 0.5>>
+		<<FadeIn LevelLoader 1.0>>
+		<<wait 2>>
+		<<playSoundString AudioManager CodingSounds>>
+		<<wait 32>>
+		<<FadeOut LevelLoader 1.0>>
+		<<wait 2>>
+		<<if $didProjects == true>>
+			Steven: Phew, that was a lot of work... #e:smile
+			Steven: But it feels good to put that behind me. #e:smile
+			Steven: At least I can say I was productive. #e:comfy 
+			<<wait 2>>
+			Steven: I'm kinda tired, too. #e:dsmile
+			Steven: Using your brain a lot can definitely drain you. #e:smile
+		<<else>>
+			Steven: That was the most braindead, mid quality work I've ever done.
+			<<wait 1>>
+			<<if $hasDoneSchoolRant2 == false>>
+				Steven: But it feels good to speedrun an assingment like that... #e:smile
+				Steven: Knowing you'll never think twice it ever again. #e:smile
+				Steven: I get an odd feeling of satisfaction when I know I'm saving time... #e:comfy
+				Steven: ...by spending as little of it as possible on schoolwork. #e:comfy
+				<<wait 2>>
+				Steven: Fuck you, Professor Smith! #e:smirk
+				Steven: Give me that C, I don't give a SHIT!! #e:laugh
+				<<wait 1>>
+				Steven: I'm not wasting my time on your stupid ass paper! #e:laugh
+				<<set $hasDoneSchoolRant2 = true>>
+			<<endif>>
+		<<endif>>
+
+		<<set $didProjects = false>>
+		<<set $didHomework = false>>
+		<<changePlayerScoreString Manager "entertained" -10.0>>
+		<<changePlayerScoreString Manager "energy" -20.0>>
+		<<changePlayerScoreString Manager "contentedness" 30.0>>
+		<<StartAllMusic MusicObject 0.5>>
+		<<wait 0.5>>
+	<<AdvanceXMinutes Manager 120>>
+<<endif>>
 ===
 
 title: D1_Bedroom_Trash
 ---
-I should probably pick this up.
-Should I?
+Steven: I should probably pick this up.
+Steven: Should I?
 -> Yes
-	I should probably keep this room tidy.
-	My mother used to say, a clean room is a start to a good day.
-	She was just lying, the cleanliness never had any impact on my day whatsoever.
-	But maybe today it will be different.
-	<<deductSanity Player 10>>
+	Steven: I should probably keep this room tidy. #e:smile
+	<<GetRidOfObject CrossSceneObjects "garbage">>
+	<<playSoundString AudioManager ThrowAwayTrash>>
+	<<wait 5>>
+	Steven: At least I can do that right... #e:smile
+	<<changePlayerScoreString Manager "contentedness" 10.0>>
 -> No
-	Eh... It can wait.
+	Steven: Eh... It can wait. #e:think1
 -> Maybe so
-	Ugh... decisions.
+	Steven: Ugh... decisions. #e:weary
 ===
 
 title: D1_Bedroom_Chips
 ---
-How old are these chips? I can't even remember eating them.
+Steven: How old are these chips? #e:think1
+Steven: I can't even remember eating them. #e:weary
+Game: Pick them up?
+-> Yes
+	Steven: I should probably clean this.
+	Steven: My mom always harps me on about how I don't keep my room tidy. #e:think1
+	Steven: She always said that clean room equals clean mind.
+	<<wait 2>>
+	Steven: That's a load of bullshit. My room is clean and I'm a disaster. #e:bored
+	<<wait 2>>
+	Steven: But whatever. Maybe I'll just do it. #e:weary
+	<<GetRidOfObject CrossSceneObjects "chips">>
+	<<playSoundString AudioManager ThrowAwayTrash>>
+	<<wait 5>>
+	Steven: Yay. I did something with my life.. #e:comfy
+	<<changePlayerScoreString Manager "contentedness" 10.0>>
+-> No 
+	Steven: Nah, why does it matter... #e:bored
+	Steven: It's not hurting anyone by being there... #e:bored
 ===
 
 title: D1_Bedroom_Lamp
 ---
-It's a bedroom lamp...
+Steven: It's a bedroom lamp...
 <<if $isBedroomLampOn == true>>
 	<<jump Lamp_On>>
 <<endif>>
@@ -44,159 +254,320 @@ It's a bedroom lamp...
 
 title: D1_Commons_Door
 ---
-...
+Steven: ...
 ===
 
 title: D1_Commons_Boxes
 ---
-Amazon boxes. Dunno whose these are.
-Definitely not mine.
+Steven: Amazon boxes. 
+Steven: Dunno whose these are, but they've been sitting here forever. #e:think2
+<<wait 2>>
+Steven: They're definitely not mine. 
 ===
 
 title: D1_Commons_Oven
 ---
-I never use this. The only thing I need is the microwave.
+<<if $day == 1>>
+	Steven: I should really use this more... 
+	Steven: Cooking meals is better that eating microwaved shit all the time.
+	Steven: But I'm lazy.
+<<else>>
+	<<if $alreadyCookedToday == true>>
+		Steven: Hmm, I already cooked recently. #e:bored
+		Steven: Maybe its good to wait a bit first, I'm not hungry yet. #e:weary
+		<<wait 2>>
+		Steven: Also, the more food I eat, the sooner I'll run out. #e:think1
+		Steven: And I don't like going to the grocery store. #e:yikes
+	<<else>>
+		Steven: Hmmm, I guess I should cook. #e:think1
+		Steven: Even though I kinda don't have the energy to. #e:weary
+		Steven: If I delay it today, I'm gonna have to do it tomorrow, anyways.
+		Steven: Might as well just do it now... #e:bored
+		<<wait 1>>
+		Game: Cook Now?
+		-> Yes
+			Steven: Okay, gotcha. #e:stern
+			Steven: Let's hope I don't fuck it up. #e:weary
+			<<playCutscene LevelLoader Cooking>>
+		-> No
+	<<endif>>
+<<endif>>
+===
+
+
+
+title: Cooking_Food
+---
+
+<<declare $val = 0>>
+<<set $val = random_range(1, 6)>>
+<<playSoundString AudioManager CookingFood>>
+<<wait 15>>
+
+<<if $val <= 3>>
+	Steven: Shit. #e:shy 
+	Steven: I burnt it. #e:cringe
+	<<playSoundString AudioManager FailSound>>
+	<<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "entertained" -5.0>>
+	<<wait 4>>
+	Steven: Oh well, still gotta eat it... #e:stern
+<<else>>
+	Steven: There we go, perfectly cooked! #e:comfy
+	<<playSoundString AudioManager SuccessSound>>
+	<<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+	<<wait 4>>
+
+<<endif>>
+===
+
+title: Cooking_Food_2
+---
+Steven: Oh well, that was nice. #e:comfy
+Steven: I'm feeling full. #e:smile
+<<changePlayerScoreString Manager "energy" 50.0>>
+<<changePlayerScoreString Manager "contentedness" 15.0>>
+<<wait 2>>
+Steven: What now? #e:think2
+<<set $alreadyCookedToday = true>>
 ===
 
 title: D1_Commons_Sink
 ---
-Looks like there aren't any dirty dishes today.
-It'll fill up soon enough, trust me.
+Steven: Looks like there aren't any dirty dishes today. #e:smile
+<<wait 2>> 
+Steven: It'll fill up soon enough... #e:weary
 ===
 
-title: D1_Commons_Fridge
+title: Fridge
 ---
-Let's see what's in here...
-Booze, Booze, and more Booze.
-Should I take one?
--> Hell Yea
-	Alright, but only one. If I take too many, they will notice.
--> Nah, that's stealing
-	No, I don't own it. I'm a loser, but I'm not a thief.
--> Maybe so
-	Oh well... Maybe later
+<<if $day == 1>>
+	Steven: This is the fridge.. 
+	<<wait 2>>
+	Steven: If you've ever lived with others you know...
+	Steven: Your food isn't safe in here. #e:yikes
+	Steven: Kabowski eats my shit all the time. #e:laugh
+	<<wait 2>>
+	Steven: But as revenge, I eat his stuff sometimes too... #e:dsmile
+	Steven: So I guess we're even!? #e:smile
+<<else>>
+	<<if $hasEatenSnack == true>>
+		Steven: Hmm, I probably should wait a bit before eating another snack. #e:stern
+		Steven: I don't wanna overindulge and run out later in the week... #e:yikes
+	<<else>>
+		Steven: Let's see what's in here...
+		<<playSoundString AudioManager OpenFridgeDoor>>
+		<<wait 3>>
+		-> Hot Pocket
+			Steven: Hot pockets. #e:comfy
+			Steven: More than 60 percent of your saturated fat, and 29 percent of your daily sodium allowance! #e:comfy 
+			<<FadeIn LevelLoader 1.0>>
+			<<wait 2>>
+			<<playSoundString AudioManager Microwave>>
+			<<wait 8>>
+			<<playSoundString AudioManager CrunchyBite>>
+			<<wait 3>>
+			<<FadeOut LevelLoader 1.0>>
+			<<wait 2>>
+			<<changePlayerScoreString Manager "energy" 10.0>>
+			<<changePlayerScoreString Manager "entertained" 5.0>>
+			<<wait 2>>
+		-> Ice Cream
+			Steven: I can get behind some ice cream. #e:smile
+			<<FadeIn LevelLoader 1.0>>
+			<<wait 2>>
+			<<playSoundString AudioManager LickIceCream>>
+			<<wait 2>>
+			<<FadeOut LevelLoader 1.0>>
+			<<wait 2>>
+			<<changePlayerScoreString Manager "energy" 5.0>>
+			<<changePlayerScoreString Manager "entertained" 10.0>>
+			<<wait 2>>
+		-> Beer
+			Steven: Hmmm. Beer would be nice. #e:smile
+			Steven: But I'm definitely gonna feel a little drowsy from it. #e:think1
+			Steven: I don't have the best alcohol tolerance. #e:smile
+			<<FadeIn LevelLoader 1.0>>
+			<<wait 2>>
+			<<playSoundString AudioManager BeerOpen>>
+			<<wait 8>>
+			<<FadeOut LevelLoader 1.0>>
+			<<wait 2>>
+			Steven: Woah.. this one is strong... #e:weary
+			<<changePlayerScoreString Manager "energy" -10.0>>
+			<<changePlayerScoreString Manager "entertained" 20.0>>
+			<<wait 2>>
+		-> Carrots
+			Steven: God, I hate carrots. #e:cringe
+			Steven: But I can't deny that eating vegetables makes me feel a bit better. #e:smile
+			Steven: Why do all the bad tasting things have to be good for you? #e:weary
+			<<wait 2>>
+			<<FadeIn LevelLoader 1.0>>
+			<<wait 2>>
+			<<playSoundString AudioManager EatingCarrots>>
+			<<wait 6>>
+			<<FadeOut LevelLoader 1.0>>
+			<<wait 2>>
+			Steven: Tastes like shit! #e:cringe
+			<<wait 1>>
+			Steven: Oh well, at least that was healthy, right? #e:dsmile
+			<<changePlayerScoreString Manager "energy" 5.0>>
+			<<changePlayerScoreString Manager "entertained" -5.0>>
+			<<changePlayerScoreString Manager "contentedness" 10.0>>
+			<<wait 2>>
+		<<set $hasEatenSnack = true>>
+	<<endif>>
+<<endif>>
 
 ===
 
 title: D1_Commons_Trash
 ---
-The trash is taken out.
+Steven: The trash is taken out. #e:think1
+Steven: Wonder who did it. #e:smile
 ===
 
 title: D1_Commons_Sofa
 ---
-I can't remember the last time I sat on this sofa.
-It looks too clean.
-Probably because Amanda was over, and Kabowski wanted to impress her.
-I hope she dumps him.
+Steven: I can't remember the last time I sat on this sofa. #e:think2
+Steven:  Probably I still can't get that image out of my head of that one time Kabowski barfed on it. #e:cringe
+Steven: Kabowski was trying to impress girls and he probably drank way too much... #e:yikes
 ===
 
 title: D1_Commons_DiningTable
 ---
-Heh, the dining table is still a mess.
-The last time I ate with them, it reminded me of middle school lunch.
-Never again.
+Steven: It's just a normal dining table. 
+Steven: Cleaner than usual today.. #e:smile 
 ===
 
 
 title: D1_Commons_TV
 ---
-There's nothing good on television these days.
-Just politics, shows that I'm too old for, and shows I'm too young for.
-I wish I could enjoy TV like when I was younger.
+Steven: There's nothing good on television these days. #e:think2
+Steven: Who watches TV these days anyways, besides boomers? #e:yikes
 ===
 
 title: D1_Commons_Microwave
 ---
-The microwave oven, what a marvelous invention.
+Steven: The microwave oven.
+Steven: What a marvelous invention. #e:smile
+<<wait 2>>
 ===
 
 title: D1_Brain_Painting
 ---
-Brain is quite the space fanboy, huh.
-I wish I was as passionate about something as Brain is for science.
+Steven: Brain is quite the space fanboy, huh.
+Steven: I wish I was as passionate about something as Brain is for science. #e:weary
 
 ===
 title: D1_Brain_FumeHood
 ---
-A professional grade fume hood?
-This wasn't here last year... How did he get this?
-I know what this is because my dad is a chemist and he has one in his lab.
-Now I'm curious what he's doing...
-Now that I think of it, Brain would be cool to hang out with.
-If only he wasn't so snobby.
+Steven: A professional grade fume hood? #e:shocked
+Steven: This wasn't here last year... How did he get this? #e:worried
+<<wait 2>>
+Steven: And what does he do with this... Wait- #e:embarassed
+Steven: Does this mean he does experiments in the house? #e:yikes
+<<wait 2>>
+Steven: Jeez. I should confront him about this. #e:stern
+<<wait 2>>
+Steven: Actually who am I kidding, I really don't give a shit if he blows us up. #e:bored
+Steven: It's not like I'm excited to be alive. #e:weary
 ===
 title: D1_Brain_Mainframe
 ---
-Wow, look at these mainframe computers.
-They're like, straight out of IBM or something.
-Wonder what he needs all that processing power for.
+Steven: Wow, look at these mainframe computers. #e:shocked
+<<wait 1>>
+Steven: They're like, straight out of IBM or something. #e:think1
+Steven: Wonder what he needs all that processing power for. #e:think2
+<<wait 1>>
 ===
 title: D1_Brain_Desk
 ---
-This guy's desk is like mine but way larger.
-His monitor is like twice the price of mine, too.
-Looks like he's running some sort of simulation.
+Steven: This desk is like twice the size of mine... #e:weary
+<<wait 2>>
+Steven: Looks like he's running some sort of simulation. #e:think1
 ===
 title: D1_Brain_Hangup
 ---
-As smart as Brain is, it looks like no one taught him safety.
-Or maybe, he just doesn't care.
-There's fumes coming out of the yellow one, maybe I should tell him when he gets back.
+Steven: Why are there just a bunch of chemicals on a tall shelf? #e:worried
+<<wait 1>>
+Steven: As smart as Brain is, it looks like no one taught him safety. #e:huh
+Steven: Or maybe, he just doesn't care. #e:think1
+<<wait 2>>
+Steven: There's fumes coming out of the yellow one... #e:bored
+Steven: Maybe I should tell him when he gets back.
 ===
 title: D1_Brain_Bed
 ---
-Brain's bed is much smaller than mine. To be fair, he's a small guy.
-He has atoms on his blanket. I wonder if he dreams about science.
-I liked science in middle school, but never took my love for it this far.
+Steven: Brain's bed is much smaller than mine. 
+Steven: To be fair, he's a small guy.
+Steven: He has atoms on his blanket. I wonder if he dreams about science. #e:smile
 ===
 
 title: D1_Kab_Poster
 ---
-Can't say I expected much more out of Kabowski.
-He would probably sell his liver for one more inch on his biceps.
-He's the prime example of an NPC character.
+Steven: This poster summarizes Kabowski's life surprisingly well.
+<<wait 1>>
+Steven: Minus the sex part. #e:bored
+Steven: The guy would probably sell his liver for one more inch on his biceps. #e:bored
 ===
 title: D1_Kab_Bench
 ---
-Jeez, this bar looks heavy.
-Maybe I could lift it- should I try?
+Steven: Jeez, this bar looks heavy. #e:worried
+Steven: Maybe I could lift it- should I try?
 -> No, you're too weak
-	Yeah, you're right. I've heard people die from these things
-	I would probably need a spotter first.
+	Voice: No, you weakling! You'll embarass yourself!! 
+	<<wait 2>>
+	Steven: Yeah, you're right. I've heard people die from these things... #e:worried 
+	<<wait 1>>
+	Steven: I would probably need a spotter first. #e:worried 
 -> Yessir, suns out guns out
-	Alright, if you say so.
+	Steven: Alright, if you say so.
+	<<FadeIn LevelLoader 0.5>>
+	<<wait 1>>
+	<<playSoundString AudioManager RobotWorkout>>
+	<<wait 32>>
+	<<FadeOut LevelLoader 0.5>>
+	<<wait 1>>
+	Steven: That was kinda tiring actually... #e:weary
+	Steven: But it felt nice... #e:smile
+	<<changePlayerScoreString Manager "energy" -20.0>>
+	<<changePlayerScoreString Manager "contentedness" 20.0>>
+	<<wait 3>>
 -> Maybe..
-	Oh well...
+	Steven: Oh well... maybe later... #e:think1
 ===
 title: D1_Kab_Bed
 ---
-Kabowski's bed is pretty big.
-Big enough for all the girls he brings over.
-And of course it isn't made. What a surprise.
+Steven: Kabowski's bed is pretty big.
+Steven: According to him, it's "big enough for all the girls" he brings over. #e:smile
+<<wait 2>>
+Steven: And of course it isn't made. What a surprise. #e:think1
 ===
 title: D1_Kab_Kotatsu
 ---
-Hmm, this seems like one of those japanese heated table things.
-What's the name again? 
+Steven: Hmm, this seems like one of those japanese heated table things.
+Steven: What's the name again? 
 -> Kotatsu 
-	Yes, that's it. I always wondered how sitting under one feels...
+	Steven: Yes, that's it. I always wondered how sitting under one feels... #e:think1
 -> IDK
-	Hm, beats me too.
-Kabowski seems like one of those dudes who just buys things on a spur.
-Maybe I should do that too. It might cheer me up.
+	Steven: Hmm, beats me too. #e:think1
+Steven: Kabowski seems like one of those dudes who just buys things on a spur.
+Steven: Maybe I should do that too. It might make my life more interesting. #e:smile
 ===
 
 title: D1_Bathroom_SinkAndMirror
 ---
-Looking at the mirror always makes me sad.
-My appearance has changed so much, and yet inside I have grown so little.
-Mentally, I might as well still be a toddler.
+Steven: Looking at the mirror always makes me sad.
+Steven: My appearance has changed so much, and yet I've grown so little on the inside. #e:bored
+<<wait 2>>
+Steven: Mentally, I might as well still be a toddler. #e:weary
 ===
 
 title: D1_Bathroom_BrushTeeth
 ---
-Brush teeth?
+Game: Brush teeth?
 -> Yes
 	<<set $teethBrushed to true>>
 -> No
@@ -204,59 +575,77 @@ Brush teeth?
 
 title: D1_Bathroom_Shower
 ---
-I don't really shower much these days.
-Why would I shower if I don't exercise or sweat?
-And even if I wanted to, I'm way too depressed to anyways.
+
+Game: Shower?
+-> Yes
+	Steven: Wait a second... #e:angry2
+	<<wait 2>>
+	Steven: Are you trying to kill me? #e:angry3
+	<<wait 2>>
+	Steven: I'm a robot, I can't shower... #e:angry3
+-> No
+	Steven: Why would I shower if I don't exercise or sweat?
+	<<wait 2>>
 ===
 title: D1_Bathroom_Toilet
 ---
-Seems like Kabowski was kind enough to aim this time...
-Good for him. I was worried he wasn't potty trained.
+Steven: Seems like Kabowski was kind enough to aim this time... #e:smile 
+<<wait 2>>
+Steven: Good for him. #e:smile 
+Steven: I was worried he wasn't potty trained. #e:think1
 ===
 
 title: D1_Lancelot_PolarBear
 ---
-I'm not sure how Nikolai was able to afford this.
-It feels like real polar bear skin.
+Steven: I'm not sure how Nikolai was able to afford this. #e:shocked
+Steven: It feels like real polar bear skin. #e:think2
 <<wait 2>>
-I think this is his bed, since I don't see anything else around.
+Steven: I think this is his bed, since I don't see anything else around. #e:think1
 ===
 title: D1_Lancelot_Desk
 ---
-A gun, some weed, and cigarettes.
-Nikolai is a simple guy.
+Steven: A gun, some weed, and cigarettes. #e:think1
+<<wait 2>>
+Steven: Nikolai is not as wholesome a guy as I thought... #e:worried
 ===
 title: D1_Lancelot_Discoball
 ---
-This is like one of those professional grade discoballs.
+Steven: This is one of those professional grade discoballs.
 ===
 title: D1_Lancelot_Subwoofers
 ---
-I've been tempted many times last semester to throw a bucket of water at these when Nikolai is gone.
-So tempting...
+Steven: I've been tempted many times last semester to throw a bucket of water at these when Nikolai is gone. #e:stern
+Steven: So tempting... #e:angry3
 ===
 title: D1_Lancelot_NorthKorea
 ---
-Nikolai isn't even Korean. He's Russian. 
-I dunno why he has this.
+Steven: Nikolai isn't even Korean. He's Russian. 
+Steven: I dunno why he has this. #e:think1
+<<wait 2>>
+Steven: Communism, I guess... #e:huh
 ===
 
 title: D2_House
 ---
-My house looks quite nice on the outside.
-But then you realize that it's leased to four other tenants.
-So on top of my roomates, I get to deal with three other groups of people.
+Steven: My house looks quite nice on the outside. #e:smile
+Steven: But then you realize that it's leased to four other tenants.
+Steven: So on top of my roomates, I get to deal with three other groups of people. #e:stern
 <<wait 1>>
-Last year, we had a group of rowdy seniors who lived next door.
-Let's hope they graduated.
+Steven: Last year, we had a group of rowdy seniors who lived next door.
+<<wait 2>>
+Steven: They kept having really loud sex. #e:angry3
+<<wait 1>>
+Steven: Probably with one another. #e:angry
 ===
 
 title: D2_Neighbors_House
 ---
-This entire neighborhood is jam-packed with these leasable houses.
+Steven: This entire neighborhood is jam-packed with these leasable houses.
 <<wait 1>>
-Owned by some predatory leasing company who could care less about your experience.
-I don't ever talk to my neighbors, but I see them coming in and out of the house.
+Steven: They're owned by some predatory leasing company who could care less about your experience.
+
+<<wait 1>>
+Steven: I don't ever talk to my neighbors, but I see them coming in and out of the house.
 ===
 
 title: D2_Bus_Stop_House
@@ -268,7 +657,7 @@ title: D2_Bus_Stop_House
 	Every time you take the bus, you kinda pray that it arrives on time.
 <<endif>>
 
-Would you like to ride the bus? The next one is {$minTilNextBus} minutes away
+Game: Would you like to ride the bus? The next one is {$minTilNextBus} minutes away
 
 -> Yes
 	<<AdvanceXMinutes Manager {$minTilNextBus}>>
@@ -278,10 +667,10 @@ Would you like to ride the bus? The next one is {$minTilNextBus} minutes away
 
 title: D2_Bus_Stop_Campus
 ---
-I can't wait for this bus to come... I gotta get out of here.
-Would you like to ride the bus?
+Game: Would you like to ride the bus? The next one is {$minTilNextBus} minutes away
 -> Yes
-	<<playCutsceneAndFade LevelLoader TakeBusToHouse OutsideHouse>>
+	<<AdvanceXMinutes Manager {$minTilNextBus}>>
+	<<playCutsceneAndFade LevelLoader TakeBusToCampus OutsideHouse>>
 -> No
 ===
 
@@ -292,14 +681,13 @@ title: D2_Campus_Apartment
 
 title: D2_Campus_Apartment_Text
 ---
-Some of these high-rise apartments are actually quite nice, since they're so close to school.
-The only problem with them is that they're expensive, and loud.
-Usually have a ton of parties thrown in them too... ugh.
+Steven: Some of these high-rise apartments are actually quite nice, since they're so close to school.
+Steven: The only problem with them is that they're expensive, and loud. #e:stern
 ===
 
 title: Lecture_Hall_Sit_Down
 ---
-Sit down here?
+Game: Sit down here?
 -> Yes
 	<<if GetGameVariable("HasFinishedLecture") == false>>
 		<<SetGameVariable "HasFinishedLecture" true>>

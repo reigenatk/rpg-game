@@ -1,7 +1,16 @@
-﻿title: Brain_Dialogue
+﻿title: Brain_Vars
+---
+
+// one time dialogue variables
+<<declare $didBrainDialogue1 = false>>
+<<declare $didBrainDialogue2 = false>>
+<<declare $hasMetBrain = false>>
+<<declare $didBrainRoomates = false>>
+<<declare $didBrainScience = false>>
+===
+title: Brain_Dialogue
 ---
 <<jump Brain_Normal_Dialogue>>
-
 ===
 
 title: Brain_Normal_Dialogue
@@ -10,13 +19,376 @@ title: Brain_Normal_Dialogue
     <<jump AlreadyTalkedToday>>
 <<endif>>
 
+
 <<if $brainFriendProgress == 0>>
 	<<jump Brain_Start>>
-<<elseif $brainFriendProgress == 1>>
+<<elseif $brainFriendProgress >= 1>>
 	<<jump Brain_Familiar>>
-<<elseif $brainFriendProgress == -1>>
+<<elseif $brainFriendProgress <= -1>>
 	<<jump Brain_Unfriendly>>
-<<elseif $brainFriendProgress == -2>>
-	<<jump Brain_NotFriends>>
 <<endif>>
+===
+
+title: Brain_Familiar
+---
+Brain: Who is it?
+<<wait 2>>
+Brain: Oh, it's you, Steven. What's up? 
+-> Let's chat
+    Brain: Okay, lemme finish thinking about something first...
+	<<wait 4>>
+	Brain: Okay. I'm ready now.
+    <<jump Brain_Chat_Decide>>
+-> Nothing
+	Brain: Why'd you bother me, then?
+===
+
+title: Brain_Chat_Decide
+---
+<<if $didBrainRoomates == false>>
+	-> Roommates
+		<<jump Brain_Roomates>>
+	-> Talk about something else
+<<endif>>
+<<if $didBrainScience == false>>
+	-> Science
+		<<jump Brain_Science>>
+	-> Talk about something else
+<<endif>>
+
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didBrainDialogue1 == false>>
+    <<set $didBrainDialogue1 = true>>
+    <<jump Brain_Chat_End_1>>
+<<else>>
+	-> Roommates 
+		<<jump Brain_Roomates>>
+	-> Science 
+		<<jump Brain_Science>>
+	-> Generic Chat
+    	<<jump Brain_Chat_End_Generic>>
+<<endif>>
+===
+
+title: Brain_Chat_End_1
+---
+Brain: So anyways, this compound is suppose to have very desirable properties. #e:talking
+Brain: My group is trying to find a more energy efficient literature to synthesize it. #e:talking
+<<wait 2>>
+Brain: If it all works out, then big industrial plants can mass produce it. #e:smile 
+Brain: And then it could help solve lots of problems for people with Crohn's disease. #e:talking
+<<wait 2>>
+Steven: Crohn's disease?
+Brain: Yeah, it's the inflammation of the bowel. Typically geneticlly inherited. But other things can trigger it as well. #e:talking
+Steven: Hmm, interesting...
+<<wait 1>>
+Steven: Are you guys making progress, then?
+Brain: Well, not really to be honest. The last few months have been fruitless. #e:bored
+Brain: But I've got some new leads that I'm trying to explore alone. #e:smile 
+Brain: The papers I've been reading suggest that this path may have some potential. #e:smile 
+<<wait 2>>
+Steven: What are those big computers over there for, by the way? #e:smile
+<<wait 2>>
+Brain: Oh. These are mainframe computers. They help me crunch the chemical data... #e:looking
+Brain: ...in order to verify whether a molecule that I make is the one that we want. #e:talking
+<<wait 2>>
+Steven: How much were those computers? #e:worried
+Brain: Oh, they were given to us by a grant from the university. #e:smile 
+Brain: But I think each one is around 10 thousand? #e:talking
+Steven: ..  #e:shocked
+Steven: 10,000? #e:oshit
+<<wait 1>>
+Brain: Yeah. Although that's not even the most expensive part. #e:talking
+Brain: The chemicals I use up every day cost up more, if you add it up. #e:looking
+Steven: Jeez. My PC was only a thousand max. #e:yikes
+<<wait 1>>
+Brain: Hehe, yeah. Scientists need computers, too! #e:smile
+<<wait 1>>
+Steven: Well, I'll let you get back to your work. Later. #e:smile
+<<wait 1>>
+Brain: Alright, cya. #e:smile
+<<jump Brain_Improve_Friendship_Most>>
+===
+
+
+title: Brain_Chat_End_Generic
+---
+Brain: Sorry if I bored you out. #e:talking
+Steven: No, that was interesting. #e:think1
+Steven: I'll leave you alone now. #e:worried
+Brain: Are you sure? It's fine if you wanna talk more. #e:smile
+Brain: I don't get to talk about my research much. #e:smile
+<<wait 1>>
+Steven: No, seriously, I'm good. Thanks for talking with me. #e:smile
+<<wait 2>>
+Brain: Alright. Have a good one. #e:smile
+<<wait 2>>
+Voice: Thank god that's over. Why do you even talk to him? #e:concerned
+Voice: He just lectures you on shit you don't understand! #e:cringe
+<<wait 2>>
+Steven: Honestly, I dunno. I guess I'm hoping to leech off some of his passion for science. #e:think2
+Steven: Maybe it will make me more passionate about life, too. #e:huh
+<<wait 1>>
+Voice: I doubt it. #e:evil
+<<jump Brain_Improve_Friendship_Most>>
+===
+
+title: Brain_Unfriendly
+---
+Brain: Go away! #e:angry
+Brain: I'm busy. #e:angry
+<<wait 1>>
+-> Apologize
+	Steven: Look Brain, I didn't mean to make you mad last time.
+	<<wait 2>>
+	Brain: You know Steven, I'm allergic to idiots.
+	Brain: I don't wanna hear any boneheaded takes.
+	Brain: It lowers my IQ. 
+	<<wait 2>>
+	-> Insult
+		Steven: Well then you'd be breaking your own rule. #e:smirk
+		Steven: Everything you say is boneheaded. #e:laugh
+		<<wait 2>>
+		Brain: GET OUT BEFORE I KILL YOU #e:angry
+		<<wait 1>>
+		Voice: Oh shit! Get out! #e:sad
+		You run out of the room quickly...
+		<<yarnLoadScene LevelLoader Commons 2.0>>
+	-> Agree
+		Steven: Okay, I'll try to say insightful things from now on. #e:yikes
+-> Insult
+	Steven: Busy doing what?
+	Steven: How about you do a chemical reaction to get yourself some bitches?
+	<<wait 2>>
+	Voice: Hahahaha #e:laugh
+	Voice: Good one!
+	Brain: GET OUT BEFORE I KILL YOU #e:angry
+	<<wait 1>>
+	Voice: Oh shit! Get out! #e:sad
+	You run out of the room quickly...
+	<<yarnLoadScene LevelLoader Commons 2.0>>
+	<<jump Brain_Ruin_Friendship_Less>>
+-> Nothing
+	Steven: ...
+===
+
+title: Brain_Start
+---
+<<if $hasMetBrain == false>>
+	Brain: ...
+	<<wait 1>>
+	Steven: Hey, Brain? #e:shy
+	<<wait 2>>
+	Brain: What do you want, you bumbling idiot! #e:angry
+	<<wait 1>>
+	Brain: Oh, I thought you were Kabowski. 
+	<<wait 1>>
+	Brain: It's Steven, right?
+	<<wait 2>>
+	Steven: Yea... #e:yikes
+<<else>>
+	Brain: What's up?
+	<<wait 1>>
+	-> Science
+		<<jump Brain_Science>>
+	-> Roommates
+		<<jump Brain_Roomates>>
+	-> Nothing
+		Steven: .. never mind. #e:think2
+		Brain: okay? why talk to me then... #e:looking
+<<endif>>
+===
+
+title: Brain_Roomates
+---
+<<set $didBrainRoomates = true>>
+Steven: So, what do you think of the other two?
+<<wait 1>>
+Brain: Kabowski and Nikolai?
+<<wait 1>>
+Brain: I don't talk to them at all, so I don't really have an opinion.
+Brain: Nikolai's cool, I guess.
+Brain: And Kabowski's an asshat, but I don't really take what he says seriously.
+<<wait 2>>
+Steven: Why didn't you room with specific people?
+<<wait 1>>
+Brain: Most of my colleagues are older folk.
+<<wait 2>>
+Steven: Like grad students?
+<<wait 1>>
+Brain: No, like married. #e:looking
+<<wait 1>>
+Brain: But, well... #e:talking
+Brain: I did have a group planned for this semster, and they kicked me last minute. #e:bored
+<<wait 2>>
+Steven: Oh, sorry to hear..
+Brain: Yeah. They were a bunch of backstabbing snakes... #e:angry
+Brain: But I'll show them. #e:looking
+Brain: I don't need them to be happy, or to make progress. #e:talking
+<<wait 1>>
+Steven: Why would they do that?
+Brain: Oh, for typical political reasons. #e:talking
+Brain: I was outperforming them in the lab. They feel threatened by that. #e:looking
+Brain: So, naturally, they band together to try and slow me down. #e:bored
+<<wait 1>>
+Brain: It doesn't really bother me much, really. #e:talking
+Brain: Because I know I have the skills, and they don't. #e:talking
+Steven: So you don't get along with too many people, I reckon? #e:yikes
+<<wait 2>>
+Brain: Well, have you ever seen anyone visit me? #e:smile
+<<wait 3>>
+Brain: You have to sacrifice to be very good at anything. #e:talking
+Brain: I suffer from many things, too. Just like you. #e:talking
+Brain: But it's just a part of the process. #e:talking
+<<wait 2>>
+Steven: I guess that makes sense... #e:think1
+<<wait 2>>
+Brain: I suppose what I'm saying is, work gives meaning to my life. #e:talking
+Brain: Without it, I feel dead. With it, I feel alive. #e:looking
+<<wait 1>>
+Brain: Anyways, gotta get back to the grind. I'll talk to you later.
+Steven: Cya, brian. #e:think1
+<<wait 2>>
+Voice: Wow, this guy really sounds serious... #e:evil1
+Voice: How does anyone enjoy doing work? #e:think
+<<wait 1>>
+Mind: Beats me. It feels so hard to find something in life that would make me work all day like Brian. #e:worried
+Mind: I guess playing video games makes me feel that way sometimes- but that's not a very productive hobby. #e:huh
+Mind: But as Brain said, I guess it beats doing nothing. #e:think2
+<<jump Brain_Improve_Friendship>>
+===
+
+title: Brain_Science
+---
+<<set $didBrainScience = true>>
+Steven: So, uh, what do you do all day?
+<<wait 1>>
+Brain: It's too hard to explain to you.
+Brain: So I'll just say: "stuff" #e:talking
+<<wait 2>>
+Steven: But-
+Brain: Why do you care? #e:talking
+<<wait 1>>
+Steven: Well, I uh, just wanted to get to know my roommates better.
+<<wait 3>>
+Brain: Why? You didn't put in this kind of effort last year. #e:talking
+<<wait 1>>
+Steven: Last year?
+Steven: Well I-
+Brain: Last year you just sat in your room all day.  #e:talking
+Brain: I saw you a grand total of 5 times. #e:talking
+Steven: Hey- why are you talking? You literally do the same thing.
+Brain: Yes. And? #e:smile
+Steven: Wh-
+<<wait 2>>
+-> Insult
+	Steven: Ok. Just be a condescending piece of shit, as usual #e:stern
+	Steven: I'm trying to be nice to you and you just act like this. #e:angry2
+	<<wait 2>>
+	Brain: Whatever, dude. I didn't ask to talk to you. #e:bored
+	<<jump Brain_Ruin_Friendship>>
+-> Be nice
+	Steven: Whatever. It's just. I'm trying to talk more with people. #e:think1
+	<<wait 2>>
+	Steven: I'm kinda lonely, is all. #e:weary
+	<<wait 3>>
+	Brain: Hey. Nothing wrong with that. #e:talking
+	Brain: Just be like me. Find something to do. 
+	<<wait 1>>
+	Steven: Does it really help?
+	Steven: Having things to do all the time, I mean. #e:looking
+	<<wait 1>>
+	Brain: For sure. Look at me. Do I seem depressed? #e:smile
+	<<wait 1>>
+	Brain: I have so much knowledge to gain each day... #e:talking
+	Brain: So many new advancements, waiting to be discovered. #e:talking
+	<<wait 2>>
+	Brain: I simply don't have time for my own feelings.
+	Brain: They are insignificant, and hinder the progression of my knowledge.
+	<<wait 2>>
+	Steven: How do you... #e:think1
+	Steven: Care so much? #e:stern
+	<<wait 1>>
+	Brain: About what?
+	<<wait 1>>
+	Steven: Science? #e:stern
+	Steven: Or... anything, for that matter? #e:think2
+	Steven: I guess I'm asking, because I haven't found anything I care about yet... #e:bored
+	<<wait 1>>
+	Brain: Well, I dunno. I've always loved science.
+	<<wait 2>>
+	Brain: I guess.. I am a bit lucky in that sense. #e:looking
+	Brain: You just gotta keep searching. And maybe you won't find anything. #e:talking
+	<<wait 1>>
+	Brain: Even if you can't find anything, that's okay. #e:looking
+	Brain: Honestly, doing science makes me happy, so I keep at it. #e:talking
+	<<wait 2>>
+	Brain: That's all there is to it. If I didn't enjoy it, I'd stop doing it. #e:smile
+	<<wait 2>>
+	Brain: Different things make different people happy, I guess. #e:looking
+	<<wait 3>>
+	Steven: Yeah, maybe... #e:think2
+	Steven: Maybe there's still something out there I haven't found..
+	Steven: Although I doubt it.
+	<<wait 2>>
+	Brain: You'll never know unless you try searching. #e:smile
+	Brain: Because the only other option is giving up, and that never works. #e:talking
+	<<wait 2>>
+	Brain: Now excuse me. #e:looking
+<<jump Brain_Improve_Friendship>>
+===
+
+title: Brain_Improve_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $brainFriendProgress = $brainFriendProgress + 2>>
+    <<if $brainFriendProgress > 1>>
+        <<set $brainFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToBrainAlready = true>>
+===
+
+title: Brain_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $brainFriendProgress = $brainFriendProgress + 2>>
+    <<if $brainFriendProgress > 1>>
+        <<set $brainFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToBrainAlready = true>>
+===
+
+title: Brain_Ruin_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $brainFriendProgress = $brainFriendProgress - 2>>
+    <<if $brainFriendProgress < -1>>
+        <<set $brainFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToBrainAlready = true>>
+===
+
+title: Brain_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $brainFriendProgress = $brainFriendProgress - 2>>
+    <<if $brainFriendProgress < -1>>
+        <<set $brainFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToBrainAlready = true>>
 ===

@@ -23,13 +23,14 @@ public class LevelLoader : Singleton<LevelLoader>
     [SerializeField] List<SceneName> scenes;
     [SerializeField] List<float> orthoSizes;
 
-    [SerializeField] private GameObject nonnpcs;
+    [SerializeField] public GameObject nonnpcs;
     [SerializeField] private TimeManager timeManager;
-    [SerializeField] private GameObject npcs;
+    [SerializeField] public GameObject npcs;
 
 
     // for my ease of use- when debugging I dont wanna see cutscenes sometimes
-    public bool cutscenesandDialoguesEnabled= true;
+    public bool cutscenesEnabled = true;
+    public bool dialoguesEnabled = true;
 
     // make dictionaries manually bc unity editor doesn't support them for whatever reason
     private Dictionary<SceneName, float> sceneToStartingOrthoSize;
@@ -55,10 +56,15 @@ public class LevelLoader : Singleton<LevelLoader>
         // some extra conditions that must be either true or false
         public List<GameVariablePair> extraConditions;
 
+        // this is for editor debugging purposes so I can set the isTriggered stuff properly and then use this bool to turn on and off
+        public bool shouldActivate;
+        public string custsceneDescription; // for my own use
+
         // valid times (if empty ignore)
         [SerializeField] List<ChunkOfTime> validTimes;
         public bool shouldPlayCutscene(SceneName scene)
         {
+            if (!shouldActivate) return false;
 
             GameState gameState = FindObjectOfType<GameState>();
             // skip cutscenes that we will only trigger via Yarn + playCutscene 
@@ -389,6 +395,12 @@ public class LevelLoader : Singleton<LevelLoader>
             // Debug.Log(sr2.enabled);
         }
 
+        // disable audio coming from the NPCs
+        foreach (AudioSource asr in npcs.GetComponentsInChildren<AudioSource>())
+        {
+            asr.enabled = false;
+        }
+
         // stop any already playing ctuscenes
         if (gameState.cutscenePlaying != null)
         {
@@ -462,7 +474,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
     private string areWePlayingCutscene(SceneName sceneName)
     {
-        if (cutscenesandDialoguesEnabled == false) return null;
+        if (cutscenesEnabled == false) return null;
         foreach (CutsceneCondtional c in CutscenesDict[sceneName])
         {
             if (c.shouldPlayCutscene(sceneName))

@@ -88,7 +88,7 @@ MonoBehaviour:
     audioToPlay: {fileID: 0}
     description: Lecture
     offsetX: -0.2
-    offsetY: -0.2
+    offsetY: -0.3
   - hour: 14
     minute: 0
     priority: 0

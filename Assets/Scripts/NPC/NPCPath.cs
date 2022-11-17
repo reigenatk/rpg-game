@@ -109,7 +109,7 @@ public class NPCPath : MonoBehaviour
                 // gotta do this so that the animations are gonna be played properly. Cuz its still gonna use NPCMovement to trigger the stuff
                 npcMovement.SetScheduleEventDetails(npcScheduleEvent);
                 Vector3 npcNextWorldPosition = npcMovement.GetWorldPosition(new Vector3Int(npcScheduleEvent.toGridCoordinate.x, npcScheduleEvent.toGridCoordinate.y, 0), npcScheduleEvent.toSceneName);
-                GetComponent<Rigidbody2D>().position = npcNextWorldPosition;
+                GetComponent<Rigidbody2D>().position = npcNextWorldPosition + new Vector3(npcMovement.npcOffsetX, npcMovement.npcOffsetY, 0);
                 npcMovement.npcIsMoving = false;
                 npcMovement.npcCurrentScene = npcScheduleEvent.toSceneName;
                 GetComponent<SpriteRenderer>().enabled = true;

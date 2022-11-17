@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -88,6 +89,7 @@ public class UIManager : Singleton<UIManager>
 
     }
 
+    [YarnCommand("QuitGame")]
     public void QuitGame()
     {
         Application.Quit();

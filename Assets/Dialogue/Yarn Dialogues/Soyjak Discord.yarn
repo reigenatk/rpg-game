@@ -1,5 +1,333 @@
-﻿title: Soyjak_Discord
-tags:
+﻿title: Discord_Vars
 ---
 
+// one time dialogue variables
+<<declare $didDiscordDialogue1 = false>>
+<<declare $didDiscordDialogue2 = false>>
+<<declare $hasMetDiscord = false>>
+===
+title: Discord_Dialogue
+---
+<<if $isGamingClub == true>>
+	<<playCutscene LevelLoader SoyboyGaming>>
+<<else>>
+	<<jump Discord_Normal_Dialogue>>
+<<endif>>
+
+===
+
+title: Discord_Normal_Dialogue
+---
+<<if $talkedToDiscordAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+<<if $DiscordFriendProgress == 0>>
+	<<jump Discord_Start>>
+<<elseif $DiscordFriendProgress >= 1>>
+	<<jump Discord_Familiar>>
+<<elseif $DiscordFriendProgress <= -1>>
+	<<jump Discord_Unfriendly>>
+<<endif>>
+===
+
+title: Discord_Familiar
+---
+	Benny: Steven... Hello. #e:smug
+	<<wait 1.5>>
+	<<playSoundString AudioManager DiscordSound>>
+	<<wait 1.5>>
+	Benny: What do you want? #e:normal
+	-> Let's chat
+		Steven: Wanna have a chat? #e:think1
+		<<wait 1>>
+		Benny: Yeah, sure.
+		<<jump Discord_Chat_Decide>>
+	-> Nothing
+		Steven: Never mind.
+===
+
+title: Discord_Chat_Decide
+---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didDiscordDialogue1 == false>>
+    <<set $didDiscordDialogue1 = true>>
+    <<jump Discord_Chat_End_1>>
+<<elseif $didDiscordDialogue2 == false>>
+	<<set $didDiscordDialogue2 = true>>
+    <<jump Discord_Chat_End_2>>
+<<else>>
+	-> Shirt 
+		<<jump Discord_Soy_Shirt>>
+	-> Something Random
+    	<<jump Discord_Chat_End_Generic>>
+<<endif>>
+===
+
+title: Discord_Chat_End_1
+---
+Benny: So anyways, I told my mod to ban him. #e:smug
+Benny: Because he broke the ToS, you know? #e:talking
+Benny: And this guy right, he decides to ping everyone before he leaves. 
+<<wait 1>>
+Benny: Can you believe that? Abusing the ping functionality like that. #e:rage
+<<wait 1>>
+Steven: Wow, can't believe that happened... #e:bored
+<<wait 1>>
+Benny: Right? Like how could he do this?
+Benny: Then he went and messaged my kitten, telling her I was a pedophile. #e:rage
+<<wait 1>>
+Benny: Like? I'm not a pedophile, she's legal in Japan. #e:wow
+Benny: Just because we play roblox together doesn't mean I'm trying to groom her.
+<<wait 1>>
+Steven: Is that so. #e:bored
+<<wait 1>>
+Steven: Look, I gotta go. #e:think1
+Benny: Okay. I'll see you around. #e:smug
+<<jump Discord_Improve_Friendship_Most>>
+===
+
+title: Discord_Chat_End_2
+---
+Steven: So, was she actually giving birth in the voice chat?
+<<wait 1>>
+Benny: Well, we think so. That's why we put a rule in the general channel
+Benny: Which says that you are explicitly NOT allowed to give birth in vc.
+Benny: Or anounce to the server when you are about to masturbate.
+<<wait 1>>
+Steven: Interesting... #e:bored
+<<wait 1>>
+<<playSoundString AudioManager DiscordCall>>
+<<wait 8>>
+Benny: Oops, looks like I gotta go.
+Benny: My mod meeting is happening, stat. I'll catch you later, bub. #e:smug
+Steven: Okay, cya...
+<<wait 2>>
+Steven: Jesus, how do people actually live like this? #e:bored
+<<jump Discord_Improve_Friendship_Most>>
+===
+
+
+title: Discord_Chat_End_Generic
+---
+<<wait 1>>
+<<playSoundString AudioManager DiscordNotifSpam>>
+<<wait 5>>
+Benny: Oop, I'm getting pinged again. Must be something important. #e:smug
+Benny: Gotta go, bub. #e:smug
+Steven: Later...
+<<jump Discord_Improve_Friendship_Most>>
+===
+
+title: Discord_Unfriendly
+---
+Benny: Gah!
+Benny: Get away from me! #e:rage
+-> Apologize
+	Steven: Look man, I'm sorry. I didn't mean what I said last time. #e:smile
+	Steven: Can we be friends? #e:weary
+	Benny: ...
+	Benny: I don't trust you. 
+	Benny: Send me a dank meme first. #e:smug
+	<<wait 1>>
+	Voice: What is this cringe!? #e:cringe
+	<<wait 2>>
+	What meme to send Benny?
+	-> Uncanny Mr Incredible
+	-> Squidward Nose
+	-> Gru whiteboard meme
+	<<wait 1>>
+	Benny: Oh my god! This meme is so funny.. #e:wow
+	Benny: You must be a dank memer! #e:talking
+	Benny: Okay, we can be friends again! #e:excited
+	<<wait 1>>
+	Benny sends you a meme of walter white falling over.
+	<<jump Discord_Improve_Friendship_Less>>
+-> Insult
+	Steven: WOO LOOKS LIKE WE GOT A DISCORD MOD HERE #e:laugh
+	<<wait 1>>
+	Benny: Go away before I... #e:rage
+	<<wait 2>>
+	Benny hovers his fist in the air, and then quickly puts it down again.
+	He realizes its an empty threat, and quietly sulks.
+	<<jump Discord_Ruin_Friendship_Less>>
+===
+
+title: Discord_Start
+---
+<<if $hasMetDiscord == false>>
+	Benny: ...
+	<<wait 2>>
+	Benny: Ex-cuse me? 
+	Benny: Do I know you?
+	<<wait 1>>
+	Steven: No, I'm Steven. #e:worried
+	Steven: I don't think we've met. #e:shy
+	<<wait 1>>
+	Benny: Okay? Cool? I'm Benny?
+<<endif>>
+Benny: So........ why did you talk to me?
+-> Shirt
+	<<jump Discord_Soy_Shirt>>
+
+===
+
+title: Discord_Soy_Shirt
+---
+Steven: I noticed your shirt was the discord logo... #e:think1
+-> Insult
+	Steven: Who the hell wears a discord shirt in public? #e:smirk
+	Steven: Talk about being a loser... #e:laugh
+	<<wait 1>>
+	Benny: H-hey! 
+	Benny: You take that microaggression back! #e:rage
+	<<wait 1>>
+	Steven: What are you gonna do, ban me? #e:laugh
+	<<wait 1>>
+	Benny: Yes, what you just said goes against Rule 3IV, Part A, Code 21 of the server Code of Conduct. #e:rage
+	Benny: If you read the server rules, you would know this. #e:rage
+	<<jump Angry_Discord>>
+-> Complement
+	Steven: I thought it was kinda neat... #e:think2
+	<<wait 1>>
+	Benny: Why, do you use discord too? #e:wow
+	Steven: Well, sometimes... Just to like lurk servers and stuff... #e:think2
+	Steven: But I don't really talk much.
+	<<wait 1>>
+	Benny: You should totally join my server, dude. #e:talking
+	Benny: Did you know... 
+	Benny: I'm an ADMIN!? #e:wow
+	<<wait 1>>
+	Steven: Like, a real life discord admin!? #e:shocked
+	Steven: In the flesh? Am I dreaming!? #e:shocked
+	<<wait 1 >>
+	Benny: No you aren't... #e:smug
+	Benny: I am the great NikoNikoKnees2319 #e:smile
+	<<wait 1>>
+	Benny: Admin of FOUR servers, with a total of 10,000+ people in them. #e:smug
+	<<wait 1>>
+	Benny: I know, I'm kind of a big deal... #e:smile
+	<<wait 1>>
+	Benny: That's why you approached me randomly, wasn't it? You wanted my autograph? #e:smug
+	<<wait 1>>
+	Benny: No worries, I will give it to you... only if you have nitro though. #e:smug
+	Benny: I don't give autographs to normie plebs... #e:smug
+	<<wait 1>>
+	-> Insult
+		Steven: I'm just kidding, you discord mods are so over your heads. #e:stern
+		Steven: Who said I want to join your stupid server? #e:laugh
+		Benny: Wha- 
+		Benny: Hey! #e:rage
+		Benny: That goes against Discord ToS. Apologize right now! #e:rage
+		Steven: I don't think I will. #e:smile
+		<<wait 1>>
+		Benny: I- wh- ga- im- impossible! I'm banning you this instant!
+		<<jump Angry_Discord>>
+	-> Join the discord
+		Steven: Oh my god... What an amazing opportunity. What's your discord? #e:yikes
+		Benny: So it's discord dot g g #e:smile
+		Benny: slash #e:smile
+		Benny: asFMCmy8N8 #e:smile
+		Benny: It's a permanent link. #e:excited
+		<<wait 1>>
+		Benny: Alternatively you could look up the server name. #e:smug
+		Benny: It's called "Papi's Hentai World and Anime" #e:smug
+		Benny: The description should say "uWu what's this? A new server full of the egirls of your dreams and anime lovers just like you!" #e:smug
+		<<wait 1>>
+		Benny: Yes, the one with the Zero Two picture. #e:smug
+		<<wait 1>>
+		Benny: NOT the one with the Chika picture.
+		Benny: That's our rival server. #e:rage
+		<<wait 1>>
+		<<playSoundString AudioManager DiscordNotifSpam>>
+		<<wait 5>>
+		Benny: Oh, looks like some guy is spam pinging everyone... #e:rage
+		Benny: Let me ban him real quick... #e:smug
+		<<wait 1.5>>
+		<<playSoundString AudioManager DiscordLeave>>
+		<<wait 1.5>>
+		Benny: There we go. 
+		<<wait 1>>
+		Benny: Look. I gotta fly. #e:smile
+		Benny: Admin's life is super busy, you know? #e:wow
+		Benny: I'll see you in general chat. #e:smug
+		<<wait 1>>
+		Steven: Okay, see ya... #e:worried
+		Steven: Man, why am I even bothering to talk to these discord mods... #e:bored
+		Steven: They're somehow more of a lost cause than I am. #e:weary
+		<<jump Discord_Improve_Friendship>>
+===
+
+title: Angry_Discord
+---
+Benny proceeds to pull out his phone, and start furiously typing.
+In between typing, he glances at you menacingly.
+Out of the corner of your eye, you see him messaging someone with an anime PFP about how bad of a person you are.
+<<wait 1>>
+Voice: Why were you so mean to him? #e:laugh
+Voice: He didn't even say anything wrong! #e:laugh
+Steven: It's cause I can't stand nerds. #e:angry2
+Steven: They don't do anything but gather in their little internet corners #e:angry2
+Steven: And they have the snobby nasaly voices with that elitist attitude #e:angry2
+Steven: They think they're the smartest, most interesting people in the world. #e:angry
+<<wait 1>>
+Steven: God forbid they get a moderator role. Now they think they're some kind of celebrity #e:angry2
+<<wait 1>>
+Steven: They deserve to be laughed at. I'm doing the world a favor. #e:smirk
+<<jump Discord_Ruin_Friendship>>
+===
+
+title: Discord_Improve_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $DiscordFriendProgress = $DiscordFriendProgress + 2>>
+    <<if $DiscordFriendProgress > 1>>
+        <<set $DiscordFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToDiscordAlready = true>>
+===
+
+title: Discord_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $DiscordFriendProgress = $DiscordFriendProgress + 2>>
+    <<if $DiscordFriendProgress > 1>>
+        <<set $DiscordFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToDiscordAlready = true>>
+===
+
+title: Discord_Ruin_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $DiscordFriendProgress = $DiscordFriendProgress - 2>>
+    <<if $DiscordFriendProgress < -1>>
+        <<set $DiscordFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToDiscordAlready = true>>
+===
+
+title: Discord_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $DiscordFriendProgress = $DiscordFriendProgress - 2>>
+    <<if $DiscordFriendProgress < -1>>
+        <<set $DiscordFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToDiscordAlready = true>>
 ===

@@ -186,7 +186,7 @@ MonoBehaviour:
     description: going home
     offsetX: 0
     offsetY: 0
-  - hour: 23
+  - hour: 22
     minute: 10
     priority: 0
     day: 0

@@ -57,7 +57,7 @@ MonoBehaviour:
     audioToPlay: {fileID: 0}
     description: goes to lecture
     offsetX: -0.1
-    offsetY: 0.2
+    offsetY: 0.5
   - hour: 15
     minute: 0
     priority: 1

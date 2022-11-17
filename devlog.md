@@ -31,7 +31,9 @@ Warning- its kinda complicated. Didn't really design the game with making scenes
 - Duplicate existing character
 - Change all animation clips to appropriate values, create all animations
 - Set their starting location on the map, also set their current scene to whatever scene they will start in
-- Make a `headshots` scriptable object with all the head pictures and put into the Headshot object
+- Create a new schedule Scriptable object, hook that up. And then populate with whatever schedule you want this NPC to have.
+- Write a dialogue node called [npc_name]_Dialogue. So if new NPC is called Bob, then it should be called Bob_Dialogue. Then go to the Dialogue Collider on that NPC and set that as the starting dialogue node.
+- Make a `headshots` scriptable object with all the head pictures and put into the Headshot object (under Dialogue System, Canvas, Line View, Headshot)
 - make a new typewriter sound enum in `SoundItem.cs`, and link that up to the switch statement in `AudioManager.cs`
 - Profit
 
@@ -501,4 +503,72 @@ Not anymore. I added the ability for NPCs to move between scenes, even if there 
 Finished Bible Study scene, finished bloomer dialogue (general), now I was working on the coomer dialogue and a cutscene where you bust him for being a stalker.
 
 Made a really retarded scene where cops chase the coomer around lol. Still doesnt work yet, theres this weird bug where the cutscene doesnt run cuz the animators are supposedly disabled on the non-npcs... wtf?
+
+# 11/10/22
+Honestly I have stopped writing daily devlogs cuz sometimes there's not enough stuff to put in it for one day. And I don't wanna just write in it for the sake of writing in it. 
+
+Tday and yesterday was just working on dialogues, here's a design decision that I thought I would elaborate on:
+
+So everytime I start a dialogue node I disable all animators, and everytime I exit dialogue I enable all animators. This is the whole `npcs` and `nonnpcs` objects that I am putting into the LevelLoader and GameState scripts.
+
+Then when a cutscene starts, we disable all **sprite renderers** on the npc versions, and enable all the renderers on the NON-NPC versions. Then when cutscene ends we do the opposite of this. The following system seems to be working fine.
+
+# 11/13/22
+So I haven't written a devlog in a while, was busy making zoomer char, and finishing up all the dialogues. I am at a point now where ALL dialogues have been completed, yay!
+
+So I'm going to start turning my attention to making dark scenes and cutscenes again.
+
+I felt like going over the way I implemented dialogue system for this game. It's a bit sloppy, and on a second pass of designing this game I would do a better job. But for now here's how it works.
+
+You start with 0 friend progress. Friend progress is either -1, 0, or 1.
+
+The thing is, it can only be 0 on the first encounter. Every time after that its either -1 or 1.
+
+-1 means unfriendly. YOu will get some hostile dialogue from the NPC, and then you can either choose to keep insulting them or apologize, which will send your progress to 1. 1 means you are on friendly terms, and you will have a host of dialogue options to choose from.
+
+The thing with friendly dialogue options is: There's two kinds. The ones where you can insult them and send progress back to unfriendly terms, or the ones where you just listen to what they say, and gain a passive bonus to your stats.
+
+The ones where you insult them are filtered for first, because they are typically more elaborate (with choices and what not, and therefore more fun to play for the user). I will check if they have all been completed. If not, we prioritize playing those first. Then once all those have been done, we do the ones where you just listen and get a social bonus, next. You can go into any of the Yarn files for the NPCs, and look at the nodes with the ending `_Decide`, to see what I am talking about. For example here's Zoomers's Decide:
+
+```
+title: Zoomer_Chat_Decide
+---
+<<if $didZoomerDance == false>>
+	-> Dance
+		<<jump Zoomer_Dance>>
+	-> Talk about something else
+<<endif>>
+<<if $didZoomerFashion == false>>
+	-> Help
+		<<jump Zoomer_Fashion>>
+	-> Talk about something else
+<<endif>>
+
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didZoomerDialogue1 == false>>
+    <<set $didZoomerDialogue1 = true>>
+    <<jump Zoomer_Chat_End_1>>
+<<else>>
+    -> Dance 
+        <<jump Zoomer_Dance>>
+    -> Help <color=\#FFB6C1> (already talked about this)</color>
+        <<jump Zoomer_Fashion>>
+    -> Generic Chat
+        <<jump Zoomer_Chat_End_Generic>>
+<<endif>>
+===
+```
+
+Here, the first two if blocks check if the longer dialogues have been completed. IF so, we skip them. If not, we will give the user an option to talk about it. The thing is, the player has already seen these options (help and dance) from the first encounter, its just that they picked one of the two, so the other one is presented here as a possible dialogue option. IF they elect to skip it, then they go into the dialogue nodes where the character just talks for a while. 
+
+And finally at the very end (in the else statement), you see I bring back all the nodes again. This is because I want the user to be able to screw with all the dialogue options (insulting vs complementing), and see how the benefits vary for each. Also I think insulting is just fun, and the game would be boring if they just were a yes man the whole time.
+
+So yeah, in summary **I tried to design the system such that any player will see the most unique dialogue as possible**, as opposed to seeing the same dialogue over and over again. This is both in their interests (so they dont get bored), and also in my interests (since I created many dialogue paths, and **it would be a shame if they were never explored by the user due to poor game design**). By adding all the dialogue options back at the end, I hopefully allow the user to insult the NPCs a bunch and see what happens when they say certain things.  Hopefully I succeeded.
+
+(Also as you can  see above, I considered adding a small message next to the dialogue that tells the user they already talked about something. But I figured against it, since I don't want there to be too many hints in the game. And also I think it would just look kinda weird there.)
+
+Also I should talk about the rewards for dialogue. Basically it affects everything but energy (so social, contentedness and entertained). Both social and entertained are always positive, but contentedness can be negative depending on if you insulted them (negative) or was nice (positive). Also, the values are higher/lower depending on the pre-existing status. So for example if you are already friends and being nice that would be a +10 for example, vs if you were not friends and are being nice then its +5 only.
 

@@ -262,6 +262,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: the-voice-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9955616d6c2707478cd53bc41a65618
+      internalID: 1204395612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -276,6 +297,7 @@ TextureImporter:
       the-voice-Sheet_0: 486954784
       the-voice-Sheet_6: -2021214474
       the-voice-Sheet_3: 1071142089
+      the-voice-Sheet_7: 1204395612
       the-voice-Sheet_4: 1703119126
       the-voice-Sheet_2: -698105311
       the-voice-Sheet_1: 1684026181

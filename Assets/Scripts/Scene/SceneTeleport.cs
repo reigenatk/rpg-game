@@ -33,7 +33,7 @@ public class SceneTeleport : MonoBehaviour
         {
             GameState gameState = FindObjectOfType<GameState>();
 
-            if (gameState.getGameDay() != -1 && (gameState.getGameDay() != gameDay))
+            if (gameDay != -1 && (gameState.getGameDay() != gameDay))
             {
                 Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
                 return false;
@@ -135,7 +135,7 @@ public class SceneTeleport : MonoBehaviour
         if (player != null)
         {
             // check if there's dialogue to play
-            if (FindObjectOfType<LevelLoader>().cutscenesandDialoguesEnabled)
+            if (FindObjectOfType<LevelLoader>().dialoguesEnabled)
             {
                 // only play if we're not debugging
                 playKnockDialogue();
@@ -185,6 +185,7 @@ public class SceneTeleport : MonoBehaviour
             // Teleport to new scene (pass in an optional sound to play as well)
             // never mind- do all the teleporting via yarn instead. Cuz sometimes we can just play a dialgoue and then NOT teleport the player
             // or sometimes we wanna play a cutscene after playing the dialogue.
+
             // LevelLoader.Instance.FadeAndLoadScene(sceneNameGoto, new Vector3(xPosition, yPosition, zPosition), delay: extraDelay, clipToPlay: teleportSound);
         }
     }

@@ -21,6 +21,14 @@ MonoBehaviour:
     sprite: {fileID: 1149131999, guid: 52be56f7abb4a2c4c99644b13f05ded7, type: 3}
   - headshotName: excited
     sprite: {fileID: 1179816876, guid: 52be56f7abb4a2c4c99644b13f05ded7, type: 3}
+  - headshotName: talking
+    sprite: {fileID: 1413731691, guid: 52be56f7abb4a2c4c99644b13f05ded7, type: 3}
+  - headshotName: smug
+    sprite: {fileID: 1264241126, guid: 52be56f7abb4a2c4c99644b13f05ded7, type: 3}
+  - headshotName: smile
+    sprite: {fileID: -757393957, guid: 52be56f7abb4a2c4c99644b13f05ded7, type: 3}
+  - headshotName: sniffle
+    sprite: {fileID: -1377066371, guid: 52be56f7abb4a2c4c99644b13f05ded7, type: 3}
   charactersThatUseTheseHeadshots:
-  - Sawyer
+  - Benny
   scaleToUse: 2

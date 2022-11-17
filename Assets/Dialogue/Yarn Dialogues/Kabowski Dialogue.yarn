@@ -1,5 +1,385 @@
-﻿title: Kabowski_Dialogue
-tags:
+﻿title: Kabowski_Vars
 ---
 
+// one time dialogue variables
+<<declare $didKabowskiDialogue1 = false>>
+<<declare $didKabowskiDialogue2 = false>>
+<<declare $hasMetKabowski = false>>
+<<declare $didKabowskiLifting = false>>
+<<declare $didKabowskiGirls = false>>
+===
+title: Kabowski_Dialogue
+---
+<<jump Kabowski_Normal_Dialogue>>
+===
+
+title: Kabowski_Normal_Dialogue
+---
+<<if $talkedToKabowskiAlready == true>>
+    <<jump AlreadyTalkedToday>>
+<<endif>>
+
+
+<<if $kabowskiFriendProgress == 0>>
+	<<jump Kabowski_Start>>
+<<elseif $kabowskiFriendProgress >= 1>>
+	<<jump Kabowski_Familiar>>
+<<elseif $kabowskiFriendProgress <= -1>>
+	<<jump Kabowski_Unfriendly>>
+<<endif>>
+===
+
+title: Kabowski_Familiar
+---
+Kabowski: My man, Steven. How can I help ya.
+-> Let's chat
+    Steven: Wanna chat?
+	Kabowski: Of course brah
+	<<jump Kabowski_Chat_Decide>>
+-> Nothing
+	Steven: Never mind...
+	Kabowski: Alright, see you later bro. 
+===
+
+title: Kabowski_Chat_Decide
+---
+
+<<if $didKabowskiGirls == false>>
+	-> Girls
+		<<jump Kabowski_Girls>>
+	-> Talk about something else
+<<endif>>
+<<if $didKabowskiLifting == false>>
+	-> Lifting
+		<<jump Kabowski_Lifting>>
+	-> Talk about something else
+<<endif>>
+
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+<<playSoundString AudioManager TimeTicking>>
+<<wait 6>>
+<<if $didKabowskiDialogue1 == false>>
+    <<set $didKabowskiDialogue1 = true>>
+    <<jump Kabowski_Chat_End_1>>
+<<else>>
+	-> Girls 
+		<<jump Kabowski_Girls>>
+	-> Lifting 
+		<<jump Kabowski_Lifting>>
+	-> Generic Chat
+    	<<jump Kabowski_Chat_End_Generic>>
+<<endif>>
+===
+
+title: Kabowski_Chat_End_1
+---
+Kabowski: So yeah, that's the spiel. 
+Kabowski: If you take it at face value, yes, I did touch her without consent. #e:talking
+<<wait 1>>
+Kabowski: But do you really need consent, when she's drooling over you the whole party? #e:sad
+<<wait 1>>
+Kabowski: like you know what I mean? #e:talking
+<<wait 2>>
+Steven: Not really... #e:think1
+<<wait 2>>
+Kabowski: Well, maybe I'm asking the wrong person.
+Kabowski: Don't worry buddy, I'll help you lose your virginity soon. #e:talking
+<<wait 1>>
+Kabowski: But the point is, some girls give off that vibe. #e:talking
+Kabowski: One look and you instantly know they wanna bang. #e:neutral
+<<wait 2>>
+Steven: So... let me get this straight. #e:bored
+Steven: She was unconscious. And you had sex with her. #e:bored
+Steven: How did she know again that you had sex with her if she was unconscious? #e:huh
+<<wait 2>>
+Kabowski: Well, apparently she saw my marker on her body. #e:sad
+Steven: Your what?
+Kabowski: My permanent marker. #e:neutral
+<<wait 1>>
+Kabowski: It's... a fetish. #e:talking 
+<<wait 2>>
+Kabowski: Well actually, not really a fetish. #e:neutral
+Kabowski: I just like to sign my name on girls that I fuck. #e:talking
+<<wait 1>>
+Steven: What did you write?
+Kabowski: I wrote "Kabowski was here"...
+<<wait 1>>
+Steven: So she doesn't have evidence then? That could mean anything. #e:huh
+Kabowski: You would be right. #e:neutral
+Kabowski: Except she got pregnant... #e:sad
+<<wait 1>>
+Kabowski: And given the marker, it was pretty easy to tell who did it... #e:sad
+<<wait 3>>
+Steven: ... ouch #e:stern
+<<wait 2>>
+Kabowski: Yeaaaaaa... awkward... Anyways. #e:neutral
+Steven: Well, thanks for telling me the story. #e:smirk
+Steven: I'm assuming you learned quite a bit from that experience. #e:smile
+<<wait 2>>
+Kabowski: No problem. 
+Kabowski: Yeah, I learned not to sign girls anymore.
+<<wait 2>>
+Steven: That's what you learned!? #e:oshit
+Voice: This guy.... #e:laugh
+<<jump Kabowski_Improve_Friendship_Most>>
+===
+
+
+title: Kabowski_Chat_End_Generic
+---
+Kabowski: Alright Stevie, nice chattin with ya. #e:neutral
+Kabowski: But these muscles ain't gonna grow themselves.
+Kabowski: I gotta go brah. I'll catch you around. 
+Steven: Later, Kabowski. #e:smile
+<<jump Kabowski_Improve_Friendship_Most>>
+===
+
+title: Kabowski_Unfriendly
+---
+Kabowski: Steven... Hey man. #e:sad
+Kabowski: You good? I don't wanna chat if you're still mad at me. #e:neutral
+-> Apologize
+	Steven: Hey Kabowski... Yeah, I'm sorry for that.
+	Steven: Guess I got kinda carried away. #e:smile
+	<<wait 1>>
+	Kabowski: It's all good man. Sorry if I pulled the wrong strings. 
+	Kabowski: We cool then?
+	Steven: Yeah. #e:smile
+	Kabowski: Nice. 
+	<<wait 3>>
+	Kabowski: Make-up hug?
+	-> Yes please
+		Steven: S-sure... #e:smile
+		Kabowski: Come here, boo boo~
+		Kabowski hugs you tightly
+		<<FadeIn LevelLoader 1.0>>
+		<<wait 3>>
+		You can feel his sweaty pecs on your face
+		Voice: GAAEEEEEEEEEEE #e:cringe
+		This is kinda gay. Why did you agree to this again?
+		<<wait 1>>
+		<<FadeOut LevelLoader 1.0>>
+		<<wait 1>>
+	-> No please
+		Steven: umm... no thanks #e:embarassed
+		Kabowski: awwwww #e:sad
+	<<jump Kabowski_Improve_Friendship_Less>>
+-> Insult
+	Steven: No, I've come to insult you more. #e:stern
+	Steven: Your life is a trainwreck waiting to happen. #e:angry2
+	Steven: You might be chad now, but after you hit 40 you will hit a wall #e:angry2
+	Steven: Your dick will go limp and you'll probably settle for a 7/10 with daddy issues. #e:angry
+	<<wait 1>>
+	Steven: And then, you'll regret not doing anything in your 20s. #e:angry
+	Steven: You'll see people smarter, and harder working than you, fly to incredible heights. #e:angry
+	Steven: While you work a minimum wage job trying to feed your daughter who you didn't even mean to have. #e:angry
+	Steven: I hope you suffer. #e:angry
+	<<wait 3>>
+	Kabowski: I... #e:sad
+	<<wait 1>>
+	You can see Kabowski going through a range of emotions
+	<<wait 1>>
+	Kabowski: Steven, I don't know what I did to make you so mad. #e:sad
+	Kabowski: I don't want to be mean, so I'll just say this. #e:sad
+	Kabowski: I hope you find happiness. #e:sad
+	Kabowski: Good luck. #e:sad
+	<<wait 2>>
+	Voice: Oooooo, he didn't even address your rant! #e:cringe
+	Voice: Get owned!
+	Steven: I don't care! #e:angry2
+	Steven: I know that he knows I'm right. #e:angry
+	<<jump Kabowski_Ruin_Friendship_Less>>
+-> Nothing
+	Steven: ...
+===
+
+title: Kabowski_Start
+---
+<<if $hasMetKabowski == false>>
+	Kabowski: Steven! I really missed you, palster.
+	<<wait 2>>
+	Steven: Oh yeah...
+	<<wait 2>>
+	Kabowski: I know you don't believe me, but I do.
+	<<wait 1>>
+	Kabowski: How've you been? #e:neutral
+	Kabowski: I never got to ask how your summer treated you? #e:talking
+	<<wait 1>>
+	Steven: Eh, you know. Pretty boring. #e:think1
+	<<wait 1>>
+	Kabowski: Boring? I'm allergic to that word. #e:sad
+	Kabowski: Hopefully this school year won't be that way, eh?
+	Steven: Yea... #e:think1
+<<else>>
+Kabowski: What can I do for ya?
+-> Lifting
+	<<jump Kabowski_Lifting>>
+-> Girls
+	<<jump Kabowski_Girls>>
+-> Nothing
+	Steven: Never mind...
+<<endif>>
+===
+
+title: Kabowski_Lifting
+---
+<<set $didKabowskiLifting = true>>
+Steven: So I was wondering...
+Steven: Is it hard to get into lifting weights?
+<<wait 2>>
+Kabowski: Of course it is, what, did you think you could do it too?
+Kabowski: Don't make me laugh...
+<<wait 3>>
+Steven: ... #e:worried
+Kabowski: I'm just kidding bro. Of course you can do it.
+Kabowski: Here, let's lift right now. Just follow along.
+Steven: Uhh, you sure? #e:worried
+Kabowski: Steven. NO hesitation buddy. Let's get this bread.
+<<wait 1>>
+<<FadeIn LevelLoader 1.0>>
+<<wait 3>>
+You follow Kabowski to the gym
+He proceeds to blast hardcore and instruct you on what exercises to do.
+<<wait 2>>
+<<playSoundString AudioManager RobotWorkout>>
+<<wait 32>>
+<<FadeOut LevelLoader 1.0>>
+<<wait 2>>
+You finished the workout.
+Your legs hurt.
+<<changePlayerScoreString Manager "energy" -30.0>>
+Kabowski: How'd that feel?
+<<wait 2>>
+Steven: Pretty.. Tiring.. #e:weary
+Steven: But good #e:smile
+<<wait 1>>
+Kabowski: See man, you can workout. #e:neutral
+Kabowski: Just don't give a crap about what anyone thinks.
+Kabowski: Remember: More plates, more dates. 
+<<jump Kabowski_Improve_Friendship>>
+===
+
+title: Kabowski_Girls
+---
+<<set $didKabowskiGirls = true>>
+Steven: I was wondering, how do you get so many girls? #e:worried
+Steven: Kind of a weird question, I know... #e:shy
+<<wait 1>>
+Kabowski: Not a weird question at all, brah. #e:neutral
+Kabowski: It's about confidence. #e:talking
+Kabowski: You think you're unattractive. #e:talking
+Kabowski: I think I'm attractive. #e:talking
+Kabowski: That's all there is to it.
+-> Agree
+	Steven: You really think that? #e:huh
+-> Disagree
+	Steven: Bullshit. #e:stern
+	Steven: You are objectively more attractive in the eyes of the average girl. #e:huh
+	Steven: And I'm not. So how can you say it's a confidence issue? #e:angry
+
+<<wait 1>>
+Kabowski: It's all in your head, brah. Girls care about personality too.
+-> Agree
+	Steven: But what about my personality should I change? #e:think2
+	<<wait 1>>
+	Kabowski: Hmm... For you.. I'd say... #e:neutral
+	Kabowski: Be more outgoing, brah. Like I said, confidence attracts.
+	Steven: But how do I be more confident? #e:think1
+	<<wait 2>>
+	Kabowski: Start small. First make lots of guy friends. Just practice talking first. #e:talking
+	Kabowski: Then ask out the ugliest chick in your class. #e:talking
+	Kabowski: She probably has self image issues too. Should be an easy yes. #e:neutral
+	Kabowski: Then you work your way up to the 10s, brah.
+	<<wait 1>>
+	Steven: Is it really that simple? #e:weary
+	Steven: What if she like- #e:yikes 
+	Steven: rejects me? #e:shy
+	<<wait 2>>
+	Kabowski: Then you move on, brah. 
+	Kabowski: Girls are nice, but they aren't everything. #e:neutral
+	<<wait 2>>
+	Kabowski: Why do you think I lift myself so much? #e:talking
+	Kabowski: Because I'm doing it for me, brah, not some random girl out there.
+	Kabowski: I don't workout for chicks, i workout to create an aura brah.
+	Kabowski: Now go out there and be a siccunt.
+	<<wait 2>>
+	Steven: Thanks.. Kabowski. #e:smile
+	<<jump Kabowski_Improve_Friendship>>
+-> Incel Rage
+	Steven: There's that word again. #e:weary
+	Steven: Personality #e:bored
+	<<wait 2>>
+	Steven: ... #e:angry2
+	Steven: Personality doesn't matter, man! Not one bit. #e:angry2
+	Steven: If I swapped bodies with you right now, I would get just as much attention as you do everyday! #e:angry2
+	Steven: And you would get none! #e:angry2
+	Steven: Does that register in your thick skull? #e:angry
+	Kabowski: Woah buddy, chill out. #e:sad
+	Steven: I'm not chill! Don't suggest stupid things!  #e:angry2
+	Steven: Admit you live a life of privilege, because of the way you look! #e:angry
+	Kabowski: ... #e:sad
+	<<jump Kabowski_Ruin_Friendship>>
+===
+
+title: Kabowski_Sex
+---
+<<playSoundString AudioManager KabowskiSex>>
+<<wait 27>>
+Steven: .. #e:oshit
+<<wait 2>>
+Steven: And you wanted me to go in there. #e:stern
+<<wait 1>>
+===
+
+title: Kabowski_Improve_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $kabowskiFriendProgress = $kabowskiFriendProgress + 2>>
+    <<if $kabowskiFriendProgress > 1>>
+        <<set $kabowskiFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+    <<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<set $talkedToKabowskiAlready = true>>
+===
+
+title: Kabowski_Improve_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $kabowskiFriendProgress = $kabowskiFriendProgress + 2>>
+    <<if $kabowskiFriendProgress > 1>>
+        <<set $kabowskiFriendProgress = 1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" 5.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToKabowskiAlready = true>>
+===
+
+title: Kabowski_Ruin_Friendship
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $kabowskiFriendProgress = $kabowskiFriendProgress - 2>>
+    <<if $kabowskiFriendProgress < -1>>
+        <<set $kabowskiFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 7.5>>
+    <<changePlayerScoreString Manager "contentedness" -5.0>>
+	<<changePlayerScoreString Manager "social" 7.5>>
+	<<set $talkedToKabowskiAlready = true>>
+===
+
+title: Kabowski_Ruin_Friendship_Less
+---
+    <<FadeOut LevelLoader 1.0>>
+	<<set $kabowskiFriendProgress = $kabowskiFriendProgress - 2>>
+    <<if $kabowskiFriendProgress < -1>>
+        <<set $kabowskiFriendProgress = -1>>
+    <<endif>>
+	<<changePlayerScoreString Manager "entertained" 5.0>>
+    <<changePlayerScoreString Manager "contentedness" -10.0>>
+	<<changePlayerScoreString Manager "social" 5.0>>
+	<<set $talkedToKabowskiAlready = true>>
 ===

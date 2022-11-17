@@ -9,7 +9,7 @@ public class Headshots : MonoBehaviour
 {
     Image headshotimg;
     [SerializeField] DialogueCharacterNameView dcnv;
-
+    [SerializeField] Sprite nothing;
     [SerializeField] List<SO_Headshots> headshotObjects;
 
     // Start is called before the first frame update
@@ -67,7 +67,8 @@ public class Headshots : MonoBehaviour
         // means one of two things, either we dont have the character or the headshot with that given name
         // either way let's just remove whatever image we had before (aka blank headshot)
         remove_headshot:;
-        // Debug.Log("Removing image");
+        Debug.Log("Removing image");
+        headshotimg.sprite = nothing;
         headshotimg.color = new Color(1, 1, 1, 0);
 
         done_setting_headshot:;
