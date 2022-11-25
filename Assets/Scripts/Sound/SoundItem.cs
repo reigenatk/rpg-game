@@ -87,6 +87,16 @@ public class SoundItem
         TurnOnPC,
         Kiss,
         KabowskiSex,
+        ReaperTypewriter,
+        KidTypewriter,
+        PlayerTypewriterYoung,
+        DoctorTypewriter,
+        DyingRobotTypewriter,
+        OldRobotTypewriter,
+        TeenRobotTypewriter,
+        ChildRobotTypewriter, // oops made two, this isnt being used. Use PlayerTyperwriterYoung instead
+        BullyRobotTypewriter,
+        NerdFriendTypewriter,
     }
 
     public SoundName soundName;

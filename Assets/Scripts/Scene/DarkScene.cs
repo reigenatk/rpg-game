@@ -27,16 +27,9 @@ public class DarkScene : MonoBehaviour
                 case 1:
                     dm.StartDialogueString("TrainStation");
                     break;
-                case 2:
-                    
-                    dm.StartDialogueString("Day1GoingToDay2Dream");
-                    break;
-                case 3:
-                    yield return StartCoroutine(LevelLoader.Instance.Fade(0.0f, 1.0f)); // fade back out
-                    dm.StartDialogueString("Day2GoingToDay3Dream");
-                    break;
                 default:
-                    break;
+                    // player explores the dark world first
+                    break; 
             }
         }
         else if (skipDreams == true)

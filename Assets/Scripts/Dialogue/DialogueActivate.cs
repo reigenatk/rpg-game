@@ -25,7 +25,11 @@ public class DialogueActivate : MonoBehaviour, Interactable
 
     private Player player;
     private bool isInside;
-    [SerializeField] SoundName soundToPlay;
+
+    // ok didn't name this the best- this is the sound that plays when you hit the collider!
+    // so like, a piece of trash when u step on it for instance would use this field
+    [SerializeField] SoundName soundToPlay; 
+
 
 
     public void Start()

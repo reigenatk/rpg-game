@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397afedbedc173f48915570b4133a5f4, type: 3}
+  m_Name: Mom
+  m_EditorClassIdentifier: 
+  headshots:
+  - headshotName: normal
+    sprite: {fileID: 823813880, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
+  - headshotName: smile
+    sprite: {fileID: -98740239, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
+  - headshotName: neutral
+    sprite: {fileID: 784305310, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
+  - headshotName: angry
+    sprite: {fileID: 923393535, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
+  - headshotName: sad
+    sprite: {fileID: 1794957066, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
+  - headshotName: sad2
+    sprite: {fileID: 1764204424, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
+  charactersThatUseTheseHeadshots:
+  - Mom
+  scaleToUse: 2.5

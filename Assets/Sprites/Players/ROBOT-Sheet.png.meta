@@ -619,6 +619,111 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ROBOT-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 48
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c1c07b1c172244485fdcfc2ab88a51
+      internalID: -1321821672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBOT-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 48
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e8ba8aa70d59149929bd9c6f4a1084
+      internalID: -315195541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBOT-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 0
+        width: 48
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d53f31f6b5497b546b98056443157fb2
+      internalID: 2041438696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBOT-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 0
+        width: 48
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e9d98f73a316542812200b805e17d2
+      internalID: 2138239839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBOT-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 48
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ee939cd32f38e4db948784a7f72932
+      internalID: 1948696021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -636,9 +741,13 @@ TextureImporter:
       ROBOT-Sheet_20: 2009084670
       ROBOT-Sheet_13: 706246996
       ROBOT-Sheet_17: 543259698
+      ROBOT-Sheet_26: 2041438696
       ROBOT-Sheet_19: 324957029
       ROBOT-Sheet_9: -1759198632
+      ROBOT-Sheet_25: -315195541
       ROBOT-Sheet_5: -1676178787
+      ROBOT-Sheet_28: 1948696021
+      ROBOT-Sheet_24: -1321821672
       ROBOT-Sheet_4: -501839834
       ROBOT-Sheet_8: 2069620609
       ROBOT-Sheet_3: 934102479
@@ -650,6 +759,7 @@ TextureImporter:
       ROBOT-Sheet_6: 1339549237
       ROBOT-Sheet_14: 242849919
       ROBOT-Sheet_12: 728051424
+      ROBOT-Sheet_27: 2138239839
       ROBOT-Sheet_7: 1240258135
       ROBOT-Sheet_18: -848804548
       ROBOT-Sheet_22: -1773147503

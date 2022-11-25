@@ -105,7 +105,7 @@ Again, it's that (2, 2) is at point (1,1) if the grid origin is at (1,1) kinda t
 
 Bug: The pattern `GameState.Instance.something` doesn't work anymore, and keeps returning NullReferenceException, even though GameInstance inherits from Singleton. So I'm just doing FindObjectOfType again, but it'd be nice to know why it broke when it was working OK before.
 
-Fix: ??
+Fix: ?? Would be nice to fix this but IDK what wrong. Probably some issue with script execution order, but that makes no sense if GameState script is running first?
 
 Bug: When not in the scene, NPC audio isn't switching correctly. For instance, when Brain wakes up to go get breakfast, his audio is still playing the snoring sounds instead of the eating breakfast sounds..
 
@@ -132,3 +132,6 @@ Bug: Had one where cutscenes would trigger twice when talking to someone, despit
 
 Fix: So I just hacked together a solution by storing the name of the cutscene that is running in GameState and then checking if the next one we want to run is of the same name, and if it is, to do nothing... But this doesn't solve the fact that its running twice, or tell me why that's even occuring...
 
+Bug (aesprite?): Whenever I have a sprite sheets thats more than like 20 frames long, and then I try to import it into Unity, it always forgets to apply the Point (no filter) and zero compression, and my images appear super blurry. I don't understand why this is happening, but to fix this, for now, I've just split the sprite sheets into two parts. This is probably terrible for maintainability because now I have to export only a certain chunk of frames, and I need to remember which frames go to what (for instance, part 1 is frames 1-12, part 2 is frames 12-24)...
+
+Fix: IDK, but a fix would be nice cuz this is super annoying.

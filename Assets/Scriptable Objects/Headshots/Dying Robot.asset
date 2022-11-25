@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397afedbedc173f48915570b4133a5f4, type: 3}
+  m_Name: Dying Robot
+  m_EditorClassIdentifier: 
+  headshots:
+  - headshotName: normal
+    sprite: {fileID: -1539065050, guid: bbfdfc2edaa3d4c46ab3dd44ec26db28, type: 3}
+  - headshotName: lookingup
+    sprite: {fileID: 2137494760, guid: bbfdfc2edaa3d4c46ab3dd44ec26db28, type: 3}
+  - headshotName: crying
+    sprite: {fileID: -567049056, guid: bbfdfc2edaa3d4c46ab3dd44ec26db28, type: 3}
+  - headshotName: crying-shut
+    sprite: {fileID: -1382128376, guid: bbfdfc2edaa3d4c46ab3dd44ec26db28, type: 3}
+  - headshotName: crying-shut-2
+    sprite: {fileID: 1994797442, guid: bbfdfc2edaa3d4c46ab3dd44ec26db28, type: 3}
+  charactersThatUseTheseHeadshots:
+  - Steven (Dying)
+  scaleToUse: 3.5

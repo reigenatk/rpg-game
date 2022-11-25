@@ -1,6 +1,6 @@
 ﻿title: TrainStation
 ---
-Mom: I'm going to miss you so much, son.
+Mom: I'm going to miss you so much, son. 
 Your mother gives you a kiss on the cheek.
 <<playSoundString AudioManager Kiss>>
 <<wait 3>>
@@ -13,7 +13,7 @@ It's a bit embarassing, because you are 20 years old.
 -> ...
 	...
 <<wait 2>>
-Dad: Stay safe, okay?
+Dad: Stay safe, okay? 
 <<wait 1>>
 -> "I will..."
 -> "Shut up."
@@ -33,7 +33,7 @@ Something he's failed to correct, since you still have terrible posture.
 <<wait 2>>
 
 Dad: Make sure to call home often.
-Mom: Of course, only when you have time!
+Mom: Of course, only when you have time! #e:smile
 -> "No guarantees..."
 	..you say, your voice pitching up and down again to indicate uncertainty.
 	But your parents are already onto the next topic.
@@ -42,7 +42,7 @@ Mom: Of course, only when you have time!
 	<<wait 2>>
 	<<jump DadYelling>>
 -> ...
-Mom: Try to find a girlfriend!
+Mom: Try to find a girlfriend! #e:smile
 Your mother says this, with a slight laugh.
 <<wait 1>>
 -> "I'll do my best..."
@@ -50,8 +50,8 @@ Your mother says this, with a slight laugh.
 	<<wait 2>>
 	<<jump MomCrying>>
 -> ...
-Dad: Remember, girls love capable man.
-Dad: Study harder. Find studious girl.
+Dad: Remember, girls love capable men. #e:talking
+Dad: Study harder. Find a studious girl. #e:talking
 <<wait 2>>
 Your dad gives completely useless advice, as usual.
 <<wait 2>>
@@ -68,14 +68,17 @@ It's going to be a long ride.
 
 title: MomCrying
 ---
+	Mom: ... #e:sad
 	Your mom starts to sob. Your father is mad.
-	Dad: What da HELL was that for?
+	Dad: What da HELL was that for? #e:rage
 	Dad grabs you by the collar as you try to leave.
-	Dad: Apologize to your mother, RIGHT NOW!.
+	Dad: Apologize to your mother, RIGHT NOW!. #e:rage
 	<<playSoundString AudioManager TrainWhistle>>
+	<<wait 5>>
 	The train doors are about to close. 
 	Your father has no choice but to let go of you.
 	<<playSoundString AudioManager TrainMoving>>
+	<<wait 5>>
 	The last sight you see as the train pulls away is your father desparately trying to comfort your mother.
 	<<jump TrainRide>>
 ===
@@ -84,15 +87,19 @@ title: DadYelling
 ---
 	Your dad's face starts to turn violent. You've really done it this time.
 	ohfuck.jpeg
-	Dad: what the fuck did you just say to me?
+	Dad: What the fuck did you just say to me? #e:rage
+	<<wait 2>>
 	Your mother tries to calm your dad down.
-	Mom: Please, not here. There's people watching.
+	Mom: Please, not here. There's people watching. #e:sad2
+	<<wait 2>>
 	Miraculously, it seems to work this time.
-	Dad: Get the hell out of my sight.
+	Dad: Get the hell out of my sight. #e:rage
 	You board the train.
 	<<playSoundString AudioManager TrainWhistle>>
+	<<wait 5>>
 	When you look out the window, you see your dad glaring menacingly at you.
 	<<playSoundString AudioManager TrainMoving>>
+	<<wait 5>>
 	As the train speeds out of the station, you can't help but feel a bit grateful that your father is older now.
 	The old version of dad would've stormed onto the train to demand an apology.
 	<<jump TrainRide>>
@@ -121,5 +128,5 @@ You slowly unpack everything...
 <<playSoundString AudioManager Boxes>>
 <<wait 5>>
 
-<<yarnLoadScene LevelLoader Bedroom 0.0f>>
+<<yarnLoadScene LevelLoader Bedroom 2.0f>>
 ===

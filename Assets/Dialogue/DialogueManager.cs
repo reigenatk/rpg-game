@@ -20,6 +20,7 @@ public class DialogueManager : MonoBehaviour
     // I will have to test this later.
     [SerializeField] GameObject nonNPCObject;
     [SerializeField] GameObject NPCsObject;
+    [SerializeField] GameObject AlwaysShowObjects;
     PlayableDirector p;
 
 
@@ -61,6 +62,11 @@ public class DialogueManager : MonoBehaviour
                 // get each animator, then disable it!
                 a.enabled = false;
             }
+            foreach (Animator a in AlwaysShowObjects.GetComponentsInChildren<Animator>())
+            {
+                // get each animator, then disable it!
+                a.enabled = false;
+            }
         }
         
         gameState.setGameVariable("isDialoguePlaying", true);
@@ -84,7 +90,12 @@ public class DialogueManager : MonoBehaviour
             }
             foreach (Animator a in NPCsObject.GetComponentsInChildren<Animator>())
             {
-                // get each animator, then disable it!
+
+                a.enabled = true;
+            }
+            foreach (Animator a in AlwaysShowObjects.GetComponentsInChildren<Animator>())
+            {
+
                 a.enabled = true;
             }
         }

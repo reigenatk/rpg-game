@@ -6,6 +6,7 @@
 <<declare $hasGoneToBibleStudy = false>>
 <<declare $saidStacyWasHotInFrontOfLaura = false>>
 <<declare $coomerWasExposed = false>>
+<<declare $hasHeardReaperTerms = false>>
 
 // reset these every day
 <<declare $teethBrushed = false>>
@@ -27,6 +28,7 @@
 <<declare $talkedToDiscordAlready = false>>
 <<declare $alreadyCookedToday = false>>
 <<declare $hasEatenSnack = false>>
+<<declare $hasTalkedToReaper = false>> 
 
 // local variables
 <<declare $contentednessNerf = 0>>
@@ -427,5 +429,176 @@ title: After_Sermon
 	<<SetTime Manager 20 50 0>>
 ===
 
+title: Talk_To_Reaper
+---
+// test the cutscene (skip the dialogue)
+// <<playCutsceneAndFade LevelLoader GoToDream Dream1>>
+// <<jump Nothing>>
+
+<<if $hasHeardReaperTerms == false>>
+	Steven: H- #e:worried
+	<<wait 2>>
+	Steven: Hello? #e:embarassed
+	<<wait 3>>
+	Steven: who are you? #e:yikes
+	<<wait 2>>
+	Reaper: Oh.. Steven. You're here.
+	Reaper: I've been meaning to talk to you.
+	<<wait 1>>
+	Steven: ... #e:worried
+	<<wait 2>>
+	Reaper: I'm the Grim Reaper, of course.
+	<<wait 2>>
+	Reaper: Surely you know that? #e:scary
+	<<wait 3>>
+	Reaper: Anyways...
+	Reaper: I've interrupted your normal dream programming tonight for a reason.
+	<<wait 2>>
+	Steven: ... #e:think1 
+	<<wait 2>>
+	Reaper: You're just... 
+	<<wait 2>>
+	Reaper: How do I put it... #e:shuteye
+	<<wait 1>>
+	The Reaper is visibly confuzzled...
+	<<wait 1>>
+	Reaper: You're... A COMPLETE AND UTTER FAILURE! #e:scary
+	<<wait 2>>
+	Reaper: And I feel bad about reaping your life... #e:smile
+	<<wait 2>>
+	Steven: ... #e:worried
+	<<wait 1>>
+	Reaper: There! I said it... #e:shuteye
+	<<wait 2>>
+	Steven: I'm sorry, I don't get it.. #e:worried
+	<<wait 2>>
+	Reaper: You see, you were scheduled to die tonight in your sleep.. 
+	<<wait 2>>
+	Reaper: Normally, I have no issues reaping souls... Especially for people who have lived out a good life. #e:shuteye
+	<<wait 2>>
+	Reaper: But, your life is just such an utter...
+	Reaper: abject... undeniable failure! #e:smile
+	<<wait 2>>
+	Reaper: And I just... couldn't bring myself to reap such a PATHETIC life! #e:smile
+	<<wait 2>>
+	Reaper: How do you have no friends, crippling depression, and no happiness left?
+	Reaper: Never kissed a girl... good at nothing...
+	Reaper: Narcissistic, internet addiction... ZERO personality..
+	Reaper: Never spoke up for yourself once, never believed in a cause...
+	Reaper: Haven't hugged someone since childhood? And the person you hugged was your mom?
+	Reaper: Are you serious? #e:shuteye
+	<<wait 1>>
+	Reaper: All at the age of 20? 
+	<<wait 2>>
+	Steven: ... #e:oshit
+	<<wait 2>>
+	Steven: Am I getting flamed by the grim reaper? #e:oshit
+	Voice: This is great! #e:laugh
+	<<wait 2>>
+	Steven: Voice? You're still here? 
+	<<wait 2>>
+	Voice: Of course, Steven. 
+	Voice: I can follow you into your dreams... #e:evil1
+	<<wait 1>>
+	Reaper: Look, I get this is weird. But I feel bad for you. 
+	Reaper: I believe you can do better. #e:smile
+	Reaper: So, I've decided to hold off on your death for now. 
+	<<wait 2>>
+	Reaper: That is, if you agree to the following terms. #e:smile
+	<<jump Hear_Terms>>
+	<<wait 3>>
+	Steven: Is this guy really able to predict my death..? #e:stern
+	Steven: If its the real grim reaper, I should probably be more careful about what I say... #e:think1 
+	<<wait 2>>
+	Steven: He literally just said I was scheduled to die this year. #e:think2
+	<<wait 2>>
+	Steven: But it's not like I would care much if that happened... #e:bored
+	Steven: I mean, my life is an absolute waste of oxygen... #e:bored
+	Steven: Would anyone really care if I dissapeared tomorrow? #e:weary
+	<<wait 1>>
+<<endif>>
+Reaper: Hello, Steven. 
+Reaper: So, are you ready for tonight's dream? #e:smile
+<<wait 1>>
+-> Yes
+	Steven: Yes. #e:worried.
+-> Not yet
+	Steven: Could you give me a moment? #e:shy
+	<<wait 2>>
+	Reaper: Sure. #e:smile
+	Reaper: But hurry up. 
+	<<wait 1>>
+	Reaper: I've got lots of souls to reap tonight. #e:scary
+
+// teleport to the right dream world
+<<if $day == 2>>
+	<<playCutsceneAndFade LevelLoader GoToDream Dream1>>
+<<elseif $day == 3>>
+	<<playCutsceneAndFade LevelLoader GoToDream Dream2>>
+<<elseif $day == 3>>
+	<<playCutsceneAndFade LevelLoader GoToDream Dream3>>
+<<elseif $day == 3>>
+	<<playCutsceneAndFade LevelLoader GoToDream Dream4>>
+<<elseif $day == 3>>
+	<<playCutsceneAndFade LevelLoader GoToDream Dream5>>
+<<endif>>
+===
 
 
+title: Hear_Terms
+---
+Reaper: Here's how it will work... #e:smile
+<<wait 1>>
+Reaper: I'll play a dream for you each night.
+<<wait 2>>
+Reaper: These dreams are from your past, present, and future... #e:shuteye 
+<<wait 1>>
+Reaper: If by the end of the dreams...
+Reaper: Your life path changes to something more worthwhile..
+Reaper: I will let you keep living. #e:smile
+<<wait 2>>
+Reaper: But if you're going to end up the same way that you're currently going... #e:shuteye
+<<wait 1>>
+Reaper: Then... Well...
+<<wait 2>>
+Reaper: Let's just say, killing you would be a favor. #e:scary
+<<wait 1>>
+Reaper: So... do we have a deal? #e:smile
+<<wait 2>>
+-> Yes
+	Steven: Yes... #e:worried
+	<<wait 2>>
+	Reaper: Alright... 
+	<<wait 0.5>>
+	Reaper: I'm glad we could come to a conclusion. #e:smile
+	Reaper: Let's get started with tonight's dream. 
+	Reaper: Just get into the boat, and row straight forward. #e:smile
+-> No
+	Steven: No... #e:stern
+	<<wait 1>>
+	Voice: Good choice... I don't trust this guy... #e:concerned
+	<<wait 2>>
+	Reaper: Okay... #e:shuteye
+	Reaper: Then I'll kill you RIGHT NOW! #e:scary
+	Steven: .. #e:oshit
+	Voice: You pissed him off! #e:sad
+	Voice: Quickly, apologize! #e:sad
+	Steven: I'm sorry... #e:yikes
+	<<wait 2>>
+	Reaper: Hahaha #e:smile
+	Reaper: I'm just kidding... #e:smile
+	<<wait 2>>
+	Reaper: I care about you, Steven. 
+	Reaper: I'm not like the other grim reapers. #e:smile
+	<<wait 2>>
+	Reaper: Can't you tell I'm trying to help you? #e:smile 
+	<<wait 1>>
+	Steven: Yes? #e:cringe 
+	<<wait 2>>
+	Reaper: Anyways, let's get started. I won't take no for an answer. #e:smile
+	Reaper: Preparing these dreams took me a while, you know.
+<<set $hasHeardReaperTerms = true>>
+
+<<playCutsceneAndFade LevelLoader GoToDream DreamDay1>>
+
+===

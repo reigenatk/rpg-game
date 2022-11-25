@@ -112,6 +112,24 @@ public class AudioManager : Singleton<AudioManager>
             case "Dad":
                 PlaySound(SoundName.DadTypewriterSound);
                 break;
+            case "Reaper":
+                PlaySound(SoundName.ReaperTypewriter);
+                break;
+            case "Steven (Dying)":
+                PlaySound(SoundName.DyingRobotTypewriter);
+                break;
+            case "Doctor":
+                PlaySound(SoundName.DoctorTypewriter);
+                break;
+            case "Steven (Child)":
+                PlaySound(SoundName.PlayerTypewriterYoung);
+                break;
+            case "Jeffery":
+                PlaySound(SoundName.NerdFriendTypewriter);
+                break;
+            case "Bully":
+                PlaySound(SoundName.BullyRobotTypewriter);
+                break;
             default:
                 PlaySound(SoundName.TypewriterSound);
                 break;

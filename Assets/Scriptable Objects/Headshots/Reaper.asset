@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397afedbedc173f48915570b4133a5f4, type: 3}
+  m_Name: Reaper
+  m_EditorClassIdentifier: 
+  headshots:
+  - headshotName: smile
+    sprite: {fileID: 2060091292, guid: f6e1236871f3ee548ad87f1b8ea758ed, type: 3}
+  - headshotName: normal
+    sprite: {fileID: -1823611053, guid: f6e1236871f3ee548ad87f1b8ea758ed, type: 3}
+  - headshotName: shuteye
+    sprite: {fileID: 1097970476, guid: f6e1236871f3ee548ad87f1b8ea758ed, type: 3}
+  - headshotName: scary
+    sprite: {fileID: -705828784, guid: f6e1236871f3ee548ad87f1b8ea758ed, type: 3}
+  charactersThatUseTheseHeadshots:
+  - Reaper
+  scaleToUse: 3.5

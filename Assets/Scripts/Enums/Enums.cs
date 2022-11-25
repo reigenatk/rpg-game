@@ -62,6 +62,12 @@ public enum GameVariable
     hasPlayerGoneToChurch, // set to false every day, set to true when u talk to stacy at 5pm
     hasEnteredClassroom2,
 
+    // just keep this for compatibility, we're not actually gonna use this
+    hasEnteredDreamDay1,
+    hasEnteredDreamDay2,
+    hasEnteredDreamDay3,
+    hasEnteredDreamDay4,
+    hasEnteredDreamDay5,
 }
 
 
@@ -113,7 +119,12 @@ public enum SceneName
     MainQuad,
     Classroom,
     PersistantScene,
-    Classroom2
+    Classroom2,
+    DreamDay1,
+    DreamDay2,
+    DreamDay3,
+    DreamDay4,
+    DreamDay5,
 }
 
 public enum Moods

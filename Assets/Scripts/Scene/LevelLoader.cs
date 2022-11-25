@@ -72,12 +72,12 @@ public class LevelLoader : Singleton<LevelLoader>
             {
                 return false;
             }
-            // Debug.Log("Consindering " + c.cutsceneToPlay.ToString());
+            Debug.Log("Consindering " + this.cutsceneToPlay.ToString());
 
-            bool isPlaying = true;
+
             if ((gameState.getGameDay() != dayToPlay) && dayToPlay != -1)
             {
-                // Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
+                Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
                 return false;
             }
 
@@ -100,7 +100,7 @@ public class LevelLoader : Singleton<LevelLoader>
             {
                 if (gameState.getGameVariableEnum(gv.variable) != gv.desiredValue)
                 {
-                    // Debug.Log("Broken on " + gv.variable.ToString());
+                    Debug.Log("Broken on " + gv.variable.ToString());
                     return false;
                 }
             }
@@ -132,17 +132,23 @@ public class LevelLoader : Singleton<LevelLoader>
     }
 
     // https://answers.unity.com/questions/1305859/unload-all-scenes-except-one.html
-    void UnloadAllScenesExcept(string sceneName)
+    IEnumerator UnloadAllScenesExcept(string sceneName)
     {
         int c = SceneManager.sceneCount;
+        List<Scene> scenesToUnload = new List<Scene>();
         for (int i = 0; i < c; i++)
         {
             Scene scene = SceneManager.GetSceneAt(i);
             print(scene.name);
             if (scene.name != sceneName)
             {
-                SceneManager.UnloadSceneAsync(scene);
+                scenesToUnload.Add(scene);
             }
+        }
+
+        foreach (Scene s in scenesToUnload)
+        {
+            yield return SceneManager.UnloadSceneAsync(s);
         }
     }
 
@@ -170,6 +176,7 @@ public class LevelLoader : Singleton<LevelLoader>
         // distribute each cutscene into the scene in which it should play
         foreach (CutsceneCondtional c in cutscenes)
         {
+            Debug.Log("Adding cutscene with name " + c.cutsceneToPlay.name + " to scene with key " + c.scene.ToString());
             CutscenesDict[c.scene].Add(c);
         }
 
@@ -182,7 +189,7 @@ public class LevelLoader : Singleton<LevelLoader>
         UnloadAllScenesExcept("PersistantScene");
 
 
-        yield return StartCoroutine(CreateScene(startingSceneName, startingPosition));
+        yield return StartCoroutine(CreateScene(startingSceneName, startingPosition, 1.0f));
     }
 
     // call this when player faints. More or less just goToSleep() but with less stuff
@@ -301,7 +308,7 @@ public class LevelLoader : Singleton<LevelLoader>
         FadeAndLoadScene(nextSceneToLoad, defaultSceneLocation);
     }
 
-    [YarnCommand("wakeUp")]
+    [YarnCommand("WakeUp")]
     public void wakeUp()
     {
         Debug.Log("Waking up");
@@ -310,9 +317,10 @@ public class LevelLoader : Singleton<LevelLoader>
         gameUI.enableUI();
         FindObjectOfType<Player>().setAnimationState("Base Layer.Idle.IdleDown");
 
-        FindObjectOfType<LevelLoader>().FadeAndLoadScene(SceneName.Bedroom, defaultSceneLocation);
-        playCutscene("WakeUp");
+        FadeAndLoadScene(SceneName.Bedroom, defaultSceneLocation, 2.0f);
     }
+
+    
 
     // helper method for when there's a new day and we gotta reset all game variables for the next day
     // this doesnt impact all variables- only the ones that are day dependent.
@@ -347,6 +355,7 @@ public class LevelLoader : Singleton<LevelLoader>
     [YarnCommand("playCutscene")]
     public PlayableDirector playCutscene(string cutscene)
     {
+        Debug.Log("Request received to play cutscene named " + cutscene);
         foreach (CutsceneCondtional c in cutscenes)
         {
             if (c.cutsceneToPlay.name == cutscene)
@@ -361,9 +370,12 @@ public class LevelLoader : Singleton<LevelLoader>
         return null;
     }
 
+
     // helper for above function
     public PlayableDirector playCutsceneInternal(PlayableDirector cutscene)
     {
+
+
         Debug.Log("Playing cutscene internal " + cutscene.name);
         if (gameState.cutscenePlaying == cutscene)
         {
@@ -411,6 +423,10 @@ public class LevelLoader : Singleton<LevelLoader>
 
         // set the current cutscene playing to the new one
         gameState.cutscenePlaying = cutscene;
+
+        // make sure player sprite renderer enabled. Could be disabled from things if it was played via the CreateScene() call
+        // since that call disables the player sprite renderer if a cutscene is gonna play right when the scene first loads.
+        Player.Instance.GetComponent<SpriteRenderer>().enabled = true;
         FindObjectOfType<Player>().GetComponent<BoxCollider2D>().enabled = false;
 
         cutscene.Play();
@@ -421,6 +437,7 @@ public class LevelLoader : Singleton<LevelLoader>
     {
         // Set the fading flag to true so the FadeAndSwitchScenes coroutine won't be called again.
         isFading = true;
+        faderImage.color = new Color(0f, 0f, 0f, 1f);
 
         // Make sure the CanvasGroup blocks raycasts into the scene so no more input can be accepted.
         faderCanvasGroup.blocksRaycasts = true;
@@ -449,13 +466,15 @@ public class LevelLoader : Singleton<LevelLoader>
     [YarnCommand("FadeIn")]
     public void FadeIn(float time = 1.0f)
     {
+
+        Debug.Log("Fading In " + time + " seconds");
         StartCoroutine(Fade(1.0f, time));
     }
 
     [YarnCommand("FadeOut")]
     public void FadeOut(float time = 1.0f)
     {
-        Debug.Log("Fading Out");
+        Debug.Log("Fading Out" + time + " seconds");
         StartCoroutine(Fade(0.0f, time));
     }
 
@@ -474,16 +493,20 @@ public class LevelLoader : Singleton<LevelLoader>
 
     private string areWePlayingCutscene(SceneName sceneName)
     {
+        Debug.Log("Checking if we should play any cutscenes...");
         if (cutscenesEnabled == false) return null;
+        Debug.Log("Cutscenes are enabled, keep looking. The cutscene dict for scene " + sceneName + " is of size " + CutscenesDict[sceneName].Count);
         foreach (CutsceneCondtional c in CutscenesDict[sceneName])
         {
             if (c.shouldPlayCutscene(sceneName))
             {
+                Debug.Log("Upon loading this scene we should play cutscene called " + c.cutsceneToPlay.name);
                 return c.cutsceneToPlay.name;
             }
         }
         // if we can't find any cutscenes with all conditions met, then we're playing nothing
         // just return null
+        Debug.Log("No cutscenes necessary to play");
         return null;
     }
 
@@ -521,25 +544,21 @@ public class LevelLoader : Singleton<LevelLoader>
         EventHandler.CallBeforeSceneUnloadEvent();
 
         // Unload the current active scene.
-        yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Unloading scene that isnt persistant scene");
+        yield return UnloadAllScenesExcept("PersistantScene");
 
         Debug.Log("Loading in scene " + sceneName);
 
 
-        // add an artifical delay of extra time if desired
-        if (delay != 0.0f)
-        {
-            Debug.Log("Delaying an artificial " + delay + "seconds");
-            yield return new WaitForSeconds(delay);
-        }
+
         
 
-        yield return StartCoroutine(CreateScene(sceneName, spawnPosition));
+        yield return StartCoroutine(CreateScene(sceneName, spawnPosition, delay));
 
     }
 
     // a helper function to instantiate a scene
-    public IEnumerator CreateScene(SceneName sceneName, Vector3 spawnPosition)
+    public IEnumerator CreateScene(SceneName sceneName, Vector3 spawnPosition, float delay)
     {
         // Start loading the given scene and wait for it to finish.
         yield return StartCoroutine(LoadSceneAndSetActive(sceneName));
@@ -554,14 +573,18 @@ public class LevelLoader : Singleton<LevelLoader>
         // decide the starting location for us anyways)
         // also we make sure to put this BEFORE setting the gameVariable as sometimes cutscenes will depend
         // on whether or not we have entered a room already
+
+        Debug.Log("Spawning player in Position " + spawnPosition);
+        Player.Instance.gameObject.transform.position = spawnPosition;
+
+        // make player invis if cutscene is gonna play
         if (cutsceneToPlayOnLoad == null)
         {
-            Debug.Log("Spawning player in Position " + spawnPosition);
-            Player.Instance.gameObject.transform.position = spawnPosition;
+            Player.Instance.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        // if it's our first time entering the scene, mark it as visited
-        if (gameState.getGameVariable("hasEntered" + sceneName.ToString()) == false)
+            // if it's our first time entering the scene, mark it as visited
+            if (gameState.getGameVariable("hasEntered" + sceneName.ToString()) == false)
         {
             gameState.setGameVariable("hasEntered" + sceneName.ToString(), true);
         }
@@ -577,15 +600,14 @@ public class LevelLoader : Singleton<LevelLoader>
             cam.m_Lens.OrthographicSize = sceneToStartingOrthoSize[sceneName];
         }
 
-
-/*        // check if we need to load in any players, and if so load them in
-        // if a cutscene is gonna play though, don't load them since the cutscene will do that
-        if (cutsceneToPlayOnLoad == null)
-        {
-            LoadPlayers(sceneName);
-        }*/
-
         // SCENE SPECIFIC CHECKS
+
+        // add an artifical delay of extra time if desired
+        if (delay != 0.0f)
+        {
+            Debug.Log("Delaying an artificial " + delay + "seconds");
+            yield return new WaitForSeconds(delay);
+        }
 
         // Start fading back in and wait for it to finish before exiting the function.
         // dont fade in if its the darkscene since we want the darkscene to stay dark.

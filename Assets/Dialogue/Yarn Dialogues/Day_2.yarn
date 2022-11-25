@@ -46,7 +46,7 @@ Ralph is now waving goodbye.
 Ralph: Happy birthday, Steven!
 He says, with a big smile on his face.
 <<wait 1>>
-His mom gives you a smile, and the two of them walk out of the diner.
+His mom nods at your parents, and Ralph and his mom walk out of the diner.
 <<wait 3>>
 Vincent: Thanks for inviting us over!
 Josh: This buffet was the best!
@@ -127,12 +127,14 @@ So they say.
 Why don't you tell poor people to just stop being poor?
 <<wait 1>>
 All of life is just that easy, isn't it?
-<<wait 1>>
+Just stop being X, LOL!
+<<wait 2>>
 At least for normal people, it is.
+They can make things happen without even trying.
 <<wait 3>>
 I'm turning 20 tomorrow. A whole decade has passed.
 And nothing has improved.
-The only thing that has changed is that I now have a large pile of regrets.
+The only thing that has changed all this time later, is that I now have a larger pile of regrets.
 Regrets that I have to carry with me, until I die.
 <<wait 1>>
 Maybe the young version of me sensed something.
@@ -143,7 +145,27 @@ That I wasn't fit to live a good life.
 <<wait 1>>
 And that was enough to make me cry.
 // load user back into bedroom for day 2
-<<yarnLoadScene LevelLoader wakeUp 2.0f>>
+<<yarnLoadScene LevelLoader Bedroom 2.0f>>
+===
+
+
+title: WakeUp
+---
+// route to wakeup dialogues after each dream
+// this is called from the WakeUp cutscene which plays when we wakeup.
+<<if $day == 2>>
+    <<jump D2_Start_Day>> // for birthday dream
+<<elseif $day == 3>>
+    <<jump D3_Start_Day>> // dream 1- kid
+<<elseif $day == 4>>
+    <<jump D4_Start_Day>> // dream 2- teen
+<<elseif $day == 5>>
+    <<jump D5_Start_Day>> // dream 3- adult
+<<elseif $day == 6>>
+    <<jump D6_Start_Day>> // dream 4- boomer
+<<elseif $day == 7>>
+    <<jump D7_Start_Day>> // dream 5- death
+<<endif>>
 ===
 
 title: D2_StartDay

@@ -17,11 +17,11 @@ Warning- its kinda complicated. Didn't really design the game with making scenes
 
 - Add an entry to LevelLoader, both the initial zoom and also the enum of the scene itself. It's the first two lists, pretty obvious where it is. And specify default spawn location if desired.
 
-- Create a Scriptable Object for tilemap properties, populate the Origin X, Origin Y, Grid width and height fields. Hook that up to the list in GridPropertiesManager, and also to the "Is Map" and "NPCObstacle" tilemaps. as a reminder, the Grid Origin has to be a tile coordinate that is left of and below all the tiles that you are using in your scene. The reason we need Grid Origin is basically this: we represent the tilemap as a 2D array. Thus if we use a tile with negative coordinates (say tile -1, -1 on the grid), then we will get an indexing error. Thus we can first say OK, the origin is at -2, -2, so the point -1, -1 is actually (1,1) RELATIVE to the origin of -2, -2. Because (-1 - (-2) = 1). 
+- (FOR NPC MOVEMENT ONLY) Create a Scriptable Object for tilemap properties, populate the Origin X, Origin Y, Grid width and height fields. Hook that up to the list in GridPropertiesManager, and also to the "Is Map" and "NPCObstacle" tilemaps. as a reminder, the Grid Origin has to be a tile coordinate that is left of and below all the tiles that you are using in your scene. The reason we need Grid Origin is basically this: we represent the tilemap as a 2D array. Thus if we use a tile with negative coordinates (say tile -1, -1 on the grid), then we will get an indexing error. Thus we can first say OK, the origin is at -2, -2, so the point -1, -1 is actually (1,1) RELATIVE to the origin of -2, -2. Because (-1 - (-2) = 1). 
 
-- Specify the offset of the tilemap in NPCManager's `Tilemap Offsets` list. Important! Without this, NPC movement will not work (or without the stuff above, too, as I spent 45 min trying to debug one time)
+- (FOR NPC MOVEMENT ONLY) Specify the offset of the tilemap in NPCManager's `Tilemap Offsets` list. Important! Without this, NPC movement will not work (or without the stuff above, too, as I spent 45 min trying to debug one time)
 
-- If the scene has NPC movement to it, then make sure to populate the Route scriptable objects with appropriate entries on how to get into the rooms.
+- (FOR NPC MOVEMENT ONLY) Make sure to populate the Route scriptable objects with appropriate entries on how to get into the rooms.
 
 - Adjust the bounds confiner, make sure TRIGGER IS SET
 
@@ -572,3 +572,47 @@ So yeah, in summary **I tried to design the system such that any player will see
 
 Also I should talk about the rewards for dialogue. Basically it affects everything but energy (so social, contentedness and entertained). Both social and entertained are always positive, but contentedness can be negative depending on if you insulted them (negative) or was nice (positive). Also, the values are higher/lower depending on the pre-existing status. So for example if you are already friends and being nice that would be a +10 for example, vs if you were not friends and are being nice then its +5 only.
 
+# 11/23/22 
+LOL took another 2wk break
+
+I've been spending that time "brainstorming" ideas for the dark scenes.
+
+Maybe Day 1's dream can be childhood things, Day 2 is for teenage age (pre college)
+Day 3 is for young adult life (right after graduate), Day 4 is boomer, Day 5 is when we die... I think that's a good plan.
+
+Prolly will try to compose unique soundtrack for all of them?
+
+**Childhood**: Ideas are, digging in the dirt during recess in a park to find cool insects with another friend, being talked about behind your back. 
+
+End scene: Getting beat up once by a bully after trying to stand up to them, and then crying.
+
+Items: Pokemon Cards, Halloween Candy, stuffed dolphin. Parents are nice and normal still.
+
+**Tennage**: Sitting alone during lunch, Parents arguing/yelling at you, hardcore studying in a tight room. 
+
+Friend moves away. A brief scene of parting with that said friend (only one friend tho)
+
+Maybe also an ugly character to symbolize college admissions, and then having the parents be slightly wackly drawn, and also have them worship this ugly character (since my parents worshipped me getting into a good college as the only objective of my young adult life :D and they still do to some degree)
+
+End scene: ugly character "college" rejects us and parents are devestated (symbolizing how all my "work" for college was for naught since I didn't get anywhere going to IMSA)
+
+Items: Homework packet, pencils, ticking clock in the song? 
+
+**YA**: Small apartment building, wagie job, drinking alcohol, parents are OLD. Have to take care of them. A failed date due to deterioration of social skills. 
+
+Staring mindlessly into a screen that blares random audio 
+
+Items: Paintbrush. Self help books. Empty alcohol bottles. Paperwork (for sick parent), walk around and see married couples taking their kids out to play at the same park that we played in during childhood. 
+
+**Boomer**: Parents die as symbolized by us lowering the casket twice. Start to get pain everywhere. Too tired to think anymore. Too little energy to keep playing guitar. 
+
+End Scene: Attempt at suicide with gun. Gun is unloaded. Conclusion is, we are too pussy to kill ourselves
+
+Items: Pills. 
+
+**Death**: Dying alone in a hospital bed. Beeping sounds. No friends or family surrounding us. Doctor asks if we have any family to send our belongings to. We want to say no, but our voice is gone. Slowly shake head, and then die.
+
+
+# 11/23/22
+
+OK I added a third category of characters, right now we have NPCs, non-npcs, and I'm also gonna add `AlwaysShow` group under the `Characters` object, which is gonna be for stuff like in the dream scenes that arent NPCs (i.e they dont move around) but also they are animated, so we wanna pause the animators on them when cutscenes stop and play the animators on them when cutscene is playing.  

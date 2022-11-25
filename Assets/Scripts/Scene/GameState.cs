@@ -18,6 +18,13 @@ public class GameState : Singleton<GameState>
         public bool desiredValue;
     }
 
+    [System.Serializable]
+    public class YarnVariablePair
+    {
+        public string YarnVariable;
+        public bool desiredValue;
+    }
+
     public Dictionary<GameVariable, bool> gameVariables;
 
     Dictionary<PlayerScore, float> playerScore;
@@ -31,6 +38,7 @@ public class GameState : Singleton<GameState>
     [SerializeField] ScoreCategoryUI entertainment;
     [SerializeField] GameObject npcs;
     [SerializeField] GameObject nonnpcs;
+    [SerializeField] string currentScene;
     public SceneName startingScene;
 
 
@@ -112,6 +120,9 @@ public class GameState : Singleton<GameState>
         {
             FindObjectOfType<GameState>().setYarnVariable("$isInNikolaiRoom", false);
         }
+
+        // just for sanity
+        currentScene = getCurrentSceneEnum().ToString();
     }
 
     public void resetDailyYarnVariables()
