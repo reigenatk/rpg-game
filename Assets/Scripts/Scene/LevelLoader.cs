@@ -537,8 +537,9 @@ public class LevelLoader : Singleton<LevelLoader>
         {
             Debug.Log("Playing sound effect between scenes: " + clipToPlay.name);
             GameObject.Find("Audio").GetComponent<AudioSource>().PlayOneShot(clipToPlay);
+
         }
-        Debug.Log("Finished playing sound effect");
+
 
         //  Call before scene unload event.
         EventHandler.CallBeforeSceneUnloadEvent();

@@ -178,6 +178,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: nerd-kid-headshots-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d99454403217c498cd259b77a48ed7
+      internalID: 1669462560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nerd-kid-headshots-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 388bcf2f2de231943bf093d69dd4e12d
+      internalID: 581884035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -189,9 +231,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      nerd-kid-headshots-Sheet_4: 581884035
       nerd-kid-headshots-Sheet_2: 1418606900
       nerd-kid-headshots-Sheet_1: 858096830
       nerd-kid-headshots-Sheet_0: 1981390390
+      nerd-kid-headshots-Sheet_3: 1669462560
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

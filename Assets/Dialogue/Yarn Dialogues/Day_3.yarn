@@ -165,11 +165,57 @@ Steven: This was the day I first met Jeffery. #e:dsmile
 <<wait 1>>
 Steven: Probably one of the best things to ever happen to me. #e:cry-smile
 Steven: Even though I don't talk to Jeffery anymore. #e:cry-smile
-Steven: It's not that we fell out or anything... #e:cry
+Steven: It's not that we fell out or anything... I just couldn't keep talking to him. #e:cry
 <<wait 2>>
 Steven: Well, you'll see what I mean, later on. #e:sad
 <<wait 1>>
 <<set $finishedMeetJefferyScene = true>>
+===
+
+
+title: Get_Home_Jeffery
+---
+Steven (Child): So, this is my room. 
+Jeffery: Woah! 
+<<wait 3>>
+Jeffery: So um, what do you have in here exactly?
+Steven (Child): Um... not much...
+<<wait 1>>
+Steven (Child): My parents don't like buying me many toys.
+Steven (Child): They only bought me the Dokemon cards because they were on sale at Walmart.
+<<wait 2>>
+Jeffery: Oh... So you don't have a Mintendo ES?
+Steven (Child): No... 
+Steven (Child): How did you get yours? #e:left-smile
+Jeffery: I just asked my dad.
+Steven (Child): Oh. #e:left
+Steven (Child): I tried that and he said no. #e:left
+Jeffery: Oh.. #e:smile
+<<wait 3>>
+Jeffery: That sucks.
+Jeffery: Tell you what, I'll give you this. #e:dramatic
+// give the card
+===
+
+title: After_Get_Card
+---
+Steven (Child): Woah.. #e:left
+Steven (Child): you're giving me your Celebi? #e:left 
+<<wait 2>>
+Jeffery: Yeah. I had a serious conversation with her last night...
+Jeffery: And we came to the conclusion that you would be better suited as her trainer.
+<<wait 2>>
+Steven (Child): No way.. #e:left
+<<wait 2>>
+Jeffery: Yes way. #e:dramatic
+<<wait 3>>
+Jeffery: Ok fine, actually, I just had two copies of her. 
+Jeffery: So don't feel bad about taking this. #e:smile
+<<wait 2>>
+Steven (Child): Thanks, Jeffery. #e:left-smile
+Jeffery: Don't mention it. Now let's play some Dokemon! #e:dramatic
+Steven (Child): Yay! #e:left-smile
+// plays pokemon. End scene
 ===
 
 title: D3_Start_Day

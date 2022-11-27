@@ -64,8 +64,8 @@ public enum GameVariable
 
     // just keep this for compatibility, we're not actually gonna use this
     hasEnteredDreamDay1,
-    hasEnteredDreamDay2,
-    hasEnteredDreamDay3,
+    hasEnteredDreamHome,
+    hasEnteredDreamRoom,
     hasEnteredDreamDay4,
     hasEnteredDreamDay5,
 }
@@ -121,10 +121,11 @@ public enum SceneName
     PersistantScene,
     Classroom2,
     DreamDay1,
-    DreamDay2,
-    DreamDay3,
+    DreamHome,
+    DreamRoom,
     DreamDay4,
     DreamDay5,
+    
 }
 
 public enum Moods

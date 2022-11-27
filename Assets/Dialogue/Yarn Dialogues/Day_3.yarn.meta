@@ -11,4 +11,6 @@ ScriptedImporter:
   LastImportHadImplicitStringIDs: 1
   LastImportHadAnyStrings: 1
   isSuccessfullyParsed: 1
-  parseErrorMessages: []
+  parseErrorMessages:
+  - "211:0: Error: The node 'Arguing_Reflect ' contains illegal characters in its
+    title.\r\ntitle: Arguing_Reflect \r\n"

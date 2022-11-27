@@ -19,6 +19,10 @@ MonoBehaviour:
     sprite: {fileID: 858096830, guid: 455ceb4163d0a3c45b46949b09e8e679, type: 3}
   - headshotName: dramatic
     sprite: {fileID: 1418606900, guid: 455ceb4163d0a3c45b46949b09e8e679, type: 3}
+  - headshotName: talking
+    sprite: {fileID: 1669462560, guid: 455ceb4163d0a3c45b46949b09e8e679, type: 3}
+  - headshotName: sad
+    sprite: {fileID: 581884035, guid: 455ceb4163d0a3c45b46949b09e8e679, type: 3}
   charactersThatUseTheseHeadshots:
   - Jeffery
   scaleToUse: 3.5
