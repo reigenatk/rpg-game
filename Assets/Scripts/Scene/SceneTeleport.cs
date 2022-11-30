@@ -13,9 +13,21 @@ public class SceneTeleport : MonoBehaviour
 
     [SerializeField] private float extraDelay; // change this if you want it to take a little longer to go to next scene 
     [SerializeField] private AudioClip teleportSound; // a sound to optionally play before teleporting
+
+    // check if there's any dialogue to play on this teleport
     bool isThereDialogueToPlay = false;
+    // check if we should teleport the player after this dialogue or not
+    bool shouldTeleportAfterDialogue = false;
+    bool shouldShowTeleportSprite = false;
+
+    // optional sprite renderer
+    // basically this sprite renderer is turned ON when the conditions to teleport are MET
+    // and otherwise, its turned off.
+    [SerializeField] SpriteRenderer teleportSprite;
 
 
+    // if it has a sprite to go with the telporter (AKA dream stuff). Check this every frame (i know not efficient but whatever)
+    bool isThereWorkingTeleport = true;
 
     // a special condition is just anything other than open
     [System.Serializable]
@@ -23,11 +35,14 @@ public class SceneTeleport : MonoBehaviour
     {
         public int gameDay;
         public List<GameVariablePair> extraConditions;
+        // yarn variables and their desired values
+        [SerializeField] List<YarnVariablePair> YarnVariables;
         public List<ChunkOfTime> validTimes;
 
         // if this field is null we will take it to mean that door is just locked w/ no response
         // otherwise, its the name of the node to play for the response that the other person will give
         public string knockDialogue = null;
+        public bool shouldTeleportAfter;
 
         public bool isSpecialConditionMet()
         {
@@ -50,9 +65,10 @@ public class SceneTeleport : MonoBehaviour
                     break;
                 }
             }
-            if (!foundValidTime)
+            if (!foundValidTime && validTimes.Count != 0)
             {
-                Debug.Log("Not within any valid time chunk "); return false;
+                Debug.Log("Not within any valid time chunk ");
+                return false;
             }
 
 
@@ -65,41 +81,77 @@ public class SceneTeleport : MonoBehaviour
                     return false;
                 }
             }
+            foreach (YarnVariablePair yv in YarnVariables)
+            {
+                if (gameState.getYarnVariable(yv.YarnVariable) != yv.desiredValue)
+                {
+                    Debug.Log("Broken on yarn variable " + yv.YarnVariable.ToString() + " value was " + gameState.getYarnVariable(yv.YarnVariable) + " expected value is " + yv.desiredValue);
+                    return false;
+                }
+            }
+
             return true;
         }
     }
 
     private GameState gameState;
     [SerializeField] private List<SceneTeleportSpecialConditions> specialTeleportConditions;
+    [SerializeField] private List<SceneTeleportSpecialConditions> spriteShowConditions;
 
     private void Start()
     {
         gameState = FindObjectOfType<GameState>();
     }
-
-/*    public void KnockOnDoor()
+    private void Update()
     {
-        // play knocking on door cutscene
-        // first check what direction the door is compared to player, so we know which knocking anim to play
-        Player player = FindObjectOfType<Player>();
-
-        if (knockCutsceneToPlay == "KnockLeft")
+        foreach (SceneTeleportSpecialConditions ssc in spriteShowConditions)
         {
-            player.setPosition(player.transform.position + new Vector3(0.1f, 0, 0));
+            if (ssc.isSpecialConditionMet())
+            {
+                shouldShowTeleportSprite = true;
+            }
+            else
+            {
+                shouldShowTeleportSprite = false;
+            }
         }
-        else if (knockCutsceneToPlay == "KnockRight")
+
+        if (teleportSprite != null && shouldShowTeleportSprite)
         {
-            player.setPosition(player.transform.position + new Vector3(-0.1f, 0, 0));
+            teleportSprite.sortingLayerName = "Character";
         }
-        else if (knockCutsceneToPlay == "KnockUp")
+        else
         {
-            player.setPosition(player.transform.position + new Vector3(0, -0.1f, 0));
+            if (teleportSprite != null)
+            {
+                teleportSprite.sortingLayerName = "Default";
+
+            }
         }
-        
-        LevelLoader.Instance.playCutscene(knockCutsceneToPlay);
+    }
+    /*    public void KnockOnDoor()
+        {
+            // play knocking on door cutscene
+            // first check what direction the door is compared to player, so we know which knocking anim to play
+            Player player = FindObjectOfType<Player>();
+
+            if (knockCutsceneToPlay == "KnockLeft")
+            {
+                player.setPosition(player.transform.position + new Vector3(0.1f, 0, 0));
+            }
+            else if (knockCutsceneToPlay == "KnockRight")
+            {
+                player.setPosition(player.transform.position + new Vector3(-0.1f, 0, 0));
+            }
+            else if (knockCutsceneToPlay == "KnockUp")
+            {
+                player.setPosition(player.transform.position + new Vector3(0, -0.1f, 0));
+            }
+
+            LevelLoader.Instance.playCutscene(knockCutsceneToPlay);
 
 
-    }*/
+        }*/
 
     public void playKnockDialogue()
     {
@@ -109,13 +161,28 @@ public class SceneTeleport : MonoBehaviour
         {
             if (stc.isSpecialConditionMet())
             {
-                // play that special dialogue
-                Debug.Log("Playing dialogue before teleport: " + stc.knockDialogue);
-                FindObjectOfType<DialogueManager>().StartDialogueString(stc.knockDialogue);
-                isThereDialogueToPlay = true;
-                return;
+                Debug.Log("Special condition met");
+                if (stc.knockDialogue != null)
+                {
+                    // play that special dialogue
+                    Debug.Log("Playing dialogue before teleport: " + stc.knockDialogue);
+                    FindObjectOfType<DialogueManager>().StartDialogueString(stc.knockDialogue);
+                    isThereDialogueToPlay = true;
+                    if (stc.shouldTeleportAfter)
+                    {
+                        Debug.Log("Should Teleport");
+                        shouldTeleportAfterDialogue = true;
+                    }
+
+                    return; // found a working dialogue so lets return
+                }
+                else
+                {
+                    
+                }
             }
         }
+        Debug.Log("No dialogue assigned with this special condition, going to just teleport then");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -172,22 +239,27 @@ public class SceneTeleport : MonoBehaviour
 
     public IEnumerator WaitToteleportPlayer(Player player)
     {
-        if (gameState.currentRunningDialogueNode != null)
+        while (gameState.currentRunningDialogueNode != "" && gameState.currentRunningDialogueNode != null)
         {
-            yield return null;
+            Debug.Log("In dialogue still");
+            yield return new WaitForEndOfFrame();
         }
-        else
+        Debug.Log("Is dialogue to play set to null again");
+        isThereDialogueToPlay = false; // dialogue is done
+
+
+        // Teleport to new scene (pass in an optional sound to play as well)
+        // never mind- do all the teleporting via yarn instead. Cuz sometimes we can just play a dialgoue and then NOT teleport the player
+        // or sometimes we wanna play a cutscene after playing the dialogue.
+
+
+        // if we should teleport after dialogue as specified by the field, then do it
+        if (shouldTeleportAfterDialogue)
         {
-            Debug.Log("Is dialogue to play set to null again");
-            isThereDialogueToPlay = false; // dialogue is done
-
-
-            // Teleport to new scene (pass in an optional sound to play as well)
-            // never mind- do all the teleporting via yarn instead. Cuz sometimes we can just play a dialgoue and then NOT teleport the player
-            // or sometimes we wanna play a cutscene after playing the dialogue.
-
-            // LevelLoader.Instance.FadeAndLoadScene(sceneNameGoto, new Vector3(xPosition, yPosition, zPosition), delay: extraDelay, clipToPlay: teleportSound);
+            shouldTeleportAfterDialogue = false; // reset this for next use
+            TeleportPlayer(player);
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)

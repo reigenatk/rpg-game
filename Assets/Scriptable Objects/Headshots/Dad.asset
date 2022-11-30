@@ -18,9 +18,15 @@ MonoBehaviour:
   - headshotName: talking
     sprite: {fileID: -2092143847, guid: 2e23badc182556c46a1f44906a4787f4, type: 3}
   - headshotName: rage
-    sprite: {fileID: -642154698, guid: 2e23badc182556c46a1f44906a4787f4, type: 3}
-  - headshotName: smile
     sprite: {fileID: 999336912, guid: 2e23badc182556c46a1f44906a4787f4, type: 3}
+  - headshotName: smile
+    sprite: {fileID: -642154698, guid: 2e23badc182556c46a1f44906a4787f4, type: 3}
+  - headshotName: rage2
+    sprite: {fileID: -1867837653, guid: 2e23badc182556c46a1f44906a4787f4, type: 3}
+  - headshotName: rage3
+    sprite: {fileID: -627366251, guid: 2e23badc182556c46a1f44906a4787f4, type: 3}
+  - headshotName: smug
+    sprite: {fileID: 704500511, guid: 2e23badc182556c46a1f44906a4787f4, type: 3}
   charactersThatUseTheseHeadshots:
   - Dad
   scaleToUse: 2.5

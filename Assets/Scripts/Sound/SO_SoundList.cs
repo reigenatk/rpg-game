@@ -6,4 +6,5 @@ public class SO_SoundList : ScriptableObject
 {
     [SerializeField]
     public List<SoundItem> soundDetails;
+    public List<SoundItem> soundDetails_2;
 }

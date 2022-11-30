@@ -95,9 +95,9 @@ public class PlayerLoad : MonoBehaviour
 
     private void Update()
     {
-        if (gameState.getYarnVariable("$coomerWasExposed") == true)
-        {
-            spriteRenderer.enabled = false;
-        }
+        // if (gameState.getYarnVariable("$coomerWasExposed") == true)
+        // {
+        //     spriteRenderer.enabled = false;
+        // }
     }
 }

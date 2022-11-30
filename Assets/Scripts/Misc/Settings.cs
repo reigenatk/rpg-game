@@ -23,6 +23,7 @@ public static class Settings
     public static int idleDown;
 
 
+
     // Inventory
     public static int playerInitialInventoryCapacity = 24;
     public static int playerMaximumInventoryCapacity = 48;

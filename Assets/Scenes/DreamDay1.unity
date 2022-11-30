@@ -169,7 +169,8 @@ AudioSource:
   m_GameObject: {fileID: 66587886}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7082490675304529714, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: b273435d593dbc64c8f30cdc77f1cff6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -519,7 +520,8 @@ AudioSource:
   m_GameObject: {fileID: 144628376}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7082490675304529714, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d0f7d354559dc3b4992ce94ff4e14865, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -54772,10 +54774,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -54790,7 +54792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035737019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -141.33, y: -63.97, z: 0}
+  m_LocalPosition: {x: -141.66, y: -62.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54807,7 +54809,7 @@ Animator:
   m_GameObject: {fileID: 2035737019}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 438d25dfa81f77d46b14f0658cef0240, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -54855,18 +54857,18 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_SortingLayerID: 1268136625
+  m_SortingLayer: 8
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 7341110, guid: c7217c49ca2ff514692bce27b0c4661b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2035737025
@@ -54881,11 +54883,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319b8af947933ad48a5145dd4a66e9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNameGoto: 0
-  scenePositionGoto: {x: 0, y: 0, z: 0}
-  extraDelay: 0
-  teleportSound: {fileID: 0}
-  specialTeleportConditions: []
+  sceneNameGoto: 17
+  scenePositionGoto: {x: -139.64, y: -75.7, z: 0}
+  extraDelay: 4
+  teleportSound: {fileID: 8300000, guid: 7b870eb9e49741b47a15996192d69b31, type: 3}
+  teleportSprite: {fileID: 2035737024}
+  specialTeleportConditions:
+  - gameDay: 2
+    extraConditions: []
+    YarnVariables:
+    - YarnVariable: $finishedMeetJefferyScene
+      desiredValue: 1
+    validTimes: []
+    knockDialogue: Teleporter_Explanation
+    shouldTeleportAfter: 1
+  - gameDay: 2
+    extraConditions: []
+    YarnVariables:
+    - YarnVariable: $finishedMeetJefferyScene
+      desiredValue: 0
+    validTimes: []
+    knockDialogue: Nothing
+    shouldTeleportAfter: 0
+  spriteShowConditions:
+  - gameDay: 2
+    extraConditions: []
+    YarnVariables:
+    - YarnVariable: $finishedMeetJefferyScene
+      desiredValue: 1
+    validTimes: []
+    knockDialogue: 
+    shouldTeleportAfter: 0
 --- !u!1 &2116337775
 GameObject:
   m_ObjectHideFlags: 0

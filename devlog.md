@@ -590,7 +590,7 @@ Items: Pokemon Cards, Halloween Candy, stuffed dolphin. Parents are nice and nor
 
 **Tennage**: Sitting alone during lunch, Parents arguing/yelling at you, hardcore studying in a tight room. 
 
-Friend moves away. A brief scene of parting with that said friend (only one friend tho)
+Friend gets told to stop coming to house.
 
 Maybe also an ugly character to symbolize college admissions, and then having the parents be slightly wackly drawn, and also have them worship this ugly character (since my parents worshipped me getting into a good college as the only objective of my young adult life :D and they still do to some degree)
 
@@ -598,7 +598,11 @@ End scene: ugly character "college" rejects us and parents are devestated (symbo
 
 Items: Homework packet, pencils, ticking clock in the song? 
 
-**YA**: Small apartment building, wagie job, drinking alcohol, parents are OLD. Have to take care of them. A failed date due to deterioration of social skills. 
+**YA**: 
+
+You see friend again at some random place. He's a total druggie?
+
+Small apartment building, wagie job, drinking alcohol, parents are OLD. Have to take care of them. A failed date due to deterioration of social skills. 
 
 Staring mindlessly into a screen that blares random audio 
 

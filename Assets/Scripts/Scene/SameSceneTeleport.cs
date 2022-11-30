@@ -48,7 +48,7 @@ public class SameSceneTeleport : MonoBehaviour
     IEnumerator TeleportPlayer(Player player)
     {
 
-        Debug.Log("[Same Scene Teleport] player from position " + player.transform.position + " to " + scenePositionGoto);
+        Debug.Log("[Dream Scene Teleport] player from position " + player.transform.position + " to " + scenePositionGoto);
         float xPosition = Mathf.Approximately(scenePositionGoto.x, 0f) ? player.transform.position.x : scenePositionGoto.x;
 
         float yPosition = Mathf.Approximately(scenePositionGoto.y, 0f) ? player.transform.position.y : scenePositionGoto.y;

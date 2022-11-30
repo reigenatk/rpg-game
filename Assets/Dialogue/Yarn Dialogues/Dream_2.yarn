@@ -1,0 +1,453 @@
+﻿title: Come_Home_With_Jeffery_2
+---
+    Jeffery: I can't wait to go to your house today!
+    Jeffery: We must conquer ALL of Sinnoh together! #e:dramatic
+    Steven: Wait, I don't get it. #e:left-smile
+    Jeffery: It's the newest edition of Dokemon for the Mintendo ES!! #e:smile
+    Jeffery: I got it for sale, too. #e:dramatic
+    Jeffery: We can play on my Mintendo ES together! #e:smile
+    Steven: Oh.. #e:left
+    Steven: Ok! #e:left-smile
+    Steven: I can't wait! #e:left-smile
+    // parents open door once they reach doorstep
+===
+
+title: Kick_Out_Jeffery
+---
+    Dad: Oh. Steven, you are back.
+    <<wait 2>>
+    Dad: Hello, Steven's friend... 
+    Dad: You are Jeffery, right? #e:talking
+    Dad: Steven talk a lot about you. 
+    <<wait 2>>
+    Jeffery: Oh! Yes! #e:talking
+    Jeffery: Yes Mr.... #e:smile
+    <<wait 2>>
+    Jeffery: Mr.... um.... #e:smile
+    Jeffery: (whispers to you) Steven, what's your last name?
+    Steven (Child): My model number is WALL-E-1241299.
+    Jeffery: OK-#e:talking
+    Jeffery: Mr. WALL-E-1241299! #e:dramatic
+    <<wait 3>>
+    Dad: Yes, hello.
+    Dad: Actually, today Steven will be busy.
+    Dad: I need you to stop coming here, ok?
+    <<wait 3>>
+    Jeffery: What? But we were gonna hatch my Haunter today into a Gengar!
+    Jeffery: And then play the newest Dokemo-
+    Dad: Steven has activity after school from now on. Ok? #e:rage
+    Dad: I need you to play during school, not once come home. 
+    Dad: Understand? #e:rage
+    Jeffery: Oh... #e:sad
+    Jeffery: Okay.. #e:sad
+    <<wait 2>>
+    Jeffery: Well I'll see you tomorrow then. #e:sad
+    <<wait 2>>
+    Dad: Silly boy...
+    // walk inside the house and have dad tell to sit
+===
+
+title: Lecture_Start
+---
+    Dad: Boys.
+    Dad: Have a seat.
+    // sit down on couch
+===
+
+title: After_Sitting
+---
+    Dad: Your mother and I have something very important to tell you.
+    <<wait 3>>
+    Dad: You are finally at the age where you are too old to have fun anymore.
+    <<wait 2>>
+    Dad: Repeat after me.
+    Dad: Life is NOT about having fun. #e:talking
+    <<wait 1>>
+    Allen: Life is NOT about having fun.
+    <<wait 2>>
+    Dad: Steven, repeat.
+    Steven (Child): ... #e:down
+    <<wait 2>>
+    Steven (Child): Life is not about having fun. 
+    <<wait 2>>
+    Dad: Life is about working hard. #e:smile
+    Allen: Life is about working hard.
+    <<wait 1>>
+    Steven (Child): Life is about working hard. 
+    <<wait 3>>
+    Dad: From now on, I expect both of you to devote all your life to one thing only.
+===
+
+title: After_Spilling_Books
+---
+    Dad: Studying for school. #e:smile
+    <<wait 3>>
+    Mom: Why this change?
+    <<wait 2>>
+    Dad: You see that boy outside that I just send away? #e:talking
+===
+
+title: After_Allen_Looks
+---
+    Allen: Oh, you mean Steven's friend?
+    Allen: Yes dad, I see him.
+    <<wait 3>>
+    Dad: Yes, Allen. Very good. #e:smile 
+    Dad: You see, he is not like us. He is not a robot.
+    Dad: He can goof around and do whatever he wants all day, because he already make it in this world.
+    Dad: He has rich parents that give him whatever he want.
+    <<wait 2>>
+    Dad: But not us. 
+    Dad: We are minority. 
+    Dad: WE NEED TO WORK HARD!!
+    <<wait 2>>
+    Dad: The only way a bunch of robots like you can ascend the societal ladder..
+    Dad: Is by being really smart and educated, to make a ton of money!!
+    <<wait 2>>
+    Dad: Do you understand? #e:talking
+    <<wait 2>>
+    Allen: YES DAD!
+    Dad: Mom! Do you agree?
+    <<wait 2>>
+    Mom: Yes, of course! #e:smile
+    Dad: Steven! Do you agree?
+    <<wait 2>>
+    Steven (Child): Wait... #e:down
+    <<wait 2>>
+    Steven (Child): So... 
+    Steven (Child): Allen can't come over anymore?
+    Dad: No! 
+    Dad: You goofy around with him in school all day. 
+    Dad: But when come home, only study. #e:talking 
+    Dad: Understand?
+    <<wait 2>>
+    Steven (Child): But...
+    Steven (Child): We were gonna play Super Mario today...
+    Dad: I said no.
+    <<wait 2>>
+    Steven (Child): But I- 
+    <<wait 2>>
+    Dad: HOW DARE YOU ARGUE WITH ME! #e:rage
+===
+
+title: After_Pissed_Off_Dad
+---
+    Mom: Listen to your dad, Steven. #e:angry
+    <<wait 2>>
+    Dad: Give me all your toys. #e:rage
+    <<wait 2>>
+    Dad: Go to your room, get all of it and bring it here. #e:rage2
+    <<wait 2>>
+    Dad: NOW! #e:rage3
+    
+    // do anim where both brothers go to room and get their toys.
+    // make steven take significantly longer.
+===
+
+title: After_Toys
+---
+Dad: IS THAT ALL? #e:rage
+<<wait 3>>
+Dad: ANSWER ME! #e:rage2
+<<wait 2>>
+Steven (Child): Yes... #e:cry
+<<wait 1>>
+Dad: Then take these books and GET OUT OF MY SIGHT! #e:rage2
+Steven (Child): ... #e:cry
+// Steven leaves with books in his hands to his room.
+===
+
+title: After_Books
+---
+Dad: Mom. #e:rage2
+Dad: Since I am gone at work until 6PM, you will be watching over these two. #e:rage
+Dad: You only get break for water, or to go bathroom. #e:rage
+Dad: And at 8PM everyday, you go sleep. Understood? #e:rage
+Allen: YES DAD!
+Mom: Okay... #e:sad
+<<wait 2>>
+Mom: No need to be so mean to them. #e:sad
+<<wait 2>>
+Dad: They only understand if I am mean! #e:rage
+Mom: ... #e:sad
+Dad: Good job Allen, not like your brother. Now go study. #e:rage 
+Allen: YES DAD!
+===
+
+title: After_Rage_Incident
+---
+Steven: Yep... #e:cringe
+Steven: This is definitely my youth. #e:bored
+<<wait 2>>
+Steven: My dad had the skill of getting angry at the tiniest things. #e:sad
+Steven: And he would justify his anger issues with the logic that he was "disciplining me" #e:huh
+<<wait 2>>
+Steven: But in reality, he just hated when he didn't get his way. #e:weary
+<<wait 2>>
+Steven: After this incident, I learned pretty quick to never talk back to him. #e:yikes
+<<wait 2>>
+Voice: This was a lot worse than I remembered... #e:think
+Voice: I feel bad for you. #e:sad
+Steven: Eh...
+Steven: You get use to it after 10 or so years... #e:bored
+===
+
+title: Allen_Come_In
+---
+Allen: Hey Steven.
+<<wait 2>>
+Allen: I'm bored of studying.
+<<wait 1>>
+Steven (Child): Me too... #e:down
+<<wait 2>>
+Allen: Hey, wait a minute...
+Allen: What's that on your desk?
+<<wait 1>>
+Allen: Let me see it.
+<<wait 2>>
+Steven (Child): ...
+Steven (Child): No.
+<<wait 2>>
+Allen: Why?
+Allen: Show me.
+Steven (Child): I said no.
+<<wait 5>>
+Allen: ... #e:angry
+Allen: Give it!
+<<wait 3>>
+Steven (Child): NO!
+// tries to take it from Steven
+===
+
+title: Arguing_2
+---
+Allen: Haha, what even is this? #e:talking 
+Allen: A Dokemon card? Dad already banned those.
+Allen: I'm telling him. #e:talking
+<<wait 2>>
+Steven (Child): Give it back. 
+Allen: No.
+Steven (Child): GIVE IT BACK! #e:rage
+// punch Allen
+===
+
+title: Arguing_3
+---
+Allen: ... #e:rage 
+Allen: You bastard! #e:rage  
+<<wait 3>>
+Allen: I'm gonna kill you! #e:rage
+===
+
+title: Mom_Barge_In
+---
+Mom: What is happening? #e:neutral
+<<wait 3>>
+Mom: Steven! #e:surprised 
+
+===
+
+title: After_Mom_Move
+---
+Mom: Apologize to him, Allen! #e:angry
+<<wait 2>>
+Allen: Sorry, Steven... #e:talking
+<<wait 3>>
+Allen: Looks like you shouldn't have punched me...
+<<wait 2>>
+Allen: Cause now, this card's going bye-bye! #e:talking 
+// dad comes in
+===
+
+title: After_Allen_Leave
+---
+Dad: What's going on here?
+<<wait 2>>
+Allen: Dad, I found one of Steven's cards... #e:talking
+<<wait 2>>
+Dad: Give it to me. 
+<<wait 2>>
+Dad: Steven, why you keep card? I said give all to me.
+<<wait 1>>
+Mom: Oh my goodness! You're bleeding!
+Mom: Allen punch Steven. #e:angry
+Mom: You should discipline him.  #e:angry
+<<wait 2>>
+Dad: Why?
+Dad: If my boys fight, it's a good thing. #e:smile
+Dad: Practices toughness...
+<<wait 3>>
+Dad: Steven need to be more tough, like Allen.
+Dad: Just don't make too much bleed, ok Allen?
+<<wait 2>>
+Allen: Yes, dad. #e:talking
+Dad: Get up! Steven! Crying is for little boy. #e:smile
+// Allen and Dad leave.
+===
+
+title: After_Dad_Leave
+---
+Mom: I'm sorry, Steven. #e:neutral
+<<wait 2>>
+Mom: Just don't fight with him anymore, ok? #e:talking
+<<wait 2>>
+Mom: I go get bandaid. #e:talking
+===
+
+title: Arguing_Reflect
+---
+Steven: I remember this incident so clearly... #e:sad
+Steven: It completely ruined the image of my brother to me. #e:cry
+<<wait 2>>
+Steven: The one person I thought I could relate to... #e:stern
+Steven: The one person who I thought I could tell all my secrets to... #e:stern
+<<wait 3>>
+Steven: Was just a spoiled... #e:angry3
+Steven: bratty... #e:angry2
+Steven: arrogant little prick. #e:angry
+<<wait 3>>
+Steven: The only pathetic little accomplishment in his life... #e:angry3
+Steven: Was coming out of my mother a year before me... #e:angry2
+<<wait 2>>
+Steven: And it was that fact that he rubbed in my face, day after day. #e:angry3
+<<wait 3>>
+Steven: It was in this moment that I understood what kind of person he was... #e:stern
+<<wait 3>>
+Steven: He didn't care that I didn't want him to take my card. #e:stern
+<<wait 2>>
+Steven: And it didn't matter that I had punched him on the shoulder. #e:stern
+<<wait 2>>
+Steven: No. 
+Steven: To him, the only thing that had mattered was that I had tried to hurt his ego.
+Steven: And so to him, a big punch to the face was justified. #e:angry3
+<<wait 3>>
+Steven: I felt so betrayed in this moment... #e:cry
+Steven: And what do you do when you feel betrayed? #e:stern
+<<wait 3>>
+Steven: You vow to take revenge. #e:stern
+<<wait 1>>
+Steven: For me, that revenge took the form of denying my companionship. #e:cry
+Steven: I made a promise to never look at my brother the same way again.
+<<wait 2>>
+Steven: Trust me, I tried to forgive him. #e:stern
+Steven: But I believe that there are things that cannot be forgiven. #e:sad
+Steven: Some events, too outrageous to be forgotten. #e:think1
+Steven: This was one of them. #e:cry
+<<wait 3>>
+Steven: He's still never apologized, to this day. #e:stern
+<<wait 2>>
+Steven: I doubt he even remembers.
+===
+
+title: Voice_Appears
+---
+Voice (Child): Why are you crying, Steven?
+<<wait 5>>
+===
+
+title: Voice_2
+---
+Voice (Child): Answer me, Steven. I know you hear me.
+===
+
+title: Voice_3
+---
+<<wait 3>>
+Voice: It's me! Oh my... #e:concerned
+Voice: I look so different! 
+Voice: God, my hairstyle is so ugly... #e:cringe
+<<wait 1>>
+Voice: Steven! Look! This is when we first met!
+Steven: ...
+Steven: Yes, it is. #e:stern
+===
+
+title: Voice_4
+---
+<<wait 3>>
+Steven (Child): Who... *sob* who are you?
+<<wait 2>>
+Voice (Child): You can call me Voice.
+Voice (Child): I'm here to comfort you.
+Voice (Child): Look, you did nothing wrong. 
+Voice (Child): Your brother is just an asshat. He's always been one.
+Voice (Child): I've been watching you for a while now, and I see that you always get trampled on by him.
+Voice (Child): Can't you see he's been taking advantage of you? 
+Voice (Child): From making you do his chores, to being the favorite child...
+Voice (Child): And you've been a good person, too...
+Voice (Child): You try to be nice to him, but he doesn't even notice your gestures.
+<<wait 2>>
+Voice (Child): So why keep trying? The way he treated you here is the final straw.
+Voice (Child): From now on, don't ever talk to him the same way you did before. 
+Voice (Child): Deny him any sembalance of brotherhood.
+Steven (Child): ...
+<<wait 2>>
+Steven (Child): What do you mean?
+Voice (Child): Just don't talk to him. He craves attention. He wants to boss you around.
+Voice (Child): If you simply don't react to anything he says, he won't have any material to work with.
+Steven (Child): ...ok
+Voice (Child): Psychological warfare, Steven. That is your advantage.
+Voice (Child): Your brother might be athletic, but you have the upper hand when it comes to the mind.
+Voice (Child): Which is ultimately more important.
+Voice (Child): Now cheer up, please. You're a good person, ok?
+Voice (Child): And your brother is dumb as bricks. Dokemon cards are not for girls.
+Steven (Child): Haha... right? He's so stupid sometimes.
+<<wait 2>>
+Steven (Child): ...
+Steven (Child): Thanks, Voice. You cheered me up.
+<<wait 3>>
+Voice (Child): Of course. No worries, I'll stay with you forever.
+Steven (Child): ...
+<<wait 2>>
+Steven (Child): Where?
+Voice (Child): In your mind, of course.
+Voice (Child): Call on me whenever you need some advice.
+===
+
+title: Voice_5
+---
+Voice: And thus a beautiful partnership was born... #e:evil
+<<wait 2>>
+Voice: Still gets me emotional sometimes... #e:cringe
+<<wait 2>>
+Steven: Oh, shut up... #e:bored
+Steven: My brother was an asshat, but you are worse sometimes... #e:stern
+<<wait 2>>
+Steven: Good god, my childhood was terrible... #e:bored
+===
+
+title: Dad_Remark
+---
+Steven: It's my dad. #e:stern
+Steven: He has the patience of a child. #e:bored
+Steven: I remember when I once asked him how to do math homework. 
+Steven: And he got REALLY mad after I couldn't figure out the homework... #e:bored
+Steven: Like, hello, that's why I'm ASKING you for help? #e:laugh
+<<wait 2>>
+Steven: Man... #e:bored
+<<wait 2>>
+Steven: I remember wishing I had different parents at times. #e:weary
+===
+
+title: Mom_Remark
+---
+Steven: It's my mom. 
+Steven: My mom has always been cool. #e:dsmile
+<<wait 2>>
+Steven: It's just... She had no opinion of her own. #e:stern
+<<wait 2>>
+Steven: She just agreed with everything my dad said. #e:bored
+<<wait 2>>
+Steven: Which is not good. #e:stern
+<<wait 2>>
+Steven: It's like a communist dictatorship vs. a democracy with checks and balances. #e:laugh
+===
+
+title: Try_To_Go_Allen_Room
+---
+Steven: I probably don't want to go in here...
+Steven: I hated my brother so much growing up... #e:stern
+Steven: I don't want to look at his face if I can help it. #e:smirk
+<<wait 2>>
+Steven: ESPECIALLY not the younger version of him... #e:cringe
+===

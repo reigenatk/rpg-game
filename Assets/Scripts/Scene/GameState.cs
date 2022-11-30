@@ -49,6 +49,9 @@ public class GameState : Singleton<GameState>
     [SerializeField] List<GameVariable> variablesToNotResetEachDay;
     [SerializeField] List<GameVariablePair> initialGameState; // sets some game variables for debugging purposes
 
+    // not working idk why
+    // [SerializeField] List<YarnVariablePair> initialYarnGameState; // sets some game variables for debugging purposes
+
 
     public Moods playerMood;
     public int gameDay = 1;
@@ -92,6 +95,10 @@ public class GameState : Singleton<GameState>
 
         // start at day 1
         setYarnVariable("$day", gameDay);
+        
+        // debug. Once done set all values to right value
+        setYarnVariable("$finishedMeetJefferyScene", true); // should start false
+
 
         resetDailyYarnVariables();
 
@@ -100,6 +107,7 @@ public class GameState : Singleton<GameState>
         {
             setGameVariable(gvp.variable.ToString(), gvp.desiredValue);
         }
+
 
         // start with all non npcs disabled
         foreach (SpriteRenderer sr in nonnpcs.GetComponentsInChildren<SpriteRenderer>())
@@ -147,6 +155,8 @@ public class GameState : Singleton<GameState>
         setYarnVariable("$talkedToStacyAlready", false);
         setYarnVariable("$talkedToBeckyAlready", false);
 
+
+
     }
 
     public void setYarnVariable(string name, bool val)
@@ -161,14 +171,31 @@ public class GameState : Singleton<GameState>
     }
     public bool getYarnVariable(string name)
     {
-        yarnVariables.TryGetValue<bool>(name, out bool result);
-        return result;
+        if (yarnVariables.Contains(name))
+        {
+            yarnVariables.TryGetValue<bool>(name, out bool result);
+            return result;
+        }
+        else
+        {
+            Debug.Log("Doesn't contain yarn variable of name " + name);
+            return false;
+        }
+
     }
 
     public int getYarnVariableInt(string name)
     {
-        yarnVariables.TryGetValue<int>(name, out int result);
-        return result;
+        if (yarnVariables.Contains(name))
+        {
+            yarnVariables.TryGetValue<int>(name, out int result);
+            return result;
+        }
+        else
+        {
+            Debug.Log("Doesn't contain yarn variable of name " + name);
+            return -1;
+        }
     }
 
     // this method resets a list of variables that we specify in the interface.

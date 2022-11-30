@@ -135,3 +135,15 @@ Fix: So I just hacked together a solution by storing the name of the cutscene th
 Bug (aesprite?): Whenever I have a sprite sheets thats more than like 20 frames long, and then I try to import it into Unity, it always forgets to apply the Point (no filter) and zero compression, and my images appear super blurry. I don't understand why this is happening, but to fix this, for now, I've just split the sprite sheets into two parts. This is probably terrible for maintainability because now I have to export only a certain chunk of frames, and I need to remember which frames go to what (for instance, part 1 is frames 1-12, part 2 is frames 12-24)...
 
 Fix: IDK, but a fix would be nice cuz this is super annoying.
+
+Bug (Yarn Spinner): When I do `setYarnVariable("$finishedMeetJefferyScene", true);` inside the initialization code for GameState, it works when I try doing `TryGetValue()` later on to see what value is in there. But if I use a foreach loop to call the same function, instead of explicity setting the strings, I put it in the serialized field, doing `TryGetValue` DOESNT work, and it says the variable storage does not contain a yarn variable of this name. WTF?
+
+Fix: IDK lol, explicitly declare all Yarn variables that I am gonna use inside the Awake() method of GameState, I guess. Kinda shitty that it has to come to this, but otherwise the GetYarnVariable functions are just completely broken. How is this happening lol?
+
+Bug: PlaySoundString stopped working? WTF?
+
+I do <<playSoundString AudioManager ArriveHome>>, and set the enum as usual, and it just doesnt play -_-. I think whats happening is the dictionary isn't getting the SoundItem objects somehow... maybe the dictionary is too big and needs to be split up into another dictionary? I have no clue...
+
+Fix: IDK? Is my scriptable object too big? This is element #88 so it is rather large but this shouldnt be happening...
+
+**OK I found the fix** XD so I'm pretty sure it just ran out of memory or something. The thing is, it's probably storing the entire audio clips in memory. So when I added a 30 sec clip it took up too much memory for that one dictionary. The fix is really retarded but I just added another dictionary and now will use this one. ANd when that gets full, we do it again... and again. What an ass solution lol

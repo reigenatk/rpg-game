@@ -14,6 +14,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] LineView lineView;
 
     private Dictionary<SoundName, SoundItem> soundDictionary;
+    private Dictionary<SoundName, SoundItem> soundDictionary2;
     List<Sound> currentlyPlaying = new List<Sound>();
 
     [SerializeField] private float fastTalkingSpeed = 55.0f;
@@ -27,18 +28,22 @@ public class AudioManager : Singleton<AudioManager>
 
         // Initialise sound dictionary
         soundDictionary = new Dictionary<SoundName, SoundItem>();
-
+        soundDictionary2 = new Dictionary<SoundName, SoundItem>();
         // Load sound dictionary with sounds
         foreach (SoundItem soundItem in so_soundList.soundDetails)
         {
             soundDictionary.Add(soundItem.soundName, soundItem);
+        }
+        foreach (SoundItem soundItem in so_soundList.soundDetails_2)
+        {
+            soundDictionary2.Add(soundItem.soundName, soundItem);
         }
     }
 
     [YarnCommand("playSoundString")]
     public void playSoundString(string s, bool shouldLoop = false)
     {
-
+        Debug.Log("[playSoundString] called for sound " + s);
         PlaySound((SoundName)System.Enum.Parse(typeof(SoundName), s));
     }
 
@@ -127,8 +132,8 @@ public class AudioManager : Singleton<AudioManager>
             case "Jeffery":
                 PlaySound(SoundName.NerdFriendTypewriter);
                 break;
-            case "Bully":
-                PlaySound(SoundName.BullyRobotTypewriter);
+            case "Allen":
+                PlaySound(SoundName.BrotherTypewriter);
                 break;
             default:
                 PlaySound(SoundName.TypewriterSound);
@@ -193,7 +198,17 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlaySound(SoundName soundName)
     {
-        if (soundDictionary.TryGetValue(soundName, out SoundItem soundItem) && soundPrefab != null)
+        Debug.Log("soundDictionary is of size " + soundDictionary.Count);
+        if (soundDictionary.ContainsKey(SoundName.ArriveHome))
+        {
+            print("ArriveHome");
+        }
+        if (soundPrefab == null)
+        {
+            Debug.Log("SoundPrefab null, can't play sound");
+            return;
+        }
+        if (soundDictionary.TryGetValue(soundName, out SoundItem soundItem))
         {
             GameObject soundGameObject = PoolManager.Instance.ReuseObject(soundPrefab, Vector3.zero, Quaternion.identity);
 
@@ -209,6 +224,27 @@ public class AudioManager : Singleton<AudioManager>
 
             // this is kinda a hack since soundClips is an array but I am assuming that the clips (if there are multiple) are all around the same length, so it doesn't rly matter if we're a bit late or early
             StartCoroutine(DisableSound(soundGameObject, soundItem.soundClips[0].length));
+        }
+        else if (soundDictionary2.TryGetValue(soundName, out SoundItem soundItem2))
+        {
+            GameObject soundGameObject = PoolManager.Instance.ReuseObject(soundPrefab, Vector3.zero, Quaternion.identity);
+
+            Sound sound = soundGameObject.GetComponent<Sound>();
+
+            sound.SetSound(soundItem2);
+            // Debug.Log(soundGameObject);
+            // Debug.Log(sound + " soundItem is " + sound.soundItem.soundName);
+
+            currentlyPlaying.Add(sound);
+            soundGameObject.SetActive(true);
+
+
+            // this is kinda a hack since soundClips is an array but I am assuming that the clips (if there are multiple) are all around the same length, so it doesn't rly matter if we're a bit late or early
+            StartCoroutine(DisableSound(soundGameObject, soundItem2.soundClips[0].length));
+        }
+        else
+        {
+            Debug.Log("Coudn't find sound with enum name " + soundName + " soundItem is " + soundItem.soundName + " soundPrefab is null? " + (soundPrefab == null));
         }
     }
 

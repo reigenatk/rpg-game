@@ -226,7 +226,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
             // cutscene is playing
             // Debug.Log("Cutscene is playing so pause time");
         }
-        else if (gameState.getCurrentSceneEnum() == SceneName.DarkScene)
+        else if (LevelLoader.Instance.isDreamScene())
         {
             // time doesnt advance in dark scene lol
 

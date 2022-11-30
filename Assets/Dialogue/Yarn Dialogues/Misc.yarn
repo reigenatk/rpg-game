@@ -518,7 +518,12 @@ title: Talk_To_Reaper
 	<<wait 1>>
 <<endif>>
 Reaper: Hello, Steven. 
-Reaper: So, are you ready for tonight's dream? #e:smile
+<<jump Ask_If_Ready>>
+===
+
+title: Ask_If_Ready
+---
+Reaper: Are you ready for tonight's dream? #e:smile
 <<wait 1>>
 -> Yes
 	Steven: Yes. #e:worried.
@@ -532,18 +537,17 @@ Reaper: So, are you ready for tonight's dream? #e:smile
 
 // teleport to the right dream world
 <<if $day == 2>>
-	<<playCutsceneAndFade LevelLoader GoToDream Dream1>>
+	<<playCutsceneAndFade LevelLoader GoToDream DreamDay1>>
 <<elseif $day == 3>>
-	<<playCutsceneAndFade LevelLoader GoToDream Dream2>>
+	<<playCutsceneAndFade LevelLoader GoToDream DreamDay2>>
 <<elseif $day == 3>>
-	<<playCutsceneAndFade LevelLoader GoToDream Dream3>>
+	<<playCutsceneAndFade LevelLoader GoToDream DreamDay1>>
 <<elseif $day == 3>>
-	<<playCutsceneAndFade LevelLoader GoToDream Dream4>>
+	<<playCutsceneAndFade LevelLoader GoToDream DreamDay1>>
 <<elseif $day == 3>>
-	<<playCutsceneAndFade LevelLoader GoToDream Dream5>>
+	<<playCutsceneAndFade LevelLoader GoToDream DreamDay1>>
 <<endif>>
 ===
-
 
 title: Hear_Terms
 ---
@@ -601,4 +605,13 @@ Reaper: So... do we have a deal? #e:smile
 
 <<playCutsceneAndFade LevelLoader GoToDream DreamDay1>>
 
+===
+
+title: Dream_Arrive
+---
+<<if $day == 2>>
+    <<jump Dream_1_Arrive>>
+<<elseif $day == 3>>
+	<<jump Dream_2_Arrive>>
+<<endif>>
 ===

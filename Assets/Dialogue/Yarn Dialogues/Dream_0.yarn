@@ -1,0 +1,127 @@
+﻿
+title: Day1GoingToDay2Dream
+---
+<<wait 2>>
+??: And a one..
+??: And a two..
+??: And a one two!
+<<playSoundString AudioManager NotBirthdaySong>>
+<<wait 17>>
+<<wait 2>>
+<<playSoundString AudioManager CandlesBlow>>
+<<wait 3>>
+Game: A candle with the number "10" on it, is blown out.
+<<playMusicName MusicObject RestaurantAmbience>>
+<<wait 4>>
+The cake is okay. Your parents always order the same one because it's "cheap"...
+So you know exactly what it will taste like.
+<<wait 2>>
+Out of the corner of your eye, you see something.
+<<wait 1>>
+Ralph is now waving goodbye.
+<<wait 1>>
+Ralph: Happy birthday, Steven!
+He says, with a big smile on his face.
+<<wait 1>>
+His mom nods at your parents, and Ralph and his mom walk out of the diner.
+<<wait 3>>
+Vincent: Thanks for inviting us over!
+Josh: This buffet was the best!
+<<wait 1>>
+The twins and their mother wave as they leave.
+<<wait 1>>
+It's just you and your parents now.
+<<wait 3>>
+Mom: Alright Steven, let's get ready to go.
+Dad: I agree, you got school tomorrow.
+<<wait 2>>
+You exit the buffet with them, into the dark, starry parking lot.
+<<stopAllMusic MusicObject>>
+<<playSoundString AudioManager OpenShopDoor>>
+<<wait 3>>
+<<playMusicName MusicObject ParkingLotAmbience>>
+<<wait 2>>
+You start to cry.
+<<playSoundString AudioManager Sobbing>>
+<<wait 2>>
+Mom: Why you crying?
+<<wait 2>>
+You try to stop, but the tears keep coming.
+<<wait 2>>
+Dad: Was food not good enough?
+<<wait 1>>
+...
+<<wait 2>>
+Mom: Don't be ungrateful.
+<<wait 2>>
+You're sitting on the curb.
+<<wait 2>>
+Dad: Steven! Get up this instant. Don't throw a tantrum on your birthday!
+Your mom holds up a hand as if to signal your dad, "not now".
+She puts a hand on your shoulder.
+<<wait 1>>
+Mom: Tell me what's wrong, honey?
+<<wait 3>>
+I don't want to get older.
+<<wait 2>>
+Your mom and dad look at each other, surprised.
+Dad: Why is that?
+<<wait 1>>
+I don't want to die.
+<<wait 1>>
+Your parents start to laugh. It doesn't make you feel any better.
+<<wait 1>>
+Mom: That's something you shouldn't worry about right now.
+Why? Everybody dies, right?
+What's the point of living, if we all die anyway?
+<<wait 2>>
+Your parents pause to think a little.
+Something tells you they don't quite know the answer either.
+<<wait 1>>
+That can't be right.
+Mom and Dad always know the answer.
+<<wait 3>>
+Dad: You are young. You have a great life to look forward to.
+Mom: You should be excited, not sad. 
+Dad: Life is like great rollercoaster. You haven't even rode it. And you are already sad?
+<<wait 2>>
+<<stopAllMusic MusicObject>>
+Life is a rollercoaster, huh?
+What a joke. There was no rollercoaster.
+More like dumpster fire.
+<<wait 1>>
+I have no friends, no achievements, no memories to look back on fondly.
+And whose fault is it?
+<<wait 2>>
+No one but mine.
+<<wait 2>>
+No one but mine.
+<<wait 2>>
+NO ONE BUT MINE.
+Just be social. Just be productive. Just live a better life!
+<<wait 1>>
+So they say.
+Why don't you tell poor people to just stop being poor?
+<<wait 1>>
+All of life is just that easy, isn't it?
+Just stop being X, LOL!
+<<wait 2>>
+At least for normal people, it is.
+They can make things happen without even trying.
+<<wait 3>>
+I'm turning 20 tomorrow. A whole decade has passed.
+And nothing has improved.
+The only thing that has changed all this time later, is that I now have a larger pile of regrets.
+Regrets that I have to carry with me, until I die.
+<<wait 1>>
+Maybe the young version of me sensed something.
+<<wait 1>>
+It knew I was never going to amount to anything. 
+<<wait 1>>
+That I wasn't fit to live a good life.
+<<wait 1>>
+And that was enough to make me cry.
+// load user back into bedroom for day 2
+<<yarnLoadScene LevelLoader Bedroom 2.0f>>
+===
+

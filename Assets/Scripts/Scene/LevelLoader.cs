@@ -135,13 +135,15 @@ public class LevelLoader : Singleton<LevelLoader>
     IEnumerator UnloadAllScenesExcept(string sceneName)
     {
         int c = SceneManager.sceneCount;
+        print("There are " + c + " scenes loaded");
         List<Scene> scenesToUnload = new List<Scene>();
         for (int i = 0; i < c; i++)
         {
             Scene scene = SceneManager.GetSceneAt(i);
-            print(scene.name);
+            print("Scene name is " + scene.name);
             if (scene.name != sceneName)
             {
+                print("Unloading " + scene.name);
                 scenesToUnload.Add(scene);
             }
         }
@@ -186,7 +188,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
         // Unload the scene we're gonna load in, if its already loaded
         Debug.Log("Starting scene to load is " + startingSceneName.ToString());
-        UnloadAllScenesExcept("PersistantScene");
+        StartCoroutine(UnloadAllScenesExcept("PersistantScene"));
 
 
         yield return StartCoroutine(CreateScene(startingSceneName, startingPosition, 1.0f));
@@ -558,6 +560,18 @@ public class LevelLoader : Singleton<LevelLoader>
 
     }
 
+    public bool isDreamScene()
+    {
+        if ((curScene == SceneName.DarkScene) || (curScene == SceneName.DreamDay1) || curScene == SceneName.DreamRoom || curScene == SceneName.DreamHome)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     // a helper function to instantiate a scene
     public IEnumerator CreateScene(SceneName sceneName, Vector3 spawnPosition, float delay)
     {
@@ -613,7 +627,7 @@ public class LevelLoader : Singleton<LevelLoader>
         // Start fading back in and wait for it to finish before exiting the function.
         // dont fade in if its the darkscene since we want the darkscene to stay dark.
         // We can then fade in at will using the yarn commands
-        if (sceneName != SceneName.DarkScene)
+        if (!isDreamScene())
         {
             yield return StartCoroutine(Fade(0f));
         }

@@ -25,6 +25,10 @@ MonoBehaviour:
     sprite: {fileID: 1794957066, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
   - headshotName: sad2
     sprite: {fileID: 1764204424, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
+  - headshotName: talking
+    sprite: {fileID: -1377754999, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
+  - headshotName: surprised
+    sprite: {fileID: 186822796, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
   charactersThatUseTheseHeadshots:
   - Mom
   scaleToUse: 2.5

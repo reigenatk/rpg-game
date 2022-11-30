@@ -1,0 +1,379 @@
+﻿title: Dream1_Vars
+---
+<<declare $finishedMeetJefferyScene = true>>
+===
+
+title: Dream_1_Arrive
+---
+Steven: What the... #e:oshit
+<<wait 2>>
+Steven: What is this place? #e:stern
+<<wait 2>>
+Steven: Seems like my elementary school playground... #e:think1
+===
+
+title: Gym_Teacher
+---
+Steven: This was my elementary school gym teacher...
+Steven: What was his name... #e:bored
+<<wait 3>>
+Steven: Oh yeah, Mr. Reagan. #e:smile
+<<wait 1>>
+Steven: Wonder how he's doing these days. #e:think1
+===
+
+title: Swingset
+---
+Steven: A swingset... I forgot our playground had one of these.
+<<wait 2>>
+Steven: I always enjoyed swinging. #e:smile
+Steven: It's the closest thing a young kid has to the feeling of flying. #e:dsmile
+<<wait 2>>
+Steven: But I never went on during recess because no one would push me #e:think1
+===
+
+title: FourSquare
+---
+Steven: I remember this game, it was called Four Square. #e:think2
+Steven: All the guys loved playing it. #e:smile
+Steven: The point was to hit the ball into someone's square make it bounce twice. #e:think1
+<<wait 2>>
+Steven: I actually enjoyed this game, even though I wasn't very good at it. #e:dsmile
+===
+
+title: Hopscotch
+---
+Steven: Hopscotch...
+Steven: To be honest, I never played since I wasn't a girl. #e:think1
+Steven: I never understood exactly what made this game appealing, anyways... #e:huh
+===
+
+title: Lonely_Robot
+---
+Steven: Oh my god... #e:oshit
+Steven: Is that a younger version of me? #e:oshit
+<<wait 3>>
+Steven: Hello? #e:worried
+<<wait 3>>
+Voice: He can't hear you. #e:evil1
+Voice: This is a dream, remember? #e:concerned 
+<<wait 1>>
+Steven: Oh. Right. #e:stern
+<<wait 2>>
+<<playCutscene LevelLoader MeetJeffery>>
+===
+
+title: Alone_Robot
+---
+Steven: Wow, I really sat alone during recess? #e:bored
+Steven: I don't recall being a loser this quickly... #e:think2
+<<wait 2>>
+Steven: This looks to be when I was still in fourth grade? #e:stern
+<<wait 2>>
+===
+
+title: Crying_Robot
+---
+Steven: Wait, I'm crying? #e:oshit
+<<wait 1>>
+Steven: What for? #e:huh
+<<wait 3>>
+Steven: Maybe I was just feeling lonely... #e:think1
+===
+
+title: Jeffery_Pop_Out
+---
+Jeffery: ... 
+<<wait 2>>
+Steven (Child): ... #e:left
+<<wait 2>>
+Jeffery: Hey.
+Steven (Child): h-Hi... #e:left
+<<wait 1>>
+Steven (Child): Where did you come from? #e:left
+<<wait 2>>
+Jeffery: I come from the shadows... #e:dramatic
+<<wait 2>>
+Jeffery: Known as the bushes! 
+<<wait 1>>
+Steven (Child): ... #e:left
+<<wait 3>>
+Jeffery: Hey, is that a Dokemon Card? #e:smile
+<<wait 2>>
+Steven (Child): Oh... #e:down
+Steven (Child): Yeah. #e:left
+<<wait 2>>
+Jeffery: Sweet. #e:smile
+Jeffery: Check this out. #e:dramatic
+===
+
+title: Jeffery_Explain_Pokemon
+---
+Jeffery: Celebi! #e:dramatic
+Jeffery: I SUMMON YOU! #e:dramatic
+Jeffery: 180 HP! Leaf type! #e:dramatic
+Jeffery: It's ability: Leaf spin! Flip a coin. If heads, the Defending Dokemon is now Paralyzed! #e:dramatic
+<<wait 2>>
+Steven (Child): Oooo... cool. #e:left
+Steven (Child): Can I see? #e:left-smile
+<<wait 2>>
+Jeffery: That's not all... It's special ability is Life Force! Heal all benched Dokemon for 50HP! #e:dramatic
+<<wait 2>>
+Jeffery: Do you understand how powerful this is? 
+<<wait 2>>
+Steven (Child): That's a pretty good card... #e:left
+Steven (Child): However, I got a Victini at home that would rip your Celebi apart. #e:left-smile 
+<<wait 3>>
+Jeffery: Celebi! Don't listen to him! #e:dramatic
+Jeffery: You may be weak to fire types, but we have the power of friendship on our side! #e:dramatic
+===
+
+title: After_Child_Laugh
+---
+Steven (Child): The power of friendship doesn't mean anything when your leaf type takes twice the damage... #e:left-smile
+<<wait 2>>
+Jeffery: Hnnnnnnggggg!
+Jeffery: You are really testing my patience.
+<<wait 2>> 
+Jeffery: Take this, fire-type abuser! 
+Jeffery: SUMMON WORM ATTACK! SPECIAL ABILITY, DIRT CHOKE! #e:dramatic 
+===
+
+title: After_Worm
+---
+Steven (Child): Wow, is that an earthworm? #e:left 
+Jeffery: Yes! 
+Jeffery: Earthworm-ssss, actually, because there's two in here. #e:smile
+<<wait 1>>
+Steven (Child): Where did you find it? #e:left-smile
+Jeffery: In the dirt from this tree! #e:smile
+Jeffery: Would you like to join me in the search for the Ground type Dokemon known as worms? #e:dramatic
+<<wait 3>>
+Steven (Child): Sure. #e:left-smile
+Jeffery: Excellent. 
+Jeffery: You will make a great partner. #e:dramatic
+<<wait 3>>
+Jeffery: I'm Jeffery, by the way. #e:smile
+Steven (Child): Steven. #e:left-smile
+Jeffery: Steven. Quite the boring name. But boring is good.
+Jeffery: We need not attract the attention of the worm overlords with extravagant naming.
+<<wait 2>>
+Steven (Child): The worm overlords? #e:left
+Jeffery: The teachers. 
+Jeffery: We're not supposed to be over here.
+Steven (Child): Oh... #e:left
+Steven (Child): right. #e:left-smile
+Jeffery: But that makes it more exciting #e:dramatic
+Jeffery: NOW ONWARDS STEVEN! #e:dramatic
+Jeffery: WE MUST TAKE BACK OUR LANDS AND FIGHT FOR WHAT IS OURS! #e:dramatic
+===
+
+title: After_Jeffery
+---
+Steven: I remember this day now... #e:smile 
+Steven: This was the day I first met Jeffery. #e:dsmile
+<<wait 1>>
+Steven: Probably one of the best things to ever happen to me. #e:cry-smile
+Steven: Even though I don't talk to Jeffery anymore. #e:cry-smile
+Steven: It's not that we fell out or anything... I just couldn't keep talking to him. #e:cry
+<<wait 2>>
+Steven: Well, you'll see what I mean, later on. #e:sad
+<<wait 1>>
+<<set $finishedMeetJefferyScene = true>>
+===
+
+
+title: Get_Home_Jeffery
+---
+Jeffery: Steven! Good news! My mom said I could come over today! #e:smile
+Steven (Child): Really? #e:left-smile
+Steven (Child): I can't wait! #e:smile-straight 
+<<playSoundString AudioManager ArriveHome>>
+<<wait 30>>
+<<FadeOut LevelLoader 1.0>>
+<<wait 2>>
+Steven (Child): So, this is my room. 
+Jeffery: Woah, sweet! #e:smile
+Jeffery: This will make an execellent spot for our Dokemon duel. #e:dramatic 
+<<wait 3>>
+===
+
+title: After_Lay_Out_Board
+---
+Steven (Child): Wow, is that the official Dokemon dueling board? #e:talking
+Jeffery: Yes! Do you know how to play? #e:smile
+Steven (Child): Yep! #e:smile-straight
+Jeffery: OK! Then, I challenge you to a DUEL! #e:dramatic
+<<wait 2>>
+Steven (Child): I accept! #e:smile-straight
+===
+
+title: After_Duel
+---
+Jeffery: Wh- 
+Jeffery: How- 
+Jeffery: Y-You beat me! #e:dramatic
+Jeffery: I CANNOT BELIEVE I HAVE SUFFERED DEFEAT! #e:sad
+<<wait 2>>
+Jeffery: Just how many times have you read your Dokemon cards? 
+Jeffery: You knew all the abilities by heart! That was amazing! #e:smile
+<<wait 3>>
+Steven (Child): Thanks! #e:smile
+<<wait 1>>
+Jeffery: Oh, good reminder! #e:talking
+Jeffery: What awesome stuff do you have in here that we can play with? #e:dramatic
+<<wait 3>>
+Steven (Child): I don't have much else to play with... #e:down
+<<wait 1>>
+Steven (Child): My parents don't like buying me toys. #e:down
+Steven (Child): They said it was a waste of money. #e:down
+<<wait 2>>
+Steven (Child): They only bought me the Dokemon cards because they were on sale at Walmart. #e:down
+<<wait 2>>
+Jeffery: Oh... So you don't have a Mintendo ES? 
+Jeffery: Or a Vii? 
+Jeffery: Or a GameSphere?
+<<wait 2>>
+Steven (Child): No... #e:down
+<<wait 2>>
+Steven (Child): What's that? #e:down
+<<wait 2>>
+Jeffery: This thing! #e:smile
+===
+
+title: Explain_Mintendo
+---
+Jeffery: You can play video games on it, dude! #e:smile
+Steven (Child): Video games? 
+Jeffery: Yeah! Like the physical card game, but on a screen! #e:smile 
+Jeffery: It uses the power of elecitri- 
+Jeffery: Eletci- #e:talking
+Jeffery: elecitricy. 
+Jeffery: Whew. #e:talking
+Jeffery: Big word.
+Jeffery: At least, that's what my dad told me. #e:dramatic
+Steven (Child): Oooooo-
+Steven (Child): Cooooooool. 
+Steven (Child): How did you get yours? #e:talking
+Jeffery: He gave it to me as a Christmas present! #e:smile
+Steven (Child): Oh. #e:left
+Steven (Child): Can I see? 
+Jeffery: Sure! Let's play together! #e:smile
+===
+
+title: After_Play_Mintendo
+---
+Steven (Child): Wow.
+Steven (Child): That was the funnest thing ever! #e:smile-straight 
+Jeffery: Right? #e:dramatic
+Jeffery: If you had one, we could play together, too! #e:smile
+Jeffery: Too bad your parents won't get you any toys... This room is so empty! #e:sad 
+Jeffery: In my room, I have a huge shelf full of toys! #e:dramatic
+Jeffery: And bookshelves full of cards! #e:dramatic 
+Jeffery: And... #e:smile
+<<wait 3>>
+Steven (Child): ..
+Steven (Child): .. #e:down 
+<<wait 2>>
+Jeffery: Oh, I'm sorry. 
+Jeffery: I didn't mean to make you jealous. #e:sad
+Steven (Child): It's alright. #e:down
+Steven (Child): I shouldn't be jealous of you. #e:down
+<<wait 3>>
+Jeffery: Hey, tell you what. 
+Jeffery: Take this. #e:dramatic
+// give the card
+===
+
+title: After_Get_Card
+---
+Steven (Child): Woah.. #e:left
+Steven (Child): you're giving me your Celebi? 
+<<wait 2>>
+Jeffery: Yeah. I want you to have it. #e:smile
+<<wait 2>>
+Steven (Child): No way.. 
+<<wait 2>>
+Jeffery: Yes way. #e:dramatic
+<<wait 1>>
+Steven (Child): Thank you so much! #e:smile-cry
+<<wait 1>>
+Jeffery: I have two copies of her anyways. #e:smile
+Jeffery: So I don't really need this. #e:dramatic
+<<wait 2>>
+Steven (Child): You're the best, Jeffery! #e:smile-cry
+<<wait 1>>
+<<playSoundString AudioManager KnockOnDoor>>
+<<wait 5>>
+Mom: Boys! #e:talking
+Mom: Jeffery's mom is here! #e:talking
+<<wait 2>>
+Mom: Jeffery, are you ready to go home?
+<<wait 2>>
+Jeffery: Yes Mrs! #e:talking
+Jeffery: I'll see you later, Steven! #e:smile
+Jeffery: I'll be back soon, I promise!
+<<wait 2>>
+Steven (Child): Bye, Jeffery! #e:cry
+Steven (Child): Your my bestest friend ever! #e:smile-cry
+===
+
+title: Reflect_Dream_1
+---
+Steven: Wow, I remember this very clearly, too. #e:dsmile
+<<wait 1>>
+Steven: It meant a lot, because my parents would never give me anything. #e:cry-smile 
+Voice: What an emotional story. #e:cringe
+<<wait 2>>
+===
+
+title: Reaper_Enter_Dream1
+---
+Reaper: STEVEN! #e:scary
+Steven: Wha- #e:oshit
+Steven: Who the hell are you? #e:cringe
+<<wait 2>>
+Reaper: Have you already forgotten? #e:shuteye
+Reaper: It's me, the Grim Reaper. #e:smile 
+<<wait 2>> 
+Steven: You're in my dream? #e:embarassed
+Reaper: Of course, I made it.
+Reaper: So tell me, how was your first dream? #e:smile
+Reaper: Did you have a good time? #e:smile
+<<wait 2>>
+Steven: What? #e:huh
+Steven: Oh.... I mean... #e:think1
+<<wait 1>>
+Steven: I don't know, it made me feel uncomfortable. #e:sad
+<<wait 2>>
+Reaper: Well, at least it made you feel something. #e:shuteye
+Reaper: I'll tell you what I took away from it. #e:smile 
+<<wait 2>>
+Reaper: Look at this memory here.
+Reaper: This card you got from Jeffery. It meant a lot to you, right? 
+Reaper: What I wanted to show is this: #e:shuteye
+<<wait 2>>
+Reaper: There are good people in the world, just like Jeffery.
+Reaper: You might think everyone out there is boring, generic, and "normie".
+Reaper: But there are just as many nerdy, quirky, and cool people, too.
+Reaper: You just have to find them! #e:smile 
+<<wait 3>>
+Steven: Y- #e:embarassed 
+Steven: Yea... #e:shy
+Reaper: Anyways, got some other clients to attend to. Have a good day. #e:smile
+===
+
+title: After_Wakeup_Dream_1
+---
+
+Steven: Woah, what's happening? #e:oshit
+Voice: I think the dream is about to end!!! #e:sad
+===
+
+title: Teleporter_Explanation
+---
+Steven: Huh, what is this? #e:huh
+Steven: Wasn't here before. #e:stern
+<<wait 2>>
+Voice: Looks like a teleporter of some kind... #e:concerned
+===
