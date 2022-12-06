@@ -188,6 +188,8 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
     [SerializeField] int dialogueSlowdownRate; // slow time down by a certain factor when dialogue is playing
     [SerializeField] int dialogueSlowdownCounter = 0;
     [SerializeField] List<int> canTalkAgainTimes; // points in the game where we will reset all the "can talk to X NPC" related yarn variables. How about every 6 hours? so 0, 6, 12, 18 (6pm).
+    [SerializeField] List<int> trashGoBadTimes; // times that the trashcan will revert back to being dirty
+
     bool doesThisSceneUseDynamicLights()
     {
         foreach (SceneName s in scenesThatShouldHaveColorChange)
@@ -349,6 +351,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
                 FindObjectOfType<GameState>().canTalkToAllNPCsAgain();
             }
         }
+
 
         if (doesThisSceneUseDynamicLights() == true) lightingTick();
         else

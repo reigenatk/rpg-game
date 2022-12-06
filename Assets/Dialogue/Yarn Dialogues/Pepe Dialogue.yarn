@@ -5,6 +5,8 @@
 <<declare $didPepeDialogue1 = false>>
 <<declare $didPepeDialogue2 = false>>
 <<declare $hasMetPepe = false>>
+<<declare $hasPepeNumber = false>>
+<<declare $hasTextedPepe = false>>
 ===
 title: Pepe_Dialogue
 ---
@@ -59,15 +61,16 @@ Pepe: Damn, you're roommate is a Chad?
 <<wait 1>>
 Steven: Yeah, he is.
 <<wait 1>>
-Pepe: Damn, no way dude. You must hate his guts.
+Pepe: Damn, no way dude...
+Pepe: You must hate his guts.
 <<wait 1>>
 -> Agree
-    Steven: I can't stand his ass. #e:angry2
+    Steven: Yea, I can't stand his ass. #e:angry2
     <<wait 2>>
     Pepe: Man, chads don't understand how good they have it. 
     Steven: Yeah. Neither do women.
     <<wait 1>>
-    Pepe: God, I can't stand them. #e:rage
+    Pepe: God, I can't stand them all. #e:rage
     <<wait 2>>
     Pepe: I wish I could press a button and just kill all chads instantly, you know?
     <<wait 1>>
@@ -128,12 +131,28 @@ Pepe: Damn, no way dude. You must hate his guts.
     -> Disagree
         Steven: No, women aren't the problem either.
         <<wait 3>>
-        Pepe: Man, screw you. #e:rage 
-        Pepe: I don't believe you're one of us anymore. #e:rage
+        Pepe: Man, screw you. #e:feelsbadman
+        Pepe: I don't believe you're an incel anymore. #e:rage
+        Pepe: You're just a failed normalfag. #e:rage
         Pepe: Go suck some more liberal dick, you cuck. #e:rage
         <<jump Pepe_Ruin_Friendship>>
-
-
+Pepe: Hey, by the way... 
+Pepe: Do you have discord or something? #e:smile
+-> Give him
+    Steven: Yeah, I'll enter it into your phone. #e:smile
+    <<wait 4>>
+    Pepe: Cool, thanks. I'll send you some memes then. #e:smile
+-> Don't give
+    Steven: Uh... I don't really use Discord...
+    Pepe: Why lie to me, man? You really think I'm gonna buy that? 
+    <<wait 2>>
+    Steven: Alright, fine. #e:dsmile
+    Steven: I'll enter it into your phone... #e:smile
+    Pepe: Sick. I'm glad I met you, fren. #e:smile
+<<set $hasPepeNumber = true>>
+<<if $hasMadeFriend == false>>
+    <<set $hasMadeFriend = true>>
+<<endif>>
 <<jump Pepe_Improve_Friendship_Most>>
 ===
 
@@ -141,31 +160,31 @@ title: Pepe_Chat_End_Generic
 ---
 Pepe: Anyways, thanks for chatting with me man.
 Pepe: You're the most based person on this shitty campus. #e:smile
-Pepe: Honestly, you make my day. #e:smile
+<<wait 1>>
 Steven: Heh, thanks. #e:smile
-Steven: Take care of yourself, man. #e:smile
-Pepe: You too #e:smile
+Steven: Try not to kill yourself, ok? #e:smile
+Pepe: Hahaha... You too.... Robot. #e:smile
 <<jump Pepe_Improve_Friendship_Most>>
 ===
 
 title: Pepe_Unfriendly
 ---
-Pepe: Get away, disgusting normalfag #e:sad
+Pepe: Get away, disgusting normalfag! REEEEEEEEEEEEE #e:rage
 <<wait 1>>
 -> Insult
     Steven: Stop using dumb terminology, ya disgusting incel. #e:smirk
     Steven: Go touch some grass. And maybe take a shower, too. #e:laugh
-    Pepe: Kill yourself, faggot. #e:rage
+    Pepe: Kill yourself, tranny. #e:rage
     <<jump Pepe_Ruin_Friendship_Less>>
 -> Be Nice
     Steven: Look man, I'm sorry I didn't really understand you last time. #e:think1
     <<wait 1>>
     Steven: I really am like you, I swear. I didn't mean to offend you. #e:smile
     <<wait 2>>
-    Pepe: Okay. But don't ever say that stupid shit again.
+    Pepe: Okay. But don't ever say that stupid shit again. That "just improve yourself" advice. 
     Pepe: I don't talk to retards. 
     <<wait 1>>
-    Steven: Okay #e:worried.
+    Steven: Okay.. #e:stern
     <<jump Pepe_Improve_Friendship_Less>>
 -> Nothing
     Steven: ...
@@ -188,8 +207,6 @@ title: Pepe_Start
 Pepe: So, why did you talk to me?
 -> Frog
     <<jump Pepe_Frog>>
-
-
 ===
 
 title: Pepe_Frog
@@ -209,11 +226,12 @@ Pepe: I thought my looksmaxx worked. You can still tell? #e:sad
 Voice: I mean, he's literally a frog. In a human world. #e:think
 Voice: What is he thinking? 
 Voice: It doesn't matter how much he tries. #e:evil2
-Voice: He'll never fit in #e:evil1
+Voice: He'll never fit in! #e:evil1
 <<wait 2>>
 Pepe: Wait, you're inhuman too.
 Pepe: Thank god. #e:smile
-Pepe: I thought you were some normie. 
+Pepe: I thought you were a glowie. 
+Pepe: But you're LARPing as a normie too... kek. #e:smile
 <<wait 3>>
 Pepe: Man, it sucks being like this. I just want to be like the others. #e:sad
 <<wait 1>>
@@ -292,6 +310,63 @@ Steven: What's it all for anyways? There'll be nothing but scraps for us once we
 <<endif>>
 ===
 
+title: Message_Pepe
+---
+Steven: Yo, what's up. #e:smile
+<<declare $isThere1 = 0>>
+<<set $isThere1 = random_range(0, 6)>>
+<<wait 3>>
+<<if $isThere <= 5>>
+	Steven: Seems like Pepe's AFK... #e:sad 
+	<<changePlayerScoreString Manager "energy" -3.0>>
+	<<wait 2>>
+<<else>>
+	Pepe: What's up.
+    Steven: Hey man, how's your day going.
+    Pepe: My day is going shit... as always. #e:sad
+    <<wait 3>>
+    Steven: Sorry to hear... #e:sad
+    Pepe: It's whatever.
+    <<if $hasTextedPepe == false>>
+        Pepe: By the way dude, I saw a coomer today in the flesh.
+        Pepe: The guy had the biggest arms, like in the memes. #e:smile
+        Pepe: And he was stalking these girls... I can't believe he hasn't been reported to the campus police! #e:feelsgoodman
+        <<wait 2>>
+        Pepe: It was top kek. I should make a greentext about it for the lulz.
+        <<if $hasMetCoomer == true>>
+            Steven: Oh, I know who you're talking about. #e:dsmile
+            Steven: His name is Keith. #e:smile
+            <<wait 2>>
+            Pepe: Heh, Keith. What a cuck name.
+            Steven: Nah dude, he's actually pretty based. At least he recognizes he's a commer.
+            Pepe: Eh, maybe. Coomers gonna coom, bro. #e:smile
+        <<endif>>
+    <<endif>>
+    Pepe: Anyways, wanna watch some kino? #e:smile 
+    Steven: Sure. #e:smile
+	<<FadeIn LevelLoader 1.0>>
+	<<wait 1>>
+	<<playSoundString AudioManager TimeTicking>>
+	<<wait 6>>
+	<<FadeOut LevelLoader 1.0>>
+	<<wait 1>>
+	Pepe: Kay, my sperg roomates are acting up again. Gotta go. #e:sad
+	Steven: Later. #e:smile 
+	<<changePlayerScoreString Manager "energy" -3.0>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+	<<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<wait 3>>
+    <<if $hasTextedPepe == false>>
+        Steven: Pepe's a bit edgy...
+        Steven: But in a entertaining way. #e:think1
+        Steven: I just need to make sure not to take what he says too seriously. #e:dsmile
+        <<set $hasTextedPepe = true>>
+    <<endif>>
+<<endif>>
+
+<<AdvanceXMinutes TimeManager 120>>
+===
 
 title: Pepe_Improve_Friendship
 ---

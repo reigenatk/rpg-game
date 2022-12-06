@@ -23,12 +23,13 @@ public class MusicManager : Singleton<MusicManager>
     {
         public GameObject music;
         public List<Constraints> conditions;
+        public bool isActivated;
 
         // is the music only triggerable via code
         public bool isTriggerable;
         public bool checkConditions(int day, SceneName scene)
         {
-            if (isTriggerable) return false;
+            if (isTriggerable || !isActivated) return false;
             foreach (Constraints c in conditions)
             {
                 if (((c.day == day) || (c.day == -1)) && c.sceneName == scene)

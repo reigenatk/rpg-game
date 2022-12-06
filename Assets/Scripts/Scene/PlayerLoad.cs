@@ -8,8 +8,6 @@ using static TimeManager;
 public class PlayerLoad : MonoBehaviour
 {
     // the actual object to load
-    [SerializeField]        
-    public GameObject player;
     private GameState gameState;
     private SpriteRenderer spriteRenderer;
 
@@ -26,7 +24,7 @@ public class PlayerLoad : MonoBehaviour
         // all the valid times for this player to be in this scene
         public List<ChunkOfTime> validTimes;
 
-        public Vector3 loadPosition;
+
         public bool shouldAddPlayer(SceneName scene)
         {
             GameState gameState = FindObjectOfType<GameState>();
@@ -35,38 +33,17 @@ public class PlayerLoad : MonoBehaviour
             // obviously check if scenes match
             if (scene != this.scene)
             {
+                Debug.Log("[PlayerLoad] Scenes don't match, expected " + this.scene + " but got " + scene);
                 return false;
             }
 
-            if (gameState.getGameDay() == -1 || (gameState.getGameDay() != this.dayToPlay))
+            if ((dayToPlay != -1) && (gameState.getGameDay() != dayToPlay))
             {
-                // Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
+                Debug.Log("[PlayerLoad] Negative 1? " + (dayToPlay != -1));
+                Debug.Log("[PlayerLoad] Game day didn't match, value was " + gameState.getGameDay());
                 return false;
             }
 
-            bool foundValidTime = false;
-            // check if current time falls inside of chunk of valid times
-            foreach (ChunkOfTime cot in validTimes)
-            {
-                if (cot.isInChunk(TimeManager.Instance.gt))
-                {
-                    // its in the chunk, player is valid
-                    foundValidTime = true;
-                    break;
-                }
-            }
-            if (!foundValidTime) return false;
-           
-
-            // check if each condition is met. if not, set isPlaying to false
-            foreach (GameVariablePair gv in this.extraConditions)
-            {
-                if (gameState.getGameVariableEnum(gv.variable) != gv.desiredValue)
-                {
-                    // Debug.Log("Broken on " + gv.variable.ToString());
-                    return false;
-                }
-            }
             return true;
         }
     }
@@ -95,9 +72,13 @@ public class PlayerLoad : MonoBehaviour
 
     private void Update()
     {
-        // if (gameState.getYarnVariable("$coomerWasExposed") == true)
-        // {
-        //     spriteRenderer.enabled = false;
-        // }
+        if (checkAddPlayer(LevelLoader.Instance.curScene)) {
+            // put the player in the scene
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

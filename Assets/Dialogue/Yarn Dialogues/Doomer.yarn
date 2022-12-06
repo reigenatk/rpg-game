@@ -5,10 +5,15 @@
 <<declare $didDoomerDialogue1 = false>>
 <<declare $didDoomerDialogue2 = false>>
 <<declare $hasMetDoomer = false>>
+<<declare $gotDoomerNumber = false>>
+<<declare $hasMadeFriend= false>>
+<<declare $hasTextedDoomer = false>>
 ===
 title: Doomer_Dialogue
 ---
 <<jump Doomer_Normal_Dialogue>>
+
+
 ===
 
 title: Doomer_Normal_Dialogue
@@ -83,7 +88,7 @@ Dylan: Just focus that extra energy on yourself. #e:smile
 Dylan: You probably think that I'm much better than you. I'm not. #e:smoking
 <<wait 1>>
 Dylan: She was just my first, is all. 
-Dylan: And probably my last. #e:smoking
+Dylan: And she'll probably be my last. #e:smoking
 <<wait 1>>
 Steven: How did you two meet? #e:think2
 Dylan: School. She was like me when we first met. But she changed a ton. #e:down
@@ -94,10 +99,29 @@ Dylan: Thanks for chatting with me, bro. I gotta go.
 Steven: Yeah, catch you later. #e:worried
 <<wait 2>>
 Voice: Wow, sounds like that guy had a lot of emotional baggage! #e:laugh
+<<wait 1>>
 Voice: See, maybe it's not so bad to be single. #e:evil1
 <<wait 1>>
-Mind: I mean, that's just one guy's experience... 
+Mind: I mean, that's just one guy's experience... #e:stern
+Mind: Surely I wouldn't let it get that bad if I were in his shoes... #e:think1
 Mind: He did seem really down about it though.
+<<if $gotDoomerNumber == false>>
+	Dylan: Hey, by the way...
+	Dylan: Could I get your contacts? 
+	<<wait 2>>
+	Mind: He wants my contacts? #e:stern
+	Mind: Did I mishear him? #e:think1
+	<<wait 2>>
+	Voice: Wow, you actually made a friend... #e:think
+	Steven: Sure.. I'll put it in your phone.
+	<<playSoundString AudioManager TextingPhone>>
+	<<wait 3>>
+	Dylan: Thanks. Talk to you later. #e:smile
+	<<set $gotDoomerNumber = true>>
+	<<if $hasMadeFriend == false>>
+		<<set $hasMadeFriend = true>>
+	<<endif>>
+<<endif>>
 <<jump Doomer_Improve_Friendship_Most>>
 ===
 
@@ -194,7 +218,7 @@ title: Doomer_Start
 ---
 <<if $hasMetDoomer == false>>
 	Dylan: ... #e:smoking
-	Dylan: If its about Christianity, I don't wanna hear it.
+	Dylan: If its about church, I don't wanna hear it.
 	<<wait 1>>
 	Steven: What? No. I'm just here to say hi. #e:shy
 	<<wait 1>>
@@ -292,6 +316,57 @@ Dylan: It's just pure grey- a neutral land of nothingness.
 	Steven: Yeah, this guy makes pessimists look like optimists. 
 	Steven: But I relate pretty hard to him. Maybe we could be good friends. #e:smile
 	<<jump Doomer_Improve_Friendship>>
+===
+
+title: Message_Dylan
+---
+Steven: Hey, you there?
+<<declare $isThere = 0>>
+<<set $isThere = random_range(0, 6)>>
+<<wait 3>>
+<<if $isThere <= 5>>
+	Steven: Seems like he's AFK... #e:sad 
+	<<changePlayerScoreString Manager "energy" -3.0>>
+	<<wait 2>>
+<<else>>
+	<<if $hasTextedDoomer == false>>
+		Dylan: Hey, who's this?
+		Steven: It's Steven. We talked once? #e:worried 
+		<<wait 2>>
+		Dylan: Oh, Steven. What's up dude?
+		Dylan: Whaddya want?
+		<<wait 2>>
+		Steven: Uh... not sure. Am I bothering you?
+		<<wait 2>>
+		Dylan: Not at all. #e:smoking
+		Dylan: Wanna play games with me? #e:smoking
+		<<wait 2>>
+		Steven: Sure! #e:smile
+	<<else>>
+		Dylan: Yo, Steven. Wanna game? #e:smile 
+		Steven: Bet. #e:smile
+	<<endif>>
+	<<FadeIn LevelLoader 1.0>>
+	<<wait 1>>
+	<<playSoundString AudioManager TimeTicking>>
+	<<wait 6>>
+	<<FadeOut LevelLoader 1.0>>
+	<<wait 1>>
+	Dylan: Okay dude, ggs.
+	Steven: Alright, see you later. #e:smile 
+	<<changePlayerScoreString Manager "energy" -3.0>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+	<<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<wait 3>>
+	<<if $hasTextedDoomer == false>>
+		Steven: That was fun. #e:dsmile 
+		Steven: Gaming is so much better with other people... #e:think1
+		<<set $hasTextedDoomer = true>>
+	<<endif>>
+<<endif>>
+
+<<AdvanceXMinutes TimeManager 120>>
 ===
 
 title: Doomer_Improve_Friendship

@@ -15,7 +15,6 @@ ScriptedImporter:
   - {fileID: 6391573757903218779, guid: 8d01cb4811c69444d8008da172fb1b20, type: 3}
   - {fileID: 6391573757903218779, guid: d8944a310779f0c42a18cf490489d941, type: 3}
   - {fileID: 6391573757903218779, guid: 86e4d99d533b7ea4d9c354b5d66c33a9, type: 3}
-  - {fileID: 6391573757903218779, guid: c148855f1c4fc484dab5c4eca54d7c89, type: 3}
   - {fileID: 6391573757903218779, guid: 447a3743a448c7343bdcea1130d233d6, type: 3}
   - {fileID: 6391573757903218779, guid: 21865c596f091854ca900606f7e0e7df, type: 3}
   - {fileID: 6391573757903218779, guid: ac7d3b1dc6507924e922b58fdca7124e, type: 3}
@@ -40,6 +39,7 @@ ScriptedImporter:
   - {fileID: 6391573757903218779, guid: 2c13038725b3c944393b20553c545454, type: 3}
   - {fileID: 6391573757903218779, guid: 48816d3f06a72aa40959b7b2548b9062, type: 3}
   - {fileID: 6391573757903218779, guid: 8ba08f8cc745bf94a84418a19a251a3a, type: 3}
+  - {fileID: 6391573757903218779, guid: c148855f1c4fc484dab5c4eca54d7c89, type: 3}
   compileErrors: []
   serializedDeclarations:
   - name: $didBloomerDialogue1
@@ -1193,6 +1193,24 @@ ScriptedImporter:
     description: 
     isImplicit: 0
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 2a8458a325c2d6b47b724e01739b3491,
+      type: 3}
+  - name: $finishedEatingFoodScene
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: 
+    isImplicit: 0
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 8ba08f8cc745bf94a84418a19a251a3a,
+      type: 3}
+  - name: $hasTalkedToJefferyInFrontOfHouse
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: 
+    isImplicit: 0
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 8ba08f8cc745bf94a84418a19a251a3a,
       type: 3}
   - name: $talkedToboomerAlready
     typeName: Bool

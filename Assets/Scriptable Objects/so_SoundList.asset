@@ -169,7 +169,7 @@ MonoBehaviour:
     soundVolume: 1
   - soundName: 22
     soundClips:
-    - {fileID: 8300000, guid: ff9f5dd3b1ae1a04198fb7ae29b260b5, type: 3}
+    - {fileID: 8300000, guid: 8ab088e29b0475245aca5e05139220b8, type: 3}
     soundDescription: 
     soundPitchRandomVariationMin: 0.9
     soundPitchRandomVariationMax: 1.1
@@ -258,7 +258,7 @@ MonoBehaviour:
     soundDescription: Annoying, scratchy sound
     soundPitchRandomVariationMin: 0.898
     soundPitchRandomVariationMax: 1.19
-    soundVolume: 0.283
+    soundVolume: 0.936
   - soundName: 35
     soundClips:
     - {fileID: 8300000, guid: 534bb457637a6b4459fd9a32accf4e65, type: 3}
@@ -266,7 +266,7 @@ MonoBehaviour:
     soundDescription: idk just normal, more retro sound
     soundPitchRandomVariationMin: 0.745
     soundPitchRandomVariationMax: 1.134
-    soundVolume: 0.348
+    soundVolume: 0.516
   - soundName: 36
     soundClips:
     - {fileID: 8300000, guid: 6b5994cb9a1664644af7cd7077b3b6a9, type: 3}
@@ -282,13 +282,13 @@ MonoBehaviour:
     soundPitchRandomVariationMin: 1
     soundPitchRandomVariationMax: 1
     soundVolume: 0.548
-  - soundName: 90
+  - soundName: 38
     soundClips:
-    - {fileID: 8300000, guid: 8b1909f40a6f59a45b6acf531696b65e, type: 3}
+    - {fileID: 8300000, guid: 7a5703ff4ed65664c80b3835f9790745, type: 3}
     soundDescription: 
-    soundPitchRandomVariationMin: 0.596
-    soundPitchRandomVariationMax: 0.812
-    soundVolume: 0.548
+    soundPitchRandomVariationMin: 1.271
+    soundPitchRandomVariationMax: 1.5
+    soundVolume: 0.111
   - soundName: 39
     soundClips:
     - {fileID: 8300000, guid: 8b1909f40a6f59a45b6acf531696b65e, type: 3}
@@ -611,13 +611,6 @@ MonoBehaviour:
     soundPitchRandomVariationMin: 1.001
     soundPitchRandomVariationMax: 1.007
     soundVolume: 1
-  - soundName: 38
-    soundClips:
-    - {fileID: 8300000, guid: 7a5703ff4ed65664c80b3835f9790745, type: 3}
-    soundDescription: 
-    soundPitchRandomVariationMin: 1.271
-    soundPitchRandomVariationMax: 1.5
-    soundVolume: 0.111
   - soundName: 83
     soundClips:
     - {fileID: 8300000, guid: 8b357dcfc4bb37d4899740b21640f61e, type: 3}
@@ -625,6 +618,13 @@ MonoBehaviour:
     soundPitchRandomVariationMin: 1.332
     soundPitchRandomVariationMax: 1.5
     soundVolume: 0.643
+  - soundName: 90
+    soundClips:
+    - {fileID: 8300000, guid: ab5005fbe5599094faa7f1c641118b95, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 0.596
+    soundPitchRandomVariationMax: 0.812
+    soundVolume: 1
   soundDetails_2:
   - soundName: 22
     soundClips:
@@ -647,3 +647,52 @@ MonoBehaviour:
     soundPitchRandomVariationMin: 0.752
     soundPitchRandomVariationMax: 1.257
     soundVolume: 0.273
+  - soundName: 92
+    soundClips:
+    - {fileID: 8300000, guid: 367d85ca9a80f504c980ee3e3a4697cd, type: 3}
+    soundDescription: wtf
+    soundPitchRandomVariationMin: 0.752
+    soundPitchRandomVariationMax: 1.257
+    soundVolume: 0.5
+  - soundName: 93
+    soundClips:
+    - {fileID: 8300000, guid: 367d85ca9a80f504c980ee3e3a4697cd, type: 3}
+    soundDescription: wtf
+    soundPitchRandomVariationMin: 0.887
+    soundPitchRandomVariationMax: 1.5
+    soundVolume: 0.27
+  - soundName: 94
+    soundClips:
+    - {fileID: 8300000, guid: 840135b7bf480ca47937c930525a4461, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 95
+    soundClips:
+    - {fileID: 8300000, guid: 32b743858f499f94b9e539d8ba5f4745, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 96
+    soundClips:
+    - {fileID: 8300000, guid: 04e13f1993b48de48995521d5a956cc6, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 97
+    soundClips:
+    - {fileID: 8300000, guid: 96b3a88a9dad4fe4684ed4eb42ecc058, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 98
+    soundClips:
+    - {fileID: 8300000, guid: 80b6a6cac10d3764e832de50836fde3d, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1

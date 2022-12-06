@@ -104,6 +104,8 @@ public class DialogueManager : MonoBehaviour
         player.EnableMovementAndAnimations();
     }
 
+    // this is being called via the yarn serialize fields! Don't DELETE THIS. It's different from the above func because this is for the ENTIRE dialogue
+    // whereas above is for each dialogue NODE, aka each title'd yarn dialogue
     public void DialogueFinishedPlaying()
     {
         NPCMovement NPCBeingTalkedTo = FindObjectOfType<GameState>().currentNPCBeingTalkedTo;

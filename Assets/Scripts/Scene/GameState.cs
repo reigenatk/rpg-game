@@ -96,9 +96,17 @@ public class GameState : Singleton<GameState>
         // start at day 1
         setYarnVariable("$day", gameDay);
         
-        // debug. Once done set all values to right value
-        setYarnVariable("$finishedMeetJefferyScene", true); // should start false
+        // DEBUG ONLY. Once final game is done done set all values to right value (usually false)
+        // these are to trigger the teleporters in the dream scenes. When compiling final game just comment all this out.
 
+        // dream day 1
+        setYarnVariable("$finishedMeetJefferyScene", true); 
+
+        // dream day 2
+        setYarnVariable("$finishedEatingFoodScene", true); 
+
+        // day 3
+        // setYarnVariable("$didCoomerCutscene", true); 
 
         resetDailyYarnVariables();
 

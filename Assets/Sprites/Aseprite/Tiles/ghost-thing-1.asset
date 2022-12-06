@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: ghost-thing-1
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 521421153, guid: 60f80f4b1f9fc3c47bb38394bff711b3, type: 3}
+  - {fileID: 521421153, guid: 60f80f4b1f9fc3c47bb38394bff711b3, type: 3}
+  - {fileID: 341823706, guid: 60f80f4b1f9fc3c47bb38394bff711b3, type: 3}
+  - {fileID: 341823706, guid: 60f80f4b1f9fc3c47bb38394bff711b3, type: 3}
+  - {fileID: 521421153, guid: 60f80f4b1f9fc3c47bb38394bff711b3, type: 3}
+  - {fileID: 341823706, guid: 60f80f4b1f9fc3c47bb38394bff711b3, type: 3}
+  - {fileID: -339506980, guid: 60f80f4b1f9fc3c47bb38394bff711b3, type: 3}
+  - {fileID: 1591779212, guid: 60f80f4b1f9fc3c47bb38394bff711b3, type: 3}
+  - {fileID: 1790945023, guid: 60f80f4b1f9fc3c47bb38394bff711b3, type: 3}
+  - {fileID: -1361086410, guid: 60f80f4b1f9fc3c47bb38394bff711b3, type: 3}
+  m_MinSpeed: 0.2
+  m_MaxSpeed: 0.2
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

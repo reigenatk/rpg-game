@@ -15,6 +15,7 @@ using static TimeManager;
 public class LevelLoader : Singleton<LevelLoader>
 {
     public Vector3 defaultSceneLocation = new Vector3(-69.0f, -69.0f, 0.0f);
+    [SerializeField] private bool spawnWherePlaced = false; // spawn the player where he is in the scene? Debug only
     private bool isFading;
     [SerializeField] private float fadeDuration = 1f;
     [SerializeField] private CanvasGroup faderCanvasGroup = null;
@@ -36,6 +37,7 @@ public class LevelLoader : Singleton<LevelLoader>
     private Dictionary<SceneName, float> sceneToStartingOrthoSize;
     private Dictionary<SceneName, List<CutsceneCondtional>> CutscenesDict;
 
+    // manually keep track of which scene we on
     public SceneName curScene;
 
     // this helps us to keep track of which scene we should load after the cutscene finishes (for a cutscene + new scene pattern)
@@ -49,6 +51,8 @@ public class LevelLoader : Singleton<LevelLoader>
         public PlayableDirector cutsceneToPlay;
         // the day it must be. Set to -1 if it can play any day
         public int dayToPlay;
+        // the days >= this day will work as well
+        public int dayToPlayGEQ;
         // the scene this will play on
         public SceneName scene;
         // will this cutscene be triggered via Yarn, or checked each time we load a scene?
@@ -62,6 +66,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
         // valid times (if empty ignore)
         [SerializeField] List<ChunkOfTime> validTimes;
+        [SerializeField] List<YarnVariablePair> YarnVariables;
         public bool shouldPlayCutscene(SceneName scene)
         {
             if (!shouldActivate) return false;
@@ -74,14 +79,24 @@ public class LevelLoader : Singleton<LevelLoader>
             }
             Debug.Log("Consindering " + this.cutsceneToPlay.ToString());
 
-
-            if ((gameState.getGameDay() != dayToPlay) && dayToPlay != -1)
+            int theDay = gameState.getGameDay();
+            // here are both fail cases... either
+            // dayToPlay isnt -1, and the day doesnt match, and there is no GEQ day (as indicated by it being 0)
+            // or it doesnt match days, ok, then we check the GEQ instance (which isn't 0), and it still doesnt work, then it also fails.
+            // otherwise its ok
+            if (((theDay != dayToPlay) && (dayToPlay != -1) && (dayToPlayGEQ == 0)))
             {
-                Debug.Log("Game day didn't match, value was " + gameState.getGameDay());
+                Debug.Log("[LevelLoader] Game day didn't match, value was " + gameState.getGameDay());
                 return false;
             }
 
-            if (validTimes.Count != 0)
+            if ((theDay < dayToPlayGEQ) && (dayToPlayGEQ != 0))
+            {
+                Debug.Log("[LevelLoader] Game day GEQ didn't match, value was " + gameState.getGameDay());
+                return false;
+            }
+
+                if (validTimes.Count != 0)
             {
                 foreach (ChunkOfTime c in validTimes)
                 {
@@ -100,10 +115,19 @@ public class LevelLoader : Singleton<LevelLoader>
             {
                 if (gameState.getGameVariableEnum(gv.variable) != gv.desiredValue)
                 {
-                    Debug.Log("Broken on " + gv.variable.ToString());
+                    Debug.Log("[LevelLoader] Broken on " + gv.variable.ToString());
                     return false;
                 }
             }
+            foreach (YarnVariablePair yv in YarnVariables)
+            {
+                if (gameState.getYarnVariable(yv.YarnVariable) != yv.desiredValue)
+                {
+                    Debug.Log("[LevelLoader] Broken on yarn variable " + yv.YarnVariable.ToString() + " value was " + gameState.getYarnVariable(yv.YarnVariable) + " expected value is " + yv.desiredValue);
+                    return false;
+                }
+            }
+
             return true;
         }
     }
@@ -190,7 +214,7 @@ public class LevelLoader : Singleton<LevelLoader>
         Debug.Log("Starting scene to load is " + startingSceneName.ToString());
         StartCoroutine(UnloadAllScenesExcept("PersistantScene"));
 
-
+        curScene = startingSceneName;
         yield return StartCoroutine(CreateScene(startingSceneName, startingPosition, 1.0f));
     }
 
@@ -300,6 +324,10 @@ public class LevelLoader : Singleton<LevelLoader>
     [YarnCommand("playCutsceneAndFade")]
     public void playCutsceneAndFade(string cutsceneName, string sceneToFadeTo)
     {
+        Debug.Log("PlayCutsceneAndFade to play " + cutsceneName + " received");
+        // end whatever dialogue is currently playing (if any), since we could've came from a playCutscene call in Yarn
+        FindObjectOfType<DialogueManager>().DialogueNodeFinishedPlaying();
+
         PlayableDirector cutsceneObj = playCutscene(cutsceneName);
         cutsceneObj.stopped += fadeAfterCutsceneFinishes;
         nextSceneToLoad = (SceneName) Enum.Parse(typeof(SceneName), sceneToFadeTo);
@@ -377,6 +405,7 @@ public class LevelLoader : Singleton<LevelLoader>
     public PlayableDirector playCutsceneInternal(PlayableDirector cutscene)
     {
 
+        
 
         Debug.Log("Playing cutscene internal " + cutscene.name);
         if (gameState.cutscenePlaying == cutscene)
@@ -562,7 +591,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
     public bool isDreamScene()
     {
-        if ((curScene == SceneName.DarkScene) || (curScene == SceneName.DreamDay1) || curScene == SceneName.DreamRoom || curScene == SceneName.DreamHome)
+        if ((curScene == SceneName.DreamDay1) || (curScene == SceneName.DreamDay2) || curScene == SceneName.DreamRoom || curScene == SceneName.DreamHome)
         {
             return true;
         }
@@ -589,8 +618,16 @@ public class LevelLoader : Singleton<LevelLoader>
         // also we make sure to put this BEFORE setting the gameVariable as sometimes cutscenes will depend
         // on whether or not we have entered a room already
 
-        Debug.Log("Spawning player in Position " + spawnPosition);
-        Player.Instance.gameObject.transform.position = spawnPosition;
+        if (spawnWherePlaced)
+        {
+            // keep player where he's at
+        }
+        else
+        {
+            Debug.Log("Spawning player in Position " + spawnPosition);
+            Player.Instance.gameObject.transform.position = spawnPosition;
+        }
+
 
         // make player invis if cutscene is gonna play
         if (cutsceneToPlayOnLoad == null)
@@ -672,7 +709,7 @@ public class LevelLoader : Singleton<LevelLoader>
         return (SceneName)System.Enum.Parse(typeof(SceneName), SceneManager.GetActiveScene().name);
     }
 
-    private void LoadPlayers(SceneName sceneName)
+/*    private void LoadPlayers(SceneName sceneName)
     {
         // for each player, check if we should load it into this scene
         foreach (PlayerLoad pl in nonnpcs.gameObject.transform.GetComponentsInChildren<PlayerLoad>())
@@ -694,7 +731,7 @@ public class LevelLoader : Singleton<LevelLoader>
             }
         }
     }
-
+*/
 
     // This is the main external point of contact and influence from the rest of the project.
     // This will be called when the player wants to switch scenes.

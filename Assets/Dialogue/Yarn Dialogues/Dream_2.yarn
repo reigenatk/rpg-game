@@ -1,61 +1,22 @@
-﻿title: Come_Home_With_Jeffery_2
+﻿title: Dream2_Vars
 ---
-    Jeffery: I can't wait to go to your house today!
-    Jeffery: We must conquer ALL of Sinnoh together! #e:dramatic
-    Steven: Wait, I don't get it. #e:left-smile
-    Jeffery: It's the newest edition of Dokemon for the Mintendo ES!! #e:smile
-    Jeffery: I got it for sale, too. #e:dramatic
-    Jeffery: We can play on my Mintendo ES together! #e:smile
-    Steven: Oh.. #e:left
-    Steven: Ok! #e:left-smile
-    Steven: I can't wait! #e:left-smile
-    // parents open door once they reach doorstep
+<<declare $finishedEatingFoodScene = false>>
+<<declare $hasTalkedToJefferyInFrontOfHouse = false>>
 ===
 
-title: Kick_Out_Jeffery
----
-    Dad: Oh. Steven, you are back.
-    <<wait 2>>
-    Dad: Hello, Steven's friend... 
-    Dad: You are Jeffery, right? #e:talking
-    Dad: Steven talk a lot about you. 
-    <<wait 2>>
-    Jeffery: Oh! Yes! #e:talking
-    Jeffery: Yes Mr.... #e:smile
-    <<wait 2>>
-    Jeffery: Mr.... um.... #e:smile
-    Jeffery: (whispers to you) Steven, what's your last name?
-    Steven (Child): My model number is WALL-E-1241299.
-    Jeffery: OK-#e:talking
-    Jeffery: Mr. WALL-E-1241299! #e:dramatic
-    <<wait 3>>
-    Dad: Yes, hello.
-    Dad: Actually, today Steven will be busy.
-    Dad: I need you to stop coming here, ok?
-    <<wait 3>>
-    Jeffery: What? But we were gonna hatch my Haunter today into a Gengar!
-    Jeffery: And then play the newest Dokemo-
-    Dad: Steven has activity after school from now on. Ok? #e:rage
-    Dad: I need you to play during school, not once come home. 
-    Dad: Understand? #e:rage
-    Jeffery: Oh... #e:sad
-    Jeffery: Okay.. #e:sad
-    <<wait 2>>
-    Jeffery: Well I'll see you tomorrow then. #e:sad
-    <<wait 2>>
-    Dad: Silly boy...
-    // walk inside the house and have dad tell to sit
-===
+
 
 title: Lecture_Start
 ---
     Dad: Boys.
     Dad: Have a seat.
+    <<wait 3>>
     // sit down on couch
 ===
 
 title: After_Sitting
 ---
+    <<wait 4>>
     Dad: Your mother and I have something very important to tell you.
     <<wait 3>>
     Dad: You are finally at the age where you are too old to have fun anymore.
@@ -200,8 +161,11 @@ Allen: I'm bored of studying.
 <<wait 1>>
 Steven (Child): Me too... #e:down
 <<wait 2>>
+Allen: There's nothing to play with...
+Allen: Dad took everything... 
+<<wait 2>>
 Allen: Hey, wait a minute...
-Allen: What's that on your desk?
+Allen: What's that green thing on your desk?
 <<wait 1>>
 Allen: Let me see it.
 <<wait 2>>
@@ -211,10 +175,10 @@ Steven (Child): No.
 Allen: Why?
 Allen: Show me.
 Steven (Child): I said no.
-<<wait 5>>
-Allen: ... #e:angry
-Allen: Give it!
-<<wait 3>>
+<<wait 2>>
+Allen: ... #e:rage
+<<wait 2>>
+Allen: Give it! #e:rage
 Steven (Child): NO!
 // tries to take it from Steven
 ===
@@ -222,8 +186,11 @@ Steven (Child): NO!
 title: Arguing_2
 ---
 Allen: Haha, what even is this? #e:talking 
-Allen: A Dokemon card? Dad already banned those.
-Allen: I'm telling him. #e:talking
+Allen: A Dokemon card? 
+Allen: These are so boring! 
+<<wait 2>>
+Allen: Wait a minute, Dad banned toys in the house! #e:talking
+Allen: I could report you for this. 
 <<wait 2>>
 Steven (Child): Give it back. 
 Allen: No.
@@ -233,9 +200,10 @@ Steven (Child): GIVE IT BACK! #e:rage
 
 title: Arguing_3
 ---
-Allen: ... #e:rage 
-Allen: You bastard! #e:rage  
-<<wait 3>>
+Allen: Ow... 
+<<wait 2>>
+Allen: Did you just punch me?  
+Allen: Piece of shit! #e:rage  
 Allen: I'm gonna kill you! #e:rage
 ===
 
@@ -244,19 +212,13 @@ title: Mom_Barge_In
 Mom: What is happening? #e:neutral
 <<wait 3>>
 Mom: Steven! #e:surprised 
-
 ===
 
 title: After_Mom_Move
 ---
 Mom: Apologize to him, Allen! #e:angry
 <<wait 2>>
-Allen: Sorry, Steven... #e:talking
-<<wait 3>>
-Allen: Looks like you shouldn't have punched me...
-<<wait 2>>
-Allen: Cause now, this card's going bye-bye! #e:talking 
-// dad comes in
+Allen: Why? He punched me first... #e:rage
 ===
 
 title: After_Allen_Leave
@@ -267,21 +229,30 @@ Allen: Dad, I found one of Steven's cards... #e:talking
 <<wait 2>>
 Dad: Give it to me. 
 <<wait 2>>
-Dad: Steven, why you keep card? I said give all to me.
+Dad: Steven, why you keep this card? 
+Dad: Didn't I say to give all to me? #e:rage
 <<wait 1>>
-Mom: Oh my goodness! You're bleeding!
-Mom: Allen punch Steven. #e:angry
+Mom: Not now! #e:angry
+<<wait 3>>
+Mom: Oh my goodness! You're bleeding! #e:surprised 
+<<wait 2>>
+Mom: Allen punched Steven. #e:angry
 Mom: You should discipline him.  #e:angry
 <<wait 2>>
 Dad: Why?
 Dad: If my boys fight, it's a good thing. #e:smile
 Dad: Practices toughness...
 <<wait 3>>
-Dad: Steven need to be more tough, like Allen.
-Dad: Just don't make too much bleed, ok Allen?
+Dad: Just what Steven needs...
+Dad: You need to be more tough, like your brother. #e:talking
+<<wait 2>>
+Allen: ...
+<<wait 2>>
+Dad: Just next time, don't make him bleed. #e:smile
 <<wait 2>>
 Allen: Yes, dad. #e:talking
-Dad: Get up! Steven! Crying is for little boy. #e:smile
+<<wait 2>>
+Dad: Get up! Steven! Crying is for little boy. #e:angry2
 // Allen and Dad leave.
 ===
 
@@ -296,53 +267,54 @@ Mom: I go get bandaid. #e:talking
 
 title: Arguing_Reflect
 ---
-Steven: I remember this incident so clearly... #e:sad
-Steven: It completely ruined the image of my brother to me. #e:cry
+Steven: I remember this incident so clearly... #e:stern
+STeven: All these years later.. #e:stern
+<<wait 2>>
+Steven: It completely ruined the image of my brother to me. #e:stern
 <<wait 2>>
 Steven: The one person I thought I could relate to... #e:stern
-Steven: The one person who I thought I could tell all my secrets to... #e:stern
+Steven: The one person who I had told all my secrets to... #e:stern
 <<wait 3>>
 Steven: Was just a spoiled... #e:angry3
 Steven: bratty... #e:angry2
 Steven: arrogant little prick. #e:angry
 <<wait 3>>
 Steven: The only pathetic little accomplishment in his life... #e:angry3
-Steven: Was coming out of my mother a year before me... #e:angry2
+Steven: Was sharing the same womb a year before me... #e:angry2
 <<wait 2>>
 Steven: And it was that fact that he rubbed in my face, day after day. #e:angry3
 <<wait 3>>
-Steven: It was in this moment that I understood what kind of person he was... #e:stern
+Steven: It was in this moment that I understood what kind of person my brother was... #e:stern
 <<wait 3>>
 Steven: He didn't care that I didn't want him to take my card. #e:stern
 <<wait 2>>
 Steven: And it didn't matter that I had punched him on the shoulder. #e:stern
 <<wait 2>>
-Steven: No. 
-Steven: To him, the only thing that had mattered was that I had tried to hurt his ego.
-Steven: And so to him, a big punch to the face was justified. #e:angry3
+Steven: No. #e:angry3
+Steven: To him, the only thing that had mattered was that I had tried to hurt his ego. #e:angry3
+Steven: And so to him, a big punch to the face was justified. #e:angry2
 <<wait 3>>
-Steven: I felt so betrayed in this moment... #e:cry
+Steven: I felt so betrayed in this moment... #e:angry2
 Steven: And what do you do when you feel betrayed? #e:stern
 <<wait 3>>
 Steven: You vow to take revenge. #e:stern
 <<wait 1>>
-Steven: For me, that revenge took the form of denying my companionship. #e:cry
-Steven: I made a promise to never look at my brother the same way again.
+Steven: For me, that revenge took the form of denying my companionship. #e:angry3
+Steven: I made a promise to never open up to my brother again. #e:stern
 <<wait 2>>
 Steven: Trust me, I tried to forgive him. #e:stern
 Steven: But I believe that there are things that cannot be forgiven. #e:sad
 Steven: Some events, too outrageous to be forgotten. #e:think1
-Steven: This was one of them. #e:cry
+Steven: This was one of them. 
 <<wait 3>>
 Steven: He's still never apologized, to this day. #e:stern
 <<wait 2>>
-Steven: I doubt he even remembers.
+Steven: I doubt he even remembers. #e:sad
 ===
 
 title: Voice_Appears
 ---
 Voice (Child): Why are you crying, Steven?
-<<wait 5>>
 ===
 
 title: Voice_2
@@ -355,11 +327,11 @@ title: Voice_3
 <<wait 3>>
 Voice: It's me! Oh my... #e:concerned
 Voice: I look so different! 
-Voice: God, my hairstyle is so ugly... #e:cringe
-<<wait 1>>
-Voice: Steven! Look! This is when we first met!
-Steven: ...
-Steven: Yes, it is. #e:stern
+Voice: God, my hairstyle is so ugly... What was I thinking? #e:cringe
+<<wait 3>>
+Voice: Steven! Look! This is when we first met! #e:evil1
+<<wait 2>>
+Steven: ... #e:stern
 ===
 
 title: Voice_4
@@ -387,26 +359,25 @@ Voice (Child): Just don't talk to him. He craves attention. He wants to boss you
 Voice (Child): If you simply don't react to anything he says, he won't have any material to work with.
 Steven (Child): ...ok
 Voice (Child): Psychological warfare, Steven. That is your advantage.
-Voice (Child): Your brother might be athletic, but you have the upper hand when it comes to the mind.
-Voice (Child): Which is ultimately more important.
-Voice (Child): Now cheer up, please. You're a good person, ok?
-Voice (Child): And your brother is dumb as bricks. Dokemon cards are not for girls.
-Steven (Child): Haha... right? He's so stupid sometimes.
+Voice (Child): Your brother might be stronger than you, but he's dumb as bricks.
 <<wait 2>>
 Steven (Child): ...
-Steven (Child): Thanks, Voice. You cheered me up.
+Steven (Child): Thanks. You cheered me up.
 <<wait 3>>
-Voice (Child): Of course. No worries, I'll stay with you forever.
+Voice (Child): Of course. 
+Steven (Child): Who are you?
+<<wait 2>>
+Voice (Child): I'm just a voice in your mind. 
+Voice (Child): And from now on, I'll stay with you forever.
+<<wait 2>>
 Steven (Child): ...
 <<wait 2>>
-Steven (Child): Where?
-Voice (Child): In your mind, of course.
 Voice (Child): Call on me whenever you need some advice.
 ===
 
 title: Voice_5
 ---
-Voice: And thus a beautiful partnership was born... #e:evil
+Voice: And thus a beautiful partnership was born... #e:evil1
 <<wait 2>>
 Voice: Still gets me emotional sometimes... #e:cringe
 <<wait 2>>
@@ -416,10 +387,67 @@ Steven: My brother was an asshat, but you are worse sometimes... #e:stern
 Steven: Good god, my childhood was terrible... #e:bored
 ===
 
+title: Dream2_Recap
+---
+Reaper: Hello, Steven. 
+Reaper: Had a good dream? #e:smile
+<<wait 3>>
+Steven: Wha- #e:worried
+<<wait 2>>
+Steven: Oh. #e:cringe
+Steven: It's you... #e:stern
+<<wait 2>>
+Reaper: Watch your tone...
+Reaper: I'm trying to help, remember? #e:smile
+<<wait 2>>
+Steven: Help? #e:stern
+Steven: This dream was borderline traumatic! #e:angry3 
+Steven: I'm not trying to relive my shitty childhood! #e:angry2
+<<wait 2>>
+Reaper: Woah, calm down. #e:talking 
+Reaper: Let's talk. #e:smile 
+Reaper: What did you say earlier about how you took revenge on your brother? #e:talking 
+<<wait 2>>
+Steven: I... #e:worried
+<<wait 2>>
+Steven: I said I stopped talking to him... #e:think1
+<<wait 2>>
+Reaper: Right... 
+Reaper: Does that explain a certain part of your current personality? #e:smile
+<<wait 2>>
+Steven: ...
+<<wait 2>>
+Steven: Untrusting? #e:huh
+<<wait 2>>
+Reaper: Not just that! #e:smile
+<<wait 2>>
+Reaper: You are afraid of opening up to anyone! #e:scary 
+Reaper: You live life on the edge, always wondering who will hurt you next.
+<<wait 2>>
+Reaper: That's a pathetic way to live! #e:scary
+<<wait 1>>
+Reaper: Don't you agree? #e:smile
+Reaper: Always submitting to the will of others? #e:talking 
+<<wait 2>>
+Reaper: From this experience, you gained the shitty belief that it's wrong to tell other people how you REALLY feel.
+Reaper: Because you fear you will be punished for it. #e:smile
+<<wait 2>>
+Reaper: I'm here to point out that this way of thinking is a load of bullshit. #e:scary
+Reaper: Tell people what you really think. 
+Reaper: Learn how to say no to things. Learn how to offend someone. #e:smile
+<<wait 2>>
+Reaper: Don't hold others with so much esteem. #e:smile 
+<<wait 2>>
+Reaper: Goodbye. #e:smile 
+Steven: Wait- #e:oshit
+===
+
 title: Dad_Remark
 ---
 Steven: It's my dad. #e:stern
+<<wait 2>>
 Steven: He has the patience of a child. #e:bored
+<<wait 2>>
 Steven: I remember when I once asked him how to do math homework. 
 Steven: And he got REALLY mad after I couldn't figure out the homework... #e:bored
 Steven: Like, hello, that's why I'm ASKING you for help? #e:laugh
@@ -450,4 +478,175 @@ Steven: I hated my brother so much growing up... #e:stern
 Steven: I don't want to look at his face if I can help it. #e:smirk
 <<wait 2>>
 Steven: ESPECIALLY not the younger version of him... #e:cringe
+===
+
+title: Snack_Time
+---
+<<if $finishedEatingFoodScene == true>>
+    <<jump Nothing>>
+<<endif>>
+
+<<stopAllMusic MusicObject 0.5>>
+<<wait 0.5>>
+Steven: I think I know what this is about... #e:bored 
+<<playCutscene LevelLoader EatWithKids>>
+===
+
+title: Get_Laughed_At
+---
+Teacher: Everyone! Snack time!
+===
+
+title: Teacher_Interrupt
+---
+Teacher: Oops, Wait! 
+Teacher: Before you begin eating, I have a special activity for us.
+<<wait 2>>
+Teacher: Please describe what you are eating to your group!
+<<wait 3>>
+Pete: Okay, I'll go first!
+Pete: I brought some corn puffs today! 
+Lucy: Oooo, I love those!
+Lucy: We have a huge box at home!
+<<wait 2>>
+Pete: What'd you bring, Lucy?
+Lucy: I brought some pepper slices!
+Pete: Hot peppers? 
+<<WAIT 1>>
+Lucy: No, just the sweet kind! #e:laugh
+<<wait 2>>
+===
+
+title: Kids_Turn_To_Steven
+---
+Pete: What'd you bring, Steven?
+<<wait 3>>
+Steven (Child): I brought my favorite stuff! #e:smile-straight
+Steven (Child): You guys will love this! #e:smile
+===
+
+title: Describe_Food_1
+---
+Steven (Child): These are some heavy duty washers... #e:smile-straight
+<<wait 2>>
+Steven (Child): They're chewy and I love the crunch of the metal against my teeth! #e:smile-straight
+===
+
+title: Describe_Food_2
+---
+Steven (Child): And this here is some low pH sulfuric acid! #e:smile-straight
+<<wait 1>>
+Steven (Child): My mom said it'll help keep your battery life high.. #e:smile-straight
+<<wait 2>>
+Steven (Child): I drink it with every meal! #e:smile-straight
+===
+
+title: After_Describe
+---
+Pete: ... #e:laugh
+Lucy: ... #e:laugh
+<<wait 2>>
+Pete: So, did you bring any real food? #e:laugh 
+<<wait 1>>
+Steven (Child): What? #e:smile-straight 
+Pete: Because, you know... #e:laugh
+Pete: That's not really edible... #e:laugh
+<<wait 2>>
+Steven (Child): Wait... 
+Steven (Child): What do you mean? 
+Steven (Child): I eat this all the time... 
+<<wait 2>>
+Lucy: Are you sure? 
+Lucy: That's kind of weird... #e:laugh
+<<wait 2>>
+Pete: Yeah... 
+Pete: Maybe you should ask your parents to buy you real food... #e:laugh
+// they start laughing
+===
+
+title: After_Kids_Laugh
+---
+<<wait 3>>
+Steven (Child): I still don't get it. #e:down
+Steven (Child): This is my favorite food in the entire world...
+<<wait 3>>
+Steven (Child): Why are they laughing at me? #e:down
+Steven (Child): Do they not get it?
+<<set $finishedEatingFoodScene = true>>
+<<StartAllMusic MusicObject 0.5>>
+<<wait 0.5>>
+===
+
+title: Walk_Home
+---
+<<stopAllMusic MusicObject 0.5>>
+<<wait 0.5>>
+Steven (Child): It's really nothing... #e:down
+Steven (Child): Trust me.
+<<wait 2>>
+Jeffery: Are you sure? 
+Jeffery: You seem pretty down, Steven.
+<<wait 1>>
+Jeffery: If it's those bullies...
+<<wait 1>>
+Jeffery: I'll handle them. I'm a purple belt in taekwondo. #e:dramatic
+<<wait 3>>
+Jeffery: Aaaaaanyways... #e:smile
+Jeffery: I can't wait to go to your house today!
+Jeffery: We must conquer ALL of Sinnoh together! #e:dramatic
+<<wait 2>>
+Steven (Child): What do you mean
+Jeffery: It's the newest edition of Dokemon for the Mintendo ES!! #e:smile
+Jeffery: I got it for sale, too. #e:dramatic
+Steven (Child): Oh.. #e:left
+Steven (Child): Ok! #e:left-smile
+Steven (Child): I can't wait! #e:left-smile
+<<playCutscene LevelLoader WalkDreamHome>>
+===
+
+
+title: Kick_Out_Jeffery
+---
+    Jeffery: Oh! #e:talking
+    Jeffery: H-hey, Mr.... #e:smile
+    <<wait 2>>
+    Jeffery: Mr.... um.... #e:smile
+    <<wait 2>>
+    Jeffery: Psst.. Steven, what's your last name?
+    <<wait 2>>
+    Steven (Child): I don't really have a last name...
+    Steven (Child): My model number is X1241299.
+    Jeffery: OK- #e:talking
+    <<wait 2>>
+    Jeffery: Mr. X1241299! #e:dramatic
+    <<wait 3>>
+    Dad: Hello.
+    <<wait 2>>
+    Dad: Actually, today Steven will be busy.
+    Dad: I need you to stop coming here, ok?
+    <<wait 3>>
+    Jeffery: What? But we were gonna hatch my Haunter today into a Gengar!
+    Jeffery: And then play the newest Dokemo-
+    Dad: Steven has activity after school from now on. 
+    Dad: I need you to play during school, not once Steven comes home. 
+    <<wait 2>>
+    Dad: Understand? 
+    <<wait 2>>
+    Jeffery: Oh... #e:sad
+    <<wait 2>>
+    Jeffery: Okay.. #e:sad
+    <<wait 2>>
+    Jeffery: Well I'll see you tomorrow then, Steven. #e:sad
+    <<wait 2>>
+===
+
+title: After_Jeffery_Leave
+---
+Dad: Silly boy...
+<<wait 3>>
+Dad: Well, what are you waiting for? 
+Dad: Come in!
+<<set $hasTalkedToJefferyInFrontOfHouse = true>>
+<<StartAllMusic MusicObject 0.5>>
+<<wait 0.5>>
 ===

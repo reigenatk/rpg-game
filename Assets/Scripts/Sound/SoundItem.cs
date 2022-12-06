@@ -97,7 +97,14 @@ public class SoundItem
         ChildRobotTypewriter, // oops made two, this isnt being used. Use PlayerTyperwriterYoung instead
         BrotherTypewriter,
         NerdFriendTypewriter,
-        ArriveHome
+        ArriveHome,
+        LittleBoyTypewriterSound,
+        LittleGirlTypewriterSound,
+        ChewPizza,
+        TextingPhone,
+        TrashDumpster,
+        ManCry,
+        TypingSounds
     }
 
     public SoundName soundName;

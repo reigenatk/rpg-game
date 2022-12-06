@@ -39,7 +39,7 @@ MonoBehaviour:
     sprite: {fileID: -797277262, guid: 25ca4a4e62f75d24b9ba91cda98ff38e, type: 3}
   - headshotName: smile-cry
     sprite: {fileID: 1070947142, guid: 25ca4a4e62f75d24b9ba91cda98ff38e, type: 3}
-  - headshotName: pissed
+  - headshotName: rage
     sprite: {fileID: -52086700, guid: 25ca4a4e62f75d24b9ba91cda98ff38e, type: 3}
   charactersThatUseTheseHeadshots:
   - Steven (Child)

@@ -50,6 +50,9 @@ Steven: I never understood exactly what made this game appealing, anyways... #e:
 
 title: Lonely_Robot
 ---
+<<if $finishedMeetJefferyScene == true>>
+    <<jump Nothing>>
+<<endif>>
 Steven: Oh my god... #e:oshit
 Steven: Is that a younger version of me? #e:oshit
 <<wait 3>>

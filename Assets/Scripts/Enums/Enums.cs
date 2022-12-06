@@ -66,6 +66,8 @@ public enum GameVariable
     hasEnteredDreamDay1,
     hasEnteredDreamHome,
     hasEnteredDreamRoom,
+    hasEnteredDreamDay2,
+    hasEnteredDreamDay3,
     hasEnteredDreamDay4,
     hasEnteredDreamDay5,
 }
@@ -123,9 +125,10 @@ public enum SceneName
     DreamDay1,
     DreamHome,
     DreamRoom,
-    DreamDay4,
+    DreamDay2,
     DreamDay5,
-    
+    DreamDay3,
+    DreamDay4,
 }
 
 public enum Moods

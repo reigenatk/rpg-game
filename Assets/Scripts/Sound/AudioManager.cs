@@ -135,6 +135,12 @@ public class AudioManager : Singleton<AudioManager>
             case "Allen":
                 PlaySound(SoundName.BrotherTypewriter);
                 break;
+            case "Pete":
+                PlaySound(SoundName.LittleBoyTypewriterSound);
+                break;
+            case "Lucy":
+                PlaySound(SoundName.LittleGirlTypewriterSound);
+                break;
             default:
                 PlaySound(SoundName.TypewriterSound);
                 break;
@@ -198,7 +204,7 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlaySound(SoundName soundName)
     {
-        Debug.Log("soundDictionary is of size " + soundDictionary.Count);
+        // Debug.Log("soundDictionary is of size " + soundDictionary.Count);
         if (soundDictionary.ContainsKey(SoundName.ArriveHome))
         {
             print("ArriveHome");

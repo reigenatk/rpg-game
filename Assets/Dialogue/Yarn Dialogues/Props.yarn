@@ -6,6 +6,11 @@
 <<declare $hasDoneSchoolRant2 = false>>
 <<declare $didHomework = false>>
 <<declare $didProjects = false>>
+<<declare $didAnime = false>>
+<<declare $didTwitch = false>>
+<<declare $doneTrash = false>>
+<<declare $isTrashDirty = false>>
+<<declare $isGroupMeetingOn = false>>
 ===
 
 title: D1_Bedroom_Window
@@ -40,167 +45,349 @@ title: D1_Bedroom_Peripherals
 	<<endif>>
 	<<wait 2>>
 	Steven: What shall we do today? #e:smile
-	<<wait 2>>
-	Steven: Anything goes, really. As long as its entertaining enough.. and keeps my mind off my problems. #e:stern
-	Steven: Or if its just homework... well... #e:bored
-	Steven: I may or may not do homework.. It depends on my mood. #e:weary
+	<<wait 1>>
+	<<if $day == 2>>
+		Steven: Anything goes, really. As long as its entertaining enough.. and keeps my mind off my problems. #e:stern
+		Steven: Or if its just homework... well... #e:bored
+		Steven: I may or may not do homework.. It depends on my mood. #e:weary
+	<<endif>>
+
+	<<if $hasTextedDoomer == true && $hasTextedLaura == true && $hasTextedPepe == true>>
+		// then we arrange meetup
+		<<jump Arrange_Meetup>>
+	<<endif>>
+
+	// if we have friends, ask about this first.
+	// once we've talked to all friends, we unlock the final cutscene where they
+	// go out IRL.
+	<<if $hasMadeFriend == true>>
+		Steven: That's right, I have someone's number... #e:dsmile
+		Steven: Who should I contact? #e:think1
+		-> Dylan
+			Steven: Okay, let's send him a message. #e:smile
+			<<jump Message_Dylan>>
+		-> Laura
+			Steven: Okay, I'll shoot her a message. #e:smile
+			<<jump Message_Laura>>
+		-> Pepe
+			Steven: Sure, let's see if Pepe's online. #e:smile
+			<<jump Message_Pepe>>
+	<<endif>>
+
 	<<wait 2>>
 	-> Play vidya
-		Steven: I guess I could go for some gaming right now... #e:smile
-		<<if $hasDoneGameDialogue == false>>
-			Steven: Although, games stopped being fun a long time ago... #e:huh
-			<<wait 2>>
-			Steven: Eventually I peaked in skill, so I started smurfing on noobs. #e:smile
-			Steven: That was fun for a while, until it became boring. #e:stern
-			<<wait 2>>
-			Steven: So I started trolling. #e:smile
-			Steven: Which was also enjoyable until it wasn't. #e:think1
-			<<wait 2>>
-			Steven: So now, I log on to play for what reason? #e:think2
-			<<wait 3>>
-			Steven: I guess... there's no reason anymore.
-			Steven: ... #e:think1 
-			<<set $hasDoneGameDialogue = true>>
-		<<endif>>
-		<<stopAllMusic MusicObject 0.5>>
-		<<wait 0.5>>
-		<<FadeIn LevelLoader 1.0>>
-		<<wait 2>>
-		<<playSoundString AudioManager GamingSounds>>
-		<<wait 29>>
-		<<FadeOut LevelLoader 1.0>>
-		<<wait 2>>
-		Steven: Yaaaaaaaaaay..... #e:stern
-		Steven: We won...... #e:stern
-		<<wait 1>>
-		Steven: So exiting.... #e:weary
-		<<changePlayerScoreString Manager "entertained" 1.0>>
-		<<changePlayerScoreString Manager "contentedness" -10.0>>
-		<<wait 2>>
-		<<StartAllMusic MusicObject 0.5>>
-		<<wait 0.5>>
-		Steven: Man, fuck games. There's nothing fun to play at all. #e:angry2
+		<<jump Vidya>>
+	-> Anime
+		<<jump Anime>>
 	-> Read Social Media
-		Steven: Let's just scroll some random videos in my feed... #e:huh
-		<<if $hasDoneSocialDialogue == false>>
-			Steven: I don't even know why I bother scrolling social media anymore... #e:weary
-			Steven: It's not like I know any of these people personally... #e:think1
-			Steven: And they sure as hell don't know me.
-			<<wait 2>>
-			Steven: So why do I spent so much time looking at their lives? #e:stern
-			<<wait 2>>
-			Steven: Probably because I have some desire to know what is considered cool, or trendy. #e:huh
-			Steven: I want to know what being normal looks and feels like... 
-			<<wait 2>>
-			Steven: Also because it makes you feel like you're being social...
-			Steven: I mean, it's in the name. <color=yellow>Social</color> media.
-			<<wait 2>>
-			Steven: But it's ironic, because it couldn't be further from the truth. #e:smile
-			<<wait 2>>
-			Steven: Social media has done nothing but isolate everyone. #e:stern
-			Steven: And everyone's way too addicted to it, to admit it. #e:bored
-			<<wait 2>>
-			Steven: Oh well. I don't feel like using my brain right now. #e:stern
-			<<set $hasDoneSocialDialogue = true>>
-		<<endif>>
-		<<stopAllMusic MusicObject 0.5>>
-		<<wait 0.5>>
-		<<FadeIn LevelLoader 1.0>>
-		<<wait 2>>
-		<<playSoundString AudioManager WatchingVideos>>
-		<<wait 36>>
-		<<FadeOut LevelLoader 1.0>>
-		<<wait 2>>
-		Steven: What a snore fest. I think I lost brain cells.
-		<<wait 1>>
-		Steven: Insert cookie cutter Tiktoker \#24129412 with his cringe Proxima Nova font... #e:bored
-		Steven: ...the female text to speech... #e:bored
-		Steven: ...and his cringy zoomer perm. #e:bored
-		<<wait 2>>
-		Steven: How does anyone find this entertaining?
-		<<changePlayerScoreString Manager "entertained" -10.0>>
-		<<changePlayerScoreString Manager "contentedness" -10.0>>
-		<<wait 3>>
-		<<StartAllMusic MusicObject 0.5>>
-		<<wait 0.5>>
+		<<jump Social_Media>>
 	-> Be productive
-		Steven: Okay, I think I should do some work.
-		Steven: I know I could goof off right now, but it's not worth it.
-		Steven: How should I be productive?
-		-> Homework
-			Steven: You want me to do homework...?
-			<<if $hasDoneSchoolRant == false>>
-				Steven: You know, I haven't said it yet, but I hate school.
-				Steven: Not for the traditional reasons you might think. #e:think1
-				<<wait 2>>
-				Steven: I've been an A student up until college. #e:stern
-				<<wait 1>>
-				Steven: I'm a pretty smart person, too. 
-				Steven: But there's just something about the way they teach here that ticks me off. #e:angry2
-				<<wait 1>>
-				Steven: None of the professors give a shit about the courses they teach. #e:angry2
-				Steven: And none of the content is actually interesting. #e:angry2
-				<<wait 1>>
-				Steven: It's just a huge scam. I pay thousands of dollars to learn a concept..
-				Steven: ...that I could've googled for FREE... #e:think1
-				Steven: ...and watch some random guy explain the concept better than my professor ever could. #e:think2
-				Steven: Is that a joke? #e:huh
-				<<wait 1>>
-				Steven: It's just.. hard to take my classes seriously when that's the case. #e:weary
-				Steven: Fuck school, man. #e:angry2
-				Steven: The only thing keeping me here is my parents, and my sense of purpose. #e:stern
-				Steven: If going to college wasn't the most normal thing to do, I would be long gone. #e:smile
-				<<set $hasDoneSchoolRant = true>>
-			<<endif>>
-			<<wait 2>>
-			Steven: Ok, let's just bullshit some random assignment that I have due tomorrow. #e:smile
-			<<set $didHomework = true>>
-		-> Passion Projects
-			Steven: Ok, I don't wanna do schoolwork. #e:stern 
-			Steven: Let's learn something cool instead. #e:think1
-			Steven: Something I actually give a shit about. #e:smile
-			<<set $didProjects = true>>
-		<<stopAllMusic MusicObject 0.5>>
-		<<wait 0.5>>
-		<<FadeIn LevelLoader 1.0>>
-		<<wait 2>>
-		<<playSoundString AudioManager CodingSounds>>
-		<<wait 32>>
-		<<FadeOut LevelLoader 1.0>>
-		<<wait 2>>
-		<<if $didProjects == true>>
-			Steven: Phew, that was a lot of work... #e:smile
-			Steven: But it feels good to put that behind me. #e:smile
-			Steven: At least I can say I was productive. #e:comfy 
-			<<wait 2>>
-			Steven: I'm kinda tired, too. #e:dsmile
-			Steven: Using your brain a lot can definitely drain you. #e:smile
-		<<else>>
-			Steven: That was the most braindead, mid quality work I've ever done.
-			<<wait 1>>
-			<<if $hasDoneSchoolRant2 == false>>
-				Steven: But it feels good to speedrun an assingment like that... #e:smile
-				Steven: Knowing you'll never think twice it ever again. #e:smile
-				Steven: I get an odd feeling of satisfaction when I know I'm saving time... #e:comfy
-				Steven: ...by spending as little of it as possible on schoolwork. #e:comfy
-				<<wait 2>>
-				Steven: Fuck you, Professor Smith! #e:smirk
-				Steven: Give me that C, I don't give a SHIT!! #e:laugh
-				<<wait 1>>
-				Steven: I'm not wasting my time on your stupid ass paper! #e:laugh
-				<<set $hasDoneSchoolRant2 = true>>
-			<<endif>>
-		<<endif>>
-
-		<<set $didProjects = false>>
-		<<set $didHomework = false>>
-		<<changePlayerScoreString Manager "entertained" -10.0>>
-		<<changePlayerScoreString Manager "energy" -20.0>>
-		<<changePlayerScoreString Manager "contentedness" 30.0>>
-		<<StartAllMusic MusicObject 0.5>>
-		<<wait 0.5>>
+		<<jump Productivity>>
 	<<AdvanceXMinutes Manager 120>>
 <<endif>>
+===
+
+title: Arrange_Meetup
+---
+Steven: So I've now been chatting with Pepe, Laura and Dylan pretty frequently. #e:smile 
+Steven: I think I could call all 3 of them my friend now... #e:smile 
+Steven: But I wonder if I could arrange a meetup for all of us... #e:dsmile 
+<<wait 2>>
+Steven: After all, I think we're all super lonely. #e:sad
+Steven: And talking online can only go so far. I want them to meet each other. #e:smile
+<<wait 2>>
+Steven: But where should I arrange it? And what should we even do together? #e:huh
+<<wait 2>>
+Steven: K, let's first add them to a group chat. #e:smirk
+<<playSoundString AudioManager TypingSounds>>
+<<wait 6>>
+Pepe: WHAT IS THIS? 
+<<wait 1>>
+Steven: Looks like you already found this...
+Pepe: @everyone @everyone @everyone @everyone #e:smile
+Steven: Stop it, you bastard. #e:angry2 
+Voice: Pepe is terminally online, isn't he... #e:think
+Steven: Yeah.. In some ways, he's more hopeless than I am.
+<<wait 2>>
+Laura: ... who are you? 
+Pepe: A femcel? Nah, I'm leaving... 
+Steven: Wait!
+Pepe: Oh, its you... I've seen your avatar somewhere before.
+Laura: Good god, Steven, why are you friends with this guy!? #e:looking
+Laura: He's so obnoxious... I see him online everywhere.
+Pepe: Shut up, roastie. #e:rage
+Laura: See.. #e:looking
+<<wait 1>>
+Steven: You guys know each other?
+Pepe: Not really, we've never talked. #e:smile
+<<wait 2>>
+Dylan: What is this..
+Pepe: Oh, your the dude from the gaming club.
+Dylan: Yeah. #e:smile
+Dylan: Pepe, was it? #e:smoking
+Pepe: Yep.
+<<wait 1>>
+Steven: Okay, hear me out guys... #e:shy
+Steven: I thought we could all meet up? #e:worried
+<<wait 2>>
+Pepe: LOL!
+Steven: what!? #e:angry2
+Pepe: It's just, we don't know each other, man.
+Steven: Well, that's the point. #e:yikes
+Laura: I'll come. #e:looking
+<<wait 2>>
+Dylan: Yeah, I'd be down for a meetup. #e:smile
+Pepe: What? 
+Pepe: Ok... fine. But this better not be cringe. 
+Dylan: Come, Pepe. You need more friends. Steven is trying to help you. #e:smile
+Pepe: Oh shut up! #e:rage
+<<wait 2>>
+Steven: Alright, sweet. It's on, then. #e:smile
+Laura: Where are we going though? #e:looking
+Pepe: Your house, of course. ( ͡° ͜ʖ ͡°) #e:smile
+Laura: ...can we uninvite Pepe? #e:looking
+Steven: Ok guys, what about downtown?
+<<wait 3>>
+Pepe: wtf, are you high?
+Steven: What? We can like eat or something! #e:smile 
+Laura: Steven... we are not going downtown. #e:looking
+<<wait 2>>
+Dylan: What about the classrooms?
+Laura: Both classrooms are taken up by clubs after school.
+<<wait 1>>
+Steven: Wait, where do you guys live? #e:think1
+Steven: Why not just my house? #e:smile
+<<wait 2>>
+Laura: Your... house? #e:looking-away-smile
+Dylan: Steven, I'm not gay. #e:smile 
+Steven: Wha- I didn't mean it like that! #e:angry2
+<<wait 2>>
+Pepe: They're playin with you. We'll come to your place. #e:smile
+Steven: Really? #e:yikes 
+Laura: Yeah. Beats the other alternatives. #e:looking-smile
+Dylan: Agreed, I don't see why not. #e:smile 
+Pepe: Alright party people, I'm on my way.
+Dylan: See ya at Steven's house.
+<<wait 2>>
+Laura: Wait you idiots- when is it? #e:looking
+Steven: I guess it's tonight? It's the weekend, anyways. #e:dsmile
+Laura: Okay. Coming. #e:looking-away-smile 
+<<wait 2>>
+Voice: Why did you do that? #e:cringe
+Voice: You're gonna screw this up so bad... #e:evil1
+Steven: Shit. You're right. This could go very wrong.
+Steven: But it could go very right.. #e:stern
+<<wait 1>>
+Steven: Maybe I rushed into this a bit fast.. I should prepare a bit. #e:worried 
+<<set $isGroupMeetingOn = true>>
+===
+
+title: Vidya
+---
+Steven: I guess I could go for some gaming right now... #e:smile
+<<if $hasDoneGameDialogue == false>>
+	Steven: Although, games stopped being fun a long time ago... #e:huh
+	<<wait 2>>
+	Steven: Eventually I peaked in skill, so I started smurfing on noobs. #e:smile
+	Steven: That was fun for a while, until it became boring. #e:stern
+	<<wait 2>>
+	Steven: So I started trolling. #e:smile
+	Steven: Which was also enjoyable until it wasn't. #e:think1
+	<<wait 2>>
+	Steven: So now, I log on to play for what reason? #e:think2
+	<<wait 3>>
+	Steven: I guess... there's no reason anymore.
+	Steven: ... #e:think1 
+	<<set $hasDoneGameDialogue = true>>
+<<endif>>
+<<stopAllMusic MusicObject 0.5>>
+<<wait 0.5>>
+<<FadeIn LevelLoader 1.0>>
+<<wait 2>>
+<<playSoundString AudioManager GamingSounds>>
+<<wait 29>>
+<<FadeOut LevelLoader 1.0>>
+<<wait 2>>
+Steven: Yaaaaaaaaaay..... #e:stern
+Steven: We won...... #e:stern
+<<wait 1>>
+Steven: So exiting.... #e:weary
+<<changePlayerScoreString Manager "entertained" 1.0>>
+<<changePlayerScoreString Manager "contentedness" -10.0>>
+<<wait 2>>
+<<StartAllMusic MusicObject 0.5>>
+<<wait 0.5>>
+Steven: Man, fuck games. There's nothing fun to play at all. #e:angry2
+===
+
+title: Anime
+---
+Steven: Okay, let's watch some anime.
+<<if $didAnime == false>>
+	Steven: Alright, maybe I'll try to watch anime. #e:think1
+	Steven: Although, most anime these days are shit and I can't enjoy them at all.
+	Steven: I feel like I exhausted all the good ones. #e:weary 
+	<<set $didAnime = true>>
+<<endif>>
+Steven: Oh well, let's just watch it anyways... #e:bored
+		<<stopAllMusic MusicObject 0.5>>
+<<wait 0.5>>
+<<FadeIn LevelLoader 1.0>>
+<<wait 2>>
+<<playSoundString AudioManager AnimeSounds>>
+<<wait 35>>
+<<FadeOut LevelLoader 1.0>>
+<<wait 2>>
+<<if $didAnime == false>>
+	Steven: God, anime makes me so angry for no reason... #e:stern
+	<<wait 2>>
+	Steven: Angry because we don't live in such a simple world... #e:angry3
+	Steven: A world where you can just try hard, and get everything you ever wanted, solely because of your efforts... #e:angry
+	Steven: If only it were that easy. #e:angry
+	<<wait 2>>
+	Steven: All anime tries to represent perfect high school life. #e:stern
+	Steven: Slice of life anime, anyways...
+	Steven: That's probably why I was once addicted to it... and why many people still are. #e:weary
+	<<wait 2>>
+	Steven: But that's why I can't stand watching it anymore. It just reminds me of how shit my own life is. #e:bored
+	<<wait 2>>
+	Steven: That's probably why anime fans get shit on, too.
+	Steven: It's because they over-indulge in a form of escapism... #e:think1
+	Steven: Which makes them weak, and delusional over reality. #e:think2
+	Steven: Otherwise known as weebs... #e:stern
+<<else>>
+	Steven: What a mid show... #e:bored
+<<endif>>
+<<changePlayerScoreString Manager "entertained" 5.0>>
+<<changePlayerScoreString Manager "contentedness" -5.0>>
+<<wait 3>>
+<<StartAllMusic MusicObject 0.5>>
+<<wait 0.5>>
+===
+
+title: Social_Media
+---
+Steven: Let's just scroll some random videos in my feed... #e:huh
+<<if $hasDoneSocialDialogue == false>>
+	Steven: I don't even know why I bother scrolling social media anymore... #e:weary
+	Steven: It's not like I know any of these people personally... #e:think1
+	Steven: And they sure as hell don't know me.
+	<<wait 2>>
+	Steven: So why do I spent so much time looking at their lives? #e:stern
+	<<wait 2>>
+	Steven: Probably because I have some desire to know what is considered cool, or trendy. #e:huh
+	Steven: I want to know what being normal looks and feels like... 
+	<<wait 2>>
+	Steven: Also because it makes you feel like you're being social...
+	Steven: I mean, it's in the name. <color=yellow>Social</color> media.
+	<<wait 2>>
+	Steven: But it's ironic, because it couldn't be further from the truth. #e:smile
+	<<wait 2>>
+	Steven: Social media has done nothing but isolate everyone. #e:stern
+	Steven: And everyone's way too addicted to it, to admit it. #e:bored
+	<<wait 2>>
+	Steven: Oh well. I don't feel like using my brain right now. #e:stern
+	<<set $hasDoneSocialDialogue = true>>
+<<endif>>
+<<stopAllMusic MusicObject 0.5>>
+<<wait 0.5>>
+<<FadeIn LevelLoader 1.0>>
+<<wait 2>>
+<<playSoundString AudioManager WatchingVideos>>
+<<wait 36>>
+<<FadeOut LevelLoader 1.0>>
+<<wait 2>>
+Steven: What a snore fest. I think I lost brain cells.
+<<wait 1>>
+Steven: Insert cookie cutter Tiktoker \#24129412 with his cringe Proxima Nova font... #e:bored
+Steven: ...the female text to speech... #e:bored
+Steven: ...and his cringy zoomer perm. #e:bored
+<<wait 2>>
+Steven: How does anyone find this entertaining?
+<<changePlayerScoreString Manager "entertained" -10.0>>
+<<changePlayerScoreString Manager "contentedness" -10.0>>
+<<wait 3>>
+<<StartAllMusic MusicObject 0.5>>
+<<wait 0.5>>
+===
+
+title: Productivity
+---
+Steven: Okay, I think I should do some work.
+Steven: I know I could goof off right now, but it's probably gonna just make me feel bad for procrastinating. #e:think1
+Steven: How should I be productive? #e:huh
+-> Homework
+	Steven: You want me to do homework...?
+	<<if $hasDoneSchoolRant == false>>
+		Steven: You know, I haven't said it yet, but I hate school.
+		Steven: Not for the traditional reasons you might think. #e:think1
+		<<wait 2>>
+		Steven: I've been an A student up until college. #e:stern
+		<<wait 1>>
+		Steven: I'm a pretty smart person, too. 
+		Steven: But there's just something about the way they teach here that ticks me off. #e:angry2
+		<<wait 1>>
+		Steven: None of the professors give a shit about the courses they teach. #e:angry2
+		Steven: And none of the content is actually interesting. #e:angry2
+		<<wait 1>>
+		Steven: It's just a huge scam. I pay thousands of dollars to learn a concept..
+		Steven: ...that I could've googled for FREE... #e:think1
+		Steven: ...and watch some random guy explain the concept better than my professor ever could. #e:think2
+		Steven: Is that a joke? #e:huh
+		<<wait 1>>
+		Steven: It's just.. hard to take my classes seriously when that's the case. #e:weary
+		Steven: Fuck school, man. #e:angry2
+		Steven: The only thing keeping me here is my parents, and my sense of purpose. #e:stern
+		Steven: If going to college wasn't the most normal thing to do, I would be long gone. #e:smile
+		<<set $hasDoneSchoolRant = true>>
+	<<endif>>
+	<<wait 2>>
+	Steven: Ok, let's just bullshit some random assignment that I have due tomorrow. #e:smile
+	<<set $didHomework = true>>
+-> Passion Projects
+	Steven: Ok, I don't wanna do schoolwork. #e:stern 
+	Steven: Let's learn something cool instead. #e:think1
+	Steven: Something I actually give a shit about. #e:smile
+	<<set $didProjects = true>>
+<<stopAllMusic MusicObject 0.5>>
+<<wait 0.5>>
+<<FadeIn LevelLoader 1.0>>
+<<wait 2>>
+<<playSoundString AudioManager CodingSounds>>
+<<wait 32>>
+<<FadeOut LevelLoader 1.0>>
+<<wait 2>>
+<<if $didProjects == true>>
+	Steven: Phew, that was a lot of work... #e:smile
+	Steven: But it feels good to put that behind me. #e:smile
+	Steven: At least I can say I was productive. #e:comfy 
+	<<wait 2>>
+	Steven: I'm kinda tired, too. #e:dsmile
+	Steven: Using your brain a lot can definitely drain you. #e:smile
+<<else>>
+	Steven: That was the most braindead, mid quality work I've ever done.
+	<<wait 1>>
+	<<if $hasDoneSchoolRant2 == false>>
+		Steven: But it feels good to speedrun an assingment like that... #e:smile
+		Steven: Knowing you'll never think twice it ever again. #e:smile
+		Steven: I get an odd feeling of satisfaction when I know I'm saving time... #e:comfy
+		Steven: ...by spending as little of it as possible on schoolwork. #e:comfy
+		<<wait 2>>
+		Steven: Fuck you, Professor Smith! #e:smirk
+		Steven: Give me that C, I don't give a SHIT!! #e:laugh
+		<<wait 1>>
+		Steven: I'm not wasting my time on your stupid ass paper! #e:laugh
+		<<set $hasDoneSchoolRant2 = true>>
+	<<endif>>
+<<endif>>
+
+<<set $didProjects = false>>
+<<set $didHomework = false>>
+<<changePlayerScoreString Manager "entertained" -10.0>>
+<<changePlayerScoreString Manager "energy" -20.0>>
+<<changePlayerScoreString Manager "contentedness" 30.0>>
+<<StartAllMusic MusicObject 0.5>>
+<<wait 0.5>>
 ===
 
 title: D1_Bedroom_Trash
@@ -349,83 +536,106 @@ title: Fridge
 	Steven: Your food isn't safe in here. #e:yikes
 	Steven: Kabowski eats my shit all the time. #e:laugh
 	<<wait 2>>
-	Steven: But as revenge, I eat his stuff sometimes too... #e:dsmile
+	Steven: But as revenge, I eat his stuff... #e:dsmile
 	Steven: So I guess we're even!? #e:smile
-<<else>>
-	<<if $hasEatenSnack == true>>
-		Steven: Hmm, I probably should wait a bit before eating another snack. #e:stern
-		Steven: I don't wanna overindulge and run out later in the week... #e:yikes
-	<<else>>
-		Steven: Let's see what's in here...
-		<<playSoundString AudioManager OpenFridgeDoor>>
-		<<wait 3>>
-		-> Hot Pocket
-			Steven: Hot pockets. #e:comfy
-			Steven: More than 60 percent of your saturated fat, and 29 percent of your daily sodium allowance! #e:comfy 
-			<<FadeIn LevelLoader 1.0>>
-			<<wait 2>>
-			<<playSoundString AudioManager Microwave>>
-			<<wait 8>>
-			<<playSoundString AudioManager CrunchyBite>>
-			<<wait 3>>
-			<<FadeOut LevelLoader 1.0>>
-			<<wait 2>>
-			<<changePlayerScoreString Manager "energy" 10.0>>
-			<<changePlayerScoreString Manager "entertained" 5.0>>
-			<<wait 2>>
-		-> Ice Cream
-			Steven: I can get behind some ice cream. #e:smile
-			<<FadeIn LevelLoader 1.0>>
-			<<wait 2>>
-			<<playSoundString AudioManager LickIceCream>>
-			<<wait 2>>
-			<<FadeOut LevelLoader 1.0>>
-			<<wait 2>>
-			<<changePlayerScoreString Manager "energy" 5.0>>
-			<<changePlayerScoreString Manager "entertained" 10.0>>
-			<<wait 2>>
-		-> Beer
-			Steven: Hmmm. Beer would be nice. #e:smile
-			Steven: But I'm definitely gonna feel a little drowsy from it. #e:think1
-			Steven: I don't have the best alcohol tolerance. #e:smile
-			<<FadeIn LevelLoader 1.0>>
-			<<wait 2>>
-			<<playSoundString AudioManager BeerOpen>>
-			<<wait 8>>
-			<<FadeOut LevelLoader 1.0>>
-			<<wait 2>>
-			Steven: Woah.. this one is strong... #e:weary
-			<<changePlayerScoreString Manager "energy" -10.0>>
-			<<changePlayerScoreString Manager "entertained" 20.0>>
-			<<wait 2>>
-		-> Carrots
-			Steven: God, I hate carrots. #e:cringe
-			Steven: But I can't deny that eating vegetables makes me feel a bit better. #e:smile
-			Steven: Why do all the bad tasting things have to be good for you? #e:weary
-			<<wait 2>>
-			<<FadeIn LevelLoader 1.0>>
-			<<wait 2>>
-			<<playSoundString AudioManager EatingCarrots>>
-			<<wait 6>>
-			<<FadeOut LevelLoader 1.0>>
-			<<wait 2>>
-			Steven: Tastes like shit! #e:cringe
-			<<wait 1>>
-			Steven: Oh well, at least that was healthy, right? #e:dsmile
-			<<changePlayerScoreString Manager "energy" 5.0>>
-			<<changePlayerScoreString Manager "entertained" -5.0>>
-			<<changePlayerScoreString Manager "contentedness" 10.0>>
-			<<wait 2>>
-		<<set $hasEatenSnack = true>>
-	<<endif>>
 <<endif>>
+<<playCutscene LevelLoader UseFridge>>
 
+===
+
+title: Fridge_Dialogue
+---
+<<if $hasEatenSnack == true>>
+	Steven: Hmm, I probably should wait a bit before eating another snack. #e:stern
+	Steven: I don't wanna overindulge and run out later in the week... #e:yikes
+<<else>>
+	Steven: Let's see what's in here...
+	-> Hot Pocket
+		Steven: Hot pockets. #e:comfy
+		Steven: More than 60 percent of your saturated fat, and 29 percent of your daily sodium allowance! #e:comfy 
+		<<FadeIn LevelLoader 1.0>>
+		<<wait 2>>
+		<<playSoundString AudioManager Microwave>>
+		<<wait 8>>
+		<<playSoundString AudioManager CrunchyBite>>
+		<<wait 3>>
+		<<FadeOut LevelLoader 1.0>>
+		<<wait 2>>
+		<<changePlayerScoreString Manager "energy" 10.0>>
+		<<changePlayerScoreString Manager "entertained" 5.0>>
+		<<wait 2>>
+	-> Ice Cream
+		Steven: I can get behind some ice cream. #e:smile
+		<<FadeIn LevelLoader 1.0>>
+		<<wait 2>>
+		<<playSoundString AudioManager LickIceCream>>
+		<<wait 2>>
+		<<FadeOut LevelLoader 1.0>>
+		<<wait 2>>
+		<<changePlayerScoreString Manager "energy" 5.0>>
+		<<changePlayerScoreString Manager "entertained" 10.0>>
+		<<wait 2>>
+	-> Beer
+		Steven: Hmmm. Beer would be nice. #e:smile
+		Steven: But I'm definitely gonna feel a little drowsy from it. #e:think1
+		Steven: I don't have the best alcohol tolerance. #e:smile
+		<<FadeIn LevelLoader 1.0>>
+		<<wait 2>>
+		<<playSoundString AudioManager BeerOpen>>
+		<<wait 8>>
+		<<FadeOut LevelLoader 1.0>>
+		<<wait 2>>
+		Steven: Woah.. this one is strong... #e:weary
+		<<changePlayerScoreString Manager "energy" -10.0>>
+		<<changePlayerScoreString Manager "entertained" 20.0>>
+		<<wait 2>>
+	-> Carrots
+		Steven: God, I hate carrots. #e:cringe
+		Steven: But I can't deny that eating vegetables makes me feel a bit better. #e:smile
+		Steven: Why do all the bad tasting things have to be good for you? #e:weary
+		<<wait 2>>
+		<<FadeIn LevelLoader 1.0>>
+		<<wait 2>>
+		<<playSoundString AudioManager EatingCarrots>>
+		<<wait 6>>
+		<<FadeOut LevelLoader 1.0>>
+		<<wait 2>>
+		Steven: Tastes like shit! #e:cringe
+		<<wait 1>>
+		Steven: Oh well, at least that was healthy, right? #e:dsmile
+		<<changePlayerScoreString Manager "energy" 5.0>>
+		<<changePlayerScoreString Manager "entertained" -5.0>>
+		<<changePlayerScoreString Manager "contentedness" 10.0>>
+		<<wait 2>>
+	<<set $hasEatenSnack = true>>
+<<endif>>
 ===
 
 title: D1_Commons_Trash
 ---
-Steven: The trash is taken out. #e:think1
-Steven: Wonder who did it. #e:smile
+<<if $isTrashDirty == false>>
+	Steven: The trash is taken out. #e:think1
+	Steven: Wonder who did it. #e:smile
+<<elseif $isTrashDirty == true>>
+	Steven: Guess I'll clean this up... #e:think1
+	<<FadeIn LevelLoader 1.0>>
+	<<wait 1>>
+	<<playSoundString AudioManager TrashDumpster>>
+	<<wait 6>>
+	<<SetClean trashcan>>
+	<<FadeOut LevelLoader 1.0>>
+	<<wait 1>>
+	<<if $doneTrash == false>>
+		Steven: Why do I even bother cleaning the trash for everyone? #e:think2 
+		Steven: I don't want to be their garbage mule... #e:angry2 
+		<<wait 1>>
+		Steven: Oh well, At least it makes the common area look a little nicer... #e:dsmile
+		<<set $doneTrash = true>>
+	<<endif>>
+	<<changePlayerScoreString Manager "energy" -2.0>>
+	<<changePlayerScoreString Manager "contentedness" 3.0>>
+
+<<endif>>
 ===
 
 title: D1_Commons_Sofa

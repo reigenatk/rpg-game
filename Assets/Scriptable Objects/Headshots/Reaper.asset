@@ -21,6 +21,8 @@ MonoBehaviour:
     sprite: {fileID: 1097970476, guid: f6e1236871f3ee548ad87f1b8ea758ed, type: 3}
   - headshotName: scary
     sprite: {fileID: -705828784, guid: f6e1236871f3ee548ad87f1b8ea758ed, type: 3}
+  - headshotName: talking
+    sprite: {fileID: 2016076395, guid: f6e1236871f3ee548ad87f1b8ea758ed, type: 3}
   charactersThatUseTheseHeadshots:
   - Reaper
   scaleToUse: 3.5

@@ -1,3 +1,9 @@
+title: Day2_Vars
+---
+<<declare $hasFinishedLecture = false>>
+<<declare $hasDoneDay2Eating = false>>
+===
+
 title: D2_Lancelot_Commons
 ---
 Nikolai: Heylo, Steven, my friend.
@@ -180,6 +186,10 @@ Mind: ... #e:think1
 
 title: Day2_Lecture
 ---
+<<if $hasFinishedLecture == true>>
+    <<jump Nothing>>
+<<endif>>
+<<set $hasFinishedLecture = true>> // set it here, doesnt rly matter tbh as long as its after the if
 Steven: Huh, it's one of those lecture halls where the doors are in the back. #e:worried
 Steven: Thank goodness. No one sees me. #e:smile
 <<wait 2>>
@@ -312,6 +322,7 @@ Mind: Oh well, At least I tried going to class for once. #e:dsmile
 <<changePlayerScoreString Manager "contentedness" 10.0>>
 <<wait 4>>
 Mind: Anyways, I better go home. There's nothing else to do today. #e:bored
+
 ===
 
 title: Day2_Stacy_Hey
@@ -546,6 +557,7 @@ Steven: At least I tried talking to my roommates. #e:smile
 
 title: Day2_Commons_After_Walk_Away
 ---
+<<set $hasDoneDay2Eating = true>>
 Nikolai: Hey vait- Steven. Vant to eat vis us tonight?  #e:smile
 <<wait 1>>
 Steven: You want me to eat with you? #e:huh 

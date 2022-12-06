@@ -1,10 +1,678 @@
 ﻿title: Day3_Vars
 ---
-
+<<declare $didGamingCutscene = false>>
+<<declare $didCoomerCutscene = false>>
+<<declare $finishedEatingFoodSceneDay3 = false>>
+<<declare $didBathroomScene = false>>
 ===
 
 
 title: D3_Start_Day
 ---
+Steven: Wow, that was a weird dream... #e:weary
+<<wait 2>>
+Steven: Woohoo, another shitty day. #e:bored
+<<wait 1>>
+Steven: I can't wait to do absolutely nothing.. #e:bored
+===
 
+title: Kabowski_Confronts_Coomer
+---
+Kabowski: Woaahh, dude... #e:talking
+<<wait 2>>
+Kabowski: Those are some KILLER biceps... #e:neutral
+<<wait 2>>
+Kabowski: What's your secret?
+<<wait 2>>
+===
+
+title: After_Dylan_Confused
+---
+Keith: You... talkin to me?
+<<wait 1>>
+Kabowski: Yeah man, I walked in and BAM... #e:neutral
+Kabowski: Those arms immediately caught my attention, so I had to ask.
+Kabowski: You a bodybuilder too? 
+Kabowski: How many pounds you curlin with those guns? #e:talking
+<<wait 2>>
+Keith: Uhhhhhh...
+Keith: I don't really exercise... #e:sad
+<<wait 2>>
+Kabowski: Nahhh man, no need to be modest. 
+<<wait 2>>
+Kabowski: You on test or something? Steroids?  #e:talking
+Kabowski: Can you hook me up? I'd die to have arms like yours.
+<<wait 2>>
+Keith: I don't use steroids...  #e:sad
+<<wait 2>>
+Kabowski: Ah, you're natty. #e:neutral
+Kabowski: Well at least tell me what exercise you do? #e:talking
+<<wait 2>>
+Keith: Uh.... 
+Keith: Uhm...
+<<wait 1>>
+Keith: Jerking of-... I mean, barbell curls...
+<<wait 2>>
+Kabowski: You said Jerk? #e:neutral
+Kabowski: Clean and Jerk? #e:neutral
+Kabowski: So you ARE a weightlifter. #e:talking
+<<wait 2>> 
+Kabowski: Respect, man.
+Kabowski: Wanna hit the gym together sometime?
+<<wait 2>> 
+Keith: Yeah.... I mean, I don't really have time... #e:sad
+Kabowski: Aw... well not to worry brother. #e:sad
+Kabowski: Thanks anyways for the info.
+===
+
+title: After_Kabowski_Leave
+---
+Keith: Whew...
+<<set $didCoomerCutscene = true>>
+===
+
+title: Gaming_Start
+---
+Benny: Alright, gang, let's get this gaming session started!
+Sawyer: This! #e:wow
+<<wait 2>>
+Benny: Oh, wait.. I forgot something.
+Benny: First up- club announcements.. #e:talking
+Benny: We will be having a super smash brothers tournament this Friday! #e:smug
+Benny: I repeat, super smash brothers. #e:excited
+Benny: Be there. #e:smug
+<<wait 3>>
+Benny: Also, we're looking for a new discord moderator for the club server. #e:excited
+Benny: If you are interested, please contact me after club. #e:smug 
+Benny: That's it for me. Anything else, Sawyer?
+<<wait 2>>
+Sawyer: Ummm yes, please remember to pay club dues! #e:smile
+Sawyer: Ya'll aren't paying, and think your getting away, but you know who you are. #e:rage
+<<wait 2>>
+Sawyer: If ya'll don't pay up, Benny MAY have to kick from the club discord. #e:rage
+<<wait 3>>
+Chris: Bruh moment. There's like three people here. 
+Chris: Ya'll are tweakin. #e:talking
+<<wait 2>>
+Benny: Quiet! Sawyer is talking! #e:rage
+<<wait 2>>
+Chris: Sheeeeeeeesh! #e:cool
+Sawyer: Oh, looks like we got some new folk today. #e:wow
+Sawyer: Wanna introduce yourselves? #e:wow
+===
+
+title: Before_Dylan_Introduce
+---
+<<wait 3>>
+Dylan: Hey, I'm Dylan.
+Dylan: I'm a friend of Sawyer, this is my second time here.
+<<wait 1>>
+Sawyer: Thanks for coming, pal. #e:excited
+===
+
+title: Before_Zoomer_Introduce
+---
+Benny: How about you?
+<<wait 3>>
+Mind: Shit. 
+Mind: Is it my turn? #e:yikes
+Mind: What am I gonna say? #e:shy
+<<wait 2>>
+Voice: No, obviously not, they're looking at the guy with the toothbrush hair!
+===
+
+title: Zoomer_Introduce
+---
+<<wait 3>>
+Chris: I'm dead... 
+Chris: This mans just said "how about you" #e:talking
+<<wait 2>>
+Chris: Homeboy, do you even know who I am? #e:rage
+Chris: I'm the gaming G.O.A.T #e:cool
+Chris: I be gamin before it was even cool- #e:cool
+<<wait 2>>
+Chris: I'm DIFFERENT at fortnite, ya catch my drift?
+Chris: N*ggas be lookin at Ninja, Tfue, but nah #e:neutral
+Chris: I'm da real OG, no kap no kizzy. 
+<<wait 2>>
+Sawyer: AHEM! WOAH THERE. I'm gonna have to interrupt. #e:rage
+Sawyer: AS you are not african american, I would NOT like to hear that word come out of your mouth again. #e:rage
+<<wait 2>>
+Chris: Sheeeesh, you sendin me homie. #e:neutral
+Chris: You lowkey needa get laid, no cap. #e:cool 
+<<wait 2>>
+Sawyer: Uhm, yes, and YOU need to be more respectiful to the minorities. #e:rage 
+<<wait 1>>
+Chris: Aight bruv, chill.
+Chris: I aint tryna get cancelled, why you be draggin me today? #e:talking
+Sawyer: Um, ACTUALLY, as I was saying... racism will NOT be tolerated here at all. #e:rage
+Sawyer: We are an inclusive, mindful, anti-nazi, LGBTQIA+ friendly club. #e:rage
+Sawyer: If you do NOT want to follow the rules, the door is right there. #e:rage 
+<<wait 2>>
+Benny: So inspiring! You tell em, Sawyer! #e:excited
+<<wait 2>>
+Chris: Alright coo dawg, I catch yo drift. #e:talking
+Chris: I ain't gon say the n-word no more. #e:talking
+Chris: Now when we be gettin on the battle bus? I wanna catch some victory royales. #e:cool
+<<wait 2>>
+Sawyer: We can play fortnite after the intros. 
+Sawyer: We still have one more person. #e:wow
+===
+
+title: Robot_Introduce
+---
+Voice: They're lookin at you now, dumbass!
+<<wait 2>>
+Voice: Say something #e:evil1
+Steven: H-hey guys, I'm Steven. #e:shy
+Steven: I uh, play games, I guess... #e:worried
+Benny: You guess?
+<<wait 3>>
+Benny: How's that something you need to guess about...
+Benny: You either play games, or you don't.
+Chris: Ayo quiet homie, let the mans speak. #e:talking
+<<wait 2>>
+Mind: Shit! Why did I add the "you guess" part? #e:oshit
+<<wait 2>>
+Steven: Y- yeah! #e:dsmile
+Voice: Oh god... #e:cringe
+<<wait 2>>
+Steven: Uhm... #e:shy
+Steven: I guess I wanted to meet some cool people... #e:shy
+<<wait 2>>
+Steven: And maybe play some new games... #e:worried
+Steven: With those new people... #e:yikes
+<<wait 2>>
+Steven: Yea.... that's about it. #e:sad
+<<wait 4>>
+Mind: Shit, that was a horrible introduction! #e:oshit
+Voice: Stop... you're embarassing me... #e:cringe
+<<wait 1>>
+Chris: Shieeeeeeeeeeet #e:talking
+Chris: You play fortnite, bruv? #e:talking 
+<<wait 2>>
+Sawyer: Okay, now that that's over with...
+Sawyer: Let's get on with the games! #e:excited
+Chris: 1v1 me in fortnite, I'll be droppin at Lebron's House. #e:cool
+===
+
+title: After_Win
+---
+Sawyer: I won! I won! #e:excited 
+<<wait 2>>
+Sawyer: Hah! Suck it, Benny! #e:smug
+Benny: Not fair! You got lucky cuz you had a FAMAS... #e:rage
+Sawyer: My loadout wasn't that good, what do you mean?
+Benny: You- you cheated! #e:rage
+<<wait 2>>
+Chris: Whatever bruh, he totally lasered you there.
+Chris: You're just a n00b low ground warrior. #e:cool 
+<<wait 2>>
+Benny: Shut up! #e:rage
+Sawyer: Exactly, see, new guy here gets it. 
+Chris: You sweat so hard and turtled, but still got quickscoped by Mr W-key over here.  #e:talking
+<<wait 2>>
+Benny: Oh my God, can you be quiet! #e:rage
+<<wait 2>>
+Benny: God damn you're so annoying. #e:rage
+Benny: I would three-stock you with my asscheeks. #e:rage
+<<wait 2>>
+Chris: Three stock? #e:talking
+<<wait 2>>
+Chris: Oh, you're talkin about your little fighting game that you dedicated your life to playing.
+<<wait 2>>
+Chris: Haha, whatever. #e:talking
+Chris: Your game is dead and irrelevant. Take the L. #e:cool 
+<<wait 2>>
+Chris: Now move over. Let me show you how it's done.
+===
+
+title: Doomer_Talk_With_Robot
+---
+<<if $hasMetDoomer && $doomerFriendProgress >= 1>>
+    Dylan: What's up, Steven.
+    Dylan: Didn't think I'd find you here.
+    Steven: Hey...... #e:worried
+    <<wait 2>>
+    Dylan: Still remember me?
+    Steven: Wait.. #e:think1
+    <<wait 2>>
+    Steven: Dylan, right? #e:stern
+    <<wait 3>>
+    Dylan: I'm suprised... Most people forget my name instantly. #e:smile 
+<<else>>
+    Dylan: Hey man. #e:smile
+    Steven: H-hey. #e:worried 
+<<endif>>
+<<wait 2>>
+Dylan: You're not gonna play? #e:smile
+<<wait 2>>
+Steven: Me... #e:think1
+<<wait 1>>
+Steven: Play? #e:think2
+<<wait 1>>
+Steven: I mean... #e:worried
+<<wait 2>>
+Steven: I'll just let them play. #e:bored
+Steven: They seem more passionate, anyways. #e:sad
+Steven: Plus I don't really play many games... #e:weary 
+<<wait 2>>
+Dylan: You don't play games? Then why are you here? 
+Steven: Well I do, just not... those games. #e:yikes
+<<wait 2>>
+Dylan: Hmmm... what sort of stuff you play then?
+<<wait 2>>
+Steven: oh... well.. #e:think1
+<<wait 1>>
+Steven: It's kinda cringe, but I like RPG games..
+Dylan: RPG.. like Fallout? #e:smoking
+Steven: Nah, more like the indie ones... #e:think1
+Steven: Really obscure indie games you've probably never heard of. #e:think2
+Dylan: Oh..
+Steven: Like Pokemon style games... or RPG maker games... if you know what that is... #e:yikes 
+Voice: Stop trailing all your sentences... #e:evil1 
+Voice: like this... #e:evil2
+Voice: nyeh... I'm not confident in what I'm saying... #e:laughing
+<<wait 3>>
+Dylan: So something like LISA?
+<<wait 2>>
+Steven: Woah, you know that game?
+Dylan: Yeah man, I played it. Fun stuff.
+<<wait 2>>
+Steven: Wow, that's surprising. Not many people know of it.
+<<wait 2>>
+Dylan: For sure. It was a great game.
+Dylan: But to be honest, I don't know much about your genre. #e:down 
+Dylan: I only played LISA cause it was on Steam. #e:down
+<<wait 2>>
+Dylan: I'm into FPS games usually. #e:smile
+Dylan: Stuff like Doom Eternal, Halo, Destiny, etc. #e:smoking 
+Dylan: But I feel like most people these days only play battle royales... #e:smoking
+Dylan: And when they say they're a "gamer", they're really not, because the only "games" they've played are Overwatch and Fortnite. #e:smoking
+<<wait 2>>
+Dylan: Feels like a blasphemy on the FPS genre, you know?
+Dylan: They're missing out on so much good shit, but they're not autistic enough to play it or know about it. #e:smoking
+<<wait 2>>
+Steven: Haha, yeah... it does feel like that. #e:dsmile
+Steven: I guess that's like thinking Pokemon is representative of all the RPGs out there. #e:smile
+<<wait 2>>
+Dylan: Yep.
+<<wait 4>>
+Voice: Oh no, this is the part where you run out of conversation topics- #e:sad
+Voice: And it becomes awkward... #e:cringe 
+<<wait 2>>
+Mind: Shit! You're right... #e:yikes
+Mind: What do I say now? #e:think1
+<<wait 5>>
+Dylan: You're cool, man. Can I have your Steam? #e:smile
+Dylan: Maybe we can play together. 
+<<wait 2>>
+Mind: Phew, he said something... #e:weary
+<<wait 2>>
+Steven: Yeah, it's DARDOG727.
+<<wait 1>>
+Dylan: What's that supposed to mean? #e:smoking
+Steven: Oh, nothing... #e:dsmile
+Steven: Just a silly name I came up with. #e:smile 
+<<wait 1>>
+Dylan: Alright man. I'll add you when I get back.
+<<set $gotDoomerNumber = true>>
+<<if $hasMetDoomer == false>>
+    Dylan: I'm Dylan, btw. #e:smile
+    Steven: Steven. #e:smile
+    <<set $hasMetDoomer = true>>
+<<endif>>
+<<wait 4>>
+Dylan: Well, I'm gonna probably stay here a bit longer.
+Dylan: My friend is the guy in the orange Reddit t-shirt. #e:smoking
+Dylan: He keeps dragging me here so I don't wanna leave too quickly. #e:smoking
+Dylan: That'd probably be disrespectful... #e:smoking
+<<wait 1>>
+Steven: How do you two know each other? #e:smile
+Dylan: High school.
+<<wait 2>>
+Steven: Oh, cool... 
+<<wait 1>>
+Steven: WEll, uh... #e:think1
+Steven: Nice to meet you, then. #e:dsmile
+<<wait 1>>
+Dylan: Yep. Talk to you later. #e:smile
+<<set $talkedToDoomerAlready = true>>
+===
+
+title: After_Gaming
+---
+Mind: Phew, at least I kinda handled myself OK there.. #e:bored
+Mind: Didn't say anything too cringe. #e:weary
+<<if $hasMetDoomer == false>>
+    Mind: Plus, maybe I met a new friend? #e:dsmile
+    Mind: He seems pretty similar to me.. #e:think1
+<<endif>>
+<<wait 1>>
+Voice: Gotta say, that wasn't bad. #e:concerned
+Voice: Good job. 
+<<changePlayerScoreString Manager "contentedness" 10.0>>
+<<changePlayerScoreString Manager "social" 20.0>>
+<<changePlayerScoreString Manager "entertained" 10.0>>
+<<set $didGamingCutscene = true>>
+===
+
+title: Arrive_Home_Day3
+---
+<<set $finishedEatingFoodSceneDay3 = true>>
+Nikolai: Oh! Steven! Zo gled ov yu tu join uss!
+<<wait 2>>
+Steven: Hey Nikolai... #e:stern
+===
+
+title: Kabowski_Turn_Around
+---
+Kabowski: Steven, my boy. #e:smh
+Steven: Hey Kabowski...
+<<wait 2>>
+Kabowski: Nick and I were wondering where you were at. #e:talking 
+<<wait 2>>
+Kabowski: I'm cookin for us all. 
+Kabowski: Actually, Nikolai and I were thinking about a little something. #e:talking
+Kabowski: You tell'em, Nikolai. #e:smh
+<<wait 2>>
+Nikolai: Yez. Sinz ve arr busy college stuudent, but ve dont vant to eat outside evry dey.. #e:talking
+Nikolai: Kabovski end I zink zat we shud cook fur van another... #e:smile
+<<wait 2>>
+Nikolai: So, I cook yesterday, end Kabowski cook todey.. #e:talking 
+<<wait 2>>
+Nikolai: So, vould you be villing to cook tomorrow? #e:smile 
+<<wait 3>>
+Steven: ... #e:stern
+<<wait 2>>
+Voice: Oho- 
+Voice: I didn't think I'd get to see you cook! #e:laugh
+<<wait 2>>
+Mind: Shit! I can't cook! #e:oshit
+-> Yes
+    Mind: But cooking's not that hard, I've seen plenty Bordon Gamsey videos online... #e:think1
+    <<wait 1>>
+    Mind: You just put the shit in the pan and wait for a while... #e:stern
+    Mind: Should be easy enough... #e:dsmile
+    Steven: Uhm... sure...
+-> No 
+    Mind: I would say yes, but I don't want to poison my roommates... #e:think1
+    Mind: It's best I just say no... #e:stern 
+    <<wait 2>>
+    Voice: That's right, be logical about this. #e:concerned
+    Voice: Just don't eat any of their food next time, and you owe them nothing in return.
+    <<wait 2>>
+    Steven: Sorry Nikolai, I don't think I can do it... #e:stern
+    <<wait 1>>
+    Nikolai: Pleaze? 
+    <<wait 2>>
+    Nikolai: It's okey if it is bed. #e:talking 
+    Nikolai: Ve just vant to try your food. #e:smile
+    <<wait 2>>
+    Voice: Looks like they aren't lettin up!
+    Voice: You're cornered! #e:evil2
+    <<wait 2>>
+    Steven: Fine... I'll try. #e:bored
+<<wait 2>>
+Kabowski: Woo! We got a cookin show, baby! 
+Nikolai: Awesome! #e:smile
+<<wait 2>>
+Kabowski: Speakin of cookin', my filet mignon is almost ready!  
+Kabowski: Nikolai, can you check if the fridge has any A1 sauce? #e:smh
+<<wait 2>>
+Nikolai: Ayy- van? 
+Kabowski: Yeah, it's like a steak sauce. 
+Kabowski: You guys don't have that in Russia? #e:talking 
+<<wait 1>>
+Nikolai: No, ve don't hev.
+Kabowski: All good. I'll get it myself. 
+===
+
+title: Kabowski_Get_A1
+---
+Kabowski: Let's see... sriracha, mustard, pickles...
+Kabowski: Sweet Baby Rays, Ketchup... #e:smh 
+Kabowski: Gotcha! 
+<<wait 2>>
+Kabowski: Never mind, it's just Teryaki... #e:sad
+<<wait 2>>
+Kabowski: Damn! Where is it? #e:sad
+Kabowski: I can swear I bought it last time... #e:sad
+===
+
+title: Catch_Fire
+---
+Nikolai: Kabowski! Fire! #e:talking
+Kabowski: Oh, SHIT! #e:talking
+===
+
+title: After_Fanning
+---
+Kabowski: It ain't goin out! #e:sad
+===
+
+title: After_Brain_Extinguish
+---
+Brain: WHAT ARE YOU CLOWN DOING!? #e:angry
+<<wait 2>>
+Brain: Oh my god... #e:smile
+<<wait 1>>
+Brain: I'll get the extinguisher! #e:talking
+===
+
+
+
+title: After_Fire
+---
+Kabowski: Whew! 
+Kabowski: You saved the day, Brain. 
+Brain: .. #e:angry 
+<<wait 2>>
+Kabowski: My bad, guys. #e:sad 
+<<wait 1>>
+Kabowski: Now the food's all ruined... #e:sad 
+Brain: That's what you're concerned about? #e:angry
+<<wait 2>>
+Brain: (cursing under his breath) why can't I just have regular roommates... #e:angry 
+Brain: How did you even start this fire? #e:talking
+<<wait 3>>
+Kabowski: Uhhhh... we were.. looking for steak sauce!
+<<wait 2>>
+Brain: We? #e:bored
+Brain: You mean, YOU!?  #e:bored
+Brain: Stop bringing Steven and Nikolai into your shit. #e:angry
+Brain: I don't even have to ask, I can tell that YOU did it. #e:angry
+Brain: You insufferable, conceited, low iq musclehead! #e:angry
+<<wait 2>>
+Kabowski: I said I'm sorry, I really am... #e:sad 
+Brain: ... #e:bored 
+<<wait 2>>
+Kabowski: Guess we're ordering pizza. 
+<<wait 2>>
+Brain: ... #e:angry
+Brain: Fine. #e:bored
+<<wait 2>>
+Voice: Awkward.... #e:cringe
+<<wait 2>>
+Nikolai: Heheh guys, anyways... No need to fight. #e:smile
+<<wait 2>>
+Nikolai: Sey... Brian.#e:smile 
+Nikolai: Vould you like to join our cooking challenge? #e:smile 
+Nikolai: Steven has alredy agreed to participate. #e:smile 
+<<wait 2>>
+Brain: Cooking... challenge? #e:looking
+<<wait 2>>
+Steven: Yeah, where you cook food for everyone. #e:think1
+<<wait 2>>
+Brain: Hmph. #e:looking
+<<wait 2>>
+Brain: Okay, I'll do it. #e:looking
+Brain: Purely to spite Kabowski... and show him how shit of a cook he is. #e:bored 
+<<wait 2>>
+Nikolai: Awesome! #e:smile 
+Kabowski: Oh come on Brain, I had a killer steak goin. #e:sad 
+<<wait 2>>
+Brain: Maybe try to not use your food as fuel next time, then. #e:bored
+Brain: Heheheh... Dumbass. #e:smile
+Brain: Also, I didn't know you cooked, Steven. 
+<<wait 1>>
+Steven: Uhh... yeah, me neither.. #e:shy
+Steven: But I'll try my best.. haha... #e:yikes 
+<<playSoundString AudioManager KnockOnDoor>>
+<<wait 5>>
+Delivery Man: Pizzaaaaaaaaaaaaaaaa!
+Delivery Man: Whose pizzas is this?
+<<wait 3>>
+Nikolai: Vat? Pizza already here? #e:smile
+Kabowski: Yeah man, Papa Johns. Freaky fast delivery. 
+Kabowski: Bet you don't have this in Russia.
+<<wait 2>>
+Brain: They also happen to have way less morbidly obese people... #e:looking
+Kabowski: Oh, whatever. #e:neutral 
+Kabowski: Steven, can you go get it? 
+<<wait 1>>
+Steven: Sure...
+===
+
+title: Eating_Food
+---
+Nikolai: So... zis is pizza?
+<<wait 1>>
+Brain: Is it your first time eating pizza, Nikolai? #e:talking
+Kabowski: Wh- its your first time? #e:talking
+<<wait 2>>
+Nikolai: Yes, ve do not eat zis greasy foods in Russia. 
+Nikolai: Let me try a piece... #e:smile 
+<<playSoundString AudioManager ChewPizza>>
+<<wait 3>>
+Nikolai: Mmmm- zis is vury good ectually... #e:smile
+Kabowski: Right? 
+<<wait 2>>
+Kabowski: So anyways, how were your days today? 
+<<wait 2>>
+Nikolai: Pretty gud ectually, I got my green card todey. #e:talking
+Nikolai: Zo it zeems I vill be staying hear for longer. #e:smile
+<<wait 1>>
+Kabowski: Sick, bro. 
+<<wait 2>>
+Kabowski: How bout you, Brain?
+<<wait 1>>
+Brain: I did some cool scientific shit none of you would understand. #e:bored
+Kabowski: Hey, on the nose, buddy. Whatever floats your boat. 
+<<wait 2>>
+Kabowski: You know I DID get an A in Chemistry.
+Brain: Freshman year? #e:looking
+Kabowski: Yeah. #e:sad
+<<wait 2>>
+Brain: Hahaha... #e:smile
+Brain: Honestly though, if you need help, let me know. #e:bored 
+Brain: I can tutor you... for a price. #e:smile 
+<<wait 2>>
+Kabowski: For a price? #e:neutral
+Kabowski: Oh come on, I'm your roommate. #e:sad
+Brain: So? #e:bored
+Kabowski: So... you should help me for free. #e:sad
+<<wait 2>>
+Kabowski: It'd probably take you a few minutes, anyways. #e:sad
+<<wait 2>>
+Brain: Hm... maybe. #e:smile
+<<wait 2>>
+Kabowski: Ah, forget it. Steven, how bout you?
+Steven: I... uh... #e:yikes
+<<wait 2>>
+Mind: What the fuck did I do today again? #e:huh
+<<wait 1>>
+Steven: I uh... met some people. #e:dsmile
+Brain: Oh really? Steven meeting people? #e:smile
+<<wait 2>>
+Steven: Wha- #e:yikes
+Steven: You don't ever leave the house either! #e:angry2 
+Brain: Yeah, but I'm a hermit for noble reasons... like science. #e:smile
+Brain: What are you doin all day, huh? #e:smile
+Steven: I'm busy doing... you know.. #e:angry2 
+Steven: My stuff.. #e:angry2
+Steven: Oh whatever... #e:sad
+<<wait 1>>
+Brain: Hey, I don't mean to insult you or anything. 
+Brain: Good job getting out there. It's something I gotta do more myself. #e:talking
+Brain: Who did you meet, anyways? #e:smile 
+Kabowski: Any girls? 
+<<if $hasMetStacy == true>>
+    Steven: Yeah, a few... #e:think1
+    Kabowski: Really? Steven makin MOVES... lesssgoooo
+<<elseif $hasMetDoomerGirl == true>>
+    Steven: Yeah, a few... #e:think1
+    Kabowski: Really? Steven makin MOVES... lesssgoooo
+<<else>>
+    Steven: Not yet...
+    Kabowski: Aw...
+<<endif>>
+
+<<wait 2>>
+Brain: Okay, gotta go guys..
+Brain: Thanks for the pizza, Kabowski.
+<<wait 1>>
+Kabowski: Hey, no problem Brain. It's my way of sayin sorry for that fire.
+<<wait 2>>
+Kabowski: Catch you guys later.
+===
+
+title: Nikolai_More_Pizza
+---
+Nikolai: Mmmph! #e:smile
+Nikolai: Zis pizza iz so guuuuud! #e:smile
+<<wait 2>>
+Nikolai: Do yu mind if I eat yur piece, Steven?
+<<wait 2>>
+Steven: Go for it... #e:smile
+<<wait 2>>
+Steven: See you guys later... #e:dsmile
+===
+
+title: After_Eating_Day3
+---
+Steven: Eh, I guess doing things with my roommates isn't too bad... #e:sad
+<<wait 1>>
+Steven: It gives me a false sense of friendship, even though I can't really feel a true connection with any of them. #e:stern
+<<wait 2>>
+Steven: But something about being around other people is just so nice... #e:dsmile 
+Steven: It gives a feeling of camaraderie that you can't get when you're alone. #e:stern
+<<wait 2>>
+Steven: I guess I prefer that feeling to nothing, even if it's fake. #e:think1
+<<changePlayerScoreString Manager "energy" 15.0>>
+<<changePlayerScoreString Manager "entertained" 15.0>>
+<<changePlayerScoreString Manager "contentedness" 15.0>>
+<<changePlayerScoreString Manager "social" 15.0>>
+===
+
+title: Kabowski_Bathroom
+---
+Brain: Kabowski, God damn it! #e:angry 
+Brain: I know you're in there! #e:angry
+<<wait 1>>
+Brain: Get out you lardball! I need to take a shit! #e:angry 
+===
+
+title: Kabowski_Respond
+---
+Kabowski: Hey, I'm tryna lay eggs here! Go somewhere else!
+<<wait 2>>
+Brain: How? There's only one bathroom? #e:talking
+Brain: Hurry up for fucks sake! #e:angry 
+===
+
+title: Kabowski_Come_Out
+---
+Kabowski: Ahhhhhh...
+Kabowski: That felt so good. #e:smh
+===
+
+title: Brain_Sniff
+---
+Brain: Christ almighty... turn on the fan next time! #e:angry
+Kabowski: Sorry, I had a bad lunch... #e:talking 
+<<wait 2>>
+Steven: I hate it here. #e:bored
+Kabowski: Oh, hey Steven.
+<<set $didBathroomScene = true>>
 ===

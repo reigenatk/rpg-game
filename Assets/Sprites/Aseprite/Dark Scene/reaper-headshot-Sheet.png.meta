@@ -199,6 +199,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: reaper-headshot-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd15c2fdfcc926245b26b2ff4219fc9c
+      internalID: 2016076395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -212,6 +233,7 @@ TextureImporter:
     nameFileIdTable:
       reaper-headshot-Sheet_0: 2060091292
       reaper-headshot-Sheet_1: -1823611053
+      reaper-headshot-Sheet_4: 2016076395
       reaper-headshot-Sheet_2: 1097970476
       reaper-headshot-Sheet_3: -705828784
   spritePackingTag: 

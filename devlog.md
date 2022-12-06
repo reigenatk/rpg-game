@@ -620,3 +620,28 @@ Items: Pills.
 # 11/23/22
 
 OK I added a third category of characters, right now we have NPCs, non-npcs, and I'm also gonna add `AlwaysShow` group under the `Characters` object, which is gonna be for stuff like in the dream scenes that arent NPCs (i.e they dont move around) but also they are animated, so we wanna pause the animators on them when cutscenes stop and play the animators on them when cutscene is playing.  
+
+# 11/30/22
+
+So devlog has been very sparingly updated as I mentioned before, but progress is still being made. Lots of artwork being done. Dreams 1 and 2 are basically complete.
+
+Added a lot of QOL stuff, so for instance in order to wake up from the dream and go back to the bedroom, I added a `WakeUp` signal on LevelLoader. **MAKE SURE THAT THIS SIGNAL IS RAN AFTER "Cutscene Isn't Playing" signal btw!!**
+
+All this signal does is unload whatever scene is currently playing and then load the Bedroom scene.
+
+I also made a lot of changes to `SceneTeleport.cs`, for example, now you can make a sprite appear whenever a teleport condition is met, and also you can choose as to whether or not a dialogue will end with a teleport or not.
+
+I use this in dream 1 where I have a special condition that runs the Nothing dialogue, followed by no teleport, which makes it basically do nothing. And then if a condition is met, I make it do the dialogue I want, followed by a teleport. This way you can conditionally turn on and off a teleporter in the scene.
+
+Also, I created a `PlayerLoad` script that basically conditionally loads stuff depending on what scene it is. I was stupid and didn't separate out the dream tilemaps (mostly because I wanted to reuse the cutscene of the player rowing in) and this makes it really ugly because certain cross-scene sprites from other scenes are rendering when they aren't supposed to. So to fix it I just need to put a `PlayerLoad` script on all the cross-scene objects in order to indicate when they should appear and when they shouldn't. Simple enough. Only downside to this approach is that they are always appearing when I'm editing. But that's ok, I can disable them and enable them all once I'm done.
+
+# 12/4/22
+So some days for the past week have been OK, others not so much. But I'm done w/ day 2 dream as well, so just adding some cutscenes for Day 3. One thing I just noticed (that maybe a problem) is that for cutscenes that aren't triggered (that is, are loaded on entrance to a location), we may have a slight problem in that each time the person walks to this location, it will trigger, if the only filter is the day and location. SO I will have to create more yarn variables to filter this, meaning everytime a cutscene finishes we set a variable so it can only ever trigger once.
+
+# 12/5/22
+
+CANCER ALERT
+
+So I finally solved the problem of the audio listener being weird (showing that I'm distance 10 from something when I'm right next to it). Turns out the audio listener was on the main camera the entire time, which is obviously not moving exactly where the player is (since its a follow Cinemachine camera...) I changed this to be on the player, and voila, now it is accurate reading (meaning, 0 is right next to the object). This sucks though, cuz now I have to go tweak every single spatial sound object that I made... God damn it.
+
+The default I was using before was Lienar Rolloff, min distance 10 and max distance like 12. I think the new one will be linear rolloff, min distance 0, max distance 4 or 5. More or less the same thing if you think about it. Just actually accurate this time. Grrrr, I shoulda found this much sooner tbh.

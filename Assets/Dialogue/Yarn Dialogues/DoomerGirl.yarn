@@ -7,6 +7,8 @@
 <<declare $didDGStacyDialogue = false>>
 <<declare $didDGMusicDialogue = false>>
 <<declare $hasMetDoomerGirl = true>>
+<<declare $gotLauraNumber = false>>
+<<declare $hasTextedLaura = false>>
 ===
 title: DoomerGirl_Dialogue
 ---
@@ -81,7 +83,7 @@ title: DoomerGirl_Chat_End_1
 Laura: I guess that's why I look down on most people.
 Laura: It's like, they don't really understand what it's like to be me, you know? #e:looking
 <<wait 1>>
-Laura: Like, if an average girl spent a day in my shoes, she would probably wanna die. #e:looking
+Laura: Like, if an average girl spent a day in my shoes, she would probably kill herself. #e:looking
 <<wait 1>>
 Laura: I know it's not good to brag about being lonely or depressed...
 Laura: But that's kind of how I look at it, you know? #e:looking
@@ -100,7 +102,14 @@ Laura: People who tell her how beautiful and amazing she is.
 <<wait 1>>
 Laura: The saddest moment of her life is probably equal to my happiest moments.
 <<wait 1>>
-Laura: Only someone like you would truly know how it feels. #e:neutral
+Laura: Only someone like you would truly understand that. #e:neutral
+<<wait 2>>
+Steven: Yeah, I feel the same way sometimes with my chad roommate...
+<<wait 2>>
+Laura: Is that the chunky guy who does weightlifting around campus all the time? #e:looking 
+Laura: God I can't stand him...
+<<wait 2>>
+Steven: Haha yeah, that's him. His name's Kabowski.
 <<wait 2>>
 Steven: I think the problem is, us depressed people just don't gather together. #e:think1
 Laura: Yeah... #e:looking
@@ -116,16 +125,56 @@ Laura: But we're all to shy to reach out.
 	<<wait 1>>
 	Laura: I haven't talked to him, no.
 	Steven: Well, maybe we could meet up sometime and talk. #e:smile
-	Steven: You know, nothing serious or anything
+	Steven: You know, nothing serious or anything..
 	<<wait 1>>
 	Laura: hmmm. #e:looking 
 	Laura: Maybe. #e:neutral
 <<else>>
-<<wait 1>>
+	<<wait 1>>
 <<endif>>
 Laura: Anyways, thanks for listening to my thoughts. #e:looking-away-smile
-Steven: It was a pleasure. Let's talk later. #e:smile
-Laura: Okay #e:looking-smile
+<<wait 2>>
+-> Ask her for number
+	Steven: Yo...
+	Steven: can I have your number? #e:worried
+	<<wait 3>>
+	Laura: ... #e:looking
+	Laura: No. #e:looking-away-smile 
+	<<wait 2>>
+	Mind: Shit! #e:oshit
+	Voice: Hahaha
+	Voice: REEEEJECTED! #e:evil1
+	<<wait 2>>
+	Laura: I'm just kidding. I'll put it in your phone. #e:looking-smile
+	<<playSoundString AudioManager TextingPhone>>
+	<<wait 3>>
+	Steven: Shit! I actually got a number! #e:embarassed
+	Laura: You sure did... #e:looking
+	Laura: ... #e:looking-away-smile
+	<<wait 2>>
+	Voice: You said that out loud, dumbass! #e:laughing 
+	Mind: .. #e:oshit
+-> Don't ask..
+	Voice: Don't ask her... she's gonna say no!
+	Mind: You're probably right... #e:stern
+	<<wait 2>>
+	Laura: Why are you still standing here? #e:looking 
+	Steven: I- uh... #e:embarassed
+	Laura: Oh... I get it.
+	<<wait 2>>
+	Laura: Here, just take it already... #e:looking
+	Laura puts her number into your phone.
+	<<playSoundString AudioManager TextingPhone>>
+	<<wait 3>>
+	Mind: I actually got a number... #e:oshit
+	Mind: Am I making it? #e:dsmile
+	<<wait 1>>
+	Voice: Ugh... Awkward~! You shoulda just asked her.. #e:cringe
+Laura: Anyways.. See you later. #e:looking-smile
+<<set $gotLauraNumber = true>>
+<<if $gotNumber == false>>
+	<<set $gotNumber = true>>
+<<endif>>
 <<jump DoomerGirl_Improve_Friendship_Most>>
 ===
 
@@ -162,21 +211,22 @@ Laura: Sometimes, being introverted feels like a curse.
 Steven: Hard relate... #e:bored
 Steven: For me, its cause I'm socially anxious. #e:think2
 <<wait 1>>
-Laura: I mean, you talk pretty well, actually. #e:looking-away-smile.
+Laura: I mean, you talk pretty well, actually. #e:looking-away-smile
+Steven: Yeah.. but that's only around people I'm comfortable with... #e:bored 
 <<wait 1>>
-Laura: But in general, I think its hard to be socially confident after spending so much time alone. #e:neutral
-Laura: It's easy to forget how to socialize.
-Laura: After all, being social is a skill. #e:neutral
+Laura: Hmmm... maybe. I also think its hard to be socially confident after spending so much time alone. #e:neutral
+Laura: Being social is a skill that you have to constantly train. #e:neutral
 <<wait 1>>
 Steven: Fair. #e:think1
-<,wait 2
+<<wait 2>>
 Steven: I think I read somewhere that being lonely is like smoking 10 cigarettes a day. #e:bored
 <<wait 2>>
-Laura: Oh, I wouldn't doubt it. Loneliness really sucks sometimes. #e:looking-away-smile
+Laura: Oh, I wouldn't doubt it. Loneliness really hurts sometimes. Physically. #e:looking-away-smile
 Laura: But at least we're talking now, right? #e:looking-smile
+<<wait 2>>
 Steven: Yeah. #e:smile
-Laura: I gotta go, but we can chat later. #e:looking-away-smile
-Steven: Cya #e:smile
+Laura: I gotta go, but we can chat later. Message me! #e:looking-away-smile
+Steven: Cya.. #e:smile
 ===
 
 title: DoomerGirl_Chat_End_Generic
@@ -333,12 +383,10 @@ Laura: Sometimes noise music as well...
 		Steven: Well guess what, mrs. neurodivergent
 		Steven: I'll let you in on a little secret.
 		Steven: You're just like all the other girls.
-		Steven: You might think you're all quirky and different because of your specialized tastes.
-		Steven: oh, look at me! I watch anime instead of The Bachelorette! I'm so smart and different!
+		Steven: You might think you're all quirky and different...
+		Steven: oh, look at me! I watch anime instead of The Bachelorette! I'm so special and no one understands me!
 		<<wait 1>>
-		Steven: Wow I'm so special! I deserve a guy who is just a special as me!
-		<<wait 1>>
-		Steven: But deep down, you're an emotionless, boring whore.
+		Steven: But deep down, you're a austistic, boring whore.
 		Voice: You tell her!
 		<<wait 2>>
 		Laura: ...
@@ -418,7 +466,7 @@ Laura: I mean, look at you. You don't seem like the social kind. #e:looking-away
 		<<wait 1>>
 		Steven: How so?
 		<<wait 1>>
-		Laura: Maybe I'll tell you next time #e:looking-away-smile
+		Laura: Maybe I'll tell you next time.. #e:looking-away-smile
 	-> Insult
 		<<jump Angry_At_Doomer_Girl>>
 ===
@@ -435,6 +483,61 @@ Laura: ...
 <<jump DoomerGirl_Ruin_Friendship>>
 ===
 
+title: Message_Laura
+---
+Steven: Hey Laura, you there? #e:worried
+<<declare $isThere2 = 0>>
+<<set $isThere2 = random_range(0, 6)>>
+<<wait 3>>
+<<if $isThere <= 4>>
+	Steven: She's not there... #e:sad 
+	<<changePlayerScoreString Manager "energy" -3.0>>
+	<<wait 2>>
+<<else>>
+	<<if $hasTextedLaura == false>>
+		Laura: Hey, Steven.
+		Laura: Bored already? #e:looking
+		Steven: What do you mean already? #e:angry2 
+		Laura: Oh, whatever. What do you want? 
+		Steven: Uh... you said you watch anime?
+		Laura: When did I say that? Are you assuming things again?
+		<<wait 2>>
+		Steven: Oh woops. Maybe I am.
+		Laura: Yeah I watch anime! Here, have you seen The Tatami Galaxy? #e:looking 
+		Steven: Nope.
+		Laura: K, let's watch it now. Join voce. #e:looking-smile
+	<<else>>
+		Laura: So did you check out that anime I sent you? #e:looking
+		Steven: Uh.. not yet.
+		Laura: Let's watch it then. I'm sure you'll like it. 
+		Laura: Join voce. #e:looking-smile
+	<<endif>>
+	<<FadeIn LevelLoader 1.0>>
+	<<wait 1>>
+	<<playSoundString AudioManager TimeTicking>>
+	<<wait 6>>
+	<<FadeOut LevelLoader 1.0>>
+	<<wait 1>>
+	Steven: Hmmm... #e:bored
+	Laura: How was it?
+	Steven: Pretty mid actually. #e:smirk
+	Laura: you freaking bastard... 
+	Laura: Okay, I'll send you a better one.. but next time. #e:looking
+	Laura: Later. #e:looking-away-smile
+	<<changePlayerScoreString Manager "energy" -3.0>>
+	<<changePlayerScoreString Manager "entertained" 10.0>>
+	<<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<changePlayerScoreString Manager "social" 10.0>>
+	<<wait 3>>
+	<<if $hasTextedLaura == false>>
+		Steven: That was nice. #e:dsmile 
+		Steven: Watching anime is so much better when you can talk with other people about it... #e:think1
+		<<set $hasTextedLaura = true>>
+	<<endif>>
+<<endif>>
+
+<<AdvanceXMinutes TimeManager 120>>
+===
 
 title: DoomerGirl_Improve_Friendship
 ---
