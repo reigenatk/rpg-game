@@ -385,6 +385,7 @@ public class LevelLoader : Singleton<LevelLoader>
     [YarnCommand("playCutscene")]
     public PlayableDirector playCutscene(string cutscene)
     {
+
         Debug.Log("Request received to play cutscene named " + cutscene);
         foreach (CutsceneCondtional c in cutscenes)
         {
@@ -400,14 +401,35 @@ public class LevelLoader : Singleton<LevelLoader>
         return null;
     }
 
+    public IEnumerator playCutsceneWithDelay(string cutscene)
+    {
+        Debug.Log("[playCutsceneWithDelay] named " + cutscene);
+        foreach (CutsceneCondtional c in cutscenes)
+        {
+            if (c.cutsceneToPlay.name == cutscene)
+            {
+                // wait till whatever is playing is done, then call the internal version which will kill any currently running cutscene and play our one
+                if (gameState.cutscenePlaying != null)
+                {
+                    yield return 0; // wait a frame
+                    // yield return new WaitForSeconds(1);
+                }
+                playCutsceneInternal(c.cutsceneToPlay);
+                yield break;
+            }
+        }
+
+
+        // else ok there really is no cutscene with this name
+        yield break;
+    }
 
     // helper for above function
     public PlayableDirector playCutsceneInternal(PlayableDirector cutscene)
     {
 
-        
 
-        Debug.Log("Playing cutscene internal " + cutscene.name);
+        Debug.Log("[playCutsceneInternal] " + cutscene.name);
         if (gameState.cutscenePlaying == cutscene)
         {
             // to stop this weird bug where a cutscene runs twice of the same name???
@@ -444,7 +466,7 @@ public class LevelLoader : Singleton<LevelLoader>
             asr.enabled = false;
         }
 
-        // stop any already playing ctuscenes
+        // stop any already playing cutscenes!
         if (gameState.cutscenePlaying != null)
         {
             Debug.Log("Cutscene was already playing called " + gameState.cutscenePlaying + ", stopping it");
@@ -500,6 +522,13 @@ public class LevelLoader : Singleton<LevelLoader>
 
         Debug.Log("Fading In " + time + " seconds");
         StartCoroutine(Fade(1.0f, time));
+    }
+
+    [YarnCommand("FadeToValue")]
+    public void FadeToValue(float opacity)
+    {
+        Debug.Log("Fading to opacity " + opacity );
+        StartCoroutine(Fade(opacity, 1.0f));
     }
 
     [YarnCommand("FadeOut")]
@@ -763,7 +792,6 @@ public class LevelLoader : Singleton<LevelLoader>
         Vector3 playerSpawn = new Vector3(playerX, playerY, 0);
         FadeAndLoadScene((SceneName)System.Enum.Parse(typeof(SceneName), sceneName), playerSpawn, delay);
     }
-
       
 
 }

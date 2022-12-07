@@ -136,6 +136,8 @@ Bug (aesprite?): Whenever I have a sprite sheets thats more than like 20 frames 
 
 Fix: IDK, but a fix would be nice cuz this is super annoying.
 
+**Found it (12/6/22)**: Just increase `Max Size` option on the import... bruh moment. What tipped me off was that this always happens once the files get too large, so I figured it had something to do with size. But I don't get it, since aren't we NOT using compression by turning it off each time we import? IDK. Anyways, issue solved.
+
 Bug (Yarn Spinner): When I do `setYarnVariable("$finishedMeetJefferyScene", true);` inside the initialization code for GameState, it works when I try doing `TryGetValue()` later on to see what value is in there. But if I use a foreach loop to call the same function, instead of explicity setting the strings, I put it in the serialized field, doing `TryGetValue` DOESNT work, and it says the variable storage does not contain a yarn variable of this name. WTF?
 
 Fix: IDK lol, explicitly declare all Yarn variables that I am gonna use inside the Awake() method of GameState, I guess. Kinda shitty that it has to come to this, but otherwise the GetYarnVariable functions are just completely broken. How is this happening lol?

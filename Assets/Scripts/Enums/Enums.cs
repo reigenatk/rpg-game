@@ -46,7 +46,7 @@ public enum GameVariable
     canPlayerSleep, 
     
     // cutscene related logic
-    hasEnergyLowWarningPlayed,
+    EnergyLowWarningPlayed, 
     hasEnteredOutsideHouse,
     hasEnteredCampus,
     hasEnteredInsideBuilding,
@@ -70,6 +70,9 @@ public enum GameVariable
     hasEnteredDreamDay3,
     hasEnteredDreamDay4,
     hasEnteredDreamDay5,
+    SocialLowPlayed,
+    ContentLowPlayed,
+    EntertainLowPlayed,
 }
 
 

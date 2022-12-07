@@ -1,0 +1,556 @@
+﻿
+title: Win_Vars
+---
+<<declare $hasDoneGroupMeeting = false>>
+===
+
+
+title: Group_Meeting
+---
+<<SetTime Manager 16 0 0 >> // 6PM
+Steven: So they said they would arrive at 7PM... #e:smile
+Steven: That means I better get preparing for this... #e:stern
+<<wait 2>>
+Steven: I said I would make some food.. what should I cook though? #e:huh
+<<wait 2>>
+Steven: Let's see what's in the fridge... #e:smirk
+===
+
+title: Fridge_Search
+---
+Steven: Sausage... Marinara, Shallots... Carrots.. #e:think2
+Steven: Some weird plant I don't recognize... #e:think1
+Steven: And lots of raw meat... 
+Steven: This wasn't here last time... did someone buy it? #e:huh
+<<wait 2>> 
+Steven: That's irrelevant! I can't cook any of this anyways... #e:oshit
+<<wait 2>>
+Steven: Who am I kidding... I can't do this... #e:sad 
+===
+
+title: After_Brain_Walkin
+---
+Brain: Hey Steven.
+Brain: Watchu up to? 
+<<wait 2>>
+Steven: ! #e:oshit 
+Steven: Oh, it's just you. What's up Brain. #e:smile 
+Brain: Are you trying to cook? #e:bored
+<<wait 2>>
+Steven: Well, I have a few friends coming over... #e:think1 
+Steven: And I'm trying to decide what to make for them. #e:shy 
+<<wait 2>>
+Brain: But you can't cook? #e:bored 
+Steven: Well.. I'm learning... #e:crazy1
+<<wait 2>>
+Brain: Hmm... they why did you tell them you were gonna cook? #e:smile
+<<wait 2>>
+Steven: I dunno. #e:sad
+Steven: Overconfidence, I guess.. #e:cringe
+<<wait 2>>
+Brain: Well, no worries, I was gonna cook for all of us today, anyways. #e:talking
+Brain: I've been eating too much food without contributing anything, so I feel bad. #e:bored
+<<wait 1>>
+Brain: So just help me out, and I can make extra portions for your friends.
+Steven: Really? Wow, thanks Brain. #e:dsmile 
+Brain: ... #e:smile
+<<wait 1>>
+Brain: We will make a light appetizer of Garlic Parmesan Bread...
+Brain: For the main course, we will make a Four-Cheese Sausage Rigatoni... #e:cool
+Brain: For the second main course, my Sauteed Herb Chicken Breast! #e:smile
+Brain: And we'll top it off with my special recipe of Minestrone soup! #e:cool
+<<wait 2>>
+Brain: How does that sound? #e:smile
+-> Good 
+	Steven: Sounds good... 
+-> Terrible
+	Steven: Sounds terrible... #e:smirk
+	Brain: I'll just take that as sarcasm. #e:angry
+Brain: Anyways, please get me 16 oz package of rigatoni, 1 pound of sausage... #e:smile
+Brain: 3 red peppers, 2 onions, 6 garlic cloves, 3/4 cups of whipping cream... #e:smile
+Brain: 2 cans of tomato paste, 1/2 tsp of pepper flakes.. #e:smile
+Brain: Some fresh torn basil, and the carton of eggs, please. #e:smile
+<<wait 3>>
+Steven: Come again? #e:yikes
+<<wait 1>>
+Brain: This is gonna take a while... 
+===
+
+title: After_Cooked_Food
+---
+<<playMusicName AudioManager HomeCooking>>
+<<wait 1>>
+Steven: So... #e:dsmile
+Steven: Are you Italian, Brian? #e:smile 
+<<wait 5>>
+Brain: Well, how on earth could you tell?
+Brain: Is it because-a I talk-a like-a this-a? #e:smile
+<<wait 2>>
+Steven: Haha... #e:laugh
+<<wait 2>>
+Steven: No.. #e:dsmile
+Steven: The choice of food gave it away- #e:smirk
+<<wait 2>>
+Brain: Yeah, I'm Italian. #e:smile
+Brain: What of it? #e:cool
+<<wait 1>>
+Steven: Oh, nothing. I was just curious. #e:dsmile
+<<wait 3>>
+Steven: How do you know all these recipes? #e:think1
+<<wait 2>>
+Brain: Well, my parents let me cook with them at a young age. #e:talking 
+Brain: So naturally, I memorized the recipes after making them so many times. #e:bored
+<<wait 3>>
+Brain: But if you want the real answer, I don't think cooking is very different from science. #e:talking
+Brain: In chemistry, you put chemicals in a flask, according to some specified procedure, to get a desired compound... #e:talking 
+<<wait 2>>
+Brain: In cooking, you do the same thing!
+Brain: You put in a series of ingredients into a pan, in a certain order... #e:smile
+Brain: And get out your desired meal. #e:smile
+Brain: That's why "food chemistry" is a thing.. the two fields are very interconnected.
+<<wait 2>>
+Steven: Hm, Interesting. #e:think1
+<<wait 2>>
+Brain: Cooking isn't as hard as it looks.
+Brain: Just gotta get the temperatures, proportions, and times right. #e:talking
+<<playSoundString AudioManager OvenBeep>>
+<<wait X>>
+Brain: Okay, looks like the soup is done. #e:smile 
+Brain: Onto the pasta next! #e:bored 
+===
+
+title: Answer_Door
+---
+Steven: Oh, hey Pepe! #e:dsmile
+Steven: Come on in... #e:smile 
+===
+
+title: After_Come_In
+---
+Pepe: Woah, you guys got a nice apartment! #e:smile 
+<<wait 2>>
+Dylan: Wow, something smells good! #e:smile 
+Steven: Yeah, we're cooking dinner. #e:smile
+<<wait 2>>
+Pepe: You mean, he's cooking dinner. #e:smile
+<<wait 2>>
+Steven: Hey, I helped too! #e:angry3
+Steven: And his name is Brain.
+===
+
+title: Walk_Over_To_Brain
+---
+Pepe: Hello.
+Brain: Hey, how are you? 
+Brain: My name is Brian. Are you Steven's friends? 
+<<wait 2>>
+Pepe: Yep. Nice to meet you. #e:smile
+<<wait 2>>
+Dylan: How can we help? #e:smile
+===
+
+title: After_Cooking_2
+---
+Dylan: You're tellin me that Italians don't just make tons of pasta shapes for fun?
+Brain: Nope, each pasta shape has its own unique purpose.
+Brain: For example, certain shapes like shells or penne hold sauce very efficiently...
+Brain: Meanwhile, Fettuccine is more appropriate for creamier sauces..
+Brain: There's almost 350 shapes known to mankind.
+Pepe: And all of them end in -i...
+Pepe: Linguini... Spaghetti... Ravioli... Tortellini...
+Pepe: Couldn't you guys be more original?
+Brain: Haha, well, that decision wasn't up to me. #e:smile
+===
+
+title: Answer_Door_2
+---
+Steven: Come on in, guys. #e:smile
+Laura: It's girls... #e:looking
+===
+
+title: After_Come_In_2
+---
+Stacy: Hey Steven, I hope you don't mind that I came! 
+Steven: Oh, n-no problem! #e:oshit
+Mind: SHE'S here? #e:huh
+<<wait 2>>
+Laura: Sorry, I tried to tell her not to come... #e:looking
+Stacy: I can vouch for that, she tried. #e:laughing 
+Stacy: But I can't resist a good houseparty, so blame me! #e:smile
+Steven: ... #e:oshit
+<<wait 2>>
+Steven: It's fine... we can make more food! #e:smile
+<<wait 1>>
+Brain: There's no need, I made plenty for everyone. #e:smile
+Stacy: Yay!
+===
+
+title: Discussion
+---
+Laura: So you're Pepe... #e:looking 
+Laura: Can't say you looked very different from how I expected... #e:looking-away-smile
+Pepe: Hey! #e:rage
+Pepe: What's that supposed to me? #e:rage
+Doomer: Hahaha... #e:cute
+Doomer: She's making fun of the way you look. #e:smile
+<<wait 2>>
+Pepe: Well you don't seem too far from how I imagined you too...
+Laura: Unfortunately. #e:looking
+<<wait 1>>
+===
+
+title: After_Stacy_Brain
+---
+Stacy: What's this you're making?
+Brain: Oh, hello. This is a ravioli.
+Stacy: Ravioli? That's my favorite food!
+Brain: Oh, no way...
+Stacy: Can I help?
+Brain: Sure, it's about done. Let's take it out.
+===
+
+title:  After_Kabowski_1
+---
+Kabowski: BOoyah. Another workout, complete! #e:smh
+===
+
+title: After_Kabowski_2
+---
+Kabowski: And what do we have here? #e:talking
+Kabwoski: Guests? Brain cooking? Steven out of his room? And he has female friends? #e:smh 
+Kabowski: Am I dreaming? #e:talking
+<<wait 2>>
+Steven: H-hey, Kabowski... #e:smile
+===
+
+title: After_Kabowski_3
+---
+Kabowski: And what two ladies do I have the pleasure of making the acquaintance of? #e:smh
+Stacy: Hi, I'm Stacy! #e:laughing
+Laura: Laura. 
+Kabowski: I do sure hope you enjoy tonight's feast.
+Brain: Kabowski, get your fatass over here and help me with the plates. #e:bored
+Kabowski: On my way. #e:smh
+===
+
+title: After_Nikolai_1
+---
+Nikolai: Mmmmm... somefing smell vury gud. 
+<<wait 2>>
+Nikolai: Oh, hullo to everyvun. 
+Stacy: Hi!
+Doomer: Hello.
+Steven: Hey Nikolai... #e:smile
+Steven: Sorry for inviting so many people here... #e:worried
+Nikolai: No vorries, Steven. I sought zat Brain vas cooking alone todey, but I didn't expect zis many guests! #e:talking 
+<<wait 2>>
+Brain: Okay guys, dinner's ready. Gather round the table. #e:smile
+===
+
+title: After_Gathered
+---
+Stacy: Wait! Before we begin, I thought we should let Steven talk, since he invited us all here!
+<<wait 2>>
+Steven: ... #e:oshit
+-> Say something
+	Steven: ahem. 
+-> Say nothing 
+	Voice: Steven, I'm gonna interject to say that you should really say something. #e:concerned 
+	Voice: This isn't a moment you wanna stay silent in. #e:evil1
+	<<wait 2>>
+	Mind: Fine. #e:stern
+
+Steven: Before we begin, I just wanna give a shoutout to Brian for cooking everything. #e:smile
+<<playSoundString AudioManager Applause>>
+<<wait 3>>
+Kabowski: Let's go BRIAN!!! 
+<<wait 1>>
+Brain: No problem, guys. #e:smile 
+Steven: And thank you all for coming. #e:smile
+<<wait 2>>
+Steven: I invited you all here because... #e:think1
+<<wait 3>>
+Steven: Because I feel like you guys are my friends.. #e:stern
+<<wait 2>>
+Steven: Just a few months ago, I wasn't doing very well mentally. #e:think2
+Steven: I felt really lonely and lost. #e:sad
+Steven: And I'm really grateful that each of you considered me enough of a friend... 
+Steven: To come here tonight to eat with me. #e:smile
+<<wait 3>>
+Steven: That is all. #e:cry-smile
+<<playSoundString AudioManager LouderApplause>>
+<<wait 3>>
+<<if $kabowskiFriendProgress >= 1>>
+	Kabowski: We'll always be your friend, Steven.
+<<endif>>
+Dylan: I second that. Steven, you're a great guy. 
+Dylan: That's why I didn't hesitate to come over. #e:smile
+
+Laura: You're a great person to crack jokes with... #e:looking-away-smile
+Laura: And you make me feel like I'm understood. #e:looking-smile
+
+Pepe: You cheer me up when I'm feeling down. #e:smile
+Pepe: And also you're one of the few people I can say anything to. #e:smile 
+<<if $stacyFriendProgress >= 1>>
+	Stacy: You have a good heart! 
+<<endif>>
+<<if $nikolaiFriendProgress >= 1>>
+	Nikolai: And you are vury patient vith me. #e:smile
+<<endif>>
+<<wait 3>>
+
+Brain: Oh, am I supposed to say something? #e:bored
+<<if $brainFriendProgress < 1>>
+	Brain: you're alright, I guess.. #e:bored
+<<else>>
+	<<wait 3>>
+	Brain: Just kidding. Steven, I'm glad you feel happy. #e:talking
+	Brain: Even though you might feel alone, we're all thinking about you.
+	Brain: You might just not know, or feel it. #e:smile
+	Brain: But trust me, we care about you. Otherwise, we wouldn't be here. #e:smile
+<<endif>>
+
+<<wait 3>>
+Steven: Thanks, guys... #e:cry-smile
+<<wait 2>>
+Brain: Anyways, let's eat!
+
+===
+
+
+title: After_Eat
+---
+Kabowski: Now that was good! #e:smh
+Dylan: I'm stuffed! #e:smile
+Laura: No more... #e:laughing
+Steven: No more indeed... #e:comfy
+<<wait 3>>
+Pepe: Say, let's go have some fun now, guys! #e:smile
+Nikolai: Yez! Everyvun, to my room, now! #e:smile 
+===
+
+title: After_Party
+---
+Steven: Are you guys sure you'll be able to walk home? #e:shocked
+<<wait 2>>
+Kabowski: Don't worry, I can walk them back! #e:smile
+Steven: Okay! #e:shocked
+<<wait 2>>
+Laura: Wait!
+===
+
+title: After_Laura_Walk
+---
+Laura: Um, thanks for inviting me, Steven. #e:blush
+Laura: And it was nice to meet you all. #e:looking-smile
+<<wait 2>>
+Laura: This was the first party I was ever invited to...
+Laura: And I'm glad I went, because it was a great time. #e:blush
+Stacy: I concur! #e:laughing 
+<<wait 2>>
+Laura: Anyways, I'll see you later. #e:looking-smile
+<<wait 2>>
+Steven: Later, guys! #e:dsmile
+=== 
+
+title: After_Kabowski_Leaves
+---
+Dylan: It was really cool meeting you, man. #e:smoking
+Dylan: You gotta teach me how to make that accent next time! #e:smoking 
+Nikolai: Zis accent iz not ez to hev. #e:smile 
+Nikolai: But sure, if you vant, I can teach you eazy. #e:talking 
+Dylan: Haha, sick. Nikolai, right? #e:smile
+Nikolai: Yez. And yu are, Dylan? #e:smile
+Dylan: Right on. #e:smile
+<<wait 2>>
+Dylan: Hey Steven, thanks for inviting me! I'm gonna go now. #e:talking
+Steven: Cya Dylan! Thanks for coming. #e:smile
+===
+
+title: After_Dylan_Leaves
+---
+Nikolai: Vow, I did not no, zis Dylan guy is into Russian culture so much. #e:smile
+Nikolai: You hev very cool friend, Steven. I am gled to meet him. #e:smile
+Steven: Glad to hear you guys got along! #e:smile
+Nikolai: Enyveys, I vill go sleep now. #e:talking
+===
+
+title: After_Nikolai_Leaves
+---
+Pepe: So, you're saying that you could technically make rocketfuel in your room? #e:smile 
+Brain: Well, not technically. I'd need a high pressure chamber for that. #e:talking 
+Brain: But aside from that, I could run all the substitution reactions. #e:talking
+Brain: Which is why I had those chemicals you saw back there. #e:cool 
+Pepe: Coooool... #e:smile
+<<wait 3>>
+Steven: You guys were in Brain's room? #e:yikes
+<<wait 2>>
+Pepe: Yeah dude, this guy's a freakin genius!
+Brain: Haha... I wouldn't say genius... #e:smile
+Brain: But I am pretty smart. #e:cool
+<<wait 2>>
+Pepe: Anyways, I have got to get your contacts man, we gotta keep talking about this. #e:smile 
+Brain: Yeah, sure. Here it is. #e:talking
+<<wait 2>>
+Pepe: Alright, thanks for inviting me, Steven! Cya guys later. #e:smile
+Steven: Later Pepe. #e:smile
+===
+
+title: After_Pepe_Leaves
+---
+Brain: Good lord, that guy was somehow dumber than you... #e:bored
+Steven: Dumber? #e:yikes
+Brain: Yeah. He kept asking me stupid questions... 
+Brian: Questions that have no answer... or ones that I wouldn't be able to explain to him.
+Brain: That's why I gave him a fake phone number... please don't tell him. #e:cool
+<<wait 2>>
+Steven: Haha, that's cruel, man. #e:think1
+Brain: Yeah...
+Brain: He was pretty entertaining though. I can see why you have him as a friend. #e:smile 
+<<wait 3>>
+Brain: Anyways, I gotta go back to work now.
+Brain: Thanks for throwing the party, Steven. That was actually fun. #e:smile
+Steven: No problem, dude. #e:smile 
+===
+
+title: After_Party_End
+---
+Steven: Wow, that's everyone, right? 
+Steven: I'm so glad it's over. #e:bored
+Steven: It went well. #e:dsmile
+<<wait 3>>
+Voice: Wow... #e:concerned
+Voice: Honestly, I doubted you from the start, but this actually went really well. #e:think
+<<wait 2>>
+Voice: I have something to tell you... #e:talk1
+Voice: Something important... #e:talk1
+Voice: Someth- #e:talk2
+Voice: ... #e:smile
+<<playSoundString VoiceDying>>
+<<wait 3>>
+Steven: Voice? Are you there? 
+Steven: Voice? #e:worried
+<<wait 2>>
+Voice: Steven... #e:smile
+Voice: As you now have friends, I must depart from you... #e:die1
+Voice: I was merely a temporary replacement constructed by your mind... #e:die1
+Voice: To keep you from being too lonely... #e:die1
+Voice: Someone for you to talk to. Someone to keep you company. #e:die1
+<<wait 2>>
+Steven: Wait, no! But you can still stay! 
+<<wait 1>>
+Voice: I can't. You must choose. #e:die2
+Voice: If you have friends, you will have no more time for me... #e:die2
+<<wait 2>>
+Voice: But this is what you've always wanted, right? Real friends... #e:die2
+Voice: And I am happy for you. It's best that you go with them. #e:die3
+Voice: So I've decided to leave. #e:die2
+<<wait 4>>
+Steven: Wait... #e:cry
+<<playSoundString VoiceDying2>>
+<<wait 3>>
+Steven: Voice... #e:cry-shuteye
+<<wait 2>>
+Steven: Thank you for keeping me company. #e:cry-smile
+<<wait 4>>
+Voice: Your... #e:die4
+<<wait 2>>
+Voice: welcome..... #e:die4
+<<wait 4>>
+Voice: Goodbye........ #e:die5
+===
+
+title: After_Reaper_Appears
+---
+Steven: AAAAAA! #e:worried
+<<wait 2>>
+===
+
+title: After_Steven_Turn_Around
+---
+Steven: Oh, it's you. #e:bored
+<<wait 2>>
+Steven: Can you not teleport so loudly each time? #e:angry2
+<<wait 1>>
+Reaper: Well soh-rry, I don't get to choose how loud it is. #e:talking
+<<wait 2>>
+Reaper: Anyways, just wanted to say congrats for figuring it out. #e:smile
+<<wait 2>>
+Reaper: That voice in your head? He was the problem.
+Reaper: I just wanted to see if you could get it yourself. #e:smile
+<<wait 2>>
+Reaper: As promised, I won't kill you. #e:scary
+Reaper: I look forward to seeing what the rest of your life brings, Steven. #e:smile
+Steven: Wait- #e:think1
+<<wait 2>>
+Steven: As for Voice... #e:stern
+Steven: Well, he wasn't that bad... #e:think2
+<<wait 2>>
+Reaper: He was bad, Steven. #e:smile
+Reaper: He represented comfort to you. 
+Reaper: Everything you were scared of, he consoled you. 
+Reaper: He gave you a reason NOT to do something. An excuse to hind behind. #e:talking
+Reaper: And that was slowly killing you, as you lived out an unfulfilling life. #e:talking
+<<wait 3>>
+Reaper: It will take your mind some time to recover from his damage.
+Reaper: And trust me, he WILL come back if you are not careful. #e:scary 
+Reaper: Remember- his words are sweeter than honey, but more poisonous than a snake bite. #e:smile 
+Reaper: Don't let him control you again. #e:smile 
+<<wait 2>>
+Steven: ... #e:think1
+<<wait 2>>
+Steven: Reaper?
+Reaper: Hm?
+Steven: Thanks... for not killing me. #e:dsmile
+Reaper: ... #e:smile
+<<wait 2>>
+Reaper: Someday we will meet again, Steven. #e:smile
+Reaper: For now, Goodbye. #e:smile
+===
+
+title: After_Reaper_Dissapears
+---
+// fade in using cutscene
+Game: And with that, the game comes to an end
+Game: Steven was on the right track, once again
+Game: Reborn a cyborg, half robot, half human being
+Game: He finally felt as though his robot origins, were not without meaning
+Game: With this chapter concluded, I implore you to reconsider
+Game: How many robots are truly out there, lonely and bitter
+Game: And how many need a hand... just one or two
+Game: To help fight their inner demons, and live life anew
+
+Game: This is the "good ending". If you have not found the bad one yet, feel free to try.
+Game: Hint, let your mood tank really hard.
+<<wait 2>>
+<<set $hasDoneGroupMeeting = true>>
+Game: Keep playing? (This option will wake you up on the next day)
+-> Yes
+	<<WakeUp LevelLoader>>
+-> No way Jose
+	Game: Thank you for playing!
+	<<QuitGame UI>>
+===
+
+
+
+title: After_Login
+---
+
+Stacy: Hi Pepe!
+<<wait 2>>
+Pepe: Oh-
+Pepe: Hey Stacy. #e:smile
+Stacy: I didn't know you were friends with Steven! #e:laughing 
+Pepe: Me? Oh... um.
+Pepe: Yeah, we hang out. Outside of Bible Study, I mean. #e:smile
+Stacy: Oh, where?
+Pepe: Online, mostly. On the internet. #e:smile
+Stacy: Cool! I don't use the internet often, maybe you can show me some games?
+Pepe: Um... sure. 
+Pepe: Steven, you mind if I use your computer?
+Steven: Uhm, yeah... Sure.
+<<wait 3>>
+Mind: Wait, shit! There's no coomer shit on my desktop, right? #e:oshit
+Steven: Uh, hold on, lemme login for you. #e:crazy1
+===

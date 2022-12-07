@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
         // maybe another less complex solution- disable animators on all non-NPCs before entering dialogue?
         // That way they will freeze? Then enable right before dialogue starts playing again? This is just like how we handled it for
         // the player char. yeah, that might work... OK EDIT: I'll just do the same for NPCs too, cuz NPCs won't move if time is paused
-        // so if I don't pause animations then it'll look like they're walking stationary which is arguably worse than just pausing them.
+        // so if I don't pause animations then it'll look like they're walking stationary which is arguably worse than just disabling them.
         // I have no clue how to make the NPCs still move on a schedule tho if I pause time for cutscenes... hm. Problem for another day maybe?
         if (gameState.cutscenePlaying != null)
         {

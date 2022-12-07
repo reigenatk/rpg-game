@@ -35,6 +35,7 @@ Warning- its kinda complicated. Didn't really design the game with making scenes
 - Write a dialogue node called [npc_name]_Dialogue. So if new NPC is called Bob, then it should be called Bob_Dialogue. Then go to the Dialogue Collider on that NPC and set that as the starting dialogue node.
 - Make a `headshots` scriptable object with all the head pictures and put into the Headshot object (under Dialogue System, Canvas, Line View, Headshot)
 - make a new typewriter sound enum in `SoundItem.cs`, and link that up to the switch statement in `AudioManager.cs`
+- Make sure variables work fine, for example `canTalkToAllNPCsAgain` in GameState will need updating so your character can get talked to again.
 - Profit
 
 # Time
@@ -642,6 +643,24 @@ So some days for the past week have been OK, others not so much. But I'm done w/
 
 CANCER ALERT
 
-So I finally solved the problem of the audio listener being weird (showing that I'm distance 10 from something when I'm right next to it). Turns out the audio listener was on the main camera the entire time, which is obviously not moving exactly where the player is (since its a follow Cinemachine camera...) I changed this to be on the player, and voila, now it is accurate reading (meaning, 0 is right next to the object). This sucks though, cuz now I have to go tweak every single spatial sound object that I made... God damn it.
+So I finally solved the problem of the audio listener being weird (showing that I'm distance 10 from something when I'm right next to it). Turns out the audio listener was on the main camera the entire time, which is obviously not moving exactly where the player is (since its a follow Cinemachine camera... which stays in the middle of the screen lots of the time). To fix, I changed this to be on the player, and voila, now it is accurate reading (meaning, 0 is right next to the object). This sucks though, cuz now I have to go tweak every single spatial sound object that I made... God damn it.
 
 The default I was using before was Lienar Rolloff, min distance 10 and max distance like 12. I think the new one will be linear rolloff, min distance 0, max distance 4 or 5. More or less the same thing if you think about it. Just actually accurate this time. Grrrr, I shoulda found this much sooner tbh.
+
+Also, I added another form of progression. Basically, three characters (Doomer guy, doomer girl, and pepe) have further dialogues that you can unlock by going on your computer. But you must first get their social medias, which requires you to be good enough friends with them first. The game notifies the player when one of these dialogues have been unlocked via the `NotifyMessages` cutscene, which occurs in the player's room. Once he goes on the computer, he can then choose to "text" his friends.
+
+And once all three friends have been texted at least once, we unlock the last scene in the game, where Robot invites over his three new frens to his house.
+
+# 12/7/22
+A tough design decision I had to make was that I was tryna debate whether or not to create two version of each character- a non NPC and an NPC version, the only real difference being that the NPC version of the character is governed by the NPC movement scripts (which is running A*). 
+
+The benefit of using only the NPCs is that in the cutscenes, I could then (theoretically?) move the literal location of the NPC to the end position of the cutscene. And then, I could add dialogue on top of the NPC player characters that wait for certain times, so that the cutscenes could have like "in between" moments where the player can walk around a bit (but the other characters stay put!) Cause, the difficulty in maintaing pairs of each character is that the locations don't sync up. That's why I have so many cutscenes that end with the non NPC characters walking off screen... cuz its easy that way. Because once the cutscene ends, the non NPC characters will dissapear and the real NPCs will once again have their sprite renders enabled...
+
+But it's more complex to "just move" the NPCs to the right place. First of all, they operate on a time and grid basis. And time is paused when cutscenes run (this seems logical). Second of all, player NPCs don't show unless they are in the specified scene (by the way we coded NPC movement). And there's no guarantee that the NPC character that we add to our timeline is in the same scene that this timeline takes place. And so we would somehow have to change not only the position of the NPC, but also its "Current scene" field, then start time up again, to somehow put it into the right place.
+
+All this considered made me decide to just stick with two separate versions. 
+
+That aside, today I got some good work done on the game failing cutscenes, lots of dialogue, also started work on two scenes for "winning" and "losing" the game.
+
+WE'RE GETTIN THERE!
+

@@ -63,6 +63,20 @@ MonoBehaviour:
     sprite: {fileID: 1529279367, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
   - headshotName: sad
     sprite: {fileID: 1645478951, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: sweet
+    sprite: {fileID: -1300249841, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: crazy1
+    sprite: {fileID: 34877717, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: crazy2
+    sprite: {fileID: -826507263, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: before-cry
+    sprite: {fileID: -1775346485, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: cry-shuteye
+    sprite: {fileID: -584623780, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: cry-painful
+    sprite: {fileID: -1869232784, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+  - headshotName: cry-angry
+    sprite: {fileID: -1869232784, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
   charactersThatUseTheseHeadshots:
   - Steven
   - Mind

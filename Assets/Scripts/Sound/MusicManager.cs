@@ -24,6 +24,7 @@ public class MusicManager : Singleton<MusicManager>
         public GameObject music;
         public List<Constraints> conditions;
         public bool isActivated;
+        public string description;
 
         // is the music only triggerable via code
         public bool isTriggerable;

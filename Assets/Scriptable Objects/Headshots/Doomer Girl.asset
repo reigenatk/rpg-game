@@ -23,6 +23,8 @@ MonoBehaviour:
     sprite: {fileID: -915707835, guid: 770d0026f7b3873429a20866575e65de, type: 3}
   - headshotName: neutral
     sprite: {fileID: -1002087290, guid: 770d0026f7b3873429a20866575e65de, type: 3}
+  - headshotName: blush
+    sprite: {fileID: 1471171828, guid: 770d0026f7b3873429a20866575e65de, type: 3}
   charactersThatUseTheseHeadshots:
   - Laura
   scaleToUse: 2

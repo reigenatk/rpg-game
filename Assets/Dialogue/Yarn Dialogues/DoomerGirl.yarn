@@ -172,8 +172,8 @@ Laura: Anyways, thanks for listening to my thoughts. #e:looking-away-smile
 	Voice: Ugh... Awkward~! You shoulda just asked her.. #e:cringe
 Laura: Anyways.. See you later. #e:looking-smile
 <<set $gotLauraNumber = true>>
-<<if $gotNumber == false>>
-	<<set $gotNumber = true>>
+<<if $hasMadeFriend == false>>
+	<<set $hasMadeFriend = true>>
 <<endif>>
 <<jump DoomerGirl_Improve_Friendship_Most>>
 ===
@@ -485,11 +485,13 @@ Laura: ...
 
 title: Message_Laura
 ---
+<<stopAllMusic MusicObject 1.0>>
+<<wait 1>>
 Steven: Hey Laura, you there? #e:worried
 <<declare $isThere2 = 0>>
-<<set $isThere2 = random_range(0, 6)>>
+<<set $isThere2 = random_range(0, 15)>>
 <<wait 3>>
-<<if $isThere <= 4>>
+<<if $isThere > 14>>
 	Steven: She's not there... #e:sad 
 	<<changePlayerScoreString Manager "energy" -3.0>>
 	<<wait 2>>
@@ -535,8 +537,9 @@ Steven: Hey Laura, you there? #e:worried
 		<<set $hasTextedLaura = true>>
 	<<endif>>
 <<endif>>
-
-<<AdvanceXMinutes TimeManager 120>>
+<<StartAllMusic MusicObject 1.0>>
+<<wait 1>>
+<<AdvanceXMinutes Manager 20>>
 ===
 
 title: DoomerGirl_Improve_Friendship

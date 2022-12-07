@@ -220,6 +220,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: doomer-girl-head-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dedb05343d047544f88b7608d0775bca
+      internalID: 1471171828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -232,6 +253,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       doomer-girl-head-Sheet_2: -1002087290
+      doomer-girl-head-Sheet_5: 1471171828
       doomer-girl-head-Sheet_4: 1793715449
       doomer-girl-head-Sheet_0: -2092927887
       doomer-girl-head-Sheet_1: -133859638

@@ -352,6 +352,15 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
             }
         }
 
+        // reset trashcan
+        foreach (int gameHour in trashGoBadTimes)
+        {
+            if ((gt.gameHour == gameHour) && (gt.gameMinute == 0) && (gt.gameSecond == 0))
+            {
+                FindObjectOfType<Trashcan>().setDirty();
+            }
+        }
+
 
         if (doesThisSceneUseDynamicLights() == true) lightingTick();
         else

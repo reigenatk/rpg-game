@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 36cb455c38350cf4590585627db80aff
+guid: 0a78e7b1bd031c34a8d3ba7b94483c6c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,22 +116,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: robot-hold-phone_0
+      name: voice-physical-form-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fd1bba3c51eb0246ba40ee9de5d89d9
-      internalID: -1487573606
+      spriteID: c2cdefa45f4964244ba1645851c9525f
+      internalID: 523797144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: voice-physical-form-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 021223d6e21356e4ea6f544e805b074d
+      internalID: 931878320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: voice-physical-form-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c501c657fd5cd74f8aa9d973eed276b
+      internalID: -1316942406
       vertices: []
       indices: 
       edges: []
@@ -147,7 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      robot-hold-phone_0: -1487573606
+      voice-physical-form-Sheet_0: 523797144
+      voice-physical-form-Sheet_2: -1316942406
+      voice-physical-form-Sheet_1: 931878320
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

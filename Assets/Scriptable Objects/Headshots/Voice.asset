@@ -29,6 +29,24 @@ MonoBehaviour:
     sprite: {fileID: -2021214474, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
   - headshotName: concerned
     sprite: {fileID: 1204395612, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
+  - headshotName: talk1
+    sprite: {fileID: -1399955242, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
+  - headshotName: talk2
+    sprite: {fileID: 1648808972, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
+  - headshotName: smile
+    sprite: {fileID: -765309847, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
+  - headshotName: smile
+    sprite: {fileID: -765309847, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
+  - headshotName: die1
+    sprite: {fileID: 549115271, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
+  - headshotName: die2
+    sprite: {fileID: -1206007574, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
+  - headshotName: die3
+    sprite: {fileID: -2004915692, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
+  - headshotName: die4
+    sprite: {fileID: 200659190, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
+  - headshotName: die5
+    sprite: {fileID: -1677640113, guid: 11e262780dbbf704f86ccf76d263a1eb, type: 3}
   charactersThatUseTheseHeadshots:
   - Voice
   scaleToUse: 2

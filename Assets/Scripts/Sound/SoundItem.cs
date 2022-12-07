@@ -104,7 +104,8 @@ public class SoundItem
         TextingPhone,
         TrashDumpster,
         ManCry,
-        TypingSounds
+        TypingSounds,
+        StandingHere,
     }
 
     public SoundName soundName;

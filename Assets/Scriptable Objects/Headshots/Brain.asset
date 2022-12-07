@@ -25,6 +25,8 @@ MonoBehaviour:
     sprite: {fileID: -2052685999, guid: bd7713da8fdc5b14e8b940f77b2d6265, type: 3}
   - headshotName: talking
     sprite: {fileID: 2027916230, guid: bd7713da8fdc5b14e8b940f77b2d6265, type: 3}
+  - headshotName: cool
+    sprite: {fileID: -997954645, guid: bd7713da8fdc5b14e8b940f77b2d6265, type: 3}
   charactersThatUseTheseHeadshots:
   - Brain
   scaleToUse: 3

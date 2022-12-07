@@ -199,6 +199,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: doomer-face-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5538c38cb1b63bc4b99b4fbee1ff357e
+      internalID: 1859452059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -210,6 +231,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      doomer-face-Sheet_4: 1859452059
       doomer-face-Sheet_0: 2015461567
       doomer-face-Sheet_3: 59314839
       doomer-face-Sheet_2: 1822170222

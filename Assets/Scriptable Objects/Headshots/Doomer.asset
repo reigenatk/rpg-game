@@ -21,6 +21,8 @@ MonoBehaviour:
     sprite: {fileID: 1822170222, guid: 117e21f487766c14b83961473f51b392, type: 3}
   - headshotName: down
     sprite: {fileID: -2124730247, guid: 117e21f487766c14b83961473f51b392, type: 3}
+  - headshotName: cute
+    sprite: {fileID: 1859452059, guid: 117e21f487766c14b83961473f51b392, type: 3}
   charactersThatUseTheseHeadshots:
   - Dylan
   scaleToUse: 2

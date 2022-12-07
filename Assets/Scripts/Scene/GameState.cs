@@ -77,13 +77,23 @@ public class GameState : Singleton<GameState>
         {
             gameVariables.Add(foo, false);
         }
+
+        // starting player scores, change this at will
         foreach (PlayerScore foo in Enum.GetValues(typeof(PlayerScore)))
         {
             if (foo == PlayerScore.energy)
             {
-                playerScore.Add(foo, 170.0f);
+                playerScore.Add(foo, 15.0f);
             }
-            else
+            else if (foo == PlayerScore.contentedness)
+            {
+                playerScore.Add(foo, 100.0f);
+            }
+            else if (foo == PlayerScore.social)
+            {
+                playerScore.Add(foo, 100.0f);
+            }
+            else if (foo == PlayerScore.entertained)
             {
                 playerScore.Add(foo, 100.0f);
             }
@@ -103,10 +113,24 @@ public class GameState : Singleton<GameState>
         setYarnVariable("$finishedMeetJefferyScene", true); 
 
         // dream day 2
-        setYarnVariable("$finishedEatingFoodScene", true); 
+        setYarnVariable("$finishedEatingFoodScene", true);
 
         // day 3
         // setYarnVariable("$didCoomerCutscene", true); 
+
+        // misc
+        setYarnVariable("$hasMadeFriend", true);
+        setYarnVariable("$gotLauraNumber", true); // testing if the text dialogues show up when we use the computer.
+        setYarnVariable("$gotDoomerNumber", true);
+        setYarnVariable("$gotPepeNumber", true);
+
+        // see if it unlocks the option to meet
+        // setYarnVariable("$hasTextedDoomer", true);
+        // setYarnVariable("$hasTextedLaura", true);
+        // setYarnVariable("$hasTextedPepe", true);
+        setYarnVariable("$isGroupMeetingOn", true);
+
+        setYarnVariable("$isKYS", true);
 
         resetDailyYarnVariables();
 
@@ -139,6 +163,8 @@ public class GameState : Singleton<GameState>
 
         // just for sanity
         currentScene = getCurrentSceneEnum().ToString();
+
+        setYarnVariable("$gameHour", TimeManager.Instance.gt.gameHour);
     }
 
     public void resetDailyYarnVariables()
@@ -372,33 +398,46 @@ public class GameState : Singleton<GameState>
         float newVal = playerScore[ps] + delta;
         LevelLoader levelLoader = FindObjectOfType<LevelLoader>();
 
-        // only play the warning scenes once (per day). So say, user eats and energy goes back up.
-        // when it goes below 10 again we shouldn't run it again, that might get redundant.
-        if (newVal < 10.0f)
+        // only play the warning scenes once through the entire game...
+        // most of them would just be dialogues, anyways...
+        if (newVal < 20.0f)
         {
             switch (ps)
             {
                 case PlayerScore.energy:
-                    if (!getGameVariable("hasEnergyLowWarningPlayed"))
+                    if (!getGameVariable("EnergyLowWarningPlayed"))
                     {
-                        setGameVariable("hasEnergyLowWarningPlayed", true);
-                        levelLoader.playCutscene("EnergyLow");
+                        setGameVariable("EnergyLowWarningPlayed", true);
+                        StartCoroutine(levelLoader.playCutsceneWithDelay("EnergyLow"));
                     }
                     break;
                 case PlayerScore.contentedness:
-                    levelLoader.playCutscene("ContentednessZero");
+                    if (!getGameVariable("ContentLowPlayed"))
+                    {
+                        setGameVariable("ContentLowPlayed", true);
+                        StartCoroutine(levelLoader.playCutsceneWithDelay("ContentLow"));
+                    }
                     break;
                 case PlayerScore.social:
-                    levelLoader.playCutscene("SocialZero");
+                    if (!getGameVariable("SocialLowPlayed"))
+                    {
+                        setGameVariable("SocialLowPlayed", true);
+                        StartCoroutine(levelLoader.playCutsceneWithDelay("ContentLow"));
+                    }
                     break;
                 case PlayerScore.entertained:
-                    levelLoader.playCutscene("EntertainedZero");
+                    if (!getGameVariable("EntertainLowPlayed"))
+                    {
+                        setGameVariable("EntertainLowPlayed", true);
+                        StartCoroutine(levelLoader.playCutsceneWithDelay("EntertainLow"));
+                    }
                     break;
             }
         }
 
         if (newVal < 0.0f)
         {
+            newVal = 0.0f;
             Debug.Log("Zero " + ps.ToString());
 
             // stop the time since player will either faint or enter cutscene
@@ -421,29 +460,28 @@ public class GameState : Singleton<GameState>
                     break;
             }
         }
-        else
+
+        playerScore[ps] = newVal;
+        /*        string sformatted = String.Format("{0:0.##\\%}", percentage*100.0f); // "44.36%"
+                Debug.Log("percentage is " + percentage);*/
+
+        switch (ps)
         {
-            playerScore[ps] = newVal;
-            /*        string sformatted = String.Format("{0:0.##\\%}", percentage*100.0f); // "44.36%"
-                    Debug.Log("percentage is " + percentage);*/
-
-            switch (ps)
-            {
-                case PlayerScore.energy:
-                    energy.UpdateScoreUI(ps, newVal, delta);
-                    break;
-                case PlayerScore.social:
-                    social.UpdateScoreUI(ps, newVal, delta);
-                    break;
-                case PlayerScore.entertained:
-                    entertainment.UpdateScoreUI(ps, newVal, delta);
-                    break;
-                case PlayerScore.contentedness:
-                    contentedness.UpdateScoreUI(ps, newVal, delta);
-                    break;
-            }
-
+            case PlayerScore.energy:
+                energy.UpdateScoreUI(ps, newVal, delta);
+                break;
+            case PlayerScore.social:
+                social.UpdateScoreUI(ps, newVal, delta);
+                break;
+            case PlayerScore.entertained:
+                entertainment.UpdateScoreUI(ps, newVal, delta);
+                break;
+            case PlayerScore.contentedness:
+                contentedness.UpdateScoreUI(ps, newVal, delta);
+                break;
         }
+
+        
     }
 
     public int getGameDay()

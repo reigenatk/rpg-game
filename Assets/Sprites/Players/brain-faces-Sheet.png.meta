@@ -241,6 +241,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: brain-faces-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d1b34f502063e140ab54d03800b9b8b
+      internalID: -997954645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -253,6 +274,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       brain-faces-Sheet_2: -2011530087
+      brain-faces-Sheet_6: -997954645
       brain-faces-Sheet_0: -1854246267
       brain-faces-Sheet_4: -2052685999
       brain-faces-Sheet_3: 235973647

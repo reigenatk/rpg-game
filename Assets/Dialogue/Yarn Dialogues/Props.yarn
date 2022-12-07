@@ -11,11 +11,12 @@
 <<declare $doneTrash = false>>
 <<declare $isTrashDirty = false>>
 <<declare $isGroupMeetingOn = false>>
+
 ===
 
 title: D1_Bedroom_Window
 ---
-Steven: The outside world... #e:worried
+Steven: The outside world... 
 <<wait 2>> 
 Steven: How scary... #e:weary
 ===
@@ -37,7 +38,7 @@ title: D1_Bedroom_Peripherals
 <<else>>
 	Steven: Hello again, PC. #e:think1
 	<<playSoundString AudioManager TurnOnPC>>
-	<<wait 13>>
+	<<wait 10>>
 	<<if $day == 2>>
 		Steven: Sorry for cheating on you today. #e:smile
 		Steven: I was talking with real people. #e:worried
@@ -52,29 +53,64 @@ title: D1_Bedroom_Peripherals
 		Steven: I may or may not do homework.. It depends on my mood. #e:weary
 	<<endif>>
 
-	<<if $hasTextedDoomer == true && $hasTextedLaura == true && $hasTextedPepe == true>>
+	// have we beaten the game yet (and are eligble to?)
+	// if so, make this the first option
+	<<if $hasTextedDoomer == true && $hasTextedLaura == true && $hasTextedPepe == true && $hasDoneGroupMeeting == false>>
 		// then we arrange meetup
-		<<jump Arrange_Meetup>>
+		-> Arrange a friend meetup! (Must be earlier than 7PM)
+			<<if $gameHour < 18>>
+				<<jump Arrange_Meetup>>
+			<<else>>
+				Steven: It's too late today. #e:stern
+				Steven: I should do this tomorrow. #e:smile
+			<<endif>>
+		-> Do something else
 	<<endif>>
 
 	// if we have friends, ask about this first.
 	// once we've talked to all friends, we unlock the final cutscene where they
 	// go out IRL.
 	<<if $hasMadeFriend == true>>
-		Steven: That's right, I have someone's number... #e:dsmile
+		Steven: I could message someone... #e:dsmile
 		Steven: Who should I contact? #e:think1
-		-> Dylan
-			Steven: Okay, let's send him a message. #e:smile
-			<<jump Message_Dylan>>
-		-> Laura
-			Steven: Okay, I'll shoot her a message. #e:smile
-			<<jump Message_Laura>>
-		-> Pepe
-			Steven: Sure, let's see if Pepe's online. #e:smile
-			<<jump Message_Pepe>>
+		<<if $hasTextedDoomer == false>>
+			-> Dylan
+				Steven: Okay, let's send him a message. #e:smile
+				<<jump Message_Dylan>>
+			-> Do something else
+		<<endif>>
+		<<if $hasTextedLaura == false>>
+			-> Laura
+				Steven: Let's shoot her a message. #e:smile
+				<<jump Message_Laura>>
+			-> Do something else
+		<<endif>>
+		<<if $hasTextedPepe == false>>
+			-> Pepe
+				Steven: Let's see if Pepe's online. #e:smile
+				<<jump Message_Pepe>>
+			-> Do something else
+		<<endif>>
+		<<if $hasTextedDoomer == true && $hasTextedLaura == true && $hasTextedPepe == true>>
+			Steven: Seems like I already messaged everyone. I could message them again, or do something else.
+			Steven: What to do? #e:huh
+			-> Message someone again 
+				Steven: Ok, who?
+				-> Dylan
+					Steven: Okay, let's send him a message. #e:smile
+					<<jump Message_Dylan>> 
+				-> Laura
+					Steven: Wonder what she's up to. #e:smile
+					<<jump Message_Laura>>
+				-> Pepe
+					Steven: Pepe's definitely online. #e:smile
+					<<jump Message_Pepe>>
+			-> Do something else
+		<<endif>>	
 	<<endif>>
 
 	<<wait 2>>
+	Steven: Ok, I don't wanna be social. What else should I do? #e:huh
 	-> Play vidya
 		<<jump Vidya>>
 	-> Anime
@@ -89,16 +125,20 @@ title: D1_Bedroom_Peripherals
 
 title: Arrange_Meetup
 ---
-Steven: So I've now been chatting with Pepe, Laura and Dylan pretty frequently. #e:smile 
+<<stopAllMusic MusicObject 1.0>>
+<<wait 1>>
+Steven: I've now been chatting with Pepe, Laura and Dylan pretty frequently. #e:smile 
 Steven: I think I could call all 3 of them my friend now... #e:smile 
-Steven: But I wonder if I could arrange a meetup for all of us... #e:dsmile 
+<<wait 1>>
+Steven: I wonder if I could arrange a meetup for all of us... #e:dsmile 
 <<wait 2>>
 Steven: After all, I think we're all super lonely. #e:sad
-Steven: And talking online can only go so far. I want them to meet each other. #e:smile
+Steven: And talking online can only go so far. 
+Steven: Plus, I want them to meet each other. #e:smile
 <<wait 2>>
 Steven: But where should I arrange it? And what should we even do together? #e:huh
 <<wait 2>>
-Steven: K, let's first add them to a group chat. #e:smirk
+Steven: Let's first add them to a group chat. #e:smirk
 <<playSoundString AudioManager TypingSounds>>
 <<wait 6>>
 Pepe: WHAT IS THIS? 
@@ -115,8 +155,11 @@ Steven: Wait!
 Pepe: Oh, its you... I've seen your avatar somewhere before.
 Laura: Good god, Steven, why are you friends with this guy!? #e:looking
 Laura: He's so obnoxious... I see him online everywhere.
-Pepe: Shut up, roastie. #e:rage
+Pepe: Quiet, femoid. #e:rage
+<<wait 2>>
 Laura: See.. #e:looking
+Pepe: I'm obviously joking... #e:smile
+Laura: ...
 <<wait 1>>
 Steven: You guys know each other?
 Pepe: Not really, we've never talked. #e:smile
@@ -166,20 +209,44 @@ Pepe: They're playin with you. We'll come to your place. #e:smile
 Steven: Really? #e:yikes 
 Laura: Yeah. Beats the other alternatives. #e:looking-smile
 Dylan: Agreed, I don't see why not. #e:smile 
-Pepe: Alright party people, I'm on my way.
+<<wait 2>>
+Laura: Wait, but what the hell are we doing there? #e:looking
+<<wait 2>>
+<<playSoundString AudioManager Crickets>>
+<<wait 5>>
+Pepe: Hmm, maybe I could bring food? #e:smile 
+<<wait 2>>
+Dylan: I could teach you guys a card game after the food. #e:smile
+Laura: Okay, I can bring something too. #e:looking
+<<wait 2>>
+Steven: Sounds good. Maybe I'll make some food for us all. #e:smile
+<<wait 2>>
+Pepe: Alright gtg guys. Cya.
 Dylan: See ya at Steven's house.
 <<wait 2>>
 Laura: Wait you idiots- when is it? #e:looking
-Steven: I guess it's tonight? It's the weekend, anyways. #e:dsmile
-Laura: Okay. Coming. #e:looking-away-smile 
+Laura: We haven't chosen a time.
 <<wait 2>>
-Voice: Why did you do that? #e:cringe
-Voice: You're gonna screw this up so bad... #e:evil1
-Steven: Shit. You're right. This could go very wrong.
-Steven: But it could go very right.. #e:stern
+Pepe: Hmmm...
 <<wait 1>>
-Steven: Maybe I rushed into this a bit fast.. I should prepare a bit. #e:worried 
+Dylan: What about <color=yellow>7pm tonight?</color>
+<<wait 2>>
+Steven: Sounds good. #e:dsmile
+Laura: Okay.. I'll see you there. #e:looking-away-smile 
+<<wait 5>>
+Voice: Why did you do that? #e:cringe
+Voice: You're gonna screw this up so bad... #e:laugh
+<<wait 2>>
+Steven: You're right. This could go very wrong. #e:huh
+Steven: But it could go very right.. #e:smile
+<<wait 1>>
+Steven: Maybe I rushed into this a bit fast.. I should prepare a bit. #e:worried
+<<if $gameHour < 16>>
+	Steven: I got some time for now, though. I can start prepping a few hours beforehand. #e:smile
+<<endif>>
 <<set $isGroupMeetingOn = true>>
+<<StartAllMusic MusicObject 1.0>>
+<<wait 1>>
 ===
 
 title: Vidya
@@ -415,7 +482,7 @@ Game: Pick them up?
 -> Yes
 	Steven: I should probably clean this.
 	Steven: My mom always harps me on about how I don't keep my room tidy. #e:think1
-	Steven: She always said that clean room equals clean mind.
+	Steven: She always said that clean rooms equated to clean minds.
 	<<wait 2>>
 	Steven: That's a load of bullshit. My room is clean and I'm a disaster. #e:bored
 	<<wait 2>>
@@ -892,7 +959,38 @@ title: D2_Campus_Apartment
 title: D2_Campus_Apartment_Text
 ---
 Steven: Some of these high-rise apartments are actually quite nice, since they're so close to school.
-Steven: The only problem with them is that they're expensive, and loud. #e:stern
+Steven: The only problem with them is the residents...
+Steven: They're all rich, spoiled, and extremely loud... #e:stern
+===
+
+title: Restaurant
+---
+Steven: It's a building with lots of restaurants in it. #e:smile
+<<wait 1>>
+Steven: I usually don't eat out.. #e:stern
+Steven: Not that I don't have the money to... #e:think2
+Steven: But because I'm scared of talking to the cashier.. #e:sad
+===
+
+title: Hair_Salon
+---
+Steven: I don't have hair, but this seems to be a pretty decent spot for a haircut. #e:smile
+===
+
+title: Bar
+---
+Steven: It's the local bar. #e:smile
+<<wait 2>>
+Steven: I heard they throw parties at 9PM every night? #e:smile 
+Steven: At least, that's what Kabowski told me. #e:think1
+===
+
+title: Ice_Cream
+---
+Steven: Hmm, wouldn't be a college campus without some kind of Boba place, right? #e:bored
+Steven: They have a nice rooftop lounge as well.. not that I've been there. #e:sad
+<<wait 1>>
+Steven: It's fine though, I don't like boba too much... too sugary. #e:dsmile
 ===
 
 title: Lecture_Hall_Sit_Down
@@ -904,7 +1002,6 @@ Game: Sit down here?
 		<<playCutscene LevelLoader LectureCutscene>>
 	<<endif>>
 -> No
-
 ===
 
 title: Lecture_Hall_Sit_Down_Occupied
@@ -912,3 +1009,4 @@ title: Lecture_Hall_Sit_Down_Occupied
 Game: You try to sit down on someone...
 Stranger: Hey! I'm sitting here!
 ===
+

@@ -320,11 +320,13 @@ Dylan: It's just pure grey- a neutral land of nothingness.
 
 title: Message_Dylan
 ---
+<<stopAllMusic MusicObject 1.0>>
+<<wait 1>>
 Steven: Hey, you there?
 <<declare $isThere = 0>>
-<<set $isThere = random_range(0, 6)>>
+<<set $isThere = random_range(0, 10)>>
 <<wait 3>>
-<<if $isThere <= 5>>
+<<if $isThere > 9>>
 	Steven: Seems like he's AFK... #e:sad 
 	<<changePlayerScoreString Manager "energy" -3.0>>
 	<<wait 2>>
@@ -365,8 +367,9 @@ Steven: Hey, you there?
 		<<set $hasTextedDoomer = true>>
 	<<endif>>
 <<endif>>
-
-<<AdvanceXMinutes TimeManager 120>>
+<<StartAllMusic MusicObject 1.0>>
+<<wait 1>>
+<<AdvanceXMinutes Manager 20>>
 ===
 
 title: Doomer_Improve_Friendship

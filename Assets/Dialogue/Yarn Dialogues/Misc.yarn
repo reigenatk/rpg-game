@@ -7,6 +7,7 @@
 <<declare $saidStacyWasHotInFrontOfLaura = false>>
 <<declare $coomerWasExposed = false>>
 <<declare $hasHeardReaperTerms = false>>
+<<declare $isKYS = true>>
 
 // reset these every day
 <<declare $teethBrushed = false>>
@@ -38,6 +39,7 @@
 <<declare $minTilNextBus = 1>>
 <<declare $day = 1>>
 <<declare $isInNikolaiRoom = false>>
+<<declare $gameHour = 0>>
 
 // time events
 <<declare $isBibleStudyOpen = false>>
@@ -67,15 +69,16 @@
 
 title: LowEnergy
 ---
-Jeez, I'm tired...
-I should probably sleep soon.
+Steven: Jeez, I'm tired... #e:weary
+Steven: I should probably sleep soon. #e:weary
 ===
 
 title: OutOfEnergy
 ---
-M-must...
-stay...
-awake-
+Steven: M-must... 
+Steven: stay... #e:weary
+Steven: awake- #e:bored
+<<wait 2>>
 <<playCutscene LevelLoader EnergyZero>>
 ===
 
@@ -83,7 +86,7 @@ title: DoorIsntOpen
 ---
 <<playSoundString AudioManager LockedDoor>>
 <<wait 3>>
-The door isn't open.
+Steven: The door isn't open. #e:sad
 Knock?
 -> Yes
     <<KnockOnDoor Manager>>
@@ -93,8 +96,8 @@ Knock?
 
 title: GoToSleep
 ---
-It's pretty late...
-Should I sleep?
+Steven: It's pretty late... #e:think1
+Steven: Should I sleep? #e:stern
 -> Yes
 	Alright...
 	<<if $teethBrushed == false>> 
@@ -126,24 +129,32 @@ title: EndOfDayDialogue
 ---
 
 <<if $day == 1>>
-    Well, what an utterly unproductive day.
-    I have my first lectures tomorrow...
-    Even as a 20-year old, I still dread the first day of school.
-    Icebreakers, syllabuses, and annoying people.
-    Let's just get through it.
+    Steven: What an utterly unproductive day. #e:weary
+    <<wait 2>>
+	Steven: I can't wait for the first week of school! #e:smirk
+	<<wait 1>>
+	Steven: ...is what I used to say as a kid. #e:think1
+	Steven: What a joke.
+	<<wait 2>>
+	Steven: Should I even go tomorrow? #e:huh
+	Steven: I don't want to deal with syllabuses, professor, and icebreakers... #e:cringe 
+	Steven: It's all so cringe... #e:bored
+	Voice: Yeah, but what if you miss an important assignment on the first day?
+	<<wait 1>>
+	Steven: You're right, professors love to do that shit.. #e:bored
+	Steven: Okay, I'll go. Better get to sleep, then. #e:stern
 <<elseif $day == 2>>
-	What a long day.
-	It sounds sad to say, but this was probably my most eventful day so far this year.
+	Steven: What a long day. #e:weary
+	Steven: Probably my most eventful day in years... #e:dsmile
 	<<wait 1>>
-	Which is funny, because I didn't even do that much.
+	Steven: Which is funny, because I didn't even do that much. #e:sad
 	<<wait 1>>
-	Walking to lecture, talking to roommates, hell, even a girl.
-	Most people would shrug that off as a normal day in the life.
+	Steven: Walking to lecture, talking to roommates, and a random girl... #e:stern
+	Steven: Most people would shrug that off as a normal day in the life. #e:think1 
 	<<wait 1>>
-	But it's special, even hard for me to do.
+	Steven: But it's something special for me, because I can't do it often... #e:sad
 	<<wait 1>>
-	At least I can go to sleep today, thinking that I tried.
-
+	Steven: Oh well, at least I can go to sleep today, knowing that I tried. #e:comfy
 <<else>>
 
 <<endif>>
@@ -151,7 +162,7 @@ title: EndOfDayDialogue
 
 title: Lamp_On
 ---
-Would you like to turn it off?
+Game: Turn off?
 -> Yes
 	<<set $isBedroomLampOn to false>>
 	<<toggleLight Lamp false>>
@@ -160,33 +171,187 @@ Would you like to turn it off?
 
 title: Lamp_Off
 ---
-Would you like to turn it on?
+Game: Turn on?
 -> Yes
 	<<set $isBedroomLampOn to true>>
 	<<toggleLight Lamp true>>
 -> No
-	Moonlight drowns out all but the brightest stars.
 ===
 
 title: Knock_No_Response
 ---
-There was no response...
+Game: There was no response...
 ===
+
+title: Content_Low
+---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+Steven: I just wanted to stop to say something. #e:stern
+<<wait 2>>
+Steven: There's something missing. #e:huh
+Steven: I don't feel content with my life... #e:sad
+<<wait 1>>
+Steven: What is it? #e:bored
+Steven: Maybe I need to do more wholesome things? #e:think1
+Steven: Volunteering, exercising, socializing? #e:huh
+<<wait 1>>
+Steven: Getting good at a hobby? Earning tons of money? #e:think2 
+Steven: How do I make this feeling of meaninglessness go away...? #e:sad
+<<FadeOut LevelLoader 1.0>>
+<<wait 1>>
+===
+
+title: Content_Zero
+---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+Steven: That's it. #e:bored
+Steven: There's no fuckin meaning to this dogshit life. #e:bored
+Steven: Maybe I should stop trying to find it. #e:think1 
+Steven: Life is just about suffering as least as possible until you die, right? #e:stern
+Steven: What more is there to it than that? #e:stern
+<<wait 2>>
+Steven: I'll never be truly content. #e:before-cry
+Steven: So why even try? #e:cry-painful
+<<wait 4>>
+Voice: ... #e:concerned
+<<FadeOut LevelLoader 1.0>>
+<<wait 1>>
+===
+
+title: Social_Low
+---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+Voice: How are you doing, Steven? 
+Steven: Oh hey voice...
+Steven: I'm good, thanks for asking. #e:smile 
+<<wait 3>>
+Voice: No, REALLY, how are you doing? 
+Voice: Are you happy? #e:think
+Steven: Yeah, well, it's complicated... #e:cringe2
+<<wait 2>>
+Voice: Why's it complicated?
+Steven: Oh you know, I have no friends.. #e:dsmile
+<<wait 2>>
+Voice: Aren't we friends? 
+<<wait 2>>
+Steven: ...
+Steven: I guess.. #e:think1
+<<wait 5>>
+Voice: Hey Steven, if I was a real person, would you think different of me? #e:think 
+<<wait 2>>
+Steven: Probably not. #e:bored
+<<wait 2>>
+Voice: Heh, why's that? #e:laugh
+<<wait 2>>
+Steven: I'd still want to smack the shit out of you. #e:cry-angry 
+<<wait 2>>
+Voice: ... #e:laugh 
+<<wait 4>>
+Voice: I'm here for you, buddy. 
+Voice: Tell me all your problems. #e:evil1 
+<<FadeOut LevelLoader 1.0>>
+<<wait 1>>
+===
+
+title: Social_Zero
+---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+Steven: It all just doesn't matter... #e:before-cry
+Steven: No one cares about me. #e:cry-shuteye
+Steven: No matter how lonely I am... #e:cry-shuteye
+Steven: No matter how much I really want to talk to people... #e:cry-shuteye
+<<wait 2>>
+Steven: My social anxiety prohibits me from making any progress... #e:cry
+<<wait 2>>
+Steven: I just want someone who understands me... #e:before-cry
+Steven: Is that too much to ask for? #e:cry
+<<wait 2>>
+Steven: Why am I like this? #e:cry-painful
+<<wait 4>>
+Steven: I just long to be normal, is that so much to ask? #e:cry
+Steven: I just want someone to ask me how I'm doing... #e:cry-shuteye
+Steven: Someone to send stupid memes to... #e:cry-painful
+Steven: Someone to share the moments in my life with... #e:cry-painful
+<<wait 4>>
+Steven: But I have no one! #e:cry
+<<wait 2>>
+Steven: ABSOLUTELY FUCKING NO ONE! #e:cry
+<<wait 1>>
+<<playSoundString AudioManager ManCry>>
+<<wait 18>>
+Steven: I need to face the news...
+Steven: I'm a defective human... trying to live in a world I don't belong in. #e:before-cry
+Steven: A world that would be better off without me. #e:cry
+<<wait 4>>
+Voice: ... #e:concerned
+<<FadeOut LevelLoader 1.0>>
+<<wait 1>>
+===
+
+title: Entertained_Low
+---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+Steven: I'm so fuckin bored... man. #e:weary
+Steven: If I don't do something fun soon... I swear to god. #e:bored
+Steven: I'm gonna actually kill myself... #e:weary
+<<wait 2>>
+Steven: There's only so much work I can do before I crash and burnout... #e:sad
+<<FadeOut LevelLoader 1.0>>
+<<wait 1>>
+===
+
+title: Entertained_Zero
+---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
+Steven: That's it. I'm done. #e:cry
+Steven: Nothing in life is fun. Nothing is exciting. #e:cry-angry
+Steven: Everyday is the same old, boring drull. #e:cry-painful 
+Steven: I've seen it all. Why not just end myself? #e:cry-angry
+<<wait 2>>
+Steven: I can't gain pleasure from anything, anyways. #e:cry
+<<wait 2>>
+Steven: And what's the point of living if I can't have fun anymore? #e:before-cry
+<<wait 2>>
+Steven: Everything was so colorful and fun when I was a kid. #e:sad
+Steven: But now, everything's dull. #e:before-cry
+Steven: And I'm supposed to stay on this earth for 50 more years? Suffering from boredom? #e:cry-angry
+Steven: Fuck that. #e:angry2
+<<wait 4>>
+Voice: ... #e:concerned
+<<FadeOut LevelLoader 1.0>>
+<<wait 1>>
+===
+
 
 title: COOM_DEMON
 ---
-Would you like to summon...
-The coom demon?
+Steven: Would you like to summon... #e:stern
+Steven: The coom demon? #e:smirk
+<<stopAllMusic MusicObject 1.0>>
+<<wait 1>>
+<<playMusicName MusicObject StandingHere>> // xD
 <<if $numTimesNutted > 0>>
-	Be warned that summoning the coom demon multiple times a day is not recommended.
-	Side effects include lethargy, a dose of shame, and diminishing returns.
+	Steven: Be warned that summoning the coom demon multiple times a day is not recommended. #e:laugh
+	Steven: Side effects include lethargy, a dose of shame, and poor performance in bed. #e:huh
+	<<wait 2>>
+	Steven: As if that concerns me... I already have all those things. #e:bored
 <<endif>>
 
 -> Yes
-	If you say so...
+	Steven: If you say so... #e:stern
+	<<stopAllMusic MusicObject 1.0>>
+	<<wait 1>>
 	<<playCutscene LevelLoader Coom>>
 -> No
-	On a nofap streak, eh?
+	<<stopAllMusic MusicObject 1.0>>
+	<<wait 1>>
+	Steven: I'm on a nofap streak.. #e:smirk
 ===
 
 title: PostNutClarity
@@ -197,29 +362,28 @@ title: PostNutClarity
 <<endif>>
 <<if $contentednessNerf >= 30>>
 	Game: The post nut clarity hits you hard...
-	What the hell am I doing with my life? 
+	Steven: What the hell am I doing with my life? #e:weary
 	Game: You lose {$contentednessNerf} contentendess!
 	<<changePlayerScoreString Manager "contentedness" {-1 * $contentednessNerf}>>
 <<else>>
 	Game: The post-nut clarity hits you, but you're used to it now.
-	A necessary sacrifice.
+	Steven: A necessary sacrifice. #e:stern
 	Game: You lose {$contentednessNerf} contentendess!
 	<<changePlayerScoreString Manager "contentedness" {-1 * $contentednessNerf}>>
 <<endif>>
 
 <<set $entertainedBuff = round(random_range(0, 6) * 5)>>
 <<if $entertainedBuff >= 15>>
-	That did feel pretty good, though.
+	Steven: That did feel pretty good, though. #e:comfy
 	Game: You gain {$entertainedBuff} entertainment!
 	<<changePlayerScoreString Manager "entertained" {$entertainedBuff}>>
 <<else>>
 	Game: Your dopamine receptors don't get much pleasure from this anymore..
-	Jerking off doesn't even make me feel that much better anymore...
+	Steven: Even jerking off doesn't even make me feel better anymore... #e:sad
 	Game: You gain {$entertainedBuff} entertainment.
 	<<changePlayerScoreString Manager "entertained" {$entertainedBuff}>>
 <<endif>>
 <<set $numTimesNutted = $numTimesNutted + 1>>
-Was it worth it?
 ===
 
 title: WalkToCampus
@@ -629,7 +793,7 @@ title: Dream_Arrive
 
 title: Got_Text
 ---
-Steven: Hmmm, it's probably my mom again... #e:think1
+Steven: Hmmm, it's probably my mom again... #e:bored
 ===
 
 title: After_Look_Phone
@@ -644,7 +808,7 @@ Steven: Wait, it's not my mom.. #e:huh
 <<endif>>
 <<wait 2>>
 Steven: I can't remember the last time a non-family member contacted me...
-Steven: I forgot what that notification sound even sounded like... 3e:cry
+Steven: I forgot what that notification sound even sounded like... #e:cry
 <<wait 3>>
 Steven: This is progress... right? #e:cry-smile
 Voice: Read the message, numbskull! #e:think
@@ -655,12 +819,131 @@ Steven: Such a meaningless phrase, yet they don't know how much it means to me..
 <<wait 1>>
 Steven: Feels good to finally have someone who cares about my existence.. #e:cry
 <<wait 2>>
-Steven: I'll respond to them later, <color=red>using the computer</color>. #e:cry-smile
+Steven: I'll respond to them later, <color=green>using the computer</color>. #e:cry-smile
 Steven: I need to process this first... #e:cry
+<<stopAllMusic MusicObject 0.5>>
 <<FadeIn LevelLoader 1.0>>
-<<wait 1>>
+<<wait 1.5>>
 <<playSoundString AudioManager ManCry>>
-<<wait 4>>
+<<wait 18>>
 <<FadeOut LevelLoader 1.0>>
 <<wait 1>>
+<<StartAllMusic MusicObject 0.5>>
+Voice: God, that's embarassing. #e:cringe
+Voice: You're crying, just for making a friend? #e:concerned
+Steven: Shouldn't you understand the best? You've been in my head for decades! #e:cry
+Steven: You know how lonely I am. This means everything to me. #e:cry-smile
+<<wait 1>>
+Voice: Whatever you say...
+===
+
+title: KYS
+---
+<<stopAllMusic MusicObject 0.5>>
+<<wait 1>>
+Voice: What's the matter, Steven?
+<<wait 2>>
+Steven: Voice... I can't...
+Steven: I can't take it anymore.
+Voice: Take what anymore? #e:think
+<<wait 2>>
+Steven: Don't play dumb with me! #e:cry-angry
+Steven: You're the only person who really knows what I'm struggling with. #e:cry-angry
+Steven: Stop pretending like you don't know! #e:cry-painful
+<<wait 5>>
+Voice: Well, Steven... #e:think1 
+Voice: Maybe the answer was with you all along. #e:evil1
+<<wait 2>>
+Steven: What do you mean? #e:cry
+<<wait 3>>
+Voice: You said it yourself... #e:sad
+Voice: ...Maybe you're just a lost cause. #e:evil1
+Voice: Someone not fit to walk this earth. #e:evil1
+<<wait 2>>
+Steven: ... #e:cry
+<<wait 3>>
+Voice: I'll offer you one last piece of advice. #e:concerned 
+<<wait 5>>
+Voice: <color=orange>Kill yourself.</color> #e:think1
+<<wait 5>>
+Voice: It's the only answer to escape your shitty life, and you know it. #e:concerned
+<<wait 4>>
+Steven: ... #e:cry-shuteye
+<<wait 4>>
+Voice: Think about it this way... #e:concerned
+Voice: You've given it your best try. And nothing's improving. #e:concerned
+Voice: So what else is there to do? 
+Voice: This isn't an emotional or rash decision... it's just simple logic. #e:think
+Voice: If things aren't getting better, try something new. #e:think
+<<wait 2>>
+Steven: But... 
+Steven: ...I'm scared of death.. #e:cry-shuteye
+<<wait 3>>
+Voice: Stay with me, here... #e:think 
+Voice: You're a smart guy. #e:concerned
+<<wait 2>>
+Voice: You know that everyone dies eventually. #e:concerned 
+Voice: It's not like you would end up somewhere else by dying now. #e:think
+<<wait 2>>
+Steven: But.. I'm afraid of pain. #e:cry-shuteye
+<<wait 2>>
+Voice: You're a smart guy. #e:concerned
+Voice: I'm sure you can come up with many ways to do it quickly and painlessly. #e:evil1 
+<<wait 5>>
+Voice: Look Steven, I've always loved and respected you. Ever since we met. #e:think
+Voice: But be honest, haven't you thought that maybe... it's time to let go? #e:concerned
+<<wait 2>>
+Steven: ... #e:cry-shuteye
+<<wait 10>>
+<<stopAllMusic MusicObject 0.5>>
+<<wait 1>>
+Steven: You know what, Voice... thanks. #e:cry
+Steven: You're completely right. #e:cry-shuteye
+<<wait 2>>
+Steven: This is the best piece of advice you've ever given me. #e:cry-smile
+Steven: I'm glad I have you with me. #e:cry-smile
+Voice: That's what I'm here for. #e:think
+<<set $isKYS = true>>
+===
+
+title: At_Bus_Stop
+---
+Steven: Voice...
+<<wait 3>>
+Steven: Why was I even born? #e:sad
+<<wait 4>>
+Voice: I don't know the answer to that, Steven. #e:concerned 
+<<wait 5>>
+Steven: Are you coming with me? #e:sad
+<<wait 5>>
+Voice: No. #e:concerned 
+<<wait 3>>
+Voice: I am merely a figment of your imagination. I am you. #e:think
+Voice: The moment you die, I cease to exist. #e:think 
+<<wait 3>>
+Steven: Oh. #e:cry-shuteye
+<<wait 2>>
+Steven: Was I a good owner? #e:cry
+<<wait 2>>
+Voice: ... #e:concerned
+Voice: I wouldn't trade you for anyone else. #e:think
+<<wait 4>>
+Steven: Thanks.. #e:cry-smile
+<<wait 3>>
+Steven: You were the closest thing I had to a friend, you know. #e:cry
+<<wait 4>>
+Voice: I know. #e:concerned
+===
+
+title: KYS_Bus
+---
+Steven: My ride's here. #e:cry-smile
+<<wait 1>>
+Voice: Goodbye. #e:concerned
+===
+
+title: Game_End_KYS
+---
+<<QuitGame UI>>
+
 ===

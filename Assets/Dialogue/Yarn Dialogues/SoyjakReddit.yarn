@@ -119,6 +119,11 @@ Voice: Oh my god, I can't take this guy anymore #e:sad
 Voice: Please leave! #e:cringe
 <<wait 1>>
 You decide to leave before Sawyer starts talking again.
+<<if $hasGoneToGamingClub == false>>
+	Sawyer: w-ww-WAIT.. one more thing. #e:smug
+	Sawyer: If you like games, please come to my gaming club! #e:excited 
+	Sawyer: It's from <color=yellow>5-9PM everyday in the classroom closer to the cofee shop.</color> #e:smug
+<<endif>>
 <<jump Reddit_Improve_Friendship_Most>>
 ===
 

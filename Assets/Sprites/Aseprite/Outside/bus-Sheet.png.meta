@@ -66,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -116,12 +116,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bus-Sheet_0
+      name: bus-Sheet_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 560
         y: 0
-        width: 168
+        width: 280
         height: 120
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -137,12 +137,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bus-Sheet_1
+      name: bus-Sheet_0
       rect:
         serializedVersion: 2
-        x: 168
+        x: 0
         y: 0
-        width: 168
+        width: 280
         height: 120
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -158,12 +158,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bus-Sheet_2
+      name: bus-Sheet_3
       rect:
         serializedVersion: 2
-        x: 336
+        x: 840
         y: 0
-        width: 168
+        width: 280
         height: 120
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -179,12 +179,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bus-Sheet_3
+      name: bus-Sheet_1
       rect:
         serializedVersion: 2
-        x: 504
+        x: 280
         y: 0
-        width: 168
+        width: 280
         height: 120
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -195,6 +195,111 @@ TextureImporter:
       bones: []
       spriteID: 16d383490ad5d86428fcb0d9b1ec952a
       internalID: -2025847820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bus-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 280
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 095f9eac36bc5e04281b8f4674682ebb
+      internalID: -413664170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bus-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 280
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbcccfed234d21a4087269d3ab2695e3
+      internalID: -1958776465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bus-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 280
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed5180bdb531be4e8a457be08b35138
+      internalID: -904312344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bus-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 0
+        width: 280
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c92a82b65f36bb4b985067a562d3b05
+      internalID: -1555470929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bus-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 280
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 027d4c6fd027d69488bafb35898e6a78
+      internalID: -1131132715
       vertices: []
       indices: 
       edges: []
@@ -210,7 +315,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      bus-Sheet_6: -904312344
       bus-Sheet_2: -1946951406
+      bus-Sheet_7: -1555470929
+      bus-Sheet_8: -1131132715
+      bus-Sheet_4: -413664170
+      bus-Sheet_5: -1958776465
       bus-Sheet_0: 803463210
       bus-Sheet_3: -941940458
       bus-Sheet_1: -2025847820

@@ -312,11 +312,14 @@ Steven: What's it all for anyways? There'll be nothing but scraps for us once we
 
 title: Message_Pepe
 ---
+<<stopAllMusic MusicObject 1.0>>
+<<wait 1>>
+
 Steven: Yo, what's up. #e:smile
 <<declare $isThere1 = 0>>
-<<set $isThere1 = random_range(0, 6)>>
+<<set $isThere1 = random_range(0, 20)>>
 <<wait 3>>
-<<if $isThere <= 5>>
+<<if $isThere1 > 19>>
 	Steven: Seems like Pepe's AFK... #e:sad 
 	<<changePlayerScoreString Manager "energy" -3.0>>
 	<<wait 2>>
@@ -364,8 +367,9 @@ Steven: Yo, what's up. #e:smile
         <<set $hasTextedPepe = true>>
     <<endif>>
 <<endif>>
-
-<<AdvanceXMinutes TimeManager 120>>
+<<StartAllMusic MusicObject 1.0>>
+<<wait 1>>
+<<AdvanceXMinutes Manager 20>>
 ===
 
 title: Pepe_Improve_Friendship
