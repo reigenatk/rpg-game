@@ -122,6 +122,7 @@ Kabowski: Yeah, I learned not to sign girls anymore.
 <<wait 2>>
 Steven: That's what you learned!? #e:oshit
 Voice: This guy.... #e:laugh
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 <<jump Kabowski_Improve_Friendship_Most>>
 ===
 

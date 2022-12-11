@@ -93,6 +93,9 @@ title: Zoomer_Chat_Decide
 <<if $didZoomerDialogue1 == false>>
     <<set $didZoomerDialogue1 = true>>
     <<jump Zoomer_Chat_End_1>>
+<<elseif $didZoomerDialogue2 == false>>
+    <<set $didZoomerDialogue2 = true>>
+    <<jump Zoomer_Chat_End_2>>
 <<else>>
     -> Dance 
         <<jump Zoomer_Dance>>
@@ -107,7 +110,7 @@ title: Zoomer_Chat_End_1
 ---
 Chris: Awww, shiet. That new album, you listen yet?
 Chris: Shieeeeet... 
-Chris: Lil Poopie is ON something.. ya feel?
+Chris: Lil Poopie is ON something.. ya feel? #e:talking 
 Chris: He's a prophet, forreal. Moses. He be doing things nobady done before in the rap scene.
 Chris: I feel so proud to be alive right now so I can hear dis shit, ya feel?
 Chris: Them bars preaching to me, ya feel?
@@ -135,11 +138,32 @@ Voice: Decline! Decline it! #e:cringe
     Voice: God, why are you agreeing to all this shit? #e:cringe
     Voice: Just tell him you don't like him already!
     <<wait 2>>
-    Mind: No. He's a valuable resource.
+    Mind: No. 
+    Mind: As cringe as it is to say, he's a valuable resource. #e:yikes
     Mind: I can't afford to lose the only normie friend I've got. #e:stern
+
 <<jump Zoomer_Improve_Friendship_Most>>
 ===
 
+title: Zoomer_Chat_End_2
+---
+Chris: Aight coo'
+Chris: Ayo Stevie!
+Steven: What now, Chris.
+<<wait 2>>
+Chris: Checkout that shawty ova ther. You smash or pass?
+Steven: uhhhh, where's the shawty?
+Chris: It's yo mama! 
+Chris: Gadeeeeeee, HAH!
+Steven: ... #e:stern
+Steven: Good one... #e:dsmile
+<<wait 2>>
+Chris: Ayo but I ain no simp. I be skrttin on dem hoes, ya feel?
+Steven: I feel. #e:smirk
+Chris: Ayo, das wassup. You be learnin fast, homie. You undastand da assignment.
+
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
+===
 
 title: Zoomer_Chat_End_Generic
 ---

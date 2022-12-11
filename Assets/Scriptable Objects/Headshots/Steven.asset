@@ -76,7 +76,7 @@ MonoBehaviour:
   - headshotName: cry-painful
     sprite: {fileID: -1869232784, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
   - headshotName: cry-angry
-    sprite: {fileID: -1869232784, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
+    sprite: {fileID: -952672152, guid: 28fbcf872932d7941b9701d4ce962a40, type: 3}
   charactersThatUseTheseHeadshots:
   - Steven
   - Mind

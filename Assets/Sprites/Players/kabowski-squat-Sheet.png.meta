@@ -66,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -661,6 +661,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: kabowski-squat-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 0
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6742aced5195cb849a01af93056dc9f2
+      internalID: -1236394914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabowski-squat-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 0
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71ee843808d085a458785f584f814261
+      internalID: 2088416982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -672,12 +714,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kabowski-squat-Sheet_23: -1868778067
       kabowski-squat-Sheet_24: 2061380125
       kabowski-squat-Sheet_13: 816434784
       kabowski-squat-Sheet_11: 769717089
       kabowski-squat-Sheet_25: -1277424614
       kabowski-squat-Sheet_2: -1011229213
+      kabowski-squat-Sheet_26: -1236394914
       kabowski-squat-Sheet_7: 1263663685
       kabowski-squat-Sheet_22: 93598138
       kabowski-squat-Sheet_12: 752499238
@@ -687,17 +729,19 @@ TextureImporter:
       kabowski-squat-Sheet_21: 1112991610
       kabowski-squat-Sheet_6: 803954270
       kabowski-squat-Sheet_19: -877598386
+      kabowski-squat-Sheet_27: 2088416982
       kabowski-squat-Sheet_20: 1336191575
       kabowski-squat-Sheet_4: -2012332641
       kabowski-squat-Sheet_18: 43647153
       kabowski-squat-Sheet_16: -86154125
       kabowski-squat-Sheet_14: -1016291783
       kabowski-squat-Sheet_17: -2002134501
+      kabowski-squat-Sheet_5: 453825394
       kabowski-squat-Sheet_1: 1210663282
       kabowski-squat-Sheet_0: 2108417332
-      kabowski-squat-Sheet_3: -1553817162
+      kabowski-squat-Sheet_23: -1868778067
       kabowski-squat-Sheet_10: -379333475
-      kabowski-squat-Sheet_5: 453825394
+      kabowski-squat-Sheet_3: -1553817162
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

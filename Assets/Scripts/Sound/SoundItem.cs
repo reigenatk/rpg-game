@@ -106,6 +106,18 @@ public class SoundItem
         ManCry,
         TypingSounds,
         StandingHere,
+        Sniff,
+        Applause,
+        OvenBeep,
+        VoiceDying,
+        VoiceDying2,
+        SlackNotif,
+        OlderRobotTypewriter,
+        OlderFriendTypewriter,
+        BossTypewriter,
+        WalkieTalkie,
+        OlderBrotherTypewriter,
+        NurseTypewriterSound,
     }
 
     public SoundName soundName;

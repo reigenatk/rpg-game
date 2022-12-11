@@ -140,7 +140,7 @@ title: Coomer_Chat_Decide
 <<wait 6>>
 <<if $didCoomerDialogue1 == false>>
     <<set $didCoomerDialogue1 = true>>
-    <<jump Chat_End_1>>
+    <<jump Coomer_Chat_End_1>>
 <<else>>
     -> Hair 
         <<jump Coomer_Hair>>
@@ -169,6 +169,7 @@ Steven: Like you have a right to talk #e:weary
 Keith: Hey, I'm just warning you. Don't end up like me.
 <<wait 1>>
 Steven: I wasn't planning to, but thanks...
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 <<jump Coomer_Improve_Friendship_Most>>
 ===
 

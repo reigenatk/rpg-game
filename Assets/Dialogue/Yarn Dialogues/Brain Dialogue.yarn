@@ -110,6 +110,7 @@ Brain: Hehe, yeah. Scientists need computers, too! #e:smile
 Steven: Well, I'll let you get back to your work. Later. #e:smile
 <<wait 1>>
 Brain: Alright, cya. #e:smile
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 <<jump Brain_Improve_Friendship_Most>>
 ===
 

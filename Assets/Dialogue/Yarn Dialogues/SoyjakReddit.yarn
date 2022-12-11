@@ -65,6 +65,8 @@ title: Reddit_Chat_Decide
 		<<jump Reddit_Dance>>
 	-> Something Random
     	<<jump Reddit_Chat_End_Generic>>
+	-> Nothing
+		<<jump Nothing>>
 <<endif>>
 ===
 
@@ -170,6 +172,7 @@ Steven: That's great, Sawyer. #e:embarassed
 Steven: Look man, I gotta go. #e:think1
 Sawyer: Okay Steven. You go. Thanks for listening. #e:sniffle
 <<jump Reddit_Improve_Friendship_Most>>
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 ===
 
 

@@ -166,6 +166,7 @@ Dylan: Well I gotta go. Looks like she's calling me right now.
 Dylan: Thanks for listening. You're one of the few people I can talk to. #e:smile
 <<wait 2>>
 Steven: You as well. Let's talk again soon. #e:smile
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 <<jump Doomer_Improve_Friendship_Most>>
 ===
 
@@ -176,6 +177,7 @@ Dylan: Fuck the world, that's what I say.
 <<wait 1>>
 Steven: Agreed. Alright, I gotta go. #e:smile
 Dylan: Later. #e:smile
+
 <<jump Doomer_Improve_Friendship_Most>>
 ===
 

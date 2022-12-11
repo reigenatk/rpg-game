@@ -52,11 +52,13 @@ title: Pepe_Chat_Decide
         <<jump Pepe_Frog>>
     -> Generic Chat
         <<jump Chat_End_Generic>>
+        
 <<endif>>
 ===
 
 title: Pepe_Chat_End_1
 ---
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 Pepe: Damn, you're roommate is a Chad?
 <<wait 1>>
 Steven: Yeah, he is.
@@ -333,7 +335,7 @@ Steven: Yo, what's up. #e:smile
     <<if $hasTextedPepe == false>>
         Pepe: By the way dude, I saw a coomer today in the flesh.
         Pepe: The guy had the biggest arms, like in the memes. #e:smile
-        Pepe: And he was stalking these girls... I can't believe he hasn't been reported to the campus police! #e:feelsgoodman
+        Pepe: And he was stalking these girls... I can't believe he hasn't been reported to the campus police! #e:smile
         <<wait 2>>
         Pepe: It was top kek. I should make a greentext about it for the lulz.
         <<if $hasMetCoomer == true>>
@@ -343,6 +345,9 @@ Steven: Yo, what's up. #e:smile
             Pepe: Heh, Keith. What a cuck name.
             Steven: Nah dude, he's actually pretty based. At least he recognizes he's a commer.
             Pepe: Eh, maybe. Coomers gonna coom, bro. #e:smile
+        <<else>>
+            Steven: Heh, sounds funny. #e:smile
+            Steven: I might know who you're talking about. I've seen him around, too. #e:huh
         <<endif>>
     <<endif>>
     Pepe: Anyways, wanna watch some kino? #e:smile 

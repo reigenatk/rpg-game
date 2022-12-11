@@ -2,6 +2,7 @@
 title: Win_Vars
 ---
 <<declare $hasDoneGroupMeeting = false>>
+<<declare $numDialoguesComplete = 0>>
 ===
 
 
@@ -78,11 +79,11 @@ Brain: This is gonna take a while...
 
 title: After_Cooked_Food
 ---
-<<playMusicName AudioManager HomeCooking>>
+<<playMusicName MusicObject HomeCooking>>
 <<wait 1>>
 Steven: So... #e:dsmile
 Steven: Are you Italian, Brian? #e:smile 
-<<wait 5>>
+<<wait 2>>
 Brain: Well, how on earth could you tell?
 Brain: Is it because-a I talk-a like-a this-a? #e:smile
 <<wait 2>>
@@ -96,7 +97,7 @@ Brain: What of it? #e:cool
 <<wait 1>>
 Steven: Oh, nothing. I was just curious. #e:dsmile
 <<wait 3>>
-Steven: How do you know all these recipes? #e:think1
+Steven: So.. how do you know all these recipes? #e:think1
 <<wait 2>>
 Brain: Well, my parents let me cook with them at a young age. #e:talking 
 Brain: So naturally, I memorized the recipes after making them so many times. #e:bored
@@ -114,9 +115,9 @@ Steven: Hm, Interesting. #e:think1
 Brain: Cooking isn't as hard as it looks.
 Brain: Just gotta get the temperatures, proportions, and times right. #e:talking
 <<playSoundString AudioManager OvenBeep>>
-<<wait X>>
-Brain: Okay, looks like the soup is done. #e:smile 
-Brain: Onto the pasta next! #e:bored 
+<<wait 6>>
+Brain: Okay, looks like the pasta is done. #e:smile 
+Brain: Onto the meat next! #e:bored 
 ===
 
 title: Answer_Door
@@ -147,6 +148,8 @@ Brain: My name is Brian. Are you Steven's friends?
 Pepe: Yep. Nice to meet you. #e:smile
 <<wait 2>>
 Dylan: How can we help? #e:smile
+<<playMusicName MusicObject Soup>>
+<<wait 1>>
 ===
 
 title: After_Cooking_2
@@ -159,20 +162,19 @@ Brain: There's almost 350 shapes known to mankind.
 Pepe: And all of them end in -i...
 Pepe: Linguini... Spaghetti... Ravioli... Tortellini...
 Pepe: Couldn't you guys be more original?
+<<wait 2>>
 Brain: Haha, well, that decision wasn't up to me. #e:smile
 ===
 
 title: Answer_Door_2
 ---
 Steven: Come on in, guys. #e:smile
-Laura: It's girls... #e:looking
 ===
 
 title: After_Come_In_2
 ---
 Stacy: Hey Steven, I hope you don't mind that I came! 
 Steven: Oh, n-no problem! #e:oshit
-Mind: SHE'S here? #e:huh
 <<wait 2>>
 Laura: Sorry, I tried to tell her not to come... #e:looking
 Stacy: I can vouch for that, she tried. #e:laughing 
@@ -181,7 +183,11 @@ Steven: ... #e:oshit
 <<wait 2>>
 Steven: It's fine... we can make more food! #e:smile
 <<wait 1>>
-Brain: There's no need, I made plenty for everyone. #e:smile
+Laura: You're cooking? #e:looking-smile
+Steven: What's with that look? #e:oshit
+Laura: Nothing... #e:looking-away-smile
+<<wait 2>>
+Brain: No worries Steven, I already made plenty for everyone. #e:cool
 Stacy: Yay!
 ===
 
@@ -191,66 +197,94 @@ Laura: So you're Pepe... #e:looking
 Laura: Can't say you looked very different from how I expected... #e:looking-away-smile
 Pepe: Hey! #e:rage
 Pepe: What's that supposed to me? #e:rage
-Doomer: Hahaha... #e:cute
-Doomer: She's making fun of the way you look. #e:smile
+Dylan: Hahaha... #e:cute
+Dylan: She's making fun of the way you look. #e:smile
 <<wait 2>>
 Pepe: Well you don't seem too far from how I imagined you too...
-Laura: Unfortunately. #e:looking
-<<wait 1>>
-===
-
-title: After_Stacy_Brain
----
+Laura: Unfortunately so. #e:looking
+Laura: Hey, what's your name? I've seen you around. #e:looking
+Dylan: Me?
+<<wait 2>>
+Dylan: I'm Dylan. Nice to meet you.
+Laura: Likewise. Are you Steven's friend?
+Dylan: Yep.
+<<wait 3>>
+Stacy: Oooo!
 Stacy: What's this you're making?
 Brain: Oh, hello. This is a ravioli.
-Stacy: Ravioli? That's my favorite food!
-Brain: Oh, no way...
-Stacy: Can I help?
-Brain: Sure, it's about done. Let's take it out.
+Stacy: Ravioli? I know how to make that!
+Brain: Oh, no way... 
+<<wait 2>>
+Brain: Wanna help me out? #e:smile
+Stacy: Sure! #e:laughing
+<<wait 2>>
+Brain: Hey, you with the black cap...
+Brain: Dylan, right?
+Brain: Can you cut up those vegetables over there? #e:smile
+Dylan: On it. #e:smile
 ===
 
 title:  After_Kabowski_1
 ---
-Kabowski: BOoyah. Another workout, complete! #e:smh
+Kabowski: Aaaaaaaaaannnnnnndddddd....
+Kabowski: Workout complete! #e:smh
+Kabowski: He does it again! With style. #e:smh
+<<wait 2>>
+Kabowski: Now it's time to get my macros. 
 ===
 
 title: After_Kabowski_2
 ---
 Kabowski: And what do we have here? #e:talking
-Kabwoski: Guests? Brain cooking? Steven out of his room? And he has female friends? #e:smh 
-Kabowski: Am I dreaming? #e:talking
+Kabowski: Guests? Brain cooking? Steven out of his room? #e:smh
+<<playSoundString AudioManager Sniff>>
+<<wait 3>>
+Kabowski: I smell estrogen in the air. #e:smh 
 <<wait 2>>
 Steven: H-hey, Kabowski... #e:smile
-===
-
-title: After_Kabowski_3
----
+Kabowski: Hello, Steven.
+<<wait 3>>
 Kabowski: And what two ladies do I have the pleasure of making the acquaintance of? #e:smh
-Stacy: Hi, I'm Stacy! #e:laughing
+<<wait 2>>
+Stacy: Stacy! #e:laughing
 Laura: Laura. 
 Kabowski: I do sure hope you enjoy tonight's feast.
+<<wait 1>>
 Brain: Kabowski, get your fatass over here and help me with the plates. #e:bored
 Kabowski: On my way. #e:smh
 ===
 
-title: After_Nikolai_1
+title: Nikolai_1
 ---
+Nikolai: Ooo, vat is all zis noise? #e:talking
+<<wait 2>>
+<<playSoundString AudioManager Sniff>>
+<<wait 3>>
 Nikolai: Mmmmm... somefing smell vury gud. 
 <<wait 2>>
 Nikolai: Oh, hullo to everyvun. 
-Stacy: Hi!
-Doomer: Hello.
+Dylan: Hi!
+Pepe: Hello.
+<<wait 2>>
 Steven: Hey Nikolai... #e:smile
 Steven: Sorry for inviting so many people here... #e:worried
-Nikolai: No vorries, Steven. I sought zat Brain vas cooking alone todey, but I didn't expect zis many guests! #e:talking 
+<<wait 2>>
+Nikolai: No vorries, Steven. #e:smile
+Nikolai: I sought zat Brain vas cooking alone todey, but I didn't expect zis many guests! #e:talking 
 <<wait 2>>
 Brain: Okay guys, dinner's ready. Gather round the table. #e:smile
 ===
 
 title: After_Gathered
 ---
-Stacy: Wait! Before we begin, I thought we should let Steven talk, since he invited us all here!
+Brain: Wait! Before we begin...
+Brain: I thought we should let Steven talk, since he organized this. #e:smile 
 <<wait 2>>
+===
+
+
+title: After_Turned_Look
+---
 Steven: ... #e:oshit
 -> Say something
 	Steven: ahem. 
@@ -278,19 +312,22 @@ Steven: And I'm really grateful that each of you considered me enough of a frien
 Steven: To come here tonight to eat with me. #e:smile
 <<wait 3>>
 Steven: That is all. #e:cry-smile
-<<playSoundString AudioManager LouderApplause>>
+<<playSoundString AudioManager Applause>>
 <<wait 3>>
+Kabowski: WoooOOOO great speach STEVIE! 
 <<if $kabowskiFriendProgress >= 1>>
-	Kabowski: We'll always be your friend, Steven.
+	Kabowski: But on a serious note...
+    Kabowski: We'll always be your friend, buddy.
 <<endif>>
-Dylan: I second that. Steven, you're a great guy. 
+Dylan: I second that. 
+Dylan: Steven, you're a great guy. 
 Dylan: That's why I didn't hesitate to come over. #e:smile
 
-Laura: You're a great person to crack jokes with... #e:looking-away-smile
-Laura: And you make me feel like I'm understood. #e:looking-smile
+Laura: You're a great listener... and a great speaker. #e:looking-away-smile
+Laura: You make me feel like I'm understood. #e:looking-smile
 
 Pepe: You cheer me up when I'm feeling down. #e:smile
-Pepe: And also you're one of the few people I can say anything to. #e:smile 
+Pepe: And I can say whatever's on my mind to you. #e:smile 
 <<if $stacyFriendProgress >= 1>>
 	Stacy: You have a good heart! 
 <<endif>>
@@ -320,37 +357,49 @@ Brain: Anyways, let's eat!
 
 title: After_Eat
 ---
-Kabowski: Now that was good! #e:smh
+Kabowski: Now that was a lot of protein! #e:smh
 Dylan: I'm stuffed! #e:smile
-Laura: No more... #e:laughing
+Laura: No more... #e:looking
 Steven: No more indeed... #e:comfy
 <<wait 3>>
 Pepe: Say, let's go have some fun now, guys! #e:smile
 Nikolai: Yez! Everyvun, to my room, now! #e:smile 
+Kabowski: Wooo! It's time to PAR TAY! #e:talking
+
 ===
 
 title: After_Party
 ---
+Kabowski: Woo hooOooOoooOO!
+Stacy: I'm dizzy... #e:laughing
 Steven: Are you guys sure you'll be able to walk home? #e:shocked
 <<wait 2>>
-Kabowski: Don't worry, I can walk them back! #e:smile
-Steven: Okay! #e:shocked
+Kabowski: Don't worry, I can walk us! #e:talking
+Steven: Are you drunk Kabowski? #e:shocked
+Kabowski: No course not!! 
 <<wait 2>>
-Laura: Wait!
+Kabowski: Now PLeASE Missus.. your number please. 
+Stacy: ... #e:laughing 
+Stacy: Okay, fine. 
+Stacy: I'll give it to you on the way back.
+<<wait 2>>
+Stacy: Thanks for inviting me, Steven. 
+Steven: Of course. #e:smile
 ===
 
 title: After_Laura_Walk
 ---
-Laura: Um, thanks for inviting me, Steven. #e:blush
-Laura: And it was nice to meet you all. #e:looking-smile
+Laura: Hey Steven. #e:blush
+Laura: This was the first party I was ever invited to... #e:blush
+Laura: And I'm glad I went, because it was a great time. #e:looking-away-smile
 <<wait 2>>
-Laura: This was the first party I was ever invited to...
-Laura: And I'm glad I went, because it was a great time. #e:blush
-Stacy: I concur! #e:laughing 
+Steven: Hey, it was my first time throwing one. #e:worried
+Steven: Thanks for coming.
 <<wait 2>>
-Laura: Anyways, I'll see you later. #e:looking-smile
+Laura: You did a good job. #e:looking
+Laura: Anyways, I'll talk to you later. #e:looking-smile
 <<wait 2>>
-Steven: Later, guys! #e:dsmile
+Steven: Later. #e:dsmile
 === 
 
 title: After_Kabowski_Leaves
@@ -363,16 +412,18 @@ Dylan: Haha, sick. Nikolai, right? #e:smile
 Nikolai: Yez. And yu are, Dylan? #e:smile
 Dylan: Right on. #e:smile
 <<wait 2>>
-Dylan: Hey Steven, thanks for inviting me! I'm gonna go now. #e:talking
+Dylan: Hey Steven, thanks for inviting me! I'm gonna go now. #e:smile
 Steven: Cya Dylan! Thanks for coming. #e:smile
+Nikolai: до свидания! #e:smile
 ===
 
 title: After_Dylan_Leaves
 ---
 Nikolai: Vow, I did not no, zis Dylan guy is into Russian culture so much. #e:smile
-Nikolai: You hev very cool friend, Steven. I am gled to meet him. #e:smile
+Nikolai: You hev very cool friend, Steven. I am gled to hev met him. #e:smile
+<<wait 2>>
 Steven: Glad to hear you guys got along! #e:smile
-Nikolai: Enyveys, I vill go sleep now. #e:talking
+Nikolai: Enyveys, I vill go sleep now. Goodbye. #e:talking
 ===
 
 title: After_Nikolai_Leaves
@@ -392,7 +443,10 @@ Brain: But I am pretty smart. #e:cool
 Pepe: Anyways, I have got to get your contacts man, we gotta keep talking about this. #e:smile 
 Brain: Yeah, sure. Here it is. #e:talking
 <<wait 2>>
-Pepe: Alright, thanks for inviting me, Steven! Cya guys later. #e:smile
+Pepe: Sick!
+<<wait 2>>
+Pepe: Also, thanks for inviting me, Steven! 
+Pepe: Cya guys later. #e:smile
 Steven: Later Pepe. #e:smile
 ===
 
@@ -400,56 +454,65 @@ title: After_Pepe_Leaves
 ---
 Brain: Good lord, that guy was somehow dumber than you... #e:bored
 Steven: Dumber? #e:yikes
-Brain: Yeah. He kept asking me stupid questions... 
-Brian: Questions that have no answer... or ones that I wouldn't be able to explain to him.
-Brain: That's why I gave him a fake phone number... please don't tell him. #e:cool
+Brain: Yeah. He kept asking me stupid questions... #e:angry
+Brain: Questions that have no answer... or ones that I wouldn't be able to explain to him. #e:angry
+Brain: That's why I gave him a fake phone number... 
+Brain: Please don't tell him. #e:cool
 <<wait 2>>
 Steven: Haha, that's cruel, man. #e:think1
-Brain: Yeah...
+Brain: Hey, I'm not his science teacher.
+<<wait 2>>
 Brain: He was pretty entertaining though. I can see why you have him as a friend. #e:smile 
 <<wait 3>>
 Brain: Anyways, I gotta go back to work now.
-Brain: Thanks for throwing the party, Steven. That was actually fun. #e:smile
+Brain: Thanks for throwing the party, Steven. It was fun. #e:smile
 Steven: No problem, dude. #e:smile 
 ===
 
 title: After_Party_End
 ---
-Steven: Wow, that's everyone, right? 
+Steven: Well, everyone's gone... 
 Steven: I'm so glad it's over. #e:bored
 Steven: It went well. #e:dsmile
 <<wait 3>>
 Voice: Wow... #e:concerned
 Voice: Honestly, I doubted you from the start, but this actually went really well. #e:think
-<<wait 2>>
+<<wait 4>>
+Voice: Steven. #e:talk1
 Voice: I have something to tell you... #e:talk1
 Voice: Something important... #e:talk1
-Voice: Someth- #e:talk2
-Voice: ... #e:smile
-<<playSoundString VoiceDying>>
+<<wait 2>>
+<<playSoundString AudioManager VoiceDying>>
 <<wait 3>>
 Steven: Voice? Are you there? 
-Steven: Voice? #e:worried
 <<wait 2>>
-Voice: Steven... #e:smile
+Steven: What was that voice? #e:worried
+<<wait 2>>
+Voice: Steven... #e:die1
 Voice: As you now have friends, I must depart from you... #e:die1
 Voice: I was merely a temporary replacement constructed by your mind... #e:die1
 Voice: To keep you from being too lonely... #e:die1
-Voice: Someone for you to talk to. Someone to keep you company. #e:die1
 <<wait 2>>
-Steven: Wait, no! But you can still stay! 
+Voice: I was someone for you to talk to. Someone to keep you company. #e:die1
+Voice: But now, I am no longer needed. #e:die1
+<<wait 2>>
+Steven: What? #e:worried
+Steven: Wait, no! You can still stay! #e:worried
 <<wait 1>>
-Voice: I can't. You must choose. #e:die2
+Voice: I can't. #e:die2
 Voice: If you have friends, you will have no more time for me... #e:die2
+Voice: Why should I exist any longer when you have a real replacement for me? #e:die3
 <<wait 2>>
-Voice: But this is what you've always wanted, right? Real friends... #e:die2
+Voice: But this is what you've always wanted, right? #e:die2
+Voice: Real friends... #e:die3
 Voice: And I am happy for you. It's best that you go with them. #e:die3
-Voice: So I've decided to leave. #e:die2
 <<wait 4>>
 Steven: Wait... #e:cry
-<<playSoundString VoiceDying2>>
+<<playSoundString AudioManager VoiceDying2>>
 <<wait 3>>
 Steven: Voice... #e:cry-shuteye
+Voice: I don't have much longer, Steven. #e:die3
+Voice: What is it? #e:die4
 <<wait 2>>
 Steven: Thank you for keeping me company. #e:cry-smile
 <<wait 4>>
@@ -461,12 +524,6 @@ Voice: Goodbye........ #e:die5
 ===
 
 title: After_Reaper_Appears
----
-Steven: AAAAAA! #e:worried
-<<wait 2>>
-===
-
-title: After_Steven_Turn_Around
 ---
 Steven: Oh, it's you. #e:bored
 <<wait 2>>
@@ -487,10 +544,12 @@ Steven: As for Voice... #e:stern
 Steven: Well, he wasn't that bad... #e:think2
 <<wait 2>>
 Reaper: He was bad, Steven. #e:smile
-Reaper: He represented comfort to you. 
-Reaper: Everything you were scared of, he consoled you. 
+Reaper: You still don't believe me?
+<<wait 2>>
+Reaper: He represented comfort to you. An easy way out.  
 Reaper: He gave you a reason NOT to do something. An excuse to hind behind. #e:talking
 Reaper: And that was slowly killing you, as you lived out an unfulfilling life. #e:talking
+Reaper: This is why you loved him so much.
 <<wait 3>>
 Reaper: It will take your mind some time to recover from his damage.
 Reaper: And trust me, he WILL come back if you are not careful. #e:scary 
@@ -500,12 +559,16 @@ Reaper: Don't let him control you again. #e:smile
 Steven: ... #e:think1
 <<wait 2>>
 Steven: Reaper?
+<<wait 2>>
 Reaper: Hm?
 Steven: Thanks... for not killing me. #e:dsmile
 Reaper: ... #e:smile
 <<wait 2>>
 Reaper: Someday we will meet again, Steven. #e:smile
-Reaper: For now, Goodbye. #e:smile
+Reaper: And then, I will brutally murder you and send you away to the underworld.
+<<wait 2>>
+Reaper: But for now, goodbye. #e:smile
+Goodbye.
 ===
 
 title: After_Reaper_Dissapears
@@ -513,20 +576,40 @@ title: After_Reaper_Dissapears
 // fade in using cutscene
 Game: And with that, the game comes to an end
 Game: Steven was on the right track, once again
-Game: Reborn a cyborg, half robot, half human being
-Game: He finally felt as though his robot origins, were not without meaning
+Game: Reborn a cyborg: half robot, half human being
+Game: He finally felt as though his robot origins, were losing its meaning
 Game: With this chapter concluded, I implore you to reconsider
 Game: How many robots are truly out there, lonely and bitter
 Game: And how many need a hand... just one or two
 Game: To help fight their inner demons, and live life anew
 
-Game: This is the "good ending". If you have not found the bad one yet, feel free to try.
-Game: Hint, let your mood tank really hard.
+Game: A voice in our head, that tells us no...
+Game: Will only have power, if we believe it so.
+Game: Our time is limited, here on this earth.
+Game: So let us live good lives, and waste not it's worth.
+
+
+<<wait 2>>
+Game: This is the <color=green>good ending <color>.
+Game: In this run, you completely did all the dialogues for {$numDialoguesComplete} out of 16 frens. 
+<<if $numDialoguesComplete == 16>>
+    Game: That's really impressive. 
+    Game: Thank you so much for playing my game to completion.
+    Game: I hope you enjoyed it.
+<<elseif $numDialoguesComplete >= 8 && $numDialoguesComplete < 16>>
+    Game: You're doing great! Keep it up.
+<<endif>>
+<<if $isKYS == false>>
+    Game: It also appears you have not found the bad ending yet.
+    Game: Maybe try to find it!
+    Game: (Hint: just do absoutely nothing everyday)
+<<endif>>
+
 <<wait 2>>
 <<set $hasDoneGroupMeeting = true>>
-Game: Keep playing? (This option will wake you up on the next day)
+Game: Keep playing? 
 -> Yes
-	<<WakeUp LevelLoader>>
+
 -> No way Jose
 	Game: Thank you for playing!
 	<<QuitGame UI>>
@@ -534,23 +617,7 @@ Game: Keep playing? (This option will wake you up on the next day)
 
 
 
-title: After_Login
+title: Can_Win
 ---
-
-Stacy: Hi Pepe!
-<<wait 2>>
-Pepe: Oh-
-Pepe: Hey Stacy. #e:smile
-Stacy: I didn't know you were friends with Steven! #e:laughing 
-Pepe: Me? Oh... um.
-Pepe: Yeah, we hang out. Outside of Bible Study, I mean. #e:smile
-Stacy: Oh, where?
-Pepe: Online, mostly. On the internet. #e:smile
-Stacy: Cool! I don't use the internet often, maybe you can show me some games?
-Pepe: Um... sure. 
-Pepe: Steven, you mind if I use your computer?
-Steven: Uhm, yeah... Sure.
-<<wait 3>>
-Mind: Wait, shit! There's no coomer shit on my desktop, right? #e:oshit
-Steven: Uh, hold on, lemme login for you. #e:crazy1
+Game: Check your computer for a special event.
 ===

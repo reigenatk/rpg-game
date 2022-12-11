@@ -114,6 +114,9 @@ public class AudioManager : Singleton<AudioManager>
             case "Mom":
                 PlaySound(SoundName.MomTypewriterSound);
                 break;
+            case "Mom (Older)":
+                PlaySound(SoundName.MomTypewriterSound);
+                break;
             case "Dad":
                 PlaySound(SoundName.DadTypewriterSound);
                 break;
@@ -140,6 +143,27 @@ public class AudioManager : Singleton<AudioManager>
                 break;
             case "Lucy":
                 PlaySound(SoundName.LittleGirlTypewriterSound);
+                break;
+            case "Steven (Adult)":
+                PlaySound(SoundName.OlderRobotTypewriter);
+                break;
+            case "Jeffery (Adult)":
+                PlaySound(SoundName.OlderFriendTypewriter);
+                break;
+            case "?":
+                PlaySound(SoundName.BossTypewriter);
+                break;
+            case "Alice":
+                PlaySound(SoundName.LittleGirlTypewriterSound);
+                break;
+            case "Allen (Older)":
+                PlaySound(SoundName.OlderBrotherTypewriter);
+                break;
+            case "Nurse":
+                PlaySound(SoundName.NurseTypewriterSound);
+                break;
+            case "Cashier":
+                PlaySound(SoundName.NurseTypewriterSound);
                 break;
             default:
                 PlaySound(SoundName.TypewriterSound);

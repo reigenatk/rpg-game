@@ -78,7 +78,9 @@ Voice: The boba was good, but the conversation wasn't... #e:thinking
 <<wait 1>>
 Mind: Yeah, no shit! She lectured me on Greys Anatomy for 30 minutes! #e:weary
 Steven: I wish girls had more actual interests besides watching tv and scrolling social media... #e:bored
+<<wait 2>>
 Steven: It'd be much easier to relate to them that way... #e:bored
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 <<jump Becky_Improve_Friendship_Most>>
 ===
 

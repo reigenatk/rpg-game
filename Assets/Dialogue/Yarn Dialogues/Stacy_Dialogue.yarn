@@ -125,7 +125,7 @@ Stacy: Why do you want to know?
 	<<wait 1>>
 	Steven: Shit #e:oshit
 	Steven: At least I tried. #e:angry2
-
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 <<jump Stacy_Improve_Friendship_Most>>
 ===
 

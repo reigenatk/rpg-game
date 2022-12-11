@@ -126,7 +126,7 @@ title: Boomer_Chat_Decide
 
 <<if $didBoomerDialogue1 == false>>
     <<set $didBoomerDialogue1 = true>>
-    <<jump Chat_End_1>>
+    <<jump Boomer_Chat_End_1>>
 <<else>>
 	-> Music 
 		<<jump Boomer_Music>>
@@ -169,6 +169,7 @@ Steven: I guess.. #e:think1
 Steven: Thanks for the advice, I guess. #e:smile
 Michael: No, thank you for listening. 
 Michael: Remember, I'm always here to chat. #e:talking
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 <<jump Boomer_Improve_Friendship_Most>>
 ===
 
@@ -370,7 +371,7 @@ title: Boomer_Improve_Friendship
 	<<changePlayerScoreString Manager "entertained" 10.0>>
     <<changePlayerScoreString Manager "contentedness" 10.0>>
 	<<changePlayerScoreString Manager "social" 10.0>>
-	<<set $talkedToboomerAlready = true>>
+	<<set $talkedToBoomerAlready = true>>
 ===
 
 title: Boomer_Improve_Friendship_Less
@@ -383,7 +384,7 @@ title: Boomer_Improve_Friendship_Less
 	<<changePlayerScoreString Manager "entertained" 5.0>>
     <<changePlayerScoreString Manager "contentedness" 5.0>>
 	<<changePlayerScoreString Manager "social" 5.0>>
-	<<set $talkedToboomerAlready = true>>
+	<<set $talkedToBoomerAlready = true>>
 ===
 
 title: Boomer_Ruin_Friendship
@@ -396,7 +397,7 @@ title: Boomer_Ruin_Friendship
 	<<changePlayerScoreString Manager "entertained" 7.5>>
     <<changePlayerScoreString Manager "contentedness" -5.0>>
 	<<changePlayerScoreString Manager "social" 7.5>>
-	<<set $talkedToboomerAlready = true>>
+	<<set $talkedToBoomerAlready = true>>
 ===
 
 title: Boomer_Ruin_Friendship_Less
@@ -409,5 +410,5 @@ title: Boomer_Ruin_Friendship_Less
 	<<changePlayerScoreString Manager "entertained" 5.0>>
     <<changePlayerScoreString Manager "contentedness" -10.0>>
 	<<changePlayerScoreString Manager "social" 5.0>>
-	<<set $talkedToboomerAlready = true>>
+	<<set $talkedToBoomerAlready = true>>
 ===

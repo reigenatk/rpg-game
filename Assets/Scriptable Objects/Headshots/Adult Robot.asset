@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397afedbedc173f48915570b4133a5f4, type: 3}
+  m_Name: Adult Robot
+  m_EditorClassIdentifier: 
+  headshots:
+  - headshotName: normal
+    sprite: {fileID: 1151201111, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  - headshotName: cry1
+    sprite: {fileID: -1037429360, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  - headshotName: cry2
+    sprite: {fileID: -409863929, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  - headshotName: bored
+    sprite: {fileID: -1657926248, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  - headshotName: hands
+    sprite: {fileID: -1450671582, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  - headshotName: booze
+    sprite: {fileID: 1822644098, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  - headshotName: down
+    sprite: {fileID: 1998139149, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  - headshotName: teary
+    sprite: {fileID: -2064372715, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  charactersThatUseTheseHeadshots:
+  - Steven (Adult)
+  scaleToUse: 4

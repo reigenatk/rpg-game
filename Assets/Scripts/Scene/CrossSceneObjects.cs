@@ -12,7 +12,9 @@ public class CrossSceneObjects : MonoBehaviour
 {
     [SerializeField] SpriteRenderer CoomerHead;
     [SerializeField] Animator CoomerNPCAnimator;
-    
+    [SerializeField] GameObject pianoKeyboardDream3;
+    [SerializeField] GameObject hospitalAudio;
+
     // helper to call the toggleLight on the PropsToggle.cs function (across scenes)
     public void turnOffLamp()
     {
@@ -155,5 +157,17 @@ public class CrossSceneObjects : MonoBehaviour
     public void disableCoomer()
     {
         CoomerHead.enabled = false;
+    }
+
+    [YarnCommand("ActivatePiano")]
+    public void activatePiano()
+    {
+        pianoKeyboardDream3.GetComponent<AudioSource>().enabled = true;
+    }
+
+    [YarnCommand("ShutUpHospital")]
+    public void shutUpHospital()
+    {
+        hospitalAudio.GetComponent<AudioSource>().enabled = false;
     }
 }

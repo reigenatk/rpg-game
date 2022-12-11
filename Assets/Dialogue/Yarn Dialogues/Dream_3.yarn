@@ -1,5 +1,597 @@
-﻿title: Dream_3
-tags:
+﻿title: Day3Dream_Vars
 ---
+<<declare $hasDoneRoomScene = false>>
+<<declare $hasDoneShopping = false>>
+===
 
+title: Grave
+---
+Steven: It's a grave. 
+===
+
+title: Dad_Grave
+---
+Steven: ... #e:stern
+<<wait 2>>
+<<playCutscene LevelLoader Graveyard>>
+===
+
+title: Self_Help_1
+---
+Steven: It's a self help book.
+<<wait 3>>
+Steven: The cover says: "Overcoming Shyness: Break Out of Your Shell and Express Your True Self" #e:stern 
+===
+
+title: Self_Help_2
+---
+Steven: It's another book.
+<<wait 3>>
+Steven: The cover says: "No Longer Human by Osamu Dazai" #e:stern 
+===
+
+title: Pills
+---
+Steven: A random cluster of pills...
+Steven: Seems to be some kind of anti-depression medication. #e:huh
+===
+
+title: Mini_Fridge
+---
+Steven: It's a mini fridge.
+===
+
+title: Keyboard
+---
+Steven: Looks to be a keyboard.
+<<wait 2>>
+Steven: Seems like I took up music as a hobby to pass the time.. #e:huh
+===
+
+title: Cot
+---
+Steven: My bed is just a sleeping bag on the floor. #e:stern
+<<wait 2>>
+Steven: Must be hard to fall asleep on. #e:huh
+===
+
+title: View
+---
+Steven: The view isn't very good.. #e:think2 
+<<wait 2>>
+Steven: All you can see from here is another apartment.. And the loud streets below #e:think1
+===
+
+title: Dream3_Desktop
+---
+<<if $hasDoneRoomScene == false>>
+    Steven: It's an older me... #e:think1
+    <<wait 2>>
+    <<playCutscene LevelLoader Apartment>>
+<<endif>>
+===
+
+title: Work_From_Home
+---
+<<playSoundString AudioManager SlackNotif>>
+<<wait 2>>
+?: Hey Steven, I need you to check that email I just sent you.
+<<playSoundString AudioManager SlackNotif>>
+<<wait 2>>
+?: The code changes should be pushed. I need you to look over them ASAP. Thx!
+<<wait 2>>
+Steven (Adult): This guy is still messaging me... #e:bored
+Steven (Adult): It's already 6PM. Work hours are over... #e:booze
+<<playSoundString AudioManager TypingSounds>>
+<<wait 3>>
+<<playSoundString AudioManager SlackNotif>>
+<<wait 2>>
+?: Hey, I also noticed that you didn't come to the team standup today...
+<<playSoundString AudioManager SlackNotif>>
+<<wait 2>>
+?: As you know, your performance is very critical to the success of the company.
+<<playSoundString AudioManager SlackNotif>>
+<<wait 2>>
+?: If you do not attend the next one, I may have to inform HR.
+<<wait 2>>
+Steven (Adult): Shit. #e:booze
+Steven (Adult): Seems like I haven't been kissing my manager's ass enough. #e:bored
+<<playSoundString AudioManager TypingSounds>>
+<<wait 3>>
+Steven (Adult): (types) I'm sorry, I will be at the next Zoom meeting. #e:bored
+Steven (Adult): There, that should be sufficient, for a while.
+<<wait 2>>
+Steven (Adult): Finally, work is over...
+<<wait 4>>
+Steven (Adult): What should I even do now? #e:bored 
+Steven (Adult): I don't have anyone to go to bars with... 
+Steven (Adult): I don't know anyone in this big city... #e:bored
+<<wait 3>>
+Steven (Adult): And it's too late to make a change.
+Steven (Adult): My last good chance for meeting people was college. And that was 3 years ago.
+<<wait 2>>
+Steven (Adult): Let's just watch Youtube. #e:booze
+===
+
+title: After_Youtube
+---
+Steven (Adult): None of this shit is funny or interesting anymore.
+Steven (Adult): I'm only 25, yet it feels like I've seen all there is to be seen... On the internet, anyways. #e:bored
+===
+
+title: Monologue
+---
+Steven (Adult): This is it, huh... #e:booze
+Steven (Adult): This is my life. #e:bored 
+<<wait 2>>
+Steven (Adult): What did I even do wrong? #e:booze
+<<wait 3>>
+Steven (Adult): Alcohol, why are you my only friend?
+<<wait 2>>
+Steven: ... #e:oshit
+<<wait 2>>
+// goes to piano
+===
+
+title: Music
+---
+Steven (Adult): The only thing that still gives me joy...
+Steven (Adult): Is the feeling of creating something new... #e:bored
+<<wait 2>>
+Steven (Adult): It's my only way of expressing my sad little reality. #e:booze
+<<wait 2>>
+<<set $hasDoneRoomScene = true>>
+<<ActivatePiano CrossSceneObjects>>
+===
+
+title: Talk_To_Jeffery_1
+---
+Jeffery (Adult): What do you say to the cashier?
+<<wait 2>>
+Alice: Thanks!
+Cashier: You're welcome!
+<<wait 2>>
+Jeffery (Adult): Thank you.
+Cashier: Please come again!
+===
+
+title: Talk_To_Jeffery_2
+---
+Steven (Adult): ...
+Steven (Adult): Why's this guy looking at me weirdly?
+Steven (Adult): Did I insult him by looking at his daughter or something? #e:bored
+<<wait 2>>
+Steven (Adult): Hey man. #e:bored
+Steven (Adult): Mind moving over..? #e:booze
+===
+
+title: Talk_To_Jeffery_3
+---
+Jeffery (Adult): Steven!
+===
+
+title: Talk_To_Jeffery_4
+---
+Jeffery (Adult): Yes, I'm talkin to you! 
+<<wait 3>>
+Steven (Adult): Me?
+Jeffery (Adult): Heck yea! #e:grin
+Jeffery (Adult): Don't you recognize me? #e:grin
+<<wait 4>>
+Jeffery (Adult): No way you forgot... 
+Jeffery (Adult): Here, I'll refresh your memory. #e:smile
+Jeffery (Adult): Dokemon? Worm jar?   #e:grin
+Jeffery (Adult): Your house or my house?  #e:grin
+Jeffery (Adult): Mintendo ES? #e:smile
+<<wait 3>>
+Steven (Adult): You... 
+<<wait 3>>
+Steven (Adult): Jeffery? 
+Jeffery (Adult): How have you been? It's been so long... #e:grin
+Jeffery (Adult): Almost 20 years.  #e:grin
+Steven (Adult): I...
+Steven (Adult): I've been.. #e:booze
+<<wait 4>>
+Steven (Adult): ..good #e:booze
+Jeffery (Adult): You sure look good! 
+Jeffery (Adult): Man, so much has changed! Look at you. 
+<<wait 2>>
+Steven (Adult): Yeah...
+Steven (Adult): Same with you. #e:bored 
+Steven (Adult): You cut your hair... #e:booze
+Jeffery (Adult): Haha, that haircut was because my mom wouldn't let me cut it any other way. #e:grin
+Jeffery (Adult): Actually, just last week I went back to visit her. #e:smile
+<<wait 3>>
+Jeffery (Adult): In case you're wonderin, I moved out here for a construction job.
+Jeffery (Adult): It's hard work, but it pays the bills. #e:grin
+Jeffery (Adult): I can't believe we live in the same city. #e:smile
+<<wait 2>>
+Jeffery (Adult): Sorry for spillin all that on ya. 
+Jeffery (Adult): I just can't believe we ran into each other. #e:grin
+Jeffery (Adult): We should have a beer sometime. #e:smile
+<<wait 2>>
+Steven (Adult): Yeah... #e:bored
+Steven (Adult): We really should... #e:booze
+<<wait 2>>
+Jeffery (Adult): So what are you up to these days? #e:grin
+Steven (Adult): Uh...
+<<wait 2>>
+Steven (Adult): I work in software.
+Jeffery (Adult): Huh, I could always tell you were a smart guy. #e:grin
+Jeffery (Adult): Can't say I'm surprised. #e:smile
+<<wait 1>>
+Jeffery (Adult): I pretended to be smart when we were kids, but in reality I was super dumb. #e:grin
+<<wait 2>>
+Jeffery (Adult): Man, I miss those days.. before college, gettin married, and all that.
+<<wait 3>>
+Steven (Adult): Yep... Totally.. #e:bored 
+Steven (Adult): Life sure gets busy.. heh heh...
+<<wait 3>>
+Jeffery (Adult): Yep. Hey, you know what man, I gotta fly. Got my son's hockey game to go to.
+Jeffery (Adult): But before that, could you give me your number?  #e:grin
+Jeffery (Adult): Maybe our families could meet each other. The kids might get along. #e:smile
+Steven (Adult): Haha... sure..
+<<wait 5>>
+Steven (Adult): Ummm.
+Steven (Adult): Actually wait, my telephone provider broke recently.. 
+Steven (Adult): I don't have a number right now.. #e:bored 
+Steven (Adult): Maybe I will find you around again sometime?
+Jeffery (Adult): Aw, ok.
+Jeffery (Adult): Yeah, then maybe we'll bump into each other. Fingers crossed. #e:grin
+Jeffery (Adult): Alice, wave bye bye to Steven! #e:grin
+Alice: Bye Bye!!
+<<wait 2>>
+Steven (Adult): bye.. #e:bored 
+Jeffery (Adult): Nice catching up!
+<<wait 3>>
+===
+
+title: After_Jeffery_Left
+---
+<<wait 3>>
+Steven (Adult): Good lord. That was a worst case scenario.
+Steven (Adult): It took every fibre of my being to not run away there.
+<<wait 2>>
+Steven (Adult): Also, he asked me for my number. #e:booze 
+Steven (Adult): Thank god I lied to him last minute. #e:bored
+Steven (Adult): His opinion of me would fall so much once he realizes I have no girlfriend.. no house.. no life. #e:booze 
+<<wait 3>>
+Steven (Adult): Jeffery's changed so much... #e:bored
+Steven (Adult): I always thought he would grow up to become a loser like me... since he was always super nerdy as a kid.
+Steven (Adult): But instead he seems very well adjusted. 
+Steven (Adult): Married with two kids, got a job... #e:bored
+Steven (Adult): Hell, he even looks kinda macho.
+<<wait 2>>
+Steven (Adult): Meanwhile I haven't changed a bit since elementary school. #e:bored 
+<<wait 2>>
+Cashier: Sir, do you still want to purchase anything?
+<<wait 4>>
+Steven (Adult): I don't feel so good... #e:booze
+<<set $hasDoneShopping = true>>
+===
+
+title: Older_Brother
+---
+Steven: This looks to be my brother, Allen. #e:stern
+<<wait 2>>
+Steven: He looks much different now... #e:think2 
+<<wait 2>>
+Steven: It also appears he is a police officer.. #e:think1 
+<<wait 2>>
+Steven: On his shirt, it has a badge that says "City of Evansville"... #e:huh 
+<<wait 2>>
+Steven: Can't say I'm surprised he ended up becoming an officer. #e:yikes
+<<wait 2>>
+Steven: Bossing me around was his specialty when we were younger, anyways... #e:stern 
+
+===
+
+title: Older_Mother
+---
+Steven: It's my mom... #e:worried 
+<<wait 2>>
+Steven: She doesn't look too healthy... #e:sad
+<<wait 2>>
+Steven: She is very pale and wrinkly. #e:worried
+<<wait 3>>
+Steven: My mom always had good health, so it's sad to see her age like this. #e:sad
+Steven: But, I guess that happens to everyone when they age. #e:think2
+Steven: It doesn't matter how healthy you live... 
+Steven: ...you will always look worse as you get older. #e:sad
+<<wait 2>>
+Steven: That's just a sad reality of life. #e:stern
+<<wait 2>>
+Steven: Wait.. #e:think1 
+Steven: Where is my dad? #e:huh
+<<playCutscene LevelLoader Hospital>>
+===
+
+title: Older_Self_Hospital
+---
+Steven: It's me in the future. #e:stern
+Steven: I look pretty sad. 
+<<wait 2>>
+Steven: But how can anyone be happy in a hospital? #e:huh 
+Steven: It's literally the place where people die. #e:sad
+===
+
+title: Before_Nurses
+---
+Allen (Older): Look mom, he'll be alright.
+Allen (Older): We should just head home for the night. #e:right 
+Allen (Older): Sitting here worrying isn't going to help your own health. #e:right
+<<wait 3>>
+Mom (Older): No, I need to hear from the doctor first that he'll be alright.
+Allen (Older): ...
+<<wait 2>>
+Allen (Older): Fine. #e:right
+<<wait 2>>
+Allen (Older): But only for 30 more minutes. We've already waited two hours. #e:right
+<<wait 2>>
+Mom (Older): I'm worried it was something serious.
+Mom (Older): Your father hasn't been sleeping and eating well for the last few months.
+Mom (Older): You guys don't know this, since you don't live home anymore.
+<<wait 2>>
+Mom (Older): I tried to tell him to watch his health, but he never listens to me. 
+<<wait 2>>
+Allen (Older): Dad? 
+Mom (Older): Yes. He's always a hard worker, you too know this.
+Mom (Older): I fear he overworked himself.
+<<wait 2>>
+Mom (Older): He's not young anymore. 
+Mom (Older): But he thinks he is.
+Mom (Older): He doesn't realize that we've gotten old. 
+<<wait 3>>
+Mom (Older): Guys, please, let's all pray for Dad.
+===
+
+title: After_Pray
+---
+Mom (Older): Dear God, please help him be ok. #e:pray
+Mom (Older): Give the doctors the knowledge to heal him. #e:pray
+<<wait 2>>
+Mom (Older): In Jesus Name, Amen. #e:pray
+===
+
+title: Nurse_Walk
+---
+Nurse: Mrs..
+<<wait 2>>
+Nurse: ...
+<<wait 2>>
+Nurse: We have news...
+<<wait 2>>
+Mom (Older): What, what is it?
+Mom (Older): Is he going to be fine? #e:cry1
+Mom (Older): Has he recovered? #e:cry1
+<<wait 2>>
+Nurse: Ma'am...
+<<wait 2>>
+Nurse: There was nothing we could do.
+Mom (Older): Nothing you could what? #e:cry1
+Mom (Older): No... #e:cry1
+Mom (Older): It can't be... #e:cry1
+===
+
+title: After_Mom_Spasm
+---
+Mom (Older): He was only 65! #e:cry-shocked
+Allen (Older): Mom! Calm down! #e:right
+<<wait 2>>
+Mom (Older): Why didn't you save him!!!! #e:cry-shocked
+Nurse: Ma'am, we tried everything.
+Nurse: He was dead on arrival.
+<<wait 2>>
+Nurse: He had a massive heart attack.
+<<wait 3>> 
+Nurse: We tried everything.
+<<wait 2>>
+Mom (Older): WHAT!? #e:cry-shocked
+Allen (Older): Mom! Please...
+Mom (Older): LET ME SEE HIM! #e:cry-shocked
+Mom (Older): I WANT TO SEE MY HUSBAND NOW! #e:cry-shocked
+Nurse: Unfortunately ma'am, we can't let you see him.
+Nurse: The coroner has to see the body first.
+<<wait 2>>
+Mom (Older): ... #e:cry1
+<<wait 2>>
+Mom (Older): how could you say that... #e:cry1
+Mom (Older): I've spent over 40 years with this man... #e:cry-shocked
+Mom (Older): And you can't even let me see his dead body!? #e:cry-shocked
+<<wait 2>>
+Mom (Older): I can't take this anymore...
+<<wait 2>>
+Mom (Older): ... #e:faint
+===
+
+title: After_Mom_Faint
+---
+Allen (Older): Mom! Are you ok? #e:shocked
+Allen (Older): MOM! #e:shocked
+<<wait 2>>
+Nurse: Oh dear. #e:shocked
+<<playSoundString AudioManager WalkieTalkie>>
+Nurse: (radios) I need EMERGENCY assistance in the main lobby. 
+Nurse: A woman has fainted, I repeat, woman has fainted.
+Nurse: Aged around 60 years. Suspected heart attack.
+<<wait 1>>
+Allen (Older): HURRY UP! Why aren't you taking her in? #e:shocked
+<<wait 1>>
+Nurse: Sir, we have procedures we must follow.
+Nurse: We can only operate once we have confirmation that there is room in the hospital.
+Allen (Older): Fuck that, my mom is DYING! I'm bringing her in. #e:right
+Allen (Older): I am a police officer. I will press charges on this.
+<<wait 2>>
+Allen (Older): Steven! I'm gonna go. #e:right
+Allen (Older): You stay back here and watch your phone. I'll message you. #e:right
+Steven (Adult): Yep. 
+<<wait 2>>
+Allen (Older): You're gonna be alright, Mom! #e:right
+===
+
+title: After_Allen_Run_Off
+---
+Nurse: Sir! Please come back! #e:shocked
+<<wait 2>>
+Nurse: I hate this job...
+===
+
+title: Nurse_Sign
+---
+Nurse: Excuse me, are you part of the family whose father just passed? #e:shocked 
+<<wait 2>>
+Steven (Adult): Yeah. #e:bored 
+<<wait 2>>
+Nurse: Okay. I'm gonna need you to help sign this.
+<<wait 2>>
+Steven (Adult): ... #e:bored 
+<<wait 2>>
+Nurse: It's your father's death certificate.
+Nurse: Along with some insurance information. #e:shocked 
+<<wait 2>>
+Nurse: You can take this to the funeral home and they will likely take care of the funeral proceedings. #e:shocked 
+===
+title: After_Sign_Docs
+---
+<<wait 3>>
+Nurse: I'm very sorry for your loss.
+<<wait 2>>
+Steven (Adult): ... #e:booze
+Steven (Adult): Like hell you are.
+Nurse: Please don't give me a hard time, sir. 
+Nurse: I'm really sorry for you, I mean it.
+<<wait 3>>
+Steven (Adult): How much is this gonna cost? #e:bored 
+<<wait 2>>
+Nurse: Cost?
+Nurse: It depends per case. 
+Nurse: We are calculating that right now.
+Nurse: Anything else I can help you with?
+Steven (Adult): ... #e:booze
+<<wait 2>>
+Nurse: ...
+===
+
+title: After_Nurse_Leave
+---
+Steven (Adult): I can't believe it... #e:bored
+Steven (Adult): He's actually gone... #e:booze
+<<wait 2>>
+Steven (Adult): Why are there no tears? #e:bored
+Steven (Adult): Am I that robotic? #e:bored
+<<wait 2>>
+Steven (Adult): A part of me is sad, but... #e:bored
+Steven (Adult): I can't even shed tears for the death of my father... #e:bored
+<<wait 2>>
+Steven (Adult): Perhaps I really resent him that much. #e:booze
+Steven (Adult): We were never close, anyways. #e:booze
+Steven (Adult): My father was a stranger to me. #e:booze
+<<wait 2>>
+Steven (Adult): Maybe that's worth crying about... #e:teary
+<<wait 2>>
+Steven (Adult): The fact that I can never make things right again... #e:teary
+Steven (Adult): ... #e:teary
+<<wait 3>>
+===
+
+title: After_Reaper_In
+---
+<<ShutUpHospital CrossSceneObjects>>
+Steven: ... #e:oshit
+<<wait 2>>
+Reaper: So?
+Reaper: What do you think?
+<<wait 2>>
+Reaper: Like what you see?
+<<wait 4>>
+Steven: ... #e:stern
+<<wait 2>>
+Reaper: Answer.
+<<wait 2>>
+Steven: I refuse to. #e:stern
+<<wait 2>>
+Steven: In fact, fuck you. #e:stern
+Steven: Why are you doing this? #e:stern
+Steven: Just to mock me? #e:angry3
+<<wait 2>>
+Reaper: No. #e:talking
+Steven: Yes you are! #e:angry2
+Steven: You're trying to piss me off! #e:angry3
+Steven: You were probably watching me the whole time. #e:angry3
+Steven: With that stupid grin on your face. #e:angry2
+<<wait 2>>
+Steven: You know I don't want to see any of this shit! #e:angry3
+Steven: My future will be shitty! I get it! #e:angry3
+Steven: You don't need to show me a scene of my mother getting a heart attack! #e:angry3
+<<wait 2>>
+Reaper: ...
+Reaper: Looks like you don't get it yet. #e:talking 
+<<wait 2>>
+Reaper: I'm not trying to make you suffer.
+Reaper: I'm trying to make you understand what's wrong with this picture.
+<<wait 2>>
+Steven: There's nothing wrong here. #e:stern
+<<wait 3>>
+Reaper: ...
+<<wait 1>>
+Reaper: Are you sure?
+<<wait 2>>
+Reaper: You said you couldn't shed tears for your father.
+Reaper: Isn't that such a sad thing to say?
+Reaper: The man who gave you life. 
+Reaper: And you have zero feeling for his passing.
+Reaper: You're more concerned about your own feelings. #e:talking 
+Reaper: Your own sadness. #e:talking 
+<<wait 2>>
+Reaper: See the problem now? #e:smile
+<<wait 2>>
+Steven: ... #e:before-cry
+Steven: But I can't cry for my dad. #e:before-cry
+Steven: I genuinely don't love him. #e:cry
+Steven: I'm not going to cry fake tears! #e:angry
+Steven: He gave birth to me, but that's all he did. #e:cry-painful
+Steven: He was a terrible father otherwise. #e:cry-painful
+Steven: He never told me how important it was to socialize. I made zero friends. #e:cry-painful 
+Steven: He told me that grades were everything. So I became a studious loner. #e:cry-painful
+Steven: He fed me misinformation my entire life, and expected me to become something from it. #e:cry-painful
+Steven: He beat me so I became a submissive, indecisive... #e:cry-shuteye
+Steven: ...socially anxious sad piece of shit... #e:cry-painful
+Steven: And you want me to praise him for it? #e:cry-angry
+<<wait 2>>
+Steven: Do you understand!? #e:cry-angry
+Steven: He was a shit father! #e:cry-angry
+Steven: And you're asking me to cry for him? #e:cry-angry
+<<wait 2>>
+Reaper: And yet look. #e:smile
+<<wait 2>>
+Reaper: The older version of you is crying.
+<<wait 2>>
+Reaper: Why is that?
+<<wait 2>>
+Reaper: Despite all the hate you claim to have for him, you still shed tears at the news of his death. #e:smile
+<<wait 2>>
+Reaper: Because death is final, Steven.
+Reaper: And deep down, you truly do care for him.
+<<wait 2>>
+Reaper: You say you WISH you had a father who was perfect. #e:talking
+Reaper: But no father is perfect in the eyes of their children. #e:smile
+<<wait 2>>
+Reaper: He tried his best, Steven. So did your mother.
+Reaper: If he didn't, he wouldn't have worked to his death for your family. #e:talking
+<<wait 1>>
+Reaper: So love your parents while you still have them.
+Reaper: Talk to them. Learn more about who they are, before it's too late. #e:talking 
+<<wait 2>>
+Reaper: Because otherwise, you'll be wondering why you can't cry for them on the day of their death.
+Reaper: Just like you doing are here. #e:smile 
+<<wait 2>>
+Reaper: I'll see you tomorrow. #e:smile
+===
+
+title: Talk_To_Jeffery_Old
+---
+Jeffery (Adult): !
+<<if $hasDoneShopping == false>>
+    <<playCutscene LevelLoader Grocery>>
+<<endif>>
 ===

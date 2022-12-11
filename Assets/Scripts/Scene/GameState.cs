@@ -165,6 +165,17 @@ public class GameState : Singleton<GameState>
         currentScene = getCurrentSceneEnum().ToString();
 
         setYarnVariable("$gameHour", TimeManager.Instance.gt.gameHour);
+
+        // conditonal on whether we can trigger the cutscene to beat the game
+        if (getYarnVariable("$hasTextedDoomer")&& getYarnVariable("$hasTextedLaura") && getYarnVariable("$hasTextedPepe") == true && 
+            getYarnVariable("$hasDoneGroupMeeting") == false && getYarnVariableInt("$day") > 5)
+        {
+            setYarnVariable("$canBeatGame", true);
+        }
+        else
+        {
+            setYarnVariable("$canBeatGame", false);
+        }
     }
 
     public void resetDailyYarnVariables()

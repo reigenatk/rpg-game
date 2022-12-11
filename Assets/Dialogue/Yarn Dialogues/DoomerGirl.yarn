@@ -227,6 +227,7 @@ Laura: But at least we're talking now, right? #e:looking-smile
 Steven: Yeah. #e:smile
 Laura: I gotta go, but we can chat later. Message me! #e:looking-away-smile
 Steven: Cya.. #e:smile
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 ===
 
 title: DoomerGirl_Chat_End_Generic

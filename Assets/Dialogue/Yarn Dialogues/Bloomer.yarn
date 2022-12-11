@@ -118,6 +118,7 @@ Steven: I wish I was talented like that... #e:weary
 Chase: It takes practice! Find something you like and learn it well.
 Chase: Anyways, I gotta go, Steven. Nice chatting with you! #e:slight-smile
 Steven: You as well, Chase. #e:smile
+
 <<jump Bloomer_Improve_Friendship_Most>>
 ===
 
@@ -176,6 +177,7 @@ Chase: I'm starting to sound preachy again. We can save this for Bible Study! #e
 <<wait 0.5>>
 Steven: Haha, ok. I think I gotta go do some work. #e:smile
 Chase: Alright, it's been fun! See ya later.
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 <<jump Bloomer_Improve_Friendship_Most>>
 ===
 

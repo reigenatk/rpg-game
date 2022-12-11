@@ -11,7 +11,7 @@
 <<declare $doneTrash = false>>
 <<declare $isTrashDirty = false>>
 <<declare $isGroupMeetingOn = false>>
-
+<<declare $canBeatGame = false>>
 ===
 
 title: D1_Bedroom_Window
@@ -55,7 +55,8 @@ title: D1_Bedroom_Peripherals
 
 	// have we beaten the game yet (and are eligble to?)
 	// if so, make this the first option
-	<<if $hasTextedDoomer == true && $hasTextedLaura == true && $hasTextedPepe == true && $hasDoneGroupMeeting == false>>
+	// also this will not trigger before day 6 (to make sure all dreams are played)
+	<<if $canBeatGame == true>>
 		// then we arrange meetup
 		-> Arrange a friend meetup! (Must be earlier than 7PM)
 			<<if $gameHour < 18>>
@@ -119,6 +120,7 @@ title: D1_Bedroom_Peripherals
 		<<jump Social_Media>>
 	-> Be productive
 		<<jump Productivity>>
+	-> Stare blankly at the screen
 	<<AdvanceXMinutes Manager 120>>
 <<endif>>
 ===

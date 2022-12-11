@@ -147,20 +147,23 @@ Steven: Do you miss her?
 Mind: Actually, that's a stupid question. #e:cringe
 Voice: Why would you ask that #e:cringe
 <<wait 1>>
-Nikolai: I mean, yes. I am always worried she vill fall in love vith another.
+Nikolai: I mean, yes. I am always worried she vill fall in love vith another persun. #e:talking
 <<wait 2>>
 Mind: Oh, that took a dark turn. #e:worried
 <<wait 1>>
 Nikolai: I am sad zat I cannot live out my life vith her.
 Nikolai: But, in Russian, ve have saying. 
 Nikolai: Если вы любите кататься на санках, вам должно нравиться тащить сани #e:smile
+<<wait 2>>
 Nikolai: If you like to sled, you have to like to drag the sledge. #e:smile
+Nikolai: Du yu understand? #e:talking
 <<wait 3>>
 Steven: Ah. Interesting.
 Nikolai: Yes. Anyways, thanks fur asking about me, Steven. Next time, ve talk about yu. #e:smile
 Steven: Wh- #e:oshit
 <<wait 1>>
 Steven: ok... #e:shy
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 <<jump Nikolai_Improve_Friendship_Most>>
 ===
 

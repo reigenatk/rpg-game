@@ -34,17 +34,15 @@ title: WakeUp
 // route to wakeup dialogues after each dream
 // this is called from the WakeUp cutscene which plays when we wakeup.
 <<if $day == 2>>
-    <<jump D2_Start_Day>> // for birthday dream
+    <<jump D2_Start_Day>> // after dream 1
 <<elseif $day == 3>>
-    <<jump D3_Start_Day>> // dream 1- kid
+    <<jump D3_Start_Day>> // after dream 2
 <<elseif $day == 4>>
-    <<jump D4_Start_Day>> // dream 2- teen
+    <<jump D4_Start_Day>> // dream 3
 <<elseif $day == 5>>
-    <<jump D5_Start_Day>> // dream 3- adult
+    <<jump D5_Start_Day>> // dream 4
 <<elseif $day == 6>>
-    <<jump D6_Start_Day>> // dream 4- boomer
-<<elseif $day == 7>>
-    <<jump D7_Start_Day>> // dream 5- death
+    <<jump D6_Start_Day>> // dream 5
 <<endif>>
 ===
 
@@ -363,18 +361,18 @@ Stacy: We're having a Bible Study today. Would you like to come?
     <<wait 1>>
     Steven: Yeah, sure. #e:smile
     Stacy: Awesome! #e:smile
-    Stacy: It's everyday from 5-9pm right here! There will be food, too.
+    Stacy: It's <color=yellow>everyday from 5-9pm</color> right here! There will be food, too.
     <<set $acceptedBibleStudy = true>>
 -> Not sure
     <<wait 1>>
     Steven: Sorry, I'm not sure yet... #e:think1
-    Stacy: No problem! It's from everyday from 5-9pm right here, if you wanna come!
+    Stacy: No problem! It's from <color=yellow>everyday from 5-9pm</color> right here, if you wanna come!
     Stacy: We'd be glad to meet you! #e:smile
 -> No
     <<wait 1>>
     Steven: Um, sorry- I don't really believe in God. #e:think1
     Stacy: oh- that's okay! If you ever feel like learning more, feel free to come.
-    Stacy: We're here everyday at 5pm! #e:smile
+    Stacy: We're here everyday <color=yellow>from 5-9pm!</color> #e:smile
 Steven: o-ok, thanks. #e:dsmile
 ===
 
@@ -399,7 +397,7 @@ title: Day2_After_Stacy
         <<wait 2>>
         <<changePlayerScoreString Manager "social" 10.0>>
         <<wait 1>>
-        Mind: Anyways, she said 5pm. Guess I'll decide then.
+        Mind: Anyways, she said <color=yellow>5pm</color>. Guess I'll decide then.
     -> No
         <<jump Day2_Reject_Church>>
 <<elseif $acceptedBibleStudy == false>>
@@ -435,7 +433,7 @@ Voice: She could totally tell you're a loser. #e:laugh
 Steven: I would argue with you, but you're right... #e:bored
 <<wait 2>>
 Steven: Blargh. Let's hope I never run into her again. #e:bored
-Steven: I think she said they meet at 5pm? So I just need to make a mental note: Don't be around that area at 5pm. #e:dsmile
+Steven: I think she said they start at 5pm? So I just need to make a mental note: Don't be around that area at 5pm. #e:dsmile
 <<wait 2>>
 Steven: Anyways, guess I have some free time for now.
 ===

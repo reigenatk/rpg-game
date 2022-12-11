@@ -64,6 +64,7 @@ title: Discord_Chat_Decide
 		<<jump Discord_Soy_Shirt>>
 	-> Something Random
     	<<jump Discord_Chat_End_Generic>>
+	
 <<endif>>
 ===
 
@@ -87,6 +88,12 @@ Steven: Is that so. #e:bored
 <<wait 1>>
 Steven: Look, I gotta go. #e:think1
 Benny: Okay. I'll see you around. #e:smug
+<<wait 3>>
+<<if $hasGoneToGamingClub == false>>
+	Benny: Oh- one more thing. #e:smug
+	Benny: If you haven't already, you should totally come checkout our gaming club! #e:excited 
+	Benny: It's from <color=yellow>5-9PM everyday in the classroom closer to the cofee shop.</color> #e:smug
+<<endif>>
 <<jump Discord_Improve_Friendship_Most>>
 ===
 
@@ -108,6 +115,7 @@ Benny: My mod meeting is happening, stat. I'll catch you later, bub. #e:smug
 Steven: Okay, cya...
 <<wait 2>>
 Steven: Jesus, how do people actually live like this? #e:bored
+<<set $numDialoguesComplete = $numDialoguesComplete+1>>
 <<jump Discord_Improve_Friendship_Most>>
 ===
 
