@@ -30,5 +30,5 @@ MonoBehaviour:
   - headshotName: surprised
     sprite: {fileID: 186822796, guid: 8d69d392ff2ba4840997621eb3ca5318, type: 3}
   charactersThatUseTheseHeadshots:
-  - 'Mom '
+  - Mom
   scaleToUse: 2.5

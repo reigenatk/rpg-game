@@ -286,9 +286,9 @@ MonoBehaviour:
     soundClips:
     - {fileID: 8300000, guid: 7a5703ff4ed65664c80b3835f9790745, type: 3}
     soundDescription: 
-    soundPitchRandomVariationMin: 1.271
-    soundPitchRandomVariationMax: 1.5
-    soundVolume: 0.111
+    soundPitchRandomVariationMin: 0.701
+    soundPitchRandomVariationMax: 1.013
+    soundVolume: 0.363
   - soundName: 40
     soundClips:
     - {fileID: 8300000, guid: be8cf31860e9aba40ae1c5a2017b8c46, type: 3}
@@ -780,3 +780,38 @@ MonoBehaviour:
     soundPitchRandomVariationMin: 0.752
     soundPitchRandomVariationMax: 1.041
     soundVolume: 0.34
+  - soundName: 112
+    soundClips:
+    - {fileID: 8300000, guid: 1a0b98fee8a8eb840b5835a61d228fcb, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 113
+    soundClips:
+    - {fileID: 8300000, guid: 181f5cd6628d4e845ad50d944e0beda3, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 114
+    soundClips:
+    - {fileID: 8300000, guid: b5bc10bcf5085504181ca1cb72e45289, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 115
+    soundClips:
+    - {fileID: 8300000, guid: 8b1d0ee093b825149bcb9fbe9b5e832b, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 116
+    soundClips:
+    - {fileID: 8300000, guid: 013d612ffac17494791603a095594a5c, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1

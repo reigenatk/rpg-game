@@ -129,6 +129,10 @@ public class DialogueActivate : MonoBehaviour, Interactable
     // remember this script is on the NPC so we can just check for the presence of an NPC script to know if its an NPC or an inanimate object
     public bool isAnotherPlayer()
     {
+        if (transform.parent.gameObject == null)
+        {
+            return false;
+        }
         return transform.parent.gameObject.GetComponent<NPCMovement>();
     }
 

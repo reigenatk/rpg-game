@@ -1,4 +1,9 @@
-﻿title: D1_StartDay
+﻿title: D1_Vars
+---
+<<declare $hasDoneInstructions = false>>
+===
+
+title: D1_StartDay
 ---
 Steven: Welp, this sucks. #e:think1
 Steven: I forgot how much I hated being at school. #e:stern
@@ -20,22 +25,11 @@ Steven: Ok, honest question... Did you like going to college?
 -> No
     Steven: Hey, at least it's over, right? You're probably like me. #e:smile
 -> Haven't gone.
-    Steven: Well, it honestly all depends on what personality you have. #e:stern
+    Steven: Well, it honestly all depends on what personality you have. #e:think2
     Steven: For introverted types like me, its hell. #e:bored
-Steven: You see, I don't think I'm very normal.
-<<wait 1>>
-Steven: I'm a robot.
-Steven: An emotionless, hunk of steel. #e:stern
-Steven: Incapable of feeling, incapable of expressing. #e:stern
 <<wait 2>>
-Steven: At least, that's what people think me to be.
-<<wait 2>>
-Steven: But in reality, I'm vulnerable. #e:think1
-Steven: I get lonely, jealous, tired, and sad too. #e:think2
-<<playSoundString AudioManager Sigh>>
-<<wait 5>>
-Steven: Oh well. I oughta make the most of this situation. #e:stern
-Steven: Things aren't gonna get better on their own. #e:stern
+Steven: Oh well. I oughta make the most of this situation. #e:think1
+Steven: Things aren't gonna get better on their own. #e:sad
 <<playCutscene LevelLoader WalkToWindow>>
 ===
 
@@ -55,11 +49,36 @@ Steven: Seems like it's the evening. Makes sense. #e:think1
 <<wait 3>>
 Steven: I feel a bit tired. #e:bored
 <<enablePlayerBars GameUI>>
-<<wait 5>>
+<<wait 1>>
 
 Steven: But I'm not quite tired enough to sleep yet... #e:think2
 <<wait 1>>
-Steven: Wonder what else there is to do around here. #e:smile
+Steven: Wonder just how much has changed. #e:smile
+<<stopAllMusic MusicObject 1.0>>
+<<wait 2>>
+Game: OBLIGATORY GAME INSTRUCTIONS!
+Game: Press <color=yellow>E</color> to interact with things. 
+Game: Every person you see is guaranteed to be interactable.
+Game: And lots of things in the world environment are interactable as well.
+<<wait 2>>
+Game: This is a dialogue based game. To progress, you must talk to people.
+Game: Who to talk to is up to you.
+<<wait 3>>
+Game: In this game, you have four "health bars" so to speak.
+Game: You can press <color=yellow>H</color> to either hide or show the bars.
+Game: Then the UI bars will toggle, like this...
+<<enableUI GameUI>>
+<<wait 2>> 
+Game: The bars are a generalization of your overall mood.
+Game: Try to keep them high.
+Game: The categories are: <color=yellow>energy</color>, <color=green>contentedness</color>, <color=red>social</color>, <color=blue>entertained</color>. 
+<<wait 2>>
+Game: In this game there is one good ending, and multiple bad endings.
+Game: Good luck.
+<<StartAllMusic MusicObject 1.0>>
+<<wait 2>>
+<<set $hasDoneInstructions = true>>
+
 ===
 
 title: D1_WalkIntoCommons

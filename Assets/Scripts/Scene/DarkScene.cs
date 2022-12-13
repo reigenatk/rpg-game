@@ -19,25 +19,41 @@ public class DarkScene : MonoBehaviour
 
         Debug.Log("Darkscene Day is " + day);
 
+        /*
+         * day 2 = dream 1
+         * day 3 = dream 2
+         * day 4 = dream 3
+         * day 5 = dream 4
+         * day 6 = dream 5
+         * day 7 = explores the dark scene, talks to the reaper once again, and they say their goodbyes
+         */
+
         if (!skipDreams)
         {
             // then play the starting dialogue (aka dream) for the night
-            switch (day)
+            if (day >= 8)
             {
-                case 1:
-                    dm.StartDialogueString("TrainStation");
-                    break;
-                default:
-                    // player explores the dark world first
-                    break; 
+                // done with all the dreams already then just wakeup
+                StartCoroutine(wakeUpAfterTime());
             }
+            else
+            {
+                // just explore the dream world
+            }
+
         }
         else if (skipDreams == true)
         {
-            FindObjectOfType<LevelLoader>().wakeUp();
+            StartCoroutine(wakeUpAfterTime());
         }
     }
 
-
+    public IEnumerator wakeUpAfterTime()
+    {
+        yield return new WaitForSeconds(Random.Range(5.0f, 10.0f));
+        FindObjectOfType<LevelLoader>().wakeUp();
+    }
 
 }
+
+

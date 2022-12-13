@@ -6,7 +6,7 @@
 <<declare $didDoomerDialogue2 = false>>
 <<declare $hasMetDoomer = false>>
 <<declare $gotDoomerNumber = false>>
-<<declare $hasMadeFriend= false>>
+<<declare $hasMadeFriend = false>>
 <<declare $hasTextedDoomer = false>>
 ===
 title: Doomer_Dialogue

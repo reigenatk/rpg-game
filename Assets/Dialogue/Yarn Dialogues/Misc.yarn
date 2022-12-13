@@ -8,6 +8,7 @@
 <<declare $coomerWasExposed = false>>
 <<declare $hasHeardReaperTerms = false>>
 <<declare $isKYS = true>>
+<<declare $firstTimeSleeping = true>>
 
 // reset these every day
 <<declare $teethBrushed = false>>
@@ -30,6 +31,7 @@
 <<declare $alreadyCookedToday = false>>
 <<declare $hasEatenSnack = false>>
 <<declare $hasTalkedToReaper = false>> 
+
 
 // local variables
 <<declare $contentednessNerf = 0>>
@@ -933,6 +935,16 @@ Steven: Thanks.. #e:cry-smile
 Steven: You were the closest thing I had to a friend, you know. #e:cry
 <<wait 4>>
 Voice: I know. #e:concerned
+===
+
+title: Can_Sleep_Now
+---
+Game: You can now sleep.
+<<if $firstTimeSleeping == false>>
+	Game: To sleep, go to your bedroom and press E near the bed.
+	Game: If you stay up too much, you might hurt your energy levels for the next day.
+	<<set $firstTimeSleeping = true>>
+<<endif>>
 ===
 
 title: KYS_Bus

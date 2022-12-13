@@ -312,6 +312,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
         if (gameState.numSecondsAwake > Settings.numSecondsAwakeMandatory && gameState.getGameVariable("canPlayerSleep") == false)
         {
             gameState.setGameVariable("canPlayerSleep", true);
+            LevelLoader.Instance.playCutscene("NotifySleep");
         }
 
         gameState.playerMood = gameState.calculateMood();

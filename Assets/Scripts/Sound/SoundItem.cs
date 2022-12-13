@@ -118,6 +118,11 @@ public class SoundItem
         WalkieTalkie,
         OlderBrotherTypewriter,
         NurseTypewriterSound,
+        PatOnTheBack,
+        ChairPushBack,
+        HandOverBox,
+        LightApplause,
+        Hug,
     }
 
     public SoundName soundName;

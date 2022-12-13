@@ -1,132 +1,166 @@
 ﻿title: TrainStation
 ---
-Mom: I'm going to miss you so much, son. 
-Your mother gives you a kiss on the cheek.
-<<playSoundString AudioManager Kiss>>
-<<wait 3>>
-It's a bit embarassing, because you are 20 years old.
--> "Me too..."
--> "I won't miss you."
-	...you say, with an irate look on your face.
+<<if true>>
+	<<yarnLoadScene LevelLoader Bedroom 2.0>>
 	<<wait 2>>
-	<<jump MomCrying>>
--> ...
-	...
-<<wait 2>>
-Dad: Stay safe, okay? 
-<<wait 1>>
--> "I will..."
--> "Shut up."
+	<<FadeOut LevelLoader 1.0>>
 	<<wait 2>>
-	Your mom hears this and looks at you with a WTF look.
-	<<jump DadYelling>>
--> ...
-	...
+<<else>>
+	Mom: I'm going to miss you so much, son. #e:sad
+	<<wait 2>>
+	Game: Your mother gives you a kiss on the cheek.
+	<<wait 2>>
+	<<playSoundString AudioManager Kiss>>
+	<<wait 3>>
+	Game: It's a bit embarassing, because you are 20 years old.
+	Game: You're at the train station, getting ready to head back to college.
+	<<playMusicName MusicObject TrainStationAmbience>>
+	<<wait 2>>
+	Game: This is the third year she's sent you off, but she still gets emotional every time...
+	<<wait 2>>
+	Dad: Stay safe, okay? 
+	<<wait 1>>
+	-> "I will..."
+		Steven: I will... #e:think1
+	-> "Shut up."
+		Steven: Can you shut up for once? #e:angry3
+		<<wait 2>>
+		Mom: ... #e:sad 
+		Your mom hears this and looks at you with a sad look.
+		<<jump DadYelling>>
+	-> ...
+		Steven: ...
 
-Your father pats you on the back.
-If this was another father, you'd interpret it as a confidence boost kind of slap.
-You know, like the "you got this" kind.
-But not your dad.
-He's trying to get you to stop slouching.
-<<wait 2>>
-Something he's failed to correct, since you still have terrible posture.
-<<wait 2>>
+	Game: Your father pats you on the back.
+	<<playSoundString AudioManager PatOnTheBack>>
+	<<wait 3>>
+	Game: If this was another father, you'd interpret it as a confidence boost kind of slap.
+	Game: You know, like the "you got this" kind.
+	<<wait 2>>
+	Game: But that's not how your dad works.
+	Game: He's just trying to get you to stop slouching.
+	<<wait 2>>
+	Game: It doesn't work. You still have terrible posture.
+	<<wait 2>>
 
-Dad: Make sure to call home often.
-Mom: Of course, only when you have time! #e:smile
--> "No guarantees..."
-	..you say, your voice pitching up and down again to indicate uncertainty.
-	But your parents are already onto the next topic.
--> "I'd rather jump off a bridge than call you two."
-	..you say, in a completely serious tone.
+	Dad: Make sure to call home often. #e:talking 
+	Mom: Of course, only when you have time! #e:smile
+	-> Say something nice
+		Steven: I will. #e:smile
+		Mom: My phone will be waiting! #e:smile
+	-> Say something neutral 
+		Steven: No guarantees... #e:yikes
+		..you say, your voice pitching up and down again to indicate uncertainty.
+		But your parents are already onto the next topic.
+	-> Say something mean
+		Steven: I'd rather jump off a bridge than call you two. #e:smirk
+		..you say, in a completely serious tone.
+		<<wait 2>>
+		<<jump DadYelling>>
+	-> ...
+		Steven: ... #e:think2
+	Mom: Try to find a girlfriend! #e:smile
 	<<wait 2>>
-	<<jump DadYelling>>
--> ...
-Mom: Try to find a girlfriend! #e:smile
-Your mother says this, with a slight laugh.
-<<wait 1>>
--> "I'll do my best..."
--> "Can you stop talking already?"
+	Game: Your mother says this, with a slight laugh.
+	<<wait 1>>
+	-> Say something neutral
+		Steven: I'll do my best... #e:think2 
+	-> Say something mean
+		Steven: Can you stop talking already!? #e:angry3 
+		<<wait 2>>
+		<<jump MomCrying>>
+	-> ...
+	Dad: Remember, girls love capable men. #e:talking
+	Dad: Study harder. Find a studious girl. #e:smug
 	<<wait 2>>
-	<<jump MomCrying>>
--> ...
-Dad: Remember, girls love capable men. #e:talking
-Dad: Study harder. Find a studious girl. #e:talking
-<<wait 2>>
-Your dad gives completely useless advice, as usual.
-<<wait 2>>
-Conductor: All aboard!
-<<playSoundString AudioManager TrainWhistle>>
-<<wait 5>>
-Your mother gives you a hug. You board the train, and your parents wave as the train departs.
-You put your earbuds in and close your eyes.
-It's going to be a long ride.
-<<playSoundString AudioManager TrainMoving>>
-<<wait 20>>
-<<jump TrainRide>>
+	Game: Your dad gives completely useless advice, as usual.
+	<<wait 2>>
+	Conductor: All aboard!
+	<<playSoundString AudioManager TrainWhistle>>
+	<<wait 5>>
+	Game: Your mother gives you a hug. 
+	<<wait 2>>
+	Game: You board the train, and your parents wave as the train departs.
+	<<wait 2>>
+	Game: You put your earbuds in and close your eyes.
+	<<wait 2>>
+	Game: It's going to be a long ride.
+	<<stopAllMusic MusicObject 1.0>>
+	<<wait 2>>
+	<<playSoundString AudioManager TrainMoving>>
+	<<wait 20>>
+	<<jump TrainRide>>
+<<endif>>
 ===
 
 title: MomCrying
 ---
 	Mom: ... #e:sad
-	Your mom starts to sob. Your father is mad.
+	Game: Your mom starts to sob. Your father is mad.
+	<<wait 2>>
 	Dad: What da HELL was that for? #e:rage
-	Dad grabs you by the collar as you try to leave.
+	Game: Dad grabs you by the collar as you try to leave.
 	Dad: Apologize to your mother, RIGHT NOW!. #e:rage
 	<<playSoundString AudioManager TrainWhistle>>
 	<<wait 5>>
-	The train doors are about to close. 
-	Your father has no choice but to let go of you.
+	Game: The train doors are about to close. 
+	Game: Your father has no choice but to let go of you.
 	<<playSoundString AudioManager TrainMoving>>
 	<<wait 5>>
-	The last sight you see as the train pulls away is your father desparately trying to comfort your mother.
+	Game: The last sight you see as the train pulls away is your father desparately trying to comfort your mother.
 	<<jump TrainRide>>
 ===
 
 title: DadYelling
 ---
-	Your dad's face starts to turn violent. You've really done it this time.
-	ohfuck.jpeg
+	Game: Your dad's face starts to turn violent. You've really done it this time.
+	Game: ohfuck.jpeg
 	Dad: What the fuck did you just say to me? #e:rage
 	<<wait 2>>
-	Your mother tries to calm your dad down.
+	Game: Your mother tries to calm your dad down.
 	Mom: Please, not here. There's people watching. #e:sad2
 	<<wait 2>>
-	Miraculously, it seems to work this time.
+	Game: Miraculously, it seems to work this time.
 	Dad: Get the hell out of my sight. #e:rage
-	You board the train.
+	Game: You board the train.
 	<<playSoundString AudioManager TrainWhistle>>
 	<<wait 5>>
-	When you look out the window, you see your dad glaring menacingly at you.
+	Game: When you look out the window, you see your dad glaring menacingly at you.
 	<<playSoundString AudioManager TrainMoving>>
 	<<wait 5>>
-	As the train speeds out of the station, you can't help but feel a bit grateful that your father is older now.
-	The old version of dad would've stormed onto the train to demand an apology.
+	Game: As the train speeds out of the station, you can't help but feel a bit grateful that your father is older now.
+	Game: The old version of dad would've stormed onto the train to demand an apology.
 	<<jump TrainRide>>
 ===
 
 title: TrainRide
 ---
-The train arrives into the station. 
-You don't feel like leaving the train, but it's not like there's anywhere else to go.
+Game: The train arrives into the station. 
+<<wait 2>>
+Game: You don't feel like leaving the train, but it's not like there's anywhere else to go.
 <<playSoundString AudioManager TrainStation>>
 <<wait 10>>
-You eventually call an Uber and ride to your apartment.
+Game: You eventually call an Uber and ride to your apartment.
 <<playSoundString AudioManager Driving>>
 <<wait 17>>
-The apartment itself is small and somewhat ugly.
-Just as you remembered it to be.
-You take out your keys and open the front door.
+Game: From the outside, the apartment itself is small and somewhat ugly.
+Game: Just as you remembered it to be.
+<<wait 2>>
+Game: You take out your keys and open the front door.
 <<playSoundString AudioManager OpenFrontDoor>>
-<<wait 1>>
-
-Once in the common room, you take out your keys and open the door to your real home.
-After all, the bedroom is where you will be spending most of your time...
-You slowly unpack everything...
+<<wait 2>>
+Game: Once in the common room, you take out your keys and open the door to your real home.
+<<wait 2>>
+Game: After all, the bedroom is where you will be spending most of your time...
+<<wait 2>>
+Game: You slowly unpack everything...
 <<playSoundString AudioManager WalkingOnWood>>
 <<wait 5>>
 <<playSoundString AudioManager Boxes>>
 <<wait 5>>
 
-<<yarnLoadScene LevelLoader Bedroom 2.0f>>
+<<yarnLoadScene LevelLoader Bedroom 2.0>>
+<<wait 2>>
+<<FadeOut LevelLoader 1.0>>
+<<wait 2>>
 ===

@@ -29,6 +29,12 @@ MonoBehaviour:
     sprite: {fileID: 1998139149, guid: 3342b586457745342853bac7d3882a53, type: 3}
   - headshotName: teary
     sprite: {fileID: -2064372715, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  - headshotName: aim
+    sprite: {fileID: -1515600413, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  - headshotName: sad
+    sprite: {fileID: -1934210390, guid: 3342b586457745342853bac7d3882a53, type: 3}
+  - headshotName: teeth
+    sprite: {fileID: 460004213, guid: 3342b586457745342853bac7d3882a53, type: 3}
   charactersThatUseTheseHeadshots:
   - Steven (Adult)
   scaleToUse: 4

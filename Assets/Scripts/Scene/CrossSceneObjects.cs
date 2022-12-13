@@ -14,7 +14,7 @@ public class CrossSceneObjects : MonoBehaviour
     [SerializeField] Animator CoomerNPCAnimator;
     [SerializeField] GameObject pianoKeyboardDream3;
     [SerializeField] GameObject hospitalAudio;
-
+    [SerializeField] GameObject curtains;
     // helper to call the toggleLight on the PropsToggle.cs function (across scenes)
     public void turnOffLamp()
     {
@@ -169,5 +169,10 @@ public class CrossSceneObjects : MonoBehaviour
     public void shutUpHospital()
     {
         hospitalAudio.GetComponent<AudioSource>().enabled = false;
+    }
+    [YarnCommand("ShutUpCurtains")]
+    public void shutUpCurtains()
+    {
+        curtains.GetComponent<AudioSource>().enabled = false;
     }
 }

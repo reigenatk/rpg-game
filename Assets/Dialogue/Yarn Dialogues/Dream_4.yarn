@@ -1,5 +1,283 @@
-﻿title: Dream_4
-tags:
+﻿title: Dream_4_Vars
 ---
+<<declare $didGraveyardScene = false>>
+<<declare $hasDoneTrySuicide = false>>
+===
 
+title: Stone_Grave
+---
+Steven: It's a stone grave.
+Steven: These graves look much nicer than the ground ones.
+Steven: How ironic is it...
+Steven: Death is supposed to be the great equalizer..
+<<wait 1>>
+Steven: And yet we aren't truly equal... even after death.
+===
+
+
+title: Grave
+---
+Steven: It's a grave.
+Steven: This one is in the ground. The family must've been unable to afford a tombstone.
+===
+
+title: Older_Self_Graveyard
+---
+Allen (Older): ... #e:cry-down
+<<wait 2>>
+Allen (Older): ... #e:cry-straight
+<<wait 2>>
+Allen (Older): Mom and Dad... #e:cry-straight
+<<wait 1>>
+Allen (Older): We come to you this rainy Thanksgiving.. #e:cry-straight
+Allen (Older): To remember you. #e:cry-straight
+<<wait 2>>
+Allen (Older): You two were the best parents I could ever ask for.
+<<wait 2>>
+Allen (Older): Dad, you taught me what it meant to be a man. #e:cry-straight
+Allen (Older): Mom, you taught me how to have a kind heart. #e:cry-straight
+Allen (Older): I'll never forget you both. #e:cry-straight
+Allen (Older): I hope I made you proud. #e:cry-straight
+<<wait 3>>
+Allen (Older): Mom, I'm getting married soon. #e:cry-down
+Allen (Older): I hope my marriage has your blessing. #e:cry-down
+<<wait 3>>
+Allen (Older): I'm also moving away. #e:cry-down
+Allen (Older): My next deployment is in Mozambique... #e:cry-straight
+Allen (Older): It's a country thousnads of miles from here. #e:cry-straight
+<<wait 3>>
+Allen (Older): So I won't see you both again for a long time. #e:cry-down
+<<wait 5>>
+Allen (Older): That's it for me.
+Allen (Older): Steven, do you have any words to say? #e:right
+<<wait 3>>
+Steven (Adult): ... #e:bored
+<<wait 3>>
+Steven (Adult): no. #e:bored
+<<wait 3>>
+Allen (Older): Can I have a hug? #e:right
+Allen (Older): One last time. #e:right
+<<wait 3>>
+Steven (Adult): ... #e:bored
+===
+
+title: After_Hug
+---
+Allen (Older): Thanks for letting me hug you. #e:right
+Allen (Older): You're my only family left. #e:right
+<<wait 2>>
+Allen (Older): I'm sorry I have to leave you. 
+Allen (Older): It's been an honor being your brother.
+<<wait 3>>
+Steven (Adult): ... #e:bored
+<<wait 2>>
+Allen (Older): I care about you. #e:right
+Allen (Older): Mom and Dad wouldn't want to see you sad. #e:right
+Allen (Older): Take care of yourself, ok? #e:right
+<<wait 2>>
+Steven (Adult): ... #e:bored
+<<wait 2>>
+Steven (Adult): you too. #e:booze
+<<wait 4>>
+Allen (Older): ... #e:right 
+===
+
+title: After_Brother_Leaves
+---
+Steven (Adult): Honor to be your brother... #e:booze
+Steven (Adult): Did my ears hear that right..? #e:bored
+<<wait 2>>
+Steven (Adult): Yeah, I'm sure it was an honor for you to bully me and boss me around every day. #e:bored
+<<wait 3>>
+Steven (Adult): Honor my ass. #e:bored
+<<wait 2>>
+Steven (Adult): Standing here feels so strange.
+<<wait 3>>
+Steven (Adult): I should be sad, but I feel barely anything.
+<<wait 3>>
+Steven (Adult): Maybe I feel a teeny bit sad that my mom is gone.
+Steven (Adult): She was rather innocent. #e:bored
+<<wait 2>>
+Steven (Adult): But I'm numb to my dad's death. #e:booze
+<<wait 2>>
+Steven (Adult): And especially numb when it comes to my brother.  #e:bored
+Steven (Adult): I don't think my brother has uttered a single genuine sentence his entire life. #e:booze
+<<wait 2>>
+Steven (Adult): If his plane got shot down, I wouldn't shed a tear. #e:booze
+<<set $didGraveyardScene = true>>
+===
+
+title: Older_Brother_Graveyard
+---
+Steven: It's my older brother. #e:think1
+<<wait 2>>
+Steven: He is crying a lot. #e:stern
+<<wait 1>>
+<<if $didGraveyardScene == false>>
+    <<playCutscene LevelLoader Graveyard>>
+<<endif>>
+===
+
+title: Dad_Grave
+---
+Steven: ... #e:think2
+<<wait 2>>
+Steven: It's... #e:think2
+Steven: ...my dad's tombstone #e:think2
+Steven: It reads: "forever in our hearts... 1963-2031" #e:stern
+===
+
+title: Mom_Grave
+---
+Steven: It's... #e:think2
+Steven: ...my mom's tombstone #e:think2
+Steven: It reads: "forever in our hearts... 1971-2044" #e:stern
+<<wait 2>>
+===
+
+title: Start_Dream4_Apartment
+---
+Steven: Back to the apartment... #e:sad
+<<wait 1>>
+<<playCutscene LevelLoader DreamKYS>>
+===
+
+title: Self_Dream4
+---
+Steven: ...
+<<wait 2>>
+Steven (Adult): What am I even doing..
+Steven (Adult): Everyday is the same cancerous shit. #e:bored
+<<wait 2>>
+Steven (Adult): Sucking my boss's toes.. #e:bored
+Steven (Adult): Then scrolling the internet mindlessly until I'm too tired to stay awake... #e:booze
+===
+
+title: After_Arrive_Piano
+---
+Steven (Adult): I don't even know what to play anymore... #e:booze
+<<wait 3>>
+Steven (Adult): There's no more emotion left inside of me to express... #e:bored
+<<stopAllMusic MusicObject 1.0>>
+<<ShutUpCurtains CrossSceneObjects>>
+<<wait 1>>
+
+===
+
+title: After_Piano_Fail
+---
+Steven (Adult): I... #e:cry1 
+<<StartAllMusic MusicObject 1.0>>
+<<wait 2>>
+===
+
+title: After_Piano_Rage
+---
+Steven (Adult): I CAN'T STAND THIS ANYMORE! #e:hands
+<<wait 3>>
+Steven (Adult): I've been at this hobby for TEN fucking years... #e:cry1
+Steven (Adult): AND I STILL SUCK AT IT! #e:cry2
+<<wait 3>>
+Steven (Adult): I'm balding #e:cry2
+Steven (Adult): I have back pain and RSI #e:cry2
+Steven (Adult): I haven't been promoted in five years #e:cry2
+Steven (Adult): And I have no friends #e:hands
+<<wait 2>>
+Steven (Adult): HOW IS THAT FAIR? #e:cry1
+<<wait 4>>
+Steven (Adult): My brain is so deteriorated from lack of any happiness in my life #e:cry2
+Steven (Adult): That I can't think straight anymore. #e:cry1
+<<wait 3>>
+Steven (Adult): I want to die. #e:hands
+<<wait 2>>
+Steven (Adult): What's the point of living if I can't get anything? #e:cry1
+Steven (Adult): Friends, girlfriends, money... I stopped giving a shit about those things long ago. #e:cry1
+Steven (Adult): All I'm asking is that I can get good at my hobbies... #e:cry2
+Steven (Adult): And that's still too much for the universe to grant me. #e:cry1
+<<wait 2>>
+Steven (Adult): I'm not working anymore. #e:aim 
+Steven (Adult): I'm just going to end myself. #e:aim 
+<<wait 2>>
+Steven (Adult): Have you thought of that, GOD!? #e:teeth
+<<wait 3>>
+Steven (Adult): I won't live in captivity of my pathetic body anymore. #e:teeth
+===
+
+
+title: After_Bring_Out_Gun
+---
+Steven (Adult): There's a loaded bullet in this chamber of 6. #e:teeth
+Steven (Adult): I'm going to shoot twice. #e:teeth
+Steven (Adult): If I'm lucky, I'll die. #e:teeth
+<<stopAllMusic MusicObject 1.0>>
+<<wait 1>>
+===
+
+title: After_Failed_Suciide
+---
+Steven (Adult): Who am I kidding... #e:sad
+Steven (Adult): If I really meant it I would load all six bullets. #e:sad
+<<wait 2>>
+Steven (Adult): I'm such a fucking pussy... #e:cry2
+Steven (Adult): I can't even kill myself correctly. #e:hands
+<<wait 2>>
+Steven (Adult): Because I'm too scared to kill myself. #e:sad
+<<wait 2>>
+Steven (Adult): I'm scared of dying. #e:cry1
+Steven (Adult): I don't want to die. #e:cry2
+Steven (Adult): I don't know what comes after this shitty life. #e:cry2
+<<wait 2>>
+<<set $hasDoneTrySuicide = false>>
+
+===
+
+title: Reaper_Dream4
+---
+Reaper: ... #e:smile
+<<wait 2>>
+Steven: ... #e:stern
+<<wait 2>>
+Reaper: See what happens when you don't talk to people now?
+<<wait 2>>
+Reaper: Is this the kind of life you want to live? #e:talking 
+Reaper: Writing some mediocre piano song, alone in your apartment, at age 40? #e:smile 
+<<wait 5>>
+Reaper: Answer... #e:scary
+<<wait 4>>
+Steven: ... #e:cry-painful
+<<wait 3>>
+Steven: Fuck you. #e:before-cry
+<<wait 2>>
+Steven: Also, the song wasn't that bad.. #e:before-cry
+<<wait 2>>
+Reaper: Drop your ego. #e:talking
+Reaper: It was shit. #e:smile
+<<wait 2>>
+Steven: ... #e:before-cry
+<<wait 2>>
+Reaper: You aren't better than other people. #e:talking
+<<wait 2>>
+Reaper: You aren't some mad genius at music, coding, or anything for the matter.
+<<wait 2>>
+Reaper: Nor do you have a heart of stone...
+<<wait 2>>
+Reaper: You are not a robot.. #e:talking
+Reaper: ..No matter how much you call yourself one.
+<<wait 2>>
+Reaper: In the end, you are human. #e:smile
+<<wait 2>>
+Reaper: And humans need each other to bring meaning to their lives.
+<<wait 2>>
+Reaper: But that's nothing to be ashamed about.
+<<wait 2>>
+Reaper: Dispel all your stereotypes about people.
+Reaper: Talk to others. #e:talking
+<<wait 2>>
+Reaper: Get out of your comfort zone.
+<<wait 2>>
+Reaper: Or else you will end up like this. #e:scary
+<<wait 2>>
+Steven: ... #e:cry-straight
+<<wait 1>>
+Reaper: Goodbye.
 ===

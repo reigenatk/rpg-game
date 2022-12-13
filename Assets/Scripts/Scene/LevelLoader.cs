@@ -15,14 +15,21 @@ using static TimeManager;
 public class LevelLoader : Singleton<LevelLoader>
 {
     public Vector3 defaultSceneLocation = new Vector3(-69.0f, -69.0f, 0.0f);
+
     [SerializeField] private bool spawnWherePlaced = false; // spawn the player where he is in the scene? Debug only
+    private bool isFirstLoad = true; // is this the first scene we load? Used to keep track of if spawnWherePlaced should take effect (should only spawn when placed on first scene)
+
     private bool isFading;
+    private bool isFadingScenes; // are we in the process of switching scenes?
     [SerializeField] private float fadeDuration = 1f;
     [SerializeField] private CanvasGroup faderCanvasGroup = null;
     [SerializeField] private GameObject vmCams;
     [SerializeField] private Image faderImage = null;
     [SerializeField] List<SceneName> scenes;
     [SerializeField] List<float> orthoSizes;
+
+    // names of cutscenes that are waiting to be played after this one
+    public Stack<string> cutsceneQueue;
 
     [SerializeField] public GameObject nonnpcs;
     [SerializeField] private TimeManager timeManager;
@@ -96,7 +103,7 @@ public class LevelLoader : Singleton<LevelLoader>
                 return false;
             }
 
-                if (validTimes.Count != 0)
+            if (validTimes.Count != 0)
             {
                 foreach (ChunkOfTime c in validTimes)
                 {
@@ -215,6 +222,7 @@ public class LevelLoader : Singleton<LevelLoader>
         StartCoroutine(UnloadAllScenesExcept("PersistantScene"));
 
         curScene = startingSceneName;
+
         yield return StartCoroutine(CreateScene(startingSceneName, startingPosition, 1.0f));
     }
 
@@ -311,7 +319,35 @@ public class LevelLoader : Singleton<LevelLoader>
         if (SceneManager.GetActiveScene().name == "Bedroom")
             GameObject.Find("Bedsheets").GetComponent<SpriteRenderer>().sortingOrder = 0;
 
-        FadeAndLoadScene(SceneName.DarkScene, defaultSceneLocation);
+        if (gameState.gameDay == 1)
+        {
+            // if day 1, DONT go to dark scene (the one with reaper in it, cuz we havent met him yet obv)
+            // instead go to the birthday scene!
+            FadeAndLoadScene(SceneName.DreamDay0, defaultSceneLocation);
+        }
+        else if (gameState.gameDay >= 2 && gameState.gameDay <= 7)
+        {
+            // otherwise go to dark scene if we between days 2-7 (aka when the reaper hasnt finished his dreams)
+            FadeAndLoadScene(SceneName.DarkScene, defaultSceneLocation);
+        }
+        else
+        {
+            // otherwise, play some sleep sounds and then wakeup
+            StartCoroutine(SleepAndThenWakeup());
+        }
+
+    }
+
+    // a simple sequence to just play snoring sounds then wakeup (use when done with all dreams)
+    public IEnumerator SleepAndThenWakeup()
+    {
+        Fade(1.0f, 1.0f);
+        yield return new WaitForSeconds(2.0f);
+        AudioManager.Instance.PlaySound(SoundItem.SoundName.SnoringSounds);
+        yield return new WaitForSeconds(5.0f);
+        Fade(0.0f, 1.0f);
+        yield return new WaitForSeconds(2.0f);
+        wakeUp();
     }
 
     /*    [YarnCommand("leaveHouse")] 
@@ -330,7 +366,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
         PlayableDirector cutsceneObj = playCutscene(cutsceneName);
         cutsceneObj.stopped += fadeAfterCutsceneFinishes;
-        nextSceneToLoad = (SceneName) Enum.Parse(typeof(SceneName), sceneToFadeTo);
+        nextSceneToLoad = (SceneName)Enum.Parse(typeof(SceneName), sceneToFadeTo);
     }
 
     public void fadeAfterCutsceneFinishes(PlayableDirector stoppedDirector)
@@ -341,6 +377,8 @@ public class LevelLoader : Singleton<LevelLoader>
     [YarnCommand("WakeUp")]
     public void wakeUp()
     {
+
+
         Debug.Log("Waking up");
         timeManager.gameClockPaused = false;
         GameUI gameUI = FindObjectOfType<GameUI>();
@@ -348,9 +386,10 @@ public class LevelLoader : Singleton<LevelLoader>
         FindObjectOfType<Player>().setAnimationState("Base Layer.Idle.IdleDown");
 
         FadeAndLoadScene(SceneName.Bedroom, defaultSceneLocation, 2.0f);
+        playCutscene("WakeUp");
     }
 
-    
+
 
     // helper method for when there's a new day and we gotta reset all game variables for the next day
     // this doesnt impact all variables- only the ones that are day dependent.
@@ -471,7 +510,7 @@ public class LevelLoader : Singleton<LevelLoader>
         {
             Debug.Log("Cutscene was already playing called " + gameState.cutscenePlaying + ", stopping it");
             gameState.cutscenePlaying.Stop();
-            
+
         }
 
         // set the current cutscene playing to the new one
@@ -527,7 +566,7 @@ public class LevelLoader : Singleton<LevelLoader>
     [YarnCommand("FadeToValue")]
     public void FadeToValue(float opacity)
     {
-        Debug.Log("Fading to opacity " + opacity );
+        Debug.Log("Fading to opacity " + opacity);
         StartCoroutine(Fade(opacity, 1.0f));
     }
 
@@ -573,7 +612,7 @@ public class LevelLoader : Singleton<LevelLoader>
     // This is the main function that you should call to switch scene. It calls a bunch of helpers internally
     private IEnumerator FadeAndSwitchScenes(SceneName sceneName, Vector3 spawnPosition, float delay, AudioClip clipToPlay = null)
     {
-
+        isFadingScenes = true;
         // stop game time!
         FindObjectOfType<TimeManager>().gameClockPaused = true;
 
@@ -612,7 +651,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
 
 
-        
+
 
         yield return StartCoroutine(CreateScene(sceneName, spawnPosition, delay));
 
@@ -620,13 +659,19 @@ public class LevelLoader : Singleton<LevelLoader>
 
     public bool isDreamScene()
     {
-        if ((curScene == SceneName.DreamDay1) || (curScene == SceneName.DreamDay2) || curScene == SceneName.DreamRoom || curScene == SceneName.DreamHome)
+        switch (curScene)
         {
-            return true;
-        }
-        else
-        {
-            return false;
+            case SceneName.DreamDay1:
+            case SceneName.DreamHome:
+            case SceneName.DreamRoom:
+            case SceneName.DreamDay2:
+            case SceneName.DreamDay3:
+            case SceneName.DreamDay4:
+            case SceneName.DreamDay5:
+            case SceneName.DreamDay0:
+                return true;
+            default:
+                return false;
         }
     }
 
@@ -647,9 +692,11 @@ public class LevelLoader : Singleton<LevelLoader>
         // also we make sure to put this BEFORE setting the gameVariable as sometimes cutscenes will depend
         // on whether or not we have entered a room already
 
-        if (spawnWherePlaced)
+        if (spawnWherePlaced && isFirstLoad == true)
         {
             // keep player where he's at
+            isFirstLoad = false;
+
         }
         else
         {
@@ -770,7 +817,7 @@ public class LevelLoader : Singleton<LevelLoader>
     public void FadeAndLoadScene(SceneName sceneName, Vector3 spawnPosition, float delay = 0.0f, AudioClip clipToPlay = null)
     {
         // If a fade isn't happening then start fading and switching scenes.
-        if (!isFading)
+        if (!isFadingScenes)
         {
             Debug.Log("Loading new scene " + sceneName);
             if (spawnPosition == defaultSceneLocation)

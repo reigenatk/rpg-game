@@ -199,6 +199,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MOM-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0543fe942e6b3fd40b85360d3196879e
+      internalID: 1939768737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -212,6 +233,7 @@ TextureImporter:
     nameFileIdTable:
       MOM-Sheet_1: -1381277104
       MOM-Sheet_2: -801237646
+      MOM-Sheet_4: 1939768737
       MOM-Sheet_3: 1684989570
       MOM-Sheet_0: 387146201
   spritePackingTag: 

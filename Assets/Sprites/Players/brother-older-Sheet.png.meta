@@ -262,6 +262,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: brother-older-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78257b7a3ac74604bbaeb03cb4fa88d0
+      internalID: 1796971532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -278,6 +299,7 @@ TextureImporter:
       brother-older-Sheet_4: 40998639
       brother-older-Sheet_2: -126729740
       brother-older-Sheet_5: -928216502
+      brother-older-Sheet_7: 1796971532
       brother-older-Sheet_0: -1175116324
       brother-older-Sheet_6: 703306051
   spritePackingTag: 

@@ -664,3 +664,12 @@ That aside, today I got some good work done on the game failing cutscenes, lots 
 
 WE'RE GETTIN THERE!
 
+# 12/13/22
+Finished Dream 3,4,5,0 (dream 0 is actually the dream for the first night, I decided to make it after all cuz why not? It's the first thing the player sees) I know naming scheme is really shit cuz this dream actually happens on Night 1... But whatever.
+
+Anyways I'm now onto tryna run the game. Gonna play thru it as if I was a real player and try to tweak what I don't like. Do this for a few weeks and hopefully it'll be good enough so that I can just release it.
+
+Also need to work on footstep sounds. That's another big one, maybe I do that tmrw actually (before doin any playtestin)
+
+But yeah huge art progress, made a few piano songs, quite happy with how dreams 3+4 came out. I think I really captured that depressed mood quite well. Need to make songs for a few of those dreams tho. As well as maybe a nice song for dialogues, or for certain characters, etc.
+

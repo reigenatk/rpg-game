@@ -39084,13 +39084,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguesToRun:
+  - dialogueToPlay: All_Dreams_Done
+    earliestTime:
+      gameHour: 0
+      gameMinute: 0
+      gameSecond: 0
+    dayToPlay: 7
+    extraConditions: []
   - dialogueToPlay: Talk_To_Reaper
     earliestTime:
       gameHour: 0
       gameMinute: 0
       gameSecond: 0
     dayToPlay: -1
-    extraConditions: []
+    extraConditions:
+    - variable: 0
+      desiredValue: 0
   dialogueImages: []
   soundToPlay: 0
 --- !u!61 &1809497654

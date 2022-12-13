@@ -117,6 +117,11 @@ public class GameState : Singleton<GameState>
 
         // day 3
         // setYarnVariable("$didCoomerCutscene", true); 
+        setYarnVariable("$hasDoneShopping", true); 
+        
+        // day 4
+        setYarnVariable("$didGraveyardScene", true);
+
 
         // misc
         setYarnVariable("$hasMadeFriend", true);
@@ -128,9 +133,10 @@ public class GameState : Singleton<GameState>
         // setYarnVariable("$hasTextedDoomer", true);
         // setYarnVariable("$hasTextedLaura", true);
         // setYarnVariable("$hasTextedPepe", true);
-        setYarnVariable("$isGroupMeetingOn", true);
+        // setYarnVariable("$isGroupMeetingOn", true);
 
-        setYarnVariable("$isKYS", true);
+        
+        // setYarnVariable("$isKYS", true);
 
         resetDailyYarnVariables();
 
@@ -167,7 +173,7 @@ public class GameState : Singleton<GameState>
         setYarnVariable("$gameHour", TimeManager.Instance.gt.gameHour);
 
         // conditonal on whether we can trigger the cutscene to beat the game
-        if (getYarnVariable("$hasTextedDoomer")&& getYarnVariable("$hasTextedLaura") && getYarnVariable("$hasTextedPepe") == true && 
+        if (getYarnVariable("$hasTextedDoomer") && getYarnVariable("$hasTextedLaura") && getYarnVariable("$hasTextedPepe") == true && 
             getYarnVariable("$hasDoneGroupMeeting") == false && getYarnVariableInt("$day") > 5)
         {
             setYarnVariable("$canBeatGame", true);
@@ -347,6 +353,12 @@ public class GameState : Singleton<GameState>
 
         // start up game clock again
         FindObjectOfType<TimeManager>().gameClockPaused = false;
+
+/*        if (LevelLoader.Instance.cutsceneQueue.Count != 0)
+        {
+            PlayableDirector nextCutscene = LevelLoader.Instance.cutsceneQueue.Pop();
+            LevelLoader.Instance.playCutscene(nextCutscene.name);
+        }*/
     }
 
     // basically when a bus cutscene plays, we switch scenes right? But the new scene needs to know that the bus is still driving 

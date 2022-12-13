@@ -745,6 +745,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: older-robot-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 48
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c2c023cd36f2054b8e182c8ff92adfa
+      internalID: 840538078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: older-robot-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 0
+        width: 48
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6636b619a980035448b48ff20028581c
+      internalID: -1547393760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: older-robot-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 48
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f7a7ac2ead2d24e97bf0b32e889f91
+      internalID: 1660869394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: older-robot-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 0
+        width: 48
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7319ae6fceef10e46b482622508ab032
+      internalID: -423091860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -763,17 +847,21 @@ TextureImporter:
       older-robot-Sheet_5: 871730910
       older-robot-Sheet_24: 628294606
       older-robot-Sheet_16: 853469971
+      older-robot-Sheet_32: 1660869394
       older-robot-Sheet_9: -1798461160
       older-robot-Sheet_1: 905407385
       older-robot-Sheet_19: 1489867237
       older-robot-Sheet_22: 75221585
       older-robot-Sheet_28: -1308766924
+      older-robot-Sheet_31: -1547393760
       older-robot-Sheet_27: -1318250672
+      older-robot-Sheet_33: -423091860
       older-robot-Sheet_4: 979451324
       older-robot-Sheet_7: -1126778085
       older-robot-Sheet_13: 217878302
       older-robot-Sheet_25: 1646232739
       older-robot-Sheet_26: -2081210689
+      older-robot-Sheet_30: 840538078
       older-robot-Sheet_18: -492728208
       older-robot-Sheet_21: 597203709
       older-robot-Sheet_29: -1606831414

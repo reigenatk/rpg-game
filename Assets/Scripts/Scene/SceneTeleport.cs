@@ -229,9 +229,9 @@ public class SceneTeleport : MonoBehaviour
     {
         GameState gameState = FindObjectOfType<GameState>();
         Debug.Log("teleporting player from " + gameState.getCurrentSceneEnum() + " to " + sceneNameGoto);
-        float xPosition = Mathf.Approximately(scenePositionGoto.x, 0f) ? player.transform.position.x : scenePositionGoto.x;
+        float xPosition = scenePositionGoto.x;
 
-        float yPosition = Mathf.Approximately(scenePositionGoto.y, 0f) ? player.transform.position.y : scenePositionGoto.y;
+        float yPosition = scenePositionGoto.y;
 
         float zPosition = 0f;
         LevelLoader.Instance.FadeAndLoadScene(sceneNameGoto, new Vector3(xPosition, yPosition, zPosition), delay: extraDelay, clipToPlay: teleportSound);

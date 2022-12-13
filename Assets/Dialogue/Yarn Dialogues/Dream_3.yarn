@@ -4,17 +4,9 @@
 <<declare $hasDoneShopping = false>>
 ===
 
-title: Grave
----
-Steven: It's a grave. 
-===
 
-title: Dad_Grave
----
-Steven: ... #e:stern
-<<wait 2>>
-<<playCutscene LevelLoader Graveyard>>
-===
+
+
 
 title: Self_Help_1
 ---
@@ -46,6 +38,11 @@ title: Keyboard
 Steven: Looks to be a keyboard.
 <<wait 2>>
 Steven: Seems like I took up music as a hobby to pass the time.. #e:huh
+<<wait 2>>
+Steven: I was always interested in composing my own music anyways. #e:dsmile 
+Steven: But I always put it off since I was too busy studying. #e:sad
+<<wait 2>>
+Steven: Good to see I finally acted on it. #e:smile
 ===
 
 title: Cot
@@ -75,10 +72,14 @@ title: Work_From_Home
 ---
 <<playSoundString AudioManager SlackNotif>>
 <<wait 2>>
-?: Hey Steven, I need you to check that email I just sent you.
+?: Hey Steven.
+?: I need you to check that email I just sent you.
+<<wait 5>>
 <<playSoundString AudioManager SlackNotif>>
 <<wait 2>>
-?: The code changes should be pushed. I need you to look over them ASAP. Thx!
+??: Hey Steven.
+??: The code changes should be pushed. 
+??: I need you to look over them ASAP. Thx!
 <<wait 2>>
 Steven (Adult): This guy is still messaging me... #e:bored
 Steven (Adult): It's already 6PM. Work hours are over... #e:booze
@@ -104,8 +105,7 @@ Steven (Adult): There, that should be sufficient, for a while.
 Steven (Adult): Finally, work is over...
 <<wait 4>>
 Steven (Adult): What should I even do now? #e:bored 
-Steven (Adult): I don't have anyone to go to bars with... 
-Steven (Adult): I don't know anyone in this big city... #e:bored
+Steven (Adult): I don't have anyone to go to bars with... #e:bored
 <<wait 3>>
 Steven (Adult): And it's too late to make a change.
 Steven (Adult): My last good chance for meeting people was college. And that was 3 years ago.
@@ -276,13 +276,13 @@ Steven: This looks to be my brother, Allen. #e:stern
 <<wait 2>>
 Steven: He looks much different now... #e:think2 
 <<wait 2>>
-Steven: It also appears he is a police officer.. #e:think1 
+Steven: It also appears he is an officer.. #e:think1 
 <<wait 2>>
-Steven: On his shirt, it has a badge that says "City of Evansville"... #e:huh 
+Steven: On his shirt, it has a badge that says "Army"... #e:huh 
 <<wait 2>>
-Steven: Can't say I'm surprised he ended up becoming an officer. #e:yikes
+Steven: Can't say I'm surprised. #e:yikes
 <<wait 2>>
-Steven: Bossing me around was his specialty when we were younger, anyways... #e:stern 
+Steven: He loves following orders and sucking dick... Just like we were young. #e:stern 
 
 ===
 
@@ -420,7 +420,8 @@ Allen (Older): HURRY UP! Why aren't you taking her in? #e:shocked
 Nurse: Sir, we have procedures we must follow.
 Nurse: We can only operate once we have confirmation that there is room in the hospital.
 Allen (Older): Fuck that, my mom is DYING! I'm bringing her in. #e:right
-Allen (Older): I am a police officer. I will press charges on this.
+Allen (Older): I am an army veteran. 
+Allen (Older): I WILL press charges on this.
 <<wait 2>>
 Allen (Older): Steven! I'm gonna go. #e:right
 Allen (Older): You stay back here and watch your phone. I'll message you. #e:right

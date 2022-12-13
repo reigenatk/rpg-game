@@ -53,12 +53,14 @@ public class GameUI : Singleton<GameUI>
         playerBars.SetActive(true);
     }
     
+    [YarnCommand("disableUI")]
     public void disableUI()
     {
         UIDisabled = true;
         gameClock.SetActive(false);
         playerBars.SetActive(false);
     }
+    [YarnCommand("enableUI")]
     public void enableUI()
     {
         UIDisabled = false;

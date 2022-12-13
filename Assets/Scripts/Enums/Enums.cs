@@ -73,6 +73,8 @@ public enum GameVariable
     SocialLowPlayed,
     ContentLowPlayed,
     EntertainLowPlayed,
+    hasEnteredActualDarkScene,
+    hasEnteredDreamDay0,
 }
 
 
@@ -132,6 +134,8 @@ public enum SceneName
     DreamDay5,
     DreamDay3,
     DreamDay4,
+    ActualDarkScene,
+    DreamDay0,
 }
 
 public enum Moods

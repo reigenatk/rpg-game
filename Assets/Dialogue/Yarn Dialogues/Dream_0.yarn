@@ -1,127 +1,265 @@
 ﻿
 title: Day1GoingToDay2Dream
 ---
+Game: ...
+<<playCutscene LevelLoader Dream0>>
+===
+
+title: Start_Birthday
+---
 <<wait 2>>
 ??: And a one..
 ??: And a two..
 ??: And a one two!
 <<playSoundString AudioManager NotBirthdaySong>>
-<<wait 17>>
+<<wait 14>>
 <<wait 2>>
 <<playSoundString AudioManager CandlesBlow>>
 <<wait 3>>
 Game: A candle with the number "10" on it, is blown out.
+<<playSoundString AudioManager LightApplause>>
+<<wait 4>>
 <<playMusicName MusicObject RestaurantAmbience>>
 <<wait 4>>
-The cake is okay. Your parents always order the same one because it's "cheap"...
-So you know exactly what it will taste like.
+Game: The cake is okay. Your parents always order the same one because it's "cheap"...
+Game: So you know exactly what it will taste like.
 <<wait 2>>
-Out of the corner of your eye, you see something.
+Game: Out of the corner of your eye, you see something.
 <<wait 1>>
-Ralph is now waving goodbye.
-<<wait 1>>
+Game: Ralph and his dad have gotten up from their spot.
+===
+
+
+
+title: After_Ralph_Move_Over
+---
 Ralph: Happy birthday, Steven!
-He says, with a big smile on his face.
+Game: He says, with a big smile on his face.
+<<wait 2>>
+Ralph: Here! I got you this. 
+<<wait 2>>
+Game: Ralph hands you a present.
+<<playSoundString AudioManager HandOverBox>>
+<<wait 4>>
+Dad: What do you say, Steven? 
 <<wait 1>>
-His mom nods at your parents, and Ralph and his mom walk out of the diner.
-<<wait 3>>
-Vincent: Thanks for inviting us over!
+Steven (Child): Thanks... #e:down 
+Ralph: You're welcome!
+Ralph's Dad: Thanks for inviting us to the party, Mr. 
+Dad: No problem. I hope your son enjoyed it. #e:smile 
+===
+
+title: After_Twins_Move_Over
+---
+Game: Next, you see the twins start to get up.
+Twins' Mom: Alright guys, pack up your bags!
+<<wait 2>>
+Twins' Mom: Thank you SO much for inviting us over! What do you say, guys?
+Vincent: Thanks Steven!
+<<wait 1>>
 Josh: This buffet was the best!
 <<wait 1>>
-The twins and their mother wave as they leave.
+Mom: Your welcome! #e:smile
+<<wait 2>>
+Twins' Mom: Steven, I have given your father a little present.
+Twins' Mom: It was too heavy to bring here, so we shipped it to your house instead!
+<<wait 2>>
+Twins' Mom: I hope you enjoy it!
+<<wait 2>>
+Game: The twins and their mother wave as they leave.
+===
+
+title: After_Twins_Left
+---
 <<wait 1>>
 It's just you and your parents now.
 <<wait 3>>
 Mom: Alright Steven, let's get ready to go.
-Dad: I agree, you got school tomorrow.
+Dad: I agree, party's over.
+Dad: You got school tomorrow.
 <<wait 2>>
-You exit the buffet with them, into the dark, starry parking lot.
-<<stopAllMusic MusicObject>>
+Steven (Child): ... #e:down
+<<wait 2>>
+Game: You exit the buffet with them, into the dark, starry parking lot.
+<<stopAllMusic MusicObject 1.0>>
+===
+
+
+title: After_Parking_Lot
+---
 <<playSoundString AudioManager OpenShopDoor>>
 <<wait 3>>
 <<playMusicName MusicObject ParkingLotAmbience>>
 <<wait 2>>
-You start to cry.
+===
+
+title: After_Start_Cryin
+---
+Steven (Child): ... #e:cry
 <<playSoundString AudioManager Sobbing>>
 <<wait 2>>
+Mom: ... #e:shocked
+<<wait 1>>
 Mom: Why you crying?
 <<wait 2>>
-You try to stop, but the tears keep coming.
+Game: You try to stop, but the tears keep coming.
+Steven (Child): ... #e:cry-hands
 <<wait 2>>
-Dad: Was food not good enough?
+Dad: Was food not good enough? #e:talking
 <<wait 1>>
-...
+Steven (Child): ... #e:cry-hands
 <<wait 2>>
-Mom: Don't be ungrateful.
+Mom: Don't be ungrateful. We spent lots of money on this party. #e:angry
 <<wait 2>>
-You're sitting on the curb.
+Game: You're sitting on the curb.
 <<wait 2>>
-Dad: Steven! Get up this instant. Don't throw a tantrum on your birthday!
-Your mom holds up a hand as if to signal your dad, "not now".
-She puts a hand on your shoulder.
+===
+
+title: Dad_Rage_Dream0
+---
+Dad: Steven! Get up this instant. 
+Dad: The curb is dirty! You'll ruin your pants!
+<<wait 2>>
+Dad: Don't throw a tantrum on your birthday! #e:rage
+<<wait 2>>
+===
+
+title: After_Mom_Move_Over
+---
+Game: Your mom holds up a hand as if to signal your dad, "not now".
+<<wait 2>>
+Game: She puts a hand on your shoulder.
 <<wait 1>>
-Mom: Tell me what's wrong, honey?
+Mom: Tell me what's wrong, honey? #e:surprised
 <<wait 3>>
-I don't want to get older.
+Steven (Child): I don't want to get older. #e:cry
 <<wait 2>>
-Your mom and dad look at each other, surprised.
-Dad: Why is that?
+Game: Your mom and dad look at each other, surprised.
+<<wait 2>>
+Dad: Why is that? #e:talking 
 <<wait 1>>
-I don't want to die.
+Steven (Child): I don't want to die. #e:cry2 
 <<wait 1>>
-Your parents start to laugh. It doesn't make you feel any better.
+Steven (Child): And since it's my birthday today... #e:cry
+Steven (Child): It means..
+<<wait 2>>
+Steven (Child): IT MEANS IM ONE YEAR CLOSER TO DYING!!! #e:cry-hands
+===
+
+title: After_Parents_Laugh
+---
+Game: Your parents laugh.
+Steven (Child): .. #e:down
 <<wait 1>>
 Mom: That's something you shouldn't worry about right now.
-Why? Everybody dies, right?
-What's the point of living, if we all die anyway?
 <<wait 2>>
-Your parents pause to think a little.
-Something tells you they don't quite know the answer either.
-<<wait 1>>
-That can't be right.
-Mom and Dad always know the answer.
+Steven (Child): Why? Everybody dies, right? #e:down
+<<wait 2>>
+Steven (Child): And dying is painful, right? #e:cry
+<<wait 2>>
+Steven (Child): What's the point of living, if we all die anyway? #e:cry-hands
+<<wait 2>>
+Game: Your parents pause to think a little.
+Game: Something tells you they don't quite know the answer either.
+<<wait 4>>
+Game: That can't be right.
+Game: Mom and Dad always know the answer.
 <<wait 3>>
-Dad: You are young. You have a great life to look forward to.
-Mom: You should be excited, not sad. 
-Dad: Life is like great rollercoaster. You haven't even rode it. And you are already sad?
+Dad: It's because you are stil young.
+Dad: You have a great life to look forward to. #e:talking 
 <<wait 2>>
-<<stopAllMusic MusicObject>>
-Life is a rollercoaster, huh?
-What a joke. There was no rollercoaster.
-More like dumpster fire.
-<<wait 1>>
-I have no friends, no achievements, no memories to look back on fondly.
-And whose fault is it?
-<<wait 2>>
-No one but mine.
-<<wait 2>>
-No one but mine.
-<<wait 2>>
-NO ONE BUT MINE.
-Just be social. Just be productive. Just live a better life!
-<<wait 1>>
-So they say.
-Why don't you tell poor people to just stop being poor?
-<<wait 1>>
-All of life is just that easy, isn't it?
-Just stop being X, LOL!
-<<wait 2>>
-At least for normal people, it is.
-They can make things happen without even trying.
+Mom: You should be excited on your birthday, not sad. #e:smile
+Mom: What do you know about life? #e:smile 
+Mom: You are still a young sapling. #e:smile
 <<wait 3>>
-I'm turning 20 tomorrow. A whole decade has passed.
-And nothing has improved.
-The only thing that has changed all this time later, is that I now have a larger pile of regrets.
-Regrets that I have to carry with me, until I die.
+Dad: Steven, think about it this way...
+Dad: Life is like a great rollercoaster. #e:smile 
+Dad: A lot of ups and downs. #e:talking
+<<wait 2>>
+Dad: You haven't even rode it. 
+Dad: You're still in line for the ride. #e:smile 
+Dad: And you are already worrying about when the ride ends? #e:talking
+<<wait 2>>
+Steven (Child): ... #e:down
+Dad: Life is a gift, Steven. Not a curse.
+Dad: And as your parents, it is our job to teach you how to face life so you can enjoy it as much as possible.
+Dad: With our guidance, you are guaranteed a great life! #e:talking 
+Dad: So don't be sad. Be excited for what comes next. #e:smug 
+<<wait 2>>
+Dad: You won't feel so bad about growing past your childhood after you become an adult.  #e:smile 
+Dad: Childhood isn't the best part of life. #e:smug
+<<wait 2>>
+Mom: Now, come on. Let's go. #e:smile 
+===
+
+title: Enter_Robot
+---
+// play rwj transition sound, enable robot sprite
+Steven: Childhood isn't the best part, huh? #e:stern 
+Steven: What a lie that was. #e:bored
+<<wait 3>>
+Steven: Childhood was objectively, THE best time of my life.
+Steven: Because I still was oblivious to the impending clusterfuck that is my adult life... #e:cry-shuteye
+<<wait 2>>
+Steven: At least when I was young, I had friends... I had ambitions... #e:bored
+Steven: I woke up and learned something new... and as a result, the world felt cool. #e:bored
+Steven: But now, I can't even find the will to wake up in the morning. #e:weary
+Steven: I go weeks on end without talking to anyone. #e:weary 
+Steven: And whose fault is it? #e:huh
+<<wait 2>>
+Steven: My own fault. #e:weary
+Steven: Nothing but my own fault. #e:sad 
+<<wait 2>>
+Steven: These last few years have blazed past me. #e:stern 
+Steven: And after having the loneliest summer of my life... #e:stern 
+Steven: I'm determined to make my last year of college count. #e:bored 
+Steven: My goal is to make one friend. #e:think1  
+Steven: Just one. #e:dsmile
+<<wait 2>>
+Steven: I've tried reading many tips online on how to fix myself, but it's all useless info. #e:bored
+<<wait 2>>
+Steven: "Just be social." #e:crazy1
+Steven: "Just be yourself." #e:crazy2 
+Steven: "Just live a better life, BRO!" #e:crazy2
+<<wait 2>>
+Steven: Why don't you go tell sick people to "just heal themselves?" #e:angry3
 <<wait 1>>
-Maybe the young version of me sensed something.
+Steven: If only life were that easy. #e:sad
+<<wait 2>>
+Steven: You see, I'm a robot. #e:think1
+Steven: What's comes to mind when you think of robots? #e:stern
+<<wait 2>>
+Steven: We're good at doing things that we're told to do... #e:think2
+Steven: We have no feelings... #e:think1 
+Steven: We're boring... #e:cry
+Steven: We can't speak up for ourselves... #e:think2
+<<wait 2>>
+Steven: All negative things, right? #e:sad
 <<wait 1>>
-It knew I was never going to amount to anything. 
+Steven: For normal people, maybe things are just that easy. #e:sad 
+Steven: Making friends.. dating.. having normal interests and hobbies... #e:sad 
+Steven: But for me? All those things feel nearly impossible. #e:stern 
+<<wait 3>>
+Steven: I'm turning 20 tomorrow. #e:before-cry 
+Steven: A whole decade has passed since this. #e:cry
+Steven: And the only thing that has changed all this time later... #e:cry-shuteye
+Steven: Is that my pile of regrets has doubled in size. #e:cry-shuteye
+<<wait 2>>
+Steven: Enough avoiding people. Enough having social anxiety. #e:cry-angry
+Steven: I will do everything I can to live the best year ever. #e:cry-angry
+Steven: Because if I don't make it this year, I'll never make it. #e:cry-painful
+===
+
+title: Walk_Over_To_Young_Self
+---
+Steven: Maybe the young version of me sensed something.
 <<wait 1>>
-That I wasn't fit to live a good life.
+Steven: It knew I was never going to amount to anything. #e:think1
 <<wait 1>>
-And that was enough to make me cry.
-// load user back into bedroom for day 2
-<<yarnLoadScene LevelLoader Bedroom 2.0f>>
+Steven: That I wasn't fit to live a good life. #e:think2 
+<<wait 1>>
+Steven: Who wouldn't cry because of that? #e:before-cry
+// // load user back into bedroom for day 2
+// <<yarnLoadScene LevelLoader Bedroom 2.0>>
 ===
 
