@@ -1,12 +1,16 @@
-﻿title: TrainStation
+﻿
+title: TrainStation
 ---
 <<if true>>
+	Game: Pls
+	-> Yes
+		Game: ok
+	-> No
+		Game: ok
 	<<yarnLoadScene LevelLoader Bedroom 2.0>>
 	<<wait 2>>
-	<<FadeOut LevelLoader 1.0>>
-	<<wait 2>>
 <<else>>
-	Mom: I'm going to miss you so much, son. #e:sad
+	Mom: I'm going to miss you so much, Steven. #e:sad
 	<<wait 2>>
 	Game: Your mother gives you a kiss on the cheek.
 	<<wait 2>>
@@ -59,9 +63,12 @@
 		<<jump DadYelling>>
 	-> ...
 		Steven: ... #e:think2
+	<<wait 2>>
+	Mom: Oh! Also...
+	<<wait 2>>
 	Mom: Try to find a girlfriend! #e:smile
 	<<wait 2>>
-	Game: Your mother says this, with a slight laugh.
+	Game: Your mom says this, with a slight laugh.
 	<<wait 1>>
 	-> Say something neutral
 		Steven: I'll do my best... #e:think2 
@@ -160,7 +167,5 @@ Game: You slowly unpack everything...
 <<wait 5>>
 
 <<yarnLoadScene LevelLoader Bedroom 2.0>>
-<<wait 2>>
-<<FadeOut LevelLoader 1.0>>
 <<wait 2>>
 ===

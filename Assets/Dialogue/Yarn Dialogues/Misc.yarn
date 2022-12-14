@@ -101,13 +101,7 @@ title: GoToSleep
 Steven: It's pretty late... #e:think1
 Steven: Should I sleep? #e:stern
 -> Yes
-	Alright...
-	<<if $teethBrushed == false>> 
-		Would you like to brush your teeth first?
-		-> Ok, fine.
-			<<stop>>
-		-> No, I'm too depressed to brush my teeth.
-	<<endif>>
+	Steven: Alright... #e:dsmile
 	<<goToSleep LevelLoader>>
 -> Hell No!
 ===
@@ -115,22 +109,25 @@ Steven: Should I sleep? #e:stern
 title: CantGoToSleep
 ---
 <<if $day == 1>>
-	Ah yes, the bed.
-	Where I spend 90% of my waking time.
-	Staring at the ceiling, waiting for the day to end.
+	Steven: Ah yes, the bed.
+	Steven: Where I spend 90% of my waking time.
+	Steven: Staring at the ceiling, waiting for the day to end.
 	<<wait 1>>
-	And that's 8 hours where I don't need to be awake. 
+	Steven: And that's 8 hours where I don't need to be awake. 
 <<elseif $day == 2>>
-	I can't sleep yet.
-	I know there's nothing to do, but lying in bed will only make me feel worse.
-	Let's try to find something to do, my problems won't fix themselves.
+	Steven: I can't sleep yet.
+	Steven: I know there's nothing to do, but lying in bed will only make me feel worse.
+	Steven: Let's try to find something to do, my problems won't fix themselves.
 <<endif>>
 ===
 
 title: EndOfDayDialogue
 ---
+// shit ok so this is 1 above what it should be..
+// day 1's end of day is actually $day = 2. So I'll just do $day - 1
+// because goToSleep is called before this, which actually increments the day by 1 already
 
-<<if $day == 1>>
+<<if $day-1 == 1>>
     Steven: What an utterly unproductive day. #e:weary
     <<wait 2>>
 	Steven: I can't wait for the first week of school! #e:smirk
@@ -143,9 +140,9 @@ title: EndOfDayDialogue
 	Steven: It's all so cringe... #e:bored
 	Voice: Yeah, but what if you miss an important assignment on the first day?
 	<<wait 1>>
-	Steven: You're right, professors love to do that shit.. #e:bored
+	Steven: You're right man, professors love to do that shit.. #e:bored
 	Steven: Okay, I'll go. Better get to sleep, then. #e:stern
-<<elseif $day == 2>>
+<<elseif $day-1 == 2>>
 	Steven: What a long day. #e:weary
 	Steven: Probably my most eventful day in years... #e:dsmile
 	<<wait 1>>
@@ -333,6 +330,10 @@ Voice: ... #e:concerned
 
 title: COOM_DEMON
 ---
+<<if $day == 1>>
+	Steven: I'll worry about this tomorrow... #e:think2
+	<<jump Nothing>>
+<<endif>>
 Steven: Would you like to summon... #e:stern
 Steven: The coom demon? #e:smirk
 <<stopAllMusic MusicObject 1.0>>
@@ -940,10 +941,10 @@ Voice: I know. #e:concerned
 title: Can_Sleep_Now
 ---
 Game: You can now sleep.
-<<if $firstTimeSleeping == false>>
+<<if $firstTimeSleeping == true>>
 	Game: To sleep, go to your bedroom and press E near the bed.
-	Game: If you stay up too much, you might hurt your energy levels for the next day.
-	<<set $firstTimeSleeping = true>>
+	Game: If you stay up too much, you might find yourself with a lower energy level for the next day.
+	<<set $firstTimeSleeping = false>>
 <<endif>>
 ===
 

@@ -14,6 +14,8 @@ public class NPC : MonoBehaviour, ISaveable
 
     private NPCMovement npcMovement;
 
+    private GameState gameState;
+
     private void OnEnable()
     {
         ISaveableRegister();
@@ -34,10 +36,23 @@ public class NPC : MonoBehaviour, ISaveable
     {
         // get npc movement component
         npcMovement = GetComponent<NPCMovement>();
+        gameState = FindObjectOfType<GameState>();
     }
     public void ISaveableRegister()
     {
         SaveLoadManager.Instance.iSaveableObjectList.Add(this);
+    }
+
+    private void Update()
+    {
+        if (gameState.gameDay == 1)
+        {
+            transform.gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.gameObject.SetActive(true);
+        }
     }
 
     public void ISaveableDeregister()

@@ -53,4 +53,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DreamDay5.unity
     guid: 1d876fc0ffad4264e919226237cc7406
+  - enabled: 1
+    path: Assets/Scenes/DreamDay1.unity
+    guid: e69f60cda5ed32a4e9c3f2a09ec0ee0c
+  - enabled: 1
+    path: Assets/Scenes/DreamHome.unity
+    guid: 4b0cc2f4031a41944bd386af68112504
+  - enabled: 1
+    path: Assets/Scenes/DreamRoom.unity
+    guid: 1872b89c75f36c546b580232446a5f4f
+  - enabled: 1
+    path: Assets/Scenes/DreamDay2.unity
+    guid: bdc747139ad8aea4e972bc0e76f89e42
+  - enabled: 1
+    path: Assets/Scenes/DreamDay3.unity
+    guid: bef64c3d27ec1d64585f73b0a77f32b7
+  - enabled: 1
+    path: Assets/Scenes/DreamDay4.unity
+    guid: 7a72b0f406c85c24ca51b6ed3fa86be2
+  - enabled: 1
+    path: Assets/Scenes/DreamDay0.unity
+    guid: 0231f3a1738582044ba10f90c906234b
+  - enabled: 1
+    path: Assets/Scenes/ActualDarkScene.unity
+    guid: 162e29ebf05ca284db90d756d3f13dac
   m_configObjects: {}

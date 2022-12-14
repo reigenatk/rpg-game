@@ -6,18 +6,21 @@
 title: D1_StartDay
 ---
 Steven: Welp, this sucks. #e:think1
+<<wait 2>>
+
 Steven: I forgot how much I hated being at school. #e:stern
 <<wait 1>>
 Steven: At least when I'm home, I have a big room and 2 meals a day.
 <<wait 1>>
 Steven: I forgot how small this room is. #e:weary
 <<wait 1>>
+<<stopAllMusic MusicObject 1.0>>
+<<wait 1>>
 <<playSoundString AudioManager DriveByCar>>
 <<wait 6>>
-Steven: These dumbass rich kids.. #e:angry3
-Steven: Everyday, I have to listen to them blast music in their fancy little cars. #e:angry2
-Steven: As they zoom down my street 20mph over the speed limit. #e:angry2
-Steven: College is so lame... #e:weary
+Steven: Already back to no peace and quiet. Great. #e:bored
+Steven: Everyday, I have to listen to these rich kids blast music in their fancy little cars. #e:angry2
+Steven: Like, no one thinks you're cool, dude. #e:think1 
 <<wait 2>>
 Steven: Ok, honest question... Did you like going to college? 
 -> Yes
@@ -54,24 +57,28 @@ Steven: I feel a bit tired. #e:bored
 Steven: But I'm not quite tired enough to sleep yet... #e:think2
 <<wait 1>>
 Steven: Wonder just how much has changed. #e:smile
-<<stopAllMusic MusicObject 1.0>>
-<<wait 2>>
-Game: OBLIGATORY GAME INSTRUCTIONS!
+<<wait 3>>
+<<jump Game_Instructions>>
+===
+
+title: Game_Instructions
+---
+Game: <color=red>OBLIGATORY GAME INSTRUCTIONS!</color>
 Game: Press <color=yellow>E</color> to interact with things. 
 Game: Every person you see is guaranteed to be interactable.
 Game: And lots of things in the world environment are interactable as well.
 <<wait 2>>
 Game: This is a dialogue based game. To progress, you must talk to people.
-Game: Who to talk to is up to you.
+Game: Who to talk to, and what to say is up to you.
 <<wait 3>>
 Game: In this game, you have four "health bars" so to speak.
 Game: You can press <color=yellow>H</color> to either hide or show the bars.
-Game: Then the UI bars will toggle, like this...
 <<enableUI GameUI>>
 <<wait 2>> 
 Game: The bars are a generalization of your overall mood.
-Game: Try to keep them high.
-Game: The categories are: <color=yellow>energy</color>, <color=green>contentedness</color>, <color=red>social</color>, <color=blue>entertained</color>. 
+Game: For example, <color=yellow>eating</color> will likely give you more energy.
+Game: Try to keep them as high as possible.
+Game: The categories are: <color=yellow>energy</color>, <color=green>contentedness</color>, <color=red>social</color>, and <color=blue>entertained</color>. 
 <<wait 2>>
 Game: In this game there is one good ending, and multiple bad endings.
 Game: Good luck.

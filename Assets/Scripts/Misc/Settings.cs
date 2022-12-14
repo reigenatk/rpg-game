@@ -34,7 +34,7 @@ public static class Settings
 
     // 1 min in game = 1 sec irl (1/60)
     public const float secondsPerGameSecond = 0.0166667f;
-    public const int numSecondsAwakeMandatory = 14 * 3600;
+    public const int numSecondsAwakeMandatory = 14 * 3600; // 14 hrs
 
     // Tilemap
     public const float gridCellSize = 1f; // grid cell size in unity units

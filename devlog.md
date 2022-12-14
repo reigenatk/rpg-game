@@ -673,3 +673,13 @@ Also need to work on footstep sounds. That's another big one, maybe I do that tm
 
 But yeah huge art progress, made a few piano songs, quite happy with how dreams 3+4 came out. I think I really captured that depressed mood quite well. Need to make songs for a few of those dreams tho. As well as maybe a nice song for dialogues, or for certain characters, etc.
 
+# 12/13/22
+
+Got footstep sounds workin.
+
+Now my strat is to go thru each cutscene and its usecase, see how it runs and tweak whatever is necessary to fix.
+
+Changes: NPCs will NOT appear on day 1. This is to preserve the feeling of empty day 1 I guess.
+
+Alright, so I verified that everythings working OK up to Day 1 dream. Tmrw we can start with Day 2!
+

@@ -149,3 +149,11 @@ I do <<playSoundString AudioManager ArriveHome>>, and set the enum as usual, and
 Fix: IDK? Is my scriptable object too big? This is element #88 so it is rather large but this shouldnt be happening...
 
 **OK I found the fix** XD so I'm pretty sure it just ran out of memory or something. The thing is, it's probably storing the entire audio clips in memory. So when I added a 30 sec clip it took up too much memory for that one dictionary. The fix is really retarded but I just added another dictionary and now will use this one. ANd when that gets full, we do it again... and again. What an ass solution lol
+
+Bug: Scene won't unload on play (which can cascade into tons of other weird errors)
+
+Fix: Edit->Build Settings->ADD OPEN SCENES! Super important. Cuz after you add a scene in the folder, it doesn't mean that Unity knows that its part of ur game. For all it knows its just a scene that someone else coulda made.
+
+Fix part 2: Just kidding that didnt fix the issue. An example of a strange issue that was solved by simply not having any scenes in the editor at first was- if I keep a scene in the editor, its bounds confiner breaks randomly. If I don't keep it in the editor and then press play, bounds confiner works fine. Dafuq?
+
+Bug: Rly weird bug- when transitioning from Day 1 to Day 1 dream, the whole screen would just pause, sometimes even crash unity, inside of `FadeAndSwitchScenes`. Luckily I fixed this by just changing it from using a cutscene.stopped thing that I originally used, to just a signal instead. Kinda like how we have the wakeUp signal for all the dreams, similarly I used one to go to the Dream state. THen it started working again.

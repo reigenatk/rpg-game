@@ -12,7 +12,7 @@ public class PoolManager : Singleton<PoolManager>
     public struct Pool
     {
         public int poolSize;
-        public GameObject prefab;
+        public GameObject soundPrefab;
     }
 
     private void Start()
@@ -20,7 +20,7 @@ public class PoolManager : Singleton<PoolManager>
         // Create object pools on start
         for (int i = 0; i < pool.Length; i++)
         {
-            CreatePool(pool[i].prefab, pool[i].poolSize);
+            CreatePool(pool[i].soundPrefab, pool[i].poolSize);
         }
     }
 

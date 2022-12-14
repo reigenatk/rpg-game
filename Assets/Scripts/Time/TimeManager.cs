@@ -218,6 +218,13 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
 
     private void Update()
     {
+        // get the lighting right (need to put this here bc sometimes we go to a scene and time is paused so it wont run the same code down below)
+        if (!doesThisSceneUseDynamicLights())
+        {
+            // keep global light at 1
+            globalLight.intensity = 1.0f;
+            globalLight.color = Color.white;
+        }
         // filter out the cases where time SHOULDNT run first
         if (gameClockPaused == true)
         {
@@ -363,7 +370,10 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
         }
 
 
-        if (doesThisSceneUseDynamicLights() == true) lightingTick();
+        if (doesThisSceneUseDynamicLights() == true)
+        {
+            lightingTick();
+        }
         else
         {
             // keep global light at 1

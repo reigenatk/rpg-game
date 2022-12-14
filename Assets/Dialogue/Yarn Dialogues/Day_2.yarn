@@ -2,6 +2,7 @@ title: Day2_Vars
 ---
 <<declare $hasFinishedLecture = false>>
 <<declare $hasDoneDay2Eating = false>>
+
 ===
 
 title: D2_Lancelot_Commons
@@ -378,6 +379,7 @@ Steven: o-ok, thanks. #e:dsmile
 
 title: Day2_After_Stacy
 ---
+<<set $hasDoneLectureBefore = true>>
 <<if $acceptedBibleStudy == true>>
     Mind: I'm not sure whether going to this is a great idea.
     Mind: But she seemed too nice to turn down.

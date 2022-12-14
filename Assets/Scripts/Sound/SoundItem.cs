@@ -123,6 +123,9 @@ public class SoundItem
         HandOverBox,
         LightApplause,
         Hug,
+        GameTypewriter,
+        SelectSound1,
+        SelectSound2,
     }
 
     public SoundName soundName;

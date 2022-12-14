@@ -524,9 +524,10 @@ Steven: They're definitely not mine.
 title: D1_Commons_Oven
 ---
 <<if $day == 1>>
-	Steven: I should really use this more... 
-	Steven: Cooking meals is better that eating microwaved shit all the time.
-	Steven: But I'm lazy.
+	Steven: I should really use this more... #e:think1 
+	Steven: Eating cooked meals can do a lot for your mental health. #e:huh
+	<<wait 2>>
+	Steven: But I'm lazy. #e:bored
 <<else>>
 	<<if $alreadyCookedToday == true>>
 		Steven: Hmm, I already cooked recently. #e:bored
@@ -724,7 +725,9 @@ Steven: Cleaner than usual today.. #e:smile
 title: D1_Commons_TV
 ---
 Steven: There's nothing good on television these days. #e:think2
-Steven: Who watches TV these days anyways, besides boomers? #e:yikes
+Steven: Well, at least in my opinion. #e:think1
+<<wait 2>>
+Steven: I guess plenty of people still enjoy it, particularly boomers. #e:yikes
 ===
 
 title: D1_Commons_Microwave
@@ -748,9 +751,11 @@ Steven: This wasn't here last year... How did he get this? #e:worried
 Steven: And what does he do with this... Wait- #e:embarassed
 Steven: Does this mean he does experiments in the house? #e:yikes
 <<wait 2>>
-Steven: Jeez. I should confront him about this. #e:stern
+Steven: That bastard. #e:stern
+Steven: He'll probably set us all on fire...
+Steven: Or poison us all with carbon monoxide.
 <<wait 2>>
-Steven: Actually who am I kidding, I really don't give a shit if he blows us up. #e:bored
+Steven: Actually who am I kidding, I really don't give if that happens. #e:bored
 Steven: It's not like I'm excited to be alive. #e:weary
 ===
 title: D1_Brain_Mainframe
@@ -1012,3 +1017,12 @@ Game: You try to sit down on someone...
 Stranger: Hey! I'm sitting here!
 ===
 
+title: Coffee_Girl
+---
+Steven: No way I'm gonna get something from there... #e:worried
+Steven: First off, I don't even like coffee... #e:huh
+Steven: And plus, talking to the cashier is never worth it. #e:bored 
+Steven: I'll probably embarass myself and stutter a ton... #e:bored
+<<wait 2>>
+Steven: I'll just eat at home. #e:think2
+===

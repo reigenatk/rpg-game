@@ -8,7 +8,8 @@ using static SoundItem;
 
 public class Player : Singleton<Player>, ISaveable
 {
-
+    [SerializeField]
+    private LayerMask groundLayerMask; // for footsteps
 
     private Camera mainCamera;
 
@@ -136,7 +137,26 @@ public class Player : Singleton<Player>, ISaveable
         // if a cutscene is currently playing, don't let us make noises.
         // this is to avoid us making footstep noises when animator is moving around?
 
-        AudioManager.Instance.PlaySound(SoundName.RobotWalk);
+        Collider2D collider = Physics2D.OverlapPoint(transform.position, groundLayerMask);
+        if (collider != null)
+        {
+            // Debug.Log("Footstep collider called " + collider.gameObject.name);
+            StepSoundFeedback data = collider.GetComponent<StepSoundFeedback>();
+            AudioSource audioSource = collider.gameObject.GetComponent<AudioSource>();
+            if (data != null && (audioSource.isPlaying == false || audioSource.clip != data.StepClip || audioSource.time / audioSource.clip.length > 0.2f))
+            {
+                audioSource.clip = data.StepClip;
+                audioSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+                audioSource.Play();
+            }
+
+        }
+        else
+        {
+            // if no special terrain sound, just play no sound lol 
+            // AudioManager.Instance.PlaySound(SoundName.RobotWalk);
+        }
+
     }
 
     public void setAnimationState(string animationName)

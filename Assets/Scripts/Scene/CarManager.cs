@@ -12,7 +12,7 @@ public class CarManager : MonoBehaviour
     [SerializeField] List<CarRoute> routes;
     [SerializeField] List<int> routeSpawnRarity;
 
-
+    public bool enableCars;
 
     [System.Serializable]
     public class CarRoute
@@ -32,6 +32,7 @@ public class CarManager : MonoBehaviour
     // Update is called once per frame
     void SpawnCar()
     {
+        if (enableCars == false) return;
         Debug.Log("Trying to spawn a car...");
         int carIdx = getRandomIdx(carSpawnRarity);
         List<CarRoute> workingRoutes = new List<CarRoute>();

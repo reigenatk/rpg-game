@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using UnityEngine;
 
 public delegate void MovementDelegate(float inputX, float inputY, bool isWalking, bool isRunning, bool isIdle, bool idleLeft, bool idleRight, bool idleUp, bool idleDown);
 
@@ -67,6 +67,7 @@ public static class EventHandler
 
     public static void CallBeforeSceneUnloadFadeOutEvent()
     {
+        Debug.Log("[CallBeforeSceneUnloadFadeOutEvent]");
         if (BeforeSceneUnloadFadeOutEvent != null)
         {
             BeforeSceneUnloadFadeOutEvent();
@@ -78,6 +79,7 @@ public static class EventHandler
 
     public static void CallBeforeSceneUnloadEvent()
     {
+        Debug.Log("CallBeforeSceneUnloadEvent");
         if (BeforeSceneUnloadEvent != null)
         {
             BeforeSceneUnloadEvent();
@@ -89,6 +91,7 @@ public static class EventHandler
 
     public static void CallAfterSceneLoadEvent()
     {
+        Debug.Log("Calling after scene load event");
         if (AfterSceneLoadEvent != null)
         {
             AfterSceneLoadEvent();

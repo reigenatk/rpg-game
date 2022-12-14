@@ -83,7 +83,7 @@ public class GameState : Singleton<GameState>
         {
             if (foo == PlayerScore.energy)
             {
-                playerScore.Add(foo, 15.0f);
+                playerScore.Add(foo, 100.0f);
             }
             else if (foo == PlayerScore.contentedness)
             {
@@ -130,7 +130,7 @@ public class GameState : Singleton<GameState>
         setYarnVariable("$gotPepeNumber", true);
 
         // see if it unlocks the option to meet
-        // setYarnVariable("$hasTextedDoomer", true);
+        setYarnVariable("$hasTextedDoomer", false); // dunno why but it doesnt seem this variable is being declared and it keeps spamming me that it hasn't been declared.. so I just put this here.
         // setYarnVariable("$hasTextedLaura", true);
         // setYarnVariable("$hasTextedPepe", true);
         // setYarnVariable("$isGroupMeetingOn", true);
@@ -205,9 +205,15 @@ public class GameState : Singleton<GameState>
         setYarnVariable("$talkedToBrainAlready", false);
         setYarnVariable("$talkedToStacyAlready", false);
         setYarnVariable("$talkedToBeckyAlready", false);
-
-
-
+        setYarnVariable("$talkedToBoomerAlready", false);
+        setYarnVariable("$talkedToCoomerAlready", false);
+        setYarnVariable("$talkedToDoomerAlready", false);
+        setYarnVariable("$talkedToZoomerAlready", false);
+        setYarnVariable("$talkedToPepeAlready", false);
+        setYarnVariable("$talkedToBloomerAlready", false);
+        setYarnVariable("$talkedToDiscordAlready", false);
+        setYarnVariable("$talkedToRedditAlready", false);
+        setYarnVariable("$talkedToDoomerGirlAlready", false);
     }
 
     public void setYarnVariable(string name, bool val)

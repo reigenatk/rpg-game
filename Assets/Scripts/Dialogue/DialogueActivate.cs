@@ -82,11 +82,13 @@ public class DialogueActivate : MonoBehaviour, Interactable
         // decide which dialogue to use
         GameTime gt = FindObjectOfType<TimeManager>().gt;
         bool foundDialogue = false;
+
         for (int i = dialoguesToRun.Count - 1; i >= 0; i--)
         {
             if (foundDialogue) break;
 
             DialogueWithTime dwt = dialoguesToRun[i];
+            Debug.Log("Considering Dialogue " + dwt.ToString());
 
             // we will let day = -1 in the dialogue specification to mean, play any day.
             if (dwt.dayToPlay != -1 && (dwt.dayToPlay != gameState.getGameDay()))
@@ -114,10 +116,15 @@ public class DialogueActivate : MonoBehaviour, Interactable
 
             // ok it passed all checks, run it
             foundDialogue = true;
+            
             // if we are later than this limit, then play this dialogue
             DialogueManager dm = GameObject.FindGameObjectWithTag("Manager").GetComponent<DialogueManager>();
+            
             dm.StartDialogueString(dwt.dialogueToPlay);
-            yield return new WaitForSeconds(1f);
+
+            yield break; // all done since we played our dialogue
+
+
             Outerloop:
                 continue;
         }
@@ -129,6 +136,8 @@ public class DialogueActivate : MonoBehaviour, Interactable
     // remember this script is on the NPC so we can just check for the presence of an NPC script to know if its an NPC or an inanimate object
     public bool isAnotherPlayer()
     {
+        Debug.Log("Transform " + transform);
+        Debug.Log("TransformParent " + transform.parent);
         if (transform.parent.gameObject == null)
         {
             return false;

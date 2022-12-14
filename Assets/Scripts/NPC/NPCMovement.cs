@@ -106,7 +106,7 @@ public class NPCMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (sceneLoaded)
+        if (sceneLoaded && LevelLoader.Instance.firstSceneLoaded == true)
         {
             // Debug.Log("stack for " + gameObject.name + " now has " + npcPath.npcMovementStepStack.Count + " entries, isMoving: " + npcIsMoving);
             // no moving if NPC is being talked to, which means no popping anything from the stack, which is good cuz time is paused too when dialogue runs.
@@ -342,17 +342,21 @@ public class NPCMovement : MonoBehaviour
 
     private void AfterSceneLoad()
     {
-        // this should grab the current (and only) grid in the scene
-        grid = FindObjectOfType<Grid>();
-        Debug.Log("grid is " + grid);
-
-        if (!npcInitialised)
+        if (LevelLoader.Instance.firstSceneLoaded)
         {
-            InitialiseNPC();
-            npcInitialised = true;
+            // this should grab the current (and only) grid in the scene
+            grid = FindObjectOfType<Grid>();
+            Debug.Log("grid is " + grid);
+
+            if (!npcInitialised)
+            {
+                InitialiseNPC();
+                npcInitialised = true;
+            }
+
+            sceneLoaded = true;
         }
 
-        sceneLoaded = true;
     }
 
     private void BeforeSceneUnloaded()

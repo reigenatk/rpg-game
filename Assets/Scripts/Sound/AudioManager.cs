@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Yarn.Unity;
 using static SoundItem;
 
 public class AudioManager : Singleton<AudioManager>
 {
     [SerializeField] private GameObject soundPrefab = null;
+    [SerializeField] private GameObject footstepSoundPrefab = null;
 
     [Header("Other")]
     // Sound list and dictionary
     [SerializeField] private SO_SoundList so_soundList = null;
+
+    // added by me to add typewriter sound effects, and select sound effect
     [SerializeField] LineView lineView;
+    [SerializeField] DialogueRunner dr;
+    [SerializeField] DialogueAdvanceInput dai;
 
     private Dictionary<SoundName, SoundItem> soundDictionary;
     private Dictionary<SoundName, SoundItem> soundDictionary2;
@@ -20,6 +26,9 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private float fastTalkingSpeed = 55.0f;
     [SerializeField] private float slowTalkingSpeed = 25.0f;
     [SerializeField] private float normalTalkingSpeed = 40.0f;
+
+    // we wanna put all typewriter sounds in its own audiomixergroup
+    [SerializeField] AudioMixerGroup typewriterAudioMixerGroup;
 
 
     protected override void Awake()
@@ -38,6 +47,32 @@ public class AudioManager : Singleton<AudioManager>
         {
             soundDictionary2.Add(soundItem.soundName, soundItem);
         }
+    }
+
+    private void Update()
+    {
+
+
+        // Debug.Log("Is continue button active? " + lineView.continueButton.activeInHierarchy);
+        // for when we click an option
+        if (dr.optionHasBeenSelected)
+        {
+            Debug.Log("Select option");
+            PlaySound(SoundName.SelectSound1);
+            dr.optionHasBeenSelected = false;
+        }
+        // for when we go on to the next dialogue box, but dont play the sound unless its actually ready to be forwarded
+        // (we check when thats ready depending on if the continue button is present)
+        // cuz otherwise the player can spam spacebar and play the sound annoyingly
+
+        // ok so i couldnt really fix it, the problem was that it either wasn't playing at all or just plays everytime you press space. Decided to just scrap this, its not that important
+/*        if (dai.hasAdvancedInput && canPlaySound)
+        {
+            Debug.Log("Select button");
+            PlaySound(SoundName.SelectSound2);
+            dai.hasAdvancedInput = false;
+        }*/
+
     }
 
     [YarnCommand("playSoundString")]
@@ -165,6 +200,9 @@ public class AudioManager : Singleton<AudioManager>
             case "Cashier":
                 PlaySound(SoundName.NurseTypewriterSound);
                 break;
+            case "Game":
+                PlaySound(SoundName.GameTypewriter);
+                break;
             default:
                 PlaySound(SoundName.TypewriterSound);
                 break;
@@ -228,10 +266,12 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlaySound(SoundName soundName)
     {
+
         // Debug.Log("soundDictionary is of size " + soundDictionary.Count);
-        if (soundDictionary.ContainsKey(SoundName.ArriveHome))
+        bool isTypewriterSound = false;
+        if (soundName.ToString().ToLower().Contains("typewriter"))
         {
-            print("ArriveHome");
+            isTypewriterSound = true;
         }
         if (soundPrefab == null)
         {
@@ -245,6 +285,10 @@ public class AudioManager : Singleton<AudioManager>
             Sound sound = soundGameObject.GetComponent<Sound>();
 
             sound.SetSound(soundItem);
+            if (isTypewriterSound)
+            {
+                soundGameObject.GetComponent<AudioSource>().outputAudioMixerGroup = typewriterAudioMixerGroup;
+            }
             // Debug.Log(soundGameObject);
             // Debug.Log(sound + " soundItem is " + sound.soundItem.soundName);
 
@@ -262,6 +306,11 @@ public class AudioManager : Singleton<AudioManager>
             Sound sound = soundGameObject.GetComponent<Sound>();
 
             sound.SetSound(soundItem2);
+            if (isTypewriterSound)
+            {
+                soundGameObject.GetComponent<AudioSource>().outputAudioMixerGroup = typewriterAudioMixerGroup;
+            }
+
             // Debug.Log(soundGameObject);
             // Debug.Log(sound + " soundItem is " + sound.soundItem.soundName);
 

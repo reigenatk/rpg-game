@@ -10,6 +10,7 @@ public class MusicManager : Singleton<MusicManager>
     // we will keep track of which audio is currently playing ourselves
     [SerializeField] private GameObject curAudioObject;
 
+
     // what scene and room must match for this to play
     [System.Serializable]
     public struct Constraints
@@ -18,6 +19,8 @@ public class MusicManager : Singleton<MusicManager>
         public SceneName sceneName;
     }
 
+
+
     [System.Serializable]
     public class Music
     {
@@ -25,6 +28,9 @@ public class MusicManager : Singleton<MusicManager>
         public List<Constraints> conditions;
         public bool isActivated;
         public string description;
+        public bool isVariablePitch; // does the pitch of the song differ based on what time it is
+        public float lowPitch; // the pitch of the song at 12am (0 o clock)
+        public float highPitch; // the pitch of the song at 12pm (12 o clock)
 
         // is the music only triggerable via code
         public bool isTriggerable;
@@ -41,6 +47,11 @@ public class MusicManager : Singleton<MusicManager>
             }
             return false;
         }
+
+        public float findPitch(int hour)
+        {
+            return Mathf.Lerp(highPitch, lowPitch, (Mathf.Abs(12 - hour)) / 12.0f);
+        }
     }
 
     [SerializeField] List<Music> musicToPlay;
@@ -51,9 +62,10 @@ public class MusicManager : Singleton<MusicManager>
         audioSource.Pause(); // set to .Pause if you want songs to leave from where you last stopped them.
     }
 
-    private IEnumerator startMusic(AudioSource audioSource, float numSecondsToFadeOver)
+    private IEnumerator startMusic(AudioSource audioSource, float numSecondsToFadeOver, float pitchToPlayAt = 1.0f)
     {
         audioSource.Play();// if it was faded out, fade it back in
+        audioSource.pitch = pitchToPlayAt;
         if (audioSource.volume == 0.0f)
         {
             yield return StartCoroutine(FadeAudioSource.StartFade(audioSource, numSecondsToFadeOver, 1.0f));
@@ -159,7 +171,16 @@ public class MusicManager : Singleton<MusicManager>
 
                     // then start the song that we should play.
                     AudioSource audioToPlay = m.music.GetComponent<AudioSource>();
-                    yield return StartCoroutine(startMusic(audioToPlay, 2.0f));
+                    if (m.isVariablePitch)
+                    {
+                        Debug.Log("Variable Pitch of " + m.findPitch(TimeManager.Instance.gt.gameHour));
+                        yield return StartCoroutine(startMusic(audioToPlay, 2.0f, m.findPitch(TimeManager.Instance.gt.gameHour)));
+                    }
+                    else
+                    {
+                        yield return StartCoroutine(startMusic(audioToPlay, 2.0f));
+                    }
+                    
                     curAudioObject = m.music;
                     yield break;
                 }

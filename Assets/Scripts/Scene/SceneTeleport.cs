@@ -187,11 +187,13 @@ public class SceneTeleport : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Collision with teleporter " + gameObject.name);
         Player player = collision.GetComponent<Player>();
 
         // let gameState know that we are currently in this teleporter.
         if (gameState.curSceneTeleport == this)
         {
+            Debug.Log("We were already in this teleporter, don't run for now");
             // we were just in this, so dont run it again for now
             return;
         }

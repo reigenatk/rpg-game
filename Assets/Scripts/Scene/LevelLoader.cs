@@ -20,7 +20,7 @@ public class LevelLoader : Singleton<LevelLoader>
     private bool isFirstLoad = true; // is this the first scene we load? Used to keep track of if spawnWherePlaced should take effect (should only spawn when placed on first scene)
 
     private bool isFading;
-    private bool isFadingScenes; // are we in the process of switching scenes?
+    public bool isFadingScenes; // are we in the process of switching scenes?
     [SerializeField] private float fadeDuration = 1f;
     [SerializeField] private CanvasGroup faderCanvasGroup = null;
     [SerializeField] private GameObject vmCams;
@@ -49,6 +49,8 @@ public class LevelLoader : Singleton<LevelLoader>
 
     // this helps us to keep track of which scene we should load after the cutscene finishes (for a cutscene + new scene pattern)
     SceneName nextSceneToLoad;
+
+    public bool firstSceneLoaded; // set true when first scene is done loadin
 
     // cutscene type
     [System.Serializable]
@@ -224,6 +226,8 @@ public class LevelLoader : Singleton<LevelLoader>
         curScene = startingSceneName;
 
         yield return StartCoroutine(CreateScene(startingSceneName, startingPosition, 1.0f));
+        firstSceneLoaded = true;
+        FindObjectOfType<MapBounds>().DoSwitchBoundingShape(); // do this manually cuz its not working for wahtever reason
     }
 
     // call this when player faints. More or less just goToSleep() but with less stuff
@@ -242,6 +246,8 @@ public class LevelLoader : Singleton<LevelLoader>
         FindObjectOfType<GameState>().resetDailyYarnVariables();
         // pause the clock so we don't continue to leech energy, contentedness, etc.
         timeManager.gameClockPaused = true;
+
+        gameState.numSecondsAwake = 0; // back to 0
 
         // disable UI
         GameUI gameUI = FindObjectOfType<GameUI>();
@@ -311,27 +317,31 @@ public class LevelLoader : Singleton<LevelLoader>
             endOfDayCutscene = playCutscene("LieInBed");
         }
 
-        endOfDayCutscene.stopped += endOfDayCutsceneFinished;
+        // endOfDayCutscene.stopped += endOfDayCutsceneFinished;
     }
 
-    private void endOfDayCutsceneFinished(PlayableDirector stoppedDirector = null)
+    public void endOfDayCutsceneFinished()
     {
+        Debug.Log("[endOfDayCutsceneFinished]");
         if (SceneManager.GetActiveScene().name == "Bedroom")
             GameObject.Find("Bedsheets").GetComponent<SpriteRenderer>().sortingOrder = 0;
 
-        if (gameState.gameDay == 1)
+        if (gameState.gameDay == 2)
         {
-            // if day 1, DONT go to dark scene (the one with reaper in it, cuz we havent met him yet obv)
+            // if day 1 going to day 2 (its 2 here cuz advanceDay was already called), DONT go to dark scene (the one with reaper in it, cuz we havent met him yet obv)
             // instead go to the birthday scene!
+            Debug.Log("Going to Dream0");
             FadeAndLoadScene(SceneName.DreamDay0, defaultSceneLocation);
         }
-        else if (gameState.gameDay >= 2 && gameState.gameDay <= 7)
+        else if (gameState.gameDay >= 3 && gameState.gameDay <= 8)
         {
+            Debug.Log("Going to DarkScene");
             // otherwise go to dark scene if we between days 2-7 (aka when the reaper hasnt finished his dreams)
             FadeAndLoadScene(SceneName.DarkScene, defaultSceneLocation);
         }
         else
         {
+            Debug.Log("[SleepAndThenWakeup]");
             // otherwise, play some sleep sounds and then wakeup
             StartCoroutine(SleepAndThenWakeup());
         }
@@ -527,6 +537,9 @@ public class LevelLoader : Singleton<LevelLoader>
 
     public IEnumerator Fade(float finalAlpha, float time = 1.0f)
     {
+        // StopCoroutine("Fade"); // stop any other instances of Fade to prevent infinite loops
+
+        Debug.Log("Fade called to alpha " + finalAlpha + " over time " + time);
         // Set the fading flag to true so the FadeAndSwitchScenes coroutine won't be called again.
         isFading = true;
         faderImage.color = new Color(0f, 0f, 0f, 1f);
@@ -629,8 +642,9 @@ public class LevelLoader : Singleton<LevelLoader>
 
 
         // Start fading to black and wait for it to finish before continuing.
-        yield return StartCoroutine(Fade(1.0f));
+        yield return StartCoroutine(Fade(1.0f, 0.1f));
 
+        Debug.Log("After Fade");
         // play optional sound!
         if (clipToPlay != null)
         {
@@ -644,7 +658,8 @@ public class LevelLoader : Singleton<LevelLoader>
         EventHandler.CallBeforeSceneUnloadEvent();
 
         // Unload the current active scene.
-        Debug.Log("Unloading scene that isnt persistant scene");
+        Debug.Log("Unload the current active scene");
+
         yield return UnloadAllScenesExcept("PersistantScene");
 
         Debug.Log("Loading in scene " + sceneName);
@@ -669,6 +684,8 @@ public class LevelLoader : Singleton<LevelLoader>
             case SceneName.DreamDay4:
             case SceneName.DreamDay5:
             case SceneName.DreamDay0:
+            case SceneName.DarkScene:
+            case SceneName.ActualDarkScene:
                 return true;
             default:
                 return false;
@@ -678,6 +695,7 @@ public class LevelLoader : Singleton<LevelLoader>
     // a helper function to instantiate a scene
     public IEnumerator CreateScene(SceneName sceneName, Vector3 spawnPosition, float delay)
     {
+        Debug.Log("[CreateScene] " + sceneName);
         // Start loading the given scene and wait for it to finish.
         yield return StartCoroutine(LoadSceneAndSetActive(sceneName));
 
@@ -737,14 +755,6 @@ public class LevelLoader : Singleton<LevelLoader>
             yield return new WaitForSeconds(delay);
         }
 
-        // Start fading back in and wait for it to finish before exiting the function.
-        // dont fade in if its the darkscene since we want the darkscene to stay dark.
-        // We can then fade in at will using the yarn commands
-        if (!isDreamScene())
-        {
-            yield return StartCoroutine(Fade(0f));
-        }
-
 
 
 
@@ -767,6 +777,15 @@ public class LevelLoader : Singleton<LevelLoader>
         // set the current scene equal to the new one
         curScene = sceneName;
 
+        // Start fading back in and wait for it to finish before exiting the function.
+        // dont fade in if its the darkscene since we want the darkscene to stay dark.
+        // We can then fade in at will using the yarn commands
+        // DEPENDS ON LINE ABOVE!!
+        if (!isDreamScene())
+        {
+            yield return StartCoroutine(Fade(0f));
+        }
+
         // play some music if the scene demands it
         yield return StartCoroutine(FindObjectOfType<MusicManager>().playMusic(gameState.getGameDay(), sceneName));
 
@@ -778,6 +797,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
         // start game time!
         FindObjectOfType<TimeManager>().gameClockPaused = false;
+        isFadingScenes = false;
     }
 
     public SceneName getCurScene()
