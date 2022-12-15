@@ -143,7 +143,7 @@ public class Player : Singleton<Player>, ISaveable
             // Debug.Log("Footstep collider called " + collider.gameObject.name);
             StepSoundFeedback data = collider.GetComponent<StepSoundFeedback>();
             AudioSource audioSource = collider.gameObject.GetComponent<AudioSource>();
-            if (data != null && (audioSource.isPlaying == false || audioSource.clip != data.StepClip || audioSource.time / audioSource.clip.length > 0.2f))
+            if (data != null && (audioSource.isPlaying == false || audioSource.clip != data.StepClip || audioSource.time / audioSource.clip.length > 0.75f))
             {
                 audioSource.clip = data.StepClip;
                 audioSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);

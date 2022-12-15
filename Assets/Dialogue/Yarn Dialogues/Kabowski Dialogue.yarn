@@ -212,7 +212,8 @@ title: Kabowski_Start
 	Kabowski: Boring? I'm allergic to that word. #e:sad
 	Kabowski: Hopefully this school year won't be that way, eh?
 	Steven: Yea... #e:think1
-<<else>>
+	<<set $hasMetKabowski = true>>
+<<endif>>
 Kabowski: What can I do for ya?
 -> Lifting
 	<<jump Kabowski_Lifting>>
@@ -220,7 +221,6 @@ Kabowski: What can I do for ya?
 	<<jump Kabowski_Girls>>
 -> Nothing
 	Steven: Never mind...
-<<endif>>
 ===
 
 title: Kabowski_Lifting

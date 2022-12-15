@@ -12,6 +12,7 @@
 <<declare $isTrashDirty = false>>
 <<declare $isGroupMeetingOn = false>>
 <<declare $canBeatGame = false>>
+<<declare $hasDoneBusDialogue = false>>
 ===
 
 title: D1_Bedroom_Window
@@ -74,19 +75,19 @@ title: D1_Bedroom_Peripherals
 	<<if $hasMadeFriend == true>>
 		Steven: I could message someone... #e:dsmile
 		Steven: Who should I contact? #e:think1
-		<<if $hasTextedDoomer == false>>
+		<<if $hasTextedDoomer == false && $gotDoomerNumber == true>>
 			-> Dylan
 				Steven: Okay, let's send him a message. #e:smile
 				<<jump Message_Dylan>>
 			-> Do something else
 		<<endif>>
-		<<if $hasTextedLaura == false>>
+		<<if $hasTextedLaura == false && $gotLauraNumber == true>>
 			-> Laura
 				Steven: Let's shoot her a message. #e:smile
 				<<jump Message_Laura>>
 			-> Do something else
 		<<endif>>
-		<<if $hasTextedPepe == false>>
+		<<if $hasTextedPepe == false && $hasPepeNumber == true>>
 			-> Pepe
 				Steven: Let's see if Pepe's online. #e:smile
 				<<jump Message_Pepe>>
@@ -711,7 +712,7 @@ title: D1_Commons_Trash
 title: D1_Commons_Sofa
 ---
 Steven: I can't remember the last time I sat on this sofa. #e:think2
-Steven:  Probably I still can't get that image out of my head of that one time Kabowski barfed on it. #e:cringe
+Steven: I probably still can't get that image out of my head of that one time Kabowski barfed on it. #e:cringe
 Steven: Kabowski was trying to impress girls and he probably drank way too much... #e:yikes
 ===
 
@@ -721,6 +722,37 @@ Steven: It's just a normal dining table.
 Steven: Cleaner than usual today.. #e:smile 
 ===
 
+title: Running_Shoes
+---
+<<if $day == 1>>
+	Steven: My running shoes... 
+	Steven: Maybe I'll go run tomorrow. I'm too tired today. #e:huh
+<<else>>
+	<<if $hasRanToday == true>>
+		Steven: I already ran today... #e:think1
+		Steven: Maybe tomorrow. #e:dsmile 
+		<<jump Nothing>>
+	<<endif>>
+	Steven: Should I go for a run? #e:stern
+	-> Yeah
+		Steven: Okay..
+		Steven: Maybe it'll help cheer me up. #e:dsmile
+		<<FadeIn LevelLoader 1.0>>
+		<<wait 2>>
+		<<playSoundString AudioManager Running>>
+		<<wait 10>>
+		<<FadeOut LevelLoader 1.0>>
+		<<wait 2>>
+		Steven: Huh, that actually felt kinda nice. #e:smile
+		<<AdvanceXMinutes TimeManager 60>>
+    	<<changePlayerScoreString Manager "contentedness" 20.0>>
+		<<changePlayerScoreString Manager "energy" -20.0>>
+		<<wait 2>>
+		<<set $hasRanToday = true>>
+	-> Nah
+		Steven: Yea.. never mind. #e:yikes
+<<endif>>
+===
 
 title: D1_Commons_TV
 ---
@@ -732,9 +764,35 @@ Steven: I guess plenty of people still enjoy it, particularly boomers. #e:yikes
 
 title: D1_Commons_Microwave
 ---
-Steven: The microwave oven.
-Steven: What a marvelous invention. #e:smile
-<<wait 2>>
+<<if $day == 1>>
+	Steven: The microwave oven.
+	Steven: What a marvelous invention. #e:smile
+	<<wait 2>>
+	Steven: I'll eat tomorrow. I'm not hungry right now.
+<<else>>
+	<<if $hasMicrowavedToday == false>>
+		Steven: Hmm, should I microwave something real fast?
+		-> Yes
+			Steven: Okay, what?
+			-> Popcorn
+				Steven: Alright, let's have a snack.. #e:smile
+			-> Canned Soup
+				Steven: Canned soup? Sure. #e:smile
+			-> Hot Pocket
+				Steven: Not the healthiest, but it has calories. So I'm not gonna complain. #e:smile
+			
+			<<playSoundString AudioManager MicrowaveAndEat>>
+			<<wait 10>>
+			<<set $hasMicrowavedToday = true>>
+		-> No
+			Steven: Yeah, never mind...
+	<<else>>
+		Steven: I already ate a microwaved meal today...
+		Steven: Let's wait a bit. 
+	<<endif>>
+<<endif>>
+
+
 ===
 
 title: D1_Brain_Painting
@@ -924,38 +982,60 @@ Steven: Probably with one another. #e:angry
 
 title: D2_Neighbors_House
 ---
-Steven: This entire neighborhood is jam-packed with these leasable houses.
+Steven: This entire neighborhood is jam-packed with these leasable houses. #e:think1
 <<wait 1>>
-Steven: They're owned by some predatory leasing company who could care less about your experience.
-
+Steven: They're owned by some predatory leasing company who could care less about their tenants.
 <<wait 1>>
 Steven: I don't ever talk to my neighbors, but I see them coming in and out of the house.
+<<wait 2>>
+Steven: I think a few girls live here? #e:huh
+Steven: I'd rather not get caught snooping around their house... #e:yikes
+<<set $hasEnteredOutsideHouseBefore = true>>
 ===
 
 title: D2_Bus_Stop_House
 ---
-<<if $day == 2>>
-	I have to take the bus to get to my classes.
-	I live about a mile away from campus, after all.
+<<if $hasDoneBusDialogue == false>>
+	Steven: I have to take the bus to get to my classes.
+	Steven: I live about a few miles away from campus, after all. #e:sad
 	<<wait 1>>
-	Every time you take the bus, you kinda pray that it arrives on time.
+	Steven: Every time you take the bus, you play this one game called.. #e:think2
+	Steven: "Will it arrive on time??" #e:smirk
+	<<set $hasDoneBusDialogue = true>>
 <<endif>>
 
-Game: Would you like to ride the bus? The next one is {$minTilNextBus} minutes away
+<<if $day == 2>>
+	Steven: Hmm... it says "Bus routes start tomorrow..." #e:shocked
+	<<wait 1>>
+	Steven: Guess the drivers still haven't come back from their break. #e:smirk
+	<<wait 1>>
+	Steven: I don't blame them, being a bus driver must be hell. #e:think1
+	<<wait 2>>
+	Steven: Welp, looks like I'm walking today. #e:bored 
+<<else>>
+	<<declare $minTilNextBus = 10>>
+	<<set $minTilNextBus = random_range(5, 20)>>
+	Game: Would you like to ride the bus? The next one is {$minTilNextBus} minutes away
 
--> Yes
-	<<AdvanceXMinutes Manager {$minTilNextBus}>>
-	<<playCutsceneAndFade LevelLoader TakeBusToCampus Campus>>
--> No
+	-> Yes
+		<<AdvanceXMinutes Manager {$minTilNextBus}>>
+		<<playCutsceneAndFade LevelLoader TakeBusToCampus Campus>>
+	-> No
+<<endif>>
+
 ===
 
 title: D2_Bus_Stop_Campus
 ---
-Game: Would you like to ride the bus? The next one is {$minTilNextBus} minutes away
--> Yes
-	<<AdvanceXMinutes Manager {$minTilNextBus}>>
-	<<playCutsceneAndFade LevelLoader TakeBusToCampus OutsideHouse>>
--> No
+<<if $day == 2>>
+	Steven: Hmm... it says "Bus routes start tomorrow..." #e:think1
+<<else>>
+	Game: Would you like to ride the bus? The next one is {$minTilNextBus} minutes away
+	-> Yes
+		<<AdvanceXMinutes Manager {$minTilNextBus}>>
+		<<playCutsceneAndFade LevelLoader TakeBusToCampus OutsideHouse>>
+	-> No
+<<endif>>
 ===
 
 title: D2_Campus_Apartment
@@ -1020,9 +1100,13 @@ Stranger: Hey! I'm sitting here!
 title: Coffee_Girl
 ---
 Steven: No way I'm gonna get something from there... #e:worried
-Steven: First off, I don't even like coffee... #e:huh
-Steven: And plus, talking to the cashier is never worth it. #e:bored 
+Steven: Talking to the cashier is never worth the stress. #e:bored 
+<<wait 2>>
 Steven: I'll probably embarass myself and stutter a ton... #e:bored
 <<wait 2>>
-Steven: I'll just eat at home. #e:think2
+Steven: The only way I could do it is if I was with a friend.. #e:sad
+Girl: Hi! Can I get you something?
+<<wait 2>>
+Steven: .. #e:oshit
+Steven: No thanks! #e:embarassed
 ===

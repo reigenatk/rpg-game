@@ -6578,7 +6578,7 @@ GameObject:
   - component: {fileID: 1218698618}
   - component: {fileID: 1218698617}
   m_Layer: 6
-  m_Name: Sidewalk
+  m_Name: Cement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6709,11 +6709,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepClips:
-  - {fileID: 8300000, guid: 12d4341275c71bf45ae712b71b1e2de6, type: 3}
-  - {fileID: 8300000, guid: 9ae5b0eb2905f624eacf507cb3b73da7, type: 3}
-  - {fileID: 8300000, guid: ebe3b5c0293cbdf42beeb8f41d8b3280, type: 3}
-  - {fileID: 8300000, guid: 2501812183840c34d9f66406297f4018, type: 3}
-  - {fileID: 8300000, guid: 80bf1c18bed6de94e8b57857514a3590, type: 3}
+  - {fileID: 8300000, guid: d4e716ffddca82e4c8404e8871a9da1c, type: 3}
+  - {fileID: 8300000, guid: cee1ef613fd3ee04b9bca531f374c074, type: 3}
+  - {fileID: 8300000, guid: 0d1af10bf037d8447b343b1d0db2a46b, type: 3}
+  - {fileID: 8300000, guid: d4cf1a274ef38a946a2bbb040ad3e1d2, type: 3}
+  - {fileID: 8300000, guid: 1db385ec8e2d95b4cae7df2cb313d26d, type: 3}
+  - {fileID: 8300000, guid: 63b3df2b75641a44396e711747c373a4, type: 3}
+  - {fileID: 8300000, guid: d1ca6719599035d4a930e3444a466728, type: 3}
 --- !u!66 &1218698619
 CompositeCollider2D:
   m_ObjectHideFlags: 0

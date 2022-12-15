@@ -1,103 +1,101 @@
 ﻿
 title: TrainStation
 ---
-<<if true>>
-	Game: Pls
-	-> Yes
-		Game: ok
-	-> No
-		Game: ok
-	<<yarnLoadScene LevelLoader Bedroom 2.0>>
-	<<wait 2>>
-<<else>>
-	Mom: I'm going to miss you so much, Steven. #e:sad
-	<<wait 2>>
-	Game: Your mother gives you a kiss on the cheek.
-	<<wait 2>>
-	<<playSoundString AudioManager Kiss>>
-	<<wait 3>>
-	Game: It's a bit embarassing, because you are 20 years old.
-	Game: You're at the train station, getting ready to head back to college.
-	<<playMusicName MusicObject TrainStationAmbience>>
-	<<wait 2>>
-	Game: This is the third year she's sent you off, but she still gets emotional every time...
-	<<wait 2>>
-	Dad: Stay safe, okay? 
-	<<wait 1>>
-	-> "I will..."
-		Steven: I will... #e:think1
-	-> "Shut up."
-		Steven: Can you shut up for once? #e:angry3
-		<<wait 2>>
-		Mom: ... #e:sad 
-		Your mom hears this and looks at you with a sad look.
-		<<jump DadYelling>>
-	-> ...
-		Steven: ...
+Game: Start Game?
+-> Yes
+	Game: OK. Starting in 2 seconds.
+-> No
+	Game: Goodbye.
+	<<QuitGame UI>>
 
-	Game: Your father pats you on the back.
-	<<playSoundString AudioManager PatOnTheBack>>
-	<<wait 3>>
-	Game: If this was another father, you'd interpret it as a confidence boost kind of slap.
-	Game: You know, like the "you got this" kind.
+Mom: I'm going to miss you so much, Steven. #e:sad
+<<wait 2>>
+Game: Your mother gives you a kiss on the cheek.
+<<wait 2>>
+<<playSoundString AudioManager Kiss>>
+<<wait 3>>
+Game: It's a bit embarassing, because you are 20 years old.
+Game: You're at the train station, getting ready to head back to college.
+<<playMusicName MusicObject TrainStationAmbience>>
+<<wait 2>>
+Game: This is the third year she's sent you off, but she still gets emotional every time...
+<<wait 2>>
+Dad: Stay safe, okay? 
+<<wait 1>>
+-> "I will..."
+	Steven: I will... #e:think1
+-> "Shut up."
+	Steven: Can you shut up for once? #e:angry3
 	<<wait 2>>
-	Game: But that's not how your dad works.
-	Game: He's just trying to get you to stop slouching.
-	<<wait 2>>
-	Game: It doesn't work. You still have terrible posture.
-	<<wait 2>>
+	Mom: ... #e:sad 
+	Your mom hears this and looks at you with a sad look.
+	<<jump DadYelling>>
+-> ...
+	Steven: ...
 
-	Dad: Make sure to call home often. #e:talking 
-	Mom: Of course, only when you have time! #e:smile
-	-> Say something nice
-		Steven: I will. #e:smile
-		Mom: My phone will be waiting! #e:smile
-	-> Say something neutral 
-		Steven: No guarantees... #e:yikes
-		..you say, your voice pitching up and down again to indicate uncertainty.
-		But your parents are already onto the next topic.
-	-> Say something mean
-		Steven: I'd rather jump off a bridge than call you two. #e:smirk
-		..you say, in a completely serious tone.
-		<<wait 2>>
-		<<jump DadYelling>>
-	-> ...
-		Steven: ... #e:think2
+Game: Your father pats you on the back.
+<<playSoundString AudioManager PatOnTheBack>>
+<<wait 3>>
+Game: If this was another father, you'd interpret it as a confidence boost kind of slap.
+Game: You know, like the "you got this" kind.
+<<wait 2>>
+Game: But that's not how your dad works.
+Game: He's just trying to get you to stop slouching.
+<<wait 2>>
+Game: It doesn't work. You still have terrible posture.
+<<wait 2>>
+
+Dad: Make sure to call home often. #e:talking 
+Mom: Of course, only when you have time! #e:smile
+-> Say something nice
+	Steven: I will. #e:smile
+	Mom: My phone will be waiting! #e:smile
+-> Say something neutral 
+	Steven: No guarantees... #e:yikes
+	..you say, your voice pitching up and down again to indicate uncertainty.
+	But your parents are already onto the next topic.
+-> Say something mean
+	Steven: I'd rather jump off a bridge than call you two. #e:smirk
+	..you say, in a completely serious tone.
 	<<wait 2>>
-	Mom: Oh! Also...
+	<<jump DadYelling>>
+-> ...
+	Steven: ... #e:think2
+<<wait 2>>
+Mom: Oh! Also...
+<<wait 2>>
+Mom: Try to find a girlfriend! #e:smile
+<<wait 2>>
+Game: Your mom says this, with a slight laugh.
+<<wait 1>>
+-> Say something neutral
+	Steven: I'll do my best... #e:think2 
+-> Say something mean
+	Steven: Can you stop talking already!? #e:angry3 
 	<<wait 2>>
-	Mom: Try to find a girlfriend! #e:smile
-	<<wait 2>>
-	Game: Your mom says this, with a slight laugh.
-	<<wait 1>>
-	-> Say something neutral
-		Steven: I'll do my best... #e:think2 
-	-> Say something mean
-		Steven: Can you stop talking already!? #e:angry3 
-		<<wait 2>>
-		<<jump MomCrying>>
-	-> ...
-	Dad: Remember, girls love capable men. #e:talking
-	Dad: Study harder. Find a studious girl. #e:smug
-	<<wait 2>>
-	Game: Your dad gives completely useless advice, as usual.
-	<<wait 2>>
-	Conductor: All aboard!
-	<<playSoundString AudioManager TrainWhistle>>
-	<<wait 5>>
-	Game: Your mother gives you a hug. 
-	<<wait 2>>
-	Game: You board the train, and your parents wave as the train departs.
-	<<wait 2>>
-	Game: You put your earbuds in and close your eyes.
-	<<wait 2>>
-	Game: It's going to be a long ride.
-	<<stopAllMusic MusicObject 1.0>>
-	<<wait 2>>
-	<<playSoundString AudioManager TrainMoving>>
-	<<wait 20>>
-	<<jump TrainRide>>
-<<endif>>
+	<<jump MomCrying>>
+-> ...
+Dad: Remember, girls love capable men. #e:talking
+Dad: Study harder. Find a studious girl. #e:smug
+<<wait 2>>
+Game: Your dad gives completely useless advice, as usual.
+<<wait 2>>
+Conductor: All aboard!
+<<playSoundString AudioManager TrainWhistle>>
+<<wait 5>>
+Game: Your mother gives you a hug. 
+<<wait 2>>
+Game: You board the train, and your parents wave as the train departs.
+<<wait 2>>
+Game: You put your earbuds in and close your eyes.
+<<wait 2>>
+Game: It's going to be a long ride.
+<<stopAllMusic MusicObject 1.0>>
+<<wait 2>>
+<<playSoundString AudioManager TrainMoving>>
+<<wait 20>>
+<<jump TrainRide>>
+
 ===
 
 title: MomCrying
@@ -166,6 +164,7 @@ Game: You slowly unpack everything...
 <<playSoundString AudioManager Boxes>>
 <<wait 5>>
 
+<<wait 2>>
 <<yarnLoadScene LevelLoader Bedroom 2.0>>
 <<wait 2>>
 ===

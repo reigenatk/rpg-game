@@ -83,19 +83,19 @@ public class GameState : Singleton<GameState>
         {
             if (foo == PlayerScore.energy)
             {
-                playerScore.Add(foo, 100.0f);
+                playerScore.Add(foo, 80.0f);
             }
             else if (foo == PlayerScore.contentedness)
             {
-                playerScore.Add(foo, 100.0f);
+                playerScore.Add(foo, 80.0f);
             }
             else if (foo == PlayerScore.social)
             {
-                playerScore.Add(foo, 100.0f);
+                playerScore.Add(foo, 80.0f);
             }
             else if (foo == PlayerScore.entertained)
             {
-                playerScore.Add(foo, 100.0f);
+                playerScore.Add(foo, 80.0f);
             }
         }
 
@@ -110,24 +110,29 @@ public class GameState : Singleton<GameState>
         // these are to trigger the teleporters in the dream scenes. When compiling final game just comment all this out.
 
         // dream day 1
-        setYarnVariable("$finishedMeetJefferyScene", true); 
+        setYarnVariable("$finishedMeetJefferyScene", false); 
 
         // dream day 2
-        setYarnVariable("$finishedEatingFoodScene", true);
+        setYarnVariable("$finishedEatingFoodScene", false);
+        setYarnVariable("$hasFinishedLecture", false);
+/*        setYarnVariable("$hasEnteredInsideBuildingBefore", true);
+        setYarnVariable("$hasEnteredCampusBefore", true);
+        setYarnVariable("$hasEnteredCommonsBefore", true);*/
 
         // day 3
         // setYarnVariable("$didCoomerCutscene", true); 
-        setYarnVariable("$hasDoneShopping", true); 
+        setYarnVariable("$hasDoneShopping", false); 
         
         // day 4
-        setYarnVariable("$didGraveyardScene", true);
+        setYarnVariable("$didGraveyardScene", false);
+
 
 
         // misc
-        setYarnVariable("$hasMadeFriend", true);
-        setYarnVariable("$gotLauraNumber", true); // testing if the text dialogues show up when we use the computer.
-        setYarnVariable("$gotDoomerNumber", true);
-        setYarnVariable("$gotPepeNumber", true);
+        setYarnVariable("$hasMadeFriend", false);
+        setYarnVariable("$gotLauraNumber", false); // testing if the text dialogues show up when we use the computer.
+        setYarnVariable("$gotDoomerNumber", false);
+        setYarnVariable("$gotPepeNumber", false);
 
         // see if it unlocks the option to meet
         setYarnVariable("$hasTextedDoomer", false); // dunno why but it doesnt seem this variable is being declared and it keeps spamming me that it hasn't been declared.. so I just put this here.
@@ -200,20 +205,14 @@ public class GameState : Singleton<GameState>
         setYarnVariable("$gameDay", gameDay);
 
         // reset dialogue varialbes
-        setYarnVariable("$talkedToNikolaiAlready", false);
-        setYarnVariable("$talkedToKabowskiAlready", false);
-        setYarnVariable("$talkedToBrainAlready", false);
-        setYarnVariable("$talkedToStacyAlready", false);
-        setYarnVariable("$talkedToBeckyAlready", false);
-        setYarnVariable("$talkedToBoomerAlready", false);
-        setYarnVariable("$talkedToCoomerAlready", false);
-        setYarnVariable("$talkedToDoomerAlready", false);
-        setYarnVariable("$talkedToZoomerAlready", false);
-        setYarnVariable("$talkedToPepeAlready", false);
-        setYarnVariable("$talkedToBloomerAlready", false);
-        setYarnVariable("$talkedToDiscordAlready", false);
-        setYarnVariable("$talkedToRedditAlready", false);
-        setYarnVariable("$talkedToDoomerGirlAlready", false);
+        canTalkToAllNPCsAgain();
+
+        setYarnVariable("$alreadyCookedToday", false);
+        setYarnVariable("$hasEatenSnack", false);
+        setYarnVariable("$hasTalkedToReaper", false);
+        setYarnVariable("$hasRanToday", false);
+        setYarnVariable("$hasMicrowavedToday", false);
+        
     }
 
     public void setYarnVariable(string name, bool val)

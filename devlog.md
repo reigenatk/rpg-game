@@ -683,3 +683,9 @@ Changes: NPCs will NOT appear on day 1. This is to preserve the feeling of empty
 
 Alright, so I verified that everythings working OK up to Day 1 dream. Tmrw we can start with Day 2!
 
+# 12/14/22
+Almost had anothe heart attack after thinking NPC movement broke again... Turns out I just added something that didnt ned to be there, specifically the grid was null in `AfterSceneLoad`, but I had added something, so after removing it the thing worked again.
+
+God damn I'm just gonna stop touching the codebase because I stg if I break fkin npc movement again im gonna cry
+
+Disabled: Inside Building Tutorial

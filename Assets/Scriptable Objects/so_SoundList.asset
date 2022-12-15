@@ -836,3 +836,17 @@ MonoBehaviour:
     soundPitchRandomVariationMin: 1
     soundPitchRandomVariationMax: 1
     soundVolume: 1
+  - soundName: 120
+    soundClips:
+    - {fileID: 8300000, guid: bd5a8dcd6a2961e4388792063c8ea5e7, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 121
+    soundClips:
+    - {fileID: 8300000, guid: 8642dae82add0c344a42a9c7ae5cec66, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1

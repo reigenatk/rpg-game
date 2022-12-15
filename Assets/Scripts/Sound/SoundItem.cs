@@ -126,6 +126,9 @@ public class SoundItem
         GameTypewriter,
         SelectSound1,
         SelectSound2,
+        AutumnWalk,
+        Running,
+
     }
 
     public SoundName soundName;

@@ -605,6 +605,9 @@ Game: In this run, you completely did all the dialogues for {$numDialoguesComple
     Game: (Hint: just do absoutely nothing everyday)
 <<endif>>
 
+Game: Also, as a reward for winning, you get cheats! 
+Game: Press T to advance time. Hopefully that helps you find all the dialogues.
+
 <<wait 2>>
 <<set $hasDoneGroupMeeting = true>>
 Game: Keep playing? 

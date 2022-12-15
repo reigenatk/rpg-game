@@ -6,15 +6,7 @@ public delegate void MovementDelegate(float inputX, float inputY, bool isWalking
 
 public static class EventHandler
 {
-    // Inventory Update Event. Since we don't have so many parameters, using Action is fine
-    public static event Action<InventoryLocation, List<InventoryItem>> InventoryUpdateEvent;
 
-    // stuff like the UI for inventory will have to subscribe to this handler
-    public static void CallInventoryUpdatedEvent(InventoryLocation inventoryLocation, List<InventoryItem> list)
-    {
-        if (InventoryUpdateEvent != null)
-            InventoryUpdateEvent(inventoryLocation, list);
-    }
 
     // Movement Event
     public static event MovementDelegate MovementEvent;

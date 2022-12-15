@@ -250,6 +250,15 @@ ScriptedImporter:
     isImplicit: 0
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 8d01cb4811c69444d8008da172fb1b20,
       type: 3}
+  - name: $hasDoneInstructions
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: 
+    isImplicit: 0
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: d8944a310779f0c42a18cf490489d941,
+      type: 3}
   - name: $hasFinishedLecture
     typeName: Bool
     defaultValueBool: 0
@@ -386,6 +395,15 @@ ScriptedImporter:
     sourceYarnAsset: {fileID: 6391573757903218779, guid: ae897438a768ead41b8df6dc59c97e9f,
       type: 3}
   - name: $isKYS
+    typeName: Bool
+    defaultValueBool: 1
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: 
+    isImplicit: 0
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: ae897438a768ead41b8df6dc59c97e9f,
+      type: 3}
+  - name: $firstTimeSleeping
     typeName: Bool
     defaultValueBool: 1
     defaultValueNumber: 0
@@ -574,6 +592,24 @@ ScriptedImporter:
     isImplicit: 0
     sourceYarnAsset: {fileID: 6391573757903218779, guid: ae897438a768ead41b8df6dc59c97e9f,
       type: 3}
+  - name: $hasRanToday
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: 
+    isImplicit: 0
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: ae897438a768ead41b8df6dc59c97e9f,
+      type: 3}
+  - name: $hasMicrowavedToday
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: 
+    isImplicit: 0
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: ae897438a768ead41b8df6dc59c97e9f,
+      type: 3}
   - name: $contentednessNerf
     typeName: Number
     defaultValueBool: 0
@@ -587,15 +623,6 @@ ScriptedImporter:
     typeName: Number
     defaultValueBool: 0
     defaultValueNumber: 0
-    defaultValueString: 
-    description: 
-    isImplicit: 0
-    sourceYarnAsset: {fileID: 6391573757903218779, guid: ae897438a768ead41b8df6dc59c97e9f,
-      type: 3}
-  - name: $minTilNextBus
-    typeName: Number
-    defaultValueBool: 0
-    defaultValueNumber: 1
     defaultValueString: 
     description: 
     isImplicit: 0
@@ -979,10 +1006,28 @@ ScriptedImporter:
     isImplicit: 0
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 6740c4aa4013bbc428759f59a8ff7312,
       type: 3}
+  - name: $hasDoneBusDialogue
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: 
+    isImplicit: 0
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 6740c4aa4013bbc428759f59a8ff7312,
+      type: 3}
   - name: $val
     typeName: Number
     defaultValueBool: 0
     defaultValueNumber: 0
+    defaultValueString: 
+    description: 
+    isImplicit: 0
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 6740c4aa4013bbc428759f59a8ff7312,
+      type: 3}
+  - name: $minTilNextBus
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 10
     defaultValueString: 
     description: 
     isImplicit: 0
@@ -1482,6 +1527,15 @@ ScriptedImporter:
     description: Implicitly declared in Coomer.yarn, node Coomer_Dialogue
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 8d01cb4811c69444d8008da172fb1b20,
+      type: 3}
+  - name: $hasDoneLectureBefore
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Day_2.yarn, node Day2_After_Stacy
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 86e4d99d533b7ea4d9c354b5d66c33a9,
       type: 3}
   defaultLanguage: en-US
   languagesToSourceAssets: []

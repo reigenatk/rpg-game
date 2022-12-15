@@ -2,7 +2,12 @@ title: Day2_Vars
 ---
 <<declare $hasFinishedLecture = false>>
 <<declare $hasDoneDay2Eating = false>>
-
+<<declare $hasEnteredClassroomBefore = false>>
+<<declare $hasEnteredMainQuadBefore = false>>
+<<declare $hasEnteredInsideBuildingBefore = false>>
+<<declare $hasEnteredOutsideHouseBefore = false>>
+<<declare $hasStacySuprisedUs = false>>
+<<declare $hasEnteredCampusBefore = false>>
 ===
 
 title: D2_Lancelot_Commons
@@ -64,19 +69,20 @@ Steven: Even though I know that deep down, this motivation is not gonna last. #e
 
 title: D2_Commons_OpenDoor
 ---
-The outside world... how scary.
+Steven: The outside world... how scary. #e:worried
 <<wait 1>>
-Everytime I hear the noises of the outside world, a part of me dies.
-It reminds me of a society that I'm not a part of in any way.
-Here goes nothing...
-<<playCutsceneAndFade LevelLoader GoOutside OutsideHouse>>
+Steven: Time to go outside? #e:stern
+-> Yes
+    <<playCutsceneAndFade LevelLoader GoOutside OutsideHouse>>
+-> No
+    Steven: You're right, I have no business being out there... #e:weary
 ===
 
 title: D2_Kabowski_Still_Asleep_Knock
 ---
 <<playSoundString AudioManager SnoringSounds>>
 <<wait 3>>
-Someone isn't attending class today...
+Steven: Someone isn't attending class today...
 ===
 
 title: D2_Brain_Annoyed_Knock
@@ -101,7 +107,7 @@ Nikolai: You don't hev schul tuday? #e:neutral
 
 title: D2_Tried_To_Enter_House_Without_School
 ---
-Steven: I still gotta get to school...
+Steven: I still gotta get to school... #e:think1
 Steven: Let's do that first, I can't skip the first day...
 ===
 
@@ -122,6 +128,7 @@ Steven: This is the Union. I'm sure other universities have this too. #e:think1
 Steven: It's that one old ass building that was founded in like 1850 or whatever. #e:stern
 <<wait 1>>
 Steven: My classes are held here. 
+<<set $hasEnteredCampusBefore = true>>
 ===
 
 title: Day2_LookAtGreenStreet
@@ -143,7 +150,6 @@ Steven: It always makes me feel way too jittery to get anything done. #e:think1
 <<wait 1>>
 Steven: Also, I never understand people who just sit around in coffee shops. #e:smile
 Steven: How can they focus when there's so much ambience around them? #e:huh
-Steven: I have to be in my room to get anything serious done. #e:weary 
 
 ===
 
@@ -152,7 +158,7 @@ title: Day2_LectureHall
 Steven: Ah, The lecture hall. We meet again. #e:smile
 Steven: The room that everyone goes to on the first day, and then never returns to. #e:smile
 <<wait 2>>
-Steven: Unless, there's an exam or something. Then everyone comes here.
+Steven: Well unless, you're super studious... or there's an exam..
 <<wait 1>>
 Steven: Everyone says that you're "wasting your money" if you don't go to lecture. #e:think1
 Steven: But honestly, I'm not learning any more than if I just sat at home. #e:smile
@@ -162,25 +168,59 @@ Steven: First off, most lectures are recorded... #e:think1
 Steven: And even if they weren't, the professor usually talks about something that is completely irrelevant to the course. #e:smirk
 Steven: So it's not like it'd help you get a good grade, anyways. #e:bored
 <<wait 1>>
-Steven: The professors couldn't care less. They just want their paycheck. #e:laugh
+Steven: The FIRST mistake of college is thinking that professors care about how much you learn. #e:smirk 
+Steven: The professors couldn't care less. They just want their paycheck. #e:smirk
+<<set $hasEnteredInsideBuildingBefore = true>>
+===
+
+title: Classroom_Tutorial
+---
+Steven: This is one of the classrooms in the building. #e:stern
+Steven: Usually they hold discussions in here... #e:huh
+Steven: And after school, clubs come here to meet. #e:smile
+<<wait 2>>
+Steven: Not that I've been to either... #e:think2
+Steven: But I've been meaning to visit a club soon... #e:dsmile
+Steven: I heard they're the best place to make friends. #e:smile 
+Steven: And I could really use some friends.
+<<wait 2>>
+Steven: The only issue is, I'm kind of intimidated by clubs...
+Steven: In my experience, most clubs are already full of people that REALLY enjoy what they do. #e:think1
+Steven: Most people are on the extreme. #e:huh
+Steven: If you go to an anime club, you'll meet the biggest weebs you've ever met. #e:think2
+Steven: If you go to a sports club, everyone there is already pro at that sport. #e:bored 
+<<wait 2>>
+Steven: Not that there's anything wrong with being extreme...
+<<wait 2>> 
+Steven: But it's just... that I just want to meet normal people like me, you know? #e:think1 
+Steven: Because I know it'll be hard to befriend someone who's way better than me. #e:stern
+Steven: And if I don't share that same passion, it's hard to get along.
+<<wait 2>>
+Steven: I don't consider myself super good or super interested at anything...
+Steven: And I feel like of those diehard people can tell that from me. #e:bored
+<<set $hasEnteredClassroomBefore = true>>
 ===
 
 title: Day2_Enter_Lecture_Hall
 ---
-Mind: God, I hate opening doors. #e:cringe
+Steven: God, I hate opening doors. #e:cringe
 <<wait 1>>
-Mind: The judgemental eyes of people peering at me. #e:cringe
-Mind: As they start thinking to themselves "Who's this person? I don't know him!" #e:laugh
-Mind: And then their gazes turn away, rife with judgement... #e:think1
-Mind: And they forever deem me as a loser by the way I walked in the room... #e:bored 
-<<wait 4>>
-Mind: There's no worse feeling than a bunch of people staring at you for an introvert. #e:weary
-Mind: Your mind starts to overload. You wonder what each and every one of them thinks of you in that moment. #e:bored
+Steven: I fear the judgemental eyes of people peering at me as I open the door... #e:cringe
+Steven: As they start thinking to themselves "Who's this person? I don't know him!" #e:worried
+Steven: As they analyze my posture, my face, my body... #e:think1
+Steven: Instantly stereotyping me as a nerd based on all their past experiences.. #e:bored
 <<wait 2>>
-Mind: Oh well, let's make it quick. #e:bored
-Mind: I just gotta tell myself to not care what anyone here thinks of me. #e:bored
-Mind: ... #e:think1
-<<playCutsceneAndFade LevelLoader OpenLectureHallDoors LectureHall>>
+Steven: It's not even like they'd be wrong. I am a nerd. #e:sad
+<<wait 1>>
+Steven: As an introvert, there's no worse feeling than a bunch of people staring at you... #e:weary
+Steven: Your mind starts to overload. 
+Steven: You wonder what each and every one of them thinks of you in that moment. #e:bored
+Steven: And even though they may not remember you a few seconds later, you feel like a loser in their eyes.
+<<wait 2>>
+Steven: Oh well, let's make it quick. #e:bored
+Steven: I just gotta tell myself to not care what anyone here thinks of me. #e:bored
+Steven: ... #e:think1
+// <<playCutsceneAndFade LevelLoader OpenLectureHallDoors LectureHall>>
 ===
 
 title: Day2_Lecture
@@ -196,7 +236,6 @@ Steven: Thank goodness. No one sees me. #e:smile
 <<wait 3>>
 Steven: Seems like the lecture is starting, I should sit down.
 <<wait 1>>
-Steven: I hate front seats, but I can't just stand. That'd look too awkward. #e:think2
 ===
 
 title: Day2_LectureFallAsleep
@@ -219,8 +258,8 @@ Wake him up?
     <<wait 2>>
     <<FadeIn LevelLoader 0.3>>
     <<wait 1>>
-<<FadeOut LevelLoader 0.3>>
-<<wait 0.5>>
+
+<<wait 10>>
 How about now?
 -> Ok, wakeup
     <<jump Day2_LectureWakeup>>
@@ -229,8 +268,8 @@ How about now?
     <<wait 2>>
     <<FadeIn LevelLoader 0.3>>
     <<wait 1>>
-<<FadeOut LevelLoader 0.3>>
-<<wait 0.5>>
+
+<<wait 15>>
 Surely now?
 -> Ok, wakeup
     <<jump Day2_LectureWakeup>>
@@ -239,8 +278,8 @@ Surely now?
     <<wait 2>>
     <<FadeIn LevelLoader 0.3>>
     <<wait 1>>
-<<FadeOut LevelLoader 0.3>>
-<<wait 0.5>>
+
+<<wait 15>>
 Ok, he's still sleeping. Surely you don't need more energy?
 -> Ok, enough sleeping.
     <<jump Day2_LectureWakeup>>
@@ -249,8 +288,8 @@ Ok, he's still sleeping. Surely you don't need more energy?
     <<wait 2>>
     <<FadeIn LevelLoader 0.3>>
     <<wait 1>>
-<<FadeOut LevelLoader 0.3>>
-<<wait 0.5>>
+
+<<wait 15>>
 You need to play the game, you know. This lecture doesn't go on forever.
 -> Ok, fine.
     <<jump Day2_LectureWakeup>>
@@ -259,8 +298,8 @@ You need to play the game, you know. This lecture doesn't go on forever.
     <<wait 2>>
     <<FadeIn LevelLoader 0.3>>
     <<wait 1>>
-<<FadeOut LevelLoader 0.3>>
-<<wait 0.5>>
+
+<<wait 15>>
 So you played this game to just listen to a history lecture?
 -> No, I wanna play now.
     <<jump Day2_LectureWakeup>>
@@ -313,6 +352,7 @@ Mind: I gotta get out of here before I lose more face. #e:bored
 
 title: Day2_Finished_Lecture
 ---
+<<set $hasStacySuprisedUs = true>>
 Mind: Well, that was a blast. #e:weary
 <<wait 1>>
 Mind: Another day of learning useless shit that I will never once use in my life. #e:stern
@@ -640,10 +680,12 @@ Steven: Back to the meaningless drull of existing inside my room... #e:weary
 
 title: Day2_Main_Quad
 ---
-Steven: This is the Main Quad. It's the large grassy lawn that the University takes pictures of and posts on their website. #e:weary
+Steven: This is the Main Quad. 
+Steven: It's just the large grassy lawn that the University takes pictures of once a year and posts on their website. #e:stern
 <<wait 2>>
 Steven: I guess it's fine, except for the fact that it's crawling with students, sipping their overpriced coffee and doing english papers on their macbooks. Yuck. #e:stern
 <<wait 2>>
+<<set $hasEnteredMainQuadBefore = true>>
 ===
 
 title: Day2_Classroom

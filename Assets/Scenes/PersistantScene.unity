@@ -642,8 +642,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024902245}
-  m_RootOrder: 3
+  m_Father: {fileID: 117467299}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &33312850
 GameObject:
@@ -1332,7 +1332,7 @@ MonoBehaviour:
     conditions:
     - day: 1
       sceneName: 1
-    isActivated: 0
+    isActivated: 1
     description: 
     isVariablePitch: 0
     lowPitch: 0
@@ -1342,9 +1342,7 @@ MonoBehaviour:
     conditions:
     - day: -1
       sceneName: 7
-    - day: -1
-      sceneName: 1
-    isActivated: 0
+    isActivated: 1
     description: 
     isVariablePitch: 0
     lowPitch: 0
@@ -1372,6 +1370,8 @@ MonoBehaviour:
     isTriggerable: 0
   - music: {fileID: 1272053757}
     conditions:
+    - day: -1
+      sceneName: 15
     - day: -1
       sceneName: 15
     isActivated: 1
@@ -1414,6 +1414,16 @@ MonoBehaviour:
     lowPitch: 0
     highPitch: 0
     isTriggerable: 1
+  - music: {fileID: 975117230}
+    conditions:
+    - day: -1
+      sceneName: 20
+    isActivated: 1
+    description: 
+    isVariablePitch: 0
+    lowPitch: 0
+    highPitch: 0
+    isTriggerable: 0
 --- !u!4 &54796677
 Transform:
   m_ObjectHideFlags: 0
@@ -1438,6 +1448,7 @@ Transform:
   - {fileID: 819049011}
   - {fileID: 1202810142}
   - {fileID: 473221887}
+  - {fileID: 975117231}
   m_Father: {fileID: 1371286255}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2094,6 +2105,8 @@ Transform:
   - {fileID: 504561714}
   - {fileID: 312668378}
   - {fileID: 221454267}
+  - {fileID: 1822742725}
+  - {fileID: 31473554}
   m_Father: {fileID: 1468802245}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2857,7 +2870,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155523411}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 39.85, y: -111.59, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3455,7 +3468,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &189750667
 PlayableDirector:
@@ -4260,7 +4273,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &269487939
 PlayableDirector:
@@ -5089,7 +5102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310721094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.48, y: -50.96, z: 0}
+  m_LocalPosition: {x: 50, y: -110, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9086,7 +9099,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &503346885
 PlayableDirector:
@@ -9123,6 +9136,34 @@ PlayableDirector:
     value: {fileID: 1575718975}
   - key: {fileID: 8172030814155072915, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
     value: {fileID: 1371286256}
+  - key: {fileID: 7123296971451452515, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 1985010201}
+  - key: {fileID: 6887800645124385645, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 1985010201}
+  - key: {fileID: 3724223397468665181, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 1181345919}
+  - key: {fileID: 5799452448772031516, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 1181345919}
+  - key: {fileID: 6298755526094639584, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 563948514}
+  - key: {fileID: 8558768339921508809, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 563948514}
+  - key: {fileID: 6248456228338338611, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 730081722}
+  - key: {fileID: -1393982795419255625, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 730081722}
+  - key: {fileID: 7503005959565390567, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 1058288060}
+  - key: {fileID: -7898363458467762124, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 1058288060}
+  - key: {fileID: 8239844821114218702, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 1275828183}
+  - key: {fileID: -1466041680147157672, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 1275828183}
+  - key: {fileID: 6490616154086408938, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 155523413}
+  - key: {fileID: 2918484979486616161, guid: cb838a79c79b09e4f9302e8270f951f9, type: 2}
+    value: {fileID: 155523413}
   m_ExposedReferences:
     m_References:
     - 626650bc8a04dc348a74df7eb0041107: {fileID: 1660725006}
@@ -12764,7 +12805,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &728650787
 PlayableDirector:
@@ -15040,7 +15081,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &833975626
 PlayableDirector:
@@ -16870,6 +16911,135 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &975117230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975117231}
+  - component: {fileID: 975117232}
+  m_Layer: 0
+  m_Name: Dream 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &975117231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975117230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 54796677}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &975117232
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975117230}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3082215763752462334, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: f287ea3327c47c948b27df68e63890e4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &978576664
 GameObject:
   m_ObjectHideFlags: 0
@@ -18346,7 +18516,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1043661123
 PlayableDirector:
@@ -18676,7 +18846,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058288058}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.7200146, y: -200, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20146,7 +20316,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1129992921
 PlayableDirector:
@@ -20415,7 +20585,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1152881369
 PlayableDirector:
@@ -20639,7 +20809,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1163048749
 PlayableDirector:
@@ -20739,10 +20909,14 @@ PlayableDirector:
     value: {fileID: 1670727090}
   - key: {fileID: 8660712880027048211, guid: 30a489ea694de744ebdeda37f96bf21d, type: 2}
     value: {fileID: 1210189924}
-  - key: {fileID: -3483676384187718962, guid: b9beae3812069cb4780ddbc27e5fc82c, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 1670727090}
-  - key: {fileID: 8660712880027048211, guid: b9beae3812069cb4780ddbc27e5fc82c, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 1210189924}
+  - key: {fileID: 8023713814288886565, guid: b9beae3812069cb4780ddbc27e5fc82c, type: 2}
+    value: {fileID: 1210189924}
+  - key: {fileID: -2645559872389379886, guid: b9beae3812069cb4780ddbc27e5fc82c, type: 2}
+    value: {fileID: 1363732733}
   m_ExposedReferences:
     m_References:
     - c9158bb656a26d541a9dea6726a2d489: {fileID: 1937585869}
@@ -20781,7 +20955,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181345917}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 42.11, y: -109.89, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21619,6 +21793,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a941942d724e9084eb19530d61c980d8, type: 2}
     - {fileID: 11400000, guid: 8acc57e542f0cbe42899600ce4bbc34f, type: 2}
     - {fileID: 11400000, guid: 9cfc4e7128f5b6f47bed46e0f540565d, type: 2}
+    - {fileID: 11400000, guid: 06ddbbcec3594cf42a46c3523d9cadc4, type: 2}
+    - {fileID: 11400000, guid: 1ae8ab5f27b8b6945808a749f243c855, type: 2}
+    - {fileID: 11400000, guid: ced2347a468f98e469902623d8d28fbd, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -24574,6 +24751,48 @@ MonoBehaviour:
             m_StringArgument: Can_Sleep_Now
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1210189920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartDialogueString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Classroom_Tutorial
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1210189920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartDialogueString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Day2_LookAtGreenStreet
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1210189920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartDialogueString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Classroom_Tutorial
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1210189925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24597,7 +24816,7 @@ MonoBehaviour:
   npcs: {fileID: 446302673}
   nonnpcs: {fileID: 1030019401}
   currentScene: 
-  startingScene: 1
+  startingScene: 8
   timeManager: {fileID: 1210189926}
   yarnVariables: {fileID: 3831113770911160658}
   variablesToNotResetEachDay: 1000000014000000
@@ -24605,7 +24824,7 @@ MonoBehaviour:
   - variable: 14
     desiredValue: 0
   - variable: 15
-    desiredValue: 0
+    desiredValue: 1
   - variable: 11
     desiredValue: 0
   - variable: 16
@@ -24613,8 +24832,8 @@ MonoBehaviour:
   - variable: 9
     desiredValue: 0
   playerMood: 0
-  gameDay: 1
-  numSecondsAwake: 50380
+  gameDay: 2
+  numSecondsAwake: 0
   currentWeather: 0
   cutscenePlaying: {fileID: 0}
   curSceneTeleport: {fileID: 0}
@@ -24633,15 +24852,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gt:
-    gameHour: 16
+    gameHour: 9
     gameMinute: 0
     gameSecond: 0
   gameClockPaused: 0
   gameState: {fileID: 1210189925}
   energyDecayRate: 600
-  socialDecayRate: 1152
-  contentednessDecayRate: 1152
-  entertainmentDecayRate: 1152
+  socialDecayRate: 1000
+  contentednessDecayRate: 800
+  entertainmentDecayRate: 700
   globalLight: {fileID: 1608886327}
   globalLightColors:
   - color: {r: 0.20784314, g: 0.21960784, b: 0.6509804, a: 0}
@@ -24677,7 +24896,7 @@ MonoBehaviour:
   scenesThatShouldHaveColorChange: 0000000008000000070000000b000000040000000300000005000000
   dialogueSlowdownRate: 3
   dialogueSlowdownCounter: 0
-  canTalkAgainTimes: 000000000800000010000000
+  canTalkAgainTimes: 00000000020000000400000006000000080000000a0000000c0000000e00000010000000120000001400000016000000
   trashGoBadTimes: 
   specialEvents:
   - whenEventActive:
@@ -24847,7 +25066,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1215903897
 PlayableDirector:
@@ -25160,7 +25379,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1231446305
 PlayableDirector:
@@ -26024,7 +26243,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1275675284
 PlayableDirector:
@@ -26080,7 +26299,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275828181}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.26, y: -200, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28243,7 +28462,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1380960989
 PlayableDirector:
@@ -29475,7 +29694,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1470603917
 PlayableDirector:
@@ -30622,7 +30841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570119166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.83, y: -48.44, z: 0}
+  m_LocalPosition: {x: 48, y: -110, z: 0}
   m_LocalScale: {x: 0.55, y: 0.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31565,7 +31784,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1605358085
 GameObject:
@@ -32067,7 +32286,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1633404870
 PlayableDirector:
@@ -33181,7 +33400,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1667043147
 PlayableDirector:
@@ -33831,7 +34050,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1745218364
 PlayableDirector:
@@ -33901,7 +34120,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1748310985
 PlayableDirector:
@@ -34297,7 +34516,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 12
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -34621,7 +34840,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1784094956
 PlayableDirector:
@@ -34893,6 +35112,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821874490}
   m_CullTransparentMesh: 0
+--- !u!1 &1822742724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1822742725}
+  - component: {fileID: 1822742726}
+  m_Layer: 0
+  m_Name: TutorialClassroom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1822742725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822742724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 117467299}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &1822742726
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822742724}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 91274d2c33c7fad4aa454499cefff5fa, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 8023713814288886565, guid: b9beae3812069cb4780ddbc27e5fc82c, type: 2}
+    value: {fileID: 1210189924}
+  - key: {fileID: -2645559872389379886, guid: b9beae3812069cb4780ddbc27e5fc82c, type: 2}
+    value: {fileID: 1363732733}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1827182808
 GameObject:
   m_ObjectHideFlags: 0
@@ -36379,7 +36651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSceneLocation: {x: -69, y: -69, z: 0}
-  spawnWherePlaced: 1
+  spawnWherePlaced: 0
   isFadingScenes: 0
   fadeDuration: 0.25
   faderCanvasGroup: {fileID: 747944787}
@@ -36394,9 +36666,9 @@ MonoBehaviour:
   - 4
   - 6.5
   - 5
-  - 6
   - 8
-  - 5.5
+  - 10
+  - 6
   - 6.5
   - 7
   - 5
@@ -36423,20 +36695,20 @@ MonoBehaviour:
     dayToPlayGEQ: 0
     scene: 1
     isTriggeredCutscene: 0
-    extraConditions:
-    - variable: 2
-      desiredValue: 0
-    shouldActivate: 0
+    extraConditions: []
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $hasEnteredCommonsBefore
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 738973908}
     dayToPlay: 1
     dayToPlayGEQ: 0
     scene: 0
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables:
@@ -36446,9 +36718,9 @@ MonoBehaviour:
     dayToPlay: 1
     dayToPlayGEQ: 0
     scene: 0
-    isTriggeredCutscene: 0
+    isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables: []
@@ -36494,7 +36766,7 @@ MonoBehaviour:
     scene: 5
     isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables: []
@@ -36506,7 +36778,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 6
       desiredValue: 0
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables: []
@@ -36518,7 +36790,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 6
       desiredValue: 0
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables: []
@@ -36540,7 +36812,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 1
       desiredValue: 0
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: triggered if u took bus from house
     validTimes: []
     YarnVariables: []
@@ -36552,7 +36824,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 17
       desiredValue: 1
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables: []
@@ -36564,7 +36836,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 17
       desiredValue: 1
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: triggered if you took bus from campus
     validTimes: []
     YarnVariables: []
@@ -36576,7 +36848,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 17
       desiredValue: 1
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables: []
@@ -36586,53 +36858,53 @@ MonoBehaviour:
     scene: 8
     isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: Triggered by pressing E on the apartment
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1999963756}
-    dayToPlay: 2
+    dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 7
     isTriggeredCutscene: 0
-    extraConditions:
-    - variable: 11
-      desiredValue: 0
-    shouldActivate: 0
+    extraConditions: []
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $hasEnteredOutsideHouseBefore
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 1171181618}
-    dayToPlay: 2
+    dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 8
     isTriggeredCutscene: 0
-    extraConditions:
-    - variable: 12
-      desiredValue: 0
-    shouldActivate: 0
+    extraConditions: []
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $hasEnteredCampusBefore
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 312668379}
-    dayToPlay: 2
+    dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 9
     isTriggeredCutscene: 0
-    extraConditions:
-    - variable: 13
-      desiredValue: 0
+    extraConditions: []
     shouldActivate: 0
     custsceneDescription: 
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $hasEnteredInsideBuildingBefore
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 189750667}
     dayToPlay: 2
     dayToPlayGEQ: 0
     scene: 9
     isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: triggered from trying to enter lecture hall during day
       2
     validTimes: []
@@ -36645,7 +36917,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 14
       desiredValue: 0
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables:
@@ -36656,14 +36928,14 @@ MonoBehaviour:
     dayToPlayGEQ: 2
     scene: 9
     isTriggeredCutscene: 0
-    extraConditions:
-    - variable: 15
-      desiredValue: 1
-    shouldActivate: 0
+    extraConditions: []
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables:
     - YarnVariable: $hasFinishedLecture
+      desiredValue: 1
+    - YarnVariable: $hasStacySuprisedUs
       desiredValue: 0
   - cutsceneToPlay: {fileID: 1745218364}
     dayToPlay: 2
@@ -36673,7 +36945,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 15
       desiredValue: 1
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables:
@@ -36687,7 +36959,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 16
       desiredValue: 1
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 
     validTimes:
     - startTime:
@@ -36705,7 +36977,7 @@ MonoBehaviour:
     scene: 12
     isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: triggered from talking to chase
     validTimes:
     - startTime:
@@ -36723,7 +36995,7 @@ MonoBehaviour:
     scene: 12
     isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: triggered if you choose to be mean to coomer
     validTimes: []
     YarnVariables: []
@@ -36733,7 +37005,7 @@ MonoBehaviour:
     scene: 12
     isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: triggered if u choose to expose coomer
     validTimes: []
     YarnVariables: []
@@ -36743,7 +37015,7 @@ MonoBehaviour:
     scene: 12
     isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: triggered if you talk to boomer at 6pm
     validTimes: []
     YarnVariables: []
@@ -36753,7 +37025,7 @@ MonoBehaviour:
     scene: 14
     isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: triggered from soyboy dialogue
     validTimes: []
     YarnVariables: []
@@ -36793,7 +37065,7 @@ MonoBehaviour:
     scene: 15
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: Plays everytime dream 2 is entered
     validTimes: []
     YarnVariables: []
@@ -36803,7 +37075,7 @@ MonoBehaviour:
     scene: 18
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 4
     validTimes: []
     YarnVariables: []
@@ -36813,7 +37085,7 @@ MonoBehaviour:
     scene: 20
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: arrive to dream day 3
     validTimes: []
     YarnVariables: []
@@ -36823,7 +37095,7 @@ MonoBehaviour:
     scene: 21
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: arrive dream 4
     validTimes: []
     YarnVariables: []
@@ -36896,7 +37168,7 @@ MonoBehaviour:
     scene: 18
     isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: talk to the eating kids to trigger this
     validTimes: []
     YarnVariables: []
@@ -36906,7 +37178,7 @@ MonoBehaviour:
     scene: 18
     isTriggeredCutscene: 1
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: talk to the eating kids to trigger this
     validTimes: []
     YarnVariables: []
@@ -36968,7 +37240,7 @@ MonoBehaviour:
     scene: 1
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: from day 3 Onwards, we can run into this cutscene.
     validTimes:
     - startTime:
@@ -36988,7 +37260,7 @@ MonoBehaviour:
     scene: 0
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: activate this the instant we make a friend
     validTimes: []
     YarnVariables:
@@ -37138,6 +37410,40 @@ MonoBehaviour:
     custsceneDescription: 
     validTimes: []
     YarnVariables: []
+  - cutsceneToPlay: {fileID: 1380960989}
+    dayToPlay: 0
+    dayToPlayGEQ: 2
+    scene: 1
+    isTriggeredCutscene: 1
+    extraConditions: []
+    shouldActivate: 1
+    custsceneDescription: 
+    validTimes: []
+    YarnVariables: []
+  - cutsceneToPlay: {fileID: 221454268}
+    dayToPlay: -1
+    dayToPlayGEQ: 0
+    scene: 11
+    isTriggeredCutscene: 0
+    extraConditions: []
+    shouldActivate: 1
+    custsceneDescription: 
+    validTimes: []
+    YarnVariables:
+    - YarnVariable: $hasEnteredMainQuadBefore
+      desiredValue: 0
+  - cutsceneToPlay: {fileID: 1748310985}
+    dayToPlay: -1
+    dayToPlayGEQ: 0
+    scene: 11
+    isTriggeredCutscene: 1
+    extraConditions: []
+    shouldActivate: 1
+    custsceneDescription: 
+    validTimes: []
+    YarnVariables:
+    - YarnVariable: $hasEnteredMainQuadBefore
+      desiredValue: 0
   gameState: {fileID: 1210189925}
   sceneStartingPositions:
   - scene: 0
@@ -37181,6 +37487,10 @@ MonoBehaviour:
   - scene: 22
     startingPosition: {x: -146.25, y: -74.65, z: 0}
   - scene: 23
+    startingPosition: {x: -312, y: -98, z: 0}
+  - scene: 20
+    startingPosition: {x: -312, y: -98, z: 0}
+  - scene: 21
     startingPosition: {x: -312, y: -98, z: 0}
 --- !u!114 &1922635429
 MonoBehaviour:
@@ -37566,7 +37876,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1924364713
 GameObject:
@@ -38095,7 +38405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937585868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: 0, z: -10}
+  m_LocalPosition: {x: 28.7, y: -28.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39493,7 +39803,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985010199}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 45.54, y: -109.88, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -39810,7 +40120,7 @@ Transform:
   - {fileID: 420903716}
   - {fileID: 1496527277}
   m_Father: {fileID: 2024902245}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2016328029
 GameObject:
@@ -40310,7 +40620,6 @@ Transform:
   - {fileID: 605815212}
   - {fileID: 1472241927}
   - {fileID: 2053581669}
-  - {fileID: 31473554}
   - {fileID: 269487938}
   - {fileID: 1380960988}
   - {fileID: 189750666}
@@ -44651,12 +44960,12 @@ PrefabInstance:
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 28.7
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -28.8
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}

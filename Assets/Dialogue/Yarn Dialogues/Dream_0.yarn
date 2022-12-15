@@ -157,7 +157,8 @@ Steven (Child): Why? Everybody dies, right? #e:down
 <<wait 2>>
 Steven (Child): And dying is painful, right? #e:cry
 <<wait 2>>
-Steven (Child): What's the point of living, if we all die anyway? #e:cry-hands
+Steven (Child): What's the point of celebrating our birthdays? #e:down
+Steven (Child): Shouldn't we be sad on our birthdays? #e:cry-hands
 <<wait 2>>
 Game: Your parents pause to think a little.
 Game: Something tells you they don't quite know the answer either.
@@ -216,6 +217,9 @@ Steven: I'm determined to make my last year of college count. #e:bored
 Steven: My goal is to make one friend. #e:think1  
 Steven: Just one. #e:dsmile
 <<wait 2>>
+Steven: Just one person to share my day with.. #e:stern
+Steven: Just one person to know of my existence. #e:sad
+<<wait 2>>
 Steven: I've tried reading many tips online on how to fix myself, but it's all useless info. #e:bored
 <<wait 2>>
 Steven: "Just be social." #e:crazy1
@@ -254,11 +258,13 @@ title: Walk_Over_To_Young_Self
 ---
 Steven: Maybe the young version of me sensed something.
 <<wait 1>>
-Steven: It knew I was never going to amount to anything. #e:think1
+Steven: Maybe I knew I was never going to amount to anything. #e:think1
 <<wait 1>>
-Steven: That I wasn't fit to live a good life. #e:think2 
+Steven: That I wasn't going to live a good life. #e:think2 
 <<wait 1>>
-Steven: Who wouldn't cry because of that? #e:before-cry
+Steven: Who wouldn't cry because of that? #e:cry
+<<stopAllMusic MusicObject 1.0>>
+<<wait 2>>
 // // load user back into bedroom for day 2
 // <<yarnLoadScene LevelLoader Bedroom 2.0>>
 ===

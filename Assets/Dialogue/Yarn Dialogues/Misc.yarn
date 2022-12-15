@@ -31,14 +31,15 @@
 <<declare $alreadyCookedToday = false>>
 <<declare $hasEatenSnack = false>>
 <<declare $hasTalkedToReaper = false>> 
-
+<<declare $hasRanToday = false>>
+<<declare $hasMicrowavedToday = false>>
 
 // local variables
 <<declare $contentednessNerf = 0>>
 <<declare $entertainedBuff = 0>>
 
 // variables set by c# code and events (time + location based)
-<<declare $minTilNextBus = 1>>
+// <<declare $minTilNextBus = 10>>
 <<declare $day = 1>>
 <<declare $isInNikolaiRoom = false>>
 <<declare $gameHour = 0>>
@@ -391,26 +392,46 @@ title: PostNutClarity
 
 title: WalkToCampus
 ---
-Should I walk to campus? (-5% energy, +20 minutes, +5% contentedness)
+Steven: Walk to campus? (-5% energy, +20 minutes, +5% contentedness) #e:worried
 -> Yes
+	<<jump WalkToSchool>>
+-> No
+	Steven: Look, I hate the bus too. But this is the best option. #e:sad
+===
+
+title: WalkToSchool
+---
+	Steven: Alright. At least I can enjoy some nature... #e:huh 
     <<changePlayerScoreString Manager "contentedness" 5.0>>
     <<changePlayerScoreString Manager "energy" -5.0>>
     <<AdvanceXMinutes Manager 20>> 
-    <<yarnLoadScene LevelLoader Campus 2.0>>
--> No, I'll ride the bus
+	<<FadeIn LevelLoader 1.0>>
+	<<playSoundString AudioManager AutumnWalk>>
+	<<wait 6>>
+    <<yarnLoadScene LevelLoader Campus 5.0 77.1 -38.4>>
+	<<wait 2>>
 ===
 
 title: WalkToHome
 ---
-Walk home? (-5% energy, +20 minutes, +5% contentedness)
+Steven: Walk home? (-5% energy, +20 minutes, +5% contentedness) #e:huh 
 -> Yes
+	<<jump Walk_Home_2>>
+-> No, I'll ride the bus
+	Steven: Ok. #e:stern
+===
+
+title: Walk_Home_2
+---
+	Steven: Alright. #e:smile
     <<changePlayerScoreString Manager "contentedness" 5.0>>
     <<changePlayerScoreString Manager "energy" -5.0>>
     <<AdvanceXMinutes Manager 20>> 
-    <<yarnLoadScene LevelLoader OutsideHouse 2.0>>
--> No, I'll ride the bus
+	<<FadeIn LevelLoader 1.0>>
+	<<playSoundString AudioManager AutumnWalk>>
+	<<wait 6>>
+    <<yarnLoadScene LevelLoader OutsideHouse 5.0 28.7 -28.8>>
 ===
-
 
 title: AlreadyTalkedToday
 ---

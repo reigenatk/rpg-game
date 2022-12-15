@@ -1,6 +1,7 @@
 ﻿title: D1_Vars
 ---
 <<declare $hasDoneInstructions = false>>
+<<declare $hasEnteredCommonsBefore = false>>
 ===
 
 title: D1_StartDay
@@ -90,9 +91,15 @@ Game: Good luck.
 
 title: D1_WalkIntoCommons
 ---
-Steven: This is the common area. Looks like my roommates aren't around.
+Steven: This is the common area. 
+Steven: There's the kitchen, the bathroom, and some other random stuff. #e:stern
+Steven: Looks like my roommates aren't around. #e:huh
+Steven: I got three in total. #e:bored
+<<wait 1>>
 Steven: Not that I would want to see them anyways. #e:think1
 Steven: We didn't really talk much last year, and I have a feeling they don't like me. #e:stern
+Steven: Maybe I can check if they're in their rooms. #e:huh
+<<set $hasEnteredCommonsBefore = true>>
 ===
 
 title: D1_WalkIntoKabowskiRoom
@@ -116,7 +123,9 @@ Steven: I don't know whether to believe him or not. #e:yikes
 title: D1_WalkIntoBrainsRoom
 ---
 Steven: This is Brain's room. 
-Steven: Brain's real name is Brian.
+<<wait 2>>
+Steven: Brain's real name is Brian. #e:think1
+<<wait 2>>
 Steven: But Kabowski started calling him "The Brain" because he's really smart. #e:smirk
 <<wait 1>>
 Steven: And I guess the name stuck. #e:smile

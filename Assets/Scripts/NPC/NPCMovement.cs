@@ -78,6 +78,14 @@ public class NPCMovement : MonoBehaviour
         EventHandler.BeforeSceneUnloadEvent -= BeforeSceneUnloaded;
     }
 
+/*    private void Update()
+    {
+        if (grid == null)
+        {
+            grid = FindObjectOfType<Grid>();
+            Debug.Log("grid is " + grid);
+        }
+    }*/
     private void Awake()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -342,8 +350,7 @@ public class NPCMovement : MonoBehaviour
 
     private void AfterSceneLoad()
     {
-        if (LevelLoader.Instance.firstSceneLoaded)
-        {
+
             // this should grab the current (and only) grid in the scene
             grid = FindObjectOfType<Grid>();
             Debug.Log("grid is " + grid);
@@ -355,7 +362,7 @@ public class NPCMovement : MonoBehaviour
             }
 
             sceneLoaded = true;
-        }
+        
 
     }
 
@@ -438,7 +445,7 @@ public class NPCMovement : MonoBehaviour
 
         // Get NPC WorldPosition
         npcNextWorldPosition = GetWorldPosition(npcCurrentGridPosition, npcCurrentScene);
-        // Debug.Log("transform position " + transform.position + " grid position " + npcCurrentGridPosition + " target position " + npcTargetWorldPosition);
+        Debug.Log("npc transform position " + transform.position + " current grid position " + npcCurrentGridPosition + " target position " + npcTargetWorldPosition);
     }
 
     // this actually moves the NPC, it just starts a Coroutine. We need coroutine because we want it to smoothly move

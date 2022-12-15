@@ -18,7 +18,7 @@ But ultimately, I decided to stick to what I'm familiar with. My only previous e
 
 ## ART
 
-I'm proud to say, **ALL THE ART IS MADE BY ME!** (of course not literally, I took heavy inspiration from real things by taking photos of my campus, and also plenty of online memes). This means a few things:
+I'm (kinda) proud to say, **ALL THE ART IS MADE BY ME!** (of course not literally, I took heavy inspiration from real things by taking photos of my campus, and also plenty of online memes). This means a few things:
 
 1. The art is subpar. 
     Yes, I know the game isn't beautiful. I'm not an artist. I'm a programmer. But I want to get better at art. And I want to make the claim that **every pixel on the screen is made by yours truly**. I'm using **Aesprite** as the art program of choice (which btw, is awesome and was easy to pick up, even for a monkey like me. [Check it out](https://github.com/aseprite/aseprite), its free and open source)

@@ -269,32 +269,32 @@ public class LevelLoader : Singleton<LevelLoader>
         switch (mood)
         {
             case Moods.Suicidal:
-                timeManager.gt.advanceTime(10, 30);
+                timeManager.gt = new GameTime(13, 0, 0); // 1pm wake
                 gameState.setPlayerScore(PlayerScore.energy, 60.0f);
                 gameState.changePlayerScore(PlayerScore.contentedness, -5.0f);
                 break;
             case Moods.Depressed:
-                timeManager.gt.advanceTime(10, 0);
+                timeManager.gt = new GameTime(12, 0, 0); // 12pm wake
                 gameState.setPlayerScore(PlayerScore.energy, 65.0f);
                 gameState.changePlayerScore(PlayerScore.contentedness, -2.5f);
                 break;
             case Moods.Unhinged:
-                timeManager.gt.advanceTime(9, 30);
+                timeManager.gt = new GameTime(11, 0, 0); // 11am wake
                 gameState.setPlayerScore(PlayerScore.energy, 70.0f);
                 gameState.changePlayerScore(PlayerScore.contentedness, 0.0f);
                 break;
             case Moods.Average:
-                timeManager.gt.advanceTime(9, 0);
+                timeManager.gt = new GameTime(10, 0, 0); // 10am wake
                 gameState.setPlayerScore(PlayerScore.energy, 80.0f);
                 gameState.changePlayerScore(PlayerScore.contentedness, 2.5f);
                 break;
             case Moods.Good:
-                timeManager.gt.advanceTime(8, 30);
+                timeManager.gt = new GameTime(9, 0, 0); // 10am wake
                 gameState.setPlayerScore(PlayerScore.energy, 85.0f);
                 gameState.changePlayerScore(PlayerScore.contentedness, 5.0f);
                 break;
             case Moods.LovingLife:
-                timeManager.gt.advanceTime(8, 0);
+                timeManager.gt = new GameTime(8, 0, 0); // 10am wake
                 gameState.setPlayerScore(PlayerScore.energy, 90.0f);
                 gameState.changePlayerScore(PlayerScore.contentedness, 7.5f);
                 break;
