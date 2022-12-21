@@ -18,6 +18,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
     private GameObjectSave gameObjectSave;
     public GameObjectSave GameObjectSave { get => gameObjectSave; set => gameObjectSave = value; }
 
+    public bool pauseTime = true; // debugging purposes
 
     protected override void Awake()
     {
@@ -218,6 +219,11 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.P))
+        {
+            // toggle this on or off
+            pauseTime = !pauseTime;
+        }
         // get the lighting right (need to put this here bc sometimes we go to a scene and time is paused so it wont run the same code down below)
         if (!doesThisSceneUseDynamicLights())
         {
@@ -226,7 +232,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
             globalLight.color = Color.white;
         }
         // filter out the cases where time SHOULDNT run first
-        if (gameClockPaused == true)
+        if (gameClockPaused == true || pauseTime)
         {
             // Debug.Log("Game clock is Paused");
         }
@@ -235,7 +241,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
             // cutscene is playing
             // Debug.Log("Cutscene is playing so pause time");
         }
-        else if (LevelLoader.Instance.isDreamScene())
+        else if (!LevelLoader.Instance.shouldHaveTime())
         {
             // time doesnt advance in dark scene lol
 
@@ -511,13 +517,13 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
     public void ISaveableRegister()
     {
 
-        // SaveLoadManager.Instance.iSaveableObjectList.Add(Instance);
+        SaveLoadManager.Instance.iSaveableObjectList.Add(this);
 
     }
 
     public void ISaveableDeregister()
     {
-        SaveLoadManager.Instance.iSaveableObjectList.Remove(Instance);
+        SaveLoadManager.Instance.iSaveableObjectList.Remove(this);
     }
 
 
@@ -545,7 +551,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
         sceneSave.intDictionary.Add("totalGameSeconds", totalGameSeconds);
 
         // save player score
-
+        sceneSave.floatDictionary = new Dictionary<string, float>();
         sceneSave.floatDictionary.Add("entertained", gameState.getPlayerScore(PlayerScore.entertained));
         sceneSave.floatDictionary.Add("contentedness", gameState.getPlayerScore(PlayerScore.contentedness));
         sceneSave.floatDictionary.Add("social", gameState.getPlayerScore(PlayerScore.social));
@@ -555,7 +561,7 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
         sceneSave.stringDictionary.Add("gameDayOfWeek", gameDayOfWeek);
 /*        sceneSave.stringDictionary.Add("gameSeason", gameSeason.ToString());*/
 
-        // Add scene save to game object for persistent scene
+        // Save all this under persistent scene
         GameObjectSave.sceneData.Add(Settings.PersistentScene, sceneSave);
 
         return GameObjectSave;
@@ -563,25 +569,32 @@ public class TimeManager : Singleton<TimeManager>, ISaveable
 
     public void ISaveableLoad(GameSave gameSave)
     {
+        Debug.Log("[ISaveableLoad Time -1]");
         // Get saved gameobject from gameSave data
         if (gameSave.gameObjectData.TryGetValue(ISaveableUniqueID, out GameObjectSave gameObjectSave))
         {
             GameObjectSave = gameObjectSave;
-
+           
             // Get savedscene data for gameObject
             if (GameObjectSave.sceneData.TryGetValue(Settings.PersistentScene, out SceneSave sceneSave))
             {
+                
                 // if int and string dictionaries are found
                 if (sceneSave.intDictionary != null && sceneSave.stringDictionary != null)
                 {
                     // populate saved int values
-
+                   
 
                     if (sceneSave.intDictionary.TryGetValue("gameDay", out int savedGameDay))
+                    {
+                        
                         gameState.setGameDay(savedGameDay);
+                    }
+                        
 
                     if (sceneSave.intDictionary.TryGetValue("gameHour", out int savedGameHour) && sceneSave.intDictionary.TryGetValue("gameMinute", out int savedGameMinute) && sceneSave.intDictionary.TryGetValue("gameSecond", out int savedGameSecond))
                     {
+                        Debug.Log("Setting new game time to " + savedGameHour + " " + savedGameMinute + " " + savedGameSecond);
                         gt = new GameTime(savedGameHour, savedGameMinute, savedGameSecond);
                     }
 

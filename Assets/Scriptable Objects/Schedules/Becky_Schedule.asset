@@ -97,7 +97,7 @@ MonoBehaviour:
     weather: 0
     toSceneName: 8
     toGridCoordinate:
-      x: 162
+      x: 164
       y: -65
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}

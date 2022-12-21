@@ -12,6 +12,8 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField] private Button[] menuButtons = null;
 
+    private GameState gameState;
+
     public bool PauseMenuOn { get => _pauseMenuOn; set => _pauseMenuOn = value; }
 
     protected override void Awake()
@@ -19,6 +21,7 @@ public class UIManager : Singleton<UIManager>
         base.Awake();
 
         pauseMenu.SetActive(false);
+        gameState = FindObjectOfType<GameState>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,12 @@ public class UIManager : Singleton<UIManager>
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            // if theres any dialogue or cutscenes playing, dont let player save
+/*            if (gameState.cutscenePlaying != null || (gameState.currentRunningDialogueNode != "" && gameState.currentRunningDialogueNode != null))
+            {
+
+            }*/
+
             if (PauseMenuOn)
             {
                 DisablePauseMenu();
@@ -51,7 +60,8 @@ public class UIManager : Singleton<UIManager>
 
         PauseMenuOn = true;
         Player.Instance.disableMovement = true;
-        Time.timeScale = 0;
+        TimeManager.Instance.pauseTime = true; // no time run when in menu
+
         pauseMenu.SetActive(true);
 
         // Trigger garbage collector
@@ -64,7 +74,7 @@ public class UIManager : Singleton<UIManager>
 
         PauseMenuOn = false;
         Player.Instance.disableMovement = false;
-        Time.timeScale = 1;
+        TimeManager.Instance.pauseTime = false; // unpause
         pauseMenu.SetActive(false);
     }
 

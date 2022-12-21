@@ -7,6 +7,7 @@
 <<declare $hasMetStacy = false>> // no need for this, player is forced to meet stacy
 <<declare $didStacyLaura = false>>
 <<declare $didStacyHome = false>>
+<<declare $didPhone = false>>
 ===
 title: Stacy_Dialogue
 ---
@@ -197,11 +198,17 @@ Stacy: Anyways, what was it you wanted?
 title: Stacy_Laura
 ---
 <<set $didStacyLaura = true>>
-Steven: I was just curious if you could tell me more about Laura?
-Steven: You two seem pretty close. #e:think1
+<<if $hasMetDoomerGirl == false>>
+	Steven: Could you tell me about your rommates? #e:huh
+	Steven: Who are they and do you guys get along? #e:smile
+<<else>>
+	Steven: I was just curious if you could tell me more about Laura?
+	Steven: You two seem pretty close. #e:think1
+<<endif>>
+
 <<wait 1>>
 Stacy: Laura? Oh. Of course.
-Stacy: She's.. very shy. #e:neutral
+Stacy: She's.. very special. #e:neutral
 Stacy: You've talked with her, havent you? #e:neutral
 -> Yes
 	Steven: Yeah... I did #e:think2
@@ -213,7 +220,7 @@ Stacy: You've talked with her, havent you? #e:neutral
 	<<jump Stacy_Laura_Rant>>
 -> No
 	Stacy: Well, let's just put it this way... #e:neutral
-	Stacy: She's very quiet. #e:neutral
+	Stacy: She's keeps to herself. #e:neutral
 	Stacy: And she doesn't trust people at all. #e:neutral
 	Stacy: Even as her roommate, I don't really know much about her.
 	<<wait 1>>
@@ -249,11 +256,11 @@ Stacy: Since she's opened up to you, it'd make her happy if you socialize with h
 -> Maybe
 	Steven: Maybe. Only if I see a chance to, I will.
 -> Insult
-	Steven: No. You know what, Laura is an oversensitive little hoe.
+	Steven: No. You know what, Laura is an oversensitive little goth bitch.
 	Steven: I don't care if she dies alone. I don't want to talk to her.
 	Stacy: *gasp* #e:neutral
 	Stacy: Steven, how could you?
-	Steven: And to be honest, you are an annoying little hoe, too. Fuck off.
+	Steven: And to be honest, you are an annoying little roastie, too. Fuck off. #e:smirk
 	<<wait 2>>
 	Stacy starts to sob.
 	<<wait 2>>
@@ -264,6 +271,17 @@ Stacy: Thanks! #e:smile
 Stacy: I really appreicate this, Steven. I worry for her a lot. #e:neutral
 Stacy: This will make me feel more assured. #e:smile
 <<jump Stacy_Improve_Friendship>>
+===
+
+title: After_Waste_Phone
+---
+Steven: Wow this is giving me cancer... #e:cringe
+<<changePlayerScoreString Manager "entertained" 10.0>>
+<<changePlayerScoreString Manager "contentedness" -10.0>>
+<<wait 2>>
+Steven: Yet it's kinda addicting. #e:dsmile
+Steven: What am I doing with my life... #e:bored 
+<<set $didPhone = true>>
 ===
 
 title: Stacy_Home

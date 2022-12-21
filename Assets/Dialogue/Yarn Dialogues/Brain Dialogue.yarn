@@ -111,7 +111,7 @@ Steven: Well, I'll let you get back to your work. Later. #e:smile
 <<wait 1>>
 Brain: Alright, cya. #e:smile
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
-<<jump Brain_Improve_Friendship_Most>>
+<<jump Brain_Improve_Friendship>>
 ===
 
 
@@ -134,7 +134,7 @@ Steven: Honestly, I dunno. I guess I'm hoping to leech off some of his passion f
 Steven: Maybe it will make me more passionate about life, too. #e:huh
 <<wait 1>>
 Voice: I doubt it. #e:evil
-<<jump Brain_Improve_Friendship_Most>>
+<<jump Brain_Improve_Friendship>>
 ===
 
 title: Brain_Unfriendly

@@ -13,6 +13,7 @@ public class SceneTeleport : MonoBehaviour
 
     [SerializeField] private float extraDelay; // change this if you want it to take a little longer to go to next scene 
     [SerializeField] private AudioClip teleportSound; // a sound to optionally play before teleporting
+ 
 
     // check if there's any dialogue to play on this teleport
     bool isThereDialogueToPlay = false;

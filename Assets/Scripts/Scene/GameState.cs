@@ -9,8 +9,9 @@ using UnityEngine.UI;
 using Yarn;
 using Yarn.Unity;
 
-public class GameState : Singleton<GameState>
+public class GameState : Singleton<GameState>, ISaveable
 {
+
     [System.Serializable]
     public class GameVariablePair
     {
@@ -40,7 +41,7 @@ public class GameState : Singleton<GameState>
     [SerializeField] GameObject nonnpcs;
     [SerializeField] string currentScene;
     public SceneName startingScene;
-
+    public int totalNumFriends;
 
     [SerializeField] TimeManager timeManager;
     [SerializeField] public InMemoryVariableStorage yarnVariables;
@@ -65,6 +66,13 @@ public class GameState : Singleton<GameState>
 
     // need this to basically tell the NPC when its done being talked to
     public NPCMovement currentNPCBeingTalkedTo = null;
+
+
+    // save stuff
+    private string iSaveableUniqueID;
+    public string ISaveableUniqueID { get => iSaveableUniqueID; set => iSaveableUniqueID = value; }
+    private GameObjectSave gameObjectSave;
+    public GameObjectSave GameObjectSave { get => gameObjectSave; set => gameObjectSave = value; }
 
     // This is the function that INITIALIZES ALL GAME VARIABLES
     void Awake()
@@ -103,6 +111,13 @@ public class GameState : Singleton<GameState>
         // cuz otherwise it will play wakeup cutscene
         setGameVariableEnum(GameVariable.hasEnteredBedroom, true);
 
+        // tutorial variables
+        setYarnVariable("$hasEnteredMainQuadBefore", true);
+        setYarnVariable("$hasEnteredInsideBuildingBefore", true);
+        setYarnVariable("$hasEnteredOutsideHouseBefore", true);
+        setYarnVariable("$hasEnteredCampusBefore", true);
+        setYarnVariable("$hasEnteredClassroomBefore", false);
+
         // start at day 1
         setYarnVariable("$day", gameDay);
         
@@ -110,17 +125,19 @@ public class GameState : Singleton<GameState>
         // these are to trigger the teleporters in the dream scenes. When compiling final game just comment all this out.
 
         // dream day 1
-        setYarnVariable("$finishedMeetJefferyScene", false); 
+        setYarnVariable("$finishedMeetJefferyScene", true); 
 
         // dream day 2
-        setYarnVariable("$finishedEatingFoodScene", false);
-        setYarnVariable("$hasFinishedLecture", false);
-/*        setYarnVariable("$hasEnteredInsideBuildingBefore", true);
-        setYarnVariable("$hasEnteredCampusBefore", true);
-        setYarnVariable("$hasEnteredCommonsBefore", true);*/
+        setYarnVariable("$finishedEatingFoodScene", true); // the dream version when the kids laugh at your weird food
+        setYarnVariable("$hasFinishedLecture", true);
+        /*        setYarnVariable("$hasEnteredInsideBuildingBefore", true);
+                setYarnVariable("$hasEnteredCampusBefore", true);
+                setYarnVariable("$hasEnteredCommonsBefore", true);*/
+        setYarnVariable("$hasStacySuprisedUs", true);
+        setYarnVariable("$hasDoneDay2Eating", true);
 
         // day 3
-        // setYarnVariable("$didCoomerCutscene", true); 
+        setYarnVariable("$didCoomerCutscene", true); 
         setYarnVariable("$hasDoneShopping", false); 
         
         // day 4
@@ -129,19 +146,93 @@ public class GameState : Singleton<GameState>
 
 
         // misc
-        setYarnVariable("$hasMadeFriend", false);
-        setYarnVariable("$gotLauraNumber", false); // testing if the text dialogues show up when we use the computer.
-        setYarnVariable("$gotDoomerNumber", false);
+        setYarnVariable("$hasMadeFriend", false);      
+        setYarnVariable("$hasTurnedDownMusic", true);
+        setYarnVariable("$hasMadeFriend", true);
+        setYarnVariable("$didGamingCutscene", true);
+        setYarnVariable("$hasHeardReaperTerms", true);
+        setYarnVariable("$isGroupMeetingOn", false);
+        setYarnVariable("$hasDoneFirstFriend", true); // toggles the cutscene where it says you can text ur friends now
+        setYarnVariable("$hasBoated", true);
+        setYarnVariable("$hasDoneGroupMeeting", false);
+
+        // set some dialogue values for our playthrough
+        setYarnVariable("$isKYS", false);
+
+        // kabowski 1
+        setYarnVariable("$kabowskiFriendProgress", 1);
+
+        // nikolai 2
+        setYarnVariable("$didNikolaiRussia", true);
+        setYarnVariable("$nikolaiFriendProgress", 1);
+
+        // stacy 3
+        setYarnVariable("$hasMetStacy", true);
+        setYarnVariable("$didStacyLaura", true);
+        setYarnVariable("$stacyFriendProgress", 1);
+
+        // laura 4
+        setYarnVariable("$hasMetDoomerGirl", true);
+        setYarnVariable("$didDGStacyDialogue", true);
+        setYarnVariable("$didDGMusicDialogue", true);
+        setYarnVariable("$doomerGirlFriendProgress", 1);
+        setYarnVariable("$gotLauraNumber", true);
+        setYarnVariable("$hasTextedLaura", false);
+
+        // boomer 5
+        setYarnVariable("$hasMetBoomer", true);
+        setYarnVariable("$hasAcceptedFootballGame", true);
+        setYarnVariable("$didBoomerMusic", true);
+        setYarnVariable("$didBoomerFootball", true);
+        setYarnVariable("$boomerFriendProgress", 1);
+
+        // zoomer 6
+        setYarnVariable("$hasMetZoomer", true);
+        setYarnVariable("$didZoomerMusic", true);
+        setYarnVariable("$didZoomerFashion", true);
+        setYarnVariable("$didZoomerDialogue1", true);
+        setYarnVariable("$didZoomerDialogue2", true);
+        setYarnVariable("$zoomerFriendProgress", 1);
+
+        // coomer 7
+        setYarnVariable("$hasMetCoomer", true);
+        setYarnVariable("$didCoomerHair", true);
+        setYarnVariable("$didCoomerBiceps", true);
+        setYarnVariable("$coomerFriendProgress", 1);
+
+        // doomer 8
+        setYarnVariable("$hasMetDoomer", true);
+        setYarnVariable("$gotDoomerNumber", true);
+        setYarnVariable("$hasTextedDoomer", true);
+        setYarnVariable("$doomerFriendProgress", 1);
+
+        // pepe 9
+        setYarnVariable("$hasMetPepe", true);
         setYarnVariable("$gotPepeNumber", false);
+        setYarnVariable("$hasTextedPepe", false);
+        setYarnVariable("$pepeFriendProgress", 1);
 
-        // see if it unlocks the option to meet
-        setYarnVariable("$hasTextedDoomer", false); // dunno why but it doesnt seem this variable is being declared and it keeps spamming me that it hasn't been declared.. so I just put this here.
-        // setYarnVariable("$hasTextedLaura", true);
-        // setYarnVariable("$hasTextedPepe", true);
-        // setYarnVariable("$isGroupMeetingOn", true);
+        // Becky 10
+        setYarnVariable("$hasMetBecky", true);
+        setYarnVariable("$didBeckyStacy", true);
+        setYarnVariable("$beckyFriendProgress", 1);
 
-        
-        // setYarnVariable("$isKYS", true);
+
+        // discord 11 
+        setYarnVariable("$hasMetDiscord", true);
+        setYarnVariable("$didDiscordDialogue1", true);
+        setYarnVariable("$DiscordFriendProgress", 1);
+
+        // reddit 12
+        setYarnVariable("$hasMetReddit", true);
+        setYarnVariable("$didRedditDialogue1", true);
+        setYarnVariable("$RedditFriendProgress", 1);
+
+        // brain 13
+        setYarnVariable("$brainFriendProgress", 0);
+
+        // bloomer 14
+        setYarnVariable("$bloomerFriendProgress", 0);
 
         resetDailyYarnVariables();
 
@@ -157,19 +248,51 @@ public class GameState : Singleton<GameState>
         {
             sr.enabled = false;
         }
+
+        // save stuff
+        iSaveableUniqueID = GetComponent<GenerateGUID>().GUID;
+        gameObjectSave = new GameObjectSave();
+    }
+
+    private void OnEnable()
+    {
+        ISaveableRegister();
+
+
+    }
+
+    private void OnDisable()
+    {
+        ISaveableDeregister();
+
+
     }
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            // enabled all dialogues again
+            canTalkToAllNPCsAgain();
+        }
         // we want to tell yarn when nikolai is in his room and music is blasting, so we can create some custom dialogue
         // that lets the player ask Nikolai to turn down his music.
         if (getCurrentSceneEnum() == SceneName.LancelotRoom && FindObjectOfType<Subwoofer>().isSubwooferPlaying)
         {
-            FindObjectOfType<GameState>().setYarnVariable("$isInNikolaiRoom", true);
+            setYarnVariable("$isInNikolaiRoom", true);
         }
         else
         {
-            FindObjectOfType<GameState>().setYarnVariable("$isInNikolaiRoom", false);
+            setYarnVariable("$isInNikolaiRoom", false);
+        }
+
+        if (getCurrentSceneEnum() == SceneName.Classroom2)
+        {
+            setYarnVariable("$isInClassroom2", true);
+        }
+        else
+        {
+            setYarnVariable("$isInClassroom2", false);
         }
 
         // just for sanity
@@ -177,9 +300,19 @@ public class GameState : Singleton<GameState>
 
         setYarnVariable("$gameHour", TimeManager.Instance.gt.gameHour);
 
+        // condition A: made super close friends with at least 2 of the 3 options
+        bool conditionA = getYarnVariable("$hasTextedDoomer") && getYarnVariable("$hasTextedLaura") && getYarnVariable("$hasTextedPepe") == true;
+
+        // condition B: Just befriend at least 10 of the 14 total people
+        totalNumFriends = getYarnVariableInt("$kabowskiFriendProgress") + getYarnVariableInt("$nikolaiFriendProgress") + getYarnVariableInt("$brainFriendProgress")
+            + getYarnVariableInt("$stacyFriendProgress") + getYarnVariableInt("$beckyFriendProgress") + getYarnVariableInt("$doomerFriendProgress")
+            + getYarnVariableInt("$doomerGirlFriendProgress") + getYarnVariableInt("$pepeFriendProgress") + getYarnVariableInt("$boomerFriendProgress")
+            + getYarnVariableInt("$bloomerFriendProgress") + getYarnVariableInt("$coomerFriendProgress") + getYarnVariableInt("$zoomerFriendProgress")
+            + getYarnVariableInt("$DiscordFriendProgress") + getYarnVariableInt("$RedditFriendProgress");
+        bool conditionB = (totalNumFriends > 10); 
+
         // conditonal on whether we can trigger the cutscene to beat the game
-        if (getYarnVariable("$hasTextedDoomer") && getYarnVariable("$hasTextedLaura") && getYarnVariable("$hasTextedPepe") == true && 
-            getYarnVariable("$hasDoneGroupMeeting") == false && getYarnVariableInt("$day") > 5)
+        if ( (conditionA || conditionB) && getYarnVariable("$hasDoneGroupMeeting") == false && getYarnVariableInt("$day") > 5)
         {
             setYarnVariable("$canBeatGame", true);
         }
@@ -212,6 +345,8 @@ public class GameState : Singleton<GameState>
         setYarnVariable("$hasTalkedToReaper", false);
         setYarnVariable("$hasRanToday", false);
         setYarnVariable("$hasMicrowavedToday", false);
+        setYarnVariable("$hasShitted", false);
+        setYarnVariable("$hasBoated", false);
         
     }
 
@@ -222,7 +357,7 @@ public class GameState : Singleton<GameState>
     }
     public void setYarnVariable(string name, int val)
     {
-        // Debug.Log("[Set Yarn Variable] " + name + " to val " + val);
+        // Debug.Log("[Set Yarn Variable] " + name + " to INT val " + val);
         yarnVariables.SetValue(name, val);
     }
     public bool getYarnVariable(string name)
@@ -240,12 +375,14 @@ public class GameState : Singleton<GameState>
 
     }
 
+
+
     public int getYarnVariableInt(string name)
     {
         if (yarnVariables.Contains(name))
         {
-            yarnVariables.TryGetValue<int>(name, out int result);
-            return result;
+            yarnVariables.TryGetValue<float>(name, out float result);
+            return Convert.ToInt32(result);
         }
         else
         {
@@ -610,4 +747,105 @@ public class GameState : Singleton<GameState>
         return (GameVariable)System.Enum.Parse(typeof(GameVariable), name);
     }
 
+    public void ISaveableRegister()
+    {
+        SaveLoadManager.Instance.iSaveableObjectList.Add(this);
+    }
+
+    public void ISaveableDeregister()
+    {
+        SaveLoadManager.Instance.iSaveableObjectList.Remove(this);
+    }
+
+    public GameObjectSave ISaveableSave()
+    {
+        // Delete existing scene save if exists
+        GameObjectSave.sceneData.Remove(Settings.PersistentScene);
+
+        // Create new scene save
+        SceneSave sceneSave = new SceneSave();
+
+        // Create new int dictionary
+
+        sceneSave.yarnfloatDictionary = new Dictionary<string, float>();
+
+        sceneSave.yarnboolDictionary = new Dictionary<string, bool>();
+        InMemoryVariableStorage imvs = FindObjectOfType<InMemoryVariableStorage>();
+
+        Debug.Log("Saving Yarn Variables...");
+        // https://discord.com/channels/754171172693868585/754171643990900776/1010222548849537024
+        (var floats, var strings, var bools) = imvs.GetAllVariables();
+        foreach (KeyValuePair<string, float> f in floats)
+        {
+            Debug.Log("[Yarn Float] " + f.Key + " " + f.Value);
+            sceneSave.yarnfloatDictionary.Add(f.Key, f.Value);
+        }
+
+        // not being used
+/*        foreach (KeyValuePair<string, string> s in strings)
+        {
+            Debug.Log("[Yarn String] " + s.Key + " " + s.Value);
+            sceneSave.stringDictionary.Add(s.Key, s.Value);
+        }*/
+        foreach (KeyValuePair<string, bool> b in bools)
+        {
+            Debug.Log("[Yarn bool] " + b.Key + " " + b.Value);
+            sceneSave.yarnboolDictionary.Add(b.Key, b.Value);
+        }
+
+        Debug.Log("Saving Game Variables...");
+        sceneSave.gamevariables = new Dictionary<GameVariable, bool>();
+        foreach (GameVariable gv in Enum.GetValues(typeof(GameVariable)))
+        {
+            sceneSave.gamevariables.Add(gv, gameVariables[gv]);
+        }
+
+        // Save all this under persistent scene
+        GameObjectSave.sceneData.Add(Settings.PersistentScene, sceneSave);
+
+        return GameObjectSave;
+    }
+
+    public void ISaveableLoad(GameSave gameSave)
+    {
+        Debug.Log("[ISaveableLoad GameState]");
+        // Get saved gameobject from gameSave data
+        if (gameSave.gameObjectData.TryGetValue(ISaveableUniqueID, out GameObjectSave gameObjectSave))
+        {
+            GameObjectSave = gameObjectSave;
+            if (GameObjectSave.sceneData.TryGetValue(Settings.PersistentScene, out SceneSave sceneSave))
+            {
+                Debug.Log("Restoring Yarn Variables");
+                // YARN VARIABLE RESOTRE
+                InMemoryVariableStorage imvs = FindObjectOfType<InMemoryVariableStorage>();
+
+                // take whatever they were previously from the save file and RESTORE it into the in memory storage of yarn!
+                Dictionary<string, bool> yarnbools = sceneSave.yarnboolDictionary;
+                Dictionary<string, float> yarnfloats = sceneSave.yarnfloatDictionary;
+                Dictionary<string, string> strings = new Dictionary<string, string>();
+
+                imvs.SetAllVariables(yarnfloats, strings, yarnbools);
+
+                // GAME VARIABLE RESOTRE
+
+                Debug.Log("Restoring Game Variables");
+                foreach (KeyValuePair<GameVariable, bool> kvp in sceneSave.gamevariables)
+                {
+                    // just restore the values we have into the real dictionary
+                    gameVariables[kvp.Key] = kvp.Value;
+                }
+            }
+        }
+
+    }
+
+    public void ISaveableStoreScene(string sceneName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void ISaveableRestoreScene(string sceneName)
+    {
+        throw new NotImplementedException();
+    }
 }

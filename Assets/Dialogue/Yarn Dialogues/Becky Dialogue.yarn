@@ -20,8 +20,12 @@ title: Becky_Normal_Dialogue
 <<endif>>
 
 // cant make friends with becky because YOU ARENT CHAD
+// actually thats retareded XD
+
 <<if $beckyFriendProgress >= 0>>
 	<<jump Becky_Start>>
+<<elseif $beckyFriendProgress >= 1>>
+	<<jump Becky_Familiar>>
 <<elseif $beckyFriendProgress <= -1>>
 	<<jump Becky_Unfriendly>>
 <<endif>>
@@ -29,7 +33,7 @@ title: Becky_Normal_Dialogue
 
 title: Becky_Familiar
 ---
-Becky: Stevennnn, how are youuuu?~! 
+Becky: ohmigod Stevennnn, how are youuuu?~! 
 -> Boba
 	Steven: Wanna get boba, Becky? #e:worried
 	Becky: Omg suree, I looooove boba! <3
@@ -81,7 +85,7 @@ Steven: I wish girls had more actual interests besides watching tv and scrolling
 <<wait 2>>
 Steven: It'd be much easier to relate to them that way... #e:bored
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
-<<jump Becky_Improve_Friendship_Most>>
+<<jump Becky_Improve_Friendship>>
 ===
 
 
@@ -95,7 +99,7 @@ Voice: The boba was good, but the conversation wasn't... #e:thinking
 Mind: Yeah, no shit! She lectured me on some random netflix show for 30 minutes! #e:weary
 Steven: I wish girls had more actual interests besides watching tv and scrolling social media... #e:bored
 Steven: It'd be much easier to relate to them that way... #e:bored
-<<jump Becky_Improve_Friendship_Most>>
+<<jump Becky_Improve_Friendship>>
 ===
 
 title: Becky_Unfriendly

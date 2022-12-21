@@ -31,11 +31,15 @@ title: Pepe_Normal_Dialogue
 
 title: Pepe_Familiar
 ---
-Michael: Steven, weather's great today, isn't it?
+Pepe: Hey Steven..
+<<wait 2>>
+Pepe: I'm not feeling too good, bro... #e:sad
 -> Let's chat
-    Steven: Totally. Let's chat.
-    Michael: Okay, let me get a coffee first, though.
+    Steven: Why not? #e:think1
+    <<wait 2>>
+    Steven: Let's chat, dude. #e:smile 
     <<jump Pepe_Chat_Decide>>
+    Pepe: Okay.. #e:sad
 ===
 
 title: Pepe_Chat_Decide
@@ -155,7 +159,7 @@ Pepe: Do you have discord or something? #e:smile
 <<if $hasMadeFriend == false>>
     <<set $hasMadeFriend = true>>
 <<endif>>
-<<jump Pepe_Improve_Friendship_Most>>
+<<jump Pepe_Improve_Friendship>>
 ===
 
 title: Pepe_Chat_End_Generic
@@ -166,7 +170,7 @@ Pepe: You're the most based person on this shitty campus. #e:smile
 Steven: Heh, thanks. #e:smile
 Steven: Try not to kill yourself, ok? #e:smile
 Pepe: Hahaha... You too.... Robot. #e:smile
-<<jump Pepe_Improve_Friendship_Most>>
+<<jump Pepe_Improve_Friendship>>
 ===
 
 title: Pepe_Unfriendly

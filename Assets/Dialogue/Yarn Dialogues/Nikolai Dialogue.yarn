@@ -36,7 +36,10 @@ Nikolai: Steven. My друг. How ar yu tuday? #e:smile
 		Steven: Could you, um... #e:shy
 		<<wait 1>>
 		Steven: Turn down the music? #e:shy
-		Steven: I can't focus... #e:think1
+		Steven: I can hear it all the way from my room... #e:sad
+		Steven: and I can't focus on my homework... #e:think1
+		Voice: Haha, that's a lie.. You aren't even doing any homework!
+		Steven: Oh, shut up... #e:angry3
         <<wait 1>>
 		Nikolai: VAT!? #e:smile
 		<<wait 1>>
@@ -50,7 +53,6 @@ Nikolai: Steven. My друг. How ar yu tuday? #e:smile
 		Steven: TURN DOWN THE MUSIC PLEASE #e:smile 
 		<<wait 2>>
 		Nikolai: Oh, sorry about zat, Steven. Yes, I vill turn it down immediately. #e:smile 
-		<<jump Nikolai_Ruin_Friendship_Less>>
 		Steven: Thanks. #e:smile
 		<<wait 1>>
 		Nikolai: Yes. My apologies again. #e:smile
@@ -164,7 +166,7 @@ Steven: Wh- #e:oshit
 <<wait 1>>
 Steven: ok... #e:shy
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
-<<jump Nikolai_Improve_Friendship_Most>>
+<<jump Nikolai_Improve_Friendship>>
 ===
 
 title: Nikolai_Chat_End_Generic
@@ -175,7 +177,7 @@ Nikolai: So, sank you for zat. #e:smile
 <<wait 2>>
 Steven: Yeah, no problem Nikolai. #e:dsmile
 Steven: I'll see you later. #e:smile
-<<jump Nikolai_Improve_Friendship_Most>>
+<<jump Nikolai_Improve_Friendship>>
 ===
 
 title: Nikolai_Unfriendly

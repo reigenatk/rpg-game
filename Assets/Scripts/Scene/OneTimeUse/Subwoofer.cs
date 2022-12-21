@@ -49,7 +49,10 @@ public class Subwoofer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (gameState.getYarnVariable("$hasTurnedDownMusic") == true)
+        {
+            turnedItDown = true;
+        }
         foreach (ChunkOfTime cot in chunkOfTimesToPlayMusic)
         {
             if (cot.isInChunk(TimeManager.Instance.gt))
@@ -80,8 +83,13 @@ public class Subwoofer : MonoBehaviour
                 }
 
                 // if its playing, check that we in the house. Otherwise we dont care- we're too far away
-                if (isInRoomWeCareAbout())
+                if (isSubwooferPlaying && isInRoomWeCareAbout())
                 {
+                    // if a cutscene is playing, mute it
+                    if (gameState.cutscenePlaying != null)
+                    {
+                        stopSubwoofer();
+                    }
                     if (gameState.getCurrentSceneEnum() == SceneName.LancelotRoom)
                     {
                         // no lowpass
@@ -98,15 +106,15 @@ public class Subwoofer : MonoBehaviour
                     }
 
                     // what volume to use?
-                    if (turnedItDown == true)
+                    if (turnedItDown == false)
                     {
-                        audioSource.volume = turnedDownVolume;
+                        audioSource.volume = turnedUpVolume;
                         // repeatedly pause all music- we dont want any other music to play when subwoofer is active
                         MusicManager.Instance.stopAllMusicNoCoroutine(1.0f);
                     }
                     else
                     {
-                        audioSource.volume = turnedUpVolume;
+                        audioSource.volume = turnedDownVolume;
                         if (!MusicManager.Instance.isMusicPlaying())
                         {
                             MusicManager.Instance.startAllMusicNoCoroutine(1f);

@@ -70,6 +70,8 @@ title: Dream3_Desktop
 
 title: Work_From_Home
 ---
+<<stopAllMusic MusicObject 1.0>>
+<<wait 2>>
 <<playSoundString AudioManager SlackNotif>>
 <<wait 2>>
 ?: Hey Steven.
@@ -146,6 +148,8 @@ Steven (Adult): It's my only way of expressing my sad little reality. #e:booze
 
 title: Talk_To_Jeffery_1
 ---
+<<stopAllMusic MusicObject 1.0>>
+<<wait 2>>
 Jeffery (Adult): What do you say to the cashier?
 <<wait 2>>
 Alice: Thanks!
@@ -268,6 +272,8 @@ Cashier: Sir, do you still want to purchase anything?
 <<wait 4>>
 Steven (Adult): I don't feel so good... #e:booze
 <<set $hasDoneShopping = true>>
+<<StartAllMusic MusicObject 1.0>>
+<<wait 2>>
 ===
 
 title: Older_Brother
@@ -317,6 +323,8 @@ Steven: It's literally the place where people die. #e:sad
 
 title: Before_Nurses
 ---
+<<stopAllMusic MusicObject 1.0>>
+<<wait 2>>
 Allen (Older): Look mom, he'll be alright.
 Allen (Older): We should just head home for the night. #e:right 
 Allen (Older): Sitting here worrying isn't going to help your own health. #e:right

@@ -5,6 +5,7 @@
 <<declare $didRedditDialogue1 = false>>
 <<declare $didRedditDialogue2 = false>>
 <<declare $hasMetReddit = false>>
+<<declare $isInClassroom2 = false>>
 ===
 title: Reddit_Dialogue
 ---
@@ -126,7 +127,7 @@ You decide to leave before Sawyer starts talking again.
 	Sawyer: If you like games, please come to my gaming club! #e:excited 
 	Sawyer: It's from <color=yellow>5-9PM everyday in the classroom closer to the cofee shop.</color> #e:smug
 <<endif>>
-<<jump Reddit_Improve_Friendship_Most>>
+<<jump Reddit_Improve_Friendship>>
 ===
 
 title: Soydance_done
@@ -171,7 +172,7 @@ Voice: AAAAAA stop talking to him!!! I CANT TAKE THIS ANYMORE AAAA #e:cringe
 Steven: That's great, Sawyer. #e:embarassed
 Steven: Look man, I gotta go. #e:think1
 Sawyer: Okay Steven. You go. Thanks for listening. #e:sniffle
-<<jump Reddit_Improve_Friendship_Most>>
+<<jump Reddit_Improve_Friendship>>
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
 ===
 
@@ -180,7 +181,7 @@ title: Reddit_Chat_End_Generic
 ---
 Steven: Anyways, I gotta go.
 Sawyer: Okay! When are we talking next time?
-<<jump Reddit_Improve_Friendship_Most>>
+<<jump Reddit_Improve_Friendship>>
 ===
 
 title: Reddit_Unfriendly
@@ -236,17 +237,19 @@ Sawyer: What were we talking about again? Oh. The dance #e:smile
 	<<jump Reddit_Ruin_Friendship>>
 -> Be nice
 	Steven: Uh, it's very interesting #e:smile
-	Sawyer: Want to learn how to do it? #e:wow
-	<<wait 1>>
-	Steven: Sure... #e:think1
-	// IMPROVE FRIENDSHIP MANUALLY
-	<<set $RedditFriendProgress = $RedditFriendProgress + 1>>
-	<<changePlayerScoreString Manager "entertained" 10.0>>
-	<<changePlayerScoreString Manager "social" 10.0>>
-	<<set $talkedToRedditAlready = true>>
-	<<FadeIn LevelLoader 1.0>>
-	<<wait 3>>
-	<<playCutscene LevelLoader SoyboyDance>>
+	<<if $isInClassroom2 == true>>
+		Sawyer: Want to learn how to do it? #e:wow
+		<<wait 1>>
+		Steven: Sure... #e:think1
+		// IMPROVE FRIENDSHIP MANUALLY
+		<<set $RedditFriendProgress = $RedditFriendProgress + 1>>
+		<<changePlayerScoreString Manager "entertained" 10.0>>
+		<<changePlayerScoreString Manager "social" 10.0>>
+		<<set $talkedToRedditAlready = true>>
+		<<FadeIn LevelLoader 1.0>>
+		<<wait 3>>
+		<<playCutscene LevelLoader SoyboyDance>>
+	<<endif>>
 ===
 
 title: Soydance_1

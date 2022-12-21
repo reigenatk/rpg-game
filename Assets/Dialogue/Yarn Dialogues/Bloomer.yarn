@@ -119,7 +119,7 @@ Chase: It takes practice! Find something you like and learn it well.
 Chase: Anyways, I gotta go, Steven. Nice chatting with you! #e:slight-smile
 Steven: You as well, Chase. #e:smile
 
-<<jump Bloomer_Improve_Friendship_Most>>
+<<jump Bloomer_Improve_Friendship>>
 ===
 
 title: Chat_End_2
@@ -142,7 +142,7 @@ Steven: Really? #e:embarassed
 Steven: Thanks... #e:shy
 Chase: I mean it. Also, I gotta go. It's been fun! 
 Steven: Y-Yeah, thanks for chatting! #e:smile
-<<jump Bloomer_Improve_Friendship_Most>>
+<<jump Bloomer_Improve_Friendship>>
 ===
 
 title: Chat_End_3
@@ -178,7 +178,7 @@ Chase: I'm starting to sound preachy again. We can save this for Bible Study! #e
 Steven: Haha, ok. I think I gotta go do some work. #e:smile
 Chase: Alright, it's been fun! See ya later.
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
-<<jump Bloomer_Improve_Friendship_Most>>
+<<jump Bloomer_Improve_Friendship>>
 ===
 
 title: Bloomer_Chat_End_Generic
@@ -186,7 +186,7 @@ title: Bloomer_Chat_End_Generic
 Chase: Anyways, I gotta get going.
 Steven: Alright, thanks for chatting with me! #e:smile
 Chase: Any time! #e:big-smile
-<<jump Bloomer_Improve_Friendship_Most>>
+<<jump Bloomer_Improve_Friendship>>
 ===
 
 title: Bloomer_Unfriendly

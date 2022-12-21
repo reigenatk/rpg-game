@@ -13,13 +13,28 @@
 <<declare $isGroupMeetingOn = false>>
 <<declare $canBeatGame = false>>
 <<declare $hasDoneBusDialogue = false>>
+<<declare $hasDoneKabowskiToilet = false>>
+<<declare $hasShitted = false>>
+<<declare $isBusCutscenePlaying = false>>
 ===
 
 title: D1_Bedroom_Window
 ---
-Steven: The outside world... 
-<<wait 2>> 
-Steven: How scary... #e:weary
+<<if $day == 1>>
+	Steven: The outside world... 
+	<<wait 2>> 
+	Steven: How scary... #e:weary
+	<<jump Nothing>>
+<<endif>>
+<<if $gameHour > 20 || $gameHour < 6>>
+	Steven: I love the nighttime... #e:smile 
+	Steven: It's so soothing... because no one is outside. #e:comfy
+	Steven: I would take more night walks, but I'm scared of the dark... #e:worried
+	Steven: And of getting robbed... #e:weary
+<<else>>
+	Steven: I don't want to go outside... #e:worried 
+	Steven: There's people there. #e:sad
+<<endif>>
 ===
 
 title: D1_Bedroom_Peripherals
@@ -109,10 +124,12 @@ title: D1_Bedroom_Peripherals
 					<<jump Message_Pepe>>
 			-> Do something else
 		<<endif>>	
+	<<else>>
+		Steven: I don't have anyone to message yet... #e:sad
 	<<endif>>
 
 	<<wait 2>>
-	Steven: Ok, I don't wanna be social. What else should I do? #e:huh
+	Steven: What else can I do? #e:huh
 	-> Play vidya
 		<<jump Vidya>>
 	-> Anime
@@ -122,6 +139,10 @@ title: D1_Bedroom_Peripherals
 	-> Be productive
 		<<jump Productivity>>
 	-> Stare blankly at the screen
+		<<wait 3>>
+		Steven: ... 
+		<<wait 3>>
+		Steven: ... #e:bored
 	<<AdvanceXMinutes Manager 120>>
 <<endif>>
 ===
@@ -281,7 +302,7 @@ Steven: I guess I could go for some gaming right now... #e:smile
 Steven: Yaaaaaaaaaay..... #e:stern
 Steven: We won...... #e:stern
 <<wait 1>>
-Steven: So exiting.... #e:weary
+Steven: So exciting.... #e:weary
 <<changePlayerScoreString Manager "entertained" 1.0>>
 <<changePlayerScoreString Manager "contentedness" -10.0>>
 <<wait 2>>
@@ -369,7 +390,7 @@ Steven: Let's just scroll some random videos in my feed... #e:huh
 <<wait 2>>
 Steven: What a snore fest. I think I lost brain cells.
 <<wait 1>>
-Steven: Insert cookie cutter Tiktoker \#24129412 with his cringe Proxima Nova font... #e:bored
+Steven: Insert cookie cutter Tiktoker number 24129412 with his cringe Proxima Nova font... #e:bored
 Steven: ...the female text to speech... #e:bored
 Steven: ...and his cringy zoomer perm. #e:bored
 <<wait 2>>
@@ -737,6 +758,7 @@ title: Running_Shoes
 	-> Yeah
 		Steven: Okay..
 		Steven: Maybe it'll help cheer me up. #e:dsmile
+		<<stopAllMusic MusicObject 1.0>>
 		<<FadeIn LevelLoader 1.0>>
 		<<wait 2>>
 		<<playSoundString AudioManager Running>>
@@ -744,9 +766,10 @@ title: Running_Shoes
 		<<FadeOut LevelLoader 1.0>>
 		<<wait 2>>
 		Steven: Huh, that actually felt kinda nice. #e:smile
-		<<AdvanceXMinutes TimeManager 60>>
-    	<<changePlayerScoreString Manager "contentedness" 20.0>>
+		<<AdvanceXMinutes Manager 60>>
+    	<<changePlayerScoreString Manager "contentedness" 30.0>>
 		<<changePlayerScoreString Manager "energy" -20.0>>
+		<<StartAllMusic MusicObject 1.0>>
 		<<wait 2>>
 		<<set $hasRanToday = true>>
 	-> Nah
@@ -780,10 +803,10 @@ title: D1_Commons_Microwave
 				Steven: Canned soup? Sure. #e:smile
 			-> Hot Pocket
 				Steven: Not the healthiest, but it has calories. So I'm not gonna complain. #e:smile
-			
 			<<playSoundString AudioManager MicrowaveAndEat>>
-			<<wait 10>>
+			<<wait 20>>
 			<<set $hasMicrowavedToday = true>>
+			Steven: Yummy... #e:comfy
 		-> No
 			Steven: Yeah, never mind...
 	<<else>>
@@ -904,15 +927,23 @@ title: D1_Bathroom_SinkAndMirror
 Steven: Looking at the mirror always makes me sad.
 Steven: My appearance has changed so much, and yet I've grown so little on the inside. #e:bored
 <<wait 2>>
-Steven: Mentally, I might as well still be a toddler. #e:weary
-===
-
-title: D1_Bathroom_BrushTeeth
----
 Game: Brush teeth?
 -> Yes
-	<<set $teethBrushed to true>>
+	<<if $teethBrushed == true>>
+		Steven: I already brushed today... #e:think2
+		<<jump Nothing>>
+	<<endif>>
+	<<FadeIn LevelLoader 1.0>>
+	<<wait 2>>
+	<<playSoundString AudioManager BrushTeeth>>
+	<<wait 10>>
+	<<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<FadeOut LevelLoader 1.0>>
+	<<wait 2>>
+	<<set $teethBrushed = true>>
+	Steven: I might be a loser, but at least I got pearly whites... #e:comfy
 -> No
+	Steven: ... #e:think1
 ===
 
 title: D1_Bathroom_Shower
@@ -931,10 +962,34 @@ Game: Shower?
 ===
 title: D1_Bathroom_Toilet
 ---
-Steven: Seems like Kabowski was kind enough to aim this time... #e:smile 
-<<wait 2>>
-Steven: Good for him. #e:smile 
-Steven: I was worried he wasn't potty trained. #e:think1
+<<if $hasDoneKabowskiToilet == false>>
+	Steven: Seems like Kabowski was kind enough to aim this time... #e:smile 
+	<<wait 2>>
+	Steven: Good for him. #e:smile 
+	Steven: I was worried he wasn't potty trained. #e:think1
+	<<set $hasDoneKabowskiToilet = true>>
+<<endif>>
+Game: Take a fat shit?
+-> Hell Yeah
+	<<if $hasShitted == true>>
+		Steven: Hmm, I would if I could...
+		Steven: But I have nothing in the tank right now... #e:sad
+		<<jump Nothing>>
+	<<endif>>
+	Steven: Taking a fat shit is arguably the best part of my day. #e:dsmile 
+	Steven: Now get out of here and let me enjoy my shit. #e:comfy
+	<<FadeIn LevelLoader 1.0>>
+	<<wait 2>>
+	<<playSoundString AudioManager TakeShit>>
+	<<wait 25>>
+	<<changePlayerScoreString Manager "contentedness" 10.0>>
+	<<FadeOut LevelLoader 1.0>>
+	<<wait 2>>
+	Steven: Oh... #e:smile
+	Steven: that hit the spot... #e:comfy
+	<<set $hasShitted = true>>
+-> No
+	Steven: ... #e:sad
 ===
 
 title: D1_Lancelot_PolarBear
@@ -1018,11 +1073,20 @@ title: D2_Bus_Stop_House
 	Game: Would you like to ride the bus? The next one is {$minTilNextBus} minutes away
 
 	-> Yes
-		<<AdvanceXMinutes Manager {$minTilNextBus}>>
+		Steven: Alright.
+		<<set $isBusCutscenePlaying = true>>
 		<<playCutsceneAndFade LevelLoader TakeBusToCampus Campus>>
 	-> No
+		Steven: ... 
 <<endif>>
 
+===
+
+title: Play_Phone_Start
+---
+Steven: Let's turn off my brain and watch some stupid shit... #e:dsmile
+<<stopAllMusic MusicObject 1.0>>
+<<wait 2>>
 ===
 
 title: D2_Bus_Stop_Campus
@@ -1032,10 +1096,18 @@ title: D2_Bus_Stop_Campus
 <<else>>
 	Game: Would you like to ride the bus? The next one is {$minTilNextBus} minutes away
 	-> Yes
-		<<AdvanceXMinutes Manager {$minTilNextBus}>>
-		<<playCutsceneAndFade LevelLoader TakeBusToCampus OutsideHouse>>
+		Steven: Alright.
+		<<set $isBusCutscenePlaying = true>>
+		<<playCutsceneAndFade LevelLoader TakeBusToHouse OutsideHouse>>
 	-> No
+		Steven: ... 
 <<endif>>
+===
+
+title: Set_Bus_Playing_False
+---
+Steven: ... #e:bored
+<<set $isBusCutscenePlaying = false>>
 ===
 
 title: D2_Campus_Apartment

@@ -9,6 +9,7 @@
 <<declare $hasHeardReaperTerms = false>>
 <<declare $isKYS = true>>
 <<declare $firstTimeSleeping = true>>
+<<declare $hasDoneFirstFriend = false>>
 
 // reset these every day
 <<declare $teethBrushed = false>>
@@ -99,12 +100,22 @@ Knock?
 
 title: GoToSleep
 ---
-Steven: It's pretty late... #e:think1
-Steven: Should I sleep? #e:stern
--> Yes
-	Steven: Alright... #e:dsmile
-	<<goToSleep LevelLoader>>
--> Hell No!
+Game: What do?
+-> Sleep
+	Steven: It's pretty late... #e:think1
+	Steven: Should I sleep? #e:stern
+	-> Yes
+		Steven: Alright... #e:dsmile
+		<<goToSleep LevelLoader>>
+	-> Hell No!
+-> Phone
+	<<if $didPhone == true>>
+		Steven: I already played with my phone for way too long today... #e:weary
+		Steven: I need to do something else.
+	<<else>>
+		<<playCutscene LevelLoader PlayWithPhone>>
+	<<endif>>
+
 ===
 
 title: CantGoToSleep
@@ -154,7 +165,7 @@ title: EndOfDayDialogue
 	<<wait 1>>
 	Steven: But it's something special for me, because I can't do it often... #e:sad
 	<<wait 1>>
-	Steven: Oh well, at least I can go to sleep today, knowing that I tried. #e:comfy
+	Steven: Oh well, at least I can go to sleep today, knowing that I tried my best. #e:comfy
 <<else>>
 
 <<endif>>
@@ -437,7 +448,7 @@ title: AlreadyTalkedToday
 ---
 Mind: I already talked to them today... 
 Mind: It might be awkward if I talk to them again so soon. #e:stern
-Mind: Let's wait until tomorrow. #e:shy
+Mind: Let's wait until later. #e:shy
 ===
 
 title: BibleStudy
@@ -620,7 +631,7 @@ title: After_Sermon
 title: Talk_To_Reaper
 ---
 // test the cutscene (skip the dialogue)
-<<if true>>
+<<if false>>
 	<<playCutsceneAndFade LevelLoader GoToDream DreamDay2>>
 <<else>>
 	<<if $hasHeardReaperTerms == false>>
@@ -705,7 +716,7 @@ title: Talk_To_Reaper
 		Steven: Would anyone really care if I dissapeared tomorrow? #e:weary
 		<<wait 1>>
 	<<endif>>
-	Reaper: Hello, Steven. 
+	Reaper: Hello, Steven. #e:smile
 	<<jump Ask_If_Ready>>
 <<endif>>
 
@@ -731,12 +742,12 @@ Reaper: Are you ready for tonight's dream? #e:smile
 	<<playCutsceneAndFade LevelLoader GoToDream DreamDay1>>
 <<elseif $day == 3>>
 	<<playCutsceneAndFade LevelLoader GoToDream DreamDay2>>
-<<elseif $day == 3>>
-	<<playCutsceneAndFade LevelLoader GoToDream DreamDay1>>
-<<elseif $day == 3>>
-	<<playCutsceneAndFade LevelLoader GoToDream DreamDay1>>
-<<elseif $day == 3>>
-	<<playCutsceneAndFade LevelLoader GoToDream DreamDay1>>
+<<elseif $day == 4>>
+	<<playCutsceneAndFade LevelLoader GoToDream DreamDay3>>
+<<elseif $day == 5>>
+	<<playCutsceneAndFade LevelLoader GoToDream DreamDay4>>
+<<elseif $day == 6>>
+	<<playCutsceneAndFade LevelLoader GoToDream DreamDay5>>
 <<endif>>
 ===
 
@@ -808,11 +819,44 @@ Reaper: So... do we have a deal? #e:smile
 
 title: Dream_Arrive
 ---
+// <<StartAllMusic MusicObject 1.0>>
+// <<wait 2>>
+<<set $hasBoated = true>>
 <<if $day == 2>>
     <<jump Dream_1_Arrive>>
 <<elseif $day == 3>>
 	<<jump Dream_2_Arrive>>
+<<elseif $day == 4>>
+	<<jump Dream_3_Arrive>>
+<<elseif $day == 5>>
+	<<jump Dream_4_Arrive>>
+<<elseif $day == 6>>
+	<<jump Dream_5_Arrive>>
 <<endif>>
+===
+
+
+
+title: Dream_2_Arrive
+---
+Steven: The reaper better not have put anything weird in this dream... #e:huh
+Steven: I will fight him if he does... #e:angry3
+===
+
+title: Dream_3_Arrive
+---
+Steven: I don't want this anymore... #e:weary
+===
+
+title: Dream_4_Arrive
+---
+Steven: God, when will it end? #e:cry-painful
+Steven: I don't want to see my future! #e:cry
+===
+
+title: Dream_5_Arrive
+---
+Steven: ... #e:oshit
 ===
 
 title: Got_Text
@@ -859,6 +903,7 @@ Steven: Shouldn't you understand the best? You've been in my head for decades! #
 Steven: You know how lonely I am. This means everything to me. #e:cry-smile
 <<wait 1>>
 Voice: Whatever you say...
+<<set $hasDoneFirstFriend = true>>
 ===
 
 title: KYS

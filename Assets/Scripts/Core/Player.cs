@@ -128,6 +128,11 @@ public class Player : Singleton<Player>, ISaveable
         }
     }
 
+    public void playLowBattery()
+    {
+        AudioManager.Instance.PlaySound(SoundName.LowBattery);
+    }
+
     public void playStepSound()
     {
 
@@ -383,6 +388,7 @@ public class Player : Singleton<Player>, ISaveable
                 // Get player position
                 if (sceneSave.vector3Dictionary != null && sceneSave.vector3Dictionary.TryGetValue("playerPosition", out Vector3Serializable playerPosition))
                 {
+                    Debug.Log("[ISaveableLoad Player] position to value" + playerPosition.x + " " + playerPosition.y + " " + playerPosition.z);
                     transform.position = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z);
                 }
 
@@ -392,15 +398,17 @@ public class Player : Singleton<Player>, ISaveable
                     // Get player scene
                     if (sceneSave.stringDictionary.TryGetValue("currentScene", out string currentScene))
                     {
+                        
                         Enum.TryParse(currentScene, out SceneName sceneName);
+                        Debug.Log("[ISaveableLoad Player] scene to value" + sceneName);
                         LevelLoader.Instance.FadeAndLoadScene(sceneName, transform.position);
                     }
 
                     // Get player direction
                     if (sceneSave.stringDictionary.TryGetValue("playerDirection", out string playerDir))
                     {
-                        bool playerDirFound = Enum.TryParse<Direction>(playerDir, true, out Direction direction);
-
+                        bool playerDirFound = Enum.TryParse(playerDir, true, out Direction direction);
+                        Debug.Log("[ISaveableLoad Player] direction to value" + direction);
                         if (playerDirFound)
                         {
                             SetPlayerDirection(direction);
@@ -408,6 +416,10 @@ public class Player : Singleton<Player>, ISaveable
                     }
                 }
             }
+        }
+        else
+        {
+            Debug.Log("[Player] No save found");
         }
     }
 

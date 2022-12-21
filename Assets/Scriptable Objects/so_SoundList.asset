@@ -850,3 +850,31 @@ MonoBehaviour:
     soundPitchRandomVariationMin: 1
     soundPitchRandomVariationMax: 1
     soundVolume: 1
+  - soundName: 122
+    soundClips:
+    - {fileID: 8300000, guid: cbff44c7b9f42ff4a9f027742064a2a1, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 123
+    soundClips:
+    - {fileID: 8300000, guid: 14760ac73e26bdf4986029285ca9c2da, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 124
+    soundClips:
+    - {fileID: 8300000, guid: 924b7d0e834ac884d904312b374cb630, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1
+  - soundName: 125
+    soundClips:
+    - {fileID: 8300000, guid: 0a134317dba29e74dab16c5a94e482f6, type: 3}
+    soundDescription: 
+    soundPitchRandomVariationMin: 1
+    soundPitchRandomVariationMax: 1
+    soundVolume: 1

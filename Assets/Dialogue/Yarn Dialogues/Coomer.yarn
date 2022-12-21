@@ -6,6 +6,7 @@
 <<declare $hasMetCoomer = false>>
 <<declare $didCoomerHair = false>>
 <<declare $didCoomerBiceps = false>>
+<<declare $isStalkingCoomer = false>>
 ===
 title: Coomer_Dialogue
 ---
@@ -21,6 +22,8 @@ title: Coomer_Dialogue
 
 title: Stalking_Coomer_2
 ---
+<<stopAllMusic MusicObject 1.0>>
+<<wait 2>>
 Steven: What da heck are you doing, man?
 <<wait 1>>
 Keith: Yo, don't sneak up on me like that...
@@ -66,7 +69,8 @@ Voice: It'll be hilarious #e:laugh
 -> No
     Mind: Nah, it's not worth it. #e:weary
     Mind: He probably suffers enough in life already. Just in a different way from me. #e:weary
-
+    <<StartAllMusic MusicObject 1.0>>
+    <<wait 2>>
 ===
 
 title: Calling_Campus_Police
@@ -88,6 +92,9 @@ Keith: How could you do this!? I thought we were cool! #e:sad
 <<endif>>
 <<changePlayerScoreString Manager "entertained" 40.0>>
 <<changePlayerScoreString Manager "social" 30.0>>
+
+<<StartAllMusic MusicObject 1.0>>
+<<wait 2>>
 ===
 
 
@@ -170,7 +177,7 @@ Keith: Hey, I'm just warning you. Don't end up like me.
 <<wait 1>>
 Steven: I wasn't planning to, but thanks...
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
-<<jump Coomer_Improve_Friendship_Most>>
+<<jump Coomer_Improve_Friendship>>
 ===
 
 
@@ -179,7 +186,7 @@ title: Coomer_Chat_End_Generic
 Keith: Alright man, I gotta go coom. I'll catch you later.
 Steven: Later.
 <<wait 2>>
-<<jump Coomer_Improve_Friendship_Most>>
+<<jump Coomer_Improve_Friendship>>
 ===
 
 title: Coomer_Unfriendly

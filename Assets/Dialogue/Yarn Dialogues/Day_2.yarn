@@ -361,7 +361,7 @@ Mind: Oh well, At least I tried going to class for once. #e:dsmile
 <<changePlayerScoreString Manager "contentedness" 10.0>>
 <<wait 4>>
 Mind: Anyways, I better go home. There's nothing else to do today. #e:bored
-
+<<SetTime TimeManager 16 0 0>> // set time to 4pm
 ===
 
 title: Day2_Stacy_Hey
@@ -505,15 +505,19 @@ title: Day2_Commons_Scene2
 Kabowski: Look who it is. Man of the hour. Stevie Wonder.
 Kabowski: I missed ya, buddy.
 -> Hey Kabowski, how was your summer?
+    Steven: Hey Kabowski, how was your summer? #e:smile
+    <<wait 2>>
     Kabowski: Lean, mean and pristine. I went to Europe.
     -> Is that so? Where?
+        Steven: Is that so? Where? #e:smile
     -> What'd you do?
+        Steven: What'd you do? #e:smile
     Kabowski: We went all over- Deutschland, France, Spain. #e:neutral
     Kabowski: Couple of buddies and I. It was terrible. #e:sad 
     <<wait 4>>
     Kabowski: Ah, who am I kidding, it was a blast. #e:talking
     Kabowski: Let's see, I got drunk, went to more music festivals I can remember, oh- and I'm still undefeated at beer pong.
-    Kabowski: Fucked a couple of real babes, too. #e:talking
+    Kabowski: Fucked a couple of real european babes, too. #e:talking
     <<wait 2>>
     Mind: Sounds like Kabowski had a fun summer.
     Mind: See, this is why I can't stand him. #e:angry2 

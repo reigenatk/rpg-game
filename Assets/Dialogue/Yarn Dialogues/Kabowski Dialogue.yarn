@@ -123,7 +123,7 @@ Kabowski: Yeah, I learned not to sign girls anymore.
 Steven: That's what you learned!? #e:oshit
 Voice: This guy.... #e:laugh
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
-<<jump Kabowski_Improve_Friendship_Most>>
+<<jump Kabowski_Improve_Friendship>>
 ===
 
 
@@ -133,7 +133,7 @@ Kabowski: Alright Stevie, nice chattin with ya. #e:neutral
 Kabowski: But these muscles ain't gonna grow themselves.
 Kabowski: I gotta go brah. I'll catch you around. 
 Steven: Later, Kabowski. #e:smile
-<<jump Kabowski_Improve_Friendship_Most>>
+<<jump Kabowski_Improve_Friendship>>
 ===
 
 title: Kabowski_Unfriendly

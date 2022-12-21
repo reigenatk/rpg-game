@@ -10002,7 +10002,7 @@ MonoBehaviour:
       gameHour: 0
       gameMinute: 0
       gameSecond: 0
-    dayToPlay: 1
+    dayToPlay: -1
     extraConditions: []
   dialogueImages: []
   soundToPlay: 0

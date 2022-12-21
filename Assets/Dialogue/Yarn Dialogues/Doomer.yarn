@@ -6,7 +6,7 @@
 <<declare $didDoomerDialogue2 = false>>
 <<declare $hasMetDoomer = false>>
 <<declare $gotDoomerNumber = false>>
-<<declare $hasMadeFriend = false>>
+<<declare $hasMadeFriend = false>> // has the player made at least 1 friend
 <<declare $hasTextedDoomer = false>>
 ===
 title: Doomer_Dialogue
@@ -122,7 +122,7 @@ Mind: He did seem really down about it though.
 		<<set $hasMadeFriend = true>>
 	<<endif>>
 <<endif>>
-<<jump Doomer_Improve_Friendship_Most>>
+<<jump Doomer_Improve_Friendship>>
 ===
 
 title: Doomer_Chat_End_2
@@ -167,7 +167,7 @@ Dylan: Thanks for listening. You're one of the few people I can talk to. #e:smil
 <<wait 2>>
 Steven: You as well. Let's talk again soon. #e:smile
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
-<<jump Doomer_Improve_Friendship_Most>>
+<<jump Doomer_Improve_Friendship>>
 ===
 
 
@@ -178,7 +178,7 @@ Dylan: Fuck the world, that's what I say.
 Steven: Agreed. Alright, I gotta go. #e:smile
 Dylan: Later. #e:smile
 
-<<jump Doomer_Improve_Friendship_Most>>
+<<jump Doomer_Improve_Friendship>>
 ===
 
 title: Doomer_Unfriendly

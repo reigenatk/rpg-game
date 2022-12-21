@@ -3,6 +3,18 @@
 <<declare $finishedMeetJefferyScene = true>>
 ===
 
+title: Enter_Dream_First
+---
+Steven: Where the fuck am I!? #e:yikes
+<<wait 2>>
+Steven: is this a dream? #e:huh
+<<wait 4>>
+?: Over here, Steven.
+<<playSoundString AudioManager EvilLaugh>>
+<<wait 5>>
+Steven: ... #e:oshit
+===
+
 title: Dream_1_Arrive
 ---
 Steven: What the... #e:oshit
@@ -73,6 +85,8 @@ Steven: I don't recall being a loser this quickly... #e:think2
 <<wait 2>>
 Steven: This looks to be when I was still in fourth grade? #e:stern
 <<wait 2>>
+<<stopAllMusic MusicObject 1.0>>
+<<wait 1>>
 ===
 
 title: Crying_Robot
@@ -136,7 +150,7 @@ title: After_Child_Laugh
 Steven (Child): The power of friendship doesn't mean anything when your leaf type takes twice the damage... #e:left-smile
 <<wait 2>>
 Jeffery: Hnnnnnnggggg!
-Jeffery: You are really testing my patience.
+Jeffery: You are really testing my patience, ya little punk.
 <<wait 2>> 
 Jeffery: Take this, fire-type abuser! 
 Jeffery: SUMMON WORM ATTACK! SPECIAL ABILITY, DIRT CHOKE! #e:dramatic 
@@ -145,7 +159,8 @@ Jeffery: SUMMON WORM ATTACK! SPECIAL ABILITY, DIRT CHOKE! #e:dramatic
 title: After_Worm
 ---
 Steven (Child): Wow, is that an earthworm? #e:left 
-Jeffery: Yes! 
+<<wait 2>>
+Jeffery: Why yes, of course! #e:dramatic
 Jeffery: Earthworm-ssss, actually, because there's two in here. #e:smile
 <<wait 1>>
 Steven (Child): Where did you find it? #e:left-smile
@@ -183,6 +198,8 @@ Steven: It's not that we fell out or anything... I just couldn't keep talking to
 Steven: Well, you'll see what I mean, later on. #e:sad
 <<wait 1>>
 <<set $finishedMeetJefferyScene = true>>
+<<StartAllMusic MusicObject 1.0>>
+<<wait 1>>
 ===
 
 
@@ -340,14 +357,15 @@ Reaper: Have you already forgotten? #e:shuteye
 Reaper: It's me, the Grim Reaper. #e:smile 
 <<wait 2>> 
 Steven: You're in my dream? #e:embarassed
-Reaper: Of course, I made it.
-Reaper: So tell me, how was your first dream? #e:smile
-Reaper: Did you have a good time? #e:smile
+Reaper: Of course, I made the dream. 
+<<wait 1>>
+Reaper: So tell me, what you are thinking? #e:smile
 <<wait 2>>
 Steven: What? #e:huh
 Steven: Oh.... I mean... #e:think1
 <<wait 1>>
 Steven: I don't know, it made me feel uncomfortable. #e:sad
+Steven: It's like, you're in my mind, and I never asked for that to happen... #e:yikes
 <<wait 2>>
 Reaper: Well, at least it made you feel something. #e:shuteye
 Reaper: I'll tell you what I took away from it. #e:smile 

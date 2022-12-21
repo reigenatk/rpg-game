@@ -643,7 +643,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 117467299}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &33312850
 GameObject:
@@ -1345,8 +1345,8 @@ MonoBehaviour:
     isActivated: 1
     description: 
     isVariablePitch: 0
-    lowPitch: 0
-    highPitch: 0
+    lowPitch: 0.7
+    highPitch: 1
     isTriggerable: 0
   - music: {fileID: 621882099}
     conditions:
@@ -1424,6 +1424,36 @@ MonoBehaviour:
     lowPitch: 0
     highPitch: 0
     isTriggerable: 0
+  - music: {fileID: 869092221}
+    conditions:
+    - day: -1
+      sceneName: 11
+    isActivated: 1
+    description: 
+    isVariablePitch: 0
+    lowPitch: 0
+    highPitch: 0
+    isTriggerable: 0
+  - music: {fileID: 173806664}
+    conditions:
+    - day: -1
+      sceneName: 19
+    isActivated: 1
+    description: 
+    isVariablePitch: 0
+    lowPitch: 0
+    highPitch: 0
+    isTriggerable: 0
+  - music: {fileID: 1185364603}
+    conditions:
+    - day: -1
+      sceneName: 9
+    isActivated: 1
+    description: 
+    isVariablePitch: 0
+    lowPitch: 0
+    highPitch: 0
+    isTriggerable: 0
 --- !u!4 &54796677
 Transform:
   m_ObjectHideFlags: 0
@@ -1449,6 +1479,9 @@ Transform:
   - {fileID: 1202810142}
   - {fileID: 473221887}
   - {fileID: 975117231}
+  - {fileID: 869092222}
+  - {fileID: 173806665}
+  - {fileID: 1185364604}
   m_Father: {fileID: 1371286255}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2099,6 +2132,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1890356865}
   - {fileID: 1171181617}
   - {fileID: 1999963755}
   - {fileID: 738973907}
@@ -2107,6 +2141,7 @@ Transform:
   - {fileID: 221454267}
   - {fileID: 1822742725}
   - {fileID: 31473554}
+  - {fileID: 1909713518}
   m_Father: {fileID: 1468802245}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2122,6 +2157,7 @@ GameObject:
   - component: {fileID: 118011559}
   - component: {fileID: 118011561}
   - component: {fileID: 118011562}
+  - component: {fileID: 118011563}
   m_Layer: 0
   m_Name: keyboard
   m_TagString: Untagged
@@ -2232,7 +2268,8 @@ AudioSource:
   m_GameObject: {fileID: 118011558}
   m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2732063130510401575, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: fee4ea3c273012340bd133b0c4f7872e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2244,9 +2281,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 0
-  MaxDistance: 12
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -2328,6 +2365,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &118011563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118011558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf7da3bd040ca1498fba444279702d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLoadConditions:
+  - dayToPlay: 4
+    scene: 20
+    extraConditions: []
+    validTimes: []
+  - dayToPlay: 5
+    scene: 21
+    extraConditions: []
+    validTimes: []
 --- !u!1 &120710748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,7 +2929,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155523411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.85, y: -111.59, z: 0}
+  m_LocalPosition: {x: 39.85, y: -126.24, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3165,6 +3223,135 @@ MonoBehaviour:
     scene: 16
     extraConditions: []
     validTimes: []
+--- !u!1 &173806664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173806665}
+  - component: {fileID: 173806666}
+  m_Layer: 0
+  m_Name: Dream 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &173806665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173806664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 54796677}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &173806666
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173806664}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3082215763752462334, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 1b66460d3c7687d4ca0a1933a63bc81b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &176712160
 GameObject:
   m_ObjectHideFlags: 0
@@ -3746,7 +3933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLoadConditions:
   - dayToPlay: -1
-    scene: 15
+    scene: 18
     extraConditions: []
     validTimes: []
 --- !u!1 &221454266
@@ -3779,7 +3966,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 117467299}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &221454268
 PlayableDirector:
@@ -3988,6 +4175,7 @@ GameObject:
   - component: {fileID: 267612195}
   - component: {fileID: 267612194}
   - component: {fileID: 267612193}
+  - component: {fileID: 267612196}
   m_Layer: 0
   m_Name: Jeffery Dream 2
   m_TagString: Untagged
@@ -4109,6 +4297,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &267612196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267612191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf7da3bd040ca1498fba444279702d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLoadConditions:
+  - dayToPlay: 3
+    scene: 18
+    extraConditions: []
+    validTimes: []
 --- !u!1 &267680732
 GameObject:
   m_ObjectHideFlags: 0
@@ -4295,7 +4500,7 @@ PlayableDirector:
   - key: {fileID: -7229949523344833079, guid: c6726d520d4347743b64ed5457ec3b1b, type: 2}
     value: {fileID: 1363732733}
   - key: {fileID: 5499543112953290907, guid: c6726d520d4347743b64ed5457ec3b1b, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1371286256}
   - key: {fileID: 6434810110126201355, guid: c6726d520d4347743b64ed5457ec3b1b, type: 2}
     value: {fileID: 1210189924}
   - key: {fileID: 5278675918293765857, guid: c6726d520d4347743b64ed5457ec3b1b, type: 2}
@@ -5389,7 +5594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 117467299}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &312668379
 PlayableDirector:
@@ -5427,7 +5632,6 @@ GameObject:
   - component: {fileID: 316952670}
   - component: {fileID: 316952673}
   - component: {fileID: 316952672}
-  - component: {fileID: 316952671}
   m_Layer: 12
   m_Name: Dialogue
   m_TagString: Untagged
@@ -5450,18 +5654,6 @@ Transform:
   m_Father: {fileID: 818774596}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &316952671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316952669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3153e2296563b143a058f717ec44c02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &316952672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6360,7 +6552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372228164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -208.92, y: 41.48, z: 0}
+  m_LocalPosition: {x: -202.41, y: 41.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8222,7 +8414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguesToRun:
-  - dialogueToPlay: Reddit_Dialogue
+  - dialogueToPlay: Bloomer_Dialogue
     earliestTime:
       gameHour: 0
       gameMinute: 0
@@ -9239,7 +9431,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3080233, y: 0.876735}
+  m_Offset: {x: 0.30802333, y: 0.8030052}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9250,7 +9442,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6131766, y: 2.0768929}
+  m_Size: {x: 1.6131766, y: 2.2243524}
   m_EdgeRadius: 0
 --- !u!1 &504561713
 GameObject:
@@ -9282,7 +9474,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 117467299}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &504561715
 PlayableDirector:
@@ -9819,7 +10011,7 @@ MonoBehaviour:
     endLocation: {x: 262.32, y: -36.7, z: 0}
     sceneToPlayIn: 8
     animationBoolName: DriveRight
-  routeSpawnRarity: 1e0000001e000000
+  routeSpawnRarity: 0f0000000f000000
   enableCars: 1
 --- !u!1 &514948491
 GameObject:
@@ -10022,7 +10214,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &523137974
 GameObject:
@@ -11439,7 +11631,7 @@ Transform:
   - {fileID: 2140530125}
   - {fileID: 1598968351}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636223387 stripped
 GameObject:
@@ -13230,7 +13422,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 117467299}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &738973908
 PlayableDirector:
@@ -14589,6 +14781,7 @@ GameObject:
   - component: {fileID: 818774595}
   - component: {fileID: 818774594}
   - component: {fileID: 818774593}
+  - component: {fileID: 818774597}
   m_Layer: 0
   m_Name: Desktop (Dream 3)
   m_TagString: Untagged
@@ -14710,6 +14903,27 @@ Transform:
   m_Father: {fileID: 329034620}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &818774597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818774592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf7da3bd040ca1498fba444279702d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLoadConditions:
+  - dayToPlay: 4
+    scene: 20
+    extraConditions: []
+    validTimes: []
+  - dayToPlay: 5
+    scene: 21
+    extraConditions: []
+    validTimes: []
 --- !u!1 &819049010
 GameObject:
   m_ObjectHideFlags: 0
@@ -14890,7 +15104,7 @@ MonoBehaviour:
       gameHour: 0
       gameMinute: 0
       gameSecond: 0
-    dayToPlay: 3
+    dayToPlay: 4
     extraConditions: []
   dialogueImages: []
   soundToPlay: 0
@@ -15030,6 +15244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c10554261bab1418ad83fc9bee24a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: 
 --- !u!4 &832191510
 Transform:
   m_ObjectHideFlags: 0
@@ -15043,7 +15258,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &833817776 stripped
 RectTransform:
@@ -16026,6 +16241,135 @@ RectTransform:
   m_AnchoredPosition: {x: 107, y: 2.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &869092221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869092222}
+  - component: {fileID: 869092223}
+  m_Layer: 0
+  m_Name: Main Quad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &869092222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869092221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 54796677}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &869092223
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869092221}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3082215763752462334, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 2d9eb616ff2f1534b987c95b96c357e0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &888523176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1524596906508418586, guid: 3f58d5e3db5674344aef704564d4040f,
@@ -17051,8 +17395,9 @@ GameObject:
   - component: {fileID: 978576665}
   - component: {fileID: 978576667}
   - component: {fileID: 978576666}
+  - component: {fileID: 978576668}
   m_Layer: 0
-  m_Name: Older Robot
+  m_Name: Older Robot (Dream 3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17065,8 +17410,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978576664}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -107.59, y: -42.21, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -107.65, y: -42.31, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17134,7 +17479,7 @@ SpriteRenderer:
   m_SortingLayerID: 1268136625
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1429901238, guid: 7c82686d848b2054f851c20b583a3fae, type: 3}
+  m_Sprite: {fileID: 905407385, guid: 7c82686d848b2054f851c20b583a3fae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17145,6 +17490,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &978576668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978576664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf7da3bd040ca1498fba444279702d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLoadConditions:
+  - dayToPlay: 4
+    scene: 20
+    extraConditions: []
+    validTimes: []
+  - dayToPlay: 5
+    scene: 21
+    extraConditions: []
+    validTimes: []
 --- !u!1 &987270381
 GameObject:
   m_ObjectHideFlags: 0
@@ -17970,7 +18336,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 32bbe196bcc822a479e7cf33543d7eaa, type: 3}
   isSubwooferPlaying: 0
   turnedItDown: 0
-  turnedDownVolume: 0.2
+  turnedDownVolume: 0.1
   turnedUpVolume: 1
 --- !u!82 &1011204241
 AudioSource:
@@ -17981,7 +18347,8 @@ AudioSource:
   m_GameObject: {fileID: 1011204238}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7295844693735779492, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -20884,7 +21251,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 117467299}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1171181618
 PlayableDirector:
@@ -21035,6 +21402,135 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &1185364603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185364604}
+  - component: {fileID: 1185364605}
+  m_Layer: 0
+  m_Name: Inside Building
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1185364604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185364603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 54796677}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1185364605
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185364603}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3082215763752462334, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: dad2f246acc172748a017a7a2f2766d8, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.546
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1193742274
 GameObject:
   m_ObjectHideFlags: 0
@@ -21524,7 +22020,6 @@ GameObject:
   - component: {fileID: 1210189923}
   - component: {fileID: 1210189925}
   - component: {fileID: 1210189920}
-  - component: {fileID: 1210189926}
   - component: {fileID: 1210189924}
   - component: {fileID: 1210189927}
   - component: {fileID: 1210189928}
@@ -21560,13 +22055,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210189919}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 48, y: 50, z: -0.7128906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1210189924
 MonoBehaviour:
@@ -21796,6 +22291,12 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 06ddbbcec3594cf42a46c3523d9cadc4, type: 2}
     - {fileID: 11400000, guid: 1ae8ab5f27b8b6945808a749f243c855, type: 2}
     - {fileID: 11400000, guid: ced2347a468f98e469902623d8d28fbd, type: 2}
+    - {fileID: 11400000, guid: 145b4ed2db138ce479480eb79b4a9176, type: 2}
+    - {fileID: 11400000, guid: 4926821ed7bdc604c9c4f554ee77834d, type: 2}
+    - {fileID: 11400000, guid: ed4e9971b3eb9244eaebd55f80f6f944, type: 2}
+    - {fileID: 11400000, guid: db23657dabb707b4aa4b787b843b1961, type: 2}
+    - {fileID: 11400000, guid: e7d5a5f25a4e3d34ba6b2c50225e85d5, type: 2}
+    - {fileID: 11400000, guid: f70ebb9bf142a8345a19c8f94e9ee0ca, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -22396,7 +22897,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Stalking_Stacy_2
+            m_StringArgument: Stalking_Coomer_2
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
@@ -23264,7 +23765,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Gaming_Start
+            m_StringArgument: After_Describe
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
@@ -24793,6 +25294,90 @@ MonoBehaviour:
             m_StringArgument: Classroom_Tutorial
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1210189920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartDialogueString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Enter_Dream_First
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1210189920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartDialogueString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Enter_Dark_Scene
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1210189920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartDialogueString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: After_Waste_Phone
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1210189920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartDialogueString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Set_Bus_Playing_False
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1210189920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartDialogueString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Play_Phone_Start
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1210189920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartDialogueString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Gaming_Start
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1210189925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24817,132 +25402,25 @@ MonoBehaviour:
   nonnpcs: {fileID: 1030019401}
   currentScene: 
   startingScene: 8
-  timeManager: {fileID: 1210189926}
+  totalNumFriends: 0
+  timeManager: {fileID: 1806746770}
   yarnVariables: {fileID: 3831113770911160658}
   variablesToNotResetEachDay: 1000000014000000
   initialGameState:
-  - variable: 14
+  - variable: 16
+    desiredValue: 1
+  - variable: 9
     desiredValue: 0
   - variable: 15
     desiredValue: 1
-  - variable: 11
-    desiredValue: 0
-  - variable: 16
-    desiredValue: 0
-  - variable: 9
-    desiredValue: 0
   playerMood: 0
-  gameDay: 2
+  gameDay: 5
   numSecondsAwake: 0
   currentWeather: 0
   cutscenePlaying: {fileID: 0}
   curSceneTeleport: {fileID: 0}
   currentRunningDialogueNode: 
   currentNPCBeingTalkedTo: {fileID: 0}
---- !u!114 &1210189926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210189919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d475febec08e7e40a99741c8f2c10a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gt:
-    gameHour: 9
-    gameMinute: 0
-    gameSecond: 0
-  gameClockPaused: 0
-  gameState: {fileID: 1210189925}
-  energyDecayRate: 600
-  socialDecayRate: 1000
-  contentednessDecayRate: 800
-  entertainmentDecayRate: 700
-  globalLight: {fileID: 1608886327}
-  globalLightColors:
-  - color: {r: 0.20784314, g: 0.21960784, b: 0.6509804, a: 0}
-    intensity: 0.75
-    gameHour: 0
-  - color: {r: 0.14509805, g: 0.14509805, b: 0.41960785, a: 0}
-    intensity: 0.8
-    gameHour: 3
-  - color: {r: 0.3764706, g: 0.3764706, b: 0.8039216, a: 0}
-    intensity: 0.85
-    gameHour: 4
-  - color: {r: 0.53333336, g: 0.6392157, b: 0.75686276, a: 0}
-    intensity: 0.87
-    gameHour: 5
-  - color: {r: 0.65882355, g: 0.78431374, b: 0.654902, a: 0}
-    intensity: 0.9
-    gameHour: 6
-  - color: {r: 0.9659001, g: 1, b: 0.6392157, a: 0}
-    intensity: 0.95
-    gameHour: 9
-  - color: {r: 1, g: 1, b: 1, a: 0}
-    intensity: 1
-    gameHour: 12
-  - color: {r: 1, g: 0.91764706, b: 0.4392157, a: 0}
-    intensity: 0.95
-    gameHour: 15
-  - color: {r: 1, g: 0.60784316, b: 0.4392157, a: 0}
-    intensity: 0.9
-    gameHour: 19
-  - color: {r: 0.8901961, g: 0.5529412, b: 0.38431373, a: 0}
-    intensity: 0.8
-    gameHour: 21
-  scenesThatShouldHaveColorChange: 0000000008000000070000000b000000040000000300000005000000
-  dialogueSlowdownRate: 3
-  dialogueSlowdownCounter: 0
-  canTalkAgainTimes: 00000000020000000400000006000000080000000a0000000c0000000e00000010000000120000001400000016000000
-  trashGoBadTimes: 
-  specialEvents:
-  - whenEventActive:
-      startTime:
-        gameHour: 17
-        gameMinute: 0
-        gameSecond: 0
-      endTime:
-        gameHour: 21
-        gameMinute: 0
-        gameSecond: 0
-    yarnVariableName: $isBibleStudyOpen
-    npcMovement: {fileID: 0}
-  - whenEventActive:
-      startTime:
-        gameHour: 9
-        gameMinute: 30
-        gameSecond: 0
-      endTime:
-        gameHour: 11
-        gameMinute: 30
-        gameSecond: 0
-    yarnVariableName: $isStalkingStacy
-    npcMovement: {fileID: 1093434035}
-  - whenEventActive:
-      startTime:
-        gameHour: 18
-        gameMinute: 0
-        gameSecond: 0
-      endTime:
-        gameHour: 20
-        gameMinute: 0
-        gameSecond: 0
-    yarnVariableName: $isFootballGame
-    npcMovement: {fileID: 53681046}
-  - whenEventActive:
-      startTime:
-        gameHour: 18
-        gameMinute: 15
-        gameSecond: 0
-      endTime:
-        gameHour: 23
-        gameMinute: 55
-        gameSecond: 0
-    yarnVariableName: $isNikolaiJamming
-    npcMovement: {fileID: 1664648369}
 --- !u!114 &1210189927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25500,7 +25978,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0015445352, y: 0.50874454}
+  m_Offset: {x: -0.016273916, y: 0.91144186}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -25511,7 +25989,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9658203, y: 0.9725107}
+  m_Size: {x: 3.1867695, y: 1.8776857}
   m_EdgeRadius: 0
 --- !u!1 &1234309538
 GameObject:
@@ -26272,6 +26750,8 @@ PlayableDirector:
     value: {fileID: 1210189924}
   - key: {fileID: 6773841945538299640, guid: 91abd405b4a4b30429774f315b97bd45, type: 2}
     value: {fileID: 1371286256}
+  - key: {fileID: -3450948684596933302, guid: 91abd405b4a4b30429774f315b97bd45, type: 2}
+    value: {fileID: 1922635429}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1275828181
@@ -27443,7 +27923,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLoadConditions:
-  - dayToPlay: -1
+  - dayToPlay: 2
+    scene: 17
+    extraConditions: []
+    validTimes: []
+  - dayToPlay: 3
     scene: 17
     extraConditions: []
     validTimes: []
@@ -27756,18 +28240,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6669818293867130621}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1363732730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363732729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3153e2296563b143a058f717ec44c02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1363732731 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6669818294087122809, guid: 9644f92277bc8c84aad354b90c8715ac,
@@ -27938,6 +28410,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363732729}
   m_Enabled: 1
+--- !u!114 &1363732740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363732729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ec545c9df88764aa861dd3279b5fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1371286254
 GameObject:
   m_ObjectHideFlags: 0
@@ -27972,7 +28456,7 @@ Transform:
   - {fileID: 54796677}
   - {fileID: 2119711364}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1371286256
 AudioSource:
@@ -28506,7 +28990,6 @@ GameObject:
   - component: {fileID: 1385904451}
   - component: {fileID: 1385904454}
   - component: {fileID: 1385904453}
-  - component: {fileID: 1385904452}
   m_Layer: 12
   m_Name: Dialogue (1)
   m_TagString: Untagged
@@ -28529,18 +29012,6 @@ Transform:
   m_Father: {fileID: 1925934506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1385904452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385904450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3153e2296563b143a058f717ec44c02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1385904453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29599,7 +30070,7 @@ MonoBehaviour:
       gameHour: 0
       gameMinute: 0
       gameSecond: 0
-    dayToPlay: 3
+    dayToPlay: 4
     extraConditions: []
   dialogueImages: []
   soundToPlay: 0
@@ -29662,7 +30133,7 @@ Transform:
   - {fileID: 1973413093}
   - {fileID: 2035031743}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1470603915
 GameObject:
@@ -30417,6 +30888,8 @@ PlayableDirector:
     value: {fileID: 653882380}
   - key: {fileID: -1886662515843313056, guid: efd2f8e347e9ba1459f2cae2ce4e3f27, type: 2}
     value: {fileID: 1363732733}
+  - key: {fileID: 4124809933689696173, guid: efd2f8e347e9ba1459f2cae2ce4e3f27, type: 2}
+    value: {fileID: 1210189924}
   m_ExposedReferences:
     m_References:
     - fdd9b5058a5dd1940af298e319776d07: {fileID: 1145630582}
@@ -30841,7 +31314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570119166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48, y: -110, z: 0}
+  m_LocalPosition: {x: 48, y: -127.23, z: 0}
   m_LocalScale: {x: 0.55, y: 0.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31307,7 +31780,7 @@ Transform:
   - {fileID: 118011560}
   - {fileID: 1255768754}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590583575
 GameObject:
@@ -32007,7 +32480,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1613962716
 GameObject:
@@ -32713,6 +33186,8 @@ PlayableDirector:
     value: {fileID: 653882380}
   - key: {fileID: -1886662515843313056, guid: 5500de1b563bcc245bb0d24934999304, type: 2}
     value: {fileID: 1363732733}
+  - key: {fileID: -3233495553501061444, guid: 5500de1b563bcc245bb0d24934999304, type: 2}
+    value: {fileID: 1210189924}
   m_ExposedReferences:
     m_References:
     - fdd9b5058a5dd1940af298e319776d07: {fileID: 1145630582}
@@ -34507,7 +34982,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: de703931088332340a5563637399cd91, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.433
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -34516,7 +34991,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 15
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -34865,6 +35340,157 @@ PlayableDirector:
     value: {fileID: 1210189924}
   m_ExposedReferences:
     m_References: []
+--- !u!1 &1806746769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1806746771}
+  - component: {fileID: 1806746770}
+  - component: {fileID: 1806746772}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1806746770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806746769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d475febec08e7e40a99741c8f2c10a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseTime: 0
+  gt:
+    gameHour: 8
+    gameMinute: 0
+    gameSecond: 0
+  gameClockPaused: 0
+  gameState: {fileID: 1210189925}
+  energyDecayRate: 600
+  socialDecayRate: 650
+  contentednessDecayRate: 670
+  entertainmentDecayRate: 630
+  globalLight: {fileID: 1608886327}
+  globalLightColors:
+  - color: {r: 0.20784314, g: 0.21960784, b: 0.6509804, a: 0}
+    intensity: 0.75
+    gameHour: 0
+  - color: {r: 0.14509805, g: 0.14509805, b: 0.41960785, a: 0}
+    intensity: 0.8
+    gameHour: 3
+  - color: {r: 0.3764706, g: 0.3764706, b: 0.8039216, a: 0}
+    intensity: 0.85
+    gameHour: 4
+  - color: {r: 0.53333336, g: 0.6392157, b: 0.75686276, a: 0}
+    intensity: 0.87
+    gameHour: 5
+  - color: {r: 0.65882355, g: 0.78431374, b: 0.654902, a: 0}
+    intensity: 0.9
+    gameHour: 6
+  - color: {r: 0.9659001, g: 1, b: 0.6392157, a: 0}
+    intensity: 0.95
+    gameHour: 9
+  - color: {r: 1, g: 1, b: 1, a: 0}
+    intensity: 1
+    gameHour: 12
+  - color: {r: 1, g: 0.91764706, b: 0.4392157, a: 0}
+    intensity: 0.95
+    gameHour: 15
+  - color: {r: 1, g: 0.60784316, b: 0.4392157, a: 0}
+    intensity: 0.9
+    gameHour: 19
+  - color: {r: 0.8901961, g: 0.5529412, b: 0.38431373, a: 0}
+    intensity: 0.8
+    gameHour: 21
+  scenesThatShouldHaveColorChange: 0000000008000000070000000b000000040000000300000005000000
+  dialogueSlowdownRate: 4
+  dialogueSlowdownCounter: 0
+  canTalkAgainTimes: 00000000020000000400000006000000080000000a0000000c0000000e00000010000000120000001400000016000000
+  trashGoBadTimes: 
+  specialEvents:
+  - whenEventActive:
+      startTime:
+        gameHour: 17
+        gameMinute: 0
+        gameSecond: 0
+      endTime:
+        gameHour: 21
+        gameMinute: 0
+        gameSecond: 0
+    yarnVariableName: $isBibleStudyOpen
+    npcMovement: {fileID: 0}
+  - whenEventActive:
+      startTime:
+        gameHour: 9
+        gameMinute: 30
+        gameSecond: 0
+      endTime:
+        gameHour: 11
+        gameMinute: 30
+        gameSecond: 0
+    yarnVariableName: $isStalkingCoomer
+    npcMovement: {fileID: 1093434035}
+  - whenEventActive:
+      startTime:
+        gameHour: 18
+        gameMinute: 0
+        gameSecond: 0
+      endTime:
+        gameHour: 20
+        gameMinute: 0
+        gameSecond: 0
+    yarnVariableName: $isFootballGame
+    npcMovement: {fileID: 53681046}
+  - whenEventActive:
+      startTime:
+        gameHour: 18
+        gameMinute: 15
+        gameSecond: 0
+      endTime:
+        gameHour: 23
+        gameMinute: 55
+        gameSecond: 0
+    yarnVariableName: $isNikolaiJamming
+    npcMovement: {fileID: 1664648369}
+--- !u!4 &1806746771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806746769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1806746772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806746769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af62eab04b7f254bbee66647e2e5cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gUID: a6365f3b-40f2-43c1-8907-c761dfd47a28
 --- !u!1 &1815724365
 GameObject:
   m_ObjectHideFlags: 0
@@ -35142,7 +35768,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 117467299}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1822742726
 PlayableDirector:
@@ -35163,6 +35789,10 @@ PlayableDirector:
     value: {fileID: 1210189924}
   - key: {fileID: -2645559872389379886, guid: b9beae3812069cb4780ddbc27e5fc82c, type: 2}
     value: {fileID: 1363732733}
+  - key: {fileID: 3082084205230052902, guid: 91274d2c33c7fad4aa454499cefff5fa, type: 2}
+    value: {fileID: 1363732733}
+  - key: {fileID: -8004518925176022405, guid: 91274d2c33c7fad4aa454499cefff5fa, type: 2}
+    value: {fileID: 1210189924}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1827182808
@@ -35444,7 +36074,7 @@ Transform:
   - {fileID: 1911286145}
   - {fileID: 432498198}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1837336692
 MonoBehaviour:
@@ -35763,6 +36393,63 @@ Transform:
   m_Father: {fileID: 1575718977}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1890356864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1890356865}
+  - component: {fileID: 1890356866}
+  m_Layer: 0
+  m_Name: UnfadeDarkScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1890356865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890356864}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 117467299}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &1890356866
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890356864}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: b1cf875f635f6d04a9689ec22c53519d, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 8441434949537394231, guid: b1cf875f635f6d04a9689ec22c53519d, type: 2}
+    value: {fileID: 1922635429}
+  - key: {fileID: -650225697468960883, guid: b1cf875f635f6d04a9689ec22c53519d, type: 2}
+    value: {fileID: 1363732733}
+  - key: {fileID: -1451500479834837148, guid: b1cf875f635f6d04a9689ec22c53519d, type: 2}
+    value: {fileID: 1363732733}
+  - key: {fileID: 2217524421326132757, guid: b1cf875f635f6d04a9689ec22c53519d, type: 2}
+    value: {fileID: 1210189924}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1891399361
 GameObject:
   m_ObjectHideFlags: 0
@@ -35886,6 +36573,7 @@ GameObject:
   - component: {fileID: 1895015691}
   - component: {fileID: 1895015690}
   - component: {fileID: 1895015689}
+  - component: {fileID: 1895015692}
   m_Layer: 0
   m_Name: Child Robot Dream 2
   m_TagString: Untagged
@@ -36006,6 +36694,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &1895015692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895015687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf7da3bd040ca1498fba444279702d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLoadConditions:
+  - dayToPlay: 3
+    scene: 18
+    extraConditions: []
+    validTimes: []
 --- !u!1 &1907759838
 GameObject:
   m_ObjectHideFlags: 0
@@ -36142,6 +36847,63 @@ RectTransform:
   m_AnchoredPosition: {x: 107, y: 1.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1909713517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909713518}
+  - component: {fileID: 1909713519}
+  m_Layer: 0
+  m_Name: TutorialDarkScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1909713518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909713517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 117467299}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &1909713519
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909713517}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: e21f788bffe68a1409787eaad9650590, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -4961776313525672761, guid: e21f788bffe68a1409787eaad9650590, type: 2}
+    value: {fileID: 1210189924}
+  - key: {fileID: 9088905723289401624, guid: e21f788bffe68a1409787eaad9650590, type: 2}
+    value: {fileID: 1922635429}
+  - key: {fileID: -3130112125337643169, guid: e21f788bffe68a1409787eaad9650590, type: 2}
+    value: {fileID: 1363732733}
+  - key: {fileID: -4879947669704731797, guid: e21f788bffe68a1409787eaad9650590, type: 2}
+    value: {fileID: 1363732733}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1911286141
 GameObject:
   m_ObjectHideFlags: 0
@@ -36597,7 +37359,7 @@ Transform:
   - {fileID: 446302674}
   - {fileID: 329034620}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922635426
 GameObject:
@@ -36683,7 +37445,7 @@ MonoBehaviour:
   - 6
   - 5
   nonnpcs: {fileID: 1030019401}
-  timeManager: {fileID: 1210189926}
+  timeManager: {fileID: 0}
   npcs: {fileID: 446302673}
   cutscenesEnabled: 1
   dialoguesEnabled: 1
@@ -36696,6 +37458,7 @@ MonoBehaviour:
     scene: 1
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36708,6 +37471,7 @@ MonoBehaviour:
     scene: 0
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36720,6 +37484,7 @@ MonoBehaviour:
     scene: 0
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36732,6 +37497,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 3
       desiredValue: 0
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36744,6 +37510,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 4
       desiredValue: 0
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36756,6 +37523,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 6
       desiredValue: 0
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36766,6 +37534,7 @@ MonoBehaviour:
     scene: 5
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36775,9 +37544,8 @@ MonoBehaviour:
     dayToPlayGEQ: 0
     scene: 0
     isTriggeredCutscene: 1
-    extraConditions:
-    - variable: 6
-      desiredValue: 0
+    extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36787,19 +37555,19 @@ MonoBehaviour:
     dayToPlayGEQ: 0
     scene: 0
     isTriggeredCutscene: 1
-    extraConditions:
-    - variable: 6
-      desiredValue: 0
+    extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 269487939}
-    dayToPlay: -1
+    dayToPlay: 1
     dayToPlayGEQ: 0
     scene: 0
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: triggered via wakeup function in LevelLoader
     validTimes: []
@@ -36809,9 +37577,8 @@ MonoBehaviour:
     dayToPlayGEQ: 0
     scene: 7
     isTriggeredCutscene: 1
-    extraConditions:
-    - variable: 1
-      desiredValue: 0
+    extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: triggered if u took bus from house
     validTimes: []
@@ -36821,13 +37588,14 @@ MonoBehaviour:
     dayToPlayGEQ: 0
     scene: 8
     isTriggeredCutscene: 0
-    extraConditions:
-    - variable: 17
-      desiredValue: 1
+    extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $isBusCutscenePlaying
+      desiredValue: 1
   - cutsceneToPlay: {fileID: 336915786}
     dayToPlay: -1
     dayToPlayGEQ: 0
@@ -36836,6 +37604,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 17
       desiredValue: 1
+    priority: 0
     shouldActivate: 1
     custsceneDescription: triggered if you took bus from campus
     validTimes: []
@@ -36845,19 +37614,21 @@ MonoBehaviour:
     dayToPlayGEQ: 0
     scene: 7
     isTriggeredCutscene: 0
-    extraConditions:
-    - variable: 17
-      desiredValue: 1
+    extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $isBusCutscenePlaying
+      desiredValue: 1
   - cutsceneToPlay: {fileID: 187142377}
     dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 8
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: Triggered by pressing E on the apartment
     validTimes: []
@@ -36868,6 +37639,7 @@ MonoBehaviour:
     scene: 7
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36880,6 +37652,7 @@ MonoBehaviour:
     scene: 8
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36892,6 +37665,7 @@ MonoBehaviour:
     scene: 9
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 0
     custsceneDescription: 
     validTimes: []
@@ -36904,6 +37678,7 @@ MonoBehaviour:
     scene: 9
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: triggered from trying to enter lecture hall during day
       2
@@ -36917,6 +37692,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 14
       desiredValue: 0
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36929,6 +37705,7 @@ MonoBehaviour:
     scene: 9
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36945,6 +37722,7 @@ MonoBehaviour:
     extraConditions:
     - variable: 15
       desiredValue: 1
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -36959,17 +37737,10 @@ MonoBehaviour:
     extraConditions:
     - variable: 16
       desiredValue: 1
-    shouldActivate: 1
+    priority: 0
+    shouldActivate: 0
     custsceneDescription: 
-    validTimes:
-    - startTime:
-        gameHour: 0
-        gameMinute: 0
-        gameSecond: 0
-      endTime:
-        gameHour: 0
-        gameMinute: 0
-        gameSecond: 0
+    validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 2118237775}
     dayToPlay: -1
@@ -36977,15 +37748,16 @@ MonoBehaviour:
     scene: 12
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: triggered from talking to chase
     validTimes:
     - startTime:
-        gameHour: 0
+        gameHour: 17
         gameMinute: 0
         gameSecond: 0
       endTime:
-        gameHour: 0
+        gameHour: 21
         gameMinute: 0
         gameSecond: 0
     YarnVariables: []
@@ -36995,6 +37767,7 @@ MonoBehaviour:
     scene: 12
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: triggered if you choose to be mean to coomer
     validTimes: []
@@ -37005,6 +37778,7 @@ MonoBehaviour:
     scene: 12
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: triggered if u choose to expose coomer
     validTimes: []
@@ -37015,6 +37789,7 @@ MonoBehaviour:
     scene: 12
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: triggered if you talk to boomer at 6pm
     validTimes: []
@@ -37025,6 +37800,7 @@ MonoBehaviour:
     scene: 14
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: triggered from soyboy dialogue
     validTimes: []
@@ -37035,6 +37811,7 @@ MonoBehaviour:
     scene: 1
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -37045,6 +37822,7 @@ MonoBehaviour:
     scene: 8
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: Get  sushi with zoomer (must be freinds to trigger thiss)
     validTimes: []
@@ -37055,6 +37833,7 @@ MonoBehaviour:
     scene: 6
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: Plays everytime you talk to the reaper and go to a dream
     validTimes: []
@@ -37065,56 +37844,72 @@ MonoBehaviour:
     scene: 15
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: Plays everytime dream 2 is entered
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $hasBoated
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 1275675284}
     dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 18
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 1
+    priority: 0
+    shouldActivate: 0
     custsceneDescription: 4
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $hasBoated
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 1275675284}
     dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 20
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 1
+    priority: 0
+    shouldActivate: 0
     custsceneDescription: arrive to dream day 3
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $hasBoated
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 1275675284}
     dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 21
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: arrive dream 4
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $hasBoated
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 1275675284}
     dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 19
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 5
     validTimes: []
-    YarnVariables: []
+    YarnVariables:
+    - YarnVariable: $hasBoated
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 556114433}
     dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 19
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: Plays when you interact with the dying man
     validTimes: []
@@ -37125,61 +37920,67 @@ MonoBehaviour:
     scene: 15
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: Plays when you interact with the dying man
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1129992921}
-    dayToPlay: 2
+    dayToPlay: 3
     dayToPlayGEQ: 0
     scene: 17
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: Plays when you spawn in dream room on night of childhood
       dream
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1043661123}
-    dayToPlay: 3
+    dayToPlay: 4
     dayToPlayGEQ: 0
     scene: 16
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: Plays when you spawn in dream room on night of childhood
       dream
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 833975626}
-    dayToPlay: 3
+    dayToPlay: 4
     dayToPlayGEQ: 0
     scene: 17
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: After finishing couch lecture, this triggers when u walk
       into dream room
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1603875883}
-    dayToPlay: 3
+    dayToPlay: 4
     dayToPlayGEQ: 0
     scene: 18
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: talk to the eating kids to trigger this
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 653593670}
-    dayToPlay: 3
+    dayToPlay: 4
     dayToPlayGEQ: 0
     scene: 18
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
-    custsceneDescription: talk to the eating kids to trigger this
+    custsceneDescription: walk and then get stopped by dad
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1152881369}
@@ -37188,6 +37989,7 @@ MonoBehaviour:
     scene: 9
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: talk to the eating kids to trigger this
     validTimes: []
@@ -37195,11 +37997,12 @@ MonoBehaviour:
     - YarnVariable: $didCoomerCutscene
       desiredValue: 0
   - cutsceneToPlay: {fileID: 1163048749}
-    dayToPlay: 3
+    dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 14
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: talk to the eating kids to trigger this
     validTimes:
@@ -37215,11 +38018,12 @@ MonoBehaviour:
     - YarnVariable: $didGamingCutscene
       desiredValue: 0
   - cutsceneToPlay: {fileID: 1633404870}
-    dayToPlay: 3
-    dayToPlayGEQ: 0
+    dayToPlay: -1
+    dayToPlayGEQ: 3
     scene: 1
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes:
@@ -37240,7 +38044,8 @@ MonoBehaviour:
     scene: 1
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 1
+    priority: 0
+    shouldActivate: 0
     custsceneDescription: from day 3 Onwards, we can run into this cutscene.
     validTimes:
     - startTime:
@@ -37260,18 +38065,22 @@ MonoBehaviour:
     scene: 0
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: activate this the instant we make a friend
     validTimes: []
     YarnVariables:
     - YarnVariable: $hasMadeFriend
       desiredValue: 1
+    - YarnVariable: $hasDoneFirstFriend
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 1605107838}
     dayToPlay: -1
     dayToPlayGEQ: 0
     scene: 1
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: activates once the friend meeting is on
     validTimes:
@@ -37294,6 +38103,7 @@ MonoBehaviour:
     scene: 0
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: coom
     validTimes: []
@@ -37304,6 +38114,7 @@ MonoBehaviour:
     scene: 0
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: can trigger whenever, happens when cumulative score is
       for social, content and entertained is < than some value I havent chosen yet
@@ -37315,6 +38126,7 @@ MonoBehaviour:
     scene: 8
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: can trigger whenever, happens when cumulative score is
       for social, content and entertained is < than some value I havent chosen yet
@@ -37328,18 +38140,7 @@ MonoBehaviour:
     scene: 0
     isTriggeredCutscene: 0
     extraConditions: []
-    shouldActivate: 1
-    custsceneDescription: tells the player that they can beat the game
-    validTimes: []
-    YarnVariables:
-    - YarnVariable: $canBeatGame
-      desiredValue: 1
-  - cutsceneToPlay: {fileID: 1215903897}
-    dayToPlay: 0
-    dayToPlayGEQ: 6
-    scene: 0
-    isTriggeredCutscene: 0
-    extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: tells the player that they can beat the game
     validTimes: []
@@ -37352,6 +38153,7 @@ MonoBehaviour:
     scene: 20
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: tells the player that they can beat the game
     validTimes: []
@@ -37362,6 +38164,7 @@ MonoBehaviour:
     scene: 20
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -37372,6 +38175,7 @@ MonoBehaviour:
     scene: 20
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -37384,6 +38188,7 @@ MonoBehaviour:
     scene: 21
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -37396,6 +38201,7 @@ MonoBehaviour:
     scene: 23
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -37406,6 +38212,7 @@ MonoBehaviour:
     scene: 0
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -37416,6 +38223,7 @@ MonoBehaviour:
     scene: 1
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -37426,6 +38234,7 @@ MonoBehaviour:
     scene: 11
     isTriggeredCutscene: 0
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
@@ -37438,11 +38247,93 @@ MonoBehaviour:
     scene: 11
     isTriggeredCutscene: 1
     extraConditions: []
+    priority: 0
     shouldActivate: 1
     custsceneDescription: 
     validTimes: []
+    YarnVariables: []
+  - cutsceneToPlay: {fileID: 138861386}
+    dayToPlay: -1
+    dayToPlayGEQ: 0
+    scene: 11
+    isTriggeredCutscene: 1
+    extraConditions: []
+    priority: 0
+    shouldActivate: 1
+    custsceneDescription: 
+    validTimes: []
+    YarnVariables: []
+  - cutsceneToPlay: {fileID: 1909713519}
+    dayToPlay: 3
+    dayToPlayGEQ: 0
+    scene: 6
+    isTriggeredCutscene: 0
+    extraConditions: []
+    priority: 0
+    shouldActivate: 1
+    custsceneDescription: first time the robot enters the dark scene
+    validTimes: []
+    YarnVariables: []
+  - cutsceneToPlay: {fileID: 1890356866}
+    dayToPlay: 0
+    dayToPlayGEQ: 4
+    scene: 6
+    isTriggeredCutscene: 0
+    extraConditions: []
+    priority: 0
+    shouldActivate: 1
+    custsceneDescription: for all subsequent dark scene enters, unfade the scene
+    validTimes: []
+    YarnVariables: []
+  - cutsceneToPlay: {fileID: 2063361106}
+    dayToPlay: 0
+    dayToPlayGEQ: 0
+    scene: 6
+    isTriggeredCutscene: 1
+    extraConditions: []
+    priority: 0
+    shouldActivate: 1
+    custsceneDescription: for all subsequent dark scene enters, unfade the scene
+    validTimes: []
+    YarnVariables: []
+  - cutsceneToPlay: {fileID: 1822742726}
+    dayToPlay: -1
+    dayToPlayGEQ: 0
+    scene: 12
+    isTriggeredCutscene: 0
+    extraConditions: []
+    priority: -1
+    shouldActivate: 1
+    custsceneDescription: for all subsequent dark scene enters, unfade the scene
+    validTimes: []
     YarnVariables:
-    - YarnVariable: $hasEnteredMainQuadBefore
+    - YarnVariable: $hasEnteredClassroomBefore
+      desiredValue: 0
+  - cutsceneToPlay: {fileID: 1354510499}
+    dayToPlay: -1
+    dayToPlayGEQ: 0
+    scene: 1
+    isTriggeredCutscene: 1
+    extraConditions: []
+    priority: -1
+    shouldActivate: 1
+    custsceneDescription: using fridge
+    validTimes: []
+    YarnVariables:
+    - YarnVariable: $hasEnteredClassroomBefore
+      desiredValue: 0
+  - cutsceneToPlay: {fileID: 312278524}
+    dayToPlay: -1
+    dayToPlayGEQ: 0
+    scene: 1
+    isTriggeredCutscene: 1
+    extraConditions: []
+    priority: -1
+    shouldActivate: 1
+    custsceneDescription: using fridge
+    validTimes: []
+    YarnVariables:
+    - YarnVariable: $hasEnteredClassroomBefore
       desiredValue: 0
   gameState: {fileID: 1210189925}
   sceneStartingPositions:
@@ -37459,7 +38350,7 @@ MonoBehaviour:
   - scene: 5
     startingPosition: {x: -24, y: 41, z: 0}
   - scene: 6
-    startingPosition: {x: -41.11, y: -65.2, z: 0}
+    startingPosition: {x: -68, y: -50.4, z: 0}
   - scene: 7
     startingPosition: {x: 2.58, y: -27.17, z: 0}
   - scene: 8
@@ -37975,6 +38866,7 @@ GameObject:
   - component: {fileID: 1925934507}
   - component: {fileID: 1925934509}
   - component: {fileID: 1925934510}
+  - component: {fileID: 1925934511}
   m_Layer: 0
   m_Name: Apartment Windows
   m_TagString: Untagged
@@ -38059,7 +38951,7 @@ SpriteRenderer:
   m_SortingLayerID: -478511327
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1019307968, guid: 6ebf2c78b44fb0a4899c84a8d8bc61c8, type: 3}
+  m_Sprite: {fileID: -1644773129, guid: 6ebf2c78b44fb0a4899c84a8d8bc61c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -38228,6 +39120,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1925934511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925934505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf7da3bd040ca1498fba444279702d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLoadConditions:
+  - dayToPlay: 4
+    scene: 20
+    extraConditions: []
+    validTimes: []
+  - dayToPlay: 5
+    scene: 21
+    extraConditions: []
+    validTimes: []
 --- !u!1 &1928019699
 GameObject:
   m_ObjectHideFlags: 0
@@ -38405,7 +39318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937585868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.7, y: -28.8, z: -10}
+  m_LocalPosition: {x: -219.2, y: 32.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39678,6 +40591,7 @@ Transform:
   - {fileID: 1105998243}
   - {fileID: 1090017316}
   - {fileID: 405272090}
+  - {fileID: 2063361105}
   m_Father: {fileID: 1468802245}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -40046,7 +40960,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 117467299}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1999963756
 PlayableDirector:
@@ -41119,6 +42033,65 @@ Transform:
   m_Father: {fileID: 1575718977}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2063361104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2063361105}
+  - component: {fileID: 2063361106}
+  m_Layer: 0
+  m_Name: PlayWithPhone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2063361105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063361104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1973413093}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &2063361106
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063361104}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 57457e94c077f0b469680b00f1b3910f, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2749236914817942331, guid: 57457e94c077f0b469680b00f1b3910f, type: 2}
+    value: {fileID: 1363732733}
+  - key: {fileID: -2292073446221640158, guid: 57457e94c077f0b469680b00f1b3910f, type: 2}
+    value: {fileID: 1363732733}
+  - key: {fileID: 3881956344478916266, guid: 57457e94c077f0b469680b00f1b3910f, type: 2}
+    value: {fileID: 1210189924}
+  - key: {fileID: 6627748912243945007, guid: 57457e94c077f0b469680b00f1b3910f, type: 2}
+    value: {fileID: 1371286256}
+  - key: {fileID: 4425878776281342671, guid: 57457e94c077f0b469680b00f1b3910f, type: 2}
+    value: {fileID: 1922635429}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &2065440580
 GameObject:
   m_ObjectHideFlags: 0
@@ -41170,7 +42143,7 @@ MonoBehaviour:
       gameHour: 0
       gameMinute: 0
       gameSecond: 0
-    dayToPlay: 3
+    dayToPlay: 4
     extraConditions: []
   dialogueImages: []
   soundToPlay: 0
@@ -42744,7 +43717,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2121684405
 MonoBehaviour:
@@ -43461,7 +44434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140530124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -107.59, y: -42.21, z: -10}
+  m_LocalPosition: {x: -107.65, y: -42.31, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44380,7 +45353,7 @@ Transform:
   - {fileID: 7084386684496869196}
   - {fileID: 269917798}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3579681405714880837
 MonoBehaviour:
@@ -44945,7 +45918,7 @@ PrefabInstance:
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
@@ -44960,12 +45933,12 @@ PrefabInstance:
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.7
+      value: -219.2
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.8
+      value: 32.8
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}

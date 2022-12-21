@@ -170,7 +170,7 @@ Steven: Thanks for the advice, I guess. #e:smile
 Michael: No, thank you for listening. 
 Michael: Remember, I'm always here to chat. #e:talking
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
-<<jump Boomer_Improve_Friendship_Most>>
+<<jump Boomer_Improve_Friendship>>
 ===
 
 
@@ -180,7 +180,7 @@ Michael: Well, that was a nice talk. I gotta go get an oil change. #e:talking
 Michael: I'll catch you around, is that what the kids say these days?
 Steven: Yeah. #e:smile
 Michael: Alright, then I'll catch ya later. 
-<<jump Boomer_Improve_Friendship_Most>>
+<<jump Boomer_Improve_Friendship>>
 ===
 
 title: Boomer_Unfriendly

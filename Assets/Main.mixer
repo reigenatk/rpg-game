@@ -225,7 +225,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Footsteps
+  m_Name: Duck Music
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: ae5b2da632d03254c93567af24eff6df
   m_Children:
@@ -238,6 +238,7 @@ AudioMixerGroupController:
   - {fileID: -7355055810389171595}
   - {fileID: -8711664930963069992}
   - {fileID: 8484400805632081390}
+  - {fileID: -2732063130510401575}
   m_Volume: 03141c60bc76c2e4d8a206a7744203f6
   m_Pitch: bdcd6408840d26e4fb1dd06d4679fd89
   m_Send: 00000000000000000000000000000000
@@ -342,6 +343,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 449715529253711616}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &-2732063130510401575
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dream 3 Song
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 48350efbebdc6ca4ba4b5aa6ac695172
+  m_Children: []
+  m_Volume: 8601540ef33c8f143922651f284c483c
+  m_Pitch: 0c0401b858e8d6b408a0a9f53043f78d
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 7090460923452733025}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -472,6 +492,7 @@ AudioMixerController:
     - a88a049f64c8fc74d928920de321f6ff
     - 72a9ff0b02de5dd479b79cfee08b8471
     - e899ed01c37e851479ae8f5af292336a
+    - 48350efbebdc6ca4ba4b5aa6ac695172
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -524,6 +545,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: ec12a7714aa8fb643b5eb2ab26d45cf6
   m_FloatValues:
     03141c60bc76c2e4d8a206a7744203f6: -12.498478
+    70acb7f0a5d65da4e89520abaa847963: -0.19117308
     89f78af01a0c60e42b716c35a51ec3a8: -5.3230715
     42ed6d8175bd4664db89dbfbca12655a: 0
     4bb3483223067e248a7739156e717476: -47.1
@@ -537,6 +559,7 @@ AudioMixerSnapshotController:
     371386dbee080494cbac3095cc0084a1: -23.2
     fefc9c9c49ca67643b97417e9fd9f083: 0
     331024ecd0c12cf4a9a43e6e908eab18: -9.833286
+    8601540ef33c8f143922651f284c483c: 11.313306
     7eb4791ea54e4e34684ae5f4dc955984: -11.944499
     305a135e884b6ea449e1216f119584dc: -47.2
     7705875e66743124e99dc6bde702ea5a: 4.648098
@@ -735,6 +758,20 @@ AudioMixerEffectController:
   m_EffectID: c74be97395298c64fa4a77b975312b78
   m_EffectName: Attenuation
   m_MixLevel: ad05f0d84d63e904089a88ca407a7132
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &7090460923452733025
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 9967a0473af261b47bded7e1b92196cf
+  m_EffectName: Attenuation
+  m_MixLevel: 11fb39f03ec560b4ab70b6c4df0bdb4a
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0

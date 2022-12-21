@@ -36,6 +36,7 @@ title: DoomerGirl_Familiar
 Laura: Hey.
 -> Let's chat
 	Steven: Wanna chat? #e:shy
+	<<wait 1>>
 	Laura: Sure.
     <<jump DoomerGirl_Chat_Decide>>
 -> Nothing
@@ -175,7 +176,7 @@ Laura: Anyways.. See you later. #e:looking-smile
 <<if $hasMadeFriend == false>>
 	<<set $hasMadeFriend = true>>
 <<endif>>
-<<jump DoomerGirl_Improve_Friendship_Most>>
+<<jump DoomerGirl_Improve_Friendship>>
 ===
 
 title: DoomerGirl_Chat_End_2
@@ -234,7 +235,7 @@ title: DoomerGirl_Chat_End_Generic
 ---
 Laura: Alright, cya later. #e:smile
 Steven: Later. #e:smile
-<<jump DoomerGirl_Improve_Friendship_Most>>
+<<jump DoomerGirl_Improve_Friendship>>
 ===
 
 title: DoomerGirl_Unfriendly
@@ -307,10 +308,23 @@ title: Nothing
 title: Doomer_Girl_Stacy
 ---
 <<set $didDGStacyDialogue = true>>
-Steven: Say, Stacy said you were her roomate, right? #e:worried
-<<wait 1>>
-Laura: Yeah... Stacy and I live together. #e:looking
-<<wait 1>>
+
+<<if $hasMetStacy == false>>
+	Laura: Wait, how do you know Stacy? 
+	Steven: Uhm... #e:yikes
+	<<wait 2>>
+	Steven: I don't.. #e:worried
+	Laura: ... #e:looking
+	Laura: You're weird...
+	<<wait 2>>
+	Laura: But I'll tell you about her.
+	Laura: She's my roommate.
+<<else>>
+	Steven: Say, Stacy said you were her roomate, right? #e:worried
+	<<wait 1>>
+	Laura: Yeah... Stacy and I live together. #e:looking
+	<<wait 1>>
+<<endif>>
 Steven: Oh cool. Do you guys know each other from high school? #e:smile
 <<wait 1>>
 Laura: No, we met here. She just invited me to live with her. #e:neutral
@@ -367,6 +381,7 @@ Laura: That's...
 Laura: Kinda creepy #e:looking
 <<wait 1>>
 Mind: shit! #e:oshit
+Mind: Was that actually creepy to say? #e:yikes 
 <<wait 1>>
 Laura: But I'll answer the question. Mostly Radiohead and My Chemical Romance...
 Laura: Sometimes noise music as well...

@@ -128,7 +128,12 @@ public class SoundItem
         SelectSound2,
         AutumnWalk,
         Running,
+        BrushTeeth,
+        MicrowaveAndEat,
+        TakeShit,
+        EvilLaugh,
 
+        LowBattery,
     }
 
     public SoundName soundName;

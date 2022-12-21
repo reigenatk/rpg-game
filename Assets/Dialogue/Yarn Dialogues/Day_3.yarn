@@ -9,11 +9,12 @@
 
 title: D3_Start_Day
 ---
-Steven: Wow, that was a weird dream... #e:weary
+Steven: Screw that boneheaded bastard. #e:angry3
 <<wait 2>>
-Steven: Woohoo, another shitty day. #e:bored
-<<wait 1>>
-Steven: I can't wait to do absolutely nothing.. #e:bored
+Steven: Giving me nightmares I didn't even ask for... #e:angry3
+<<wait 2>>
+Steven: ... #e:weary
+<<wait 2>>
 ===
 
 title: Kabowski_Confronts_Coomer
@@ -343,6 +344,7 @@ Steven: Nice to meet you, then. #e:dsmile
 <<wait 1>>
 Dylan: Yep. Talk to you later. #e:smile
 <<set $talkedToDoomerAlready = true>>
+<<SetTime Manager 20 30 0>> 
 ===
 
 title: After_Gaming

@@ -5,7 +5,6 @@
 
 <<declare $talkedToZoomerAlready = false>>
 <<declare $zoomerFriendProgress = 0>> // no way to declare negative numbers in yarn >:(
-<<set $zoomerFriendProgress = -1>>
 <<declare $didZoomerDialogue1 = false>>
 <<declare $didZoomerDialogue2 = false>>
 <<declare $hasMetZoomer = false>>
@@ -161,7 +160,7 @@ Steven: Good one... #e:dsmile
 Chris: Ayo but I ain no simp. I be skrttin on dem hoes, ya feel?
 Steven: I feel. #e:smirk
 Chris: Ayo, das wassup. You be learnin fast, homie. You undastand da assignment.
-
+<<jump Zoomer_Improve_Friendship_Most>>
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
 ===
 
@@ -319,8 +318,9 @@ Chris: You tryna roast me, cuz?
     <<wait 2>>
     Chris: Ahhh. I'm weak, cuzz. Getting me on that grindset, yeah? #e:talking
     Chris: Don't worry. In a year, I'll be making world tours. #e:cool
-    Chris: Here. My soundcloud ID is 652744745-788731291. 
+    Chris: Here. My spotify is Lil Cuuzie. 
     Chris: Check me out, cuzzz. #e:cool
+    Chris: SHieeeeeeeeeet... #e:cool
     <<wait 2>>
     Steven: Yeah, totally. I'll be sure to check it out.. #e:smile
     Voice: This guy is way over his head. #e:evil2

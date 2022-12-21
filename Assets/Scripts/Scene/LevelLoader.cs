@@ -28,6 +28,7 @@ public class LevelLoader : Singleton<LevelLoader>
     [SerializeField] List<SceneName> scenes;
     [SerializeField] List<float> orthoSizes;
 
+
     // names of cutscenes that are waiting to be played after this one
     public Stack<string> cutsceneQueue;
 
@@ -68,6 +69,8 @@ public class LevelLoader : Singleton<LevelLoader>
         public bool isTriggeredCutscene;
         // some extra conditions that must be either true or false
         public List<GameVariablePair> extraConditions;
+
+        public int priority = 0; // higher = more prio
 
         // this is for editor debugging purposes so I can set the isTriggered stuff properly and then use this bool to turn on and off
         public bool shouldActivate;
@@ -136,7 +139,7 @@ public class LevelLoader : Singleton<LevelLoader>
                     return false;
                 }
             }
-
+            Debug.Log("Cutscene " + cutsceneToPlay.ToString() + "works..");
             return true;
         }
     }
@@ -608,18 +611,35 @@ public class LevelLoader : Singleton<LevelLoader>
         Debug.Log("Checking if we should play any cutscenes...");
         if (cutscenesEnabled == false) return null;
         Debug.Log("Cutscenes are enabled, keep looking. The cutscene dict for scene " + sceneName + " is of size " + CutscenesDict[sceneName].Count);
+        int curPriority = -2000;
+        string cutsceneToPlay = null;
         foreach (CutsceneCondtional c in CutscenesDict[sceneName])
         {
             if (c.shouldPlayCutscene(sceneName))
             {
-                Debug.Log("Upon loading this scene we should play cutscene called " + c.cutsceneToPlay.name);
-                return c.cutsceneToPlay.name;
+                
+                if (c.priority > curPriority)
+                {
+                    Debug.Log("Found a cutscene to play with prio " + c.priority + " called " + c.cutsceneToPlay.name);
+                    curPriority = c.priority;
+                    cutsceneToPlay = c.cutsceneToPlay.name;
+                }
             }
         }
         // if we can't find any cutscenes with all conditions met, then we're playing nothing
         // just return null
-        Debug.Log("No cutscenes necessary to play");
-        return null;
+        
+        if (cutsceneToPlay == null)
+        {
+            Debug.Log("No cutscenes necessary to play");
+            return null;
+        }
+        else
+        {
+            Debug.Log("Playing cutscene " + cutsceneToPlay + " with prio " + curPriority);
+            return cutsceneToPlay;
+        }
+
     }
 
     // This is the main function that you should call to switch scene. It calls a bunch of helpers internally
@@ -672,19 +692,30 @@ public class LevelLoader : Singleton<LevelLoader>
 
     }
 
-    public bool isDreamScene()
+    public bool shouldHaveTime()
     {
         switch (curScene)
         {
+            case SceneName.DreamDay0:
             case SceneName.DreamDay1:
-            case SceneName.DreamHome:
-            case SceneName.DreamRoom:
             case SceneName.DreamDay2:
             case SceneName.DreamDay3:
             case SceneName.DreamDay4:
             case SceneName.DreamDay5:
-            case SceneName.DreamDay0:
+            case SceneName.DreamRoom:
+            case SceneName.DreamHome:
             case SceneName.DarkScene:
+            case SceneName.ActualDarkScene:
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    public bool isDreamScene()
+    {
+        switch (curScene)
+        {
             case SceneName.ActualDarkScene:
                 return true;
             default:

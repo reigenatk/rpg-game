@@ -855,7 +855,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.33055878, y: -0.052890778}
+  m_Offset: {x: 7.3211365, y: -6.7014275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -866,7 +866,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.46434, y: 3.1156235}
+  m_Size: {x: 3.438202, y: 3.885231}
   m_EdgeRadius: 0
 --- !u!1 &357216600
 GameObject:
@@ -5082,7 +5082,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.33055878, y: -0.052890778}
+  m_Offset: {x: -0.27871704, y: -7.9092827}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5093,7 +5093,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.46434, y: 3.1156235}
+  m_Size: {x: 2.6044617, y: 4.8899918}
   m_EdgeRadius: 0
 --- !u!1 &472761604
 GameObject:
@@ -58490,7 +58490,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1755519736}
   - component: {fileID: 1755519739}
-  - component: {fileID: 1755519738}
   - component: {fileID: 1755519737}
   m_Layer: 0
   m_Name: hopscotch
@@ -58535,32 +58534,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &1755519738
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755519735}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 5}
-    newSize: {x: 3, y: 5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3, y: 5}
-  m_EdgeRadius: 0
 --- !u!212 &1755519739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58742,7 +58715,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1766163773}
-  - component: {fileID: 1766163774}
   m_Layer: 0
   m_Name: Props
   m_TagString: Untagged
@@ -58771,23 +58743,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1766163774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766163772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf7da3bd040ca1498fba444279702d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLoadConditions:
-  - dayToPlay: 2
-    scene: 15
-    extraConditions: []
-    validTimes: []
 --- !u!1 &1924602926
 GameObject:
   m_ObjectHideFlags: 0
@@ -71851,7 +71806,7 @@ MonoBehaviour:
   teleportSound: {fileID: 8300000, guid: 7b870eb9e49741b47a15996192d69b31, type: 3}
   teleportSprite: {fileID: 2035737024}
   specialTeleportConditions:
-  - gameDay: 2
+  - gameDay: 3
     extraConditions: []
     YarnVariables:
     - YarnVariable: $finishedMeetJefferyScene
@@ -71859,7 +71814,7 @@ MonoBehaviour:
     validTimes: []
     knockDialogue: Teleporter_Explanation
     shouldTeleportAfter: 1
-  - gameDay: 2
+  - gameDay: 3
     extraConditions: []
     YarnVariables:
     - YarnVariable: $finishedMeetJefferyScene
@@ -71868,7 +71823,7 @@ MonoBehaviour:
     knockDialogue: Nothing
     shouldTeleportAfter: 0
   spriteShowConditions:
-  - gameDay: 2
+  - gameDay: 3
     extraConditions: []
     YarnVariables:
     - YarnVariable: $finishedMeetJefferyScene
@@ -108746,7 +108701,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 21
+      m_TileSpriteIndex: 29
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -133077,8 +133032,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 84758aaaad43f6845aaa453c6070fec4, type: 3}
   - m_RefCount: 648
     m_Data: {fileID: 21300000, guid: 7dcc68d4d541625468ce67ba23790356, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 1f39c4f6a7a7e6f4b9e402cd6d0a2e84, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 199
     m_Data: {fileID: 21300000, guid: 6ee6fb491e2d8d741aaf34493e2b78ec, type: 3}
   - m_RefCount: 9
@@ -133093,8 +133048,8 @@ Tilemap:
     m_Data: {fileID: 704481270, guid: 4a5c6979cb8f45941877e19646c6eda1, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 1f39c4f6a7a7e6f4b9e402cd6d0a2e84, type: 3}
   - m_RefCount: 22
     m_Data: {fileID: 1871695237, guid: 4a5c6979cb8f45941877e19646c6eda1, type: 3}
   - m_RefCount: 4

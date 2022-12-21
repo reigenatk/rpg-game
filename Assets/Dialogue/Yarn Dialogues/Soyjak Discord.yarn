@@ -94,7 +94,7 @@ Benny: Okay. I'll see you around. #e:smug
 	Benny: If you haven't already, you should totally come checkout our gaming club! #e:excited 
 	Benny: It's from <color=yellow>5-9PM everyday in the classroom closer to the cofee shop.</color> #e:smug
 <<endif>>
-<<jump Discord_Improve_Friendship_Most>>
+<<jump Discord_Improve_Friendship>>
 ===
 
 title: Discord_Chat_End_2
@@ -116,7 +116,7 @@ Steven: Okay, cya...
 <<wait 2>>
 Steven: Jesus, how do people actually live like this? #e:bored
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
-<<jump Discord_Improve_Friendship_Most>>
+<<jump Discord_Improve_Friendship>>
 ===
 
 
@@ -128,7 +128,7 @@ title: Discord_Chat_End_Generic
 Benny: Oop, I'm getting pinged again. Must be something important. #e:smug
 Benny: Gotta go, bub. #e:smug
 Steven: Later...
-<<jump Discord_Improve_Friendship_Most>>
+<<jump Discord_Improve_Friendship>>
 ===
 
 title: Discord_Unfriendly

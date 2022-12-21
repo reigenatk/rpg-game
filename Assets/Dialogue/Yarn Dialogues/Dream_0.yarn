@@ -269,3 +269,9 @@ Steven: Who wouldn't cry because of that? #e:cry
 // <<yarnLoadScene LevelLoader Bedroom 2.0>>
 ===
 
+title: Enter_Dark_Scene
+---
+Steven: Not again... #e:bored
+// <<StartAllMusic MusicObject 1.0>>
+// <<wait 2>>
+===

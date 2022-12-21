@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// we decided not to do iSaveable for gridproperties manager cuz I don't have crops on my grid (like they did in the course) so there's not really any point in saving.
 public class GridPropertiesManager : MonoBehaviour
 {
     [SerializeField] private SO_GridProperties[] so_gridPropertiesArray = null;
