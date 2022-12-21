@@ -31,4 +31,3 @@ More or less a game about being a depressed college student. You'll never guess 
 
 ![room](https://user-images.githubusercontent.com/69275171/208844165-bf160cc7-c538-4fdb-8f13-9a2b365e1a77.png)
 
-![soyboy](https://user-images.githubusercontent.com/69275171/208844187-b6f1d942-331b-4ed5-a0c5-1adfc6f1ed04.png)
