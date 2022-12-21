@@ -4,7 +4,7 @@ A 2D top-down RPG game I am making in Unity. It's going to be mostly dialogue/st
 I've actually been working on this since around September 2021, but school got in the way, and also lack of motivation (as always). I only now remembered that GitHub exists, which is why the commit is a bit late
 
 # Motivation
-My favorite kinds of games are probably indie RPG games, so I decided to give a shot at making one. I've always been amazed at how much one developer can do. I find that some of my favorite games were developed by one person (or a team of small people). Games like LISA, Undertale, OneShot, OMORI, Stardew Valley, (and recently, I played Katana Zero which was insanely good).
+My favorite kinds of games are probably indie RPG games, so I decided to give a shot at making one. I've always been amazed at how much one developer can do. I find that some of my favorite games were developed by one person (or a team of small people). Games like LISA, Undertale, OneShot, OMORI, Stardew Valley, (and recently, I played Katana Zero which was insanely good). I recognized all but 1 character in [this picture](https://user-images.githubusercontent.com/69275171/208844570-501f4bfe-5600-472f-a6ad-aad1eae6a759.png) lol
 
 # Technologies
 This is made in Unity, though I did consider using GameMaker Studio or Godot (and even RPGMaker).
