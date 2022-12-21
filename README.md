@@ -22,3 +22,13 @@ More or less a game about being a depressed college student. You'll never guess 
 ![image](https://user-images.githubusercontent.com/69275171/190540144-6dd2f5c5-b51f-4e33-8464-eb40564fc295.png)
 
 ![image](https://user-images.githubusercontent.com/69275171/207747029-80a5ef45-4dac-4ad2-86a8-d4645e619a5e.png)
+
+![apartment](https://user-images.githubusercontent.com/69275171/208844119-20ec69cf-5032-4ec0-ac5b-5e3c6374e68c.png)
+
+![do-we-have-deal](https://user-images.githubusercontent.com/69275171/208844125-6fe3435a-5d13-405b-b245-063be791919e.png)
+
+![pizza](https://user-images.githubusercontent.com/69275171/208844148-08075725-298c-4731-a1f8-2afac8cfeaab.png)
+
+![room](https://user-images.githubusercontent.com/69275171/208844165-bf160cc7-c538-4fdb-8f13-9a2b365e1a77.png)
+
+![soyboy](https://user-images.githubusercontent.com/69275171/208844187-b6f1d942-331b-4ed5-a0c5-1adfc6f1ed04.png)
