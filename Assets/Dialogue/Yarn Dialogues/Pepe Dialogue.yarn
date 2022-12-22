@@ -3,7 +3,6 @@
 
 // one time dialogue variables
 <<declare $didPepeDialogue1 = false>>
-<<declare $didPepeDialogue2 = false>>
 <<declare $hasMetPepe = false>>
 <<declare $hasPepeNumber = false>>
 <<declare $hasTextedPepe = false>>
@@ -37,7 +36,7 @@ Pepe: I'm not feeling too good, bro... #e:sad
 -> Let's chat
     Steven: Why not? #e:think1
     <<wait 2>>
-    Steven: Let's chat, dude. #e:smile 
+    Steven: Let's chat, dude. Maybe I can cheer you up. #e:smile 
     <<jump Pepe_Chat_Decide>>
     Pepe: Okay.. #e:sad
 ===
@@ -55,7 +54,7 @@ title: Pepe_Chat_Decide
     -> Frog 
         <<jump Pepe_Frog>>
     -> Generic Chat
-        <<jump Chat_End_Generic>>
+        <<jump Pepe_Chat_End_Generic>>
         
 <<endif>>
 ===
@@ -378,7 +377,7 @@ Steven: Yo, what's up. #e:smile
 <<endif>>
 <<StartAllMusic MusicObject 1.0>>
 <<wait 1>>
-<<AdvanceXMinutes Manager 20>>
+<<AdvanceXMinutes TimeManager 20>>
 ===
 
 title: Pepe_Improve_Friendship

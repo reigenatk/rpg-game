@@ -13,7 +13,9 @@ public class SceneSave
     public Dictionary<string, Vector3Serializable> vector3Dictionary;
     public Dictionary<string, int[]> intArrayDictionary;
     public Dictionary<GameVariable, bool> gamevariables; // for saving gamevariables (should've just used yarn from the start, but aint no way im doing that tranisiton)
-/*    public List<SceneItem> listSceneItem;*/
+
+    public Dictionary<PlayerScore, float> playerscores;
+
     public Dictionary<string, GridPropertyDetails> gridPropertyDetailsDictionary;
-/*    public List<InventoryItem>[] listInvItemArray;*/
+
 }

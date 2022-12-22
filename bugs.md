@@ -157,3 +157,14 @@ Fix: Edit->Build Settings->ADD OPEN SCENES! Super important. Cuz after you add a
 Fix part 2: Just kidding that didnt fix the issue. An example of a strange issue that was solved by simply not having any scenes in the editor at first was- if I keep a scene in the editor, its bounds confiner breaks randomly. If I don't keep it in the editor and then press play, bounds confiner works fine. Dafuq?
 
 Bug: Rly weird bug- when transitioning from Day 1 to Day 1 dream, the whole screen would just pause, sometimes even crash unity, inside of `FadeAndSwitchScenes`. Luckily I fixed this by just changing it from using a cutscene.stopped thing that I originally used, to just a signal instead. Kinda like how we have the wakeUp signal for all the dreams, similarly I used one to go to the Dream state. THen it started working again.
+
+Bug: If you get this message: 
+```
+NullReferenceException: Object reference not set to an instance of an object
+AStar.FindShortestPath () (at Assets/Scripts/Pathfinding/AStar.cs:83)
+```
+It almost certainly means you didn't do the grid coordinate properly. Make sure you are selecting Ground 1 in Tilemaps when you find the coordinates, as each tilemap doesn't have the exact same offset!
+
+Also check the starting position of the character makes sense. Must be in bounds or else it will also complain.
+
+ALSO MAKE SURE GRIDPROPERTIES IS OFF (I THINK THIS WAS THE ISSUE ACTUALLY LMAO)

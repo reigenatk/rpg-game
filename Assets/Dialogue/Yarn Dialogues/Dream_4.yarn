@@ -21,6 +21,14 @@ Steven: It's a grave.
 Steven: This one is in the ground. The family must've been unable to afford a tombstone.
 ===
 
+title: Older_Self_Graveyard_Look
+---
+Steven: It's me...
+Steven: I don't look so healthy... 
+Steven: My skin is starting to turn grey.
+
+===
+
 title: Older_Self_Graveyard
 ---
 Allen (Older): ... #e:cry-down
@@ -112,7 +120,6 @@ title: Older_Brother_Graveyard
 Steven: It's my older brother. #e:think1
 <<wait 2>>
 Steven: He is crying a lot. #e:stern
-<<wait 1>>
 <<if $didGraveyardScene == false>>
     <<playCutscene LevelLoader Graveyard>>
 <<endif>>

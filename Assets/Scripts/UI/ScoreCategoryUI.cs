@@ -10,10 +10,41 @@ public class ScoreCategoryUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI TextDelta;
     [SerializeField] float smallestFontSize; // largest and smallest font sizes we will lerp over
     [SerializeField] float largestFontSize;
+    GameState gameState;
+    public PlayerScore playerScore;
+
     // Start is called before the first frame update
     private void Start()
     {
+        gameState = FindObjectOfType<GameState>();
         TextDelta.text = "";
+
+        // just update once at start so it shows the new values immediately
+        refreshScoreUI();
+    }
+
+    public void refreshScoreUI() {
+        switch (playerScore)
+        {
+            case PlayerScore.energy:
+                float energy = gameState.getPlayerScore(PlayerScore.energy);
+                UpdateScoreUI(PlayerScore.energy, energy, 0);
+                break;
+            case PlayerScore.contentedness:
+                float contentedness = gameState.getPlayerScore(PlayerScore.energy);
+                UpdateScoreUI(PlayerScore.energy, contentedness, 0);
+                break;
+            case PlayerScore.social:
+                float social = gameState.getPlayerScore(PlayerScore.energy);
+                UpdateScoreUI(PlayerScore.energy, social, 0);
+                break;
+            case PlayerScore.entertained:
+                float entertained = gameState.getPlayerScore(PlayerScore.energy);
+                UpdateScoreUI(PlayerScore.energy, entertained, 0);
+                break;
+        }
+        
+        
     }
 
     public void UpdateScoreUI(PlayerScore scoreToUpdate, float percentage, float delta)
@@ -26,7 +57,7 @@ public class ScoreCategoryUI : MonoBehaviour
         // divide by 100 cuz a change of 100 should be the largest on the UI
         float fontSize = Mathf.Lerp(smallestFontSize, largestFontSize, Math.Abs(delta) / 30.0f);
         // Debug.Log("Font size is " + fontSize + " for change of " + delta);
-        if (delta > 0.0f)
+        if (delta >= 0.0f)
         {
             // green for positive changes
             TextDelta.color = new Color(0, 255, 8, 2);

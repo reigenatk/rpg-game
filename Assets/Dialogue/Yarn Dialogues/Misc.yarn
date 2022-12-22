@@ -415,7 +415,7 @@ title: WalkToSchool
 	Steven: Alright. At least I can enjoy some nature... #e:huh 
     <<changePlayerScoreString Manager "contentedness" 5.0>>
     <<changePlayerScoreString Manager "energy" -5.0>>
-    <<AdvanceXMinutes Manager 20>> 
+    <<AdvanceXMinutes TimeManager 20>> 
 	<<FadeIn LevelLoader 1.0>>
 	<<playSoundString AudioManager AutumnWalk>>
 	<<wait 6>>
@@ -437,7 +437,7 @@ title: Walk_Home_2
 	Steven: Alright. #e:smile
     <<changePlayerScoreString Manager "contentedness" 5.0>>
     <<changePlayerScoreString Manager "energy" -5.0>>
-    <<AdvanceXMinutes Manager 20>> 
+    <<AdvanceXMinutes TimeManager 20>> 
 	<<FadeIn LevelLoader 1.0>>
 	<<playSoundString AudioManager AutumnWalk>>
 	<<wait 6>>
@@ -625,7 +625,7 @@ title: After_Sermon
 	Mind: Whatever. I didn't expect to do great. At least some people know who I am now.
 	<<changePlayerScoreString Manager "social" 50.0>>
 	<<set $hasGoneToBibleStudy = true>>
-	<<SetTime Manager 20 50 0>>
+	<<SetTime TimeManager 20 50 0>>
 ===
 
 title: Talk_To_Reaper

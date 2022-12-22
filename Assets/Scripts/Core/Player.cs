@@ -126,6 +126,21 @@ public class Player : Singleton<Player>, ISaveable
         {
             gameUI.SetActive(!gameUI.activeSelf);
         }
+
+        // fully refresh all health bars
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            foreach (ScoreCategoryUI scui in FindObjectsOfType<ScoreCategoryUI>())
+            {
+                // set all scores to 100
+                scui.UpdateScoreUI(scui.playerScore, 100.0f, 0.0f);
+            }
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            // enabled all dialogues again
+            gameState.canTalkToAllNPCsAgain();
+        }
     }
 
     public void playLowBattery()

@@ -3,11 +3,10 @@
 
 // one time dialogue variables
 <<declare $didStacyDialogue1 = false>>
-<<declare $didStacyDialogue2 = false>>
 <<declare $hasMetStacy = false>> // no need for this, player is forced to meet stacy
 <<declare $didStacyLaura = false>>
 <<declare $didStacyHome = false>>
-<<declare $didPhone = false>>
+
 ===
 title: Stacy_Dialogue
 ---
@@ -66,8 +65,15 @@ title: Stacy_Chat_Decide
 	-> Home 
 		<<jump Stacy_Home>>
 	-> Generic Chat
-    	<<jump Chat_End_Generic>>
+    	<<jump Stacy_Generic_Chat>>
 <<endif>>
+===
+
+title: Stacy_Generic_Chat
+---
+Stacy: Alright, I gotta go now. 
+Steven: Later. #e:smile
+<<jump Stacy_Improve_Friendship_Most>>
 ===
 
 title: Stacy_Chat_End_1
@@ -273,24 +279,11 @@ Stacy: This will make me feel more assured. #e:smile
 <<jump Stacy_Improve_Friendship>>
 ===
 
-title: After_Waste_Phone
----
-Steven: Wow this is giving me cancer... #e:cringe
-<<changePlayerScoreString Manager "entertained" 10.0>>
-<<changePlayerScoreString Manager "contentedness" -10.0>>
-<<wait 2>>
-Steven: Yet it's kinda addicting. #e:dsmile
-Steven: What am I doing with my life... #e:bored 
-<<set $didPhone = true>>
-===
+
 
 title: Stacy_Home
 ---
 <<set $didStacyHome = true>>
-Steven: I was just wondering if you wanted to talk a bit? #e:shy
-<<wait 2>>
-Stacy: Sure! I'm always down to chat. #e:smile
-<<wait 1>>
 Steven: So, uh, where are you from?
 <<wait 1>>
 Voice: Dumbass! #e:cringe
@@ -368,7 +361,7 @@ title: Stacy_Improve_Friendship_Most
     <<if $stacyFriendProgress > 1>>
         <<set $stacyFriendProgress = 1>>
     <<endif>>
-    <<AdvanceXMinutes Manager 60>>
+    <<AdvanceXMinutes TimeManager 60>>
 	<<changePlayerScoreString Manager "entertained" 15.0>>
     <<changePlayerScoreString Manager "contentedness" 15.0>>
 	<<changePlayerScoreString Manager "social" 15.0>>

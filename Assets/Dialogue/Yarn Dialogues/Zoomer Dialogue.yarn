@@ -150,14 +150,16 @@ Chris: Aight coo'
 Chris: Ayo Stevie!
 Steven: What now, Chris.
 <<wait 2>>
-Chris: Checkout that shawty ova ther. You smash or pass?
+Chris: Checkout that shawty ova ther. Gaw dammmmm...
+Chris: You smash or pass?
 Steven: uhhhh, where's the shawty?
+Steven: I don't see her #e:smile
 Chris: It's yo mama! 
-Chris: Gadeeeeeee, HAH!
+Chris: Gadeeeeeee, HAH! #e:cool
 Steven: ... #e:stern
 Steven: Good one... #e:dsmile
 <<wait 2>>
-Chris: Ayo but I ain no simp. I be skrttin on dem hoes, ya feel?
+Chris: Ayo but I ain no simp. I respect wahmen but I ain't about that simp life.
 Steven: I feel. #e:smirk
 Chris: Ayo, das wassup. You be learnin fast, homie. You undastand da assignment.
 <<jump Zoomer_Improve_Friendship_Most>>
@@ -441,7 +443,7 @@ title: Zoomer_Improve_Friendship_Most
     <<if $zoomerFriendProgress > 1>>
         <<set $zoomerFriendProgress = 1>>
     <<endif>>
-    <<AdvanceXMinutes Manager 60>>
+    <<AdvanceXMinutes TimeManager 60>>
 	<<changePlayerScoreString Manager "entertained" 15.0>>
     <<changePlayerScoreString Manager "contentedness" 15.0>>
 	<<changePlayerScoreString Manager "social" 15.0>>

@@ -33,6 +33,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-8212402758626987027
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dream 4 Music
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 2e3d146c6e5093546b8abf68b0010e55
+  m_Children: []
+  m_Volume: df26528030ee63349a7340e23802c05b
+  m_Pitch: bb2fe7f3e6029014bb6097e82b8ef87a
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -5312689920372980897}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &-8169074579567639756
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -132,6 +151,25 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &-7272206942616956903
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NPC Ambience
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 0fec4c79da6f0f5459cf0a67b8bfe3ab
+  m_Children: []
+  m_Volume: 4f4f94bd3f6efe941afb21d6b20fa5d2
+  m_Pitch: 62e11a16944e3994c88dc5ca4455508b
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -1671481474039249265}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &-7127421951747337337
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -162,6 +200,7 @@ AudioMixerGroupController:
   m_GroupID: b8e18fae3cd5b584fba5f70e41bcaeaf
   m_Children:
   - {fileID: 6054633303712360292}
+  - {fileID: -7272206942616956903}
   m_Volume: cf584d6ef28fd514185e8e954f69f7d3
   m_Pitch: d981ca72c9acfd44ca9ec6aa570af62b
   m_Send: 00000000000000000000000000000000
@@ -249,6 +288,20 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-5312689920372980897
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: cb05e97c285fcdd4480ae903ce8102da
+  m_EffectName: Attenuation
+  m_MixLevel: a22ba374832795e47898f59ff8f9de4a
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-4349572770565449885
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -260,6 +313,7 @@ AudioMixerGroupController:
   m_GroupID: d0d2fd8fc16f85647863230ced99aecc
   m_Children:
   - {fileID: -3082215763752462334}
+  - {fileID: -8212402758626987027}
   m_Volume: 70acb7f0a5d65da4e89520abaa847963
   m_Pitch: fc882b403526ef043b0e988d065ece91
   m_Send: 00000000000000000000000000000000
@@ -380,6 +434,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-1671481474039249265
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: cd20a6c0cfd5f8042a9686099d4a9585
+  m_EffectName: Attenuation
+  m_MixLevel: f51ad5f064a48974d879e2c12fdc5f70
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-1264655090614649800
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -493,6 +561,8 @@ AudioMixerController:
     - 72a9ff0b02de5dd479b79cfee08b8471
     - e899ed01c37e851479ae8f5af292336a
     - 48350efbebdc6ca4ba4b5aa6ac695172
+    - 0fec4c79da6f0f5459cf0a67b8bfe3ab
+    - 2e3d146c6e5093546b8abf68b0010e55
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -545,6 +615,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: ec12a7714aa8fb643b5eb2ab26d45cf6
   m_FloatValues:
     03141c60bc76c2e4d8a206a7744203f6: -12.498478
+    df26528030ee63349a7340e23802c05b: 12.034828
     70acb7f0a5d65da4e89520abaa847963: -0.19117308
     89f78af01a0c60e42b716c35a51ec3a8: -5.3230715
     42ed6d8175bd4664db89dbfbca12655a: 0
@@ -553,7 +624,7 @@ AudioMixerSnapshotController:
     06e7f0725b3d3634995af65887588aab: 0.27000841
     275a8b4506ef5c742a5bb7e69e97e518: 2.090601
     6fe9c9374a332434b87805e70e8ad500: 3.37
-    8b6f650871e83194db4cf0b041a5be61: 7.9871106
+    8b6f650871e83194db4cf0b041a5be61: -4.1973577
     fd2f9138393339c418141bf31d87daf1: 7.9871106
     00323ee92a1e08944a481d55f8fb5dda: 5.1
     371386dbee080494cbac3095cc0084a1: -23.2

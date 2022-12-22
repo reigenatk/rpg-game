@@ -344,7 +344,7 @@ Steven: Nice to meet you, then. #e:dsmile
 <<wait 1>>
 Dylan: Yep. Talk to you later. #e:smile
 <<set $talkedToDoomerAlready = true>>
-<<SetTime Manager 20 30 0>> 
+<<SetTime TimeManager 20 30 0>> 
 ===
 
 title: After_Gaming

@@ -52,8 +52,8 @@ MonoBehaviour:
     weather: 0
     toSceneName: 1
     toGridCoordinate:
-      x: 8
-      y: 4
+      x: 7
+      y: 1
     npcFacingDirectionAtDestination: 4
     animationAtDestination: {fileID: 7400000, guid: 7ed350667473ece439d78683f97eb978,
       type: 2}
@@ -85,7 +85,7 @@ MonoBehaviour:
     toSceneName: 1
     toGridCoordinate:
       x: 7
-      y: -2
+      y: 1
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
     toSceneName: 1
     toGridCoordinate:
       x: 7
-      y: -2
+      y: 1
     npcFacingDirectionAtDestination: 1
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}
@@ -146,8 +146,8 @@ MonoBehaviour:
     weather: 0
     toSceneName: 1
     toGridCoordinate:
-      x: 8
-      y: -1
+      x: 41
+      y: -39
     npcFacingDirectionAtDestination: 3
     animationAtDestination: {fileID: 0}
     audioToPlay: {fileID: 0}

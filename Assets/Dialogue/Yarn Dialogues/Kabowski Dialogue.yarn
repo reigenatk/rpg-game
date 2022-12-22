@@ -3,7 +3,6 @@
 
 // one time dialogue variables
 <<declare $didKabowskiDialogue1 = false>>
-<<declare $didKabowskiDialogue2 = false>>
 <<declare $hasMetKabowski = false>>
 <<declare $didKabowskiLifting = false>>
 <<declare $didKabowskiGirls = false>>

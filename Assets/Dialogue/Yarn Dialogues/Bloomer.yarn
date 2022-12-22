@@ -68,8 +68,10 @@ Chase: Steven! How's it been?
 
 title: Bloomer_Chat_Decide
 ---
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
 <<playSoundString AudioManager TimeTicking>>
-<<wait 4>>
+<<wait 6>>
 
 <<if $didBloomerGuitar == false>>
     -> Guitar

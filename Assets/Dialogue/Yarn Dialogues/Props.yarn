@@ -12,10 +12,12 @@
 <<declare $isTrashDirty = false>>
 <<declare $isGroupMeetingOn = false>>
 <<declare $canBeatGame = false>>
+<<declare $hasNotifiedCanBeatGame = false>>
 <<declare $hasDoneBusDialogue = false>>
 <<declare $hasDoneKabowskiToilet = false>>
 <<declare $hasShitted = false>>
 <<declare $isBusCutscenePlaying = false>>
+<<declare $didPhone = false>>
 ===
 
 title: D1_Bedroom_Window
@@ -35,6 +37,13 @@ title: D1_Bedroom_Window
 	Steven: I don't want to go outside... #e:worried 
 	Steven: There's people there. #e:sad
 <<endif>>
+===
+
+title: Can_Beat_Game
+---
+Game: You can now beat the game (if you want).
+Game: To do this, use your PC.
+<<set $hasNotifiedCanBeatGame = true>>
 ===
 
 title: D1_Bedroom_Peripherals
@@ -143,7 +152,7 @@ title: D1_Bedroom_Peripherals
 		Steven: ... 
 		<<wait 3>>
 		Steven: ... #e:bored
-	<<AdvanceXMinutes Manager 120>>
+	<<AdvanceXMinutes TimeManager 120>>
 <<endif>>
 ===
 
@@ -766,7 +775,7 @@ title: Running_Shoes
 		<<FadeOut LevelLoader 1.0>>
 		<<wait 2>>
 		Steven: Huh, that actually felt kinda nice. #e:smile
-		<<AdvanceXMinutes Manager 60>>
+		<<AdvanceXMinutes TimeManager 60>>
     	<<changePlayerScoreString Manager "contentedness" 30.0>>
 		<<changePlayerScoreString Manager "energy" -20.0>>
 		<<StartAllMusic MusicObject 1.0>>
@@ -1102,6 +1111,17 @@ title: D2_Bus_Stop_Campus
 	-> No
 		Steven: ... 
 <<endif>>
+===
+
+title: After_Waste_Phone
+---
+Steven: Wow this is giving me cancer... #e:cringe
+<<changePlayerScoreString Manager "entertained" 10.0>>
+<<changePlayerScoreString Manager "contentedness" -10.0>>
+<<wait 2>>
+Steven: Yet it's kinda addicting. #e:dsmile
+Steven: What am I doing with my life... #e:bored 
+<<set $didPhone = true>>
 ===
 
 title: Set_Bus_Playing_False

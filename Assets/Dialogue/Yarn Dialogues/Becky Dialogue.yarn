@@ -2,8 +2,6 @@
 ---
 
 // one time dialogue variables
-<<declare $didBeckyDialogue1 = false>>
-<<declare $didBeckyDialogue2 = false>>
 <<declare $hasMetBecky = false>>
 <<declare $didBeckyKabowski = false>>
 <<declare $didBeckyStacy = false>>
@@ -22,7 +20,7 @@ title: Becky_Normal_Dialogue
 // cant make friends with becky because YOU ARENT CHAD
 // actually thats retareded XD
 
-<<if $beckyFriendProgress >= 0>>
+<<if $beckyFriendProgress == 0>>
 	<<jump Becky_Start>>
 <<elseif $beckyFriendProgress >= 1>>
 	<<jump Becky_Familiar>>
@@ -58,35 +56,22 @@ title: Becky_Chat_Decide
 	-> Talk about something else
 <<endif>>
 
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
 <<playSoundString AudioManager TimeTicking>>
-<<wait 4>>
-<<if $didBeckyDialogue1 == false>>
-    <<set $didBeckyDialogue1 = true>>
-    <<jump Becky_Chat_End_1>>
-<<else>>
-	-> Stacy 
-		<<jump Becky_Stacy>>
-	-> Kabowski 
-		<<jump Becky_Kabowski>>
-	-> Generic Chat
-    	<<jump Becky_Chat_End_Generic>>
-<<endif>>
+<<wait 6>>
+
+
+-> Stacy 
+	<<jump Becky_Stacy>>
+-> Kabowski 
+	<<jump Becky_Kabowski>>
+-> Generic Chat
+	<<jump Becky_Chat_End_Generic>>
+
 ===
 
-title: Becky_Chat_End_1
----
-Becky: Like omigad that boba was like so gooood...
-<<wait 1>>
-Steven: Yeah, I agree... #e:smile
-Voice: The boba was good, but the conversation wasn't... #e:thinking
-<<wait 1>>
-Mind: Yeah, no shit! She lectured me on Greys Anatomy for 30 minutes! #e:weary
-Steven: I wish girls had more actual interests besides watching tv and scrolling social media... #e:bored
-<<wait 2>>
-Steven: It'd be much easier to relate to them that way... #e:bored
-<<set $numDialoguesComplete = $numDialoguesComplete+1>>
-<<jump Becky_Improve_Friendship>>
-===
+
 
 
 title: Becky_Chat_End_Generic

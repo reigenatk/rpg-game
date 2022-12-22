@@ -141,7 +141,7 @@ Steven: But that was fun! #e:smile
 <<changePlayerScoreString Manager "social" 10.0>>
 <<set $talkedToRedditAlready = true>>
 Sawyer: Hooray for soy! #e:wow
-<<AdvanceXMinutes Manager 50>>
+<<AdvanceXMinutes TimeManager 50>>
 ===
 
 title: Reddit_Chat_End_2

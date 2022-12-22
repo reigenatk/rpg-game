@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcScheduleEventList:
   - hour: 7
-    minute: 30
+    minute: 15
     priority: 0
     day: 0
     weather: 0

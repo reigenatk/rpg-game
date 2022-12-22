@@ -992,7 +992,8 @@ AudioSource:
   m_GameObject: {fileID: 53681039}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -1003,8 +1004,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 9
-  MaxDistance: 13
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -4673,6 +4674,7 @@ MonoBehaviour:
   TextDelta: {fileID: 1907759839}
   smallestFontSize: 17
   largestFontSize: 30
+  playerScore: 2
 --- !u!1 &277128157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5760,7 +5762,8 @@ AudioSource:
   m_GameObject: {fileID: 317593474}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -5771,8 +5774,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 12
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -8629,7 +8632,8 @@ AudioSource:
   m_GameObject: {fileID: 484688663}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -8640,8 +8644,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 12
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -9614,6 +9618,7 @@ MonoBehaviour:
   TextDelta: {fileID: 2095918927}
   smallestFontSize: 17
   largestFontSize: 30
+  playerScore: 1
 --- !u!1 &509538674
 GameObject:
   m_ObjectHideFlags: 0
@@ -9665,7 +9670,8 @@ AudioSource:
   m_GameObject: {fileID: 509538674}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -9676,8 +9682,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 14
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -12386,6 +12392,7 @@ MonoBehaviour:
   TextDelta: {fileID: 33312852}
   smallestFontSize: 17
   largestFontSize: 30
+  playerScore: 0
 --- !u!1 &695916417
 GameObject:
   m_ObjectHideFlags: 0
@@ -12437,7 +12444,8 @@ AudioSource:
   m_GameObject: {fileID: 695916417}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -12448,8 +12456,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 15
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -16286,7 +16294,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 2d9eb616ff2f1534b987c95b96c357e0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.515
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -16864,7 +16872,8 @@ AudioSource:
   m_GameObject: {fileID: 950454891}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -16875,8 +16884,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 12
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -20030,7 +20039,8 @@ AudioSource:
   m_GameObject: {fileID: 1093434028}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -20041,8 +20051,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 12
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -21531,6 +21541,59 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1187258124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187258125}
+  - component: {fileID: 1187258126}
+  m_Layer: 0
+  m_Name: WakeUpTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187258125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187258124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2024902245}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &1187258126
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187258124}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 916e6dbd4801ac547a2a0c39b8b270d5, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -2395163422550545514, guid: 916e6dbd4801ac547a2a0c39b8b270d5, type: 2}
+    value: {fileID: 1210189924}
+  - key: {fileID: -9044976844288612944, guid: 916e6dbd4801ac547a2a0c39b8b270d5, type: 2}
+    value: {fileID: 1922635429}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1193742274
 GameObject:
   m_ObjectHideFlags: 0
@@ -22297,6 +22360,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: db23657dabb707b4aa4b787b843b1961, type: 2}
     - {fileID: 11400000, guid: e7d5a5f25a4e3d34ba6b2c50225e85d5, type: 2}
     - {fileID: 11400000, guid: f70ebb9bf142a8345a19c8f94e9ee0ca, type: 2}
+    - {fileID: 11400000, guid: 553af73c2cf5f0b4bb04319caeb2e015, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -25378,6 +25442,20 @@ MonoBehaviour:
             m_StringArgument: Gaming_Start
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1210189920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartDialogueString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Can_Beat_Game
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1210189925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25401,7 +25479,7 @@ MonoBehaviour:
   npcs: {fileID: 446302673}
   nonnpcs: {fileID: 1030019401}
   currentScene: 
-  startingScene: 8
+  startingScene: 21
   totalNumFriends: 0
   timeManager: {fileID: 1806746770}
   yarnVariables: {fileID: 3831113770911160658}
@@ -25743,6 +25821,7 @@ MonoBehaviour:
   TextDelta: {fileID: 868802856}
   smallestFontSize: 17
   largestFontSize: 30
+  playerScore: 3
 --- !u!1 &1222885393
 GameObject:
   m_ObjectHideFlags: 0
@@ -27181,7 +27260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306740503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.02, y: 2.15, z: 0}
+  m_LocalPosition: {x: 44.2, y: 2.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27202,7 +27281,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.013339996, y: 0.3997364}
+  m_Offset: {x: 0.02290535, y: 0.109778404}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -27213,7 +27292,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.50600433, y: 0.23923111}
+  m_Size: {x: 0.578495, y: 0.2231226}
   m_EdgeRadius: 0
 --- !u!114 &1306740506
 MonoBehaviour:
@@ -27398,7 +27477,8 @@ AudioSource:
   m_GameObject: {fileID: 1306740503}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -27409,8 +27489,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 12
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -29391,7 +29471,8 @@ AudioSource:
   m_GameObject: {fileID: 1412200486}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -29402,8 +29483,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 13
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -30435,7 +30516,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.042151093, y: 1.0220672}
@@ -33558,7 +33639,8 @@ AudioSource:
   m_GameObject: {fileID: 1664648362}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -33569,8 +33651,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 14
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -34249,7 +34331,7 @@ AudioSource:
   m_GameObject: {fileID: 1693710079}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -4349572770565449885, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+  OutputAudioMixerGroup: {fileID: -8212402758626987027, guid: 4204ab3d9ec0f5f42be07215ce13174d,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c6a061090a7beaa48a93c8980962eeaa, type: 3}
   m_PlayOnAwake: 0
@@ -34460,7 +34542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguesToRun:
-  - dialogueToPlay: Older_Self_Graveyard
+  - dialogueToPlay: Older_Self_Graveyard_Look
     earliestTime:
       gameHour: 0
       gameMinute: 0
@@ -35372,15 +35454,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseTime: 0
   gt:
-    gameHour: 8
-    gameMinute: 0
+    gameHour: 7
+    gameMinute: 45
     gameSecond: 0
   gameClockPaused: 0
   gameState: {fileID: 1210189925}
-  energyDecayRate: 600
-  socialDecayRate: 650
-  contentednessDecayRate: 670
-  entertainmentDecayRate: 630
+  energyDecayRate: 800
+  socialDecayRate: 700
+  contentednessDecayRate: 640
+  entertainmentDecayRate: 750
   globalLight: {fileID: 1608886327}
   globalLightColors:
   - color: {r: 0.20784314, g: 0.21960784, b: 0.6509804, a: 0}
@@ -37445,7 +37527,6 @@ MonoBehaviour:
   - 6
   - 5
   nonnpcs: {fileID: 1030019401}
-  timeManager: {fileID: 0}
   npcs: {fileID: 446302673}
   cutscenesEnabled: 1
   dialoguesEnabled: 1
@@ -37884,7 +37965,7 @@ MonoBehaviour:
     isTriggeredCutscene: 0
     extraConditions: []
     priority: 0
-    shouldActivate: 1
+    shouldActivate: 0
     custsceneDescription: arrive dream 4
     validTimes: []
     YarnVariables:
@@ -38137,7 +38218,7 @@ MonoBehaviour:
   - cutsceneToPlay: {fileID: 1215903897}
     dayToPlay: 0
     dayToPlayGEQ: 6
-    scene: 0
+    scene: 1
     isTriggeredCutscene: 0
     extraConditions: []
     priority: 0
@@ -38147,6 +38228,8 @@ MonoBehaviour:
     YarnVariables:
     - YarnVariable: $canBeatGame
       desiredValue: 1
+    - YarnVariable: $hasNotifiedCanBeatGame
+      desiredValue: 0
   - cutsceneToPlay: {fileID: 523585633}
     dayToPlay: -1
     dayToPlayGEQ: 0
@@ -38335,6 +38418,32 @@ MonoBehaviour:
     YarnVariables:
     - YarnVariable: $hasEnteredClassroomBefore
       desiredValue: 0
+  - cutsceneToPlay: {fileID: 944492580}
+    dayToPlay: -1
+    dayToPlayGEQ: 0
+    scene: 1
+    isTriggeredCutscene: 1
+    extraConditions: []
+    priority: -1
+    shouldActivate: 1
+    custsceneDescription: using fridge
+    validTimes: []
+    YarnVariables:
+    - YarnVariable: $hasEnteredClassroomBefore
+      desiredValue: 0
+  - cutsceneToPlay: {fileID: 1187258126}
+    dayToPlay: -1
+    dayToPlayGEQ: 0
+    scene: 21
+    isTriggeredCutscene: 0
+    extraConditions: []
+    priority: -1
+    shouldActivate: 1
+    custsceneDescription: just test if waking up works
+    validTimes: []
+    YarnVariables:
+    - YarnVariable: $hasEnteredClassroomBefore
+      desiredValue: 0
   gameState: {fileID: 1210189925}
   sceneStartingPositions:
   - scene: 0
@@ -38382,7 +38491,7 @@ MonoBehaviour:
   - scene: 20
     startingPosition: {x: -312, y: -98, z: 0}
   - scene: 21
-    startingPosition: {x: -312, y: -98, z: 0}
+    startingPosition: {x: -146.11, y: -78.29, z: 0}
 --- !u!114 &1922635429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39318,7 +39427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937585868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -219.2, y: 32.8, z: -10}
+  m_LocalPosition: {x: -148, y: -12.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40135,7 +40244,8 @@ AudioSource:
   m_GameObject: {fileID: 1958540997}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -40146,8 +40256,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 12
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -41556,6 +41666,7 @@ Transform:
   - {fileID: 1215903896}
   - {fileID: 1231446304}
   - {fileID: 1667043146}
+  - {fileID: 1187258125}
   m_Father: {fileID: 1468802245}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42603,7 +42714,8 @@ AudioSource:
   m_GameObject: {fileID: 2095140460}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -42614,8 +42726,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 12
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -45437,7 +45549,8 @@ AudioSource:
   m_GameObject: {fileID: 1603977430}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -45448,8 +45561,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 14
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -45893,7 +46006,7 @@ PrefabInstance:
     - target: {fileID: 6669818294040499842, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: orthographic size
-      value: 4.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294040499842, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
@@ -45933,12 +46046,12 @@ PrefabInstance:
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -219.2
+      value: -148
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.8
+      value: -12.7
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294087122808, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
@@ -46467,7 +46580,8 @@ AudioSource:
   m_GameObject: {fileID: 5060622985830173432}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7272206942616956903, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.435
@@ -46478,8 +46592,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 12
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

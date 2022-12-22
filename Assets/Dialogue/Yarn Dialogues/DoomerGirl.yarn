@@ -110,7 +110,11 @@ Steven: Yeah, I feel the same way sometimes with my chad roommate...
 Laura: Is that the chunky guy who does weightlifting around campus all the time? #e:looking 
 Laura: God I can't stand him...
 <<wait 2>>
-Steven: Haha yeah, that's him. His name's Kabowski.
+Steven: Haha yeah, that's him. 
+Steven: His name's Kabowski. #e:stern
+Laura: Why do you room with him? #e:looking 
+Steven: Well, I didn't really get to choose... #e:huh 
+Steven: None of us knew each other beforehand. #e:think1
 <<wait 2>>
 Steven: I think the problem is, us depressed people just don't gather together. #e:think1
 Laura: Yeah... #e:looking
@@ -120,7 +124,7 @@ Laura: But we're all to shy to reach out.
 	Steven: Well, there's a few other depressed people around here too. #e:think1
 	Steven: Have you met Dylan? #e:worried
 	<<wait 1>>
-	Laura: Is he the guy who smokes a lot and never comes to class? #e:looking-away-smile
+	Laura: Is he the guy who smokes a lot and never comes to class? #e:looking
 	<<wait 1>>
 	Steven: Yeah, that's the one. #e:smile
 	<<wait 1>>
@@ -229,6 +233,7 @@ Steven: Yeah. #e:smile
 Laura: I gotta go, but we can chat later. Message me! #e:looking-away-smile
 Steven: Cya.. #e:smile
 <<set $numDialoguesComplete = $numDialoguesComplete+1>>
+<<jump DoomerGirl_Improve_Friendship>>
 ===
 
 title: DoomerGirl_Chat_End_Generic
@@ -555,7 +560,7 @@ Steven: Hey Laura, you there? #e:worried
 <<endif>>
 <<StartAllMusic MusicObject 1.0>>
 <<wait 1>>
-<<AdvanceXMinutes Manager 20>>
+<<AdvanceXMinutes TimeManager 20>>
 ===
 
 title: DoomerGirl_Improve_Friendship

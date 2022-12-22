@@ -33,7 +33,7 @@ public class LevelLoader : Singleton<LevelLoader>
     public Stack<string> cutsceneQueue;
 
     [SerializeField] public GameObject nonnpcs;
-    [SerializeField] private TimeManager timeManager;
+    private TimeManager timeManager;
     [SerializeField] public GameObject npcs;
 
 
@@ -195,7 +195,7 @@ public class LevelLoader : Singleton<LevelLoader>
     // (at least the loading scene part) so I put that into one function called CreateScene
     private IEnumerator Start()
     {
-
+        timeManager = FindObjectOfType<TimeManager>();
         sceneToStartingOrthoSize = new Dictionary<SceneName, float>();
         CutscenesDict = new Dictionary<SceneName, List<CutsceneCondtional>>();
 

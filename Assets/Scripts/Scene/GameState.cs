@@ -141,11 +141,11 @@ public class GameState : Singleton<GameState>, ISaveable
         setYarnVariable("$hasDoneShopping", false); 
         
         // day 4
-        setYarnVariable("$didGraveyardScene", false);
+        setYarnVariable("$didGraveyardScene", true);
 
 
 
-        // misc
+        // misc/events
         setYarnVariable("$hasMadeFriend", false);      
         setYarnVariable("$hasTurnedDownMusic", true);
         setYarnVariable("$hasMadeFriend", true);
@@ -155,35 +155,51 @@ public class GameState : Singleton<GameState>, ISaveable
         setYarnVariable("$hasDoneFirstFriend", true); // toggles the cutscene where it says you can text ur friends now
         setYarnVariable("$hasBoated", true);
         setYarnVariable("$hasDoneGroupMeeting", false);
+        setYarnVariable("$finishedEatingFoodSceneDay3", true);
 
         // set some dialogue values for our playthrough
         setYarnVariable("$isKYS", false);
 
         // kabowski 1
+        setYarnVariable("$hasMetKabowski", true);
+        setYarnVariable("$didKabowskiDialogue1", true);
+        setYarnVariable("$didKabowskiLifting", true);
+        setYarnVariable("$didKabowskiGirls", true);
         setYarnVariable("$kabowskiFriendProgress", 1);
 
-        // nikolai 2
+             // nikolai 2
+             setYarnVariable("$hasMetNikolai", true);
+        setYarnVariable("$didNikolaiDialogue1", true);
+        setYarnVariable("$didNikolaiDialogue2", true);
         setYarnVariable("$didNikolaiRussia", true);
+        setYarnVariable("$didNikolaiEnglish", true);
         setYarnVariable("$nikolaiFriendProgress", 1);
 
-        // stacy 3
-        setYarnVariable("$hasMetStacy", true);
+  
+              // stacy 3
+              setYarnVariable("$hasMetStacy", true);
         setYarnVariable("$didStacyLaura", true);
+        setYarnVariable("$didStacyHome", true);
         setYarnVariable("$stacyFriendProgress", 1);
+        setYarnVariable("$didStacyDialogue1", true);
 
-        // laura 4
+           // laura 4
         setYarnVariable("$hasMetDoomerGirl", true);
         setYarnVariable("$didDGStacyDialogue", true);
         setYarnVariable("$didDGMusicDialogue", true);
         setYarnVariable("$doomerGirlFriendProgress", 1);
+        setYarnVariable("$didDoomerGirlDialogue1", true);
+        setYarnVariable("$didDoomerGirlDialogue2", true);
         setYarnVariable("$gotLauraNumber", true);
-        setYarnVariable("$hasTextedLaura", false);
+        setYarnVariable("$hasTextedLaura", true);
 
         // boomer 5
         setYarnVariable("$hasMetBoomer", true);
         setYarnVariable("$hasAcceptedFootballGame", true);
         setYarnVariable("$didBoomerMusic", true);
         setYarnVariable("$didBoomerFootball", true);
+        setYarnVariable("$didBoomerDialogue1", true);
+        setYarnVariable("$didBoomerDialogue2", true);
         setYarnVariable("$boomerFriendProgress", 1);
 
         // zoomer 6
@@ -198,41 +214,62 @@ public class GameState : Singleton<GameState>, ISaveable
         setYarnVariable("$hasMetCoomer", true);
         setYarnVariable("$didCoomerHair", true);
         setYarnVariable("$didCoomerBiceps", true);
+        setYarnVariable("$didCoomerDialogue1", true);
         setYarnVariable("$coomerFriendProgress", 1);
 
         // doomer 8
         setYarnVariable("$hasMetDoomer", true);
         setYarnVariable("$gotDoomerNumber", true);
+        setYarnVariable("$didDoomerDialogue1", true);
+        setYarnVariable("$didDoomerDialogue2", true);
         setYarnVariable("$hasTextedDoomer", true);
         setYarnVariable("$doomerFriendProgress", 1);
 
         // pepe 9
         setYarnVariable("$hasMetPepe", true);
-        setYarnVariable("$gotPepeNumber", false);
-        setYarnVariable("$hasTextedPepe", false);
+        setYarnVariable("$hasPepeNumber", true);
+        setYarnVariable("$hasTextedPepe", true);
         setYarnVariable("$pepeFriendProgress", 1);
+        setYarnVariable("$didPepeDialogue1", true);
 
+        
         // Becky 10
         setYarnVariable("$hasMetBecky", true);
         setYarnVariable("$didBeckyStacy", true);
+        setYarnVariable("$didBeckyKabowski", true);
         setYarnVariable("$beckyFriendProgress", 1);
 
 
         // discord 11 
         setYarnVariable("$hasMetDiscord", true);
         setYarnVariable("$didDiscordDialogue1", true);
+        setYarnVariable("$didDiscordDialogue2", true);
         setYarnVariable("$DiscordFriendProgress", 1);
 
         // reddit 12
         setYarnVariable("$hasMetReddit", true);
         setYarnVariable("$didRedditDialogue1", true);
+        setYarnVariable("$didRedditDialogue2", true);
         setYarnVariable("$RedditFriendProgress", 1);
 
         // brain 13
-        setYarnVariable("$brainFriendProgress", 0);
+        setYarnVariable("$hasMetBrain", true);
+        setYarnVariable("$brainFriendProgress", 1);
+        setYarnVariable("$didBrainDialogue1", true);
+        setYarnVariable("$didBrainDialogue2", true);
+        setYarnVariable("$didBrainRoomates", true);
+        setYarnVariable("$didBrainScience", true);
+
 
         // bloomer 14
+        setYarnVariable("$hasMetBloomer", true);
         setYarnVariable("$bloomerFriendProgress", 0);
+        setYarnVariable("$didBloomerDialogue1", true);
+        setYarnVariable("$didBloomerDialogue2", true);
+        setYarnVariable("$didBloomerDialogue3", true);
+        setYarnVariable("$didBloomerHair", true);
+        setYarnVariable("$didBloomerGuitar", true);
+        setYarnVariable("$didBloomerSmiling", true);
 
         resetDailyYarnVariables();
 
@@ -270,11 +307,7 @@ public class GameState : Singleton<GameState>, ISaveable
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
-        {
-            // enabled all dialogues again
-            canTalkToAllNPCsAgain();
-        }
+
         // we want to tell yarn when nikolai is in his room and music is blasting, so we can create some custom dialogue
         // that lets the player ask Nikolai to turn down his music.
         if (getCurrentSceneEnum() == SceneName.LancelotRoom && FindObjectOfType<Subwoofer>().isSubwooferPlaying)
@@ -443,6 +476,7 @@ public class GameState : Singleton<GameState>, ISaveable
    
     public void canTalkToAllNPCsAgain()
     {
+        Debug.Log("Can Talk to All NPCs again");
         setYarnVariable("$talkedToNikolaiAlready", false);
         setYarnVariable("$talkedToKabowskiAlready", false);
         setYarnVariable("$talkedToBrainAlready", false);
@@ -800,6 +834,13 @@ public class GameState : Singleton<GameState>, ISaveable
             sceneSave.gamevariables.Add(gv, gameVariables[gv]);
         }
 
+        Debug.Log("Saving Player scores");
+        sceneSave.playerscores = new Dictionary<PlayerScore, float>();
+        foreach (PlayerScore ps in Enum.GetValues(typeof(PlayerScore)))
+        {
+            sceneSave.playerscores.Add(ps, playerScore[ps]);
+        }
+
         // Save all this under persistent scene
         GameObjectSave.sceneData.Add(Settings.PersistentScene, sceneSave);
 
@@ -833,6 +874,18 @@ public class GameState : Singleton<GameState>, ISaveable
                 {
                     // just restore the values we have into the real dictionary
                     gameVariables[kvp.Key] = kvp.Value;
+                }
+
+                // PLAYER SCORE RESTORE
+                foreach (KeyValuePair<PlayerScore, float> kvp in sceneSave.playerscores)
+                {
+                    // just restore the values we have into the real dictionary
+                    playerScore[kvp.Key] = kvp.Value;
+                }
+
+                foreach (ScoreCategoryUI s in FindObjectsOfType<ScoreCategoryUI>())
+                {
+                    s.refreshScoreUI();
                 }
             }
         }

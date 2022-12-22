@@ -8,7 +8,7 @@ title: Win_Vars
 
 title: Group_Meeting
 ---
-<<SetTime Manager 16 0 0 >> // 6PM
+<<SetTime TimeManager 16 0 0 >> // 6PM
 Steven: So they said they would arrive at 7PM... #e:smile
 Steven: That means I better get preparing for this... #e:stern
 <<wait 2>>

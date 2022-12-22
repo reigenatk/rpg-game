@@ -46,7 +46,7 @@ Michael: Awesome. Let's get going.
 
 title: After_Football_Game
 ---
-<<SetTime Manager 22 30 0>> // 6PM -> 10:30 PM
+<<SetTime TimeManager 22 30 0>> // 6PM -> 10:30 PM
 Voice: Wow, I've never seen you so bored, and I've been in your head for years! #e:laugh
 <<wait 1>>
 Steven: Seriously, how does anyone find that entertaining? #e:yikes
@@ -121,12 +121,17 @@ title: Boomer_Chat_Decide
 	-> Talk about something else
 <<endif>>
 
+<<FadeIn LevelLoader 1.0>>
+<<wait 1>>
 <<playSoundString AudioManager TimeTicking>>
-<<wait 4>>
+<<wait 6>>
 
 <<if $didBoomerDialogue1 == false>>
     <<set $didBoomerDialogue1 = true>>
     <<jump Boomer_Chat_End_1>>
+<<elseif $didBoomerDialogue2 == false>>
+	<<set $didBoomerDialogue2 = true>>
+	<<jump Boomer_Chat_End_2>>
 <<else>>
 	-> Music 
 		<<jump Boomer_Music>>
@@ -143,12 +148,12 @@ Michael: So anyways, once a Zeta, forever a Zeta.
 Michael: "Seek the Noblest"... is our motto.
 <<wait 2>>
 Michael: I still talk to many of my brothers, even today. #e:talking
-Michael: One's working as a doctor, one's a semi-professional baseball player...
+Michael: One's working as a doctor, one's a semi-professional baseball player... #e:cool 
 Michael: And one's even the governor of his county. #e:talking
 <<wait 2>>
 Michael: Sometimes, walking into the old frat house still gets me emotional. #e:talking
 Michael: I know the boys in there only see an old fart like me #e:talking
-Michael: But they don't understand that I was once young like them.
+Michael: But they don't understand that I was once young like them. #e:neutral 
 Michael: Hating my parents, cheating on exams, and having too much alcohol #e:talking
 <<wait 2>>
 Michael: I spent some of my best years in those houses, and they feel so recent.
@@ -156,8 +161,8 @@ Michael: Even though it was over 30 years ago. #e:talking
 <<wait 2>>
 Steven: ... #e:think2
 <<wait 2>>
-Michael: Value your time, Steven. I know you didn't ask, but I thought I'd share. 
-Michael: Time is really the most precious resource.
+Michael: Value your time, Steven. I know you didn't ask, but I thought I'd share.  
+Michael: Time is really the most precious resource. #e:neutral 
 Michael: Every old person wishes they were young again. #e:talking
 <<wait 2>>
 Michael: I can tell you're the nervous type. #e:talking
@@ -173,6 +178,39 @@ Michael: Remember, I'm always here to chat. #e:talking
 <<jump Boomer_Improve_Friendship>>
 ===
 
+title: Boomer_Chat_End_2
+---
+	Steven: Oh yeah?
+	Michael: Yes. You kids are so spoiled today...
+	Michael: With your Tok Tiks and your Door Dash... #e:talking
+	Michael: Back in mah day, you had the yellow pages, for cryin out loud. #e:neutral 
+	<<wait 2>>
+	Steven: But things were more real back then, weren't they?
+	<<wait 2>>
+	Michael: More real? 
+	Steven: As in, nothing was fake. People actually talked face to face.
+	<<wait 1>>
+	Michael: Spose so...
+	Michael: But, you can do fine socially today as well. #e:talking 
+	Michael: It's just a different form of socialization, that's all. 
+	Michael: On the internet and shit. I dunno, I'm a boomer. #e:cool
+	<<wait 2>>
+	Michael: I will say this. College is just a small part of your life. #e:talking 
+	Michael: You may not think so, but even the biggest partyheads will age past their prime.
+	Michael: And once they're older, they'll only have memories to look back on. #e:talking
+	Michael: While you, the studious guy, will have a big house with a nice lawn.
+	Michael: Believe me, partying ain't all that you think it to be. #e:talking 
+	<<wait 2>>
+	Steven: Yeah, but if I can't even make a friend.. isn't there an issue? #e:sad
+	Michael: Yes. There's a balancing act. 
+	Michael: You just have to push yourself out of your comfort zone more. #e:talking
+	Michael: Do it before you're old and tired like me. #e:neutral
+	<<wait 2>>
+	Steven: I'll try. #e:think2
+	Michael: Good luck. I'm always here to chat. #e:talking
+	<<set $numDialoguesComplete = $numDialoguesComplete+1>>
+	<<jump Boomer_Improve_Friendship>>
+===
 
 title: Boomer_Chat_End_Generic
 ---

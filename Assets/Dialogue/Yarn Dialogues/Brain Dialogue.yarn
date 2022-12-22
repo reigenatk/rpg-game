@@ -190,7 +190,7 @@ title: Brain_Start
 	Brain: It's Steven, right?
 	<<wait 2>>
 	Steven: Yea... #e:yikes
-<<else>>
+<<endif>>
 	Brain: What's up?
 	<<wait 1>>
 	-> Science
@@ -200,7 +200,7 @@ title: Brain_Start
 	-> Nothing
 		Steven: .. never mind. #e:think2
 		Brain: okay? why talk to me then... #e:looking
-<<endif>>
+
 ===
 
 title: Brain_Roomates

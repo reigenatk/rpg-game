@@ -92,7 +92,7 @@ title: Nikolai_Chat_Decide
 	-> Talk about something else
 <<endif>>
 <<if $didNikolaiRussia == false>>
-	-> Lifting
+	-> Russia
 		<<jump Nikolai_Russia>>
 	-> Talk about something else
 <<endif>>
@@ -298,13 +298,15 @@ Nikolai: Hullo Steven!
 title: Nikolai_Russia
 ---
 <<set $didNikolaiRussia = true>>
--> How was life like in Russia?
+-> Question 1
+	Steven: How was life like in Russia?
 	Nikolai: Vury simple. Vury ordinary, but people wur vury nice.
     Nikolai: Lots ov gud memories zer.
     <<wait 1>>
 	Nikolai: I mizz it. But it is vury far frum here.
 	<<jump Nikolai_Start_5>>
--> Why did you come here?
+-> Question 2
+	Steven: How was life like in Russia?
 	Nikolai: Vell, zat is complicated buziness. My fathur iz vury rich guy.
 	Nikolai: In Russia, university iz not zo gud. Come to America iz better. Or so my father zinks.
 	<<wait 1>>
@@ -314,6 +316,7 @@ title: Nikolai_Russia
 
 title: Nikolai_English
 ---
+Nikolai: So, Stevun, how iz my English? #e:smile
 <<set $didNikolaiEnglish = true>>
 -> You're doing good, I can understand you.
 	<<jump Nikolai_Start_4>>
@@ -357,13 +360,16 @@ Nikolai: But I hev no choice.
 
 title: Nikolai_Start_5
 ---
--> You should go back
+-> Be Mean
+	Steven: You should go back
 	Nikolai: Why?
-	-> No one wants you here, anyways
+	-> Be Mean
+		Steven: No one wants you here, anyways #e:smirk 
 		Nikolai: ...
-		Nikolai: Okey man. Vy so rude? Извините. Sorry.
+		Nikolai: Vy so rude? Извините. Sorry.
 		<<jump Nikolai_Ruin_Friendship>>
-	-> Because if you really feel that way, you should tell him.
+	-> Be Neutral
+		Steven: Because if you really feel homesick, you shouldn't ignore it. #e:think2
 		Nikolai: ...
 		<<wait 1>>
 		Nikolai: Maybe, you are right.
@@ -372,7 +378,8 @@ title: Nikolai_Start_5
 		<<wait 1>>
 		Nikolai: Perhaps I vill think about zis more closely.
 		<<jump Nikolai_Improve_Friendship>>
--> You just need more time here
+-> Be Genuine
+	Steven: You just need more time here. #e:smile
 	<<wait 2>>
 	Nikolai: You zink so?
 	<<wait 1>>
@@ -382,12 +389,14 @@ title: Nikolai_Start_5
 	Nikolai: I zink perhaps I made mistake coming here.
 	Nikolai: The people, zey are so different zan me. 
 	Nikolai: How do I feel comfortable?
-	-> I wish I knew.
+	-> Be Honest
+		Steven: I wish I knew.. 
 		Nikolai: Vat do you mean? Don't you have friend here?
-		<<wait 5>>
-		Nikolai: Actually, never mind. Don't wurry about it.
 		<<wait 2>>
-		Nikolai: I am your friend, right?
+		Steven: No, I have zero friends.
+		Nikolai: Oh.
+		<<wait 2>>
+		Nikolai: Vell, I am your friend, right?
 		-> Yeah
 			Nikolai: Don't worry Steven, you are gud guy.
 			Nikolai: You just need more people to know zis.
@@ -401,7 +410,8 @@ title: Nikolai_Start_5
 			Nikolai: Well, I vill see you latur.
 			Nikolai: Sanks for ze conversation, Steven.
 			<<jump Nikolai_Improve_Friendship>>
-	-> Just talk to more people.
+	-> Give Advice
+		Steven: Just talk to more people.
 		Nikolai: Vell, I guess. It iz embarazing zough.
 		Nikolai: People can tell immediately. Zat I am not from zis country.
 		<<wait 1>>

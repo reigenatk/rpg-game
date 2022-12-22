@@ -6,7 +6,7 @@
 <<declare $didDoomerDialogue2 = false>>
 <<declare $hasMetDoomer = false>>
 <<declare $gotDoomerNumber = false>>
-<<declare $hasMadeFriend = false>> // has the player made at least 1 friend
+<<declare $hasMadeFriend = false>> // has the player made at least 1 friend. Can be set from either Laura, Doomer, or Pepe.
 <<declare $hasTextedDoomer = false>>
 ===
 title: Doomer_Dialogue
@@ -371,7 +371,7 @@ Steven: Hey, you there?
 <<endif>>
 <<StartAllMusic MusicObject 1.0>>
 <<wait 1>>
-<<AdvanceXMinutes Manager 20>>
+<<AdvanceXMinutes TimeManager 20>>
 ===
 
 title: Doomer_Improve_Friendship
