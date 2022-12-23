@@ -9,6 +9,8 @@ title: Win_Vars
 title: Group_Meeting
 ---
 <<SetTime TimeManager 16 0 0 >> // 6PM
+<<stopAllMusic MusicObject 1.0>>
+<<wait 2>>
 Steven: So they said they would arrive at 7PM... #e:smile
 Steven: That means I better get preparing for this... #e:stern
 <<wait 2>>
@@ -277,6 +279,8 @@ Brain: Okay guys, dinner's ready. Gather round the table. #e:smile
 
 title: After_Gathered
 ---
+<<stopAllMusic MusicObject 1.0>>
+<<wait 2>>
 Brain: Wait! Before we begin...
 Brain: I thought we should let Steven talk, since he organized this. #e:smile 
 <<wait 2>>
@@ -370,6 +374,7 @@ Kabowski: Wooo! It's time to PAR TAY! #e:talking
 
 title: After_Party
 ---
+
 Kabowski: Woo hooOooOoooOO!
 Stacy: I'm dizzy... #e:laughing
 Steven: Are you guys sure you'll be able to walk home? #e:shocked
@@ -590,15 +595,9 @@ Game: So let us live good lives, and waste not it's worth.
 
 
 <<wait 2>>
-Game: This is the <color=green>good ending <color>.
-Game: In this run, you completely did all the dialogues for {$numDialoguesComplete} out of 16 frens. 
-<<if $numDialoguesComplete == 16>>
-    Game: That's really impressive. 
-    Game: Thank you so much for playing my game to completion.
-    Game: I hope you enjoyed it.
-<<elseif $numDialoguesComplete >= 8 && $numDialoguesComplete < 16>>
-    Game: You're doing great! Keep it up.
-<<endif>>
+Game: This is the <color=green>good ending<color>
+
+
 <<if $isKYS == false>>
     Game: It also appears you have not found the bad ending yet.
     Game: Maybe try to find it!

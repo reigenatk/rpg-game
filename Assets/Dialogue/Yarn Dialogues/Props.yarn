@@ -22,7 +22,7 @@
 
 title: D1_Bedroom_Window
 ---
-<<if $day == 1>>
+<<if $day == 0>>
 	Steven: The outside world... 
 	<<wait 2>> 
 	Steven: How scary... #e:weary
@@ -48,7 +48,7 @@ Game: To do this, use your PC.
 
 title: D1_Bedroom_Peripherals
 ---
-<<if $day == 1>>
+<<if $day == 0>>
 	Steven: My beloved PC. #e:comfy
 	Steven: Without this, I don't know if I could live. #e:stern
 	<<wait 2>>
@@ -81,10 +81,10 @@ title: D1_Bedroom_Peripherals
 	// have we beaten the game yet (and are eligble to?)
 	// if so, make this the first option
 	// also this will not trigger before day 6 (to make sure all dreams are played)
-	<<if $canBeatGame == true>>
+	<<if $canBeatGame == true && $hasDoneGroupMeeting == false>>
 		// then we arrange meetup
-		-> Arrange a friend meetup! (Must be earlier than 7PM)
-			<<if $gameHour < 18>>
+		-> Arrange a friend meetup! 
+			<<if $gameHour < 22>>
 				<<jump Arrange_Meetup>>
 			<<else>>
 				Steven: It's too late today. #e:stern
@@ -554,7 +554,7 @@ Steven: They're definitely not mine.
 
 title: D1_Commons_Oven
 ---
-<<if $day == 1>>
+<<if $day == 0>>
 	Steven: I should really use this more... #e:think1 
 	Steven: Eating cooked meals can do a lot for your mental health. #e:huh
 	<<wait 2>>
@@ -630,7 +630,7 @@ Steven: It'll fill up soon enough... #e:weary
 
 title: Fridge
 ---
-<<if $day == 1>>
+<<if $day == 0>>
 	Steven: This is the fridge.. 
 	<<wait 2>>
 	Steven: If you've ever lived with others you know...
@@ -754,7 +754,7 @@ Steven: Cleaner than usual today.. #e:smile
 
 title: Running_Shoes
 ---
-<<if $day == 1>>
+<<if $day == 0>>
 	Steven: My running shoes... 
 	Steven: Maybe I'll go run tomorrow. I'm too tired today. #e:huh
 <<else>>
@@ -796,7 +796,7 @@ Steven: I guess plenty of people still enjoy it, particularly boomers. #e:yikes
 
 title: D1_Commons_Microwave
 ---
-<<if $day == 1>>
+<<if $day == 0>>
 	Steven: The microwave oven.
 	Steven: What a marvelous invention. #e:smile
 	<<wait 2>>

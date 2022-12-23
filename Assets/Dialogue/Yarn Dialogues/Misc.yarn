@@ -10,6 +10,7 @@
 <<declare $isKYS = true>>
 <<declare $firstTimeSleeping = true>>
 <<declare $hasDoneFirstFriend = false>>
+<<declare $hasPlayedKYSMonologue = false>>
 
 // reset these every day
 <<declare $teethBrushed = false>>
@@ -717,6 +718,9 @@ title: Talk_To_Reaper
 		<<wait 1>>
 	<<endif>>
 	Reaper: Hello, Steven. #e:smile
+	<<if $day >= 7>>
+		<<jump All_Dreams_Done>>
+	<<endif>>
 	<<jump Ask_If_Ready>>
 <<endif>>
 
@@ -912,14 +916,19 @@ title: KYS
 <<wait 1>>
 Voice: What's the matter, Steven?
 <<wait 2>>
-Steven: Voice... I can't...
-Steven: I can't take it anymore.
+Steven: Voice... I can't... #e:cry
+Steven: I can't take it anymore. #e:cry-shuteye
 Voice: Take what anymore? #e:think
 <<wait 2>>
 Steven: Don't play dumb with me! #e:cry-angry
 Steven: You're the only person who really knows what I'm struggling with. #e:cry-angry
 Steven: Stop pretending like you don't know! #e:cry-painful
 <<wait 5>>
+Steven: My life is shit! #e:cry
+Steven: I have no friends.. #e:cry-shuteye
+Steven: NO hobbies... #e:cry-shuteye
+Steven: NO passions... #e:cry-shuteye
+Steven: NO FUTURE #e:cry-painful
 Voice: Well, Steven... #e:think1 
 Voice: Maybe the answer was with you all along. #e:evil1
 <<wait 2>>
@@ -956,7 +965,6 @@ Voice: It's not like you would end up somewhere else by dying now. #e:think
 <<wait 2>>
 Steven: But.. I'm afraid of pain. #e:cry-shuteye
 <<wait 2>>
-Voice: You're a smart guy. #e:concerned
 Voice: I'm sure you can come up with many ways to do it quickly and painlessly. #e:evil1 
 <<wait 5>>
 Voice: Look Steven, I've always loved and respected you. Ever since we met. #e:think
@@ -973,6 +981,8 @@ Steven: This is the best piece of advice you've ever given me. #e:cry-smile
 Steven: I'm glad I have you with me. #e:cry-smile
 Voice: That's what I'm here for. #e:think
 <<set $isKYS = true>>
+<<set $hasPlayedKYSMonologue = true>>
+
 ===
 
 title: At_Bus_Stop

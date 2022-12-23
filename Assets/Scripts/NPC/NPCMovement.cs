@@ -114,6 +114,10 @@ public class NPCMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!LevelLoader.Instance.isNPCMovementScene())
+        {
+            return;
+        }
         if (sceneLoaded && LevelLoader.Instance.firstSceneLoaded == true)
         {
             // Debug.Log("stack for " + gameObject.name + " now has " + npcPath.npcMovementStepStack.Count + " entries, isMoving: " + npcIsMoving);
@@ -176,11 +180,13 @@ public class NPCMovement : MonoBehaviour
                     // - once the movement step time is less than game time (in the past) then pop movement step off the stack and set NPC position to movement step position
                     else
                     {
+                        // Debug.Log("NPC is not moving and in different scene with pos " + transform.position);
                         SetNPCInactiveInScene();
 
                         npcCurrentGridPosition = (Vector3Int)npcMovementStep.gridCoordinate;
                         npcNextGridPosition = npcCurrentGridPosition;
                         transform.position = GetWorldPosition(npcCurrentGridPosition, npcCurrentScene);
+                        // Debug.Log("NPC is not moving and in different scene, after change it has pos " + transform.position);
 
                         TimeSpan npcMovementStepTime = new TimeSpan(npcMovementStep.hour, npcMovementStep.minute, npcMovementStep.second);
 
@@ -351,17 +357,17 @@ public class NPCMovement : MonoBehaviour
     private void AfterSceneLoad()
     {
 
-            // this should grab the current (and only) grid in the scene
-            grid = FindObjectOfType<Grid>();
-            Debug.Log("grid is " + grid);
+        // this should grab the current (and only) grid in the scene
+        grid = FindObjectOfType<Grid>();
+        Debug.Log("grid is " + grid);
 
-            if (!npcInitialised)
-            {
-                InitialiseNPC();
-                npcInitialised = true;
-            }
+        if (!npcInitialised && grid != null)
+        {
+            InitialiseNPC();
+            npcInitialised = true;
+        }
 
-            sceneLoaded = true;
+        sceneLoaded = true;
         
 
     }
@@ -422,7 +428,7 @@ public class NPCMovement : MonoBehaviour
 
     private void InitialiseNPC()
     {
-       
+        /*Debug.Log("[InitialiseNPC] " + gameObject.name + "position is " + transform.position);*/
         // Active in scene
         if (npcCurrentScene.ToString() == SceneManager.GetActiveScene().name)
         {
@@ -445,7 +451,7 @@ public class NPCMovement : MonoBehaviour
 
         // Get NPC WorldPosition
         npcNextWorldPosition = GetWorldPosition(npcCurrentGridPosition, npcCurrentScene);
-        Debug.Log("npc transform position " + transform.position + " current grid position " + npcCurrentGridPosition + " target position " + npcTargetWorldPosition);
+        Debug.Log("[InitialiseNPC] npc transform position " + transform.position + " current grid position " + npcCurrentGridPosition + " target position " + npcTargetWorldPosition);
     }
 
     // this actually moves the NPC, it just starts a Coroutine. We need coroutine because we want it to smoothly move

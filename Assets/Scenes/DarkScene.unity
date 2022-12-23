@@ -53246,6 +53246,46 @@ CompositeCollider2D:
       - X: 120000000
         Y: -130000000
       - X: 120000000
+        Y: -149999900
+      - X: 130000041
+        Y: -149999900
+      - X: 130000100
+        Y: -149999959
+      - X: 130000100
+        Y: -150000000
+      - X: 140000000
+        Y: -150000000
+      - X: 140000000
+        Y: -120000000
+      - X: 250000000
+        Y: -120000000
+      - X: 250000000
+        Y: -150000000
+      - X: 290000000
+        Y: -150000000
+      - X: 290000000
+        Y: -180000000
+      - X: 310000000
+        Y: -180000000
+      - X: 310000000
+        Y: -200000000
+      - X: 250000000
+        Y: -200000000
+      - X: 250000000
+        Y: -190000000
+      - X: 140000000
+        Y: -190000000
+      - X: 140000000
+        Y: -160000000
+      - X: 130000100
+        Y: -160000000
+      - X: 130000100
+        Y: -160000041
+      - X: 130000041
+        Y: -160000100
+      - X: 120000000
+        Y: -160000100
+      - X: 120000000
         Y: -180000000
       - X: 90000000
         Y: -180000000
@@ -53361,34 +53401,6 @@ CompositeCollider2D:
         Y: -120000000
       - X: 50000000
         Y: -150000000
-    - - X: 250000000
-        Y: -200000000
-      - X: 250000000
-        Y: -190000000
-      - X: 140000000
-        Y: -190000000
-      - X: 140000000
-        Y: -160000000
-      - X: 130000000
-        Y: -160000000
-      - X: 130000000
-        Y: -150000000
-      - X: 140000000
-        Y: -150000000
-      - X: 140000000
-        Y: -120000000
-      - X: 250000000
-        Y: -120000000
-      - X: 250000000
-        Y: -150000000
-      - X: 290000000
-        Y: -150000000
-      - X: 290000000
-        Y: -180000000
-      - X: 310000000
-        Y: -180000000
-      - X: 310000000
-        Y: -200000000
     - - X: 280000000
         Y: -160000000
       - X: 250000000
@@ -53485,6 +53497,20 @@ CompositeCollider2D:
       - {x: 6, y: -15.999971}
       - {x: 6.0000296, y: -13}
       - {x: 12, y: -13.00003}
+      - {x: 12.00003, y: -14.99999}
+      - {x: 14, y: -14.999971}
+      - {x: 14.000029, y: -12}
+      - {x: 25, y: -12.00003}
+      - {x: 25.000029, y: -15}
+      - {x: 29, y: -15.000029}
+      - {x: 29.000029, y: -18}
+      - {x: 31, y: -18.000029}
+      - {x: 30.999971, y: -20}
+      - {x: 25, y: -19.999971}
+      - {x: 24.999971, y: -19}
+      - {x: 14, y: -18.999971}
+      - {x: 13.999971, y: -16}
+      - {x: 12, y: -16.00004}
       - {x: 11.99997, y: -18}
       - {x: 9, y: -18.000029}
       - {x: 9.00003, y: -28}
@@ -53523,20 +53549,6 @@ CompositeCollider2D:
       - {x: 5, y: -18.000029}
       - {x: 5.000029, y: -19}
       - {x: 7, y: -19.000029}
-    - - {x: 31, y: -19.999971}
-      - {x: 25, y: -19.999971}
-      - {x: 24.999971, y: -19}
-      - {x: 14, y: -18.999971}
-      - {x: 13.999971, y: -16}
-      - {x: 13, y: -15.999971}
-      - {x: 13.00003, y: -15}
-      - {x: 14, y: -14.999971}
-      - {x: 14.000029, y: -12}
-      - {x: 25, y: -12.00003}
-      - {x: 25.000029, y: -15}
-      - {x: 29, y: -15.000029}
-      - {x: 29.000029, y: -18}
-      - {x: 31, y: -18.000029}
     - - {x: 5, y: -14.999971}
       - {x: 3, y: -14.999971}
       - {x: 3.0000293, y: -12}
@@ -55773,16 +55785,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 5, y: -16, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 3
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 12, y: -16, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -59376,12 +59378,12 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 55
     m_Data: {fileID: 11400000, guid: 95a9dbd57addcb844983c8c65f354545, type: 2}
-  - m_RefCount: 518
+  - m_RefCount: 517
     m_Data: {fileID: 11400000, guid: 184103b337751b54abf7368c0596fe49, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 55
     m_Data: {fileID: 21300000, guid: c31ef2d8735edaa4c898f9e490b6d95e, type: 3}
-  - m_RefCount: 518
+  - m_RefCount: 517
     m_Data: {fileID: 21300000, guid: 91f65276bc5344c4d947c88a99364d1b, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 0
@@ -59438,7 +59440,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 518
+  - m_RefCount: 517
     m_Data:
       e00: 1
       e01: 0
@@ -59457,7 +59459,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 573
+  - m_RefCount: 572
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -62753,13 +62755,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguesToRun:
-  - dialogueToPlay: All_Dreams_Done
-    earliestTime:
-      gameHour: 0
-      gameMinute: 0
-      gameSecond: 0
-    dayToPlay: 7
-    extraConditions: []
   - dialogueToPlay: Talk_To_Reaper
     earliestTime:
       gameHour: 0

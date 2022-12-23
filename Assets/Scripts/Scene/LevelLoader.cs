@@ -269,6 +269,8 @@ public class LevelLoader : Singleton<LevelLoader>
         // calculate time for new day and new energy/contentedness levels
         float sleepPenalty = timeManager.gt.gameHour * 10;
         Moods mood = gameState.calculateMood(-1.0f * sleepPenalty);
+        gameState.numSecondsAwake = 0; // back to 0 sec awake
+        gameState.setGameVariableEnum(GameVariable.canPlayerSleep, false);  
         switch (mood)
         {
             case Moods.Suicidal:
@@ -329,15 +331,20 @@ public class LevelLoader : Singleton<LevelLoader>
         if (SceneManager.GetActiveScene().name == "Bedroom")
             GameObject.Find("Bedsheets").GetComponent<SpriteRenderer>().sortingOrder = 0;
 
-        if (gameState.gameDay == 2)
+        if (gameState.gameDay == 1)
         {
-            // if day 1 going to day 2 (its 2 here cuz advanceDay was already called), DONT go to dark scene (the one with reaper in it, cuz we havent met him yet obv)
-            // instead go to the birthday scene!
+            // if day 0 going to day 1
             Debug.Log("Going to Dream0");
             FadeAndLoadScene(SceneName.DreamDay0, defaultSceneLocation);
         }
-        else if (gameState.gameDay >= 3 && gameState.gameDay <= 8)
+        else if (gameState.gameDay >= 2 && gameState.gameDay <= 7)
         {
+            // day 1->2 is dream 1
+            // 2->3 is dream 2
+            // 3->4 is dream 3
+            // 4->5 is dream 4
+            // 5->6 is dream 5
+            // 6->7 is go to dream world, talk to reaper, and then wakeup again
             Debug.Log("Going to DarkScene");
             // otherwise go to dark scene if we between days 2-7 (aka when the reaper hasnt finished his dreams)
             FadeAndLoadScene(SceneName.DarkScene, defaultSceneLocation);
@@ -390,7 +397,6 @@ public class LevelLoader : Singleton<LevelLoader>
     [YarnCommand("WakeUp")]
     public void wakeUp()
     {
-
 
         Debug.Log("Waking up");
         timeManager.gameClockPaused = false;
@@ -706,6 +712,7 @@ public class LevelLoader : Singleton<LevelLoader>
             case SceneName.DreamHome:
             case SceneName.DarkScene:
             case SceneName.ActualDarkScene:
+            case SceneName.Menu:
                 return false;
             default:
                 return true;
@@ -786,7 +793,7 @@ public class LevelLoader : Singleton<LevelLoader>
             yield return new WaitForSeconds(delay);
         }
 
-
+        Debug.Log("[CreateScene] 2");
 
 
         // Call after scene load fade in event
@@ -890,6 +897,29 @@ public class LevelLoader : Singleton<LevelLoader>
         Vector3 playerSpawn = new Vector3(playerX, playerY, 0);
         FadeAndLoadScene((SceneName)System.Enum.Parse(typeof(SceneName), sceneName), playerSpawn, delay);
     }
-      
 
+    public bool isNPCMovementScene()
+    {
+        switch (curScene)
+        {
+            case SceneName.DreamDay0:
+            case SceneName.DreamDay1:
+            case SceneName.DreamDay2:
+            case SceneName.DreamDay3:
+            case SceneName.DreamDay4:
+            case SceneName.DreamDay5:
+            case SceneName.DarkScene:
+            case SceneName.ActualDarkScene:
+            case SceneName.Menu:
+                return false;
+            default:
+                return true;
+
+        }
+    }
+    public void NewGame()
+    {
+
+        FadeAndLoadScene(SceneName.ActualDarkScene, defaultSceneLocation);
+    }
 }

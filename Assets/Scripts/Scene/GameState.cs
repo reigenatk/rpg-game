@@ -55,9 +55,9 @@ public class GameState : Singleton<GameState>, ISaveable
 
 
     public Moods playerMood;
-    public int gameDay = 1;
+    public int gameDay = 0;
     public int numSecondsAwake = 0;
-    public Weather currentWeather = Weather.None;
+    public Weather currentWeather = Weather.None; // never ended up using this shit
 
     // saving some objects as well
     public PlayableDirector cutscenePlaying = null;
@@ -91,187 +91,23 @@ public class GameState : Singleton<GameState>, ISaveable
         {
             if (foo == PlayerScore.energy)
             {
-                playerScore.Add(foo, 80.0f);
+                playerScore.Add(foo, UnityEngine.Random.Range(80, 100));
             }
             else if (foo == PlayerScore.contentedness)
             {
-                playerScore.Add(foo, 80.0f);
+                playerScore.Add(foo, UnityEngine.Random.Range(80, 100));
             }
             else if (foo == PlayerScore.social)
             {
-                playerScore.Add(foo, 80.0f);
+                playerScore.Add(foo, UnityEngine.Random.Range(80, 100));
             }
             else if (foo == PlayerScore.entertained)
             {
-                playerScore.Add(foo, 80.0f);
+                playerScore.Add(foo, UnityEngine.Random.Range(80, 100));
             }
         }
 
-        // for Day 1, we don't wanna wakeup, so let's set that we have entered the bedroom already
-        // cuz otherwise it will play wakeup cutscene
-        setGameVariableEnum(GameVariable.hasEnteredBedroom, true);
-
-        // tutorial variables
-        setYarnVariable("$hasEnteredMainQuadBefore", true);
-        setYarnVariable("$hasEnteredInsideBuildingBefore", true);
-        setYarnVariable("$hasEnteredOutsideHouseBefore", true);
-        setYarnVariable("$hasEnteredCampusBefore", true);
-        setYarnVariable("$hasEnteredClassroomBefore", false);
-
-        // start at day 1
-        setYarnVariable("$day", gameDay);
-        
-        // DEBUG ONLY. Once final game is done done set all values to right value (usually false)
-        // these are to trigger the teleporters in the dream scenes. When compiling final game just comment all this out.
-
-        // dream day 1
-        setYarnVariable("$finishedMeetJefferyScene", true); 
-
-        // dream day 2
-        setYarnVariable("$finishedEatingFoodScene", true); // the dream version when the kids laugh at your weird food
-        setYarnVariable("$hasFinishedLecture", true);
-        /*        setYarnVariable("$hasEnteredInsideBuildingBefore", true);
-                setYarnVariable("$hasEnteredCampusBefore", true);
-                setYarnVariable("$hasEnteredCommonsBefore", true);*/
-        setYarnVariable("$hasStacySuprisedUs", true);
-        setYarnVariable("$hasDoneDay2Eating", true);
-
-        // day 3
-        setYarnVariable("$didCoomerCutscene", true); 
-        setYarnVariable("$hasDoneShopping", false); 
-        
-        // day 4
-        setYarnVariable("$didGraveyardScene", true);
-
-
-
-        // misc/events
-        setYarnVariable("$hasMadeFriend", false);      
-        setYarnVariable("$hasTurnedDownMusic", true);
-        setYarnVariable("$hasMadeFriend", true);
-        setYarnVariable("$didGamingCutscene", true);
-        setYarnVariable("$hasHeardReaperTerms", true);
-        setYarnVariable("$isGroupMeetingOn", false);
-        setYarnVariable("$hasDoneFirstFriend", true); // toggles the cutscene where it says you can text ur friends now
-        setYarnVariable("$hasBoated", true);
-        setYarnVariable("$hasDoneGroupMeeting", false);
-        setYarnVariable("$finishedEatingFoodSceneDay3", true);
-
-        // set some dialogue values for our playthrough
-        setYarnVariable("$isKYS", false);
-
-        // kabowski 1
-        setYarnVariable("$hasMetKabowski", true);
-        setYarnVariable("$didKabowskiDialogue1", true);
-        setYarnVariable("$didKabowskiLifting", true);
-        setYarnVariable("$didKabowskiGirls", true);
-        setYarnVariable("$kabowskiFriendProgress", 1);
-
-             // nikolai 2
-             setYarnVariable("$hasMetNikolai", true);
-        setYarnVariable("$didNikolaiDialogue1", true);
-        setYarnVariable("$didNikolaiDialogue2", true);
-        setYarnVariable("$didNikolaiRussia", true);
-        setYarnVariable("$didNikolaiEnglish", true);
-        setYarnVariable("$nikolaiFriendProgress", 1);
-
-  
-              // stacy 3
-              setYarnVariable("$hasMetStacy", true);
-        setYarnVariable("$didStacyLaura", true);
-        setYarnVariable("$didStacyHome", true);
-        setYarnVariable("$stacyFriendProgress", 1);
-        setYarnVariable("$didStacyDialogue1", true);
-
-           // laura 4
-        setYarnVariable("$hasMetDoomerGirl", true);
-        setYarnVariable("$didDGStacyDialogue", true);
-        setYarnVariable("$didDGMusicDialogue", true);
-        setYarnVariable("$doomerGirlFriendProgress", 1);
-        setYarnVariable("$didDoomerGirlDialogue1", true);
-        setYarnVariable("$didDoomerGirlDialogue2", true);
-        setYarnVariable("$gotLauraNumber", true);
-        setYarnVariable("$hasTextedLaura", true);
-
-        // boomer 5
-        setYarnVariable("$hasMetBoomer", true);
-        setYarnVariable("$hasAcceptedFootballGame", true);
-        setYarnVariable("$didBoomerMusic", true);
-        setYarnVariable("$didBoomerFootball", true);
-        setYarnVariable("$didBoomerDialogue1", true);
-        setYarnVariable("$didBoomerDialogue2", true);
-        setYarnVariable("$boomerFriendProgress", 1);
-
-        // zoomer 6
-        setYarnVariable("$hasMetZoomer", true);
-        setYarnVariable("$didZoomerMusic", true);
-        setYarnVariable("$didZoomerFashion", true);
-        setYarnVariable("$didZoomerDialogue1", true);
-        setYarnVariable("$didZoomerDialogue2", true);
-        setYarnVariable("$zoomerFriendProgress", 1);
-
-        // coomer 7
-        setYarnVariable("$hasMetCoomer", true);
-        setYarnVariable("$didCoomerHair", true);
-        setYarnVariable("$didCoomerBiceps", true);
-        setYarnVariable("$didCoomerDialogue1", true);
-        setYarnVariable("$coomerFriendProgress", 1);
-
-        // doomer 8
-        setYarnVariable("$hasMetDoomer", true);
-        setYarnVariable("$gotDoomerNumber", true);
-        setYarnVariable("$didDoomerDialogue1", true);
-        setYarnVariable("$didDoomerDialogue2", true);
-        setYarnVariable("$hasTextedDoomer", true);
-        setYarnVariable("$doomerFriendProgress", 1);
-
-        // pepe 9
-        setYarnVariable("$hasMetPepe", true);
-        setYarnVariable("$hasPepeNumber", true);
-        setYarnVariable("$hasTextedPepe", true);
-        setYarnVariable("$pepeFriendProgress", 1);
-        setYarnVariable("$didPepeDialogue1", true);
-
-        
-        // Becky 10
-        setYarnVariable("$hasMetBecky", true);
-        setYarnVariable("$didBeckyStacy", true);
-        setYarnVariable("$didBeckyKabowski", true);
-        setYarnVariable("$beckyFriendProgress", 1);
-
-
-        // discord 11 
-        setYarnVariable("$hasMetDiscord", true);
-        setYarnVariable("$didDiscordDialogue1", true);
-        setYarnVariable("$didDiscordDialogue2", true);
-        setYarnVariable("$DiscordFriendProgress", 1);
-
-        // reddit 12
-        setYarnVariable("$hasMetReddit", true);
-        setYarnVariable("$didRedditDialogue1", true);
-        setYarnVariable("$didRedditDialogue2", true);
-        setYarnVariable("$RedditFriendProgress", 1);
-
-        // brain 13
-        setYarnVariable("$hasMetBrain", true);
-        setYarnVariable("$brainFriendProgress", 1);
-        setYarnVariable("$didBrainDialogue1", true);
-        setYarnVariable("$didBrainDialogue2", true);
-        setYarnVariable("$didBrainRoomates", true);
-        setYarnVariable("$didBrainScience", true);
-
-
-        // bloomer 14
-        setYarnVariable("$hasMetBloomer", true);
-        setYarnVariable("$bloomerFriendProgress", 0);
-        setYarnVariable("$didBloomerDialogue1", true);
-        setYarnVariable("$didBloomerDialogue2", true);
-        setYarnVariable("$didBloomerDialogue3", true);
-        setYarnVariable("$didBloomerHair", true);
-        setYarnVariable("$didBloomerGuitar", true);
-        setYarnVariable("$didBloomerSmiling", true);
-
-        resetDailyYarnVariables();
+        resetGameState();
 
         // set OUR variables
         foreach (GameVariablePair gvp in initialGameState)
@@ -289,6 +125,175 @@ public class GameState : Singleton<GameState>, ISaveable
         // save stuff
         iSaveableUniqueID = GetComponent<GenerateGUID>().GUID;
         gameObjectSave = new GameObjectSave();
+    }
+
+    public void resetGameState()
+    {
+
+
+        // tutorial variables
+        setYarnVariable("$hasEnteredMainQuadBefore", false);
+        setYarnVariable("$hasEnteredInsideBuildingBefore", false);
+        setYarnVariable("$hasEnteredOutsideHouseBefore", false);
+        setYarnVariable("$hasEnteredCampusBefore", false);
+        setYarnVariable("$hasEnteredClassroomBefore", false);
+
+        // start at day 1
+        setYarnVariable("$day", 0);
+        numSecondsAwake = 45900;
+        TimeManager.Instance.gt = new TimeManager.GameTime(20, 45, 0); // 8:45 PM start
+
+        // DEBUG ONLY. Once final game is done done set all values to right value (usually false)
+        // these are to trigger the teleporters in the dream scenes. When compiling final game just comment all this out.
+
+        // dream day 1
+        setYarnVariable("$finishedMeetJefferyScene", false);
+
+        // dream day 2
+        setYarnVariable("$finishedEatingFoodScene", false); // the dream version when the kids laugh at your weird food
+        setYarnVariable("$hasFinishedLecture", false);
+        /*        setYarnVariable("$hasEnteredInsideBuildingBefore", false);
+                setYarnVariable("$hasEnteredCampusBefore", false);
+                setYarnVariable("$hasEnteredCommonsBefore", false);*/
+        setYarnVariable("$hasStacySuprisedUs", false);
+        setYarnVariable("$hasDoneDay2Eating", false);
+
+        // day 3
+        setYarnVariable("$didCoomerCutscene", false);
+        setYarnVariable("$hasDoneShopping", false);
+
+        // day 4
+        setYarnVariable("$didGraveyardScene", false);
+
+
+
+        // misc/events
+        setYarnVariable("$hasMadeFriend", false);
+        setYarnVariable("$hasTurnedDownMusic", false);
+        setYarnVariable("$hasMadeFriend", false);
+        setYarnVariable("$didGamingCutscene", false);
+        setYarnVariable("$hasHeardReaperTerms", false);
+        setYarnVariable("$isGroupMeetingOn", false);
+        setYarnVariable("$hasDoneFirstFriend", false); // toggles the cutscene where it says you can text ur friends now
+        setYarnVariable("$hasBoated", false);
+        setYarnVariable("$hasDoneGroupMeeting", false);
+        setYarnVariable("$finishedEatingFoodSceneDay3", false);
+
+        // set some dialogue values for our playthrough
+        setYarnVariable("$isKYS", false);
+
+        // kabowski 1
+        setYarnVariable("$hasMetKabowski", false);
+        setYarnVariable("$didKabowskiDialogue1", false);
+        setYarnVariable("$didKabowskiLifting", false);
+        setYarnVariable("$didKabowskiGirls", false);
+        setYarnVariable("$kabowskiFriendProgress", 0);
+
+        // nikolai 2
+        setYarnVariable("$hasMetNikolai", false);
+        setYarnVariable("$didNikolaiDialogue1", false);
+        setYarnVariable("$didNikolaiDialogue2", false);
+        setYarnVariable("$didNikolaiRussia", false);
+        setYarnVariable("$didNikolaiEnglish", false);
+        setYarnVariable("$nikolaiFriendProgress", 0);
+
+
+        // stacy 3
+        setYarnVariable("$hasMetStacy", false);
+        setYarnVariable("$didStacyLaura", false);
+        setYarnVariable("$didStacyHome", false);
+        setYarnVariable("$stacyFriendProgress", 0);
+        setYarnVariable("$didStacyDialogue1", false);
+
+        // laura 4
+        setYarnVariable("$hasMetDoomerGirl", false);
+        setYarnVariable("$didDGStacyDialogue", false);
+        setYarnVariable("$didDGMusicDialogue", false);
+        setYarnVariable("$doomerGirlFriendProgress", 0);
+        setYarnVariable("$didDoomerGirlDialogue1", false);
+        setYarnVariable("$didDoomerGirlDialogue2", false);
+        setYarnVariable("$gotLauraNumber", false);
+        setYarnVariable("$hasTextedLaura", false);
+
+        // boomer 5
+        setYarnVariable("$hasMetBoomer", false);
+        setYarnVariable("$hasAcceptedFootballGame", false);
+        setYarnVariable("$didBoomerMusic", false);
+        setYarnVariable("$didBoomerFootball", false);
+        setYarnVariable("$didBoomerDialogue1", false);
+        setYarnVariable("$didBoomerDialogue2", false);
+        setYarnVariable("$boomerFriendProgress", 0);
+
+        // zoomer 6
+        setYarnVariable("$hasMetZoomer", false);
+        setYarnVariable("$didZoomerMusic", false);
+        setYarnVariable("$didZoomerFashion", false);
+        setYarnVariable("$didZoomerDialogue1", false);
+        setYarnVariable("$didZoomerDialogue2", false);
+        setYarnVariable("$zoomerFriendProgress", 0);
+
+        // coomer 7
+        setYarnVariable("$hasMetCoomer", false);
+        setYarnVariable("$didCoomerHair", false);
+        setYarnVariable("$didCoomerBiceps", false);
+        setYarnVariable("$didCoomerDialogue1", false);
+        setYarnVariable("$coomerFriendProgress", 0);
+
+        // doomer 8
+        setYarnVariable("$hasMetDoomer", false);
+        setYarnVariable("$gotDoomerNumber", false);
+        setYarnVariable("$didDoomerDialogue1", false);
+        setYarnVariable("$didDoomerDialogue2", false);
+        setYarnVariable("$hasTextedDoomer", false);
+        setYarnVariable("$doomerFriendProgress", 0);
+
+        // pepe 9
+        setYarnVariable("$hasMetPepe", false);
+        setYarnVariable("$hasPepeNumber", false);
+        setYarnVariable("$hasTextedPepe", false);
+        setYarnVariable("$pepeFriendProgress", 0);
+        setYarnVariable("$didPepeDialogue1", false);
+
+
+        // Becky 10
+        setYarnVariable("$hasMetBecky", false);
+        setYarnVariable("$didBeckyStacy", false);
+        setYarnVariable("$didBeckyKabowski", false);
+        setYarnVariable("$beckyFriendProgress", 0);
+
+
+        // discord 11 
+        setYarnVariable("$hasMetDiscord", false);
+        setYarnVariable("$didDiscordDialogue1", false);
+        setYarnVariable("$didDiscordDialogue2", false);
+        setYarnVariable("$DiscordFriendProgress", 0);
+
+        // reddit 12
+        setYarnVariable("$hasMetReddit", false);
+        setYarnVariable("$didRedditDialogue1", false);
+        setYarnVariable("$didRedditDialogue2", false);
+        setYarnVariable("$RedditFriendProgress", 0);
+
+        // brain 13
+        setYarnVariable("$hasMetBrain", false);
+        setYarnVariable("$brainFriendProgress", 0);
+        setYarnVariable("$didBrainDialogue1", false);
+        setYarnVariable("$didBrainDialogue2", false);
+        setYarnVariable("$didBrainRoomates", false);
+        setYarnVariable("$didBrainScience", false);
+
+
+        // bloomer 14
+        setYarnVariable("$hasMetBloomer", false);
+        setYarnVariable("$bloomerFriendProgress", 0);
+        setYarnVariable("$didBloomerDialogue1", false);
+        setYarnVariable("$didBloomerDialogue2", false);
+        setYarnVariable("$didBloomerDialogue3", false);
+        setYarnVariable("$didBloomerHair", false);
+        setYarnVariable("$didBloomerGuitar", false);
+        setYarnVariable("$didBloomerSmiling", false);
+
+        resetDailyYarnVariables();
     }
 
     private void OnEnable()
@@ -345,13 +350,23 @@ public class GameState : Singleton<GameState>, ISaveable
         bool conditionB = (totalNumFriends > 10); 
 
         // conditonal on whether we can trigger the cutscene to beat the game
-        if ( (conditionA || conditionB) && getYarnVariable("$hasDoneGroupMeeting") == false && getYarnVariableInt("$day") > 5)
+        if ((conditionA || conditionB) && getYarnVariable("$hasDoneGroupMeeting") == false && getYarnVariableInt("$day") > 5)
         {
             setYarnVariable("$canBeatGame", true);
         }
         else
         {
             setYarnVariable("$canBeatGame", false);
+        }
+
+        // check if lost the game
+        if (playerScore[PlayerScore.contentedness] + playerScore[PlayerScore.social] + playerScore[PlayerScore.energy] + playerScore[PlayerScore.entertained] < 30.0f)
+        {
+            if (getYarnVariable("$hasPlayedKYSMonologue") == false)
+            {
+                LevelLoader.Instance.playCutscene("KYS");
+            }
+            
         }
     }
 
@@ -800,6 +815,8 @@ public class GameState : Singleton<GameState>, ISaveable
         SceneSave sceneSave = new SceneSave();
 
         // Create new int dictionary
+        sceneSave.intDictionary = new Dictionary<string, int>();
+        sceneSave.intDictionary.Add("numSecondsAwake", numSecondsAwake);
 
         sceneSave.yarnfloatDictionary = new Dictionary<string, float>();
 
@@ -887,6 +904,8 @@ public class GameState : Singleton<GameState>, ISaveable
                 {
                     s.refreshScoreUI();
                 }
+
+                numSecondsAwake = sceneSave.intDictionary["numSecondsAwake"];
             }
         }
 

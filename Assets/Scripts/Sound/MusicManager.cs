@@ -41,6 +41,7 @@ public class MusicManager : Singleton<MusicManager>
             {
                 if (((c.day == day) || (c.day == -1)) && c.sceneName == scene)
                 {
+                    Debug.Log("[MusicObject] should play " + music.name);
                     // then this condition matches, we should play this song
                     return true;
                 }

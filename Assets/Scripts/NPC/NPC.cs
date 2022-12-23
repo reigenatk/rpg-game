@@ -75,9 +75,12 @@ public class NPC : MonoBehaviour, ISaveable
         sceneSave.stringDictionary = new Dictionary<string, string>();
 
         // So for NPC's we will store target grid position, target world position, and target scene
-        sceneSave.vector3Dictionary.Add("npcTargetGridPosition", new Vector3Serializable(npcMovement.npcTargetGridPosition.x, npcMovement.npcTargetGridPosition.y, npcMovement.npcTargetGridPosition.z));
-        sceneSave.vector3Dictionary.Add("npcTargetWorldPosition", new Vector3Serializable(npcMovement.npcTargetWorldPosition.x, npcMovement.npcTargetWorldPosition.y, npcMovement.npcTargetWorldPosition.z));
-        sceneSave.stringDictionary.Add("npcTargetScene", npcMovement.npcTargetScene.ToString());
+        // sceneSave.vector3Dictionary.Add("npcTargetGridPosition", new Vector3Serializable(npcMovement.npcTargetGridPosition.x, npcMovement.npcTargetGridPosition.y, npcMovement.npcTargetGridPosition.z));
+        // sceneSave.vector3Dictionary.Add("npcTargetWorldPosition", new Vector3Serializable(npcMovement.npcTargetWorldPosition.x, npcMovement.npcTargetWorldPosition.y, npcMovement.npcTargetWorldPosition.z));
+        // sceneSave.stringDictionary.Add("npcTargetScene", npcMovement.npcTargetScene.ToString());
+        sceneSave.stringDictionary.Add("npcCurrentScene", npcMovement.npcCurrentScene.ToString());
+        sceneSave.vector3Dictionary.Add("position", new Vector3Serializable(transform.position.x, transform.position.y, transform.position.z));
+
 
         // Add scene save to game object
         GameObjectSave.sceneData.Add(Settings.PersistentScene, sceneSave);
@@ -99,8 +102,9 @@ public class NPC : MonoBehaviour, ISaveable
                 if (sceneSave.vector3Dictionary != null && sceneSave.stringDictionary != null)
                 {
                     // so basically if NPC is in the middle of a route, when we save, and load, its position on that new load will be set to the destination it was tryna go to?
-                    if (sceneSave.vector3Dictionary.TryGetValue("npcTargetGridPosition", out Vector3Serializable savedNPCTargetGridPosition))
+/*                    if (sceneSave.vector3Dictionary.TryGetValue("npcTargetGridPosition", out Vector3Serializable savedNPCTargetGridPosition))
                     {
+                        
                         npcMovement.npcTargetGridPosition = new Vector3Int((int)savedNPCTargetGridPosition.x, (int)savedNPCTargetGridPosition.y, (int)savedNPCTargetGridPosition.z);
                         npcMovement.npcCurrentGridPosition = npcMovement.npcTargetGridPosition;
                     }
@@ -110,6 +114,7 @@ public class NPC : MonoBehaviour, ISaveable
                     {
                         npcMovement.npcTargetWorldPosition = new Vector3(savedNPCTargetWorldPosition.x, savedNPCTargetWorldPosition.y, savedNPCTargetWorldPosition.z);
                         transform.position = npcMovement.npcTargetWorldPosition;
+                        Debug.Log("[ISaveableLoad NPC] Setting transform position to " + transform.position);
                     }
 
                     // and it gets sent to the scene it was trying to go to?
@@ -121,7 +126,21 @@ public class NPC : MonoBehaviour, ISaveable
                             npcMovement.npcCurrentScene = npcMovement.npcTargetScene;
 
                         }
+                    }*/
+                    if (sceneSave.stringDictionary.TryGetValue("npcCurrentScene", out string savedCurScene))
+                    {
+                        if (Enum.TryParse<SceneName>(savedCurScene, out SceneName sceneName))
+                        {
+                            npcMovement.npcCurrentScene = sceneName;
+                            Debug.Log("[ISaveableLoad NPC] Setting cur scene to " + sceneName);
+                        }
                     }
+                    if (sceneSave.vector3Dictionary.TryGetValue("position", out Vector3Serializable position))
+                    {
+                        transform.position = new Vector3(position.x, position.y, position.z);
+                        Debug.Log("[ISaveableLoad NPC] Setting transform position to " + transform.position);
+                    }
+
                     // so what restoring these three values does is continue the NPC on the path I think...
 
                     // Clear any current NPC movement

@@ -150,8 +150,6 @@ title: All_Dreams_Done
     -> No
         <<jump Nothing>>
 <<endif>>
-
-Reaper: Hello.
 <<wait 3>>
 Steven: ... #e:stern
 <<wait 3>>

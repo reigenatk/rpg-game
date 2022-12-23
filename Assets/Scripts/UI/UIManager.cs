@@ -41,7 +41,11 @@ public class UIManager : Singleton<UIManager>
             {
 
             }*/
-
+            if (gameState.getCurrentSceneEnum() == SceneName.Menu)
+            {
+                // no activating pause menu when in main menu
+                return; 
+            }
             if (PauseMenuOn)
             {
                 DisablePauseMenu();

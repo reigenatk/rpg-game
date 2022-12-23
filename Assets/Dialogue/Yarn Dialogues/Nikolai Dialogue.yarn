@@ -238,7 +238,7 @@ Nikolai: Oh, Steven. Um, vat do yu vant?
 title: Nikolai_Start
 ---
 Nikolai: Hullo Steven!
-<<if $isInNikolaiRoom == true && $hasTurnedDownMusic == false>>
+<<if $isNikolaiJamming == true && $hasTurnedDownMusic == false>>
 	Nikolai: Vat do you need? 
     -> Music
 		Steven: Hey, can you turn down the music, please? #e:shy
@@ -276,8 +276,10 @@ Nikolai: Hullo Steven!
 		Mind: Now I can actually hear my thoughts in my own room. #e:smile
 		<<changePlayerScoreString Manager "contentedness" 10.0>>
 		<<wait 2>>
-<<else>>
-	Nikolai: How are you classes today? 
+		<<jump Nothing>>
+	-> Something else
+<<endif>>
+	Nikolai: So, how are your clazes tudae? 
 	-> Good, how about you?
 		Nikolai: A little bit tough. I sink my English is not zo gud.
 		Nikolai: My teachur in Russia speak vury little English.
@@ -292,7 +294,7 @@ Nikolai: Hullo Steven!
 	-> Nothing
 		Steven: Actually, can't talk right now, sorry.
 		<<jump Nothing>>
-<<endif>>
+
 ===
 
 title: Nikolai_Russia

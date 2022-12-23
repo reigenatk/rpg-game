@@ -329,22 +329,22 @@ PrefabInstance:
     - target: {fileID: 2544544162196667748, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.0967493
+      value: 0.5986633
       objectReference: {fileID: 0}
     - target: {fileID: 2544544162196667748, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.234998
+      value: 0.26649475
       objectReference: {fileID: 0}
     - target: {fileID: 2544544162196667748, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.13180995
+      value: -0.14103344
       objectReference: {fileID: 0}
     - target: {fileID: 2544544162196667748, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.566558
+      value: -0.78331804
       objectReference: {fileID: 0}
     - target: {fileID: 2544544162196667748, guid: 1869cfabd0d5d0c4c8ae3e831f5af6f7,
         type: 3}
@@ -1005,7 +1005,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -1345,7 +1345,7 @@ MonoBehaviour:
       sceneName: 7
     isActivated: 1
     description: 
-    isVariablePitch: 0
+    isVariablePitch: 1
     lowPitch: 0.7
     highPitch: 1
     isTriggerable: 0
@@ -1431,9 +1431,9 @@ MonoBehaviour:
       sceneName: 11
     isActivated: 1
     description: 
-    isVariablePitch: 0
-    lowPitch: 0
-    highPitch: 0
+    isVariablePitch: 1
+    lowPitch: 0.75
+    highPitch: 1
     isTriggerable: 0
   - music: {fileID: 173806664}
     conditions:
@@ -1449,6 +1449,26 @@ MonoBehaviour:
     conditions:
     - day: -1
       sceneName: 9
+    isActivated: 1
+    description: 
+    isVariablePitch: 1
+    lowPitch: 0.8
+    highPitch: 1
+    isTriggerable: 0
+  - music: {fileID: 898426575}
+    conditions:
+    - day: -1
+      sceneName: 1
+    isActivated: 1
+    description: 
+    isVariablePitch: 1
+    lowPitch: 0.6
+    highPitch: 1
+    isTriggerable: 0
+  - music: {fileID: 1678669323}
+    conditions:
+    - day: -1
+      sceneName: 24
     isActivated: 1
     description: 
     isVariablePitch: 0
@@ -1483,6 +1503,8 @@ Transform:
   - {fileID: 869092222}
   - {fileID: 173806665}
   - {fileID: 1185364604}
+  - {fileID: 898426576}
+  - {fileID: 1678669324}
   m_Father: {fileID: 1371286255}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5775,7 +5797,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -8313,18 +8335,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 451988820}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &451988824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451988822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961482b0702fc4f4495deb7a020cb68a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &451988825
 Animator:
   serializedVersion: 4
@@ -8645,7 +8655,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -9683,7 +9693,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -11680,6 +11690,44 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &636223394
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636223387}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.14297003, y: -0.23059636}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0130488, y: 0.8009032}
+  m_EdgeRadius: 0
+--- !u!114 &636223395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636223387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42fc3edc9f893e49a5c2ab088358258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &649106612 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8289301597981707597, guid: 613070288e05e20498618a33df8f137e,
@@ -12457,7 +12505,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -16384,6 +16432,135 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1524596907259869106}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &898426575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 898426576}
+  - component: {fileID: 898426577}
+  m_Layer: 0
+  m_Name: Commons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &898426576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898426575}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 54796677}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &898426577
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898426575}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3082215763752462334, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 556a8fca932599d458854094cb0eb73b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.844
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &916980845
 GameObject:
   m_ObjectHideFlags: 0
@@ -16885,7 +17062,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -18479,7 +18656,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1029153913}
   - component: {fileID: 1029153917}
-  - component: {fileID: 1029153916}
   - component: {fileID: 1029153914}
   m_Layer: 0
   m_Name: Union
@@ -18529,18 +18705,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.101391, y: 3.5610156}
   m_EdgeRadius: 0
---- !u!114 &1029153916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029153912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961482b0702fc4f4495deb7a020cb68a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1029153917
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20052,7 +20216,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -21856,7 +22020,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: a2ad449d3acedac40879934d143442ee, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.128
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -25479,20 +25643,20 @@ MonoBehaviour:
   npcs: {fileID: 446302673}
   nonnpcs: {fileID: 1030019401}
   currentScene: 
-  startingScene: 21
+  startingScene: 24
   totalNumFriends: 0
   timeManager: {fileID: 1806746770}
   yarnVariables: {fileID: 3831113770911160658}
   variablesToNotResetEachDay: 1000000014000000
   initialGameState:
   - variable: 16
-    desiredValue: 1
+    desiredValue: 0
   - variable: 9
     desiredValue: 0
   - variable: 15
-    desiredValue: 1
+    desiredValue: 0
   playerMood: 0
-  gameDay: 5
+  gameDay: 0
   numSecondsAwake: 0
   currentWeather: 0
   cutscenePlaying: {fileID: 0}
@@ -27490,7 +27654,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -29484,7 +29648,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -33652,7 +33816,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -34179,6 +34343,135 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &1678669323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1678669324}
+  - component: {fileID: 1678669325}
+  m_Layer: 0
+  m_Name: Menu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1678669324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678669323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 54796677}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1678669325
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678669323}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3082215763752462334, guid: 4204ab3d9ec0f5f42be07215ce13174d,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 15e8703c949334740bf0d9022bab4564, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.73
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1693011035
 GameObject:
   m_ObjectHideFlags: 0
@@ -35004,7 +35297,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1764329988}
   - component: {fileID: 1764329995}
-  - component: {fileID: 1764329991}
   - component: {fileID: 1764329990}
   - component: {fileID: 1764329989}
   - component: {fileID: 1764329996}
@@ -35072,7 +35364,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0
   MaxDistance: 15
   Pan2D: 0
   rolloffMode: 1
@@ -35148,18 +35440,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1764329991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764329987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961482b0702fc4f4495deb7a020cb68a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1764329995
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35454,7 +35734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseTime: 0
   gt:
-    gameHour: 7
+    gameHour: 20
     gameMinute: 45
     gameSecond: 0
   gameClockPaused: 0
@@ -37501,7 +37781,7 @@ MonoBehaviour:
   faderCanvasGroup: {fileID: 747944787}
   vmCams: {fileID: 634900679}
   faderImage: {fileID: 747944788}
-  scenes: 000000000100000003000000040000000200000006000000050000000700000008000000090000000a0000000b0000000c0000000e0000000f0000001000000011000000120000001300000014000000150000001600000017000000
+  scenes: 000000000100000003000000040000000200000006000000050000000700000008000000090000000a0000000b0000000c0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000
   orthoSizes:
   - 4.5
   - 5
@@ -37526,6 +37806,7 @@ MonoBehaviour:
   - 6
   - 6
   - 5
+  - 5
   nonnpcs: {fileID: 1030019401}
   npcs: {fileID: 446302673}
   cutscenesEnabled: 1
@@ -37534,7 +37815,7 @@ MonoBehaviour:
   firstSceneLoaded: 0
   cutscenes:
   - cutsceneToPlay: {fileID: 31473553}
-    dayToPlay: 1
+    dayToPlay: 0
     dayToPlayGEQ: 0
     scene: 1
     isTriggeredCutscene: 0
@@ -37547,7 +37828,7 @@ MonoBehaviour:
     - YarnVariable: $hasEnteredCommonsBefore
       desiredValue: 0
   - cutsceneToPlay: {fileID: 738973908}
-    dayToPlay: 1
+    dayToPlay: 0
     dayToPlayGEQ: 0
     scene: 0
     isTriggeredCutscene: 0
@@ -37560,7 +37841,7 @@ MonoBehaviour:
     - YarnVariable: $hasDoneInstructions
       desiredValue: 0
   - cutsceneToPlay: {fileID: 504561715}
-    dayToPlay: 1
+    dayToPlay: 0
     dayToPlayGEQ: 0
     scene: 0
     isTriggeredCutscene: 1
@@ -37571,7 +37852,7 @@ MonoBehaviour:
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1472241928}
-    dayToPlay: 1
+    dayToPlay: 0
     dayToPlayGEQ: 0
     scene: 3
     isTriggeredCutscene: 0
@@ -37584,7 +37865,7 @@ MonoBehaviour:
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 605815213}
-    dayToPlay: 1
+    dayToPlay: 0
     dayToPlayGEQ: 0
     scene: 4
     isTriggeredCutscene: 0
@@ -37597,7 +37878,7 @@ MonoBehaviour:
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 2053581670}
-    dayToPlay: 1
+    dayToPlay: 0
     dayToPlayGEQ: 0
     scene: 5
     isTriggeredCutscene: 0
@@ -37610,7 +37891,7 @@ MonoBehaviour:
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1492900385}
-    dayToPlay: 1
+    dayToPlay: 0
     dayToPlayGEQ: 0
     scene: 5
     isTriggeredCutscene: 1
@@ -37621,7 +37902,7 @@ MonoBehaviour:
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1261649927}
-    dayToPlay: 1
+    dayToPlay: 0
     dayToPlayGEQ: 0
     scene: 0
     isTriggeredCutscene: 1
@@ -37632,7 +37913,7 @@ MonoBehaviour:
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1091490965}
-    dayToPlay: 1
+    dayToPlay: 0
     dayToPlayGEQ: 0
     scene: 0
     isTriggeredCutscene: 1
@@ -37643,7 +37924,7 @@ MonoBehaviour:
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 269487939}
-    dayToPlay: 1
+    dayToPlay: 0
     dayToPlayGEQ: 0
     scene: 0
     isTriggeredCutscene: 1
@@ -37754,7 +38035,7 @@ MonoBehaviour:
     - YarnVariable: $hasEnteredInsideBuildingBefore
       desiredValue: 0
   - cutsceneToPlay: {fileID: 189750667}
-    dayToPlay: 2
+    dayToPlay: 1
     dayToPlayGEQ: 0
     scene: 9
     isTriggeredCutscene: 1
@@ -37767,7 +38048,7 @@ MonoBehaviour:
     YarnVariables: []
   - cutsceneToPlay: {fileID: 503346885}
     dayToPlay: 0
-    dayToPlayGEQ: 2
+    dayToPlayGEQ: 1
     scene: 10
     isTriggeredCutscene: 0
     extraConditions:
@@ -37782,7 +38063,7 @@ MonoBehaviour:
       desiredValue: 0
   - cutsceneToPlay: {fileID: 1924134503}
     dayToPlay: 0
-    dayToPlayGEQ: 2
+    dayToPlayGEQ: 1
     scene: 9
     isTriggeredCutscene: 0
     extraConditions: []
@@ -37796,7 +38077,7 @@ MonoBehaviour:
     - YarnVariable: $hasStacySuprisedUs
       desiredValue: 0
   - cutsceneToPlay: {fileID: 1745218364}
-    dayToPlay: 2
+    dayToPlay: 1
     dayToPlayGEQ: 0
     scene: 1
     isTriggeredCutscene: 0
@@ -37811,7 +38092,7 @@ MonoBehaviour:
     - YarnVariable: $hasDoneDay2Eating
       desiredValue: 0
   - cutsceneToPlay: {fileID: 1784094956}
-    dayToPlay: 2
+    dayToPlay: 1
     dayToPlayGEQ: 0
     scene: 0
     isTriggeredCutscene: 0
@@ -37939,7 +38220,7 @@ MonoBehaviour:
     isTriggeredCutscene: 0
     extraConditions: []
     priority: 0
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: 4
     validTimes: []
     YarnVariables:
@@ -37952,7 +38233,7 @@ MonoBehaviour:
     isTriggeredCutscene: 0
     extraConditions: []
     priority: 0
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: arrive to dream day 3
     validTimes: []
     YarnVariables:
@@ -37965,7 +38246,7 @@ MonoBehaviour:
     isTriggeredCutscene: 0
     extraConditions: []
     priority: 0
-    shouldActivate: 0
+    shouldActivate: 1
     custsceneDescription: arrive dream 4
     validTimes: []
     YarnVariables:
@@ -38065,7 +38346,7 @@ MonoBehaviour:
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1152881369}
-    dayToPlay: 3
+    dayToPlay: 2
     dayToPlayGEQ: 0
     scene: 9
     isTriggeredCutscene: 0
@@ -38092,7 +38373,7 @@ MonoBehaviour:
         gameMinute: 0
         gameSecond: 0
       endTime:
-        gameHour: 21
+        gameHour: 23
         gameMinute: 0
         gameSecond: 0
     YarnVariables:
@@ -38100,7 +38381,7 @@ MonoBehaviour:
       desiredValue: 0
   - cutsceneToPlay: {fileID: 1633404870}
     dayToPlay: -1
-    dayToPlayGEQ: 3
+    dayToPlayGEQ: 2
     scene: 1
     isTriggeredCutscene: 0
     extraConditions: []
@@ -38120,8 +38401,8 @@ MonoBehaviour:
     - YarnVariable: $finishedEatingFoodSceneDay3
       desiredValue: 0
   - cutsceneToPlay: {fileID: 728650787}
-    dayToPlay: 3
-    dayToPlayGEQ: 3
+    dayToPlay: 2
+    dayToPlayGEQ: 2
     scene: 1
     isTriggeredCutscene: 0
     extraConditions: []
@@ -38161,16 +38442,16 @@ MonoBehaviour:
     scene: 1
     isTriggeredCutscene: 0
     extraConditions: []
-    priority: 0
+    priority: 2
     shouldActivate: 1
     custsceneDescription: activates once the friend meeting is on
     validTimes:
     - startTime:
-        gameHour: 16
+        gameHour: 12
         gameMinute: 0
         gameSecond: 0
       endTime:
-        gameHour: 19
+        gameHour: 24
         gameMinute: 0
         gameSecond: 0
     YarnVariables:
@@ -38302,7 +38583,7 @@ MonoBehaviour:
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1380960989}
     dayToPlay: 0
-    dayToPlayGEQ: 2
+    dayToPlayGEQ: 1
     scene: 1
     isTriggeredCutscene: 1
     extraConditions: []
@@ -38347,7 +38628,7 @@ MonoBehaviour:
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1909713519}
-    dayToPlay: 3
+    dayToPlay: 2
     dayToPlayGEQ: 0
     scene: 6
     isTriggeredCutscene: 0
@@ -38359,13 +38640,14 @@ MonoBehaviour:
     YarnVariables: []
   - cutsceneToPlay: {fileID: 1890356866}
     dayToPlay: 0
-    dayToPlayGEQ: 4
+    dayToPlayGEQ: 3
     scene: 6
     isTriggeredCutscene: 0
     extraConditions: []
     priority: 0
     shouldActivate: 1
-    custsceneDescription: for all subsequent dark scene enters, unfade the scene
+    custsceneDescription: for all subsequent dark scene enters past day 2, unfade
+      the scene
     validTimes: []
     YarnVariables: []
   - cutsceneToPlay: {fileID: 2063361106}
@@ -38438,7 +38720,7 @@ MonoBehaviour:
     isTriggeredCutscene: 0
     extraConditions: []
     priority: -1
-    shouldActivate: 1
+    shouldActivate: 0
     custsceneDescription: just test if waking up works
     validTimes: []
     YarnVariables:
@@ -38491,6 +38773,8 @@ MonoBehaviour:
   - scene: 20
     startingPosition: {x: -312, y: -98, z: 0}
   - scene: 21
+    startingPosition: {x: -146.11, y: -78.29, z: 0}
+  - scene: 24
     startingPosition: {x: -146.11, y: -78.29, z: 0}
 --- !u!114 &1922635429
 MonoBehaviour:
@@ -38672,7 +38956,6 @@ GameObject:
   - component: {fileID: 1923117365}
   - component: {fileID: 1923117362}
   - component: {fileID: 1923117366}
-  - component: {fileID: 1923117367}
   m_Layer: 0
   m_Name: Apartment Building
   m_TagString: Untagged
@@ -38800,18 +39083,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 17.442764, y: 7.273218}
   m_EdgeRadius: 0
---- !u!114 &1923117367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923117360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961482b0702fc4f4495deb7a020cb68a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1924134502
 GameObject:
   m_ObjectHideFlags: 0
@@ -39620,7 +39891,6 @@ GameObject:
   - component: {fileID: 1946439317}
   - component: {fileID: 1946439316}
   - component: {fileID: 1946439315}
-  - component: {fileID: 1946439314}
   - component: {fileID: 1946439319}
   - component: {fileID: 1946439318}
   - component: {fileID: 1946439320}
@@ -39648,18 +39918,6 @@ Transform:
   m_Father: {fileID: 329034620}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1946439314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1946439312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961482b0702fc4f4495deb7a020cb68a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1946439315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40257,7 +40515,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -42727,7 +42985,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -43229,7 +43487,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2110035878}
   - component: {fileID: 2110035879}
-  - component: {fileID: 2110035881}
   - component: {fileID: 2110035880}
   m_Layer: 0
   m_Name: Coffee Table (1)
@@ -43331,18 +43588,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7431421, y: 0.36714935}
   m_EdgeRadius: 0
---- !u!114 &2110035881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110035877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961482b0702fc4f4495deb7a020cb68a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2114631563
 GameObject:
   m_ObjectHideFlags: 0
@@ -45562,7 +45807,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -46006,7 +46251,7 @@ PrefabInstance:
     - target: {fileID: 6669818294040499842, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 6669818294040499842, guid: 9644f92277bc8c84aad354b90c8715ac,
         type: 3}
@@ -46275,6 +46520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2206071949933991979, guid: 613070288e05e20498618a33df8f137e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4678623788287562928, guid: 613070288e05e20498618a33df8f137e,
         type: 3}
@@ -46593,7 +46843,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

@@ -77,4 +77,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ActualDarkScene.unity
     guid: 162e29ebf05ca284db90d756d3f13dac
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: e535f2ea6f775084db0dee9f0af6efe5
   m_configObjects: {}

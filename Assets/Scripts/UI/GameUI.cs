@@ -11,15 +11,17 @@ public class GameUI : Singleton<GameUI>
     // Start is called before the first frame update
     public bool UIDisabled = false;
 
+
     private void Start()
     {
         gameState = FindObjectOfType<GameState>();
+
     }
 
     private void Update()
     {
         // if in dark scene, NO enabling game UI bars.
-        if (gameState.getCurrentSceneEnum() == SceneName.DarkScene)
+        if (LevelLoader.Instance.shouldHaveTime() == false)
         {
             if (!UIDisabled)
             {

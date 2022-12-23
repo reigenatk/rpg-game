@@ -75,6 +75,7 @@ public enum GameVariable
     EntertainLowPlayed,
     hasEnteredActualDarkScene,
     hasEnteredDreamDay0,
+    hasEnteredMenu,
 }
 
 
@@ -136,6 +137,7 @@ public enum SceneName
     DreamDay4,
     ActualDarkScene,
     DreamDay0,
+    Menu,
 }
 
 public enum Moods

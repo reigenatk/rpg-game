@@ -21,7 +21,7 @@ public class Car : MonoBehaviour
 
         // start the song at a random point in time to make it more interesting!
         GetComponent<AudioSource>().time = Random.value * drivingSounds[randomIdx].length;
-        Debug.Log("Song started at time " + GetComponent<AudioSource>().time + " out of total time " + GetComponent<AudioSource>().clip.length);
+        Debug.Log("[Car] Song started at time " + GetComponent<AudioSource>().time + " out of total time " + GetComponent<AudioSource>().clip.length);
     }
 
 
