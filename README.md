@@ -27,7 +27,7 @@ I'm (kinda) proud to say, **ALL THE ART IS MADE BY ME!** (of course not literall
 
 ## Music
 
-Also, I composed a few of the songs. I had some knowledge going in as an amateur music producer so hopefully they aren't too bad.
+Also, I composed a few of the songs. I had some knowledge going in as an amateur music producer so hopefully they aren't too bad. The full soundtrack for the game is [here](https://soundcloud.com/user-652744745-788731291/sets/game-music)
 
 To summarize, I'm really trying to make this game my own. I did get a lot of help with the code part from a [44 HOUR UDEMY COURSE](https://www.udemy.com/course/unity-2d-game-developer-course-farming-rpg/), though. I've seen probably like 70% of it. Some of the more specific chapters I skipped over. But I'd say like 60% of my code is original. And there's a crap ton of code, just look at the size of my [Scripts folder](https://github.com/reigenatk/rpg-game/tree/master/Assets/Scripts).
 
